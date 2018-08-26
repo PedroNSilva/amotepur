@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Amostragem: Teoria e Prática Usando R</title>
+  <meta name="description" content="Este é o livro de Amostragem elaborado pelos autores.">
+  <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
+
+  <meta property="og:title" content="Amostragem: Teoria e Prática Usando R" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Este é o livro de Amostragem elaborado pelos autores." />
+  <meta name="github-repo" content="PedroNSilva/amotepur" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Amostragem: Teoria e Prática Usando R" />
+  
+  <meta name="twitter:description" content="Este é o livro de Amostragem elaborado pelos autores." />
+  
+
+<meta name="author" content="Pedro Luis do Nascimento Silva, Zélia Magalhães Bianchini e Antonio José Ribeiro Dias">
+
+
+<meta name="date" content="2018-08-26">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="amostragem-aleatoria-simples.html">
+<link rel="next" href="estimacao-de-uma-razao-populacional.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Prefácio</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#agradecimentos"><i class="fa fa-check"></i>Agradecimentos</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="introduc.html"><a href="introduc.html"><i class="fa fa-check"></i><b>1</b> Introdução</a><ul>
+<li class="chapter" data-level="1.1" data-path="introduc.html"><a href="introduc.html#motivacao"><i class="fa fa-check"></i><b>1.1</b> Motivação</a></li>
+<li class="chapter" data-level="1.2" data-path="introduc.html"><a href="introduc.html#objetivos-do-livro"><i class="fa fa-check"></i><b>1.2</b> Objetivos do livro</a></li>
+<li class="chapter" data-level="1.3" data-path="introduc.html"><a href="introduc.html#estrutura-do-livro"><i class="fa fa-check"></i><b>1.3</b> Estrutura do livro</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="conceitos-e-cadastros.html"><a href="conceitos-e-cadastros.html"><i class="fa fa-check"></i><b>2</b> Conceitos e Cadastros</a><ul>
+<li class="chapter" data-level="2.1" data-path="conceitos-e-cadastros.html"><a href="conceitos-e-cadastros.html#fontes-de-dados-e-tipos-de-pesquisas"><i class="fa fa-check"></i><b>2.1</b> Fontes de Dados e Tipos de Pesquisas</a></li>
+<li class="chapter" data-level="2.2" data-path="conceitos-e-cadastros.html"><a href="conceitos-e-cadastros.html#alguns-conceitos-fundamentais"><i class="fa fa-check"></i><b>2.2</b> Alguns Conceitos Fundamentais</a></li>
+<li class="chapter" data-level="2.3" data-path="conceitos-e-cadastros.html"><a href="conceitos-e-cadastros.html#abordagens-alternativas-para-pesquisas-por-amostragem"><i class="fa fa-check"></i><b>2.3</b> Abordagens alternativas para pesquisas por amostragem</a></li>
+<li class="chapter" data-level="2.4" data-path="conceitos-e-cadastros.html"><a href="conceitos-e-cadastros.html#planejamento-e-execucao-de-pesquisas-por-amostragem"><i class="fa fa-check"></i><b>2.4</b> Planejamento e execução de pesquisas por amostragem</a></li>
+<li class="chapter" data-level="2.5" data-path="conceitos-e-cadastros.html"><a href="conceitos-e-cadastros.html#cadastros"><i class="fa fa-check"></i><b>2.5</b> Cadastros</a><ul>
+<li class="chapter" data-level="2.5.1" data-path="conceitos-e-cadastros.html"><a href="conceitos-e-cadastros.html#cadastros-importantes-no-ibge"><i class="fa fa-check"></i><b>2.5.1</b> Cadastros importantes no IBGE</a></li>
+<li class="chapter" data-level="2.5.2" data-path="conceitos-e-cadastros.html"><a href="conceitos-e-cadastros.html#defeitos-de-cadastros"><i class="fa fa-check"></i><b>2.5.2</b> Defeitos de cadastros</a></li>
+<li class="chapter" data-level="2.5.3" data-path="conceitos-e-cadastros.html"><a href="conceitos-e-cadastros.html#regras-de-associacao-das-unidades-da-populacao-a-unidade-cadastral"><i class="fa fa-check"></i><b>2.5.3</b> Regras de associação das unidades da população à unidade cadastral</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="visao-geral-da-amostragem-e-estimacao.html"><a href="visao-geral-da-amostragem-e-estimacao.html"><i class="fa fa-check"></i><b>3</b> Visão Geral da Amostragem e Estimação</a><ul>
+<li class="chapter" data-level="3.1" data-path="visao-geral-da-amostragem-e-estimacao.html"><a href="visao-geral-da-amostragem-e-estimacao.html#definicoes-e-notacao-para-populacao-de-pesquisa"><i class="fa fa-check"></i><b>3.1</b> Definições e Notação para População de Pesquisa</a></li>
+<li class="chapter" data-level="3.2" data-path="visao-geral-da-amostragem-e-estimacao.html"><a href="visao-geral-da-amostragem-e-estimacao.html#amostra"><i class="fa fa-check"></i><b>3.2</b> Amostra</a></li>
+<li class="chapter" data-level="3.3" data-path="visao-geral-da-amostragem-e-estimacao.html"><a href="visao-geral-da-amostragem-e-estimacao.html#estimacao"><i class="fa fa-check"></i><b>3.3</b> Estimação</a><ul>
+<li class="chapter" data-level="3.3.1" data-path="visao-geral-da-amostragem-e-estimacao.html"><a href="visao-geral-da-amostragem-e-estimacao.html#amostragem-probabilistica"><i class="fa fa-check"></i><b>3.3.1</b> Amostragem Probabilística</a></li>
+<li class="chapter" data-level="3.3.2" data-path="visao-geral-da-amostragem-e-estimacao.html"><a href="visao-geral-da-amostragem-e-estimacao.html#a-distribuicao-de-aleatorizacao"><i class="fa fa-check"></i><b>3.3.2</b> A Distribuição de Aleatorização</a></li>
+<li class="chapter" data-level="3.3.3" data-path="visao-geral-da-amostragem-e-estimacao.html"><a href="visao-geral-da-amostragem-e-estimacao.html#estimadores-nao-viciados-para-o-total"><i class="fa fa-check"></i><b>3.3.3</b> Estimadores Não Viciados para o Total</a></li>
+<li class="chapter" data-level="3.3.4" data-path="visao-geral-da-amostragem-e-estimacao.html"><a href="visao-geral-da-amostragem-e-estimacao.html#teoria-basica"><i class="fa fa-check"></i><b>3.3.4</b> Teoria Básica</a></li>
+<li class="chapter" data-level="3.3.5" data-path="visao-geral-da-amostragem-e-estimacao.html"><a href="visao-geral-da-amostragem-e-estimacao.html#estimador-linear-de-total"><i class="fa fa-check"></i><b>3.3.5</b> Estimador linear de total</a></li>
+<li class="chapter" data-level="3.3.6" data-path="visao-geral-da-amostragem-e-estimacao.html"><a href="visao-geral-da-amostragem-e-estimacao.html#propriedades-do-estimador-de-horvitz-thompson"><i class="fa fa-check"></i><b>3.3.6</b> Propriedades do Estimador de Horvitz-Thompson</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="amostragem-aleatoria-simples.html"><a href="amostragem-aleatoria-simples.html"><i class="fa fa-check"></i><b>4</b> Amostragem Aleatória Simples</a><ul>
+<li class="chapter" data-level="4.1" data-path="amostragem-aleatoria-simples.html"><a href="amostragem-aleatoria-simples.html#planos-amostrais-e-esquemas-de-selecao"><i class="fa fa-check"></i><b>4.1</b> Planos Amostrais e Esquemas de Seleção</a></li>
+<li class="chapter" data-level="4.2" data-path="amostragem-aleatoria-simples.html"><a href="amostragem-aleatoria-simples.html#amostragem-aleatoria-simples-com-reposicao-aasc"><i class="fa fa-check"></i><b>4.2</b> Amostragem Aleatória Simples Com Reposição (AASC)</a></li>
+<li class="chapter" data-level="4.3" data-path="amostragem-aleatoria-simples.html"><a href="amostragem-aleatoria-simples.html#estimacao-de-parametros-populacionais-sob-aasc"><i class="fa fa-check"></i><b>4.3</b> Estimação de Parâmetros Populacionais sob AASC</a></li>
+<li class="chapter" data-level="4.4" data-path="amostragem-aleatoria-simples.html"><a href="amostragem-aleatoria-simples.html#amostragem-aleatoria-simples-sem-reposicao-aas"><i class="fa fa-check"></i><b>4.4</b> Amostragem Aleatória Simples Sem Reposição (AAS)</a><ul>
+<li class="chapter" data-level="4.4.1" data-path="amostragem-aleatoria-simples.html"><a href="amostragem-aleatoria-simples.html#aas-algoritmo-convencional"><i class="fa fa-check"></i><b>4.4.1</b> AAS: Algoritmo “Convencional”</a></li>
+<li class="chapter" data-level="4.4.2" data-path="amostragem-aleatoria-simples.html"><a href="amostragem-aleatoria-simples.html#aas-esquemas-baseados-em-processamento-de-listas"><i class="fa fa-check"></i><b>4.4.2</b> AAS: Esquemas Baseados em Processamento de Listas</a></li>
+<li class="chapter" data-level="4.4.3" data-path="amostragem-aleatoria-simples.html"><a href="amostragem-aleatoria-simples.html#probabilidades-de-inclusao-selecao"><i class="fa fa-check"></i><b>4.4.3</b> Probabilidades de inclusão (Seleção)</a></li>
+<li class="chapter" data-level="4.4.4" data-path="amostragem-aleatoria-simples.html"><a href="amostragem-aleatoria-simples.html#estimador-nao-viciado-do-total-populacional-sob-aas"><i class="fa fa-check"></i><b>4.4.4</b> Estimador Não Viciado do Total Populacional Sob AAS</a></li>
+<li class="chapter" data-level="4.4.5" data-path="amostragem-aleatoria-simples.html"><a href="amostragem-aleatoria-simples.html#estimador-nao-viciado-da-media-populacional-sob-aas"><i class="fa fa-check"></i><b>4.4.5</b> Estimador Não Viciado da Média Populacional Sob AAS</a></li>
+<li class="chapter" data-level="4.4.6" data-path="amostragem-aleatoria-simples.html"><a href="amostragem-aleatoria-simples.html#distribuicao-da-media-amostral"><i class="fa fa-check"></i><b>4.4.6</b> Distribuição da Média Amostral</a></li>
+<li class="chapter" data-level="4.4.7" data-path="amostragem-aleatoria-simples.html"><a href="amostragem-aleatoria-simples.html#diferencas-da-aas-para-amostragem-com-reposicao-aasc"><i class="fa fa-check"></i><b>4.4.7</b> Diferenças da AAS Para Amostragem Com Reposição (AASC)</a></li>
+<li class="chapter" data-level="4.4.8" data-path="amostragem-aleatoria-simples.html"><a href="amostragem-aleatoria-simples.html#determinacao-do-tamanho-da-amostra"><i class="fa fa-check"></i><b>4.4.8</b> Determinação do Tamanho da Amostra</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="estimacao-de-proporcoes.html"><a href="estimacao-de-proporcoes.html"><i class="fa fa-check"></i><b>5</b> Estimação de proporções</a><ul>
+<li class="chapter" data-level="5.1" data-path="estimacao-de-proporcoes.html"><a href="estimacao-de-proporcoes.html#proporcao-populacional"><i class="fa fa-check"></i><b>5.1</b> Proporção populacional</a></li>
+<li class="chapter" data-level="5.2" data-path="estimacao-de-proporcoes.html"><a href="estimacao-de-proporcoes.html#estimacao-de-uma-proporcao-sob-amostragem-aleatoria-simples-com-reposicao---aasc"><i class="fa fa-check"></i><b>5.2</b> Estimação de uma proporção sob Amostragem Aleatória Simples com reposição - <em>AASC</em></a></li>
+<li class="chapter" data-level="5.3" data-path="estimacao-de-proporcoes.html"><a href="estimacao-de-proporcoes.html#distribuicao-amostral-de-y-sob-aasc"><i class="fa fa-check"></i><b>5.3</b> Distribuição amostral de <span class="math inline">\(y\)</span> sob <em>AASC</em></a></li>
+<li class="chapter" data-level="5.4" data-path="estimacao-de-proporcoes.html"><a href="estimacao-de-proporcoes.html#estimacao-de-uma-proporcao-sob-amostragem-aleatoria-simples-sem-reposicao---aas"><i class="fa fa-check"></i><b>5.4</b> Estimação de uma proporção sob Amostragem Aleatória Simples sem reposição - <em>AAS</em></a></li>
+<li class="chapter" data-level="5.5" data-path="estimacao-de-proporcoes.html"><a href="estimacao-de-proporcoes.html#distribuicao-amostral-de-y-sob-aas"><i class="fa fa-check"></i><b>5.5</b> Distribuição amostral de <span class="math inline">\(y\)</span> sob <em>AAS</em></a></li>
+<li class="chapter" data-level="5.6" data-path="estimacao-de-proporcoes.html"><a href="estimacao-de-proporcoes.html#intervalos-de-confianca-para-proporcoes-na-amostragem-aleatoria-simples"><i class="fa fa-check"></i><b>5.6</b> Intervalos de confiança para proporções na Amostragem Aleatória Simples</a></li>
+<li class="chapter" data-level="5.7" data-path="estimacao-de-proporcoes.html"><a href="estimacao-de-proporcoes.html#intervalos-de-confianca-utilizando-a-aproximacao-normal"><i class="fa fa-check"></i><b>5.7</b> Intervalos de confiança utilizando a Aproximação Normal</a></li>
+<li class="chapter" data-level="5.8" data-path="estimacao-de-proporcoes.html"><a href="estimacao-de-proporcoes.html#calculo-do-tamanho-da-amostra"><i class="fa fa-check"></i><b>5.8</b> Cálculo do tamanho da amostra</a></li>
+<li class="chapter" data-level="5.9" data-path="estimacao-de-proporcoes.html"><a href="estimacao-de-proporcoes.html#estimacao-de-proporcoes-para-variaveis-com-mais-duas-categorias"><i class="fa fa-check"></i><b>5.9</b> Estimação de proporções para variáveis com mais duas categorias</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="estimacao-de-uma-razao-populacional.html"><a href="estimacao-de-uma-razao-populacional.html"><i class="fa fa-check"></i><b>6</b> Estimação de uma Razão Populacional</a><ul>
+<li class="chapter" data-level="6.1" data-path="estimacao-de-uma-razao-populacional.html"><a href="estimacao-de-uma-razao-populacional.html#razoes-populacionais-como-parametros-de-interesse"><i class="fa fa-check"></i><b>6.1</b> Razões Populacionais como Parâmetros de Interesse</a></li>
+<li class="chapter" data-level="6.2" data-path="estimacao-de-uma-razao-populacional.html"><a href="estimacao-de-uma-razao-populacional.html#razao-de-medias-versus-media-de-razoes"><i class="fa fa-check"></i><b>6.2</b> Razão de Médias versus Média de Razões</a></li>
+<li class="chapter" data-level="6.3" data-path="estimacao-de-uma-razao-populacional.html"><a href="estimacao-de-uma-razao-populacional.html#estimacao-de-razoes"><i class="fa fa-check"></i><b>6.3</b> Estimação de Razões</a></li>
+<li class="chapter" data-level="6.4" data-path="estimacao-de-uma-razao-populacional.html"><a href="estimacao-de-uma-razao-populacional.html#analisando-o-vicio-do-estimador-da-razao-sob-aas"><i class="fa fa-check"></i><b>6.4</b> Analisando o Vício do Estimador da Razão sob AAS</a></li>
+<li class="chapter" data-level="6.5" data-path="estimacao-de-uma-razao-populacional.html"><a href="estimacao-de-uma-razao-populacional.html#erro-quadratico-medio-eqm-de-hatr-sob-aas"><i class="fa fa-check"></i><b>6.5</b> Erro Quadrático Médio (EQM) de <span class="math inline">\(\hat{R}\)</span> sob AAS</a></li>
+<li class="chapter" data-level="6.6" data-path="estimacao-de-uma-razao-populacional.html"><a href="estimacao-de-uma-razao-populacional.html#exercicios"><i class="fa fa-check"></i><b>6.6</b> Exercícios</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="estimacao-para-dominios-de-estudo.html"><a href="estimacao-para-dominios-de-estudo.html"><i class="fa fa-check"></i><b>7</b> Estimação Para Domínios de Estudo</a><ul>
+<li class="chapter" data-level="7.1" data-path="estimacao-para-dominios-de-estudo.html"><a href="estimacao-para-dominios-de-estudo.html#dominios-de-estudo"><i class="fa fa-check"></i><b>7.1</b> Domínios de Estudo</a></li>
+<li class="chapter" data-level="7.2" data-path="estimacao-para-dominios-de-estudo.html"><a href="estimacao-para-dominios-de-estudo.html#parametros-alvo-para-dominios"><i class="fa fa-check"></i><b>7.2</b> Parâmetros-Alvo Para Domínios</a></li>
+<li class="chapter" data-level="7.3" data-path="estimacao-para-dominios-de-estudo.html"><a href="estimacao-para-dominios-de-estudo.html#estimacao-de-parametros-de-dominios"><i class="fa fa-check"></i><b>7.3</b> Estimação de Parâmetros de Domínios</a></li>
+<li class="chapter" data-level="7.4" data-path="estimacao-para-dominios-de-estudo.html"><a href="estimacao-para-dominios-de-estudo.html#comparacao-da-eficiencia-dos-estimadores-de-total"><i class="fa fa-check"></i><b>7.4</b> Comparação da Eficiência dos Estimadores de Total</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="amostragem-sistematica-simples-as.html"><a href="amostragem-sistematica-simples-as.html"><i class="fa fa-check"></i><b>8</b> Amostragem Sistemática Simples (AS)</a><ul>
+<li class="chapter" data-level="8.1" data-path="amostragem-sistematica-simples-as.html"><a href="amostragem-sistematica-simples-as.html#esquema-de-selecao-da-amostra"><i class="fa fa-check"></i><b>8.1</b> Esquema de Seleção da Amostra</a></li>
+<li class="chapter" data-level="8.2" data-path="amostragem-sistematica-simples-as.html"><a href="amostragem-sistematica-simples-as.html#aspectos-importantes-na-amostragem-sistematica-simples"><i class="fa fa-check"></i><b>8.2</b> Aspectos Importantes na Amostragem Sistemática Simples</a></li>
+<li class="chapter" data-level="8.3" data-path="amostragem-sistematica-simples-as.html"><a href="amostragem-sistematica-simples-as.html#probabilidades-de-inclusao-na-amostragem-sistematica"><i class="fa fa-check"></i><b>8.3</b> Probabilidades de Inclusão na Amostragem Sistemática</a></li>
+<li class="chapter" data-level="8.4" data-path="amostragem-sistematica-simples-as.html"><a href="amostragem-sistematica-simples-as.html#variaveis-aleatorias-indicadoras"><i class="fa fa-check"></i><b>8.4</b> Variáveis Aleatórias Indicadoras</a></li>
+<li class="chapter" data-level="8.5" data-path="amostragem-sistematica-simples-as.html"><a href="amostragem-sistematica-simples-as.html#composicao-de-amostra-sistematica-de-intervalo-k"><i class="fa fa-check"></i><b>8.5</b> Composição de Amostra Sistemática de Intervalo K</a></li>
+<li class="chapter" data-level="8.6" data-path="amostragem-sistematica-simples-as.html"><a href="amostragem-sistematica-simples-as.html#estimacao-sob-amostragem-sistematica"><i class="fa fa-check"></i><b>8.6</b> Estimação sob Amostragem Sistemática</a></li>
+<li class="chapter" data-level="8.7" data-path="amostragem-sistematica-simples-as.html"><a href="amostragem-sistematica-simples-as.html#estimacao-do-total-populacional-sob-amostragem-sistematica"><i class="fa fa-check"></i><b>8.7</b> Estimação do Total Populacional sob Amostragem Sistemática</a></li>
+<li class="chapter" data-level="8.8" data-path="amostragem-sistematica-simples-as.html"><a href="amostragem-sistematica-simples-as.html#estimacao-da-media-populacional-sob-amostragem-sistematica"><i class="fa fa-check"></i><b>8.8</b> Estimação da Média Populacional sob Amostragem Sistemática</a></li>
+<li class="chapter" data-level="8.9" data-path="amostragem-sistematica-simples-as.html"><a href="amostragem-sistematica-simples-as.html#variancia-de-hat-y_as-sob-amostragem-sistematica"><i class="fa fa-check"></i><b>8.9</b> Variância de <span class="math inline">\(\hat Y_{AS}\)</span> Sob Amostragem Sistemática</a></li>
+<li class="chapter" data-level="8.10" data-path="amostragem-sistematica-simples-as.html"><a href="amostragem-sistematica-simples-as.html#estimacao-de-variancias-dos-estimadores"><i class="fa fa-check"></i><b>8.10</b> Estimação de Variâncias dos Estimadores</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="amostragem-binomial-ou-de-bernoulli-ab.html"><a href="amostragem-binomial-ou-de-bernoulli-ab.html"><i class="fa fa-check"></i><b>9</b> Amostragem Binomial ou de Bernoulli (AB)</a><ul>
+<li class="chapter" data-level="9.1" data-path="amostragem-binomial-ou-de-bernoulli-ab.html"><a href="amostragem-binomial-ou-de-bernoulli-ab.html#esquema-de-selecao-da-amostra-1"><i class="fa fa-check"></i><b>9.1</b> Esquema de Seleção da Amostra</a></li>
+<li class="chapter" data-level="9.2" data-path="amostragem-binomial-ou-de-bernoulli-ab.html"><a href="amostragem-binomial-ou-de-bernoulli-ab.html#probabilidades-de-inclusao-na-amostragem-binomial-ou-de-bernoulli"><i class="fa fa-check"></i><b>9.2</b> Probabilidades de Inclusão na Amostragem Binomial ou de Bernoulli</a></li>
+<li class="chapter" data-level="9.3" data-path="amostragem-binomial-ou-de-bernoulli-ab.html"><a href="amostragem-binomial-ou-de-bernoulli-ab.html#algumas-propriedades-da-amostragem-binomial-ou-de-bernoulli"><i class="fa fa-check"></i><b>9.3</b> Algumas Propriedades da Amostragem Binomial ou de Bernoulli</a></li>
+<li class="chapter" data-level="9.4" data-path="amostragem-binomial-ou-de-bernoulli-ab.html"><a href="amostragem-binomial-ou-de-bernoulli-ab.html#exemplos-de-aplicacao-da-amostragem-binomial-ou-de-bernoulli"><i class="fa fa-check"></i><b>9.4</b> Exemplos de Aplicação da Amostragem Binomial ou de Bernoulli</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="referencias.html"><a href="referencias.html"><i class="fa fa-check"></i>Referências</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Amostragem: Teoria e Prática Usando R</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="estimacao-de-proporcoes" class="section level1">
+<h1><span class="header-section-number">Capítulo 5</span> Estimação de proporções</h1>
+<div id="proporcao-populacional" class="section level2">
+<h2><span class="header-section-number">5.1</span> Proporção populacional</h2>
+<p>Um caso especial de variável de interesse para muitos estudos ou pesquisas é a variável <span class="math inline">\(y\)</span> cujo valor indica se uma determinada unidade populacional tem ou não uma determinada característica ou atributo ou pertencem a um determinado grupo dentro da população. São exemplos desse tipo as investigações sobre:</p>
+<ul>
+<li>migrantes entre os habitantes de determinada região;</li>
+<li>estabelecimentos agropecuários que se dedicam exclusivamente à produção leiteira numa determinada localidade;</li>
+<li>estudantes do sexo feminino em escolas;</li>
+<li>sondagens eleitorais, onde se deseja conhecer qual parcela dos eleitores pretende votar em determinado candidato.</li>
+</ul>
+<p>Sendo uma variável indicadora, a variável <span class="math inline">\(y\)</span> irá assumir para cada unidade da população apenas o valor 1, se a unidade possui o atributo pesquisado, ou 0, caso a unidade não possua o atributo.</p>
+<p>Então, para cada unidade <span class="math inline">\(i\)</span> da população, a variável <span class="math inline">\(y\)</span> será definida como:</p>
+<p><span class="math display">\[y_i=\displaystyle \begin{cases} 1, \text {se a unidade i possui o atributo} \\\\ 0, \text {caso contrário} \end{cases}\]</span></p>
+<p>Dessa forma, o total populacional da variável <span class="math inline">\(y\)</span> será dado pela fórmula:</p>
+<p><span class="math display">\[Y=\displaystyle\sum_{i=1}^{N}y_i\]</span> expressando o número de unidades populacionais que possuem a característica de interesse.</p>
+<p>A média populacional de <span class="math inline">\(y\)</span> definida como:</p>
+<p><span class="math display">\[\bar {Y}=\displaystyle \frac{1}{N} \sum_ {i=1}^{N}y_i = \frac {Y}{N}\]</span> será o número de unidades da população que tem a característica de interesse dividido pelo número total de unidades da população.</p>
+<p>A esse valor dá-se o nome de <em>Proporção</em> de unidades na população possuidoras da caracterírtica em estudo.Uma proporção pode assumir valores de 0, quando nenhuma unidade da população tem o atributo investigado, até 1, quando todas as unidades possuem esse atributo. Muitas vezes é interessante expressar a proporção sob forma de porcentagem variando, então, de 0% até 100%.</p>
+<p>O parâmetro populacional Proporção será aqui representado pela letra <span class="math inline">\(p\)</span> minúscula, já que a letra <span class="math inline">\(P\)</span> maiúscula já foi escolhida para denotar Probabilidade.</p>
+<p>Como <span class="math inline">\(y\)</span> só pode receber valores 1 ou 0 a expressão da sua variância populacional pode ser simplificada:</p>
+<p><span class="math display">\[S^2_y=\displaystyle \frac {1}{N-1} \left( \sum_{i=1}^{N} y^2_i- N \bar{Y}^2 \right)=\frac{1}{N-1}\left(Np-Np^2 \right)=\frac{N}{N-1}p\left(1-p\right)=\frac{N}{N-1}pq\]</span> onde a letra <span class="math inline">\(q\)</span> denota a proporção de unidades da população que <em>não</em> possuem a caracteristica em estudo.</p>
+<p>A variância populacional de <span class="math inline">\(y\)</span> pode também ser definida como <span class="math inline">\(\sigma^2_y=pq\)</span>. Tanto <span class="math inline">\(S^2_y\)</span> como <span class="math inline">\(\sigma ^2_y\)</span> representam a dispersão da distribuição dos valosre de <span class="math inline">\(y\)</span> na população. De acordo com a situação uma ou outra definição pode ser utilizada para simplificar a manitpulação algébrica de alguns resultados.</p>
+<p>Para populações com um grande número de unidades, <span class="math inline">\(N \displaystyle \rightarrow \infty,\)</span> pode-se considerar <span class="math inline">\(S^2_y\displaystyle \approx pq =\sigma^2_y\)</span>.</p>
+<p>Outra medida importante para avaliar a dispersão de uma variável é o seu <em>Coeficiente de variação</em> definido como a divisão do <em>Desvio Padrão</em> de <span class="math inline">\(y\)</span> por sua média:</p>
+<p><span class="math display">\[CV_y=\frac {\sqrt {\sigma^2_y}} {\bar Y}=\sqrt {{\sigma^2_y} /{\bar Y^2}}=\sqrt {q/p}\]</span></p>
+</div>
+<div id="estimacao-de-uma-proporcao-sob-amostragem-aleatoria-simples-com-reposicao---aasc" class="section level2">
+<h2><span class="header-section-number">5.2</span> Estimação de uma proporção sob Amostragem Aleatória Simples com reposição - <em>AASC</em></h2>
+<p>Seja uma <em>AASC</em>, <span class="math inline">\(s\)</span>, de tamanho <span class="math inline">\(n\)</span> selecionada de uma população composta de <span class="math inline">\(N\)</span> unidades, onde se observa uma variável <span class="math inline">\(y\)</span> definida como no item anterior. Pode-se definir estimadores para os parâmetros populacionais de <span class="math inline">\(y,\)</span> fazendo analogia com o que foi visto no capítulo anterior, da seguinte forma:</p>
+<p>O total de unidades da amostra com a característica de interesse será dado pelo total amostral, ou seja:</p>
+<p><span class="math display">\[t_y=\displaystyle \sum_{i \in\ s} y_i\]</span></p>
+<p>Da mesma forma a proporção amostral de unidades que possuem a característica em estudo será dada pela média amostral:</p>
+<p><span class="math display">\[\displaystyle \hat p=\bar y= \frac {1}{n} \sum_{i \in s} y_i= \frac {t_y}{n}\]</span></p>
+<p>Pode-se facilmente verificar que <span class="math inline">\(\hat p\)</span> é um estimador não viciado para a proporção populacional <span class="math inline">\(p\)</span>, pois:</p>
+<p><span class="math display">\[\displaystyle E_{AASC}(\hat p)=E_{AASC}(\bar y)= \bar Y=p\]</span></p>
+<p>A variância da proporção amostral pode ser calculada, também, analogamente a variância da média amostral.</p>
+<p><span class="math display">\[\displaystyle V_{AASC}(\hat p)= \frac{\sigma^2_y}{n}=\frac{pq}{n}\]</span></p>
+<p>A variância amostral de <span class="math inline">\(y\)</span> será dada por:</p>
+<p><span class="math display">\[\displaystyle s^2_y = \frac {n}{n-1}\hat p (1-\hat p)=\frac {n}{n-1}\hat p \hat q\]</span></p>
+<p>Utilizando <span class="math inline">\(s^2_y\)</span> como um estimador não viciado para a variância populacional, <span class="math inline">\(\sigma^2_y,\)</span> obtem-se um estimador para a variância do estimador <span class="math inline">\(\hat p\)</span>:</p>
+<p><span class="math display">\[\displaystyle v_{AASC}(\hat p)=\frac{\hat p\hat q}{n-1}\]</span></p>
+</div>
+<div id="distribuicao-amostral-de-y-sob-aasc" class="section level2">
+<h2><span class="header-section-number">5.3</span> Distribuição amostral de <span class="math inline">\(y\)</span> sob <em>AASC</em></h2>
+<p>Pode-se chegar aos mesmos resultados do item anterior analisando a distribuição amostral da variável indicadora <span class="math inline">\(y\)</span> no caso de uma seleção aleatória simples sem reposição.</p>
+<p>Foi definido que a variável <span class="math inline">\(y\)</span> assume apenas valores iguais 1 ou 0, no caso da existência ou não do atributo de interesse em cada uma das unidades da população, portanto para cada <span class="math inline">\(y_i \in s\)</span> tem-se que:</p>
+<p><span class="math display">\[y_i=\displaystyle \begin{cases} 1,\text{ se a unidade i tem o atributo} \\\\ 0,\text{ caso contrário} \end{cases}\]</span></p>
+<p>Como as unidades amostrais são selecionadas com igual probabilidade e com reposição, as variáveis <span class="math inline">\(y_i \in s\)</span> são independentes e identicamente distribuídas com probabilidades definidas por:</p>
+<p><span class="math display">\[\displaystyle P(y_i=1)=P(y_i \text{ ter o atributo de interesse})=\frac {Y} {N}=p \\ P(y_i=0)=P(y_i \text{ não ter o atributo de interesse})=1-\frac {Y} {N}=q\]</span></p>
+<p>Dessa maneira fica configurada uma distribuição de <span class="math inline">\(Bernoulli(p)\)</span>:</p>
+<span class="math display">\[\begin{array}{c |c c} 
+ {k} &amp; \ 1 &amp; 0 \\
+\hline \text{$P(y_i=k)$} &amp; p &amp; q  \\
+\end{array}\]</span>
+<p>O total amostral <span class="math inline">\(t_y\)</span> que, neste caso, representa o número de unidades na amostra com a característica de interesse, será dado pelo soma de <span class="math inline">\(n\)</span> variáveis aleatórias com distribuição <span class="math inline">\(Bernoulli(p)\)</span>, portanto a variável aleatória <span class="math inline">\(t_y\)</span> segue uma distribuição <span class="math inline">\(Binomial(n,p)\)</span>.</p>
+<p>Imediatamente tem-se que:</p>
+<p><span class="math display">\[E_{AASC}(t_y)=np{\quad\text e \quad}V_{AASC}(t_y)=npq\]</span></p>
+<p>E seguindo o mesmo raciocínio pode-se ter o valor esperado e a variância de <span class="math inline">\(\hat p\)</span>:</p>
+<p><span class="math display">\[\displaystyle E_{AASC}(\hat p)=E_{AASC}\left(\frac{t_y}{n}\right)=p  {\quad\text e \quad} V_{AASC}(\hat p)=V_{AASC}\left(\frac{t_y}{n}\right)=\frac {pq} {n}\]</span></p>
+<p>Outro resultado importante é que se tem a distribuição de probabilidades de <span class="math inline">\(\hat p\)</span>, pois:</p>
+<p><span class="math display">\[P \left(\hat p=\frac kn\right)=P(t_y=k)=\binom{n} {k}p^k q^{n-k},{\quad\quad\quad\quad \text{para todo }}k=1, 2, ..., n\]</span></p>
+</div>
+<div id="estimacao-de-uma-proporcao-sob-amostragem-aleatoria-simples-sem-reposicao---aas" class="section level2">
+<h2><span class="header-section-number">5.4</span> Estimação de uma proporção sob Amostragem Aleatória Simples sem reposição - <em>AAS</em></h2>
+<p>No caso de uma amostra <span class="math inline">\(s\)</span> com seleção do tipo <em>AAS</em>, as expressões do total amostral, <span class="math inline">\(t_y\)</span>, da variância amostral, <span class="math inline">\(s^2_y\)</span>, tem a mesma forma apresentada para <em>AASC</em>.</p>
+<p>Uma diferença fundamental é que no caso da <em>AAS</em> a variância amostral , <span class="math inline">\(s^2_y\)</span>, é um estimador não viciado para <span class="math inline">\(S^2y\)</span> e não para <span class="math inline">\(\sigma^2_y\)</span>.</p>
+<p>Foi visto no capítulo anterior que a variância do estimador da média é calculado pela expressão:</p>
+<p><span class="math display">\[V_{AAS}(\bar y)=\frac {N-n}{N}\frac{S^2_y}{n}\]</span></p>
+<p>Então, no caso do estimador de uma proporção, por analogia, tem-se que:</p>
+<p><span class="math display">\[V_{AAS}(\hat p)=\frac {N-n}{N-1}\frac{pq}{n}\]</span></p>
+<p>Utilizando <span class="math inline">\(s^2_y\)</span> como estimador não viciado para <span class="math inline">\(S^2_y\)</span> chega-se ao estimador para a variância de <span class="math inline">\(\hat p\)</span>:</p>
+<p><span class="math display">\[v_{AAS}(\hat p)=\frac {N-n}{N} \frac {\hat p \hat q}{n-1}\]</span></p>
+<p>Nota-se que para populações onde o número de unidades, <span class="math inline">\(N\)</span>, é suficientemente grande tem-se que <span class="math inline">\(v_{AAS}(\hat p)\approx \frac {\hat p \hat q}{n-1}\)</span>, resultando numa equivalência entre os desempenhos da <em>AAS</em> e da <em>AASC</em>. Intuitivamente isso ocorre porque a probabilidade de seleção repetida tende a ser muito pequena no caso de populações muito grandes.</p>
+</div>
+<div id="distribuicao-amostral-de-y-sob-aas" class="section level2">
+<h2><span class="header-section-number">5.5</span> Distribuição amostral de <span class="math inline">\(y\)</span> sob <em>AAS</em></h2>
+<p>Da mesma forma que na <em>AASC</em> quando a seleção da amostra aleatória simples é feita sem reposição, também para cada <span class="math inline">\(y_i \in s\)</span> tem-se que:</p>
+<p><span class="math display">\[y_i=\displaystyle\begin{cases} 1,\text{ se a unidade i tem o atributo} \\\\ 0,\text{ caso contrário} \end{cases}\]</span></p>
+<p>A diferença é que na <em>AAS</em>, em uma dada seleção, a probabilidade de ser selecionada uma unidade que já foi sorteada anteriormente é nula. Logo as <em>n</em> variáveis aleatórias <span class="math inline">\(y_i \in s\)</span> não são independentes, porém são identicamente distribuídas e, também neste caso <span class="math inline">\(P(y_i=1)=p\)</span> e <span class="math inline">\(P(y_i=0)=q\)</span>.</p>
+<p>O número total de amostras aleatórias simples sem reposição de tamanho <span class="math inline">\(n\)</span> que podem ser selecionadas de uma população com <span class="math inline">\(N\)</span> unidades é dado por <span class="math inline">\(\binom{N}{n}\)</span> e o número de amostras com exatamente <span class="math inline">\(k\)</span> unidades com a característica em estudo e <span class="math inline">\(n-k\)</span> unidades sem essa característica pode se calculado por <span class="math inline">\(\binom{Y}{k}\binom{N-Y}{n-k}\)</span>, onde <span class="math inline">\(Y\)</span> é o número de unidades da população com a característica de interesse.</p>
+<p>Utilizando o fato de que a probabilidade de um determinado evento ocorrer é obtido pela divisão do número de casos favoráveis pelo número total de casos possíveis, pode-se verificar que a distribuição da estatística <span class="math inline">\(t_y\)</span>, que é o número de unidadaes da amostra com a característica de interesse, segue uma distribuição <span class="math inline">\(Hipergeométrica(N,Y,n)\)</span>, representada pela expressão:</p>
+<p><span class="math display">\[P(t_y=k)=\frac {\binom{Y}{k} \binom{N-Y} {n-k}} {\binom{N}{n}}, {\quad\quad\quad\quad\quad\quad0\le k \le min (n,Y)}\]</span></p>
+<p>A média ou valor esperado de uma distribuição <span class="math inline">\(Hipergeométrica(N,Y,n)\)</span> é dado por <span class="math inline">\(n\frac Y N\)</span>, portanto tem-se imediatamente que:</p>
+<p><span class="math display">\[E_{AAS}(t_y)=n\frac Y N =np\implies E_{AAS}(\hat p)=p\]</span></p>
+<p>A variância da mesma distribuição hipergeométrica é calculada por <span class="math inline">\(n\frac Y N\frac{N-Y}{N}\left(1-\frac{n-1}{N-1}\right)=npq\left(\frac{N-n}{N-1}\right)\)</span>, levando à variância do total de unidades na amostra que tem o atributo de interesse:</p>
+<p><span class="math display">\[V_{AAS}(t_y)=\left(\frac{N-n}{N-1}\right)npq\]</span></p>
+<p>Consequentemente a variância do estimador da proporção <span class="math inline">\(p\)</span> será dada por:</p>
+<p><span class="math display">\[V_{AAS}(\hat p)=V_{AAS}(\frac{t_y}{n}) = \left(\frac{N-n}{N-1}\right)\frac {pq}{n}\]</span></p>
+<p>Um estimador da variância de <span class="math inline">\(\hat p\)</span> será obtido substituindo <span class="math inline">\(S^2_y\)</span> pelo seu estimador não viciado que é a variância amostral, resultando em:</p>
+<p><span class="math display">\[v_{AAS}(\hat p)= \left(\frac{N-n}{N}\right)\frac {\hat p\hat q}{n-1}\]</span></p>
+</div>
+<div id="intervalos-de-confianca-para-proporcoes-na-amostragem-aleatoria-simples" class="section level2">
+<h2><span class="header-section-number">5.6</span> Intervalos de confiança para proporções na Amostragem Aleatória Simples</h2>
+<p>Foi visto que na Amostragem Aleatória Simples, tanto com ou sem reposição, são conhecidas as distribuições exatas para o estimador <span class="math inline">\(\hat p\)</span>, sendo, portanto, possívem obter os limites inferior e superior para um intervalo de confiança para a proporção <span class="math inline">\(p\)</span>, com um nível de significância <span class="math inline">\(\alpha\)</span> fixado.</p>
+<p>Para isso, no caso de <em>AASC</em>, é necessário resolver o siatema de equações seguinte determinando os valores de <span class="math inline">\(\hat p_I\)</span> e <span class="math inline">\(\hat p_S\)</span> que o satisfaçam:</p>
+<p><span class="math display">\[\begin{cases}\displaystyle\sum _{k=0}^{t_y} \binom {n}{k} \hat p_S^k (1 - \hat {p_S})^{n-k}=\frac{\alpha} {2} \\\\ \displaystyle\sum _{k=t_y}^n \binom {n}{k} \hat p_I^k (1 - \hat {p_I})^{n-k}=\frac{\alpha} {2}\end{cases}\]</span></p>
+<p>No caso da <em>AAS</em> o sistema a ser resolvido é baseado na distribuição Hipergeométrica como se segue:</p>
+<p><span class="math display">\[ \begin{cases}\displaystyle\sum_ {k=0}^{t_y}\frac {\binom{N\hat p_S}{k} \binom{N-N\hat p_S} {n-k}}{\binom{N}{n}}=\frac {\alpha}{2} \\\\ \displaystyle \sum_ {k=t_y}^{n}\frac {\binom{N\hat p_I}{k} \binom{N-N\hat p_I} {n-k}} {\binom{N}{n}}={\frac {\alpha}{2}}\end{cases}\]</span> Em ambos os casos <span class="math inline">\(\alpha\)</span> é o nível de significância desejado, correspondendo ao nível de confiança <span class="math inline">\(1-\alpha\)</span>.</p>
+<p>A solução desses sistemas pode ser muito trabalhosa, exigindo aplicação de métodos iterativos que exigem quantidade razoávelmente grande de recursos computacionais. <span class="citation">(Cochran <a href="#ref-Cochran1977">1977</a>)</span> dá alguns exemplos e referências para a solução desses problemas.Na maioria dos casos práticos essa dificuldade leva a opção pelo uso da aproximação pela distribuição Normal de probabilidades. Isso pode ser feito sempre que as condições do problema assim o permitirem.</p>
+</div>
+<div id="intervalos-de-confianca-utilizando-a-aproximacao-normal" class="section level2">
+<h2><span class="header-section-number">5.7</span> Intervalos de confiança utilizando a Aproximação Normal</h2>
+<p>Como já foi visto no capítulo anterior, a distribuição do estimador da proporção, <span class="math inline">\(\hat p\)</span>, pode ser aproximada pela distribuição Normal de probabilidade. Esta aproximação pode ser utilizada mesmo no caso da <em>AAS</em> onde os <span class="math inline">\(y_i\)</span> observados na amostra não são independentes, desde que se tenha valores de <span class="math inline">\(N\)</span> e <span class="math inline">\(n\)</span> suficientemente grandes e valor da fração amostral, <span class="math inline">\(f=\frac n N\)</span>, pequeno.</p>
+<p>Sob estas condições pode-se considerar que:</p>
+<p><span class="math display">\[\frac {\hat p - p} {\sqrt {V_{p(s)}(\hat p)}} \simeq N(0,1)\]</span></p>
+Na Figura 4.1 a seguir o gráfico mostra a aproximação Normal para a seleção de 1000 amostras de tamanho <span class="math inline">\(n=100\)</span>, selecionadas com reposição, de uma população de tamanho <span class="math inline">\(N=5000\)</span>, onde exatamente metade das unidades tem a caracterísitica de interesse (<span class="math inline">\(y_i=1\)</span>).
+<center>
+<p><img src="05-proporcoes_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
+<p>Figura 4.1 - Aproximação Normal no caso de uma <em>AASC</em></p>
+</center>
+<p>A Figura 4.2 mostra o gráfico para um exercício similar ao anterior onde as amostras foram selecionadas sem reposição.</p>
+<center>
+<p><img src="05-proporcoes_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+<p>Figura 4.2 - Aproximação Normal no caso de uma <em>AAS</em></p>
+</center>
+<p>Tanto nos casos de seleção com ou sem reposição pode-se considerar que as aproximações são satisfatórias, com os histogramas das distribuições amostrais do estimador <span class="math inline">\(\hat p\)</span> aderindo consideravelmente à curva Normal padrão.</p>
+<p><span class="citation">(Cochran <a href="#ref-Cochran1977">1977</a>)</span> mostra uma tabela, reproduzida na Tabela 4.1, com oalguns valores mínimos do total de unidades observadas na amostra, <span class="math inline">\(t_y\)</span>, onde a aproximação Normal pode se utilizada.</p>
+<center>
+<p>Tabela 4.1 - Valores mínimos de <span class="math inline">\(t_y\)</span> para uso da aproximação Normal</p>
+<span class="math display">\[\begin{array}{c c c} 
+\hline
+ P &amp;  t_y &amp; n \\
+\hline   
+0,5 &amp; 15 &amp; 30 \\
+0,4 &amp; 20 &amp; 50 \\
+0,3 &amp; 24 &amp; 80 \\
+0,2 &amp; 40 &amp; 200 \\
+0,1 &amp; 60 &amp; 600 \\
+0,05 &amp; 70 &amp; 1400 \\
+\approx 0 &amp; 80 &amp; \infty \\
+\hline
+\end{array}\]</span>
+</center>
+<p>Essa tabela foi construída considerando um nível de significância de <span class="math inline">\(\alpha=0,05\)</span>, que é um valor comumente utilizado em muitas situações práticas.Tem-se a partir daí critérios práticos para assumir a utilização da aproximação Normal, notando-se que o tamanho mínimo da amostra requerido é de <span class="math inline">\(n=30\)</span>.</p>
+<p>Nas condições estabelecidas para a validade da aproximação Normal tem-se que <span class="math inline">\(S^2_y \approx \sigma^2_y=pq\)</span>, portanto, <span class="math inline">\(\displaystyle V_{AAS}(\hat p) \approx V_{AASC}(\hat p)\)</span>, então para os dois tipos de seleção pode-se considerar o intervalo de confiança para a proporção como: <span class="math display">\[ \displaystyle IC_{1-\alpha}(p):\left[\hat p-z_{\alpha/ 2}\sqrt { {pq}/n};\hat p+z_{\alpha/2}\sqrt {{pq}/n} \right]\]</span></p>
+<p>Caso se deseje considerar o fator de correção para populacões finitas, quando a fração amostral não possa ser considerada pequena e a seleção for sem reposição, a expressão do intervalo de confiança passa a ser: <span class="math display">\[ \displaystyle IC_{1-\alpha}(p):\left[\hat p-z_{\alpha/ 2}\sqrt { \left(\frac{N-n}{N-1} \right)\frac{pq}{n}};\hat p+z_{\alpha/2}\sqrt { \left(\frac{N-n}{N-1} \right)\frac{pq}{n}} \right]\]</span></p>
+<p>Em <span class="citation">(Cochran <a href="#ref-Cochran1977">1977</a>)</span> é apresentada uma <em>correção de continuidade</em> acrescentando a fração <span class="math inline">\(1/2n\)</span> à margem de erro do intervalo de confiança pelo fato de se fazer uma aproximação de uma distribuição discreta (Binomial ou Hipergeométrica) pela distribuição Normal, que é contínua. Desse modo a expressão do intervalo de confiança passa a ser: <span class="math display">\[ \displaystyle IC_{1-\alpha}(p):\left[\hat p-z_{\alpha/ 2}\sqrt {{pq}/n}-1/2n;\hat p+z_{\alpha/2}\sqrt{{pq}/n} +1/2n \right]\]</span> Ou considerando a coreção para população finita:<span class="math display">\[ \displaystyle IC_{1-\alpha}(p):\left[\hat p-z_{\alpha/ 2}\sqrt { \left(\frac {N-n}{N-1} \right)\frac{pq}{n}}-\frac 1 {2n};\hat p+z_{\alpha/2}\sqrt { \left(\frac {N-n}{N-1} \right)\frac{pq}{n}}+\frac 1{2n} \right]\]</span></p>
+<p>Nas aplicações práticas o valor da variância do estimador da proporção <span class="math inline">\(p\)</span>, geralmente, não é conhecido. Assim o que se pode fazer é estimar um intervalo de confiança, substituindo <span class="math inline">\(S^2_y\)</span> por <span class="math inline">\(s^2_y\)</span> na expressão anterior:<span class="math display">\[ \displaystyle ic_{1-\alpha}(p):\left[\hat p-z_{\alpha/ 2}\sqrt {\frac{\hat p \hat q} {n-1}}-\frac 1{2n};\hat p+z_{\alpha/2}\sqrt{\frac{\hat p \hat q} {n-1}} +\frac 1{2n} \right]\text{ ou } \\ ic_{1-\alpha}(p):\left[\hat p-z_{\alpha/ 2}\sqrt {\left(\frac{N-n}{N}\right)\frac {\hat p\hat q}{n-1}}-\frac 1{2n};\hat p+z_{\alpha/2}\sqrt {\left(\frac{N-n}{N}\right)\frac {\hat p\hat q}{n-1}} +\frac 1{2n} \right]\]</span></p>
+<p>Veja que o efeito da correção de continuidade tende rapidamente a ser nulo quando o tamanho da amostra, <span class="math inline">\(n\)</span>, cresce. Para uma amostra de tamanho <span class="math inline">\(n=50\)</span> esse fator já é de apenas 1%, o que pode ser desprezível dependendo da proporção que estiver sendo estimada, porém é preciso muito cuidado pois quando se está trabalhando com proporções são valores, às vezes, bastante pequenos pequenos.</p>
+</div>
+<div id="calculo-do-tamanho-da-amostra" class="section level2">
+<h2><span class="header-section-number">5.8</span> Cálculo do tamanho da amostra</h2>
+<p>O tamanho de uma amostra aleatória simples a ser selecionada, como já foi visto no capítulo anterior, será calculado a partir da definição do erro amostral ou margem de erro admissível para o caso, do nível de confiança desejado e se a seleção for com ou sem reposição.</p>
+<p>No caso de seleção com reposição, considerando uma margem de erro máxima admissível de <span class="math inline">\(D\)</span> com um nível de confiança <span class="math inline">\(1-\alpha\)</span>, basta utilizar expressão da margem de erro: <span class="math display">\[D \le z_{\alpha/2}\sqrt { \frac{pq}{n}} \implies n \ge \frac{z^2_{\alpha/2}pq}{D^2} \]</span> Para seleção sem reposição o tamanho da amostra será calculado como:<span class="math display">\[D \le z_{\alpha/2}\sqrt{\left(\frac {N-n}{N-1}\right)\frac{pq}n} \implies n \ge \frac{z^2_{\alpha/2}pq} {D^2 \frac {N-1}N + \frac 1 N {z^2_{\alpha /2}pq}}\approx \frac{z^2_{\alpha/2}pq} {D^2 + \frac 1 N {z^2_{\alpha /2}pq}} \]</span> Uma maneira prática de calcular o tamanho da amostra para uma <em>AAS</em> em dois passos é calcular primeiro: <span class="math display">\[n_0=\frac{z^2_{\alpha/2}pq}{D^2}\]</span> E depois fazer:<span class="math display">\[n \ge \frac {n_0}{1+n_0 /N}\]</span></p>
+<p>Note que <span class="math inline">\(n_0\)</span> é equivalente ao tamanho da amostra para uma <em>AASC</em> e o valor de <span class="math inline">\(n\)</span> para a <em>AAS</em> é obtido pela correção para população finita do valor <span class="math inline">\(n_0\)</span>. Também pode-se concluir que quando o tamanho da população, <span class="math inline">\(N\)</span>, é grande o fator <span class="math inline">\(n_0/N\)</span> tende a se anular fazendo com que <span class="math inline">\(n=n_0\)</span>, ou seja: quando o tamanho da população é grande as amostras aleatórias simples com ou sem reposição são equivalentes.</p>
+<p>AS fórmulas apresentadas de pendem do nivel de significância <span class="math inline">\(\alpha\)</span> e da margem de erro <span class="math inline">\(D\)</span> que serão definidos pelo pesquisador de acordo com seu conhecimento relativo ao assunto pesquisado, pois esses valores estão diretamente ligados à natureza da pesquisa. Pesquisas que utilizam medidas objetivas para alcançar seus resultados, como instrumentos para se medir fisicamente o fenômeno estudado, podem ser mais exigentes quanto a presisão das estimativas desejadas, enquanto que pesquisas da área social, por exemplo, onde se utilizam questionários que dependem da memória ou até da boa vontade dos entrvistados, frequentemente não podem ter o mesmo nível de exigência. O tamanho da amostra também depende da variância da variável utilizada para seo cálculo, através do produto <span class="math inline">\(pq\)</span>. Como <span class="math inline">\(p\)</span> é a proporção que se deseja estimar, se fosse conhacida não haveria a necessidade de uma amostra. Geralmente, como no caso de se pesquisar variáveis continuas, utiliza-se pesquisas anteriores ou sobre variáveis correlacionadas com a atual variável de interesse, ou mesmo uma pesquisa piloto com um tamanho arbitrário de amostra para se ter uma estimativa inicial do fenomeno a ser medido e poder calcular o tamanho de amostra realmente necessário. Quando se utiliza uma pesquisa piloto existem métodos para utilizar os resultados relativos às unidades já pesquisadas e selecionar outras unidades para complementar o tamanho da amostra.</p>
+<p>No caso da estimação de proporções o valor de <span class="math inline">\(pq\)</span> é limitado variando de 0 a 0,25, sendo esse valor máximo atingido quando <span class="math inline">\(p=q=0,5\)</span>. O gráfigo da Figura 4.3 mostra como variam os valores de <span class="math inline">\(pq\)</span> conforme variam os valore de <span class="math inline">\(p\)</span>.</p>
+<center>
+<p><img src="05-proporcoes_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+Figura 3.4 - Variação de <span class="math inline">\(pq\)</span> em função dos valores de <span class="math inline">\(p\)</span>
+</center>
+<p>Como o valor máximo da variância é atingido quando <span class="math inline">\(p=0,5\)</span>, caso não exista nenhuma informação sobre a proporção a ser estimada, uma maneira de determinar um tamanho de amostra conservador é supor exatamente que <span class="math inline">\(p=0,5\)</span>. assim pode-se simplificar a fórmula de cálculo de <span class="math inline">\(n\)</span> para uma <em>AASC</em>: <span class="math display">\[n \ge \frac {z^2_{\alpha /2}}{4D^2}\]</span> No caso de uma <em>AAS</em> basta fazer:<span class="math display">\[n_0 = \frac {z^2_{\alpha /2}}{4D^2} \implies n \ge \frac {n_0}{1+n/n_0}\]</span></p>
+<p>Geralmente os resultados das fórmulas para cálculo do tamanho da amostra não são valores inteiros.Em todos esses casos o valor de <span class="math inline">\(n\)</span> calculado deverá ser arredondado para o valor inteiro imediatamente superior, preservando assim a precisão desejada.</p>
+</div>
+<div id="estimacao-de-proporcoes-para-variaveis-com-mais-duas-categorias" class="section level2">
+<h2><span class="header-section-number">5.9</span> Estimação de proporções para variáveis com mais duas categorias</h2>
+</div>
+
+</div>
+</div>
+<h3>Referências</h3>
+<div id="refs" class="references">
+<div id="ref-Cochran1977">
+<p>Cochran, William Gemmell. 1977. <em>Sampling Techniques</em>. 3rd ed. New York: John Wiley &amp; Sons.</p>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="amostragem-aleatoria-simples.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="estimacao-de-uma-razao-populacional.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "";
+    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Amostragem: Teoria e Prática Usando R</title>
+  <meta name="description" content="Este é o livro de Amostragem elaborado pelos autores.">
+  <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
+
+  <meta property="og:title" content="Amostragem: Teoria e Prática Usando R" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Este é o livro de Amostragem elaborado pelos autores." />
+  <meta name="github-repo" content="PedroNSilva/amotepur" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Amostragem: Teoria e Prática Usando R" />
+  
+  <meta name="twitter:description" content="Este é o livro de Amostragem elaborado pelos autores." />
+  
+
+<meta name="author" content="Pedro Luis do Nascimento Silva, Zélia Magalhães Bianchini e Antonio José Ribeiro Dias">
+
+
+<meta name="date" content="2018-08-26">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="index.html">
+<link rel="next" href="conceitos-e-cadastros.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Prefácio</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#agradecimentos"><i class="fa fa-check"></i>Agradecimentos</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="introduc.html"><a href="introduc.html"><i class="fa fa-check"></i><b>1</b> Introdução</a><ul>
+<li class="chapter" data-level="1.1" data-path="introduc.html"><a href="introduc.html#motivacao"><i class="fa fa-check"></i><b>1.1</b> Motivação</a></li>
+<li class="chapter" data-level="1.2" data-path="introduc.html"><a href="introduc.html#objetivos-do-livro"><i class="fa fa-check"></i><b>1.2</b> Objetivos do livro</a></li>
+<li class="chapter" data-level="1.3" data-path="introduc.html"><a href="introduc.html#estrutura-do-livro"><i class="fa fa-check"></i><b>1.3</b> Estrutura do livro</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="conceitos-e-cadastros.html"><a href="conceitos-e-cadastros.html"><i class="fa fa-check"></i><b>2</b> Conceitos e Cadastros</a><ul>
+<li class="chapter" data-level="2.1" data-path="conceitos-e-cadastros.html"><a href="conceitos-e-cadastros.html#fontes-de-dados-e-tipos-de-pesquisas"><i class="fa fa-check"></i><b>2.1</b> Fontes de Dados e Tipos de Pesquisas</a></li>
+<li class="chapter" data-level="2.2" data-path="conceitos-e-cadastros.html"><a href="conceitos-e-cadastros.html#alguns-conceitos-fundamentais"><i class="fa fa-check"></i><b>2.2</b> Alguns Conceitos Fundamentais</a></li>
+<li class="chapter" data-level="2.3" data-path="conceitos-e-cadastros.html"><a href="conceitos-e-cadastros.html#abordagens-alternativas-para-pesquisas-por-amostragem"><i class="fa fa-check"></i><b>2.3</b> Abordagens alternativas para pesquisas por amostragem</a></li>
+<li class="chapter" data-level="2.4" data-path="conceitos-e-cadastros.html"><a href="conceitos-e-cadastros.html#planejamento-e-execucao-de-pesquisas-por-amostragem"><i class="fa fa-check"></i><b>2.4</b> Planejamento e execução de pesquisas por amostragem</a></li>
+<li class="chapter" data-level="2.5" data-path="conceitos-e-cadastros.html"><a href="conceitos-e-cadastros.html#cadastros"><i class="fa fa-check"></i><b>2.5</b> Cadastros</a><ul>
+<li class="chapter" data-level="2.5.1" data-path="conceitos-e-cadastros.html"><a href="conceitos-e-cadastros.html#cadastros-importantes-no-ibge"><i class="fa fa-check"></i><b>2.5.1</b> Cadastros importantes no IBGE</a></li>
+<li class="chapter" data-level="2.5.2" data-path="conceitos-e-cadastros.html"><a href="conceitos-e-cadastros.html#defeitos-de-cadastros"><i class="fa fa-check"></i><b>2.5.2</b> Defeitos de cadastros</a></li>
+<li class="chapter" data-level="2.5.3" data-path="conceitos-e-cadastros.html"><a href="conceitos-e-cadastros.html#regras-de-associacao-das-unidades-da-populacao-a-unidade-cadastral"><i class="fa fa-check"></i><b>2.5.3</b> Regras de associação das unidades da população à unidade cadastral</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="referencias.html"><a href="referencias.html"><i class="fa fa-check"></i>Referências</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Amostragem: Teoria e Prática Usando R</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="introduc" class="section level1">
+<h1><span class="header-section-number">1</span> Introdução</h1>
+<div id="motivacao" class="section level2">
+<h2><span class="header-section-number">1.1</span> Motivação</h2>
+<p>A citação abaixo é atribuída ao famoso estatístico norte-americano W. E. DEMING:</p>
+<blockquote>
+<p><strong>“In God we trust. All others must bring data.”</strong></p>
+</blockquote>
+<p>Esta citação traduz uma tendência bastante atual. Vivemos numa era em que a disponibilidade e o acesso a dados não têm precedentes na história da humanidade. Dados são demandados e utilizados para orientar a tomada de decisões em todos os níveis. Por estes motivos, a Estatística nunca esteve tanto em evidência. A evolução tem sido tão rápida nesse tema que deu origem à criação de uma nova ciência (<code>data science</code>) - ver <span class="citation">(Donoho <a href="#ref-Donoho2017">2017</a>)</span> - e profissão (<code>cientista de dados</code>).</p>
+<p>Estas tendências confirmam que o conhecimento do mundo ao nosso redor depende muito de dados e de estatísticas, aqui entendidas como resumos dos dados. Além disso, os métodos estatísticos fornecem:</p>
+<ol style="list-style-type: lower-alpha">
+<li><p><strong>orientações para a obtenção de dados relevantes, atuais, precisos e custo-efetivos; </strong></p></li>
+<li><p><strong>ferramentas para modelagem e extração de conhecimento relevante dos dados; e </strong></p></li>
+<li><p><strong>orientações de como usar os dados e estatísticas para apoiar a tomada de decisões. </strong></p></li>
+</ol>
+<p>É nesse contexto que se coloca nossa motivação para escrever um livro sobre <em>Amostragem</em>, a parte da Estatística que lida com os métodos para extrair amostras de populações, e para obter estimativas de parâmetros relevantes dessas populações a partir das amostras observadas.</p>
+<p>Nossa experiência no Instituto Brasileiro de Geografia e Estatística (IBGE) e com assessoria para o planejamento e realização de pesquisas por amostragem nos convenceu da importância da Amostragem para a obtenção, a custo justo, de dados atuais, relevantes e confiáveis. Nossa experiência como docentes de cursos de Amostragem na Escola Nacional de Ciências Estatísticas (ENCE) e também em outras partes nos mostrou que há espaço para um novo texto nessa área, que adote uma abordagem mais moderna para ensinar. Nesse livro adotamos uma abordagem que faz uso da ampla disponibilidade de dados públicos e de software aberto e livre para mostrar como fazer para implementar os vários métodos de amostragem e de estimação cobertos no texto. O uso extensivo de exemplos ancorados na prática de pesquisas feitas no Brasil também é um dos diferenciais que nosso livro tem.</p>
+<p>Uma questão de fundo é a da relevância da Amostragem como área de ensino e pesquisa na Estatística. Por um lado, o advento dos chamados <em>big data</em> ou <em>dados orgânicos</em>, na definição de <span class="citation">(Groves <a href="#ref-Groves2011">2011</a>)</span>, parece representar séria ameaça à cultura e prática das pesquisas por amostragem. Isto se dá porque agora é possível encontrar situações em que dados <em>universais</em>, <em>frequentes</em> e <em>de baixo custo</em> poderiam ser usados para responder perguntas sobre as populações de interesse, sem o necessário recurso ao uso da Amostragem para sua obtenção. Por outro lado, há evidências de que, sozinhos, dados orgânicos não serão suficientes para responder todas as perguntas de interesse. Os motivos podem ser um ou mais dos seguintes:</p>
+<ol style="list-style-type: lower-alpha">
+<li><p><strong>o número de variáveis ou medidas disponíveis para cada unidade nalgumas dessas novas fontes pode ser pequeno, ou as variáveis medidas podem não ser as que permitem responder adequadamente às perguntas de interesse; </strong></p></li>
+<li><p><strong>a qualidade das medidas e respostas disponíveis pode ser insatisfatória por motivos ligados à forma de captura das informações; </strong></p></li>
+<li><p><strong>a cobertura da população de interesse pode ser precária ou difícil de avaliar, levando ao risco de inferências enviesadas por efeito de seletividade não controlada; </strong></p></li>
+</ol>
+<p>Em todos esses casos, pesquisas amostrais podem ser necessárias para suplementar as informações das fontes <em>orgânicas</em> de modo a permitir obter respostas adequadas às perguntas de interesse sobre as populações especificadas.</p>
+<p>Além das questões já apontadas, haverá também situações em que a Amostragem será necessária para permitir analisar os dados orgânicos em tempo adequado ou com custo computacional acessível. Algumas das fontes de dados desse tipo são tão vastas que não é factível pensar que podem ser explorados de forma exaustiva, e técnicas de amostragem serão então necessárias para extrair amostras adequadas dos dados orgânicos para exploração e análise.</p>
+<p>É nesse contexto formado por novos desafios e oportunidades que apresentamos neste livro o conteúdo de um curso de Amostragem para pesquisas em populações finitas. O material evoluiu da nossa experiência de ensinar na ENCE, tanto em disciplinas do curso de Graduação em Estatística, como também na Pós-graduação em População, Território e Estatísticas Públicas, além de diversas outras experiências na apresentação de cursos curtos de capacitação ministrados sobre o tema.</p>
+</div>
+<div id="objetivos-do-livro" class="section level2">
+<h2><span class="header-section-number">1.2</span> Objetivos do livro</h2>
+<p>Nosso livro pretende cobrir o conteúdo essencial para um curso básico de Amostragem, em nível similar ao de textos como <span class="citation">(Cochran <a href="#ref-Cochran1977">1977</a>)</span>, <span class="citation">(Lohr <a href="#ref-Lohr2010">2010</a>)</span> ou <span class="citation">(Bolfarine and Bussab <a href="#ref-Bolfarine2005">2005</a>)</span>. Trataremos dos métodos fundamentais de Amostragem, sempre que possível ilustrando com exemplos sua utilização em pesquisas realizadas no Brasil ou também em outras partes.</p>
+<p>Pretendemos que um leitor atento e dedicado consiga, ao final da leitura e estudo prático e interativo do material, usar de forma confiante os vários métodos de amostragem e de estimação apresentados e discutidos no livro. Pretendemos também que possa usar ferramentas de software modernas para implementar os vários métodos apresentados. Para docentes de cursos de Amostragem, pretendemos que o uso do livro sirva de apoio como material didático de referência e por fornecer uma boa coleção de exercícios para fixação da aprendizagem.</p>
+<p>Tomando em conta as facilidades disponíveis com base nas modernas ferramentas computacionais usadas, todos os códigos de R usados na implementação dos exemplos e na solução de exercícios são fornecidos junto do material do livro. Também são fornecidos todos os dados usados nos exemplos e exercícios que não podem ser encontrados facilmente nas fontes originais.</p>
+</div>
+<div id="estrutura-do-livro" class="section level2">
+<h2><span class="header-section-number">1.3</span> Estrutura do livro</h2>
+<p>Este livro está organizado em treze capítulos, além desta introdução.</p>
+<ol style="list-style-type: decimal">
+<li><p><strong>Conceitos e Cadastros </strong></p></li>
+<li><p><strong>Visão Geral da Amostragem e Estimação </strong></p></li>
+<li><p><strong>Amostragem Aleatória Simples (AAS) </strong></p></li>
+<li><p><strong>Estimação de Proporções e Tamanho da Amostra sob AAS </strong></p></li>
+<li><p><strong>Estimação de uma Razão Populacional </strong></p></li>
+<li><p><strong>Estimação Para Domínios de Estudo </strong></p></li>
+<li><p><strong>Amostragem Sistemática </strong></p></li>
+<li><p><strong>Amostragem Binomial ou de Bernoulli </strong></p></li>
+<li><p><strong>Amostragem com Probabilidades Desiguais </strong></p></li>
+<li><p><strong>Amostragem Inversa </strong></p></li>
+<li><p><strong>Amostragem Estratificada </strong></p></li>
+<li><p><strong>Amostragem de Conglomerados em um ou Mais Estágios </strong></p></li>
+<li><p><strong>Estimadores de Calibração </strong></p></li>
+</ol>
+<p>Cada um dos capítulos é auto-contido, e vários deles podem ser saltados. Por exemplo, os capítulos sobre Amostragem Sistemática, Amostragem Binomial e Amostragem Inversa podem ser omitidos num curso que tenha carga horária insuficiente para cobrir todo o material. O capítulo sobre Estimadores de Calibração tem grande importância prática, e pode ser apresentado antes do tratamento da Amostragem de Conglomerados, se necessário.</p>
+<p>O leitor de qualquer livro precisa reconhecer que não é possível começar do zero: é preciso contar com conhecimento prévio de algumas ideias e conceitos básicos essenciais à compreensão do material tratado. Nossa abordagem pressupõe que o leitor está familiarizado com um curso básico de introdução à probabilidade e à inferência estatística, no nível tratado, por exemplo, em <span class="citation">(Magalhães and Lima <a href="#ref-Magalhaes2004">2004</a>)</span> e <span class="citation">(Magalhães <a href="#ref-Magalhaes2006">2006</a>)</span>.</p>
+<p>Nossa abordagem não busca ser exaustiva, e por esse motivo, são poucas as provas que incluímos dos resultados aqui discutidos. Aos leitores interessados em verificar os resultados, recomendamos a consulta ao excelente livro de <span class="citation">(Särndal, Swensson, and Wretman <a href="#ref-Sarndal1992">1992</a>)</span>, ou então às muitas referências incluídas ao longo do texto.</p>
+
+</div>
+</div>
+<h3>Referências</h3>
+<div id="refs" class="references">
+<div id="ref-Donoho2017">
+<p>Donoho, David. 2017. “50 Years of Data Science.” <em>Journal of Computational and Graphical Statistics</em> 26 (4): 745–66.</p>
+</div>
+<div id="ref-Groves2011">
+<p>Groves, Robert M. 2011. “Three eras of survey research.” <em>Public Opinion Quarterly</em> 75 (5 SPEC. ISSUE): 861–71.</p>
+</div>
+<div id="ref-Cochran1977">
+<p>Cochran, William Gemmell. 1977. <em>Sampling Techniques</em>. 3rd ed. New York: John Wiley &amp; Sons.</p>
+</div>
+<div id="ref-Lohr2010">
+<p>Lohr, Sharon. 2010. <em>Sampling Design and Analysis</em>. 2nd ed. Boston: Brooks/Cole.</p>
+</div>
+<div id="ref-Bolfarine2005">
+<p>Bolfarine, Heleno, and Wilton de Oliveira Bussab. 2005. <em>Elementos de Amostragem</em>. São Paulo: Editora Edgard Blücher.</p>
+</div>
+<div id="ref-Magalhaes2004">
+<p>Magalhães, Marcos Nascimento, and Antonio Carlos Pedroso de Lima. 2004. <em>Noções de Probabilidade e Estatística</em>. 6a. edição. São Paulo: EDUSP.</p>
+</div>
+<div id="ref-Magalhaes2006">
+<p>Magalhães, Marcos Nascimento. 2006. <em>Probabilidade e Variáveis Aleatórias</em>. Segunda ed. São Paulo: EDUSP.</p>
+</div>
+<div id="ref-Sarndal1992">
+<p>Särndal, Carl Erik, Bengt Swensson, and Jan Wretman. 1992. <em>Model Assisted Survey Sampling</em>. New York: Springer-Verlag.</p>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="conceitos-e-cadastros.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

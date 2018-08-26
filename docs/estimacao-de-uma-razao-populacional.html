@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Amostragem: Teoria e Prática Usando R</title>
+  <meta name="description" content="Este é o livro de Amostragem elaborado pelos autores.">
+  <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
+
+  <meta property="og:title" content="Amostragem: Teoria e Prática Usando R" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Este é o livro de Amostragem elaborado pelos autores." />
+  <meta name="github-repo" content="PedroNSilva/amotepur" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Amostragem: Teoria e Prática Usando R" />
+  
+  <meta name="twitter:description" content="Este é o livro de Amostragem elaborado pelos autores." />
+  
+
+<meta name="author" content="Pedro Luis do Nascimento Silva, Zélia Magalhães Bianchini e Antonio José Ribeiro Dias">
+
+
+<meta name="date" content="2018-08-26">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="estimacao-de-proporcoes.html">
+<link rel="next" href="estimacao-para-dominios-de-estudo.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Prefácio</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#agradecimentos"><i class="fa fa-check"></i>Agradecimentos</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="introduc.html"><a href="introduc.html"><i class="fa fa-check"></i><b>1</b> Introdução</a><ul>
+<li class="chapter" data-level="1.1" data-path="introduc.html"><a href="introduc.html#motivacao"><i class="fa fa-check"></i><b>1.1</b> Motivação</a></li>
+<li class="chapter" data-level="1.2" data-path="introduc.html"><a href="introduc.html#objetivos-do-livro"><i class="fa fa-check"></i><b>1.2</b> Objetivos do livro</a></li>
+<li class="chapter" data-level="1.3" data-path="introduc.html"><a href="introduc.html#estrutura-do-livro"><i class="fa fa-check"></i><b>1.3</b> Estrutura do livro</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="conceitos-e-cadastros.html"><a href="conceitos-e-cadastros.html"><i class="fa fa-check"></i><b>2</b> Conceitos e Cadastros</a><ul>
+<li class="chapter" data-level="2.1" data-path="conceitos-e-cadastros.html"><a href="conceitos-e-cadastros.html#fontes-de-dados-e-tipos-de-pesquisas"><i class="fa fa-check"></i><b>2.1</b> Fontes de Dados e Tipos de Pesquisas</a></li>
+<li class="chapter" data-level="2.2" data-path="conceitos-e-cadastros.html"><a href="conceitos-e-cadastros.html#alguns-conceitos-fundamentais"><i class="fa fa-check"></i><b>2.2</b> Alguns Conceitos Fundamentais</a></li>
+<li class="chapter" data-level="2.3" data-path="conceitos-e-cadastros.html"><a href="conceitos-e-cadastros.html#abordagens-alternativas-para-pesquisas-por-amostragem"><i class="fa fa-check"></i><b>2.3</b> Abordagens alternativas para pesquisas por amostragem</a></li>
+<li class="chapter" data-level="2.4" data-path="conceitos-e-cadastros.html"><a href="conceitos-e-cadastros.html#planejamento-e-execucao-de-pesquisas-por-amostragem"><i class="fa fa-check"></i><b>2.4</b> Planejamento e execução de pesquisas por amostragem</a></li>
+<li class="chapter" data-level="2.5" data-path="conceitos-e-cadastros.html"><a href="conceitos-e-cadastros.html#cadastros"><i class="fa fa-check"></i><b>2.5</b> Cadastros</a><ul>
+<li class="chapter" data-level="2.5.1" data-path="conceitos-e-cadastros.html"><a href="conceitos-e-cadastros.html#cadastros-importantes-no-ibge"><i class="fa fa-check"></i><b>2.5.1</b> Cadastros importantes no IBGE</a></li>
+<li class="chapter" data-level="2.5.2" data-path="conceitos-e-cadastros.html"><a href="conceitos-e-cadastros.html#defeitos-de-cadastros"><i class="fa fa-check"></i><b>2.5.2</b> Defeitos de cadastros</a></li>
+<li class="chapter" data-level="2.5.3" data-path="conceitos-e-cadastros.html"><a href="conceitos-e-cadastros.html#regras-de-associacao-das-unidades-da-populacao-a-unidade-cadastral"><i class="fa fa-check"></i><b>2.5.3</b> Regras de associação das unidades da população à unidade cadastral</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="visao-geral-da-amostragem-e-estimacao.html"><a href="visao-geral-da-amostragem-e-estimacao.html"><i class="fa fa-check"></i><b>3</b> Visão Geral da Amostragem e Estimação</a><ul>
+<li class="chapter" data-level="3.1" data-path="visao-geral-da-amostragem-e-estimacao.html"><a href="visao-geral-da-amostragem-e-estimacao.html#definicoes-e-notacao-para-populacao-de-pesquisa"><i class="fa fa-check"></i><b>3.1</b> Definições e Notação para População de Pesquisa</a></li>
+<li class="chapter" data-level="3.2" data-path="visao-geral-da-amostragem-e-estimacao.html"><a href="visao-geral-da-amostragem-e-estimacao.html#amostra"><i class="fa fa-check"></i><b>3.2</b> Amostra</a></li>
+<li class="chapter" data-level="3.3" data-path="visao-geral-da-amostragem-e-estimacao.html"><a href="visao-geral-da-amostragem-e-estimacao.html#estimacao"><i class="fa fa-check"></i><b>3.3</b> Estimação</a><ul>
+<li class="chapter" data-level="3.3.1" data-path="visao-geral-da-amostragem-e-estimacao.html"><a href="visao-geral-da-amostragem-e-estimacao.html#amostragem-probabilistica"><i class="fa fa-check"></i><b>3.3.1</b> Amostragem Probabilística</a></li>
+<li class="chapter" data-level="3.3.2" data-path="visao-geral-da-amostragem-e-estimacao.html"><a href="visao-geral-da-amostragem-e-estimacao.html#a-distribuicao-de-aleatorizacao"><i class="fa fa-check"></i><b>3.3.2</b> A Distribuição de Aleatorização</a></li>
+<li class="chapter" data-level="3.3.3" data-path="visao-geral-da-amostragem-e-estimacao.html"><a href="visao-geral-da-amostragem-e-estimacao.html#estimadores-nao-viciados-para-o-total"><i class="fa fa-check"></i><b>3.3.3</b> Estimadores Não Viciados para o Total</a></li>
+<li class="chapter" data-level="3.3.4" data-path="visao-geral-da-amostragem-e-estimacao.html"><a href="visao-geral-da-amostragem-e-estimacao.html#teoria-basica"><i class="fa fa-check"></i><b>3.3.4</b> Teoria Básica</a></li>
+<li class="chapter" data-level="3.3.5" data-path="visao-geral-da-amostragem-e-estimacao.html"><a href="visao-geral-da-amostragem-e-estimacao.html#estimador-linear-de-total"><i class="fa fa-check"></i><b>3.3.5</b> Estimador linear de total</a></li>
+<li class="chapter" data-level="3.3.6" data-path="visao-geral-da-amostragem-e-estimacao.html"><a href="visao-geral-da-amostragem-e-estimacao.html#propriedades-do-estimador-de-horvitz-thompson"><i class="fa fa-check"></i><b>3.3.6</b> Propriedades do Estimador de Horvitz-Thompson</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="amostragem-aleatoria-simples.html"><a href="amostragem-aleatoria-simples.html"><i class="fa fa-check"></i><b>4</b> Amostragem Aleatória Simples</a><ul>
+<li class="chapter" data-level="4.1" data-path="amostragem-aleatoria-simples.html"><a href="amostragem-aleatoria-simples.html#planos-amostrais-e-esquemas-de-selecao"><i class="fa fa-check"></i><b>4.1</b> Planos Amostrais e Esquemas de Seleção</a></li>
+<li class="chapter" data-level="4.2" data-path="amostragem-aleatoria-simples.html"><a href="amostragem-aleatoria-simples.html#amostragem-aleatoria-simples-com-reposicao-aasc"><i class="fa fa-check"></i><b>4.2</b> Amostragem Aleatória Simples Com Reposição (AASC)</a></li>
+<li class="chapter" data-level="4.3" data-path="amostragem-aleatoria-simples.html"><a href="amostragem-aleatoria-simples.html#estimacao-de-parametros-populacionais-sob-aasc"><i class="fa fa-check"></i><b>4.3</b> Estimação de Parâmetros Populacionais sob AASC</a></li>
+<li class="chapter" data-level="4.4" data-path="amostragem-aleatoria-simples.html"><a href="amostragem-aleatoria-simples.html#amostragem-aleatoria-simples-sem-reposicao-aas"><i class="fa fa-check"></i><b>4.4</b> Amostragem Aleatória Simples Sem Reposição (AAS)</a><ul>
+<li class="chapter" data-level="4.4.1" data-path="amostragem-aleatoria-simples.html"><a href="amostragem-aleatoria-simples.html#aas-algoritmo-convencional"><i class="fa fa-check"></i><b>4.4.1</b> AAS: Algoritmo “Convencional”</a></li>
+<li class="chapter" data-level="4.4.2" data-path="amostragem-aleatoria-simples.html"><a href="amostragem-aleatoria-simples.html#aas-esquemas-baseados-em-processamento-de-listas"><i class="fa fa-check"></i><b>4.4.2</b> AAS: Esquemas Baseados em Processamento de Listas</a></li>
+<li class="chapter" data-level="4.4.3" data-path="amostragem-aleatoria-simples.html"><a href="amostragem-aleatoria-simples.html#probabilidades-de-inclusao-selecao"><i class="fa fa-check"></i><b>4.4.3</b> Probabilidades de inclusão (Seleção)</a></li>
+<li class="chapter" data-level="4.4.4" data-path="amostragem-aleatoria-simples.html"><a href="amostragem-aleatoria-simples.html#estimador-nao-viciado-do-total-populacional-sob-aas"><i class="fa fa-check"></i><b>4.4.4</b> Estimador Não Viciado do Total Populacional Sob AAS</a></li>
+<li class="chapter" data-level="4.4.5" data-path="amostragem-aleatoria-simples.html"><a href="amostragem-aleatoria-simples.html#estimador-nao-viciado-da-media-populacional-sob-aas"><i class="fa fa-check"></i><b>4.4.5</b> Estimador Não Viciado da Média Populacional Sob AAS</a></li>
+<li class="chapter" data-level="4.4.6" data-path="amostragem-aleatoria-simples.html"><a href="amostragem-aleatoria-simples.html#distribuicao-da-media-amostral"><i class="fa fa-check"></i><b>4.4.6</b> Distribuição da Média Amostral</a></li>
+<li class="chapter" data-level="4.4.7" data-path="amostragem-aleatoria-simples.html"><a href="amostragem-aleatoria-simples.html#diferencas-da-aas-para-amostragem-com-reposicao-aasc"><i class="fa fa-check"></i><b>4.4.7</b> Diferenças da AAS Para Amostragem Com Reposição (AASC)</a></li>
+<li class="chapter" data-level="4.4.8" data-path="amostragem-aleatoria-simples.html"><a href="amostragem-aleatoria-simples.html#determinacao-do-tamanho-da-amostra"><i class="fa fa-check"></i><b>4.4.8</b> Determinação do Tamanho da Amostra</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="estimacao-de-proporcoes.html"><a href="estimacao-de-proporcoes.html"><i class="fa fa-check"></i><b>5</b> Estimação de proporções</a><ul>
+<li class="chapter" data-level="5.1" data-path="estimacao-de-proporcoes.html"><a href="estimacao-de-proporcoes.html#proporcao-populacional"><i class="fa fa-check"></i><b>5.1</b> Proporção populacional</a></li>
+<li class="chapter" data-level="5.2" data-path="estimacao-de-proporcoes.html"><a href="estimacao-de-proporcoes.html#estimacao-de-uma-proporcao-sob-amostragem-aleatoria-simples-com-reposicao---aasc"><i class="fa fa-check"></i><b>5.2</b> Estimação de uma proporção sob Amostragem Aleatória Simples com reposição - <em>AASC</em></a></li>
+<li class="chapter" data-level="5.3" data-path="estimacao-de-proporcoes.html"><a href="estimacao-de-proporcoes.html#distribuicao-amostral-de-y-sob-aasc"><i class="fa fa-check"></i><b>5.3</b> Distribuição amostral de <span class="math inline">\(y\)</span> sob <em>AASC</em></a></li>
+<li class="chapter" data-level="5.4" data-path="estimacao-de-proporcoes.html"><a href="estimacao-de-proporcoes.html#estimacao-de-uma-proporcao-sob-amostragem-aleatoria-simples-sem-reposicao---aas"><i class="fa fa-check"></i><b>5.4</b> Estimação de uma proporção sob Amostragem Aleatória Simples sem reposição - <em>AAS</em></a></li>
+<li class="chapter" data-level="5.5" data-path="estimacao-de-proporcoes.html"><a href="estimacao-de-proporcoes.html#distribuicao-amostral-de-y-sob-aas"><i class="fa fa-check"></i><b>5.5</b> Distribuição amostral de <span class="math inline">\(y\)</span> sob <em>AAS</em></a></li>
+<li class="chapter" data-level="5.6" data-path="estimacao-de-proporcoes.html"><a href="estimacao-de-proporcoes.html#intervalos-de-confianca-para-proporcoes-na-amostragem-aleatoria-simples"><i class="fa fa-check"></i><b>5.6</b> Intervalos de confiança para proporções na Amostragem Aleatória Simples</a></li>
+<li class="chapter" data-level="5.7" data-path="estimacao-de-proporcoes.html"><a href="estimacao-de-proporcoes.html#intervalos-de-confianca-utilizando-a-aproximacao-normal"><i class="fa fa-check"></i><b>5.7</b> Intervalos de confiança utilizando a Aproximação Normal</a></li>
+<li class="chapter" data-level="5.8" data-path="estimacao-de-proporcoes.html"><a href="estimacao-de-proporcoes.html#calculo-do-tamanho-da-amostra"><i class="fa fa-check"></i><b>5.8</b> Cálculo do tamanho da amostra</a></li>
+<li class="chapter" data-level="5.9" data-path="estimacao-de-proporcoes.html"><a href="estimacao-de-proporcoes.html#estimacao-de-proporcoes-para-variaveis-com-mais-duas-categorias"><i class="fa fa-check"></i><b>5.9</b> Estimação de proporções para variáveis com mais duas categorias</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="estimacao-de-uma-razao-populacional.html"><a href="estimacao-de-uma-razao-populacional.html"><i class="fa fa-check"></i><b>6</b> Estimação de uma Razão Populacional</a><ul>
+<li class="chapter" data-level="6.1" data-path="estimacao-de-uma-razao-populacional.html"><a href="estimacao-de-uma-razao-populacional.html#razoes-populacionais-como-parametros-de-interesse"><i class="fa fa-check"></i><b>6.1</b> Razões Populacionais como Parâmetros de Interesse</a></li>
+<li class="chapter" data-level="6.2" data-path="estimacao-de-uma-razao-populacional.html"><a href="estimacao-de-uma-razao-populacional.html#razao-de-medias-versus-media-de-razoes"><i class="fa fa-check"></i><b>6.2</b> Razão de Médias versus Média de Razões</a></li>
+<li class="chapter" data-level="6.3" data-path="estimacao-de-uma-razao-populacional.html"><a href="estimacao-de-uma-razao-populacional.html#estimacao-de-razoes"><i class="fa fa-check"></i><b>6.3</b> Estimação de Razões</a></li>
+<li class="chapter" data-level="6.4" data-path="estimacao-de-uma-razao-populacional.html"><a href="estimacao-de-uma-razao-populacional.html#analisando-o-vicio-do-estimador-da-razao-sob-aas"><i class="fa fa-check"></i><b>6.4</b> Analisando o Vício do Estimador da Razão sob AAS</a></li>
+<li class="chapter" data-level="6.5" data-path="estimacao-de-uma-razao-populacional.html"><a href="estimacao-de-uma-razao-populacional.html#erro-quadratico-medio-eqm-de-hatr-sob-aas"><i class="fa fa-check"></i><b>6.5</b> Erro Quadrático Médio (EQM) de <span class="math inline">\(\hat{R}\)</span> sob AAS</a></li>
+<li class="chapter" data-level="6.6" data-path="estimacao-de-uma-razao-populacional.html"><a href="estimacao-de-uma-razao-populacional.html#exercicios"><i class="fa fa-check"></i><b>6.6</b> Exercícios</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="estimacao-para-dominios-de-estudo.html"><a href="estimacao-para-dominios-de-estudo.html"><i class="fa fa-check"></i><b>7</b> Estimação Para Domínios de Estudo</a><ul>
+<li class="chapter" data-level="7.1" data-path="estimacao-para-dominios-de-estudo.html"><a href="estimacao-para-dominios-de-estudo.html#dominios-de-estudo"><i class="fa fa-check"></i><b>7.1</b> Domínios de Estudo</a></li>
+<li class="chapter" data-level="7.2" data-path="estimacao-para-dominios-de-estudo.html"><a href="estimacao-para-dominios-de-estudo.html#parametros-alvo-para-dominios"><i class="fa fa-check"></i><b>7.2</b> Parâmetros-Alvo Para Domínios</a></li>
+<li class="chapter" data-level="7.3" data-path="estimacao-para-dominios-de-estudo.html"><a href="estimacao-para-dominios-de-estudo.html#estimacao-de-parametros-de-dominios"><i class="fa fa-check"></i><b>7.3</b> Estimação de Parâmetros de Domínios</a></li>
+<li class="chapter" data-level="7.4" data-path="estimacao-para-dominios-de-estudo.html"><a href="estimacao-para-dominios-de-estudo.html#comparacao-da-eficiencia-dos-estimadores-de-total"><i class="fa fa-check"></i><b>7.4</b> Comparação da Eficiência dos Estimadores de Total</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="amostragem-sistematica-simples-as.html"><a href="amostragem-sistematica-simples-as.html"><i class="fa fa-check"></i><b>8</b> Amostragem Sistemática Simples (AS)</a><ul>
+<li class="chapter" data-level="8.1" data-path="amostragem-sistematica-simples-as.html"><a href="amostragem-sistematica-simples-as.html#esquema-de-selecao-da-amostra"><i class="fa fa-check"></i><b>8.1</b> Esquema de Seleção da Amostra</a></li>
+<li class="chapter" data-level="8.2" data-path="amostragem-sistematica-simples-as.html"><a href="amostragem-sistematica-simples-as.html#aspectos-importantes-na-amostragem-sistematica-simples"><i class="fa fa-check"></i><b>8.2</b> Aspectos Importantes na Amostragem Sistemática Simples</a></li>
+<li class="chapter" data-level="8.3" data-path="amostragem-sistematica-simples-as.html"><a href="amostragem-sistematica-simples-as.html#probabilidades-de-inclusao-na-amostragem-sistematica"><i class="fa fa-check"></i><b>8.3</b> Probabilidades de Inclusão na Amostragem Sistemática</a></li>
+<li class="chapter" data-level="8.4" data-path="amostragem-sistematica-simples-as.html"><a href="amostragem-sistematica-simples-as.html#variaveis-aleatorias-indicadoras"><i class="fa fa-check"></i><b>8.4</b> Variáveis Aleatórias Indicadoras</a></li>
+<li class="chapter" data-level="8.5" data-path="amostragem-sistematica-simples-as.html"><a href="amostragem-sistematica-simples-as.html#composicao-de-amostra-sistematica-de-intervalo-k"><i class="fa fa-check"></i><b>8.5</b> Composição de Amostra Sistemática de Intervalo K</a></li>
+<li class="chapter" data-level="8.6" data-path="amostragem-sistematica-simples-as.html"><a href="amostragem-sistematica-simples-as.html#estimacao-sob-amostragem-sistematica"><i class="fa fa-check"></i><b>8.6</b> Estimação sob Amostragem Sistemática</a></li>
+<li class="chapter" data-level="8.7" data-path="amostragem-sistematica-simples-as.html"><a href="amostragem-sistematica-simples-as.html#estimacao-do-total-populacional-sob-amostragem-sistematica"><i class="fa fa-check"></i><b>8.7</b> Estimação do Total Populacional sob Amostragem Sistemática</a></li>
+<li class="chapter" data-level="8.8" data-path="amostragem-sistematica-simples-as.html"><a href="amostragem-sistematica-simples-as.html#estimacao-da-media-populacional-sob-amostragem-sistematica"><i class="fa fa-check"></i><b>8.8</b> Estimação da Média Populacional sob Amostragem Sistemática</a></li>
+<li class="chapter" data-level="8.9" data-path="amostragem-sistematica-simples-as.html"><a href="amostragem-sistematica-simples-as.html#variancia-de-hat-y_as-sob-amostragem-sistematica"><i class="fa fa-check"></i><b>8.9</b> Variância de <span class="math inline">\(\hat Y_{AS}\)</span> Sob Amostragem Sistemática</a></li>
+<li class="chapter" data-level="8.10" data-path="amostragem-sistematica-simples-as.html"><a href="amostragem-sistematica-simples-as.html#estimacao-de-variancias-dos-estimadores"><i class="fa fa-check"></i><b>8.10</b> Estimação de Variâncias dos Estimadores</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="amostragem-binomial-ou-de-bernoulli-ab.html"><a href="amostragem-binomial-ou-de-bernoulli-ab.html"><i class="fa fa-check"></i><b>9</b> Amostragem Binomial ou de Bernoulli (AB)</a><ul>
+<li class="chapter" data-level="9.1" data-path="amostragem-binomial-ou-de-bernoulli-ab.html"><a href="amostragem-binomial-ou-de-bernoulli-ab.html#esquema-de-selecao-da-amostra-1"><i class="fa fa-check"></i><b>9.1</b> Esquema de Seleção da Amostra</a></li>
+<li class="chapter" data-level="9.2" data-path="amostragem-binomial-ou-de-bernoulli-ab.html"><a href="amostragem-binomial-ou-de-bernoulli-ab.html#probabilidades-de-inclusao-na-amostragem-binomial-ou-de-bernoulli"><i class="fa fa-check"></i><b>9.2</b> Probabilidades de Inclusão na Amostragem Binomial ou de Bernoulli</a></li>
+<li class="chapter" data-level="9.3" data-path="amostragem-binomial-ou-de-bernoulli-ab.html"><a href="amostragem-binomial-ou-de-bernoulli-ab.html#algumas-propriedades-da-amostragem-binomial-ou-de-bernoulli"><i class="fa fa-check"></i><b>9.3</b> Algumas Propriedades da Amostragem Binomial ou de Bernoulli</a></li>
+<li class="chapter" data-level="9.4" data-path="amostragem-binomial-ou-de-bernoulli-ab.html"><a href="amostragem-binomial-ou-de-bernoulli-ab.html#exemplos-de-aplicacao-da-amostragem-binomial-ou-de-bernoulli"><i class="fa fa-check"></i><b>9.4</b> Exemplos de Aplicação da Amostragem Binomial ou de Bernoulli</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="referencias.html"><a href="referencias.html"><i class="fa fa-check"></i>Referências</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Amostragem: Teoria e Prática Usando R</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="estimacao-de-uma-razao-populacional" class="section level1">
+<h1><span class="header-section-number">Capítulo 6</span> Estimação de uma Razão Populacional</h1>
+<div id="razoes-populacionais-como-parametros-de-interesse" class="section level2">
+<h2><span class="header-section-number">6.1</span> Razões Populacionais como Parâmetros de Interesse</h2>
+<p>Muitas vezes na prática de pesquisas por amostragem, o <em>parâmetro</em> populacional de interesse é uma razão entre duas variáveis que varia de unidade para unidade da população, podendo ser uma <em>razão de totais (ou médias)</em>.</p>
+<p>Alguns exemplos, que podem ser citados: a densidade de pessoas por cômodo em domicílios (razão entre o número de pessoas por domicílio e o número de cômodos por domicílio), a razão entre os gastos das famílias com alimentação e a renda das famílias, a produtividade da lavoura de certo produto (razão entre a quantidade colhida de certo produto pela área plantada), o salário médio dos trabalhadores da indústria (razão entre o salários dos trabalhadores da indústria e o número de trabalhadores da indústria).</p>
+<p>No caso da densidade de pessoas por cômodo em domicílios tem-se o parâmetro razão na população, <span class="math inline">\(R\)</span>, de forma que: <span class="math display">\[\frac{\textrm {Número de pessoas por domicílio}}{\textrm{Número de cômodos por domicílio}} = \frac{\sum_{i\in U}y_i}{\sum_{i\in U}x_i}=\frac{Y}{X}=\frac{\overline{Y}}{\overline{X}}=R\]</span></p>
+</div>
+<div id="razao-de-medias-versus-media-de-razoes" class="section level2">
+<h2><span class="header-section-number">6.2</span> Razão de Médias versus Média de Razões</h2>
+<p>Um cuidado importante aqui é entender a diferença de parâmetros de interesse.</p>
+<p>O parâmetro <span class="math inline">\(R\)</span> não é a média <span class="math inline">\(\left(\bar{R}= \sum_{i\in U}{R_i}/{N}\right)\)</span> das <em>razões por unidade</em> <span class="math inline">\(\left(R_i=y_i/x_i\right)\)</span>.</p>
+<p><strong>Exemplo 5.1:</strong> Considere as densidades de habitantes por unidade da federação conforme o Censo 2010.</p>
+<p>Neste exemplo, vemos a discrepância grande que pode ocorrer entre as duas quantidades, quando os valores de <span class="math inline">\(R_i\)</span> são muito dispersos.</p>
+<p><span class="math display">\[\begin{array}{|l|r|}\hline
+\textrm{Unidade da Federação} &amp; \textrm{Densidade (Hab/}Km^2) \\\hline \textrm{Rondônia} &amp; 6,6 \\\hline \textrm{Acre} &amp; 4,5 \\\hline \textrm{Amazonas} &amp; 2,2\\\hline \textrm{Roraima} &amp; 2,0\\\hline \textrm{Pará} &amp; 6,1\\\hline \textrm{Amapá} &amp; 4,7\\\hline \textrm{Tocantins} &amp; 5,0\\\hline \textrm{Maranhão} &amp; 19,8\\\hline \textrm{Piauí} &amp; 12,4\\\hline \textrm{Ceará} &amp; 56,8\\\hline \textrm{Rio Grande do Norte} &amp; 60,0\\\hline \textrm{Paraíba} &amp; 66,7\\\hline \textrm{Pernambuco} &amp; 89,6\\\hline \textrm{Alagoas} &amp; 112,3\\\hline \textrm{Sergipe} &amp; 94,4\\\hline \textrm{Bahia} &amp; 24,8\\\hline \textrm{Minas Gerais} &amp; 33,4\\\hline \textrm{Espírito Santo} &amp; 76,3\\\hline \textrm{Rio de Janeiro} &amp; 365,2\\\hline \textrm{São Paulo} &amp; 166,3\\\hline \textrm{Paraná} &amp; 52,4\\\hline \textrm{Santa Catarina} &amp; 65,3\\\hline \textrm{Rio Grande do Sul} &amp; 39,8\\\hline \textrm{Mato Grosso do Sul} &amp; 6,9\\\hline \textrm{Mato Grosso} &amp; 3,4\\\hline \textrm{Goiás} &amp; 17,7\\\hline \textrm{Distrito Federal} &amp; 444,1\\\hline \textbf{Brasil (Média das razões)} &amp; \textbf{68,1}\\\hline \textbf{Brasil (Razão das médias)} &amp; \textbf{22,4} \\\hline \end{array}\]</span></p>
+<p><span class="math display">\[\begin{array}{l} \textrm{Fonte: IBGE, Censo Demográfico 2010.} &amp;\\ \end{array}\]</span></p>
+</div>
+<div id="estimacao-de-razoes" class="section level2">
+<h2><span class="header-section-number">6.3</span> Estimação de Razões</h2>
+<p>Para estimar razões de totais (ou médias) como R, o estimador “natural” é a <em>razão dos estimadores Horwitz-Thompson de total</em>:</p>
+<p><span class="math inline">\(\hat{R}=\frac{\sum_{i\in s}w_iy_i}{\sum_{i\in s}w_ix_i}=\frac{\hat{Y}_{HT}}{\hat{X}_{HT}}\)</span></p>
+<p>Sob AAS, este estimador simplifica para <span class="math inline">\(\hat{R}=\frac{\sum_{i\in s}y_i}{\sum_{i\in s}x_i}=\frac{\overline{y}}{\overline{x}}\)</span>.</p>
+<p><strong>Notas</strong></p>
+<ol style="list-style-type: decimal">
+<li><p>Tanto o numerador como o denominador do estimador <span class="math inline">\(\hat{R}\)</span> da razão <span class="math inline">\(R\)</span> podem variar com a amostra selecionada, <span class="math inline">\(s\)</span>.</p></li>
+<li><p>Apesar de termos estimadores não viciados para as médias populacionais <span class="math inline">\(\overline{Y}\)</span> e <span class="math inline">\(\overline{X}\)</span>, em geral, <span class="math inline">\(E(Z/W)\ne E(Z)E(W)\)</span>, e portanto <span class="math inline">\(E(\hat{R})= E({\overline{y}}/{\overline {x}}) \ne E(\overline{y})/E(\overline{x})= \overline{Y}/\overline{X}=R\)</span>.</p></li>
+<li><p>Logo <span class="math inline">\(\hat{R}\)</span> é um estimador viciado de <span class="math inline">\(R\)</span>.</p></li>
+<li><p>O vício de <span class="math inline">\(\hat{R}\)</span> é pequeno e chamado de “vício técnico”, para distingui-lo de outros vícios tais como não resposta e outros. Para n <em>grande</em>, este <em>vício é desprezível</em>.</p></li>
+</ol>
+</div>
+<div id="analisando-o-vicio-do-estimador-da-razao-sob-aas" class="section level2">
+<h2><span class="header-section-number">6.4</span> Analisando o Vício do Estimador da Razão sob AAS</h2>
+<p>Sejam <span class="math inline">\(\Delta y=\overline{y} - \overline{Y}\)</span>, e <span class="math inline">\(\Delta x=\overline{x} - \overline{X}\)</span> os erros das estimativas de médias populacionais para as variáveis <span class="math inline">\(x\)</span> e <span class="math inline">\(y\)</span>.</p>
+<p>Lembrando que <span class="math inline">\(DP_{AAS}(\overline{y})=\sqrt{(1-f)}S_y/\sqrt{n}\)</span>, segue-se que <span class="math inline">\(\Delta y\)</span> e <span class="math inline">\(\Delta x\)</span> são de ordem <span class="math inline">\(n^{-1/2}\)</span> (a ordem de grandeza do desvio padrão).</p>
+<p>Portanto,</p>
+<p><span class="math inline">\(\frac{\overline{y}}{\overline{x}}=\frac{\overline{Y}+\Delta{y}}{\overline{x}+\Delta{x}}=\frac{\overline{Y}}{\overline{X}}\left(1+\frac{\Delta{y}}{Y}\right)\left(1+\frac{\Delta{x}}{X}\right)^{-1}\)</span></p>
+<p>Desenvolvendo-se o fator <span class="math inline">\(\left(1+\frac{\Delta{x}}{X}\right)^{-1}\)</span> como série de potências de <span class="math inline">\(\Delta{x}\)</span>, tem-se: <span class="math inline">\(\frac{\overline{y}}{\overline{x}}=\frac{\overline{Y}}{\overline{X}}\left(1+\frac{\Delta{y}}{Y}\right)\left(1+\frac{\Delta{x}}{X}\right)^{-1}=\frac{\overline{Y}}{\overline{X}}\left(1+\frac{\Delta{y}}{Y}\right)\left[1-\frac{\Delta{x}}{X}+\left(\frac{\Delta{x}}{X}\right)^2+´´´\right]=\frac{\overline{Y}}{\overline{X}}\left(1+\frac{\Delta{y}}{Y}-\frac{\Delta{x}}{X}+\textrm{termos em} \,\Delta^2\right)\)</span>.</p>
+<p>Logo:</p>
+<p><span class="math inline">\(E(\hat{R})=E(\overline{y}/\overline{x})=R\left[1+\frac{E(\Delta{y})}{\overline{Y}}-\frac{E(\Delta{x})}{\overline{X}}+\textrm{termos em}\,\, E(\Delta^2)\right]= R +\textrm{termos em ordem}\,\,n^{-1}\)</span></p>
+<p>porque <span class="math inline">\(E(\Delta{y})=E(\Delta{x})=0\)</span>.</p>
+<p>Assim, o vício é de ordem <span class="math inline">\(n^{-1}\)</span> e fica menor à medida que o tamanho da amostra cresce, daí o nome de <em>vício técnico</em>.</p>
+<p>Vícios desse tipo são geralmente desprezados na prática, a menos que se tenha amostras <em>muito pequenas</em>.</p>
+</div>
+<div id="erro-quadratico-medio-eqm-de-hatr-sob-aas" class="section level2">
+<h2><span class="header-section-number">6.5</span> Erro Quadrático Médio (EQM) de <span class="math inline">\(\hat{R}\)</span> sob AAS</h2>
+<p>Como <span class="math inline">\(\hat{R}\)</span> tem um pequeno vício técnico, avaliamos seu <em>Erro Quadrático Médio (EQM)</em> sob AAS, ao invés da variância:</p>
+<span class="math display">\[\begin{eqnarray}EQM_{AAS}(\hat{R}) &amp; = &amp; E_{AAS}\left(\hat{R}-R\right)^2 \\ &amp;=&amp; E_{AAS}\left[R^2\left(\frac{\Delta{y}}{\overline{Y}}-\frac{\Delta{x}}{\overline{X}}\right)^2\right]+\textrm{termos em} \,\Delta^3 \\ &amp;\cong &amp; R^2 E_{AAS}\left(\frac{\bar{y}-\bar{Y}}{\bar{Y}}-\frac{\bar{x}-\bar{X}}{\bar{X}}\right)^2 \\ &amp;=&amp; \frac{R^2}{\bar{Y}^2}E_{AAS}(\bar{y}-R\bar{x})^2\\ &amp;=&amp; \frac{(1-f)}{n\bar{X}^2}\frac{1}{(N-1)}\displaystyle\sum_{i\in U}\left(y_i-Rx_i\right)^2\end{eqnarray}\]</span>
+<p>.</p>
+<p>Um estimador desse EQM que tem vício de ordem <span class="math inline">\(n^{-1}\)</span> é:</p>
+<p><span class="math display">\[\hat{V}_{AAS}(\hat{R})=\frac{(1-f)}{n\bar{x}^2}\frac{1}{(n-1)}\displaystyle\sum_{i\in s}\left(y_i-\hat{R}x_i\right)^2\]</span> Veja Cochran (1977).</p>
+<p>Portanto, sob AAS temos a seguinte estrutura para estimação de razões:</p>
+<ol style="list-style-type: decimal">
+<li><p><span class="math inline">\(\hat{R}\)</span> estima <span class="math inline">\(R\)</span> e <span class="math inline">\(E_{AAS}(\hat{R})=R+O(n^{-1})\)</span>;</p></li>
+<li><p><span class="math inline">\(EQM_{AAS}(\hat{R})=\frac{(1-f)}{n\bar{X}^2}\frac{\displaystyle\sum_{i\in U}\left(y_i-Rx_i\right)^2}{N-1}+ O\left(n^{-3/2}\right)\)</span></p></li>
+<li><p><span class="math inline">\(\hat{V}_{AAS}(\hat{R})=\frac{(1-f)}{n\bar{x}^2}\frac{1}{(n-1)}\displaystyle\sum_{i\in s}\left(y_i-\hat{R}x_i\right)^2\)</span></p></li>
+<li><p><span class="math inline">\(\frac{\hat{R}-R}{{\sqrt{\hat{V}_{AAS}(\hat{R})}}}\approx N(0;1)\)</span> para <span class="math inline">\(n\)</span> grande.</p></li>
+</ol>
+</div>
+<div id="exercicios" class="section level2">
+<h2><span class="header-section-number">6.6</span> Exercícios</h2>
+<p><strong>Exercício 5.1:</strong> Identifique e defina duas razões que você já tenha utilizado em seu trabalho.</p>
+<p><strong>Exercício 5.2:</strong> Estimando Razões e Médias de Razões</p>
+<p>Considere a população de municípios brasileiros fornecida no arquivo MunicBR.xlsx.</p>
+<ol style="list-style-type: decimal">
+<li>Selecione uma AAS de <span class="math inline">\(n=20\)</span> municípios, e use esta amostra para estimar os seguintes parâmetros populacionais:</li>
+</ol>
+<ol style="list-style-type: lower-alpha">
+<li><p>Densidade habitacional média por <span class="math inline">\(km^2\)</span> no Brasil;</p></li>
+<li><p>Média da densidade habitacional por <span class="math inline">\(km^2\)</span> por município.</p></li>
+</ol>
+<ol start="2" style="list-style-type: decimal">
+<li>Para cada uma das estimativas acima:</li>
+</ol>
+<ol style="list-style-type: lower-alpha">
+<li><p>Estime o erro padrão e o coeficiente de variação;</p></li>
+<li><p>Compare com os correspondentes parâmetros populacionais.</p></li>
+</ol>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="estimacao-de-proporcoes.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="estimacao-para-dominios-de-estudo.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "";
+    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

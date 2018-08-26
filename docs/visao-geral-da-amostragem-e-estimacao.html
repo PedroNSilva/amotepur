@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Amostragem: Teoria e Prática Usando R</title>
+  <meta name="description" content="Este é o livro de Amostragem elaborado pelos autores.">
+  <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
+
+  <meta property="og:title" content="Amostragem: Teoria e Prática Usando R" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Este é o livro de Amostragem elaborado pelos autores." />
+  <meta name="github-repo" content="PedroNSilva/amotepur" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Amostragem: Teoria e Prática Usando R" />
+  
+  <meta name="twitter:description" content="Este é o livro de Amostragem elaborado pelos autores." />
+  
+
+<meta name="author" content="Pedro Luis do Nascimento Silva, Zélia Magalhães Bianchini e Antonio José Ribeiro Dias">
+
+
+<meta name="date" content="2018-08-26">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="conceitos-e-cadastros.html">
+<link rel="next" href="amostragem-aleatoria-simples.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Prefácio</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#agradecimentos"><i class="fa fa-check"></i>Agradecimentos</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="introduc.html"><a href="introduc.html"><i class="fa fa-check"></i><b>1</b> Introdução</a><ul>
+<li class="chapter" data-level="1.1" data-path="introduc.html"><a href="introduc.html#motivacao"><i class="fa fa-check"></i><b>1.1</b> Motivação</a></li>
+<li class="chapter" data-level="1.2" data-path="introduc.html"><a href="introduc.html#objetivos-do-livro"><i class="fa fa-check"></i><b>1.2</b> Objetivos do livro</a></li>
+<li class="chapter" data-level="1.3" data-path="introduc.html"><a href="introduc.html#estrutura-do-livro"><i class="fa fa-check"></i><b>1.3</b> Estrutura do livro</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="conceitos-e-cadastros.html"><a href="conceitos-e-cadastros.html"><i class="fa fa-check"></i><b>2</b> Conceitos e Cadastros</a><ul>
+<li class="chapter" data-level="2.1" data-path="conceitos-e-cadastros.html"><a href="conceitos-e-cadastros.html#fontes-de-dados-e-tipos-de-pesquisas"><i class="fa fa-check"></i><b>2.1</b> Fontes de Dados e Tipos de Pesquisas</a></li>
+<li class="chapter" data-level="2.2" data-path="conceitos-e-cadastros.html"><a href="conceitos-e-cadastros.html#alguns-conceitos-fundamentais"><i class="fa fa-check"></i><b>2.2</b> Alguns Conceitos Fundamentais</a></li>
+<li class="chapter" data-level="2.3" data-path="conceitos-e-cadastros.html"><a href="conceitos-e-cadastros.html#abordagens-alternativas-para-pesquisas-por-amostragem"><i class="fa fa-check"></i><b>2.3</b> Abordagens alternativas para pesquisas por amostragem</a></li>
+<li class="chapter" data-level="2.4" data-path="conceitos-e-cadastros.html"><a href="conceitos-e-cadastros.html#planejamento-e-execucao-de-pesquisas-por-amostragem"><i class="fa fa-check"></i><b>2.4</b> Planejamento e execução de pesquisas por amostragem</a></li>
+<li class="chapter" data-level="2.5" data-path="conceitos-e-cadastros.html"><a href="conceitos-e-cadastros.html#cadastros"><i class="fa fa-check"></i><b>2.5</b> Cadastros</a><ul>
+<li class="chapter" data-level="2.5.1" data-path="conceitos-e-cadastros.html"><a href="conceitos-e-cadastros.html#cadastros-importantes-no-ibge"><i class="fa fa-check"></i><b>2.5.1</b> Cadastros importantes no IBGE</a></li>
+<li class="chapter" data-level="2.5.2" data-path="conceitos-e-cadastros.html"><a href="conceitos-e-cadastros.html#defeitos-de-cadastros"><i class="fa fa-check"></i><b>2.5.2</b> Defeitos de cadastros</a></li>
+<li class="chapter" data-level="2.5.3" data-path="conceitos-e-cadastros.html"><a href="conceitos-e-cadastros.html#regras-de-associacao-das-unidades-da-populacao-a-unidade-cadastral"><i class="fa fa-check"></i><b>2.5.3</b> Regras de associação das unidades da população à unidade cadastral</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="visao-geral-da-amostragem-e-estimacao.html"><a href="visao-geral-da-amostragem-e-estimacao.html"><i class="fa fa-check"></i><b>3</b> Visão Geral da Amostragem e Estimação</a><ul>
+<li class="chapter" data-level="3.1" data-path="visao-geral-da-amostragem-e-estimacao.html"><a href="visao-geral-da-amostragem-e-estimacao.html#definicoes-e-notacao-para-populacao-de-pesquisa"><i class="fa fa-check"></i><b>3.1</b> Definições e Notação para População de Pesquisa</a></li>
+<li class="chapter" data-level="3.2" data-path="visao-geral-da-amostragem-e-estimacao.html"><a href="visao-geral-da-amostragem-e-estimacao.html#amostra"><i class="fa fa-check"></i><b>3.2</b> Amostra</a></li>
+<li class="chapter" data-level="3.3" data-path="visao-geral-da-amostragem-e-estimacao.html"><a href="visao-geral-da-amostragem-e-estimacao.html#estimacao"><i class="fa fa-check"></i><b>3.3</b> Estimação</a><ul>
+<li class="chapter" data-level="3.3.1" data-path="visao-geral-da-amostragem-e-estimacao.html"><a href="visao-geral-da-amostragem-e-estimacao.html#amostragem-probabilistica"><i class="fa fa-check"></i><b>3.3.1</b> Amostragem Probabilística</a></li>
+<li class="chapter" data-level="3.3.2" data-path="visao-geral-da-amostragem-e-estimacao.html"><a href="visao-geral-da-amostragem-e-estimacao.html#a-distribuicao-de-aleatorizacao"><i class="fa fa-check"></i><b>3.3.2</b> A Distribuição de Aleatorização</a></li>
+<li class="chapter" data-level="3.3.3" data-path="visao-geral-da-amostragem-e-estimacao.html"><a href="visao-geral-da-amostragem-e-estimacao.html#estimadores-nao-viciados-para-o-total"><i class="fa fa-check"></i><b>3.3.3</b> Estimadores Não Viciados para o Total</a></li>
+<li class="chapter" data-level="3.3.4" data-path="visao-geral-da-amostragem-e-estimacao.html"><a href="visao-geral-da-amostragem-e-estimacao.html#teoria-basica"><i class="fa fa-check"></i><b>3.3.4</b> Teoria Básica</a></li>
+<li class="chapter" data-level="3.3.5" data-path="visao-geral-da-amostragem-e-estimacao.html"><a href="visao-geral-da-amostragem-e-estimacao.html#estimador-linear-de-total"><i class="fa fa-check"></i><b>3.3.5</b> Estimador linear de total</a></li>
+<li class="chapter" data-level="3.3.6" data-path="visao-geral-da-amostragem-e-estimacao.html"><a href="visao-geral-da-amostragem-e-estimacao.html#propriedades-do-estimador-de-horvitz-thompson"><i class="fa fa-check"></i><b>3.3.6</b> Propriedades do Estimador de Horvitz-Thompson</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="amostragem-aleatoria-simples.html"><a href="amostragem-aleatoria-simples.html"><i class="fa fa-check"></i><b>4</b> Amostragem Aleatória Simples</a><ul>
+<li class="chapter" data-level="4.1" data-path="amostragem-aleatoria-simples.html"><a href="amostragem-aleatoria-simples.html#planos-amostrais-e-esquemas-de-selecao"><i class="fa fa-check"></i><b>4.1</b> Planos Amostrais e Esquemas de Seleção</a></li>
+<li class="chapter" data-level="4.2" data-path="amostragem-aleatoria-simples.html"><a href="amostragem-aleatoria-simples.html#amostragem-aleatoria-simples-com-reposicao-aasc"><i class="fa fa-check"></i><b>4.2</b> Amostragem Aleatória Simples Com Reposição (AASC)</a></li>
+<li class="chapter" data-level="4.3" data-path="amostragem-aleatoria-simples.html"><a href="amostragem-aleatoria-simples.html#estimacao-de-parametros-populacionais-sob-aasc"><i class="fa fa-check"></i><b>4.3</b> Estimação de Parâmetros Populacionais sob AASC</a></li>
+<li class="chapter" data-level="4.4" data-path="amostragem-aleatoria-simples.html"><a href="amostragem-aleatoria-simples.html#amostragem-aleatoria-simples-sem-reposicao-aas"><i class="fa fa-check"></i><b>4.4</b> Amostragem Aleatória Simples Sem Reposição (AAS)</a><ul>
+<li class="chapter" data-level="4.4.1" data-path="amostragem-aleatoria-simples.html"><a href="amostragem-aleatoria-simples.html#aas-algoritmo-convencional"><i class="fa fa-check"></i><b>4.4.1</b> AAS: Algoritmo “Convencional”</a></li>
+<li class="chapter" data-level="4.4.2" data-path="amostragem-aleatoria-simples.html"><a href="amostragem-aleatoria-simples.html#aas-esquemas-baseados-em-processamento-de-listas"><i class="fa fa-check"></i><b>4.4.2</b> AAS: Esquemas Baseados em Processamento de Listas</a></li>
+<li class="chapter" data-level="4.4.3" data-path="amostragem-aleatoria-simples.html"><a href="amostragem-aleatoria-simples.html#probabilidades-de-inclusao-selecao"><i class="fa fa-check"></i><b>4.4.3</b> Probabilidades de inclusão (Seleção)</a></li>
+<li class="chapter" data-level="4.4.4" data-path="amostragem-aleatoria-simples.html"><a href="amostragem-aleatoria-simples.html#estimador-nao-viciado-do-total-populacional-sob-aas"><i class="fa fa-check"></i><b>4.4.4</b> Estimador Não Viciado do Total Populacional Sob AAS</a></li>
+<li class="chapter" data-level="4.4.5" data-path="amostragem-aleatoria-simples.html"><a href="amostragem-aleatoria-simples.html#estimador-nao-viciado-da-media-populacional-sob-aas"><i class="fa fa-check"></i><b>4.4.5</b> Estimador Não Viciado da Média Populacional Sob AAS</a></li>
+<li class="chapter" data-level="4.4.6" data-path="amostragem-aleatoria-simples.html"><a href="amostragem-aleatoria-simples.html#distribuicao-da-media-amostral"><i class="fa fa-check"></i><b>4.4.6</b> Distribuição da Média Amostral</a></li>
+<li class="chapter" data-level="4.4.7" data-path="amostragem-aleatoria-simples.html"><a href="amostragem-aleatoria-simples.html#diferencas-da-aas-para-amostragem-com-reposicao-aasc"><i class="fa fa-check"></i><b>4.4.7</b> Diferenças da AAS Para Amostragem Com Reposição (AASC)</a></li>
+<li class="chapter" data-level="4.4.8" data-path="amostragem-aleatoria-simples.html"><a href="amostragem-aleatoria-simples.html#determinacao-do-tamanho-da-amostra"><i class="fa fa-check"></i><b>4.4.8</b> Determinação do Tamanho da Amostra</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="estimacao-de-proporcoes.html"><a href="estimacao-de-proporcoes.html"><i class="fa fa-check"></i><b>5</b> Estimação de proporções</a><ul>
+<li class="chapter" data-level="5.1" data-path="estimacao-de-proporcoes.html"><a href="estimacao-de-proporcoes.html#proporcao-populacional"><i class="fa fa-check"></i><b>5.1</b> Proporção populacional</a></li>
+<li class="chapter" data-level="5.2" data-path="estimacao-de-proporcoes.html"><a href="estimacao-de-proporcoes.html#estimacao-de-uma-proporcao-sob-amostragem-aleatoria-simples-com-reposicao---aasc"><i class="fa fa-check"></i><b>5.2</b> Estimação de uma proporção sob Amostragem Aleatória Simples com reposição - <em>AASC</em></a></li>
+<li class="chapter" data-level="5.3" data-path="estimacao-de-proporcoes.html"><a href="estimacao-de-proporcoes.html#distribuicao-amostral-de-y-sob-aasc"><i class="fa fa-check"></i><b>5.3</b> Distribuição amostral de <span class="math inline">\(y\)</span> sob <em>AASC</em></a></li>
+<li class="chapter" data-level="5.4" data-path="estimacao-de-proporcoes.html"><a href="estimacao-de-proporcoes.html#estimacao-de-uma-proporcao-sob-amostragem-aleatoria-simples-sem-reposicao---aas"><i class="fa fa-check"></i><b>5.4</b> Estimação de uma proporção sob Amostragem Aleatória Simples sem reposição - <em>AAS</em></a></li>
+<li class="chapter" data-level="5.5" data-path="estimacao-de-proporcoes.html"><a href="estimacao-de-proporcoes.html#distribuicao-amostral-de-y-sob-aas"><i class="fa fa-check"></i><b>5.5</b> Distribuição amostral de <span class="math inline">\(y\)</span> sob <em>AAS</em></a></li>
+<li class="chapter" data-level="5.6" data-path="estimacao-de-proporcoes.html"><a href="estimacao-de-proporcoes.html#intervalos-de-confianca-para-proporcoes-na-amostragem-aleatoria-simples"><i class="fa fa-check"></i><b>5.6</b> Intervalos de confiança para proporções na Amostragem Aleatória Simples</a></li>
+<li class="chapter" data-level="5.7" data-path="estimacao-de-proporcoes.html"><a href="estimacao-de-proporcoes.html#intervalos-de-confianca-utilizando-a-aproximacao-normal"><i class="fa fa-check"></i><b>5.7</b> Intervalos de confiança utilizando a Aproximação Normal</a></li>
+<li class="chapter" data-level="5.8" data-path="estimacao-de-proporcoes.html"><a href="estimacao-de-proporcoes.html#calculo-do-tamanho-da-amostra"><i class="fa fa-check"></i><b>5.8</b> Cálculo do tamanho da amostra</a></li>
+<li class="chapter" data-level="5.9" data-path="estimacao-de-proporcoes.html"><a href="estimacao-de-proporcoes.html#estimacao-de-proporcoes-para-variaveis-com-mais-duas-categorias"><i class="fa fa-check"></i><b>5.9</b> Estimação de proporções para variáveis com mais duas categorias</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="estimacao-de-uma-razao-populacional.html"><a href="estimacao-de-uma-razao-populacional.html"><i class="fa fa-check"></i><b>6</b> Estimação de uma Razão Populacional</a><ul>
+<li class="chapter" data-level="6.1" data-path="estimacao-de-uma-razao-populacional.html"><a href="estimacao-de-uma-razao-populacional.html#razoes-populacionais-como-parametros-de-interesse"><i class="fa fa-check"></i><b>6.1</b> Razões Populacionais como Parâmetros de Interesse</a></li>
+<li class="chapter" data-level="6.2" data-path="estimacao-de-uma-razao-populacional.html"><a href="estimacao-de-uma-razao-populacional.html#razao-de-medias-versus-media-de-razoes"><i class="fa fa-check"></i><b>6.2</b> Razão de Médias versus Média de Razões</a></li>
+<li class="chapter" data-level="6.3" data-path="estimacao-de-uma-razao-populacional.html"><a href="estimacao-de-uma-razao-populacional.html#estimacao-de-razoes"><i class="fa fa-check"></i><b>6.3</b> Estimação de Razões</a></li>
+<li class="chapter" data-level="6.4" data-path="estimacao-de-uma-razao-populacional.html"><a href="estimacao-de-uma-razao-populacional.html#analisando-o-vicio-do-estimador-da-razao-sob-aas"><i class="fa fa-check"></i><b>6.4</b> Analisando o Vício do Estimador da Razão sob AAS</a></li>
+<li class="chapter" data-level="6.5" data-path="estimacao-de-uma-razao-populacional.html"><a href="estimacao-de-uma-razao-populacional.html#erro-quadratico-medio-eqm-de-hatr-sob-aas"><i class="fa fa-check"></i><b>6.5</b> Erro Quadrático Médio (EQM) de <span class="math inline">\(\hat{R}\)</span> sob AAS</a></li>
+<li class="chapter" data-level="6.6" data-path="estimacao-de-uma-razao-populacional.html"><a href="estimacao-de-uma-razao-populacional.html#exercicios"><i class="fa fa-check"></i><b>6.6</b> Exercícios</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="estimacao-para-dominios-de-estudo.html"><a href="estimacao-para-dominios-de-estudo.html"><i class="fa fa-check"></i><b>7</b> Estimação Para Domínios de Estudo</a><ul>
+<li class="chapter" data-level="7.1" data-path="estimacao-para-dominios-de-estudo.html"><a href="estimacao-para-dominios-de-estudo.html#dominios-de-estudo"><i class="fa fa-check"></i><b>7.1</b> Domínios de Estudo</a></li>
+<li class="chapter" data-level="7.2" data-path="estimacao-para-dominios-de-estudo.html"><a href="estimacao-para-dominios-de-estudo.html#parametros-alvo-para-dominios"><i class="fa fa-check"></i><b>7.2</b> Parâmetros-Alvo Para Domínios</a></li>
+<li class="chapter" data-level="7.3" data-path="estimacao-para-dominios-de-estudo.html"><a href="estimacao-para-dominios-de-estudo.html#estimacao-de-parametros-de-dominios"><i class="fa fa-check"></i><b>7.3</b> Estimação de Parâmetros de Domínios</a></li>
+<li class="chapter" data-level="7.4" data-path="estimacao-para-dominios-de-estudo.html"><a href="estimacao-para-dominios-de-estudo.html#comparacao-da-eficiencia-dos-estimadores-de-total"><i class="fa fa-check"></i><b>7.4</b> Comparação da Eficiência dos Estimadores de Total</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="amostragem-sistematica-simples-as.html"><a href="amostragem-sistematica-simples-as.html"><i class="fa fa-check"></i><b>8</b> Amostragem Sistemática Simples (AS)</a><ul>
+<li class="chapter" data-level="8.1" data-path="amostragem-sistematica-simples-as.html"><a href="amostragem-sistematica-simples-as.html#esquema-de-selecao-da-amostra"><i class="fa fa-check"></i><b>8.1</b> Esquema de Seleção da Amostra</a></li>
+<li class="chapter" data-level="8.2" data-path="amostragem-sistematica-simples-as.html"><a href="amostragem-sistematica-simples-as.html#aspectos-importantes-na-amostragem-sistematica-simples"><i class="fa fa-check"></i><b>8.2</b> Aspectos Importantes na Amostragem Sistemática Simples</a></li>
+<li class="chapter" data-level="8.3" data-path="amostragem-sistematica-simples-as.html"><a href="amostragem-sistematica-simples-as.html#probabilidades-de-inclusao-na-amostragem-sistematica"><i class="fa fa-check"></i><b>8.3</b> Probabilidades de Inclusão na Amostragem Sistemática</a></li>
+<li class="chapter" data-level="8.4" data-path="amostragem-sistematica-simples-as.html"><a href="amostragem-sistematica-simples-as.html#variaveis-aleatorias-indicadoras"><i class="fa fa-check"></i><b>8.4</b> Variáveis Aleatórias Indicadoras</a></li>
+<li class="chapter" data-level="8.5" data-path="amostragem-sistematica-simples-as.html"><a href="amostragem-sistematica-simples-as.html#composicao-de-amostra-sistematica-de-intervalo-k"><i class="fa fa-check"></i><b>8.5</b> Composição de Amostra Sistemática de Intervalo K</a></li>
+<li class="chapter" data-level="8.6" data-path="amostragem-sistematica-simples-as.html"><a href="amostragem-sistematica-simples-as.html#estimacao-sob-amostragem-sistematica"><i class="fa fa-check"></i><b>8.6</b> Estimação sob Amostragem Sistemática</a></li>
+<li class="chapter" data-level="8.7" data-path="amostragem-sistematica-simples-as.html"><a href="amostragem-sistematica-simples-as.html#estimacao-do-total-populacional-sob-amostragem-sistematica"><i class="fa fa-check"></i><b>8.7</b> Estimação do Total Populacional sob Amostragem Sistemática</a></li>
+<li class="chapter" data-level="8.8" data-path="amostragem-sistematica-simples-as.html"><a href="amostragem-sistematica-simples-as.html#estimacao-da-media-populacional-sob-amostragem-sistematica"><i class="fa fa-check"></i><b>8.8</b> Estimação da Média Populacional sob Amostragem Sistemática</a></li>
+<li class="chapter" data-level="8.9" data-path="amostragem-sistematica-simples-as.html"><a href="amostragem-sistematica-simples-as.html#variancia-de-hat-y_as-sob-amostragem-sistematica"><i class="fa fa-check"></i><b>8.9</b> Variância de <span class="math inline">\(\hat Y_{AS}\)</span> Sob Amostragem Sistemática</a></li>
+<li class="chapter" data-level="8.10" data-path="amostragem-sistematica-simples-as.html"><a href="amostragem-sistematica-simples-as.html#estimacao-de-variancias-dos-estimadores"><i class="fa fa-check"></i><b>8.10</b> Estimação de Variâncias dos Estimadores</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="amostragem-binomial-ou-de-bernoulli-ab.html"><a href="amostragem-binomial-ou-de-bernoulli-ab.html"><i class="fa fa-check"></i><b>9</b> Amostragem Binomial ou de Bernoulli (AB)</a><ul>
+<li class="chapter" data-level="9.1" data-path="amostragem-binomial-ou-de-bernoulli-ab.html"><a href="amostragem-binomial-ou-de-bernoulli-ab.html#esquema-de-selecao-da-amostra-1"><i class="fa fa-check"></i><b>9.1</b> Esquema de Seleção da Amostra</a></li>
+<li class="chapter" data-level="9.2" data-path="amostragem-binomial-ou-de-bernoulli-ab.html"><a href="amostragem-binomial-ou-de-bernoulli-ab.html#probabilidades-de-inclusao-na-amostragem-binomial-ou-de-bernoulli"><i class="fa fa-check"></i><b>9.2</b> Probabilidades de Inclusão na Amostragem Binomial ou de Bernoulli</a></li>
+<li class="chapter" data-level="9.3" data-path="amostragem-binomial-ou-de-bernoulli-ab.html"><a href="amostragem-binomial-ou-de-bernoulli-ab.html#algumas-propriedades-da-amostragem-binomial-ou-de-bernoulli"><i class="fa fa-check"></i><b>9.3</b> Algumas Propriedades da Amostragem Binomial ou de Bernoulli</a></li>
+<li class="chapter" data-level="9.4" data-path="amostragem-binomial-ou-de-bernoulli-ab.html"><a href="amostragem-binomial-ou-de-bernoulli-ab.html#exemplos-de-aplicacao-da-amostragem-binomial-ou-de-bernoulli"><i class="fa fa-check"></i><b>9.4</b> Exemplos de Aplicação da Amostragem Binomial ou de Bernoulli</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="referencias.html"><a href="referencias.html"><i class="fa fa-check"></i>Referências</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Amostragem: Teoria e Prática Usando R</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="visao-geral-da-amostragem-e-estimacao" class="section level1">
+<h1><span class="header-section-number">Capítulo 3</span> Visão Geral da Amostragem e Estimação</h1>
+<div id="definicoes-e-notacao-para-populacao-de-pesquisa" class="section level2">
+<h2><span class="header-section-number">3.1</span> Definições e Notação para População de Pesquisa</h2>
+<p>No que se segue são introduzidas algumas definições e notação necessárias para o prosseguimento da teoria da amostragem.</p>
+<p>Chama-se <em>população</em> qualquer conjunto contendo um número finito <span class="math inline">\(N\)</span> de elementos populacionais por meio de alguma característica em comum. Os elementos deste conjunto serão denominados <em>unidades da população</em>, e o conjunto de <span class="math inline">\(N\)</span> rótulos distintos será representado por <span class="math inline">\(U=\{1,2,\dots,i,\dots,N\}\)</span>, sendo: <span class="math inline">\(N\)</span> o tamanho da população de pesquisa; e <span class="math inline">\(i\)</span> o rótulo para a unidade genérica da população.</p>
+<p>São exemplos comuns de populações sobre as quais se realizam pesquisas: domicílios de certa localidade; indústrias instaladas num certo país; fazendas situadas num certo estado; alunos da rede escolar estadual.</p>
+<p>Já foi enfatizado no capítulo anterior a importância de uma definição clara e precisa da população alvo da pesquisa. No entanto, ao estudar <em>amostragem</em>, o maior interesse está voltado para o problema de estimar ou inferir certas quantidades ou parâmetros de diversas características numéricas (variáveis) que podem ser medidas ou observadas para cada unidade da população.<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a></p>
+<p>De fato, cada característica numérica dá origem a um vetor populacional, que é o conjunto de valores numéricos da variável considerada correspondente a cada uma das unidades da população. Por exemplo, se <span class="math inline">\(y\)</span> é a variável de pesquisa / de interesse e <span class="math inline">\(y_i\)</span> é o valor da variável <span class="math inline">\(y\)</span> para a unidade <span class="math inline">\(i\)</span>, então <span class="math inline">\(Y_U=\{y_1,y_2,\dots,y_i,\dots,y_N\}\)</span> é o vetor populacional gerado pela variável <span class="math inline">\(y\)</span>.</p>
+<p>Pelo exposto, deve ficar claro que a observação de várias variáveis de uma mesma população vai gerar diversos vetores populacionais, cada um correspondendo a uma das variáveis observadas.</p>
+<p>Em muitos casos, o interesse em estudar determinada população resume-se à necessidade de conhecer os valores de alguns <em>parametros</em> de uma ou mais variáveis associadas àquela população. Esses parâmetros-alvo (de interesse) podem ser quaisquer funções dos valores dos vetores populacionais, porém o caso mais comum é o interesse em estimar totais, médias, proporções, razãoes ou mesmo variâncias, covariâncias e correlações, sendo raros os casos de interesse por outros parâmetros.</p>
+<p>Os principais <em>parâmetros-alvo</em> (de interesse) podem ser representados por meio das seguintes funções dos valores:</p>
+<p><span class="math inline">\(Y=\displaystyle\sum_{i=1}^{N}y_i=\sum_{i\in U}y_i\quad\)</span> o total populacional da variável <span class="math inline">\(y\)</span></p>
+<p><span class="math inline">\(\overline{Y}=\displaystyle \frac{Y}{N}=\frac{1}{N}\sum_{i\in U}y_i\quad\)</span> a média populacional da variável <span class="math inline">\(y\)</span></p>
+<p><span class="math inline">\(S^2_y=\displaystyle\frac{1}{N-1}\sum_{i\in U}({y_i-\overline{Y}})^2=\frac{1}{N-1}\left[\sum_{i\in U}{y_i}^2-N\overline{Y}^2\right]\quad\)</span> a variância populacional da variável <span class="math inline">\(y\)</span></p>
+<p>Seja <span class="math inline">\(z\)</span> outra variável de pesquisa, tomando valores <span class="math inline">\(z_i\)</span>, <span class="math inline">\(i\in U\)</span></p>
+<p><span class="math inline">\(R={\frac{\displaystyle\sum_{i\in U}y_i}{\displaystyle\sum_{i\in U}z_i}}\quad\)</span> a razão populacional das variáveis <span class="math inline">\(y\)</span> e <span class="math inline">\(z\)</span></p>
+<p><span class="math inline">\(S_{yz}=\displaystyle\frac{1}{N-1}\sum_{i\in U}({y_i-\overline{Y}})({z_i-\overline{Z}})=\frac{1}{N-1}\left[\sum_{i\in U}{y_i}{z_i}-N\,\overline{Y}\,\overline{Z}\right]\quad\)</span> a covariância populacional das variáveis <span class="math inline">\(y\)</span> e <span class="math inline">\(z\)</span></p>
+<p><span class="math inline">\({\rho}_{yz}=\frac{S_{yz}}{S_y S_z}\quad\)</span> o coeficiente de correlação populacional das variáveis <span class="math inline">\(y\)</span> e <span class="math inline">\(z\)</span>.</p>
+<p>Até agora foram apresentadas as definições de alguns parâmetros da população que se deseja conhecer. No entanto, para conhecer exatamente o valor de qualquer dos parâmetros definidos, seria necessário conhecer todos os valores daquela população. Isto só seria possível mediante a realização de um Censo no qual a característica fosse medida ou observada para cada uma das unidades da população.</p>
+<p>Por outro lado, pode ser que estimativas desses parâmetros, com margem de erro conhecidas e controladas, sirvam para os propósitos a que se destinam. Neste caso, então, uma pesquisa por <em>amostragem</em> poderia resolver o problemacom vantagens em relação a um Censo.</p>
+<p>De agora em diante, admitir-se-á sempre que a situação enfrentada é tal que basta conhecer <em>estimativas</em> dos parâmetros de interesse, bem como indicações da margem de erro a que tais estimativas estão sujeitas.</p>
+<p>A seguir, tomando por base a ideia de obter <em>estimativas</em> dos parâmetros de interesse, serão apresentados os principais conceitos relacionados com a <em>amostragem de populações finitas</em>.</p>
+</div>
+<div id="amostra" class="section level2">
+<h2><span class="header-section-number">3.2</span> Amostra</h2>
+<p>Uma <em>amostra</em> <span class="math inline">\(s=\{i_1, i_2,\dots, i_n\}\)</span> é qualquer <em>subconjunto</em> não vazio de unidades da população <span class="math inline">\(U (s\subset U)\)</span> selecionadas para observação visando estimar os parâmetros de interesse.</p>
+<p>Uma amostra de tamanho <span class="math inline">\(n\)</span> é uma amostra contendo <span class="math inline">\(n\)</span> <em>unidades</em> selecionadas da população <span class="math inline">\(U\)</span>, sendo <span class="math inline">\(1\leq n \leq N\)</span>.</p>
+<p><span class="math inline">\(i\in s\)</span> designa que a unidade <span class="math inline">\(i\)</span> foi incluída na amostra.</p>
+<p>Conforme já foi dito, no entanto, somente quando a seleção das unidades integrantes da amostra for baseada em regras de aleatorização bem definidas, é que as estimativas obtidas a partir da amostra poderão ter sua margem de erro controlada, e a estimação dos parâmetros poderá ser justificada em bases científicas. Por isso, serão consideradas no contexto deste livro somente amostras probabilísticas, isto é, amostras selecionadas com base em regras de aleatorização bem definidas.</p>
+<p>Chamando de <span class="math inline">\(i\)</span> a unidade efetivamente selecionada após a realização de experiência aleatória e representado por <span class="math inline">\(y_i\)</span> o valor da variável <span class="math inline">\(y\)</span> observado em <span class="math inline">\(i\)</span>, nota-se que <span class="math inline">\(y_i\)</span> é uma <em>variável aleatória</em> que pode assumir valores no conjunto <span class="math inline">\(Y_U=\{y_1,y_2,\dots,y_N\}\)</span>.</p>
+<p>No que se segue, <span class="math inline">\(y_i\)</span> estará sempre associado à seleção de uma amostra, que é uma experiência aleatória.</p>
+<p>Os dados amostrais para a variável <span class="math inline">\(y\)</span> serão representados por <span class="math inline">\(\{y_{i_1},y_{i_2},\dots,y_{i_n}\}\)</span></p>
+<p><span class="math inline">\(t(s)=t=\displaystyle\sum_{i\in s}y_i\quad\)</span> o total (soma) amostral da variável <span class="math inline">\(y\)</span></p>
+<p><span class="math inline">\(\overline{y}=\displaystyle \frac{t(s)}{n}=\frac{1}{n}\sum_{i\in s}y_i\quad\)</span> a média amostral da variável <span class="math inline">\(y\)</span>.</p>
+</div>
+<div id="estimacao" class="section level2">
+<h2><span class="header-section-number">3.3</span> Estimação</h2>
+<p>Prara tratar de estimação a ideia é introduzir uma definição do termo <em>estimador</em> e suas propriedades.</p>
+<p>Um estimador é uma função real das variáveis aleatórias. Portanto, um estimador é também uma variável aleatória.</p>
+<p>Um valor observado do estimador para uma particular determinação da amostra será chamdo de <em>estimativa</em>.</p>
+<p>Diz-se que um estimador <span class="math inline">\(\hat{\theta}\)</span> é <em>não viciado</em> ou <em>não tendencioso</em> ou <em>não viesado</em> para um certo parâmetro <span class="math inline">\(\theta\)</span> quando seu valor esperado for igual ao parâmetro <span class="math inline">\(\theta\)</span>, isto é, quando <span class="math inline">\(E(\hat{\theta})= \theta\)</span>.</p>
+<p>É essencial ter algum critério para a escolha de estimadores.</p>
+<p><em>Estimadores</em> devem ser <em>não viciados</em>, ou ao menos aproximadamente não viciados. Vício é uma propriedade indesejada em estimadores, pois significa que estimador não é centrado no alvo de inferência.</p>
+<p>No contexto da Amostragem, diferente do contexto da Inferência Estatística, não se estabelece uma distribuição e os parâmetros que se deseja estimar não são responsáveis pela especificação de um modelo. O que se faz é, usando um princípio de simetria, construir funções dos valores da amostra similares às que definem os parâmetros de interesse, e verificar as propriedades dessas funções como estimadores dos parâmetros.</p>
+<p>Suponha que o parâmetro-alvo é o <em>total populacional</em> <span class="math inline">\(Y\)</span>. O objetivo principal é usar os <em>dados amostrais</em> <span class="math inline">\(\{y_1,y_2,\dots,y_i,\dots,y_n\}\)</span> para <em>estimar</em> <span class="math inline">\(Y=\displaystyle\sum_{i\in U}y_i\)</span>.</p>
+<p>Um objetivo secundário é conseguir medir / estimar também a <em>precisão / margem de erro da estimativa</em> produzida para <span class="math inline">\(Y\)</span>.</p>
+<p>Um <em>estimador linear</em> <span class="math inline">\(\hat{Y_w}\)</span> é uma combinação linear dos valores amostrais <span class="math inline">\(y_i\)</span> com <em>pesos</em> <span class="math inline">\(w_i\)</span>, isto é: <span class="math inline">\(\hat{Y_w}=\displaystyle\sum_{i\in s}{w_i}{y_i}\)</span></p>
+<p>Precisamos de critérios para determinar os pesos <span class="math inline">\(w_i\)</span>.</p>
+<div id="amostragem-probabilistica" class="section level3">
+<h3><span class="header-section-number">3.3.1</span> Amostragem Probabilística</h3>
+<p>A <em>amostragem probabilística</em> é um procedimento de amostragem satisfazendo as condições enumeradas a seguir:</p>
+<ol style="list-style-type: decimal">
+<li><p>O espaço amostral <span class="math inline">\(S\)</span>, o conjunto de todas as amostras <span class="math inline">\(s\)</span> possíveis, é bem definido.</p></li>
+<li><p>Uma probabilidade <span class="math inline">\(p(s)\)</span> <em>conhecida (ou calculável)</em> é associada a cada amostra <span class="math inline">\(s\in S\)</span>, e <span class="math inline">\(\displaystyle\sum_{s\in S}p(s)=1\)</span>.</p></li>
+<li><p>Cada unidade <span class="math inline">\(i\in U\)</span> tem uma probabilidade positiva de ser selecionada para a amostra, isto é: <span class="math inline">\(\pi_i=P(i\in s)&gt;0\)</span> <span class="math inline">\(\forall i\in U\)</span>.</p></li>
+<li><p>Uma única amostra <span class="math inline">\(s\)</span> <span class="math inline">\((s\in S)\)</span> é selecionada para observação usando um mecanismo de aleatorização (sorteio) tal que a amostra <span class="math inline">\(s\)</span> é escolhida com probabilidade <span class="math inline">\(p(s)\)</span>.</p></li>
+<li><p>As probabilidades <span class="math inline">\(\pi_i\)</span> de inclusão na amostra e outros aspectos da estrutura do plano amostral são levadas em conta ao fazer inferência sobre os parâmetros populacionais.</p></li>
+</ol>
+<p><strong>Exemplo 2.1:</strong></p>
+<p>Considere os dados de uma população fictícia de 4 unidades <span class="math inline">\((N=4)\)</span> mulheres, de quem foi indagado o número de filhos tidos vivos (<span class="math inline">\(y\)</span>).</p>
+<p><span class="math display">\[\begin{array}{|l|c|c|c|c|c|}\hline \textrm{Rótulo da unidade}\,\, i &amp; 1 &amp; 2 &amp; 3 &amp; 4 &amp; \textrm{Total} \\\hline \textrm{Valor}\,\, y_i &amp; 0 &amp; 0 &amp; 2 &amp; 1 &amp; 3\\\hline \end{array}\]</span></p>
+<p>Existem <span class="math inline">\(\binom{4}{2}= 6\)</span> amostras possíveis de tamanho <span class="math inline">\(n=2\)</span>.</p>
+<p><span class="math inline">\(S = \{(1;2); (1;3); (1;4); (2;3); (2;4); (3;4)\}\quad\)</span> é o conjunto de todas as amostras possíveis.</p>
+<p>A notação para representar o conjunto que forma cada amostra foi o ( ), para evitar usar { } dentro de { }. Cada elemento do conjunto S é em si mesmo um conjunto de rótulos de unidades selecionadas para a amostra.</p>
+<p>As amostras são selecionadas com igual probabilidade. Cada amostra tem probabilidade de ser selecionada igual a 1/6 <span class="math inline">\(\rightarrow p(s)=1/6 \,\,\,\forall s\in S\)</span>.</p>
+<p>A tabela, a seguir, apresenta o conjunto de todas as amostras possíveis, as unidades de cada amostra, os valores de <span class="math inline">\(y\)</span> na amostra, a soma amostral e as probabilidades de cada amostra ser selecionada.</p>
+<p><span class="math display">\[\begin{array}{|c|c|c|c|c|}\hline \textrm {Amostra} \,\,s &amp; \textrm{Unidades na Amostra} &amp; \textrm{Valores na Amostra} &amp; \textrm {Soma Amostral}\,\, (t) &amp; \textrm{Probablidades} \,\, p(s)\\\hline 1 &amp; \textrm{{1;2}} &amp; \textrm{{0;0}} &amp; 0 &amp; 1/6\\\hline 2 &amp; \textrm{{1;3}} &amp; \textrm{{0;2}} &amp; 2 &amp; 1/6\\\hline 3 &amp; \textrm{{1;4}} &amp; \textrm{{0;1}} &amp; 1 &amp; 1/6\\\hline 4 &amp; \textrm{{2;3}} &amp; \textrm{{0;2}} &amp; 2 &amp; 1/6\\\hline 5 &amp; \textrm{{2;4}} &amp; \textrm{{0;1}} &amp; 1 &amp; 1/6\\\hline 6 &amp; \textrm{{3;4}} &amp; \textrm{{2;1}} &amp; 3 &amp; 1/6\\\hline \textrm{Total} &amp; \textrm{-} &amp; \textrm{-} &amp; 9 &amp; 1\\\hline  \end{array}\]</span></p>
+<p>A <em>distribuição da Soma Amostral</em> é dada por:</p>
+<p><span class="math display">\[\begin{array}{|l|c|c|c|c|}\hline \textrm{Valores possíveis de }\,\, t&amp; 0 &amp; 1 &amp; 2 &amp; 3\\\hline \textrm{Com probabilidade}\,\, p(s) &amp; 1/6 &amp; 2/6 &amp; 2/6 &amp; 1/6\\\hline \end{array}\]</span></p>
+<p>O valor esperado de <span class="math inline">\(t\)</span> é:</p>
+<p><span class="math inline">\(E(t)= \displaystyle\sum_{s\in S}t(s) p(s) = 0\times\frac{1}{6}+1\times\frac{2}{6}+2\times\frac{2}{6}+3\times\frac{1}{6}= \frac{9}{6} = 1,5\)</span></p>
+<p>Porém o total populacional é: <span class="math inline">\(Y=\displaystyle\sum_{i=1}^{4}y_i= 3\)</span></p>
+<p>Como <span class="math inline">\(1,5= E(t) \neq Y=3\)</span> , dizemos que <span class="math inline">\(t\)</span> é um <em>estimador viciado</em> (ou enviesado) de <span class="math inline">\(Y\)</span> sob o plano amostral <span class="math inline">\(p(s)\)</span> adotado.</p>
+<p>Como podemos “corrigir” o estimador de modo que fique <em>não viciado</em> (não enviesado)?</p>
+<p>Resposta: multiplicando por 2 o valor da soma amostral t.</p>
+<p>Considere um novo estimador do total populacional: <span class="math inline">\(\hat{Y}= 2\times t\)</span></p>
+<p>Tal estimador na forma linear pode ser escrito como: <span class="math inline">\(\hat{Y}= 2\times t =\displaystyle\sum_{i\in S}2\times y_i= \hat{Y_w}\)</span></p>
+<p><span class="math display">\[\begin{array}{|l|c|c|c|c|}\hline \textrm{Valores possíveis de }\,\, 2\times t&amp; 0 &amp; 2 &amp; 4 &amp; 6\\\hline \textrm{Com probabilidade}\,\, p(s) &amp; 1/6 &amp; 2/6 &amp; 2/6 &amp; 1/6\\\hline \end{array}\]</span></p>
+<p>O valor esperado de <span class="math inline">\(\hat{Y}= 2\times t\)</span> é:</p>
+<p><span class="math inline">\(E(\hat{Y})= \displaystyle\sum_{s\in S}\hat{Y_s} p(s) = 0\times\frac{1}{6}+2\times\frac{2}{6}+4\times\frac{2}{6}+6\times\frac{1}{6}= \frac{18}{6} = 3\)</span></p>
+<p>Como <span class="math inline">\(E(\hat{Y})=3=Y\)</span>, dizemos que <span class="math inline">\(\hat{Y}= 2\times t\)</span> é um <em>estimador não viciado</em> de <span class="math inline">\(Y\)</span> sob o plano amostral <span class="math inline">\(p(s)\)</span> adotado.</p>
+</div>
+<div id="a-distribuicao-de-aleatorizacao" class="section level3">
+<h3><span class="header-section-number">3.3.2</span> A Distribuição de Aleatorização</h3>
+<p>A função <span class="math inline">\(p(s)\)</span> definida no conjunto <span class="math inline">\(S\)</span> de todas as amostras possíveis é uma <em>distribuição de probabilidades</em>.</p>
+<p>A distribuição de probabilidades <span class="math inline">\(p(s)\)</span>, <span class="math inline">\(s \in S\)</span>, é chamada <em>distribuição de aleatorização</em>.</p>
+<p>Na <em>amostragem probabilística</em>, inferências são feitas considerando a <em>distribuição de aleatorização</em>.</p>
+<p>Tais inferências são baseadas no plano amostral, onde a fonte de variação ou incerteza é a repetição hipotética do processo de amostragem utilizando <span class="math inline">\(p(s\)</span>), que resultaria em diferentes amostras <span class="math inline">\(s_1, s_2, ... \in S\)</span>.</p>
+<p>A distribuição de <span class="math inline">\(\hat{Y}= 2\times t=\displaystyle\sum_{i\in S}2\times y_i= \hat{Y_w}\)</span> determinada por <span class="math inline">\(p(s)\)</span> é chamada de <em>distribuição amostral</em> do estimador.</p>
+<p>Vamos estudar suas propriedades para avaliar se <span class="math inline">\(\hat{Y}\)</span> é um bom estimador para o total populacional Y.</p>
+</div>
+<div id="estimadores-nao-viciados-para-o-total" class="section level3">
+<h3><span class="header-section-number">3.3.3</span> Estimadores Não Viciados para o Total</h3>
+<p><strong>Obtenção de Estimadores Não Viciados para o Total</strong></p>
+<p>Trabalhar com a distribuição <span class="math inline">\(p(s)\)</span> é complicado.</p>
+<p>O número total de amostras possíveis cresce muito rapidamente com <span class="math inline">\(N\)</span> e com <span class="math inline">\(n\)</span>.</p>
+<p>Por exemplo, o número de amostras sem reposição de tamanho <span class="math inline">\(n\)</span> de uma população com <span class="math inline">\(N\)</span> unidades é <span class="math inline">\(\binom{N}{n}\)</span> .</p>
+<p>A saída é usar propriedades simplificadoras desta distribuição.</p>
+<p><strong>Uma Propriedade Importante</strong></p>
+<p>A probabilidade de inclusão da unidade <span class="math inline">\(i\)</span> na amostra é dada por: <span class="math inline">\(P({i\in s})=\pi_i=\displaystyle\sum_{s\ni i} p(s)\)</span></p>
+<p>Se tomarmos o <em>inverso da probabilidade de inclusão</em> <span class="math inline">\(\frac{1}{\pi_i}\)</span> como peso <span class="math inline">\((w_i)\)</span> de uma unidade amostrada, é fácil verificar que o estimador é dado por:</p>
+<p><span class="math inline">\(\hat{Y_w} =\displaystyle\sum_{i\in s} w_iy_i= \displaystyle\sum_{i\in s} \frac{1}{\pi_i}y_i=\displaystyle\sum_{i\in s} {\pi_i}^{-1}y_i\quad\)</span> é <em>não viciado</em> para o total populacional <span class="math inline">\(Y\)</span>.</p>
+<p>Em continuidade do exemplo 2.1 da população de 4 unidades <span class="math inline">\((N=4)\)</span> mulheres, de quem foi indagado o número de filhos tidos vivos (<span class="math inline">\(y\)</span>), tem-se:</p>
+<p><span class="math display">\[\begin{array}{|l|c|c|c|c|c|}\hline \textrm{Rótulo da unidade}\,\, i &amp; 1 &amp; 2 &amp; 3 &amp; 4 &amp; \textrm{Total} \\\hline \textrm{Valor}\,\, y_i &amp; 0 &amp; 0 &amp; 2 &amp; 1 &amp; 3\\\hline \textrm {Probabilidade de inclusão}\,\, \pi_i &amp; 3/6=1/2 &amp; 3/6=1/2 &amp; 3/6=1/2 &amp; 3/6=1/2 &amp; \textrm{-}\\\hline \end{array}\]</span></p>
+<p>Os pesos amostrais no exemplo 2.1 são <span class="math inline">\(w_i = \frac{1}{\pi_i} = \frac{1}{1/2} = 2\)</span></p>
+<p>O estimador ponderado do total é dado por: <span class="math inline">\(\hat{Y_w} =\displaystyle\sum_{i\in s} w_iy_i= \displaystyle\sum_{i\in s} {\pi_i}^{-1}y_i = \displaystyle\sum_{i\in s} 2y_i=2t\)</span></p>
+<p>E já se mostrou que este estimador é não viciado para <span class="math inline">\(Y\)</span>.</p>
+<p><strong>Exemplo 2.2</strong> Considere a mesma população fictícia do exemplo 2.1.</p>
+<p>Considere agora o plano amostral que retira amostras de tamanho 2 dessa população segundo o plano amostral dado na tabela a seguir.</p>
+<p><span class="math display">\[\begin{array}{|c|c|c|c|c|}\hline \textrm {Amostra} \,\,s &amp; \textrm{Unidades na Amostra} &amp; \textrm{Valores na Amostra} &amp; \textrm {Soma Amostral}\,\, (t) &amp; \textrm{Probablidades} \,\, p(s)\\\hline 1 &amp; \textrm{{1;2}} &amp; \textrm{{0;0}} &amp; 0 &amp; 0,00\\\hline 2 &amp; \textrm{{1;3}} &amp; \textrm{{0;2}} &amp; 2 &amp; 0,20\\\hline 3 &amp; \textrm{{1;4}} &amp; \textrm{{0;1}} &amp; 1 &amp; 0,15\\\hline 4 &amp; \textrm{{2;3}} &amp; \textrm{{0;2}} &amp; 2 &amp; 0,20\\\hline 5 &amp; \textrm{{2;4}} &amp; \textrm{{0;1}} &amp; 1 &amp; 0,15\\\hline 6 &amp; \textrm{{3;4}} &amp; \textrm{{2;1}} &amp; 3 &amp; 0,30\\\hline \textrm{Total} &amp; \textrm{-} &amp; \textrm{-} &amp; 9 &amp; 1,00\\\hline  \end{array}\]</span></p>
+<p>Chamaremos este plano amostral de plano 2.</p>
+<p>Use as informações acima para:</p>
+<ol style="list-style-type: decimal">
+<li><p>Verificar que o estimador baseado na soma amostral (<span class="math inline">\(t\)</span>) é viciado para estimar o total populacional <span class="math inline">\(Y\)</span>;</p></li>
+<li><p>Obter / definir um estimador não viciado para o total populacional <span class="math inline">\(Y\)</span>;</p></li>
+<li><p>Comente sobre o uso de um plano amostral em que as diferentes amostras têm probabilidades desiguais de serem selecionadas. Surpresas? Dificuldades?</p></li>
+</ol>
+<p>A distribuição do Total Amostral sob plano 2 é dada por:</p>
+<p><span class="math display">\[\begin{array}{|l|c|c|c|c|}\hline \textrm{Valores possíveis de }\,\, t&amp; 0 &amp; 1 &amp; 2 &amp; 3\\\hline \textrm{Com probabilidade}\,\, p(s) &amp; 0,0 &amp; 0,3 &amp; 0,4 &amp; 0,3\\\hline \end{array}\]</span></p>
+<p>O valor esperado de <span class="math inline">\(t\)</span> é:</p>
+<p><span class="math inline">\(E(t)= \displaystyle\sum_{s\in S}t(s) p(s) = 0\times0,0+1\times0,3+2\times0,4+3\times0,3=2&lt;3=Y\)</span></p>
+<p>Para obter um estimador não viciado, devemos calcular pesos adequados para as unidades amostrais. Estes requerem calcular as probabilidades de inclusão na amostra.</p>
+<p><span class="math display">\[\begin{array}{|l|c|c|c|c|}\hline \textrm{Rótulo da unidade}\,\, i &amp; 1 &amp; 2 &amp; 3 &amp; 4 \\\hline \textrm {Probabilidade de inclusão}\,\, \pi_i &amp; 0,35 &amp; 0,35 &amp; 0,70 &amp; 0,60  \\\hline \textrm{Peso}\,\, w_i &amp; 20/7=2,857 &amp; 20/7=2,857 &amp; 10/7=1,429 &amp; 5/3=1,667 \\\hline \end{array}\]</span></p>
+<p>Usando o estimador do total com os pesos adequados, obtém-se os valores das estimativas para cada amostra possível na coluna e da tabela abaixo.</p>
+<p><span class="math display">\[\begin{array}{|c|c|c|c|c|}\hline \textrm {Amostra} \,\,s &amp; \textrm{Valores na Amostra} &amp; \textrm {Total Amostral Ponderado}\,\,(\hat Y_w) &amp; \textrm{Probablidades} \,\, p(s) &amp; \textrm {Valor do produto}\\\hline 1 &amp; \textrm{{0;0}} &amp; 0 &amp; 0,00 &amp; 0 \\\hline 2 &amp; \textrm{{0;2}} &amp; 2\times(10/7) &amp; 0,20 &amp; 4/7\\\hline 3 &amp; \textrm{{0;1}} &amp; 1\times(5/3) &amp; 0,15 &amp;1/4\\\hline 4 &amp; \textrm{{0;2}} &amp; 2\times(10/7) &amp; 0,20 &amp; 4/7\\\hline 5 &amp; \textrm{{0;1}} &amp; 1\times (5/3) &amp; 0,15 &amp; 1/4\\\hline 6 &amp; \textrm{{2;1}} &amp; 2\times (10/7)+1\times(5/3) &amp; 0,30 &amp; 6/7+1/2\\\hline \textrm{Total} &amp; &amp; &amp; &amp; 3\\\hline  \end{array}\]</span></p>
+<p><strong>Notas</strong></p>
+<ul>
+<li><p>O estimador <span class="math inline">\(\hat{Y_w}\)</span> tem valor esperado igual ao total populacional <span class="math inline">\(Y\)</span> logo é <em>NÃO VICIADO</em>.</p></li>
+<li><p>O fato de que a amostra {1;2} tem probabilidade nula de ser selecionada viola os critérios definidos para que o plano de amostragem 2 seja chamado de amostragem probabilística? Sim ou não? Porquê?</p></li>
+<li><p>Temos agora duas opções para selecionar amostras (de tamanho 2) da população U, e estimar o total populacional <span class="math inline">\(Y\)</span> sem vício.</p></li>
+<li><p>Qual das duas é melhor?</p></li>
+</ul>
+<p><strong>Estratégia 1:</strong> seleção equiprovável de pares (amostras) com estimador de total ponderado (<span class="math inline">\(\hat{Y_w} =2t\)</span>)</p>
+<p><span class="math display">\[\begin{array}{|l|c|c|c|c|}\hline \textrm{Valores possíveis de}\,\, \hat Y_w=2\times t&amp; 0 &amp; 2 &amp; 4 &amp; 6\\\hline \textrm{Com probabilidade}\,\, p(s) &amp; 1/6 &amp; 2/6 &amp; 2/6 &amp; 1/6\\\hline \end{array}\]</span></p>
+<p><strong>Estratégia 2:</strong> seleção de amostras com probabilidades desiguais, e estimador de total ponderado (<span class="math inline">\(\hat{Y_w}\)</span>)</p>
+<p><span class="math display">\[\begin{array}{|l|c|c|c|c|}\hline \textrm{Valores possíveis de}\,\, \hat Y_w &amp; 5/3 &amp; 20/7 &amp;  20/7+5/3\\\hline \textrm{Com probabilidade}\,\, p(s) &amp; 0,30 &amp; 0,40 &amp; 0,30 \\\hline \end{array}\]</span></p>
+<p>A melhor estratégia é escolhida medindo o <em>afastamento esperado</em> entre o valor do estimador e o valor do total populacional desconhecido (<span class="math inline">\(Y\)</span>). Para isso, usamos a <em>variância do estimador</em>, dada por:</p>
+<p><span class="math inline">\(V(\hat Y)=\displaystyle\sum_{s\in S}({\hat Y- Y)}^2\times p(s)\)</span></p>
+<p>ou o <em>desvio padrão do estimador</em>, dado por</p>
+<p><span class="math inline">\(DP(\hat Y)= \sqrt {V(\hat Y)}=\displaystyle\sqrt{\sum_{s\in S}({\hat Y- Y)}^2\times p(s)}\)</span></p>
+<p>A seguir são calculadas as variâncias dos estimadores sob as duas estratégias (<span class="math inline">\(E2\)</span> e <span class="math inline">\(E1\)</span>)</p>
+<p><span class="math display">\[\begin{array}{|c|c|c|c|c|}\hline \textrm {Amostra} &amp; \textrm{Valores na} &amp; \textrm {Estimador} &amp; \textrm{Probabilidade}\,\,p(s) &amp; \textrm {Estimador} &amp; \textrm{Probabilidade}\,\, p(s) \\ s &amp; \textrm{Amostra} &amp; \textrm {sob $E2$} &amp; \textrm{sob $E2$} &amp; \textrm{sob $E1$}&amp;\textrm{sob $E1$} \\\hline 1 &amp; \textrm{{0;0}} &amp; 0 &amp; 0,00 &amp; 0 &amp;1/6\\\hline 2 &amp; \textrm{{0;2}} &amp; 2\times(10/7) &amp; 0,20 &amp; 4 &amp; 1/6\\\hline 3 &amp; \textrm{{0;1}} &amp; 1\times(5/3) &amp; 0,15 &amp; 2 &amp; 1/6\\\hline 4 &amp; \textrm{{0;2}} &amp; 2\times(10/7) &amp; 0,20 &amp; 4 &amp; 1/6 \\\hline 5 &amp; \textrm{{0;1}} &amp; 1\times (5/3) &amp; 0,15 &amp; 2 &amp; 1/6\\\hline 6 &amp; \textrm{{2;1}} &amp; 2\times (10/7)+1\times(5/3) &amp; 0,30 &amp; 6 &amp; 1/6\\\hline \textrm{Variância} &amp; \textrm{-} &amp; 1,24 &amp; \textrm{-} &amp; 3,67 &amp; \textrm{-} \\\hline  \end{array}\]</span></p>
+<p><strong>Conclusões:</strong></p>
+<ul>
+<li><p>Ambas as estratégias permitem usar <em>estimadores não viciados</em> do total <span class="math inline">\(Y\)</span>.</p></li>
+<li><p>A estratégia 2 tem o <em>estimador com menor variância</em>, e deve ser preferida à estratégia 1, pois o tamanho das amostras é o mesmo.</p></li>
+<li><p><em>Minimizar a variância</em> é o critério de desempate para escolha entre <em>estratégias não viciadas de amostragem e estimação</em> de <em>igual custo total</em>.</p></li>
+</ul>
+</div>
+<div id="teoria-basica" class="section level3">
+<h3><span class="header-section-number">3.3.4</span> Teoria Básica</h3>
+<p>Como já foi dito, trabalhar com a distribuição <span class="math inline">\(p(s)\)</span> é complicado.</p>
+<p>Isto ocorre porque o número total <span class="math inline">\(\binom{N}{n}\)</span> de amostras possíveis cresce muito rapidamente com <span class="math inline">\(N\)</span> e com <span class="math inline">\(n\)</span>.</p>
+<p><span class="math display">\[\begin{array}{|l|c|c|c|c|}\hline N &amp; n &amp; \textrm{Número de Amostras} &amp; &amp; N &amp; n &amp; \textrm{Número de Amostras}\\\hline 1.000 &amp; 2 &amp;5,00E+05&amp; &amp; 10.000 &amp; 2 &amp; 5,00E+07\\\hline 1.000 &amp; 10 &amp; 2,63E+29 &amp; &amp; 10.000 &amp; 10 &amp; 2,74E+33\\\hline1.000 &amp; 20 &amp;3,39E+41&amp; &amp; 10.000 &amp; 20 &amp; 4,03E+61\\\hline 1.000 &amp; 100 &amp; 6,39E+139 &amp; &amp; 10.000 &amp; 100 &amp; 6,52E+247 \\\hline \end{array}\]</span></p>
+<p>A saída encontrada é trabalhar com distribuições das variáveis aleatórias indicadoras <span class="math inline">\(\delta_1\)</span>, <span class="math inline">\(\delta_2\)</span>,… ,<span class="math inline">\(\delta_N\)</span> definidas tal que:</p>
+<p><span class="math inline">\(\delta_i=I(i\in s)=\left\{\begin{array}{ll} 1 &amp; i\in s\\ 0 &amp; i\notin s\end{array}\right.\,\,\, \forall\,\, i\in U\)</span>.</p>
+<p>A variável <span class="math inline">\(\delta_i\)</span> é indicadora do evento ‘inclusão da unidade <span class="math inline">\(i\)</span> na amostra <span class="math inline">\(s\)</span>’.</p>
+<p><strong>Exemplo 2.1</strong></p>
+<p>Para <span class="math inline">\(N=4\)</span> e <span class="math inline">\(n=2\)</span>, as seis amostras possíveis podem ser representadas por:</p>
+<p><span class="math display">\[\begin{array}{|c|c|c|c|}\hline \textrm {Amostra} \,\,s &amp; \textrm{Unidades na Amostra} &amp; \delta_1 &amp; \delta_2 &amp; \delta_3 &amp; \delta_4 \\\hline 1 &amp; \textrm{{1;2}} &amp; 1 &amp; 1 &amp; 0 &amp; 0\\\hline 2 &amp; \textrm{{1;3}} &amp; 1 &amp; 0 &amp; 1 &amp; 0\\\hline 3 &amp; \textrm{{1;4}} &amp; 1 &amp; 0 &amp; 0 &amp; 1\\\hline 4 &amp; \textrm{{2;3}} &amp; 0 &amp; 1 &amp; 1 &amp; 0 \\\hline 5 &amp; \textrm{{2;4}} &amp; 0 &amp; 1 &amp; 0 &amp; 1\\\hline 6 &amp; \textrm{{3;4}} &amp; 0 &amp; 0 &amp; 1 &amp; 1 \\\hline  \end{array}\]</span></p>
+<p>Cada amostra fica univocamente determinada pelas variáveis indicadoras <span class="math inline">\(\delta_1\)</span>, <span class="math inline">\(\delta_2\)</span>,… ,<span class="math inline">\(\delta_N\)</span> correspondentes.</p>
+<p>As variáveis indicadoras dependem da amostra <span class="math inline">\(s\)</span>, apesar de não termos indicado isto explicitamente em nossa notação.</p>
+<p>Então as probabilidades de seleção ou inclusão na amostra, denotadas <span class="math inline">\(\pi_i\)</span>, são definidas como:</p>
+<p><span class="math inline">\(\pi_i=P({i\in s})=\displaystyle\sum_{s\ni i} p(s)=P(\delta_i=1)=E(\delta_i)\, \,\,\,\forall\,\, i\in U\)</span>.</p>
+<p>As <em>probabilidades de inclusão</em> <span class="math inline">\(\pi_i\)</span> são ditas de <em>primeira ordem</em>.</p>
+<p>Precisaremos também definir as <em>probabilidades de inclusão de segunda ordem</em>, denotadas <span class="math inline">\(\pi_{ij}\)</span>, dadas por:</p>
+<p><span class="math inline">\(\pi_{ij}=P({i,j\in s})=\displaystyle\sum_{s\ni i,j} p(s)=P(\delta_i\delta_j=1)=E(\delta_i\delta_j)\, \,\,\,\forall\,\, i,j\in U\)</span>.</p>
+<p>Note que quando <span class="math inline">\(i=j\)</span>, <span class="math inline">\(\pi_{ij}=\pi_{ii}=\pi_i\, \,\,\,\forall\,\, i,j\in U\)</span>.</p>
+<p>Logo:</p>
+<p><span class="math inline">\(V(\delta_i)=\pi_i(1-\pi_i)\)</span></p>
+<p><span class="math inline">\(COV(\delta_i,\delta_j)=\pi_{ij}-\pi_i\pi_j\)</span>.</p>
+<p><strong>Um Método Geral de Prova em Amostragem</strong></p>
+<p>Este método se baseia nas variáveis indicadoras <span class="math inline">\(\delta_1\)</span>, <span class="math inline">\(\delta_2\)</span>,… ,<span class="math inline">\(\delta_N\)</span>.</p>
+<p>Uma propriedade importante das variáveis indicadoras é que:</p>
+<p><span class="math inline">\(\displaystyle\sum_{i\in s}\delta_i(s)=\sum_{i\in U}\delta_i(s)\)</span></p>
+<p>Segue também que <span class="math inline">\(\displaystyle\sum_{i\in s}y_i=\sum_{i\in s}\delta_iy_i=\sum_{i\in U}\delta_iy_i\)</span></p>
+<p>Note que o truque é converter a soma amostral em uma soma na população.</p>
+<p>Seja <span class="math inline">\(Y=\displaystyle\sum_{i\in U}y_i\quad\)</span> (total populacional) o parâmetro alvo.</p>
+</div>
+<div id="estimador-linear-de-total" class="section level3">
+<h3><span class="header-section-number">3.3.5</span> Estimador linear de total</h3>
+<p>Um <em>estimador linear de Y</em> é sempre da forma:</p>
+<p><span class="math inline">\(\hat Y_w=\displaystyle\sum_{i\in s}w_iy_i=\sum_{i\in U}w_i\delta_iy_i\)</span></p>
+<p>onde <span class="math inline">\(w_i\)</span> é o peso da unidade <span class="math inline">\(i\)</span>.</p>
+<p>Para que o estimador linear de <span class="math inline">\(Y\)</span> seja não viciado, é preciso que:</p>
+<p><span class="math inline">\(E(\hat Y_w)=Y \Leftrightarrow \displaystyle\sum_{i\in U}w_iE(\delta_i)y_i=\sum_{i\in U}y_i\Leftrightarrow\displaystyle\sum_{i\in U}w_i\pi_iy_i=\sum_{i\in U}y_i\)</span></p>
+<p>Esta relação só será válida para quaisquer valores populacionais <span class="math inline">\(y_i\)</span> da variável de pesquisa caso <span class="math inline">\(w_i*\pi_i=1 \,\,\,\forall\,\, i\in U\)</span>.</p>
+<p>Portanto a condição para que o estimador de total <span class="math inline">\(\hat Y_w=\displaystyle\sum_{i\in s}w_iy_i\)</span> seja SEMPRE não viciado é que os pesos das unidades na amostra sejam iguais ao inverso das respectivas probabilidades de inclusão:</p>
+<p><span class="math inline">\(w_i={\pi_i}^{-1}=\frac{1}{\pi_i}\,\,\,\forall\,\, i\in U\)</span>.</p>
+<p>Logo o estimador não viciado de total fica dado por:</p>
+<p><span class="math inline">\(\hat Y_w=\displaystyle\sum_{i\in s}\frac{y_i}{\pi_i}=\sum_{i\in s}{\pi_i}^{-1}y_i=\hat Y_{HT}\Rightarrow\quad\)</span>Estimador de <em>Horvitz-Thompson</em>.</p>
+<p>Este estimador está definido para qualquer plano amostral, desde que <span class="math inline">\(\pi_i&gt;0\,\,\,\forall\,\, i\in U\)</span>. Por isto esta é uma condição necessária para a amostragem probabilística de populações finitas.</p>
+</div>
+<div id="propriedades-do-estimador-de-horvitz-thompson" class="section level3">
+<h3><span class="header-section-number">3.3.6</span> Propriedades do Estimador de Horvitz-Thompson</h3>
+<p>O <em>estimador de Horvitz-Thompson</em> é <em>não viciado</em> para estimar o total, ou seja, <span class="math inline">\(E(\hat Y_{HT})=Y\)</span></p>
+<p>Prova:</p>
+<p><span class="math inline">\(E(\hat Y_{HT})= E\left[\displaystyle\sum_{i\in U}\frac{\delta_iy_i}{\pi_i}\right]= \displaystyle\sum_{i\in U}\left[\frac{E(\delta_i)y_i}{\pi_i}\right]=\sum_{i\in U}y_i=Y\)</span></p>
+<p>Esta propriedade vale para qualquer população, variável de interesse <span class="math inline">\(y\)</span> e plano amostral, desde que <span class="math inline">\(\pi_i&gt;0\,\,\,\forall\,\, i\in U\)</span>.</p>
+<p><em>Variância do Estimador Horvitz-Thompson para o total</em></p>
+<p><span class="math inline">\(V(\hat Y_{HT})= \displaystyle\sum_{i\in U}\pi_i(1-\pi_i)\left(\frac{y_i}{\pi_i}\right)^2+\displaystyle \sum_{i\in U}\sum_{i\neq j}(\pi_{ij}-\pi_i\pi_j)\left(\frac{y_i}{\pi_i}\frac{y_j}{\pi_j}\right)\)</span></p>
+<p>Esta é a chamada forma de Horvitz-Thompson da variância.</p>
+<p>Existe uma outra forma para esta variância, que vamos conhecer mais tarde.</p>
+<p>Prova:</p>
+<p><span class="math inline">\(\begin{align}V(\hat Y_{HT}) &amp;= V\left[\displaystyle\sum_{i\in U}\left(\frac{y_i}{\pi_i}\right)\delta_i\right]\\ &amp; =\displaystyle\sum_{i\in U}\left(\frac{y_i}{\pi_i}\right)^2V(\delta_i)+\displaystyle \sum_{i\in U}\sum_{i\neq j}\left(\frac{y_i}{\pi_i}\frac{y_j}{\pi_j}\right)COV(\delta_i,\delta_j)\\ &amp; =\displaystyle\sum_{i\in U}\pi_i(1-\pi_i)\left(\frac{y_i}{\pi_i}\right)^2+\displaystyle \sum_{i\in U}\sum_{i\neq j}(\pi_{ij}-\pi_i\pi_j)\left(\frac{y_i}{\pi_i}\frac{y_j}{\pi_j}\right)\end{align}\)</span></p>
+<p><em>Estimador da Variância do Estimador de Total</em></p>
+<p>Um estimador não viciado da variância do estimador de Horvitz-Thompson do total é dado por:</p>
+<p><span class="math inline">\(\hat V_1(\hat Y_{HT})= \displaystyle\sum_{i\in s}\frac{\pi_i(1-\pi_i)}{\pi_i}\left(\frac{y_i}{\pi_i}\right)^2+\displaystyle \sum_{i\in s}\sum_{i\neq j}\frac{(\pi_{ij}-\pi_i\pi_j)}{\pi_i}\left(\frac{y_i}{\pi_i}\frac{y_j}{\pi_j}\right)\)</span></p>
+<p>Este estimador de variância usou estimadores tipo Horvitz-Thompson dos totais nas duas parcelas da expressão da variância <span class="math inline">\(V_p(\hat Y_{HT})\)</span>.</p>
+<p><em>Uma Forma Alternativa para a Variância</em></p>
+<p>Para planos amostrais de tamanho pré-fixado, pode-se demonstrar que uma forma equivalente da variância do estimador de Horvitz-Thompson é dada pela expressão de Sen-Yates-Grundy a seguir.</p>
+<p><span class="math inline">\(V(\hat Y_{HT})=\displaystyle\sum_{i\in U}\sum_{j&gt;i}(\pi_i \pi_j-\pi_{ij})\left(\frac{y_i}{\pi_i}\frac{y_j}{\pi_j}\right)^2\)</span></p>
+<p>Note a troca do sinal da diferença de probabilidades de inclusão em relação à fórmula anterior.</p>
+<p><em>Outro Estimador da Variância do Estimador de Total</em></p>
+<p><span class="math inline">\(\hat V_{SYG}(\hat Y_{HT})= \displaystyle\sum_{i\in s}\sum_{j&gt;i}(\pi_i \pi_j-\pi_{ij})\left(\frac{y_i}{\pi_i}\frac{y_j}{\pi_j}\right)^2\)</span>.</p>
+<p>O estimador <span class="math inline">\(\hat V_{SYG}(\hat Y_{HT})\)</span> foi obtido / motivado a partir da forma de Sen-Yates-Grundy para a variância do estimador de total.</p>
+<p>Tal estimador não coincide com o estimador de variância derivado a partir da expressão de Horvitz-Thompson.</p>
+<p><strong>Notas</strong></p>
+<p>Pode-se derivar estimadores de total e da variância do estimador de total como casos especiais para distintos planos amostrais.</p>
+<p>Há fórmulas de variância disponíveis para permitir avaliar qualidade do estimador de total sob distintas situações (população, variável e plano amostral).</p>
+<p>Um total populacional sempre pode ser estimado sem vício por uma soma amostral <span class="math inline">\(\pi\)</span>-ponderada.</p>
+
+</div>
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="1">
+<li id="fn1"><p>Mesmo as variáveis categóricas podem ser também transformadas em características numéricas que assumem valor <em>zero</em> (se à unidade a ser analisada não for atribuída a categoria em questão) e <em>um</em> (se à unidade analisada for atribuída a categoria em questão).<a href="visao-geral-da-amostragem-e-estimacao.html#fnref1">↩</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="conceitos-e-cadastros.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="amostragem-aleatoria-simples.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "";
+    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
