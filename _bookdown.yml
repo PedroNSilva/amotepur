@@ -1,4 +1,4 @@
-k_filename: "bookdown-amotepur"
+﻿k_filename: "bookdown-amotepur"
 language:
   tables: yes
   label:
@@ -6,6 +6,8 @@ language:
     fig:  "Figura "
 
     tab:  "Tabela "
+
+    qua:  "Quadro "
 
     eq :  "Equação "
 
