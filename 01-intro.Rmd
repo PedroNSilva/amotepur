@@ -44,33 +44,35 @@ Tomando em conta as facilidades disponíveis com base nas modernas ferramentas c
 
 ## Estrutura do livro
 
-Este livro está organizado em treze capítulos, além desta introdução.
+Este livro está organizado em quatorze capítulos, incluindo esta introdução.
 
-1) **Conceitos e Cadastros **
+1) **Introdução**
 
-2) **Visão Geral da Amostragem e Estimação **
+2) **Conceitos e Cadastros **
 
-3) **Amostragem Aleatória Simples (AAS) ** 
+3) **Visão Geral da Amostragem e Estimação **
 
-4) **Estimação de Proporções e Tamanho da Amostra sob AAS ** 
+4) **Amostragem Aleatória Simples (AAS) ** 
 
-5) **Estimação de uma Razão Populacional **
+5) **Estimação de Proporções e Tamanho da Amostra sob AAS ** 
 
-6) **Estimação Para Domínios de Estudo **
+6) **Estimação de uma Razão Populacional **
 
-7) **Amostragem Sistemática **
+7) **Estimação Para Domínios de Estudo **
 
-8) **Amostragem Binomial ou de Bernoulli **
+8) **Amostragem Sistemática **
 
-9) **Amostragem com Probabilidades Desiguais **
+9) **Amostragem Binomial ou de Bernoulli **
 
-10) **Amostragem Inversa **
+10) **Amostragem com Probabilidades Desiguais **
 
-11) **Amostragem Estratificada **
+11) **Amostragem Inversa **
 
-12) **Amostragem de Conglomerados em Um ou Mais Estágios **
+12) **Amostragem Estratificada **
 
-13) **Estimadores de Calibração **
+13) **Amostragem de Conglomerados em Um ou Mais Estágios **
+
+14) **Estimadores de Calibração **
 
 Cada um dos capítulos é auto-contido, e vários deles podem ser saltados. Por exemplo, os capítulos sobre Amostragem Sistemática, Amostragem Binomial e Amostragem Inversa podem ser omitidos num curso que tenha carga horária insuficiente para cobrir todo o material. O capítulo sobre Estimadores de Calibração tem grande importância prática, e pode ser apresentado antes do tratamento da Amostragem de Conglomerados, se necessário.
 

@@ -143,7 +143,7 @@ Este conjunto de exemplos buscou ilustrar os conceitos mais importantes necessá
 Uma rica fonte de informações sobre as definições conceituais de uma vasta coleção de pesquisas é a base de metadados das pesquisas do IBGE, acessível através de (https://metadados.ibge.gov.br/).
 
 
-## Abordagens alternativas para pesquisas por amostragem 
+## Abordagens alternativas para pesquisas por amostragem {#abordalt}
 
 Pesquisas por amostragem dependem criticamente da qualidade da amostra selecionada para coleta ou obtenção dos dados. Para cumprir bem seu papel na pesquisa, são características desejáveis da amostra: 
 
