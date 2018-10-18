@@ -1,0 +1,8 @@
+XXX Sobras do Capítulo 1 XXX
+
+Chamando de $i$ a unidade efetivamente selecionada após a realização de experiência aleatória e representando por $Y_i$ o valor da variável $y$ observado para essa unidade, nota-se que $Y_i$ é uma *variável aleatória* que pode assumir valores no conjunto  $Y_U=\{y_1, y_2, \dots, y_N\}$.
+
+No que se segue, $y_i$ estará sempre associado à seleção de uma amostra, que é uma experiência aleatória. 
+
+$$\begin{array}{|l|c|c|c|c|}\hline N & n & \textrm{Número de Amostras} & & N & n & \textrm{Número de Amostras}\\\hline 1.000 & 2 &5,00E+05& & 10.000 & 2 & 5,00E+07\\\hline 1.000 & 10 & 2,63E+29 & & 10.000 & 10 & 2,74E+33\\\hline1.000 & 20 &3,39E+41& & 10.000 & 20 & 4,03E+61\\\hline 1.000 & 100 & 6,39E+139 & & 10.000 & 100 & 6,52E+247 \\\hline \end{array}$$
+  $V_p(\hat Y_{HT}) = \displaystyle \sum_{i \in U} \sum_{j \in U} \left( \frac{d_i d_j}{d_{ij}} - 1 \right) {y_i} {y_j} = \displaystyle \sum_{i \in U} \pi_i (1 - \pi_i) \left( \frac{y_i}{\pi_i} \right)^2 + \displaystyle \sum_{i \in U} \sum_{i \neq j} (\pi_{ij} - \pi_i \pi_j) \left( \frac{y_i}{\pi_i} \frac{y_j}{\pi_j} \right)$
