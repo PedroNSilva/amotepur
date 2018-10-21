@@ -138,7 +138,7 @@ Este conjunto de exemplos buscou ilustrar os conceitos mais importantes necessá
 Uma rica fonte de informações sobre as definições conceituais de uma vasta coleção de pesquisas é a base de metadados das pesquisas do IBGE, acessível através de (https://metadados.ibge.gov.br/).
 
 
-## Abordagens alternativas para pesquisas por amostragem 
+## Abordagens alternativas para pesquisas por amostragem {#abordalt}
 
 Pesquisas por amostragem dependem criticamente da qualidade da amostra selecionada para coleta ou obtenção dos dados. Para cumprir bem seu papel na pesquisa, são características desejáveis da amostra: 
 
@@ -212,7 +212,9 @@ Os instrumentos de coleta (questionários e outros formulários) são parte impo
 
 Um protocolo de esforço de coleta deve ser especificado. Este protocolo deve incluir, por exemplo, instruções sobre o número mínimo de tentativas de contato que devem ser feitas para cada unidade da amostra selecionada, antes de dar uma unidade como perdida. Os procedimentos para lidar com recusas ou perdas de unidades da amostra selecionada também devem ser definidos previamente. Os motivos das perdas devem sempre ser registrados, e o tratamento para as perdas e para a não-resposta devem ser especificados.
 
-Nesta etapa estão ainda incluídos também a elaboração e os testes dos sistemas de apuração da pesquisa.  
+Nesta etapa estão ainda incluídos também a elaboração e os testes dos sistemas de apuração da pesquisa.
+
+
 ### Coletar - implementação da pesquisa e coleta dos dados
 
 Nesta etapa destacam-se as seguintes atividades: a preparação do cadastro, a seleção da amostra, o treinamento de equipes de coleta e supervisão de campo, e a realização e o acompanhamento da coleta. 

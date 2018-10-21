@@ -2,29 +2,31 @@
 
 ## Planos Amostrais e Esquemas de Seleção
 
-O planejamento amostral requer a definição das seguintes questões fundamentais: 
+O planejamento da amostra de uma pesquisa requer a definição dos seguintes componentes fundamentais: 
 
-- Método para *seleção* da amostra;
+C1) Que método será usado para *seleção* da amostra;
 
--	*Tamanho* da amostra;
+C2)	Qual será o *tamanho* da amostra;
 
--	*Estimadores* dos parâmetros de interesse; e
+C3)	Que *estimadores* serão usados para os parâmetros de interesse; e
 
--	*Avaliação da qualidade* das estimativas através da variância dos estimadores e/ou da estimação da variância dos estimadores.
+C4)	Como será feita a *avaliação da precisão* das estimativas, isto é, como será feita a estimação da variância dos estimadores empregados.
 
-Para aplicar um plano amostralqualquer $p(s)$ (a função que associa a cada amostra possível uma probabilidade) precisamos contar com um esquema de seleção.
+Os componentes C1 e C2, em conjunto, dão origem à especificação do *plano amostral*. Já os componentes C3 e C4 dão origem à especificação dos *métodos de estimação* da pesquisa. 
 
-*Esquema de seleção* é um mecanismo que permita selecionar as unidades da amostra $s$ de tal forma que a probabilidade de ser $s\in S$ a amostra selecionada seja igual a $p(s)$.
+Para aplicar um plano amostral qualquer $p(s)$ (a função que associa a cada amostra possível uma probabilidade de ser a amostra selecionada) precisamos contar com um *esquema de seleção*. Um *esquema de seleção* é um método que permite selecionar as unidades da amostra $s$ de tal forma que a probabilidade de ser $s \in S$ a amostra selecionada seja igual a $p(s)$.
 
-Há dois tipos principais de esquemas de seleção: o de sequências de sorteios e o de processamento sequencial da lista ou cadastro.
+Há dois tipos principais de *esquemas de seleção*: esquemas baseados em sequências de sorteios, e esquemas baseados em processamento sequencial da lista ou cadastro. Esquemas baseados em sequências de sorteios são aplicados mediante realização de uma série de experimentos aleatórios, chamados *sorteios* ou extrações. Em cada sorteio, uma unidade é selecionada da população inteira ou de um subconjunto especificado da população, e resulta em uma unidade selecionada para a amostra. Ao fim da série de sorteios, fica identificada a amostra selecionada para a pesquisa. 
 
-Esquemas baseados em sequências de sorteios são aplicados mediante realização de uma série de experimentos aleatórios, chamados sorteios ou extrações.Em cada sorteio, uma unidade é selecionada da população inteira ou de um subconjunto especificado da população, e resulta em uma unidade selecionada para a amostra.
+Esquemas baseados em sequências de sorteios podem ser executados de duas formas distintas: os sorteios podem ser feitos de forma independente, o que implica que unidades já selecionadas podem eventualmente ser selecionadas mais vezes (*sorteios com reposição*), podem ser feitos de forma dependente ou condicional aos resultados dos sorteios antecedentes, geralmente para assegurar que unidades já selecionadas não possam ser selecionadas mais de uma vez (*sorteios sem reposição*).
 
-Este tipo de seleção pode ser executado de duas formas distintas, dependendo do critério de reposição ou não da unidade selecionada para a amostra antes do sorteio seguinte.
+Neste capítulo vamos ilustrar estes conceitos com um tipo de plano amostral bem simples. Mas as ideias básicas aqui introduzidas são aplicáveis de maneira geral a muitas outras situações de interesse.
 
 ## Amostragem Aleatória Simples Com Reposição (AASC)
 
-A Amostragem Aleatória Simples Com Reposição (AASC) é um esquema de seleção probabilístico básico no qual um pré-determinado número $n$ de unidades é selecionado de uma população de tamanho $N$, de tal forma que cada unidade da população tenha a mesma chance de ser incluída na amostra.
+A *Amostragem Aleatória Simples Com Reposição* (*AASC*) é um plano amostral probabilístico básico, implementado por meio de um esquema de seleção no qual um número $n$ pré-determinado de sorteios é feito, sendo em cada sorteio selecionada uma unidade de uma população de tamanho $N$. Nesse plano, os sorteios são feitos de forma independente uns dos outros, isto é, com reposição das unidades na população antes da aplicação dos sorteios subsequentes. Cada sorteio é feito de tal forma que todas as unidades da população têm a mesma chance de ser incluídas na amostra do sorteio, e essa probabilidade é igual a $1/N$.
+
+XXX PÁREI AQUI XXX
 
 A forma usual de selecionar a amostra consiste em realizar $n$ sorteios consecutivos, sendo cada seleção independente das anteriores, de tal modo que é selecionada a primeira unidade $i_1$ de $U$ com probabilidade $1/N$ e, repetindo o passo $n-1$ vezes, são selecionadas as unidades $i_2,...,i_k,...,i_n$ nos sorteios seguintes.
 
