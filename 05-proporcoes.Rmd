@@ -377,7 +377,7 @@ No caso da estimação de proporções o valor de $pq$ é limitado variando de 0
 ```{r, varp,fig.cap="Variação de $pq$ em função dos valores de $p$",echo=F}
 p=seq(0,1, by=0.001)
 pq=p*(1-p)
-plot(p,pq, type="l", main="Gráfico de pq X p",xlab="Proporção = p",ylab="Variância = pq")
+plot(p,pq, type="l", main="Gráfico de pq x p",xlab="Proporção = p",ylab="Variância = pq")
 ```
 </center>
 
@@ -442,7 +442,41 @@ Nestes casos há interesse de estimar a proporção de unidades em cada uma das 
 \end{array}
 \normalsize
 
-Observe que para calcular as proporções em cada uma das categorias na verdade o que se faz é atribuir o valor 1 às unidades da categoria em questão e o valor 0 para as unidades pertencente às demais categorias. Em outras palavras, se a variável tem $m$ categorias é como se fossem $m$ problemas com duas categorias.
-Mesmo nos casos em que só se tem duas categorias explícitas, quando se aplica um questionário, o respondente pode não saber ou, mesmo, não querer tomar uma decisão entre as duas opções de resposta.
+Observe que para calcular as proporções em cada uma das categorias na verdade o que se faz é atribuir o valor 1 às unidades da categoria em questão e o valor 0 para as unidades pertencente às demais categorias. Em outras palavras, se a variável tem $M$ categorias é como se fossem $M$ problemas com duas categorias.
 
+A proporção de unidades da população pertencentes à categoria $c\in (1, 2,.., M)$, é dada por:
+
+\begin{equation}
+p_c=\frac {N_c} {N}  (\#eq:44) 
+\end{equation}
+0nde $N_c$ é o número de unidades na categoria $c$ e $N$ é o tamanho total da população.
+
+Seja uma amostra aleatória simples (com ou sem reposição) de tamanho $n$ e seja a variável indicadora $y_i$ definida como:
+\begin{equation}
+\displaystyle y_i= \begin{cases} 1, \text {se a unidade i pertence à categoria $c$} \\\\ 0, \text {se a unidade i não pertence à categoria $c$} \end{cases}(\#eq:45)
+\end{equation}
+
+Com tal definição pode-se ver que o número de unidades da catecoria $c$ na amostra será dado por::
+\begin{equation}
+\displaystyle n_c=\sum_{i=1}^{n} y_i(\#eq:46)
+\end{equation}
+Um estimador para a proporção de unidades populacionais pertencentes à categoria $c$  poderá ser obtido por:
+\begin{equation}
+\displaystyle \widehat p_c=\frac {1}{n} \sum_{i=1}^{n} y_i =\frac {n_c} {n}(\#eq:47)
+\end{equation}
+O problema foi reduzido ao caso de estimar proporções em variáveis com duas categorias.
+Pode-se obter, também, estimativas de precisão utilizando as mesmas ferramentas já apresentadas neste capítulo.
+
+Muitas vezes pode-se estar interessado em estimar proporções para agrupamentos das categorias originais. 
+
+Voltando ao exemplo da escola do ensino fundamental, pode ser de interesse estudar a proporção de seus alunos que estão matriculados no primeiro segmento do ensino fundamental. Nesse caso seriam contabilizados como pertencentes à categoria $c$ de interesse todos os alunos do 1º até o 5º ano, para os quais $y_c=1$, sendo $y_c=0$ para os demais alunos da escola.
+
+Outro caso de interesse ocorre quando na aplicação de um questionário, por exemplo, aparecem respondentes que se recusaram a responder ou,mesmo, disseram que não sabiam a resposta. Num caso como esse pode-se estar interessado em estimar a proporção das pessoas que responderam determinada alternativa, entre as pessoas que efetivamente responderam a pesquisa escolhendo uma das alternativas válidas. Um exemplo prático seria uma pesquisa sobre a intenção de voto numa eleição com apenas dois candidatos. Neste caso o entrevistado poderia reponder que votará no canditato A, no candidato B, que votará nulo ou em branco, onde apenas as duas primeiras alternativas seriam considerados como votos válidos.
+
+Neste caso poderia ser estimada a proporção para cada uma das quatro categorias iniciais ou apenas a proporção de votos válidos para cada um dos dois candidatos.
+\begin{equation}
+\displaystyle \widehat p_A=\frac {n_A} {n_A+n_B} \quad\text { e } \quad\widehat p_B=\frac {n_B} {n_A+n_B}(\#eq:48)
+\end{equation}
+
+Vale notar que neste caso tanto o numerador como o denominador do estimador da proporçãO são variáveis aleatórias, pois a população (eleitores que efetivamente vão votar num dos candidatos) é desconhecida.
 
