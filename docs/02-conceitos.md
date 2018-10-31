@@ -171,7 +171,7 @@ Pesquisas por amostragem, para serem bem feitas, requerem cuidadoso planejamento
 Para uma visão de conjunto, o *Modelo Genérico do Processo de Produção Estatística (MGPPE)* ou *Generic Statistical Business Process Model (GSBPM)*, definido pela United Nations Economic Commission for Europe (UNECE), é um modelo que descreve de forma abrangente as atividades do processo de produção estatística. Este modelo tem sido utilizado como quadro de referência para nortear a modernização e a melhoria da qualidade da produção estatística em muitos institutos nacionais de estatística, entre eles o IBGE. Uma representação esquemática dessa abordagem é apresentada na Figura \@ref(fig:modpesq), adaptada do *Generic Statistical Business Process Model: GSBPM: version 5.0* (2013, p.10). 
 
 <div class="figure">
-<img src="Figuras/ProcessodePesquisaModelo.PNG" alt="Modelo Genérico do Processo de Produção Estatística"  />
+<img src="Figuras/ProcessodePesquisaModelo.PNG" alt="Modelo Genérico do Processo de Produção Estatística" width="592" />
 <p class="caption">(\#fig:modpesq)Modelo Genérico do Processo de Produção Estatística</p>
 </div>
 
@@ -304,7 +304,7 @@ A malha digital de setores censitários do Brasil é um conjunto de arquivos con
 A Figura \@ref(fig:cadset) apresenta uma ilustração do cadastro de setores do IBGE para Copacabana no município do Rio de Janeiro. 
 
 <div class="figure">
-<img src="Figuras/SetorCopacabana.PNG" alt="O cadastro de setores do IBGE - Copacabana - RJ"  />
+<img src="Figuras/SetorCopacabana.PNG" alt="O cadastro de setores do IBGE - Copacabana - RJ" width="286" />
 <p class="caption">(\#fig:cadset)O cadastro de setores do IBGE - Copacabana - RJ</p>
 </div>
 
@@ -314,13 +314,13 @@ O *Cadastro Nacional de Endereços para Fins Estatísticos (CNEFE)* é uma lista
 As Figuras \@ref(fig:cnefe1) e \@ref(fig:cnefe2) ilustram informações disponíveis no CNEFE para um determinado setor censitário (https://censo2010.ibge.gov.br/cnefe/Exibe_Tabela.html?ag=330455705100417). 
 
 <div class="figure">
-<img src="Figuras/Dadossetor.PNG" alt="Informações do CNEFE para um setor de Copacabana - RJ"  />
+<img src="Figuras/Dadossetor.PNG" alt="Informações do CNEFE para um setor de Copacabana - RJ" width="354" />
 <p class="caption">(\#fig:cnefe1)Informações do CNEFE para um setor de Copacabana - RJ</p>
 </div>
 
 
 <div class="figure">
-<img src="Figuras/CNEFE.PNG" alt="Ilustração de dados do CNEFE"  />
+<img src="Figuras/CNEFE.PNG" alt="Ilustração de dados do CNEFE" width="356" />
 <p class="caption">(\#fig:cnefe2)Ilustração de dados do CNEFE</p>
 </div>
 
@@ -356,7 +356,7 @@ O cadastro deve ser estruturado de tal forma que seja possível determinar como 
 Nesta situação cada unidade $C_i$ do cadastro corresponde a uma e somente uma unidade de referência $U_i$ da população de pesquisa, conforme ilustração na Figura \@ref(fig:umparaum). 
 
 <div class="figure">
-<img src="Figuras/Associa1-1.PNG" alt="Ilustração da regra de associação um para um"  />
+<img src="Figuras/Associa1-1.PNG" alt="Ilustração da regra de associação um para um" width="2350" />
 <p class="caption">(\#fig:umparaum)Ilustração da regra de associação um para um</p>
 </div>
 
@@ -371,7 +371,7 @@ Um exemplo clássico de cadastro com esse tipo de associação é o *Cadastro B�
 Nesta situação, cada unidade de referência da população de pesquisa corresponde a uma ou mais unidades do cadastro, conforme ilustração na Figura \@ref(fig:umparavar). Consideramos aqui apenas os casos em que cada unidade elementar no cadastro tenha vínculo com no máximo uma unidade elementar na população.
 
 <div class="figure">
-<img src="Figuras/Associa1-varios.PNG" alt="Ilustração da regra de associação um para vários"  />
+<img src="Figuras/Associa1-varios.PNG" alt="Ilustração da regra de associação um para vários" width="2396" />
 <p class="caption">(\#fig:umparavar)Ilustração da regra de associação um para vários</p>
 </div>
 
@@ -389,13 +389,13 @@ Nesta situação, uma ou mais unidades de referência da população de pesquisa
 
 
 <div class="figure">
-<img src="Figuras/Associavarios-1a.PNG" alt="Ilustração da regra de associação vários para um"  />
+<img src="Figuras/Associavarios-1a.PNG" alt="Ilustração da regra de associação vários para um" width="406" />
 <p class="caption">(\#fig:varparaum1)Ilustração da regra de associação vários para um</p>
 </div>
 
 
 <div class="figure">
-<img src="Figuras/Associavarios-1b.PNG" alt="Ilustração da regra de associação vários para um"  />
+<img src="Figuras/Associavarios-1b.PNG" alt="Ilustração da regra de associação vários para um" width="428" />
 <p class="caption">(\#fig:varparaum2)Ilustração da regra de associação vários para um</p>
 </div>
 
@@ -404,6 +404,6 @@ Nesta situação, uma ou mais unidades de referência da população de pesquisa
 Neste caso se adotam os planos de amostragem conglomerada em múltiplos estágios (ou etapas). Envolve uma hierarquia de diferentes tipos de unidades (unidades primárias de amostragem, unidades secundárias, terciárias, etc..). É necessário um bom cadastro em cada estágio para a seleção das unidades do estágio seguinte. Os cadastros para as unidades dos primeiros estágios são geralmente mais estáveis e fáceis de construir e manter que aqueles para os estágios subsequentes. A Figura \@ref(fig:hierarquia) apresenta uma ilustração dessa situação.
 
 <div class="figure">
-<img src="Figuras/Associavariosniveis.PNG" alt="Ilustração de regras de associação - hierarquia para vários níveis"  />
+<img src="Figuras/Associavariosniveis.PNG" alt="Ilustração de regras de associação - hierarquia para vários níveis" width="2632" />
 <p class="caption">(\#fig:hierarquia)Ilustração de regras de associação - hierarquia para vários níveis</p>
 </div>

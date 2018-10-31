@@ -1,4 +1,3 @@
-
 #Amostragem com Probabilidades Desiguais
 
 A amostragem com probabilidades desiguais é usada porque as unidades de amostragem têm variação de tamanho e ignorar a variação de tamanho pode resultar em desenhos ineficientes. Neste sentido, é usada quando a variação dos tamanhos for grande, tiver informação auxiliar precisa sobre tamanhos disponível e o tamanho for fortemente correlacionado com as variáveis de interesse. 
@@ -103,14 +102,21 @@ O Quadro \@ref(tab:tabppt1) apresenta um resumo da estimação de parâmetros m�
 
 $$\begin{array}{|c|c|c|}\hline
 \textrm{Parâmetro} & \textrm{Estimador PPT}  
+
 \\\hline \overline{Y}=\displaystyle\sum_{i\in U}y_i/N & \overline y_{HT}=\frac{1}{N}\displaystyle\sum_{i \in s}\frac{y_i}{\pi_i}=\sum_{i \in s}w_i^{HT}y_i
 \\ &\overline y_R=\frac{\displaystyle\sum_{i \in s}w_i^{HT}y_i}{\displaystyle\sum_{i \in s}w_i^{HT}}=\displaystyle\sum_{i \in s}w_i^Ry_i
+
 \\\hline Y=\displaystyle\sum_{i\in U}y_i &\widehat Y=\displaystyle\sum_{i \in s}\frac{y_i}{\pi_i}=\widehat Y_{HT} 
+
 \\\hline V(\overline y_{HT})=\frac{1}{N^2}V(\widehat Y_{HT}) & \frac{1}{N^2}\widehat V(\widehat Y_{HT})
+
 \\\hline V(\overline y_R)\doteq\frac{1}{N^2}\displaystyle\sum_{i \in U}\sum_{j \in U}(\pi_{ij}-\pi_i\pi_j)\left(\frac{y_i-\overline Y}{\pi_i}\right)\left(\frac{y_j-\overline Y}{\pi_j}\right) & \widehat V(\overline y_R)\doteq\frac{1}{N^2}\displaystyle\sum_{i \in s}\sum_{j \in s}\frac{(\pi_{ij}-\pi_i\pi_j)}{\pi_{ij}}\left(\frac{y_i-\overline y_R}{\pi_i}\right)\left(\frac{y_j-\overline y_R}{\pi_j}\right)
+
 \\\hline V(\widehat Y_{HT})=\displaystyle\sum_{i \in U}\sum_{j \in U}(\pi_{ij}-\pi_i\pi_j)\left(\frac{y_i}{\pi_i}\frac{y_j}{\pi_j}\right) & \widehat V(\widehat Y_{HT})=\displaystyle\sum_{i \in s}\sum_{j \in s}\frac{(\pi_{ij}-\pi_i\pi_j)}{\pi_{ij}}\left(\frac{y_i}{\pi_i}\frac{y_j}{\pi_j}\right)  
+
 \\\hline V_{SYG}(\widehat Y_{HT})=-\frac{1}{2}\displaystyle\sum_{i \in U}\sum_{j \in U}(\pi_{ij}-\pi_i\pi_j)\left(\frac{y_i}{\pi_i}-\frac{y_j}{\pi_j}\right)^2 & \widehat V_{SYG}(\widehat Y_{HT})=-\frac{1}{2}\displaystyle\sum_{i \in s}\sum_{j \in s}\frac{(\pi_{ij}-\pi_i\pi_j)}{\pi_{ij}}\left(\frac{y_i}{\pi_i}-\frac{y_j}{\pi_j}\right)^2 
- \\\hline \end{array}$$
+
+\\\hline \end{array}$$
 
 
 ###Maneiras de Selecionar Amostras com PPT
