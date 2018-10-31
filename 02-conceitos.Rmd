@@ -117,7 +117,7 @@ Nesta pesquisa a caracterização da população de pesquisa é mais complexa, p
 Para melhor ilustrar o conceito da definição da *população de pesquisa*, o Quadro \@ref(tab:popsex1) apresenta diversos exemplos de definição para populações de pesquisa com as seguintes especificações: as unidades a serem pesquisadas; características definidoras das unidades; localização espacial das unidades; e período de referência considerado. Esta separação de componentes da definição ajuda a identificar quais são os elementos essenciais que devem compor a definição de uma *população de pesquisa*.
 
 
-```{r, echo=FALSE}
+```{r, echo=FALSE, label="popsex1"}
 quadro1_1 <- data.frame (
 X1 = c("Pessoas", "Empresas do comércio varejista", "Pessoas", "Alunos", "Estabelecimentos agropecuários"),
 X2 = c("Habitando domicílios particulares permanentes", "Classificados como supermercados", "Maiores de 5 anos de idade", "Do curso de mestrado da ENCE", "Produtores de café"),

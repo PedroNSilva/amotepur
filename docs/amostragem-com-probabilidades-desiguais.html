@@ -32,8 +32,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-
-<link rel="next" href="introduc.html">
+<link rel="prev" href="amostragem-binomial-ou-de-bernoulli-ab.html">
+<link rel="next" href="amostragem-estratificada.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -204,17 +204,202 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Amostragem: Teoria e Prática Usando R</h1>
-<h4 class="author"><em>Pedro Luis do Nascimento Silva, Zélia Magalhães Bianchini e Antonio José Ribeiro Dias</em></h4>
-<h4 class="date"><em>2018-10-30</em></h4>
+<div id="amostragem-com-probabilidades-desiguais" class="section level1">
+<h1><span class="header-section-number">Capítulo 10</span> Amostragem com Probabilidades Desiguais</h1>
+<p>A amostragem com probabilidades desiguais é usada porque as unidades de amostragem têm variação de tamanho e ignorar a variação de tamanho pode resultar em desenhos ineficientes. Neste sentido, é usada quando a variação dos tamanhos for grande, tiver informação auxiliar precisa sobre tamanhos disponível e o tamanho for fortemente correlacionado com as variáveis de interesse.</p>
+<p>Trataremos inicialmente o caso de amostragem com probabilidades proporcioanis ao tamanho. Outros casos serão vistos mais adiante, tais como: amostragem estratificada com alocação desproporcional, seleção de um morador para ser entrevistado em cada domicílio, amostras de números telefônicos (“random digit dialling samples”).</p>
+<div id="amostragem-com-probabilidades-proporcionais-ao-tamanho-ppt" class="section level2">
+<h2><span class="header-section-number">10.1</span> Amostragem com Probabilidades Proporcionais ao Tamanho (PPT)</h2>
+<p>Seja a população denotada por <span class="math inline">\(U = \{ 1; 2; ...; N\}\)</span> e que os valores de uma variável auxiliar <span class="math inline">\(x_i\)</span>, <span class="math inline">\(i \in U\)</span>, são conhecidos para todos os elementos da população.</p>
+<p>Se <span class="math inline">\(x_i&gt;0\,\,\forall\, i \in U\)</span>, então podemos usar esta variável como uma medida de tamanho das unidades populacionais.</p>
+<p>Se <span class="math inline">\(x\)</span> for correlacionada com a(s) variável(is) de estudo <span class="math inline">\(y\)</span>, então podemos esperar aumentar a eficiência fazendo seleção com PPT comparada com AAS.</p>
+<p>Por enquanto, vamos assumir que é possível selecionar amostras de acordo com um plano amostral tal que: <span class="math inline">\(\pi_i \propto x_i\,\,\forall \,\, i=1,\dots, N\)</span>; <span class="math inline">\(\pi_{ij} &gt; 0 \,\,\forall \,\, i \neq j \in U\)</span>.</p>
+<p>Mais tarde, discutiremos algoritmos para garantir que essas condições sejam cumpridas.</p>
+<div id="estimacao-do-total-populacional" class="section level3">
+<h3><span class="header-section-number">10.1.1</span> Estimação do Total Populacional</h3>
+<p>Sejam <span class="math inline">\(\delta_i\)</span> as variáveis indicadoras de inclusão na amostra <span class="math inline">\(s\)</span>, para todo <span class="math inline">\(i \in U\)</span>.</p>
+<p>Para um plano amostral <span class="math inline">\(p(s)\)</span> qualquer sabemos que: <span class="math inline">\(E(\delta_i) = \pi_i\)</span>, <span class="math inline">\(E(\delta_i \delta_j) = \pi_{ij}\)</span>,</p>
+<p><span class="math inline">\(V(\delta_i) = \pi_i(1 - \pi_i)\)</span> e <span class="math inline">\(COV(\delta_i,\delta_j) = \pi_{ij}- \pi_i \pi_j = \Delta_{ij}\)</span></p>
+<p>O Estimador de Horvitz-Thompson para estimar o total populacional <span class="math inline">\(Y=\displaystyle\sum_{i \in U}y_i\)</span> é dado por: <span class="math inline">\(\widehat Y=\displaystyle\sum_{i \in s}\frac{y_i}{\pi_i}=\widehat Y_{HT}\)</span></p>
+<p>Portanto, cada unidade da amostra tem um peso amostral igual ao inverso da respectiva probabilidade de inclusão na amostra: <span class="math inline">\(w_i=\pi_i^{-1}\,\,\,\forall\,\,i \in U\)</span>.</p>
+<p>O estimador <span class="math inline">\(HT\)</span> do total é não viciado, isto é: <span class="math inline">\(E(\widehat Y_{HT})=Y\)</span> e sua variância na forma de Horvitz-Thompson é dada por:</p>
+<p><span class="math display">\[V(\widehat Y_{HT})=\sum_{i \in U}\sum_{j \in U}(\pi_{ij}-\pi_i\pi_j)\left(\frac{y_i}{\pi_i}\frac{y_j}{\pi_j}\right)\]</span>.</p>
+<p>Um estimador não viciado da variância do estimador <span class="math inline">\(HT\)</span> é: <span class="math display">\[\widehat V(\widehat Y_{HT})=\sum_{i \in s}\sum_{j \in s}\frac{(\pi_{ij}-\pi_i\pi_j)}{\pi_{ij}}\left(\frac{y_i}{\pi_i}\frac{y_j}{\pi_j}\right)\]</span>.</p>
+<p>Uma fórmula alternativa para a variância do estimador HT, válida para planos amostrais de tamanhos fixos, é chamada SYG (Sen-Yates-Grundy):</p>
+<p><span class="math display">\[V_{SYG}(\widehat Y_{HT})=-\frac{1}{2}\sum_{i \in U}\sum_{j \in U}(\pi_{ij}-\pi_i\pi_j)\left(\frac{y_i}{\pi_i}-\frac{y_j}{\pi_j}\right)^2\]</span>.</p>
+<p>Um estimador não viciado alternativo de variância obtido a partir da fórmula de Sen-Yates-Grundy é dado por:</p>
+<p><span class="math display">\[\widehat V_{SYG}(\widehat Y_{HT})=-\frac{1}{2}\sum_{i \in s}\sum_{j \in s}\frac{(\pi_{ij}-\pi_i\pi_j)}{\pi_{ij}}\left(\frac{y_i}{\pi_i}-\frac{y_j}{\pi_j}\right)^2\]</span>.</p>
+<p>Note que esta fórmula não coincide com o estimador de variância derivado a partir da expressão de Horvitz-Thompson.</p>
+<p>Da fórmula Sen-Yates-Grundy da variância, podemos observar que a variância seria nula caso <span class="math inline">\(y_i/\pi_i = y_j/\pi_j\)</span> para todo <span class="math inline">\(i \neq j \in U\)</span>.</p>
+<p>Portanto, se <span class="math inline">\(\pi_i \propto x_i\)</span> e <span class="math inline">\(y_i \propto x_i \,\,\forall i \in U\)</span>, então <span class="math inline">\(V_{SYG}(\widehat Y_{HT})=0\)</span> .</p>
+<p>Isto indica que se <span class="math inline">\(y\)</span> e <span class="math inline">\(x\)</span> forem aproximadamente proporcionais (logo, altamente correlacionadas), a variância do estimador <span class="math inline">\(HT\)</span> do total será pequena.</p>
+<p>Também se pode notar também que a variância deve ser pequena quando <span class="math inline">\(\pi_{ij}\doteq\pi_i\pi_j\,\,\forall \,i\neq j \in U\)</span>.</p>
+<p>Acontece que <span class="math inline">\(\pi_{ij}\doteq\pi_i\pi_j\,\,\forall\,i\neq j \in U\)</span> implica em indicadores de inclusão das unidades <span class="math inline">\(i\)</span> e <span class="math inline">\(j\)</span> independentes.</p>
+<p>Um plano amostral satisfazendo essa propriedade é a <em>‘Amostragem de Poisson’</em>.</p>
+<p>Entretanto, <em>Amostragem de Poisson</em> não é eficiente, como veremos, devido à variabilidade do tamanho amostral.</p>
+<p>A chave para eficiência da amostragem PPT é ter medidas de tamanho (<span class="math inline">\(x\)</span>) altamente correlacionadas com respostas de interesse na pesquisa (<span class="math inline">\(y\)</span>).</p>
+<p>Cabe registrar que ambos os estimadores de variância para o estimador de total podem tomar valores negativos. Evidências empíricas sugerem que isto ocorre mais raramente com o estimador de Sen-Yates-Grundy.</p>
 </div>
-<div id="prefacio" class="section level1 unnumbered">
-<h1>Prefácio</h1>
-<p>Este é um livro escrito para apoiar a aprendizagem de <strong>Amostragem</strong>. Nosso objetivo principal é orientar um leitor no caminho para aprender os conceitos, principais ideias e a usar as ferramentas de amostragem para resolver problemas.</p>
-<div id="agradecimentos" class="section level2 unnumbered">
-<h2>Agradecimentos</h2>
-<p>Nossa gratidão é dirigida em primeiro lugar ao IBGE e à ENCE, instituições que nos propiciaram a maior parte das oportunidades de aprendizagem sobre o tema ao longo de nossas carreiras.</p>
+<div id="estimacao-da-media-populacional" class="section level3">
+<h3><span class="header-section-number">10.1.2</span> Estimação da Média Populacional</h3>
+<p>Quando o tamanho da população <span class="math inline">\(N\)</span> é conhecido, o estimador “natural” da média populacional baseado no estimador <span class="math inline">\(HT\)</span> do total seria <span class="math inline">\(\overline y_{HT}=\widehat Y_{HT}/N=\frac{1}{N}\displaystyle\sum_{i \in s}\frac{y_i}{\pi_i}=\sum_{i \in s}w_i^{HT}y_i\)</span></p>
+<p>onde <span class="math inline">\(w_i^{HT}= \pi_i^{-1}/N\)</span>.</p>
+<p>As fórmulas de variância e estimador da variância seguem diretamente das anteriores mediante divisão por <span class="math inline">\(N^2\)</span>.</p>
+<p>Mesmo quando o tamanho <span class="math inline">\(N\)</span> da população é conhecido, ele pode ser estimado pelo estimador do tipo razão da média populacional, dado por <span class="math inline">\(\widehat N_{HT}=\displaystyle\sum_{i \in s}\frac{1}{\pi_i}\)</span>.</p>
+<p>Portanto, um estimador tipo razão para a média é dado por:</p>
+<p><span class="math display">\[\overline y_R=\widehat Y_{HT}/\widehat N_{HT}= \frac{\displaystyle\sum_{i \in s}y_i/\pi_i}{\displaystyle\sum_{i \in s}1/\pi_i}=\frac{\displaystyle\sum_{i \in s}w_i^{HT}y_i}{\displaystyle\sum_{i \in s}w_i^{HT}}=\sum_{i \in s}w_i^Ry_i\]</span></p>
+<p>onde <span class="math inline">\(w_i^R=w_i^{HT}/\displaystyle\sum_{j \in s}w_j^{HT}\)</span>.</p>
+<p>Sua variância é aproximada por:</p>
+<p><span class="math display">\[V(\overline y_R)\doteq\frac{1}{N^2}\sum_{i \in U}\sum_{j \in U}(\pi_{ij}-\pi_i\pi_j)\left(\frac{y_i-\overline Y}{\pi_i}\right)\left(\frac{y_j-\overline Y}{\pi_j}\right)\]</span>.</p>
+<p>Um estimador aproximadamente não viciado para essa variância é dado por:</p>
+<p><span class="math display">\[\widehat V(\overline y_R)\doteq\frac{1}{N^2}\sum_{i \in s}\sum_{j \in s}\frac{(\pi_{ij}-\pi_i\pi_j)}{\pi_{ij}}\left(\frac{y_i-\overline y_R}{\pi_i}\right)\left(\frac{y_j-\overline y_R}{\pi_j}\right)\]</span>.</p>
+<p>Cabe registrar que para alguns planos amostrais, os dois estimadores são equivalentes, isto é, <span class="math inline">\(\overline y_R=\overline y_{HT}\)</span> porque <span class="math inline">\(w_i^R=w_i^{HT}\)</span>.</p>
+<p>O <em>estimador de razão da média</em> é geralmente mais eficiente que o de <span class="math inline">\(HT\)</span>.</p>
+<p>O estimador tipo razão da média é invariante sob transformações de locação. Isto é, se tomarmos <span class="math inline">\(z_i=y_i+A\)</span>, então <span class="math inline">\(\overline z_R=\overline y_R+A\)</span> .</p>
+<p>Em planos amostrais auto-ponderados, isto é, em que os <span class="math inline">\(\pi_i\)</span> são constantes, os pesos <span class="math inline">\(w_i\)</span> ficam todos iguais a <span class="math inline">\(1/n\)</span> para ambos os estimadores de média (<span class="math inline">\(HT\)</span> e de Razão). Esta é uma vantagem de planos deste tipo, pois a tarefa de estimação fica simplificada.</p>
+</div>
+<div id="maneiras-de-selecionar-amostras-com-ppt" class="section level3">
+<h3><span class="header-section-number">10.1.3</span> Maneiras de Selecionar Amostras com PPT</h3>
+<p>A seleção de amostras com PPT pode ser com reposição ou sem reposição. Na amostragem PPT com reposição há uma maior simplicidade de seleção e de estimação, porém a eficiência não é plena. Já na amostragem com PPT sem reposição há várias alternativas de seleção e mais complexidade e dificuldade na estimação de precisão, porém a eficiência é plena e não tem o problema da repetição de unidade selecionada.</p>
+</div>
+<div id="amostragem-ppt-com-reposicao-metodo-dos-totais-cumulativos" class="section level3">
+<h3><span class="header-section-number">10.1.4</span> Amostragem PPT Com Reposição: Método dos Totais Cumulativos</h3>
+<p>O algoritmo para seleção da amostra pelo método dos totais cumulativos consiste nos seguintes passos:</p>
+<ol style="list-style-type: decimal">
+<li><p>Acumule as medidas de tamanho na população, isto é, faça <span class="math inline">\(X_{(0)} = 0\)</span> e calcule <span class="math inline">\(X_{(K)}=\displaystyle\sum_{i=1}^{k}x_i\)</span> para <span class="math inline">\(k=1,...,N\)</span>.</p></li>
+<li><p>Determine “intervalos de seleção” com base no tamanho de cada unidade. Assim, o intervalo de seleção para a unidade <span class="math inline">\(k\)</span> será dado por <span class="math inline">\((X_{(k-1)} ; X_{(k)}]\)</span>, sendo o limite superior incluído.</p></li>
+<li><p>Selecione um número aleatório <span class="math inline">\(r\)</span> com distribuição uniforme entre 0 e <span class="math inline">\(X_{(N)}\)</span>, a soma dos tamanhos na população.</p></li>
+<li><p>Selecione a unidade correspondente ao intervalo no qual cai o número aleatório <span class="math inline">\(r\)</span>, isto é, selecione <span class="math inline">\(k\)</span> tal que <span class="math inline">\(r \in (X_{(k-1)} ; X_{(k)}]\)</span>.</p></li>
+<li><p>Repita os passos 3 e 4 tantas vezes quantas forem necessárias para obter a amostra do tamanho <span class="math inline">\(n\)</span> desejado.</p></li>
+</ol>
+<p>A <em>Amostra selecionada</em> é constituída pelas unidades <span class="math inline">\(k_1, ..., k_j, ..., k_n\)</span>.</p>
+<p>Cabe comentar que Amostragem PPT Com Reposição é um método muito simples de implementar, que pode implicar seleção repetida da(s) mesma(s) unidade(s), com tamanho efetivo da amostra (número de unidades distintas na amostra) aleatório, sendo sempre possível encontrar um plano amostral com as mesmas probabilidades de inclusão mais eficiente que este.</p>
+<p><strong>Exemplo 9.1:</strong> Considere uma população de <span class="math inline">\(N=6\)</span> Fazendas.Extrair uma amostra de <span class="math inline">\(n=3\)</span> fazendas com PPT <span class="math inline">\(\propto\)</span> área, usando o método dos totais cumulativos.</p>
+<p><span class="math display">\[\begin{array}{|l|c|c|c|c|}\hline \text{Fazenda} &amp; \text{Área} &amp; \text{Tamanho  Acumulado} &amp; \text{Limite Inferior do Intervalo} &amp; \text{Limite Superior do Intervalo} \\\hline 1 &amp; 50 &amp; 50 &amp; 0 &amp; 50\\\hline 2 &amp; 1000 &amp; 1050 &amp; 51 &amp; 1050\\\hline 3 &amp; 125 &amp; 1175 &amp;1051 &amp;1175\\\hline 4 &amp; 300 &amp; 1475 &amp; 1176 &amp; 1475 \\\hline 5 &amp; 500 &amp; 1975 &amp; 1476 &amp; 1975\\\hline 6 &amp; 25 &amp; 2000 &amp; 1976 &amp; 2000\\\hline\end{array}\]</span> Supondo que os 3 números aleatórios entre 0 e 2000 foram: 654, 1230 e 1555. Então as fazendas 2, 4 e 5 foram as selecionadas.</p>
+<p>Caso os 3 números aleatórios entre 0 e 2000 fossem: 122, 754 e 1980. Então as fazendas 2 e 6 seriam as selecionadas, com a fazenda 2 sendo selecionada duas vezes.</p>
+<p><strong>Exemplo 9.2:</strong> Diagrama de dispersão com dados de quantidade colhida e área plantada de cana de açúcar.</p>
+<div class="figure"><span id="fig:modclas"></span>
+<img src="Diagrama_cap9.PNG" alt="Figura 9.1 - Diagrama de dispersão"  />
+<p class="caption">
+Figura 10.1: Figura 9.1 - Diagrama de dispersão
+</p>
+</div>
+<div id="estimacao-do-total-sob-amostragem-ppt-com-reposicao" class="section level4">
+<h4><span class="header-section-number">10.1.4.1</span> Estimação do Total Sob Amostragem PPT Com Reposição</h4>
+<p>O estimador do total sob amostragem PPT com reposição é dado por: <span class="math display">\[\widehat Y_{PPTC}=\frac{1}{n}\sum_{j=1}^{n}\frac{y_{k_j}}{p_{k_j}}\]</span> onde <span class="math inline">\(j\)</span> representa o número do sorteio, e <span class="math inline">\(p_i = x_i / X\)</span> é o tamanho relativo da unidade <span class="math inline">\(i \in U\)</span>.</p>
+<p>A variância de <span class="math inline">\(\widehat Y_{PPTC}\)</span> e o seu respectivo estimador são apresentados a seguir:</p>
+<p><span class="math display">\[V_{PPTC}\left(\widehat  Y_{PPTC}\right)=\frac{1}{n}\displaystyle\sum_{i \in U}\left(\frac{y_i}{p_i}-Y\right)^2 p_i\]</span></p>
+<p><span class="math display">\[\widehat V_{PPTC}\left(\widehat  Y_{PPTC}\right)=\frac{1}{n(n-1)}\displaystyle\sum_{j=1}^{n}\left(\frac{y_{k_j}}{p_{k_j}}-\widehat Y_{PPTC}\right)^2\]</span></p>
+</div>
+</div>
+<div id="amostragem-ppt-de-poisson" class="section level3">
+<h3><span class="header-section-number">10.1.5</span> Amostragem PPT de Poisson</h3>
+<p>O método PPT de Poisson é uma generalização simples do método de <em>Amostragem Binomial</em> e consiste nos seguintes passos:</p>
+<ol style="list-style-type: decimal">
+<li><p>Para cada unidade populacional, determine o valor da probabilidade de inclusão <span class="math inline">\(\pi_i = n x_i/X\)</span>.</p></li>
+<li><p>Para cada unidade da população selecione, de forma independente, um número aleatório <span class="math inline">\(A_i\)</span> com distribuição uniforme no intervalo [0;1].</p></li>
+<li><p>Inclua a unidade <span class="math inline">\(i\)</span> na amostra se <span class="math inline">\(A_i \le \pi_i\)</span>.</p></li>
+</ol>
+<p>Alguns cuidados a serem observados na Amostragem PPT de Poisson</p>
+<ul>
+<li><p>Verifique se nenhuma unidade tem tamanho <span class="math inline">\(x_i\)</span> maior que <span class="math inline">\(X/n\)</span>. Se isto ocorrer, a ‘probabilidade de inclusão’ desta unidade seria maior que 1, o que é impossível.</p></li>
+<li><p>Caso alguma unidade <span class="math inline">\(j\)</span> seja tão grande que <span class="math inline">\(x_j&gt;X/n\)</span> inclua esta unidade com certeza (isto é, faça <span class="math inline">\(\pi_j = 1\)</span>), e refaça os cálculos dos <span class="math inline">\(\pi_i\)</span> com o tamanho desta unidade excluído do total e o tamanho de amostra diminuído de uma unidade.</p></li>
+<li><p>Repita a verificação até que nenhuma unidade tenha tamanho maior que o intervalo de seleção.</p></li>
+</ul>
+<p>A Amostragem PPT de Poisson é pouco usada na prática devido à variabilidade do tamanho da amostra. É um metodo menos eficiente que outros métodos de seleção PPT sem reposição.</p>
+<p>Um método moderno que corrige este defeito é “Amostragem Sequencial de Poisson” (ASP) - veja Ohlsson (1998).</p>
+<div id="estimador-simples-de-total-sob-amostragem-de-poisson" class="section level4">
+<h4><span class="header-section-number">10.1.5.1</span> Estimador Simples de Total sob Amostragem de Poisson</h4>
+<p>O estimador do total sob Amostragem de Poisson é dado por:</p>
+<p><span class="math display">\[\widehat Y_{PO}=\sum_{i \in s}\frac{y_i}{\pi_i}\]</span></p>
+<p>A variância de <span class="math inline">\(\widehat Y_{PO}\)</span> e o seu respectivo estimador são apresentados a seguir:</p>
+<p><span class="math display">\[V\left(\widehat Y_{PO}\right)=\displaystyle\sum_{i \in U}\pi_i(1-\pi_i)\left(\frac{y_i}{\pi_i}\right)^2=\displaystyle\sum_{i \in U}\frac{(1-\pi_i)}{\pi_i}y_i^2\]</span></p>
+<p><span class="math display">\[\widehat V\left(\widehat Y_{PO}\right)=\displaystyle\sum_{i \in s}(1-\pi_i)\left(\frac{y_i}{\pi_i}\right)^2=\displaystyle\sum_{i \in s}\frac{(1-\pi_i)}{\pi_i^2}y_i^2\]</span></p>
+<p>Também é possível usar estimador de total tipo razão sob Amostragem de Poisson, que é mais eficiente do que o estimador <span class="math inline">\(HT\)</span>.</p>
+</div>
+</div>
+<div id="amostragem-sequencial-de-poisson-asp" class="section level3">
+<h3><span class="header-section-number">10.1.6</span> Amostragem Sequencial de Poisson (ASP)</h3>
+<p>O método de Amostragem Sequencial de Poisson (ASP) consiste nos seguintes passos:</p>
+<ol style="list-style-type: decimal">
+<li><p>Gerar número aleatório uniforme independente <span class="math inline">\(A_i\)</span> para cada unidade <span class="math inline">\(i\)</span> da população.</p></li>
+<li><p>Calcular medida de tamanho relativo <span class="math inline">\(p_i\)</span> da unidade <span class="math inline">\(i\)</span>.</p></li>
+<li><p>Calcular número aleatório modificado <span class="math inline">\(C_i = A_i / p_i\)</span>.</p></li>
+<li><p>Ordenar as unidades crescentemente segundo valores dos números aleatórios modificados <span class="math inline">\(C_i\)</span> .</p></li>
+<li><p>Selecionar para a amostra as <span class="math inline">\(n\)</span> unidades com os menores valores de <span class="math inline">\(C_i\)</span> .</p></li>
+</ol>
+<div id="estimacao-com-amostragem-sequencial-de-poisson" class="section level4">
+<h4><span class="header-section-number">10.1.6.1</span> Estimação com Amostragem Sequencial de Poisson</h4>
+<p>O estimador do total sob Amostragem Sequencial de Poisson é dado por:</p>
+<p><span class="math display">\[\widehat Y_{ASP}=\frac{1}{n}\sum_{i \in s}\frac{y_i}{p_i}\]</span></p>
+<p>A variância de <span class="math inline">\(\widehat Y_{ASP}\)</span> e o seu respectivo estimador são apresentados a seguir:</p>
+<p><span class="math display">\[V\left(\widehat Y_{ASP}\right)=\frac{1}{n}\frac{N}{N-1}\displaystyle\sum_{i \in U}\left(\frac{y_i}{p_i}-Y\right)^2(1-np_i)p_i\]</span></p>
+<p><span class="math display">\[\widehat V\left(\widehat Y_{ASP}\right)=\frac{1}{n(n-1)}\displaystyle\sum_{i \in s}\left(\frac{y_i}{p_i}-\widehat Y_{ASP}\right)^2 (1-np_i)p_i\]</span></p>
+</div>
+</div>
+<div id="amostragem-sistematica-com-ppt" class="section level3">
+<h3><span class="header-section-number">10.1.7</span> Amostragem Sistemática com PPT</h3>
+<p>O método de Amostragem Sistemática com PPT consiste nos seguintes passos:</p>
+<ol style="list-style-type: decimal">
+<li><p>Acumule as medidas de tamanho na população, isto é, e faça <span class="math inline">\(X_{(0)}=0\)</span> e calcule <span class="math inline">\(X_{(k)}=\displaystyle \sum_{i=1}^{k}x_i\)</span> para <span class="math inline">\(k=1,...,N\)</span>.</p></li>
+<li><p>Determine “intervalos de seleção” com base no tamanho de cada unidade. Assim, o intervalo de seleção para a unidade <span class="math inline">\(k\)</span> será dado por <span class="math inline">\((X_{(k-1)};X_{(k)}]\)</span>, sendo o limite superior incluído.</p></li>
+<li><p>Determine o intervalo de amostragem (salto) <span class="math inline">\(K=\frac{X_{(N)}}{n}=\frac{\textrm{Total dos Tamanhos}}{\textrm {Tamanho da Amostra}}\)</span>.</p></li>
+<li><p>Selecione um número aleatório <span class="math inline">\(r\)</span> (ponto de partida) com distribuição uniforme entre 0 e <span class="math inline">\(K\)</span>.</p></li>
+<li><p>Selecione as unidades correspondentes aos intervalos nos quais caem os valores <span class="math inline">\(r+(j-1)\times K\)</span>, para <span class="math inline">\(j=1,2,...,n\)</span>. Isto é, selecione toda unidade <span class="math inline">\(i\)</span> tal que <span class="math inline">\(r+(j-1)\times K \in (X_{(i-1)};X_{(i)}]\)</span>, para <span class="math inline">\(j=1,2,...,n\)</span>.</p></li>
+</ol>
+<p>Seguem alguns cuidados a serem tomados no uso da Amostragem Sistemática com PPT:</p>
+<ul>
+<li><p>Verifique se nenhuma unidade tem tamanho <span class="math inline">\(x_i\)</span> maior que <span class="math inline">\(K\)</span>. Se isto ocorrer, esta unidade seria incluída ‘com repetição’ na amostra, o que é indesejável.</p></li>
+<li><p>Caso alguma unidade seja tão grande que <span class="math inline">\(x_i &gt; K\)</span> inclua esta unidade com certeza, e refaça os cálculos para <span class="math inline">\(K\)</span> com o tamanho desta unidade excluído do total e o tamanho de amostra diminuído de uma unidade.</p></li>
+<li><p>Repita a verificação até que nenhuma unidade tenha tamanho maior que o intervalo de seleção.</p></li>
+</ul>
+</div>
+<div id="amostragem-ppt-sistematica-com-ordenacao" class="section level3">
+<h3><span class="header-section-number">10.1.8</span> Amostragem PPT Sistemática com Ordenação</h3>
+<p>A seleção com amostragem PPT sistemática com ordenação segue os seguintes passos:</p>
+<ol style="list-style-type: decimal">
+<li><p>Faça uma ordenação das unidades da população segundo uma (ou mais) variável(is) de interesse.</p></li>
+<li><p>Selecione uma amostra sistemática com PPT seguindo o algoritmo anterior.</p></li>
+</ol>
+<p>Esta forma de implementar a Amostragem Sistemática PPT confere um efeito de ‘estratificação implícita’ pela variável (ou variáveis) usada(s) na ordenação.</p>
+<p>Cabe registrar os seguintes comentários:</p>
+<ol style="list-style-type: decimal">
+<li><p>Amostragem sistemática com PPT é muito usada na prática por sua simplicidade na seleção da amostra.</p></li>
+<li><p>Amostragem sistemática PPT tem desvantagens quanto à estimação de variâncias. Não há estimador de variância não viciado sob este plano amostral.</p></li>
+<li><p>Com ordenação prévia da população por alguma outra característica, amostragem sistemática PPT confere efeito de estratificação implícita da amostra, podendo aumentar sua eficiência.</p></li>
+</ol>
+</div>
+<div id="amostragem-ppt-de-pareto-ap-rosen-2000" class="section level3">
+<h3><span class="header-section-number">10.1.9</span> Amostragem PPT de Pareto (AP) (Rosén, 2000)</h3>
+<p>A seleção com amostragem PPT de Pareto segue os seguintes passos:</p>
+<ol style="list-style-type: decimal">
+<li><p>Gerar número aleatório uniforme independente <span class="math inline">\(A_i\)</span> para cada unidade <span class="math inline">\(i\)</span> da população.</p></li>
+<li><p>Calcular a <em>probabilidade de inclusão desejável</em> da unidade <span class="math inline">\(i: \lambda_i = n x_i/X\)</span>.</p></li>
+<li><p>Calcular número aleatório modificado <span class="math inline">\(C_i=\frac{A_i(1-\lambda_i)}{(1-A_i)\lambda_i}\)</span>.</p></li>
+<li><p>Ordenar as unidades crescentemente segundo valores dos números aleatórios modificados <span class="math inline">\(C_i\)</span>.</p></li>
+<li><p>Selecionar para a amostra as <span class="math inline">\(n\)</span> unidades com os menores valores de <span class="math inline">\(C_i\)</span>.</p></li>
+</ol>
+<p>Seguem algumas considerações sobre Amostragem PPT de Pareto (AP)</p>
+<ol style="list-style-type: decimal">
+<li><p>Este é o método empregado para sorteio de unidades primárias de amostragem na PNAD Contínua.</p></li>
+<li><p>Para tamanhos de amostra iguais, é mais eficiente que ASP.</p></li>
+<li><p>Mesmos cuidados com relação a unidades muito grandes que com outros métodos PPT sem reposição são necessários.</p></li>
+<li><p>Probabilidades exatas de inclusão não são estritamente proporcionais ao tamanho, e são difíceis de calcular.</p></li>
+<li><p>Resultados quanto a estimadores são assintóticos e vício pode ocorrer com pequenas amostras.</p></li>
+</ol>
+<div id="estimacao-com-amostragem-ppt-de-pareto-ap" class="section level4">
+<h4><span class="header-section-number">10.1.9.1</span> Estimação com Amostragem PPT de Pareto (AP)</h4>
+<p>O estimador do total sob Amostragem PPT de Pareto (AP) é dado por:</p>
+<p><span class="math display">\[\widehat Y_{AP}=\displaystyle\sum_{i \in s}\frac{y_i}{\lambda_i}= \frac{1}{n}\sum_{i \in s}\frac{y_i}{p_i}\]</span></p>
+<p>Note que <span class="math inline">\(E\left(\widehat Y_{AP}\right)\doteq Y\)</span>.</p>
+<p>A variância de <span class="math inline">\(\widehat Y_{AP}\)</span> e o seu respectivo estimador são apresentados a seguir:</p>
+<p><span class="math display">\[V\left(\widehat Y_{AP}\right)\doteq \frac{N}{N-1}\displaystyle\sum_{i \in U}\left(\frac{y_i}{\lambda_i}-\frac{\sum_{k \in U} y_k(1-\lambda_k)}{\sum_{k \in U} \lambda_k(1-\lambda_k)}\right)^2\lambda_i(1-\lambda_i)\]</span> <span class="math display">\[\widehat V\left(\widehat Y_{AP}\right)= \frac{n}{n-1}\displaystyle\sum_{i \in s}\left(\frac{y_i}{\lambda_i}-\frac{\sum_{k \in s} y_k(1-\lambda_k)}{\sum_{k \in s} (1-\lambda_k)}\right)^2(1-\lambda_i)\]</span> (Veja Rosén, 2000).</p>
+</div>
+</div>
+</div>
+<div id="exercicios-1" class="section level2">
+<h2><span class="header-section-number">10.2</span> Exercícios</h2>
+<p><strong>Exercício 9.1:</strong> Verifique que o estimador de <span class="math inline">\(HT\)</span> da média não é invariante sob transformações de locação. Isto é, se tomarmos <span class="math inline">\(z_i=y_i+A\)</span>, então <span class="math inline">\(\overline z_{HT}\ne\overline y_{HT}+A\)</span></p>
 
 </div>
 </div>
@@ -223,8 +408,8 @@
           </div>
         </div>
       </div>
-
-<a href="introduc.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="amostragem-binomial-ou-de-bernoulli-ab.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="amostragem-estratificada.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

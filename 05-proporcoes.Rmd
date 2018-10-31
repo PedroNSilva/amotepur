@@ -479,4 +479,3 @@ Neste caso poderia ser estimada a proporção para cada uma das quatro categoria
 \end{equation}
 
 Vale notar que neste caso tanto o numerador como o denominador do estimador da proporçãO são variáveis aleatórias, pois a população (eleitores que efetivamente vão votar num dos candidatos) é desconhecida.
-

@@ -1,271 +1,266 @@
 # Amostragem Aleatória Simples
 
-## Planos Amostrais e Esquemas de Seleção
+## Planos Amostrais e Algoritmos de Seleção
 
-O planejamento amostral requer a definição das seguintes questões fundamentais: 
+O planejamento da amostra de uma pesquisa requer a definição dos seguintes componentes fundamentais: 
 
-- Método para *seleção* da amostra;
+C1) Que método será usado para *seleção* da amostra;
 
--	*Tamanho* da amostra;
+C2)	Qual será o *tamanho* da amostra;
 
--	*Estimadores* dos parâmetros de interesse; e
+C3)	Que *estimadores* serão usados para os parâmetros de interesse; e
 
--	*Avaliação da qualidade* das estimativas através da variância dos estimadores e/ou da estimação da variância dos estimadores.
+C4)	Como será feita a *avaliação da precisão* das estimativas, isto é, como será feita a estimação da variância dos estimadores empregados.
 
-Para aplicar um plano amostralqualquer $p(s)$ (a função que associa a cada amostra possível uma probabilidade) precisamos contar com um esquema de seleção.
+Os componentes C1 e C2, em conjunto, dão origem à especificação do *plano amostral*. Já os componentes C3 e C4 dão origem à especificação dos *métodos de estimação* da pesquisa. 
 
-*Esquema de seleção* é um mecanismo que permita selecionar as unidades da amostra $s$ de tal forma que a probabilidade de ser $s\in S$ a amostra selecionada seja igual a $p(s)$.
+Para aplicar um plano amostral qualquer $p(s)$ (a função que associa a cada amostra possível uma probabilidade de ser a amostra selecionada) precisamos contar com um *algoritmo de seleção*. Um *algoritmo de seleção* é um método que permite selecionar as unidades da amostra $s$ de tal forma que a probabilidade de ser $s \in S$ a amostra selecionada seja igual a $p(s)$.
 
-Há dois tipos principais de esquemas de seleção: o de sequências de sorteios e o de processamento sequencial da lista ou cadastro.
+Há dois tipos principais de *algoritmos de seleção*: algoritmos baseados em *sequências de sorteios*, e algoritmos baseados em *processamento sequencial de listas* ou cadastros. Algoritmos baseados em sequências de sorteios são aplicados mediante realização de uma série de experimentos aleatórios, chamados *sorteios* ou extrações. Em cada sorteio, uma unidade é selecionada da população inteira ou de um subconjunto especificado da população, e resulta em uma unidade selecionada para a amostra. Ao fim da série de sorteios, fica identificada a amostra selecionada para a pesquisa. 
 
-Esquemas baseados em sequências de sorteios são aplicados mediante realização de uma série de experimentos aleatórios, chamados sorteios ou extrações.Em cada sorteio, uma unidade é selecionada da população inteira ou de um subconjunto especificado da população, e resulta em uma unidade selecionada para a amostra.
+Algoritmos baseados em *sequências de sorteios* podem ser executados de duas formas distintas: os sorteios podem ser feitos de forma independente, o que implica que unidades já selecionadas podem eventualmente ser selecionadas mais vezes (*sorteios com reposição*), podem ser feitos de forma dependente ou condicional aos resultados dos sorteios antecedentes, geralmente para assegurar que unidades já selecionadas não possam ser selecionadas mais de uma vez (*sorteios sem reposição*).
 
-Este tipo de seleção pode ser executado de duas formas distintas, dependendo do critério de reposição ou não da unidade selecionada para a amostra antes do sorteio seguinte.
+Os algoritmos de seleção baseados em *processamento sequencial de listas* são aplicados mediante realização de uma série de experimentos aleatórios, executados sequencialmente para cada unidade do cadastro ou lista, que vai resultar na inclusão ou exclusão dessa unidade da amostra $s$, sem necessidade de percorrer todo o cadastro/lista.  
+
+Neste capítulo vamos ilustrar estes conceitos com um tipo de plano amostral bem simples. Mas as ideias básicas aqui introduzidas são aplicáveis de maneira geral a muitas outras situações de interesse.
 
 ## Amostragem Aleatória Simples Com Reposição (AASC)
 
-A Amostragem Aleatória Simples Com Reposição (AASC) é um esquema de seleção probabilístico básico no qual um pré-determinado número $n$ de unidades é selecionado de uma população de tamanho $N$, de tal forma que cada unidade da população tenha a mesma chance de ser incluída na amostra.
+A *Amostragem Aleatória Simples Com Reposição* (*AASC*) é um plano amostral probabilístico básico, implementado por meio de um algoritmo de seleção no qual um número $n$ pré-determinado de sorteios é feito, sendo em cada sorteio selecionada uma unidade da população (de tamanho $N$). Nesse plano, os sorteios são feitos de forma independente uns dos outros, isto é, *com reposição* das unidades na população antes da aplicação dos sorteios subsequentes. Cada sorteio é feito de tal forma que todas as unidades da população têm a mesma chance de ser incluídas na amostra do sorteio, e essa probabilidade é igual a $1/N$.
 
-A forma usual de selecionar a amostra consiste em realizar $n$ sorteios consecutivos, sendo cada seleção independente das anteriores, de tal modo que é selecionada a primeira unidade $i_1$ de $U$ com probabilidade $1/N$ e, repetindo o passo $n-1$ vezes, são selecionadas as unidades $i_2,...,i_k,...,i_n$ nos sorteios seguintes.
+A forma usual de selecionar a amostra consiste em realizar $n$ sorteios consecutivos, sendo cada seleção independente das anteriores. No primeiro passo, é selecionada a primeira unidade $i_1$ de $U$ com probabilidade $1/N$. Esse processo é repetido $n-1$ vezes, sempre de forma independente, e são então selecionadas as unidades $i_2,...,i_k,...,i_n$ nos sorteios seguintes para compor a amostra. Cabe notar que as unidades já selecionadas podem ser repetidas na amostra. Em consequência, o número de amostras possíveis é $N^n$.
 
-Cabe notar que as unidades já selecionadas podem ser repetidas na amostra e o número de amostras possíveis é $N^n$.
+AASC é raramente usada na prática, pois é ineficiente em comparação com a amostragem *sem reposição* de igual tamanho inicial $n$, pelo fato de não incorporar nova informação quando a mesma unidade é selecionada mais de uma vez para a amostra. Na AASC o *tamanho efetivo* da amostra é $m \le n$, onde $m$ designa o número de unidades *distintas* selecionadas.   
 
-Sua aplicação é quase nunca usada na prática, pois é ineficiente pelo fato de não incorporar nova informação se a mesma unidade for selecionada novamente. 
+Considere os dados amostrais para a variável $y$ sob AASC, representados por $\{y_{i_1}, y_{i_2}, \dots, y_{i_k}, \dots, y_{i_n}\}$. Tais valores são observações de variáveis aleatórias $Y_1, Y_2, ..., Y_k, ..., Y_n$ independentes e identicamente distribuídas (IID), com distribuição comum dada conforme a tabela abaixo.
 
-Considere os dados amostrais sob AASC para a variável $y$ representados por $\{y_{i_1},y_{i_2},\dots,y_{i_k},\dots,y_{i_n}\}$ que são observações de variáveis aleatórias $Y_1, Y_2, ..., Y_k, ..., Y_n$ IID (independentes e identicamente distribuídas) com distribuição comum dada conforme a tabela abaixo.
+$$\begin{array}{|l|c|c|c|c|c|}\hline \textrm{Unidade populacional } (i) & 1 & 2 & \dots & N & \textrm{Soma na linha} \\\hline \textrm{Valores que}\,\, Y_k\, \textrm{pode assumir } (y_i) & y_1 & y_2 & \dots & y_N & Y\\\hline \textrm{Probabilidades}\,\, [P(Y_k = y_i)] & 1/N & 1/N & \dots & 1/N & 1\\\hline\end{array}$$
+**Estimação do total e média populacionais sob AASC**
 
-$$\begin{array}{|l|c|c|c|c|c|}\hline \textrm{Unidade populacional} & 1 & 2 & \dots & N & \textrm{Total} \\\hline \textrm{Valor que}\,\, Y_k\, \textrm{pode assumir}& y_1 & y_2 & \dots & y_N & Y\\\hline \textrm{Probabilidade}\,\, P(Y_k=y_i) & 1/N & 1/N & \dots & 1/N & 1\\\hline\end{array}$$
+Lembrando o princípio de estimação que está por trás do estimador tipo Horvitz-Thompson, que consiste em multiplicar cada valor observado na amostra pelo inverso sua probabilidade de inclusão, considere a variável aleatória igual a $Z_k = Y_k / (1/N) = N \times Y_k$. A cada sorteio de uma unidade para a amostra sobre AASC, esta variável aleatória fornece um estimador não enviesado para o total populacional $Y$:
 
-**Propriedades das Variáveis Aleatórias $Y_k$ sob AASC**
+$E(Z_k) = E \left( N \times Y_k \right) = \displaystyle \sum_{i \in U} (N \times y_i) \times \frac{1}{N} = Y$.
 
-O valor esperado de $Y_k\,\, \forall \,\,k = 1, 2, ..., n$ é obtido por: 
+É também fácil mostrar que a variância de $Z_k \, \, \forall \, \, k = 1, 2, ..., n$ é dada por:
 
-$E(Y_k)=\displaystyle\sum_{i\in U}y_i \times \frac{1}{N} = \overline{Y}$ 
- 
+$V(Z_k) = V \left( N \times Y_k \right) = \displaystyle \sum_{i \in U} ({N \times y_i - Y})^2 \times \frac{1}{N} = N^2 \times \sigma_y^2 $ 
 
-A variância de $Y_k\,\,\forall \,\,k = 1, 2, ..., n$ é dada por:
+onde $\sigma_y^2 = \displaystyle \frac{1}{N} \sum_{i \in U} ({y_i - \overline{Y}})^2$.
 
- $V(Y_k)=\displaystyle\sum_{i\in U}({y_i-\overline{Y}})^2 \frac{1}{N} =  \frac{N-1}{N} S^2_y = \sigma_y^2$ 
+Com estes resultados, e considerando que sob AASC os dados são obtidos mediante a realização de $n$ sorteios independentes e realizados em condições idênticas, tem-se que um ENV para $Y$ é dado por:
 
-onde, 
- $\sigma_y^2=\displaystyle \frac{1}{N}\sum_{i\in U}({y_i-\overline{Y}})^2$.
+$\widehat{Y}_{AASC} = \displaystyle \frac {1}{n} \sum_{k = 1}^{n} Z_k = \displaystyle \frac {N}{n} \sum_{k = 1}^{n} Y_k = \displaystyle \frac {N}{n} \sum_{k = 1}^{n} y_{i_k} = \displaystyle \frac {N}{n} \sum_{i \in s} y_i = N \times \overline{y} $
 
-**Propriedades da Média Amostral sob AASC**
+onde $\overline{y} = \displaystyle \frac {1}{n} \sum_{k = 1}^{n} y_{i_k} =  \displaystyle \frac {1}{n} \sum_{i \in s} y_i$ é a média dos valores observados na amostra.
 
-A *estatística* média amostral $\overline{y}=\sum_{k=1}^{n}y_{i_{k}}/{n}\quad$tem propriedades bem conhecidas sob esse plano amostral:
+Segue-se também que a variância deste estimador do total é dada por:
 
-$E_{AASC}(\overline{y})=\overline{Y}$
+$V_{AASC} (\widehat{Y}_{AASC}) = \displaystyle  N^2 \times \sigma_y^2 / n$.
 
-$V_{AASC}(\overline{y})=\sigma_y^2/n$
+A estimação dessa variância pode ser feita sem viés usando 
 
-## Estimação de Parâmetros Populacionais sob AASC
+$\widehat{\sigma}_y^2 = \displaystyle \frac{1}{n-1} \sum_{i \in s} ({y_i - \overline{y}})^2$
 
-A média amostral $\overline{y}=\sum_{k=1}^{n}y_{i_{k}}/{n}$ é *Estimador Não Viciado (ENV)* da média populacional $\overline{Y}$ sob AASC.
+como ENV para a variância $\sigma_y^2$, e aplicando o estimador:
 
-A estatística $\hat{Y}=N\overline{y}$ é *ENV* do *total populacional* $Y$ sob AASC.
+$\widehat{V}_{AASC} (\widehat{Y}_{AASC}) = \displaystyle  N^2 \times \widehat{\sigma}_y^2 / n$.
 
-A *variância amostral* $S^2_y=\sum_{k=1}^{n}(y_{i_{K}}-\overline{y})^2/(n-1)$ é *ENV* para a *variância populacional* $\sigma_y^2$ sob AASC. Portanto:
+A estimação da média populacional $\overline{Y}$ segue-se facilmente dividindo o ENV do total por $N$. A variância e estimador de variância correspondentes são também facilmente obtidos. O quadro 4.1 apresenta um resumo da estimação de parâmetros média e total sob AASC.
 
-$\hat{V}_{AASC}(\overline{y})=S^2_y/n$ é *ENV* para $V_{AASC}(\overline{y})=\sigma^2_y/n$ e 
+$$\begin{array}{|c|c|}\hline
+\textrm{Parâmetro} & \textrm{Estimador ENV sob AASC} 
+\\\hline \overline{Y}=\displaystyle\sum_{i\in U}y_i/N & \overline{y}=\sum_{k=1}^{n}y_{i_{k}}/n 
+\\\hline Y=\displaystyle\sum_{i\in U}y_i &\widehat{Y}=N\overline{y} 
+\\\hline \sigma^2_y=\displaystyle\frac{1}{N}\sum_{i\in U}({y_i-\overline{Y}})^2 &s^2_y=\displaystyle\frac{1}{n-1}\sum_{i\in s}({y_i-\overline{y}})^2  
+\\\hline V_{AASC}(\overline{y}) = \sigma^2_y /n  & \widehat V_{AASC}(\overline{y}) = s_y^2 / n
+\\\hline V_{AASC}(\widehat{Y}) = N^2 \sigma^2_y /n & \widehat V_{AASC}(\widehat{Y}) = N^2 s_y^2 / n
+\\\hline \end{array}$$
 
-$\hat{V}_{AASC}(\hat{Y})=N^2S^2_y/n$ é *ENV* para $V_{AASC}(\hat{Y})=N^2\sigma^2_y/n$.
+Para provas destes resultados, veja por exemplo o teorema 3.3 de [@Bolfarine2005].
 
-De acordo com o que se apresentou, pode-se perceber a importância da AASC por ser capaz de gerar amostras "utilizáveis" com respeito à aplicação de procedimentos da Inferência Estatística, devido conduzir à obtenção de amostras formadas por $n$ variáveis aleatórias IID, mesmo quando a população alvo for de tamanho finito. 
+Note que o estimador $\widehat{Y}_{AASC}$ para o total não é o estimador tipo Horvitz-Thompson para este plano amostral. Veja o exercício XXX para uma discussão dessa questão.
 
-Ainda mais, mesmo quando não se dispõe de modelos para descrever a distribuição dos valores da população, o estimador $\overline{y}$ da média $\overline{Y}$ continua válido bem como suas principais propriedades, independente da forma que tem a distribuição dos valores da população. Tudo isso justifica a apresentação da AASC dentro do conjunto de técnicas que serão abordadas neste livro.  
+A importância da AASC é principalmente teórica: através dela se mostra que é possível obter amostras de forma simples, cujos dados são utilizáveis mediante a aplicação de procedimentos convencionais da Inferência Estatística clássica. Por exemplo, a estimação não enviesada da média populacional $\overline{Y}$ pode ser feita simplesmente com o estimador média amostral $\overline{y}$, e a obtenção das propriedades deste estimador fica facilitada porque as variáveis aleatórias correspondentes aos valores das observações na amostra são IID, mesmo quando a população alvo tem tamanho finito. Ainda mais, o estimador $\overline{y}$ da média $\overline{Y}$ continua válido mesmo quando não se propõe um modelo estocástico para descrever a distribuição dos valores da população, sendo este estimador não enviesado independente da forma que tem a distribuição dos valores da população. Tudo isso justifica a apresentação da AASC dentro do conjunto de técnicas abordadas neste livro.
+
+Na prática, entretanto, é raro surgirem aplicações deste plano amostral. O motivo principal, como já indicado, é que
+AASC é ineficiente em comparação com a amostragem aleatória simples *sem reposição* de igual tamanho, como vamos mostrar na sequência.
 
 ## Amostragem Aleatória Simples Sem Reposição (AAS)
 
-A Amostragem Aleatória Simples Sem Reposição (AAS) é um procedimento de seleção da amostra probabilístico tal como na AASC, sendo que cada unidade da população pode aparecer na amostra uma única vez. A seleção da amostra pode ser feita realizando-se $n$ sorteios consecutivos, de modo tal que em cada sorteio todas as unidades da população ainda não selecionadas têm igual chance de ser sorteadas, enquanto que as unidades já eventualmente selecionadas não mais participam do sorteio. 
+A *Amostragem Aleatória Simples Sem Reposição* (*AAS*) é um plano amostral similar à *AASC*, sendo que neste caso cada unidade da população pode aparecer na amostra no máximo uma única vez, isto é, não pode haver repetição de unidades na amostra. Na verdade, *AAS* é qualquer procedimento de seleção que garanta que *todas* as amostras de tamanho $n$ da população de tamanho $N$ têm a *mesma probabilidade* de serem escolhidas. Como existem $\binom{N}{n} = \frac{N!}{n!(N-n)!}$ amostras distintas em $S$, então $p(s) = 1/\binom{N}{n}$ $\forall s\in S$, onde $s$ é qualquer subconjunto de $n$ inteiros distintos entre os inteiros de $1$ a $N$.
 
-Para uma dada população de tamanho $N$ com os rótulos as unidades no conjunto $U=\{1,2,\dots,N\}$, uma 	Amostra s de tamanho fixado igual a $1\le{n} < N$ (número de unidades distintas) é selecionada sob AAS mediante a seguinte definição. 
+Na *AAS* duas determinações da amostra são consideradas iguais quando constituídas das mesmas unidades da população, não importando a ordem de seleção dessas unidades. 
 
-*AAS* é o procedimento de seleção que garante que *todas* as amostras de tamanho n têm a *mesma probabilidade* de serem escolhidas. 
+A seleção da amostra pode ser feita realizando-se $n$ sorteios consecutivos, de modo tal que em cada sorteio todas as unidades da população ainda não selecionadas têm igual chance de ser sorteadas, enquanto que as unidades já eventualmente selecionadas não mais participam do sorteio. 
 
-Na AAS duas determinações da amostra são consideradas iguais quando constituídas das mesmas unidades da população, não importando a ordem de seleção das unidades. Pode-se demonstrar facilmente que o número de modos distintos de combinar $n$ unidades distintas da população sem importar a ordem é dado por: 
+A *AAS* é um procedimento simples e básico da teoria e prática de amostragem, tendo importância não só pelas aplicações diretas como também por servir de base para muitos outros planos amostrais mais complexos. As ideias principais de amostragem podem ser com ele desenvolvidas.
 
-Existem $\binom{N}{n}=\frac{N!}{n!(N-n)!}$ amostras distintas em $S$.
-
-Então $p(s)=1/\binom{N}{n}$ $\forall s\in S$, onde $s$ é qualquer subconjunto de $n$ inteiros distintos entre os inteiros de 1 a $N$.
-
-A AAS é um procedimento simples e básico da teoria e prática de amostrgem, tendo importância não só pelas palicações diretas como também por servir de base para muitos outros planos amostrais mais complexos. As ideias principais de amostragem podem ser com ele desenvolvidas.
-
-### AAS: Algoritmo “Convencional”
+### Sorteio de uma AAS: algoritmo “convencional”
 
 O algoritmo "convencional" para a seleção na AAS sugerido pelos livros-texto mais conhecidos em amostragem consiste nos seguintes passos: 
 
-1)	Selecione a primeira unidade dentre as $N$ unidades de $U$ com probabilidades iguais a $1/N$, resultando na seleção da unidade $i_1$.
+1) Selecione a primeira unidade dentre as $N$ unidades de $U$ com probabilidades iguais a $1/N$, resultando na seleção da unidade $i_1$.
 
-2)	Selecione a segunda unidade dentre as $N-1$ unidades ainda não selecionadas de $U$ com probabilidades iguais a $1/(N-1)$, resultando na seleção da unidade $i_2\ne{i_1}$; e assim sucessivamente até a seleção da $n$-ésima unidade.
- 
-n)	Selecione a $n$-ésima unidade dentre as $N-n+1$ unidades de $U$ que permanecem não selecionadas após $n-1$ sorteios com probabilidades iguais a $1/(N-n+1)$, resultando na seleção da unidade $i_n\ne{...}\ne{i_2}\ne{i_1}$.
+2) Selecione a segunda unidade dentre as $N-1$ unidades ainda não selecionadas de $U$ com probabilidades iguais a $1/(N-1)$, resultando na seleção da unidade $i_2 \ne {i_1}$; 
 
-Tal esquema fornecia a regra para *‘seleção manual’* com uso de *‘tabelas de números aleatórios’* antes do aparecimento e uso de computadores para seleção de amostras.
+Prossiga com a seleção de uma unidade por sorteio, sempre excluindo de cada novo sorteio as unidades já selecionadas em sorteios anteriores, até a seleção da $n$-ésima unidade dentre as $N-n+1$ unidades de $U$ que permanecem não selecionadas após $n-1$ sorteios, com probabilidades iguais a $1/(N-n+1)$, resultando na seleção da unidade $i_n \ne {...} \ne {i_2} \ne {i_1}$..
 
-A aplicação deste algoritmo em computador é *ineficiente* para esse esquema, devido à necessidade de percorrer várias vezes uma *lista grande*: a das unidades ainda não selecionadas.
+Tal algoritmo fornecia a regra para *seleção manual* com uso de *tabelas de números aleatórios* antes do aparecimento e uso de computadores para seleção de amostras. A aplicação deste algoritmo em computador é bastante ineficiente, devido à necessidade de percorrer várias vezes uma lista que pode ser bem grande: a das unidades ainda não selecionadas. Para enfrentar esta dificuldade, foram propostos diversos algoritmos mais eficientes na literatura. Apresentaremos aqui apenas dois, ambos baseados em processamento sequencial de listas, que se destacam por sua simplicidade.
 
-A cada novo sorteio, essa lista (cujo *tamanho* é de ordem $N$) tem que ser percorrida para extrair uma nova unidade.
+### Algoritmo de Hàjek para selecionar AAS 
 
-### AAS: Esquemas Baseados em Processamento de Listas 
+Este algoritmo foi proposto por [@Hajek1960] e consiste nos seguintes passos: 
 
-Os esquemas de seleção baseados em processamento de listas são aplicados mediante realização de uma série de experimentos aleatórios, executados sequencialmente para cada unidade do cadastro ou lista, que vai resultar na inclusão ou exclusão dessa unidade da amostra $s$, sem necessidade de percorrer todo o cadastro/lista.  
-
-Dentre esses esquemas, são apresentados o *Algoritmo de Hàjek* e o *Algoritmo de Fan, Muller e Rezucha (1962)* para Selecionar AAS, descritos a seguir. 
-
-**Algoritmo de Hàjek para Selecionar AAS**
-
-O algoritmo aqui proposto foi desenvolvido por Jaroslav Hàjek durante a década de 60 e consiste nos seguintes passos: 
-
-*Passo 1:* Para cada $i \in U$, associe um *número pseudoaleatório* $a_i$, onde os $a_i$ são determinações de variáveis aleatórias IID $A_1, A_2, ..., A_N$, todas com distribuição U[0;1].
+*Passo 1:* Para cada $i \in U$, associe um *número pseudoaleatório* $a_i$, onde os $a_i$ são determinações de variáveis aleatórias IID $A_1, A_2, ..., A_N$, todas com distribuição $U[0;1]$.
 
 $$\begin{array}{|l|c|c|c|c|}\hline \textrm{Rótulo da unidade}\,\, i & 1 & 2 & \dots & N \\\hline \textrm{Número pseudoaleatório}\,(a_i) & a_1 & a_2 & \dots & a_N\\\hline \end{array}$$
-*Passo 2:* Reordene a população segundo os números pseudoaleatórios $a_1, a_2, ..., a_N$, obtendo uma “*permutação aleatória*” dos rótulos.
+*Passo 2:* Ordene a população segundo os números pseudoaleatórios $a_1, a_2, ..., a_N$, obtendo uma *permutação aleatória* dos rótulos das unidades populacionais.
 
-$$\begin{array}{|l|c|c|c|c|}\hline \textrm{Rótulos} & i_1 & i_2 & \dots & i_N \\\hline \textrm{Número pseudoaleatório ordenado}\,a_{(i)} & a_{(1)} & a_{(2)} & \dots & a_{(N)}\\\hline \end{array}$$
+$$\begin{array}{|l|c|c|c|c|}\hline \textrm{Rótulos permutados} & i_1 & i_2 & \dots & i_N \\\hline \textrm{Número pseudoaleatório ordenado}\,a_{(i)} & a_{(1)} & a_{(2)} & \dots & a_{(N)}\\\hline \end{array}$$
+
+A notação $a_{(i)}$ indica o valor posicionado na i-ésima posição na sequência ordenada dos valores dos números pseudoaleatórios, isto é, corresponde à i-ésima estatística de ordem da sequência $a_1 , a_2 , \dots , a_N$.
+
 *Passo 3:* Para selecionar uma amostra de tamanho $n$, inclua na amostra uma sequência de $n$ rótulos consecutivos quaisquer, na ordem em que aparecem nesta permutação. 
 
 Por exemplo, os rótulos $\{i_1, i_2, ..., i_n\}$ fornecem uma AAS.
 
 Outro exemplo: os rótulos $\{i_{N-n+1}, i_{N-n+2}, ..., i_N\}$ também fornecem uma AAS de tamanho $n$ de $U$.
 
-**Algoritmo de Fan, Muller e Rezucha (1962)**
+O algoritmo de Hàjek requer duas passagens sobre a lista, mais uma operação de ordenação dos números aleatórios. Oferece grande ganho de eficiência em comparação com o algoritmo convencional, mas ainda não é o mais eficiente.
 
-Sejam $a_i,\,i=1,2,...,N$, determinações de variáveis aleatórias IID $A_1, A_2, ..., A_N$, todas com distribuição U[0;1]. 
+### Algoritmo de Fan, Muller e Rezucha
 
-*Passo 1:* Se $a_1 < n/N$, *inclua* a unidade 1 na amostra. Caso contrário, passe à unidade 2.
+Este algoritmo foi proposto por [@Fan1962] e consiste nos seguintes passos: 
 
-*Passo 2: Processe sequencialmente a lista* para as unidades $i=2, 3, ...,N$, incluindo na amostra as unidades $i$ tais que $a_i<\frac{n-n_{i-1}}{N-(i-1)}=\frac{n -n_{i-1}}{N-i+1}$, onde $n_{i-1}$ é o número de unidades selecionadas até o processamento da unidade $i-1$. Interrompa o processamento quando $n_{i-1} = n$.
+Como no algoritmo anterior, sejam $a_i, \, i = 1, 2, ..., m$, determinações de variáveis aleatórias IID $A_1, A_2, ..., A_m$, todas com distribuição $U[0;1]$. 
 
-### Probabilidades de inclusão (Seleção) 
+Processe sequencialmente a lista, para as unidades $i = 1, 2, 3, ..., m$, incluindo na amostra as unidades $i$ tais que $a_i < \frac{n - k_{i-1}}{N - i + 1}$, onde $k_{i-1}$ é o número de unidades selecionadas até o processamento da unidade $i-1$. Após processar cada unidade da lista, atualize o número de unidades já incluídas na amostra. Interrompa o processamento quando $k_{m} = n$, o que ocorre quando for processada a unidade de ordem $m$. Note que $m$ é uma quantidade aleatória, que vai variar no intervalo $n \le m \le N$, e corresponde ao número de sorteios necessários para conseguir uma AAS de tamanho $n$ da população de tamanho $N$.
 
-Tratar com as distribuições de probabilidades de aleatorização $p(s)$ sob AAS pode ser complicado do ponto de vista prático. Särndal, Swensson e Wretman (1992, p.29) mencionam que numa população com $N=1.000$ unidades, o conjunto $S$ de amostras possíveis de tamanho $n=40$ sob AAS tem dimensão $\binom{N}{n}= \binom{1.000}{40}= 5,6\times 10^{71}$. 
+Este algoritmo é muito eficiente em comparação com os anteriores, porque requer processar a lista no máximo uma vez, e pode nem mesmo requerer chegar ao fim da lista: a amostra pode ser selecionada por completo bem antes de chegar ao final da lista. Apesar de sua simplicidade e eficiência, há alternativas ainda mais eficientes, que entretanto não serão discutidas aqui. Caso o leitor necessite implementar um algoritmo para seleção de uma AAS, recomendamos o emprego deste algoritmo. Será suficientemente bom para a maioria das aplicações práticas.
 
-Se a população tivesse $N=5.000$ e a amostra $n=200$, a dimensão de $S$ cresceria para $\binom{5.000}{200}= 1,4\times 10^{363}$.
+### Probabilidades de inclusão sob AAS
 
-Portanto, a enumeração de todas as amostras possíveis seria tarefa complicada, mesmo com computadores poderosos. 
+Como já indicado no capítulo 3, tratar com as distribuições de aleatorização $p(s)$ sob AAS pode ser complicado do ponto de vista prático. [@Sarndal1992, p.29] mencionam que numa população com $N=1.000$ unidades, o conjunto $S$ de amostras AAS possíveis de tamanho $n=40$ tem dimensão $\binom{N}{n} = \binom{1.000}{40} = 5,6\times 10^{71}$. Se a população tivesse $N=5.000$ e a amostra tamanho $n=200$, a dimensão de $S$ cresceria para $\binom{5.000}{200} = 1,4\times 10^{363}$.Portanto, a enumeração de todas as amostras possíveis seria tarefa complicada, mesmo com computadores poderosos. 
 
 Note que os tamanhos de população e amostra acima são modestos do ponto de vista de aplicações práticas.
-Foi para eliminar essa dificuldade que introduzimos resumos simples derivados da distribuição $p(s)$. 
+Foi para eliminar essa dificuldade que introduzimos resumos simples derivados da distribuição $p(s)$. Tais resumos serão suficientes para a obtenção de propriedades de estimadores tais como valor esperado e variância, na maioria das situações de interesse prático. Esses resumos são as *probabilidades de inclusão* de unidades ou de pares de unidades na amostra.
 
-Tais resumos serão suficientes para a obtenção de propriedades de estimadores tais como valor esperado e variância, na maioria das situações de interesse prático. 
+1) Sob AAS, $\pi_i = (n / N) > 0$, $\forall i \in U$ desde que $n>0$.
 
-Esses resumos são as *probabilidades de inclusão na amostra* de unidades ou pares de unidades.
+2) $(n / N) = f$ é chamada de *fração amostral* ou *taxa de amostragem*.
 
-1)	Sob AAS, $\pi_i=(n / N)>0$, $\forall i\in U$ desde que $n>0$.
+3) Estimação de variância sem vício requer $\pi_{ij} > 0$,  $\forall i,j\in U$. Sob AAS, $\pi_{ij} = \frac{n(n-1)}{N(N-1)} > 0 \,\,\, \forall i \ne j \in U$.
 
-2)	$(n / N)=f$ é chamada de *fração amostral* ou taxa de amostragem.
-
-3)	Estimação de variância sem vício requer $\pi_{ij} > 0$,  $\forall i,j\in U$. Sob AAS, $\pi_{ij}=\frac{[n(n-1)]}{[N(N-1)]}>0\,\,\,\forall i,j\in U$.
-
-4)	Sob AAS, as probabilidades de inclusão $\pi_i$, $\pi_{ij}$, etc. não dependem de $i$ ou $j$, e essa é a razão da simplicidade desse plano amostral.
+4) Sob AAS, as probabilidades de inclusão $\pi_i$, $\pi_{ij}$, etc. não dependem de $i$ ou $j$, e essa é a razão da simplicidade desse plano amostral.
 
 Sob AAS de tamanho $n$ de população com $N$ tem-se:
 
- $E[{\delta_i}]=\frac{n}{N}$, $V[{\delta_i}]=\frac{n}{N}\left(1-\frac{n}{N}\right)$ e $COV[{\delta_i},{\delta_j} ]=\frac{n(n-1)}{N(N-1)} - \left(\frac{n}{N}\right)^2=\frac{n}{N}\left(1-\frac{n}{N}\right)\left(-\frac{1}{N-1}\right)$
+$E_{AAS} [{\delta_i}] = \frac{n}{N}$, 
+ 
+$V_{AAS} [{\delta_i}] = \frac{n}{N} \left(1-\frac{n}{N}\right)$ e 
 
-Assim a correlação entre duas variáveis indicadoras de seleção sob AAS é $CORR[{\delta_i},{\delta_j} ]=-1/(N-1)$ se $i\ne j$.
+$COV_{AAS} [{\delta_i},{\delta_j} ] = \frac{n(n-1)}{N(N-1)} - \left(\frac{n}{N}\right)^2 = \frac{n}{N}\left(1-\frac{n}{N}\right)\left(-\frac{1}{N-1}\right)$
+
+Assim a correlação entre duas variáveis indicadoras de inclusão de unidades distintas sob AAS é 
+
+$CORR_{AAS} [{\, \delta_i} \, , {\delta_j} ] = -1/(N-1)$ se $i \ne j$.
 
 ### Estimador Não Viciado do Total Populacional Sob AAS
  
-$\hat Y_{HT}=\displaystyle\sum_{i\in s}\frac{y_i}{\pi_i}= \displaystyle\sum_{i\in s}\frac{y_i}{n/N}= \displaystyle\sum_{i\in s}\frac{n}{N}y_i= N\frac{1}{n}\displaystyle\sum_{i\in s}y_i= N\overline {y}=\hat{Y}$ é *ENV* do *total populacional* $Y$ sob AAS. 
+$\widehat Y_{HT} = \displaystyle \sum_{i \in s} \frac{y_i}{\pi_i} = \displaystyle \sum_{i \in s} \frac{y_i}{n/N} =  N \frac{1}{n} \displaystyle \sum_{i \in s} y_i = N \overline {y} = \widehat{Y}_{AAS}$ é *ENV* do *total populacional* $Y$ sob AAS. 
 
-$V_{AAS}(\hat{Y_{HT}})=N^2\left(1-\frac{n}{N}\right)\frac{S^2_y}{n}= N^2\left(\frac{1}{n}-\frac{1}{N}\right)S^2_y$ é a variância do estimador do total populacional $Y$ sob AAS.
+$V_{AAS}(\widehat{Y}_{AAS}) = N^2 \left( 1 - \frac{n}{N} \right) \frac{S^2_y}{n} = N^2 \left( \frac{1}{n} - \frac{1}{N} \right) S^2_y$ é a variância do estimador do total populacional $Y$ sob AAS.
 
 Um estimador da Variância do Estimador de Total é dado por: 
 
-$\hat V_{AAS}(\hat{Y_{HT}})=N^2\left(1-\frac{n}{N}\right)\frac{s^2_y}{n}= N^2\left(\frac{1}{n}-\frac{1}{N}\right)s^2_y$
-onde $s^2_y= \displaystyle\frac{1}{n-1}\sum_{i\in s}({y_i-\overline{y}})^2$   
- 
-### Estimador Não Viciado da Média Populacional Sob AAS
+$\widehat V_{AAS} (\widehat{Y}_{HT}) = \displaystyle N^2 \left( 1 - \frac{n}{N} \right) \frac{s^2_y}{n} = N^2 \left( \frac{1}{n} - \frac{1}{N} \right) s^2_y$
+onde $s^2_y = \displaystyle \frac{1}{n-1} \sum_{i \in s} ({y_i - \overline{y}})^2$ .
 
-Sabemos que $\overline{Y}=\frac{1}{N}Y$. 
+O quadro 4.2 apresenta um resumo da estimação de parâmetros média e total sob AAS.
 
-Logo, um estimador não viciado para a média populacional $\overline{Y}$ é dado por:
+$$\begin{array}{|c|c|}\hline
+\textrm{Parâmetro} & \textrm{Estimador ENV sob AAS} 
 
- $\overline y_{HT}= \frac{1}{N}\hat Y_{HT}=\frac{1}{N}N\overline{y}= \overline{y}$
+\\\hline \overline{Y} = \displaystyle \sum_{i \in U} y_i / N & \overline{y} = \displaystyle \sum_{i \in s} y_i / n 
 
-Portanto a média amostral $\overline{y}$ é não viciada para $\overline{Y}$ sob AAS.
+\\\hline Y = \displaystyle \sum_{i \in U} y_i & \widehat{Y} = N \overline{y} = \displaystyle \frac {N}{n} \sum_{i \in s} y_i 
 
-Variância do Estimador de Média
+\\\hline S^2_y = \displaystyle \frac{1}{N-1} \sum_{i \in U} \left( {y_i - \overline{Y}} \right)^2 & s^2_y = \displaystyle \frac{1}{n-1} \sum_{i \in s} \left( {y_i-\overline{y}} \right)^2  
 
- $V_{AAS}(\overline{y})=\left(1-\frac{n}{N}\right)\frac{S^2_y}{n}= \left(\frac{1}{n}-\frac{1}{N}\right)S^2_y$ é a variância do estimador da média $\overline{Y}$ sob AAS.
- 
-Desvio padrão do estimador da média é dado por: 
+\\\hline V_{AAS} (\overline{y}) = \displaystyle \left( \frac{1}{n} - \frac{1}{N} \right) S^2_y & \widehat {V}_{AAS} (\overline{y}) = \displaystyle \left( \frac{1}{n} - \frac{1}{N} \right) s^2_y
 
-$DP_{AAS}(\overline{y})=\sqrt{V_{AAS}(\overline{y})}$
+\\\hline V_{AASC} (\widehat{Y}) = \displaystyle N^2 \left( \frac{1}{n} - \frac{1}{N} \right) S^2_y  & \widehat V_{AASC}(\widehat{Y}) = \displaystyle N^2 \left( \frac{1}{n} - \frac{1}{N} \right) s^2_y
 
-Estimador da Variância do Estimador de Média é dado por: 
-
- $\hat V_{AAS}(\overline{y})=\left(1-\frac{n}{N}\right)\frac{s^2_y}{n}= \left(\frac{1}{n}-\frac{1}{N}\right)s^2_y$ é a variância do estimador da média $\overline{Y}$ sob AAS.
-
-### Distribuição da Média Amostral
-
-Sob repetições do procedimento de seleção segundo *AAS*, $\overline{y}$ tem uma distribuição de probabilidades. 
-
-A distribuição exata de $\overline{y}$  depende da distribuição dos $y$´s na população, do tamanho da amostra $n$ e do plano amostral $p(s)$.
-
-O que resulta numa situação complicada, que pode ser resolvida considerando a *Distribuição Assintótica da Média Amostral*.
-
-Se n for grande e n/N pequeno, o *Teorema Central do Limite* (referência) pode ser usado para obter a distribuição aproximada:
-
- $$\frac{\overline {y}-E_{AAS}(\overline{y})}{\sqrt{V_{AAS}(\overline{y})}}=\frac{\overline {y}-\overline{Y}}{\sqrt{\left(\frac{1}{n}-\frac{1}{N}\right)S_y^2}}\approx N(0;1)$$
- 
- onde N(0;1) denota uma variável aleatória com distribuição normal padrão com média zero e variância 1. 
-
-Ref.:	Cochran (1977, seções 2.8 e 2.15); Särndal, Swensson e Wretman (1992, seção 2.11).
+\\\hline \end{array}$$
 
 **Notas**
 
-1.	O termo $(1 - n/N) = (1 - f)$ é chamado de *fator de correção de população finita*. Quando $n/N \rightarrow 1$ então $(1 - n/N) \rightarrow 0$.
+1.	O termo $(1 - n/N) = (1 - f)$ é chamado de *fator de correção de população finita*. Quando $n/N \rightarrow 1$ então $(1 - n/N) \rightarrow 0$ .
 
-2.	Se a fração amostral $f = n/N$ for pequena, então a correção de população finita é desprezível, pois $(1 – f)\cong 1$. 
+2.	Se a fração amostral $f = n/N$ for pequena (tipo menor que 1% ou 2%), então a *correção de população finita* é desprezível, pois $(1 – f) \cong 1$. 
 
-3.	Neste caso $(f\cong 0$), a amostragem sem reposição se comporta como se fosse com reposição.
+3.	Neste caso $f \cong 0$, a AAS (amostragem sem reposição) se comporta como se fosse AASC (com reposição).
 
-### Diferenças da AAS Para Amostragem Com Reposição (AASC)
+### Distribuição da Média Amostral
 
-Pode-se resumir no quadro abaixo as principais informações sobre estimadores da média e total e respectivas variâncias na amostragem aleatória simples (com e sem reposição):
+Sob repetições do procedimento de seleção segundo *AAS*, $\overline{y}$ tem uma distribuição de probabilidades. A distribuição exata de $\overline{y}$ depende da distribuição dos $y$´s na população, do tamanho da amostra $n$ e do plano amostral $p(s)$, que neste caso, é AAS. Isto resulta numa situação complicada, que pode ser resolvida considerando a *Distribuição Assintótica da Média Amostral*.
 
-$$\begin{array}{|c|c|c|}\hline
-\textrm{Parâmetro} & \textrm{Estimador AASC} & \textrm{Estimador AAS}
-\\\hline \overline{Y}=\displaystyle\sum_{i\in U}y_i/N & \overline{y}=\sum_{k=1}^{n}y_{i_{k}}/n & \overline{y}=\displaystyle\sum_{i\in s}y_i/n 
-\\\hline Y=\displaystyle\sum_{i\in U}y_i &\hat{Y}=N\overline{y} & \hat{Y}=N\overline{y}
-\\\hline \sigma^2_y=\displaystyle\frac{1}{N}\sum_{i\in U}({y_i-\overline{Y}})^2 &s^2_y=\displaystyle\frac{1}{n-1}\sum_{i\in s}({y_i-\overline{y}})^2 &  
-\\\hline S^2_y=\displaystyle\frac{1}{N-1}\sum_{i\in U}({y_i-\overline{Y}})^2 & & s^2_y=\displaystyle\frac{1}{n-1}\sum_{i\in s}({y_i-\overline{y}})^2  
-\\\hline V(\overline{y}) & \frac{1}{n}s_y^2 & \left(\frac{1}{n}-\frac{1}{N}\right)s_y^2
-\\\hline V(\hat{Y}) & N^2\frac{1}{n}s_y^2 & N^2\left(\frac{1}{n}-\frac{1}{N}\right)s_y^2  \\\hline \end{array}$$
+Se $n$ for grande e $f = n/N$ for pequena, o *Teorema Central do Limite* (ver [@Hajek1960]) pode ser usado para obter a distribuição aproximada:
 
-Comparando-se a variância do estimador de $\overline y$ ou $\hat Y$ na amostragem aleatória simples com ou sem reposição, observa-se que a variância do estimador na AASC é maior ou igual à variância do estimador na AAS, o que comprova a maior eficiência na estimação da AAS para amostras de mesmo tamanho. 
+$$\frac{\overline {y}-E_{AAS}(\overline{y})}{\sqrt{V_{AAS}(\overline{y})}}=\frac{\overline {y}-\overline{Y}}{\sqrt{\left(\frac{1}{n}-\frac{1}{N}\right)S_y^2}}\approx N(0;1)$$
+ 
+onde $N(0;1)$ denota uma variável aleatória com distribuição normal padrão com média zero e variância um. Mais detalhes podem ser obtidos em [@Cochran1977]	seções 2.8 e 2.15, ou [@Sarndal1992] seção 2.11.
 
-Isto mostra que na AAS o estimador da média é mais preciso que na AASC para amostras de mesmo tamanho. Este fato é que motiva o uso preferencial da AAS nas aplicações práticas, em lugar da AASC, que seria o modelo correspondente ao caso clássico da inferência estatística paramétrica. 
+É com base nessa distribuição assintótica que se pode fazer inferência por intervalos de confiança para a média populacional, e com base nesta ideia, medir a *margem de erro* de uma estimativa da média populacional. Um intervalo de confiança de nível $(1 - \alpha)\%$ para a média populacional sob AAS é dado por:
 
-Em resumo, as diferenças da amostragem aleatória simples sem reposição para a com reposição estão nos seguintes aspectos: 
+$ IC_{AAS} (\overline{Y} ; 1 - \alpha) = \left [ \overline {y} \mp z_{\alpha/2} \sqrt{\widehat {V}_{AAS}(\overline{y})} \right ]$
+
+onde $z_{\alpha/2}$ é a abscissa da distribuição $N(0;1)$ que deixa à sua direita área igual a ${\alpha/2}$. 
+
+A *margem de erro* da estimativa de média é, então, estimada por:
+
+$\widehat{ME}_{AAS} (\overline{y}) = z_{\alpha/2} \sqrt{\widehat {V}_{AAS}(\overline{y})} $.
+
+
+### Comparação dos Planos de Amostragem Aleatória Simples Com e Sem Reposição
+
+Do ponto de vista prático, a principal diferença entre os planos amostrais *AASC* e *AAS* é que no primeiro, unidades populacionais podem ser selecionadas mais de uma vez para compor a amostra, o que não é possível no segundo. Ambos os planos conduzem a estimadores não viciados bem simples para o total e média populacionais, mas o plano *AAS* fornece os estimadores com menor variância, sendo por isso mesmo preferido na prática. 
+
+Em resumo, as diferenças da amostragem aleatória simples sem reposição (AAS) para a com reposição (AASC) estão nos seguintes aspectos: 
 
 1.	Evita repetição de seleção de unidades para amostra.
 
 2.	Trata-se de modelo estatístico diferente: observações amostrais *não são independentes*.
 
-3.	Diminui conjunto de amostras possíveis.
+3.	Diminui conjunto $S$ de amostras possíveis.
 
 4.	Mantém simplicidade dos estimadores.
 
 5.	Tem maior eficiência na estimação da média ou total populacional para amostra de igual tamanho total.
 
-### Determinação do Tamanho da Amostra
+## Determinação do Tamanho da Amostra
 
-Nesta seção, procura-se responder a pergunta de que *tamanho* deve ser a amostra da pesquisa. 
+Nesta seção, procura-se responder à pergunta de que *tamanho* deve ter a amostra de uma pesquisa. A resposta a essa pergunta depende da resposta a uma de duas perguntas alternativas: 
 
-A resposta a essa pergunta depende da resposta a uma de duas perguntas alternativas: Quanto se pretende gastar na pesquisa? e qual a precisão desejada (esperada) dos resultados?
+a) Quanto se pretende gastar na pesquisa? ou 
 
-A primeira decisão é qual dos dois caminhos seguir para determinar o tamanho da amostra: fixar *custo* ou *precisão*?
+b) Qual a precisão desejada (esperada) dos resultados?
+
+A primeira decisão é qual dos dois caminhos seguir para determinar o tamanho da amostra: fixar *custo* ou *precisão*? 
 
 **Tamanho Amostral Para Custo Fixado**
 
-Se a escolha for determinar o tamanho da amostra fixando parâmetros de *custo*, usar como tamanho de amostra o *maior tamanho* permitido pelo orçamento (ou tempo) disponível.
+Se a escolha for determinar o tamanho da amostra fixando parâmetros de *custo*, recomendamos usar como tamanho de amostra o *maior tamanho* permitido pelo orçamento (ou tempo) disponível. Nesse caso, não há uma teoria geral pronta para ser aplicada a toda e qualquer pesquisa. Há que estudar a *função de custo* de cada pesquisa e com base nela, definir o tamanho da amostra.
 
-Nesse caso, não há uma teoria geral pronta para ser aplicada em toda e qualquer pesquisa. 
+**Exemplo 4.1:** Determinando tamanho de amostra para uma pesquisa junto a empresas.
 
-Há que estudar a *função de custo* de cada pesquisa e com base nela, definir o tamanho da amostra.
+Considere um cenário em que o interesse é realizar uma pesquisa junto a empresas, para estimar alguns totais ou médias. O cliente que demanda a pesquisa informa que tem disponível um orçamento limitado, e que para a atividade de coleta da pesquisa o valor disponível é de R$ 400.000,00 (quatrocentos mil reais). 
+
+Após realizar reuniões com o cliente, e ter informação mais precisa sobre o questionário e características da pesquisa, o responsável por planejar a amostra estima que coletar dados de cada empresa selecionada para a amostra terá um custo médio de R$ 200 por questionário. Vale também comentar que é importante que, ao estimar o custo médio de coleta por questionário, o planejador da pesquisa deixe margem de segurança para cobrir eventuais dificuldades imprevistas de coleta. 
+
+Considerando o orçamento disponível para a coleta, o recomendável seria então usar uma amostra de $n = 400.000 / 200 = 2.000$ empresas. 
+
+Após calcular este tamanho de amostra, o responsável pelo planejamento da amostra deve comunicar ao cliente alguma ideia de que precisão seria possível alcançar com esse tamanho de amostra e orçamento para os principais indicadores de interesse da pesquisa. Isto ajudaria a evitar frustrações ou reclamações após a coleta dos dados, e a obtenção das estimativas de interesse.
 
 **Tamanho Amostral Para Precisão Fixada**
 
@@ -273,9 +268,9 @@ Se a escolha for determinar o tamanho amostral para garantir resultados com cert
 
 Exemplos: 
 
-1)	“Desejamos estar 90% confiantes de que os resultados estão a $\pm 10$ unidades do valor verdadeiro.”
+1)	“Desejamos estar 90% confiantes de que a estimativa da média está a no máximo $\pm 10$ unidades do valor verdadeiro.”
 
-2)	“Desejamos que a estimativa não se afaste do valor verdadeiro mais que 10%, com probabilidade 0,95.”
+2)	“Desejamos que a estimativa da média não se afaste do valor verdadeiro mais que 10%, com probabilidade 0,95.”
 
 Em 1) acima, estabelecemos a *margem de erro absoluta*, a semi-amplitude do *intervalo de confiança* para $\overline Y$ em unidades da variável resposta, para um determinado *nível de confiança* (90% ou 0,90). 
 
@@ -288,29 +283,29 @@ Sabe-se que para $n$ grande e $n/N$ limitado:
 $$\frac{\overline {y}-\overline{Y}}{\sqrt{\left(\frac{1}{n}-\frac{1}{N}\right)S_y^2}}\approx N(0;1)$$
 Segue-se então que:
 
-$P \left(\frac{|\overline {y}-\overline{Y}|}{\sqrt{\left(\frac{1}{n}-\frac{1}{N}\right)S_y^2}}\le z_{\alpha/2}\right)= 1-\alpha$
+$$P \left(\frac{|\overline {y}-\overline{Y}|}{\sqrt{\left(\frac{1}{n}-\frac{1}{N}\right)S_y^2}}\le z_{\alpha/2}\right)= 1-\alpha$$
 
-onde $z_{\alpha/2}$ é o valor da abscissa da distribuição Normal padrão tal que $P[N(0;1) > z_{\alpha/2}]= \alpha/2$.
+onde $z_{\alpha/2}$ é o valor da abscissa da distribuição Normal padrão tal que $P[N(0;1) > z_{\alpha/2}] = \alpha /2$. 
 
 Segue-se então que:
 
-$P \left(|\overline {y}-\overline{Y}|\le z_{\alpha/2}{\sqrt{\left(\frac{1}{n}-\frac{1}{N}\right)S_y^2}}\right)= 1-\alpha$
+$$P \left(|\overline {y}-\overline{Y}|\le z_{\alpha/2}{\sqrt{\left(\frac{1}{n}-\frac{1}{N}\right)S_y^2}}\right)= 1-\alpha$$ .
 
-Logo, o erro de estimar $\overline Y$  usando $\overline y$  sob AAS é menor ou igual a $z_{\alpha/2}{\sqrt{\left(\frac{1}{n}-\frac{1}{N}\right)S_y^2}}$  com probabilidade $1-\alpha$.
+Logo, o erro de estimar $\overline Y$  usando $\overline y$  sob AAS é menor ou igual a $z_{\alpha/2} {\sqrt {\left( \frac{1}{n} - \frac{1}{N} \right) S_y^2}}$  com probabilidade $1-\alpha$.
 
-Então se desejamos estimar $\overline Y$ com um erro máximo de $\pm 10$ unidades, com um nível de confiança de 90% (o que significa que o valor tabelado $z_{\alpha/2}=1,645$), basta fazer:
+Então se desejamos estimar $\overline Y$ com um erro máximo de $\pm 10$ unidades, com um nível de confiança de 90% (o que significa que o valor tabelado $z_{\alpha/2} = 1,645$), basta fazer:
 
-$z_{\alpha/2}{\sqrt{\left(\frac{1}{n}-\frac{1}{N}\right)S_y^2}}= 1,645 \sqrt{\left(\frac{1}{n}-\frac{1}{N}\right)S_y^2}=10$
+$$z_{\alpha/2} {\sqrt{ \left( \frac{1}{n} - \frac{1}{N} \right )S_y^2}} = 1,645 \sqrt{ \left( \frac{1}{n} - \frac{1}{N} \right) S_y^2} = 10$$
 
 e resolver em relação ao tamanho amostral $n$. 
 
-Logo:
-   	  
-$1,645 \sqrt{\left(\frac{1}{n}-\frac{1}{N}\right)S_y^2}=10 \Rightarrow \left(\frac{1}{n}-\frac{1}{N}\right)S_y^2=\left(\frac{10}{1,645}\right)^2$
+Logo: 
+
+$$1,645 \sqrt{ \left( \frac{1}{n} - \frac{1}{N} \right) S_y^2} = 10 \Rightarrow \left( \frac{1}{n} - \frac{1}{N} \right) S_y^2 = \left( \frac{10}{1,645} \right)^2$$
 
 Segue-se então que:
 
-$\frac{1}{n}=\left(\frac{10}{1,645}\right)^2\frac{1}{S_y^2}+\frac{1}{N}\Rightarrow n=\frac{1}{\left(\frac{10}{1,645}\right)^2\frac{1}{S_y^2}+\frac{1}{N}}$
+$$\frac{1}{n} = \left( \frac{10}{1,645} \right)^2 \frac{1}{S_y^2} + \frac{1}{N} \Rightarrow n = \frac{1}{\left( \frac{10}{1,645} \right)^2 \frac{1}{S_y^2} + \frac{1}{N}}$$
 
 Para resolver esta equação e calcular o tamanho desejado da amostra, precisamos conhecer $N$ e $S_y^2$. 
 
@@ -318,36 +313,28 @@ Seguem algumas sugestões de como fazer para resolver a questão de que $S_y^2$ 
 
 1)	Usar informações de *pesquisas anteriores*.
 
-2)	Fazer *amostra prévia* / piloto e estimar $S_y^2$  usando $s_y^2$  com os dados da sua amostra prévia.
+2)	Fazer *amostra prévia* (*amostra piloto*) e estimar $S_y^2$ usando $s_y^2$ com os dados dessa amostra prévia.
 
 3)	Em casos especiais (proporções e outros), *usar cota superior* para o valor de $S_y^2$.
 
 **O caso geral**
 
-Seja $d$ a *precisão desejada*, o *erro máximo admissível* na estimação de $\overline Y$, a *semi-amplitude* desejada para o intervalo de confiança de $\overline Y$. 
+Seja $d$ a *precisão desejada*, o *erro máximo admissível* na estimação de $\overline Y$, a *semi-amplitude* desejada para o intervalo de confiança de $\overline Y$. Seja $1-\alpha$ o *coeficiente de confiança* desejado para o procedimento. Para *intervalos de confiança* de 95% usamos $z_{\alpha/2} = 1,96$.
 
-Seja $1-\alpha$ o *coeficiente de confiança* desejado para o procedimento. 
-
-Para *intervalos de confiança* de 95% usamos $z_{\alpha/2}=1,96$.
-
-Lembrando que O intervalo de confiança não é uma especificação sobre uma particular amostra, mas sobre o desempenho do procedimento sob todas as possíveis amostras. Significa  que 95 entre 100 amostras selecionadas (sob idênticas condições) produzem estimativas que conduzem à construção de intervalos determinados por desvios padrões que cobrem o "verdadeiro" valor. Para uma amostra qualquer, acredita-se que é de 95% a chance que o "verdadeiro" valor é coberto pelo intervalo: [Estimativa - 1,96dp; Estimativa + 1,96dp].
+Um intervalo de confiança não é uma especificação sobre uma particular amostra, mas sobre o desempenho do procedimento sob todas as possíveis amostras. Quando se usa um intervalo de confiança de 95% para um parâmetro, isto quer dizer que os intervalos construídos com cerca de 95 de cada 100 amostras selecionadas (sob idênticas condições) cobririam o "verdadeiro" valor do parâmetro de interesse. Para uma amostra específica, selecionada pelo método escolhido, acredita-se que é de 95% a chance que o "verdadeiro" valor seja coberto pelo intervalo: [Estimativa - 1,96dp ; Estimativa + 1,96dp].
 
 Assim:  
 
-$\left(\frac{1}{n}-\frac{1}{N}\right)S_y^2=\left(\frac{d}{z_{\alpha/2}}\right)^2$
+$$\left( \frac{1}{n} - \frac{1}{N} \right) S_y^2 = \left( \frac{d}{z_{\alpha/2}} \right)^2$$
 
-Portanto:
+Portanto, o tamanho de uma AAS que assegura precisão $d$ com nível de confiança $1 - \alpha$ é:
 
-$n=\frac{1}{\left(\frac{d}{z_{\alpha/2}}\right)^2\frac{1}{S_y^2}+\frac{1}{N}}=\frac{1}{\left(\frac{d}{z_{\alpha/2} S_y}\right)^2+\frac{1}{N}}=\frac{Nz_{\alpha/2}^2S_Y^2}{N{d}^2+{z_{\alpha/2}^2}S_y^2}$
+$$n = \frac{1}{\left( \frac{d}{z_{\alpha/2}} \right)^2 \frac{1}{S_y^2} + \frac{1}{N}} = \frac{N z_{\alpha/2}^2 S_Y^2} {N{d}^2 + {z_{\alpha/2}^2} S_y^2}$$
 
-Cabe registrar que: 
+**Comentários**
 
 1. Estas expressões só se aplicam para o caso do estimador média amostral $\overline y$ para a média populacional $\overline Y$ sob AAS.
 
 2. É possível derivar expressões similares para o caso da estimação de totais, entre outros parâmetros.
 
-3. Para planos amostrais mais complexos, é mais difícil resolver equações do tipo acima para determinar tamanhos amostrais, e sua alocação em estratos e conglomerados. 
-
-4. A ideia de *Efeito de Plano Amostral* (EPA) vai ser útil neste contexto.
-
-Terminando este capítulo sem ser com uma lista. Vamos ver se funciona.
+3. Para planos amostrais mais complexos, é mais difícil resolver equações do tipo acima para determinar tamanhos amostrais, e sua alocação em estratos e conglomerados. Entretanto, a ideia de *Efeito de Plano Amostral* (EPA) vai ser útil neste contexto. Veja discussão no capítulo XXX.
