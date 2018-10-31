@@ -15,18 +15,18 @@ Sendo uma variável indicadora, a variável $y$ irá assumir para cada unidade d
 Então, para cada unidade $i$ da população, a variável $y$ será definida como:
 
 \begin{equation}
-y_i=\displaystyle \begin{cases} 1, \text {se a unidade i possui o atributo} \\\\ 0, \text {em outro caso} \end{cases}(\#eq:1)
+y_i=\displaystyle \begin{cases} 1, \text {se a unidade i possui o atributo} \\\\ 0, \text {em outro caso} \end{cases}(\#eq:eqpro1)
 \end{equation}
 
 Dessa forma, o total populacional da variável $y$ será dado pela fórmula:
 
 \begin{equation}
-Y=\displaystyle\sum_{i=1}^{N}y_i (\#eq:2) \end{equation} expressando o número de unidades populacionais que possuem a característica de interesse.
+Y=\displaystyle\sum_{i=1}^{N}y_i (\#eq:eqpro2) \end{equation} expressando o número de unidades populacionais que possuem a característica de interesse.
 
 A média populacional de $y$ definida como:
 
 \begin{equation}
-\overline {Y}=\displaystyle \frac{1}{N} \sum_ {i=1}^{N}y_i = \frac {Y}{N} (\#eq:3)
+\overline {Y}=\displaystyle \frac{1}{N} \sum_ {i=1}^{N}y_i = \frac {Y}{N} (\#eq:eqpro3)
 \end{equation} será o número de unidades da população que tem a característica de interesse dividido pelo número total de unidades da população.
 
 A esse valor dá-se o nome de *Proporção* de unidades na população possuidoras da caracterírtica em estudo.Uma proporção pode assumir valores de 0, quando nenhuma unidade da população tem o atributo investigado, até 1, quando todas as unidades possuem esse atributo. Muitas vezes é interessante expressar a proporção sob forma de porcentagem variando, então, de 0% até 100%.
@@ -36,7 +36,7 @@ O parâmetro populacional Proporção será aqui representado pela letra $p$ min
 Como $y$ só pode receber valores 1 ou 0 a expressão da sua variância populacional pode ser simplificada:
 
 \begin{equation} 
-S^2_y=\displaystyle \frac {1}{N-1} \left( \sum_{i=1}^{N} y^2_i- N \overline{Y}^2 \right)=\frac{1}{N-1}\left(Np-Np^2 \right)=\frac{N}{N-1}p\left(1-p\right)=\frac{N}{N-1}pq (\#eq:4)
+S^2_y=\displaystyle \frac {1}{N-1} \left( \sum_{i=1}^{N} y^2_i- N \overline{Y}^2 \right)=\frac{1}{N-1}\left(Np-Np^2 \right)=\frac{N}{N-1}p\left(1-p\right)=\frac{N}{N-1}pq (\#eq:eqpro4)
 \end{equation} onde a letra $q$ denota a proporção de unidades da população que *não* possuem a caracteristica em estudo.
 
 A variância populacional de $y$ pode também ser definida como $\sigma^2_y=pq$. Tanto $S^2_y$ como $\sigma ^2_y$ representam a dispersão da distribuição dos valosre de $y$ na população. De acordo com a situação uma ou outra definição pode ser utilizada para simplificar a manitpulação algébrica de alguns resultados.
@@ -46,7 +46,7 @@ Para populações com um grande número de unidades, $N \displaystyle \rightarro
 Outra medida importante para avaliar a dispersão de uma variável é o seu *Coeficiente de variação* definido como a divisão do *Desvio Padrão* de $y$ por sua média:
 
 \begin{equation} 
-CV_y=\frac {\sqrt {\sigma^2_y}} {\overline Y}=\sqrt {{\sigma^2_y} /{\overline Y^2}}=\sqrt {q/p} (\#eq:5) 
+CV_y=\frac {\sqrt {\sigma^2_y}} {\overline Y}=\sqrt {{\sigma^2_y} /{\overline Y^2}}=\sqrt {q/p} (\#eq:eqpro5) 
 \end{equation}
 
 **Exemplo 5.1:** Seja uma escola de ensino fundamental onde deseja-se estudar a composição dos estudantes por sexo. Vamos supor que a escola tenha um total de 1000 estudantes, dos quais 480 são do sexo feminino.
@@ -84,36 +84,36 @@ Seja uma *AASC*, $s$, de tamanho $n$ selecionada de uma população composta de 
 O total de unidades da amostra com a característica de interesse será dado pelo total amostral, ou seja:
 
 \begin{equation}
-t_y=\displaystyle \sum_{i \in\ s} y_i(\#eq:6) 
+t_y=\displaystyle \sum_{i \in\ s} y_i(\#eq:eqpro6) 
 \end{equation}
 
 Da mesma forma a proporção amostral de unidades que possuem a característica em estudo será dada pela média amostral:
 
 \begin{equation}
-\displaystyle \widehat p=\overline y= \frac {1}{n} \sum_{i \in s} y_i= \frac {t_y}{n}(\#eq:7) 
+\displaystyle \widehat p=\overline y= \frac {1}{n} \sum_{i \in s} y_i= \frac {t_y}{n}(\#eq:eqpro7) 
 \end{equation}
 
 Pode-se facilmente verificar que $\widehat p$ é um estimador não viciado para a proporção populacional $p$, pois:
 
 \begin{equation}
-\displaystyle E_{AASC}(\widehat p)=E_{AASC}(\overline y)= \overline Y=p(\#eq:8) 
+\displaystyle E_{AASC}(\widehat p)=E_{AASC}(\overline y)= \overline Y=p(\#eq:eqpro8) 
 \end{equation}
 
 A variância da proporção amostral pode ser calculada, também, analogamente a variância da média amostral.
 
 \begin{equation}
-\displaystyle V_{AASC}(\widehat p)= \frac{\sigma^2_y}{n}=\frac{pq}{n}(\#eq:9) 
+\displaystyle V_{AASC}(\widehat p)= \frac{\sigma^2_y}{n}=\frac{pq}{n}(\#eq:eqpro9) 
 \end{equation}
 
 A variância amostral de $y$ será dada por:
 
 \begin{equation}
-\displaystyle s^2_y = \frac {n}{n-1}\widehat p (1-\widehat p)=\frac {n}{n-1}\widehat p \widehat q (\#eq:10) \end{equation}
+\displaystyle s^2_y = \frac {n}{n-1}\widehat p (1-\widehat p)=\frac {n}{n-1}\widehat p \widehat q (\#eq:eqpro10) \end{equation}
 
 Utilizando $s^2_y$ como um estimador não viciado para a variância populacional, $\sigma^2_y,$ obtem-se um estimador para a variância do estimador $\widehat p$:
 
 \begin{equation}
-\displaystyle v_{AASC}(\widehat p)=\frac{\widehat p\widehat q}{n-1}(\#eq:11) 
+\displaystyle v_{AASC}(\widehat p)=\frac{\widehat p\widehat q}{n-1}(\#eq:eqpro11) 
 \end{equation}
 
 
@@ -124,13 +124,13 @@ Pode-se chegar aos mesmos resultados do item anterior analisando a distribuiçã
 Foi definido que a variável $y$ assume apenas valores iguais 1 ou 0, no caso da existência ou não do atributo de interesse em cada uma das unidades da população, portanto para cada $y_i \in s$ tem-se que:
 
 \begin{equation}
-y_i=\displaystyle \begin{cases} 1,\text{ se a unidade i tem o atributo} \\\\ 0,\text{ em outro caso} \end{cases}(\#eq:12) \end{equation}
+y_i=\displaystyle \begin{cases} 1,\text{ se a unidade i tem o atributo} \\\\ 0,\text{ em outro caso} \end{cases}(\#eq:eqpro12) \end{equation}
 
 
 Como as unidades amostrais são selecionadas com igual probabilidade e com reposição, as variáveis $y_i \in s$ são independentes e identicamente distribuídas com probabilidades definidas por:
 
 \begin{equation}
-\displaystyle P(y_i=1)=P(y_i \text{ ter o atributo de interesse})=\frac {Y} {N}=p \\ P(y_i=0)=P(y_i \text{ não ter o atributo de interesse})=1-\frac {Y} {N}=q(\#eq:13) 
+\displaystyle P(y_i=1)=P(y_i \text{ ter o atributo de interesse})=\frac {Y} {N}=p \\ P(y_i=0)=P(y_i \text{ não ter o atributo de interesse})=1-\frac {Y} {N}=q(\#eq:eqpro13) 
 \end{equation}
 
 
@@ -146,20 +146,20 @@ O total amostral $t_y$ que, neste caso, representa o número de unidades na amos
 Imediatamente tem-se que:
 
 \begin{equation}
-E_{AASC}(t_y)=np{\quad\text e \quad}V_{AASC}(t_y)=npq(\#eq:14) 
+E_{AASC}(t_y)=np{\quad\text e \quad}V_{AASC}(t_y)=npq(\#eq:eqpro14) 
 \end{equation}
 
 
 E seguindo o mesmo raciocínio pode-se ter o valor esperado e a variância de $\widehat p$:
 
 \begin{equation}
-\displaystyle E_{AASC}(\widehat p)=E_{AASC}\left(\frac{t_y}{n}\right)=p  {\quad\text e \quad} V_{AASC}(\widehat p)=V_{AASC}\left(\frac{t_y}{n}\right)=\frac {pq} {n}(\#eq:15) 
+\displaystyle E_{AASC}(\widehat p)=E_{AASC}\left(\frac{t_y}{n}\right)=p  {\quad\text e \quad} V_{AASC}(\widehat p)=V_{AASC}\left(\frac{t_y}{n}\right)=\frac {pq} {n}(\#eq:eqpro15) 
 \end{equation}
 
 Outro resultado importante é que se tem a distribuição de probabilidades de $\widehat p$, pois:
 
 \begin{equation}
-P \left(\widehat p=\frac kn\right)=P(t_y=k)=\binom{n} {k}p^k q^{n-k},{\quad\quad\quad\quad \text{para todo }}k=1, 2, ..., n(\#eq:16) 
+P \left(\widehat p=\frac kn\right)=P(t_y=k)=\binom{n} {k}p^k q^{n-k},{\quad\quad\quad\quad \text{para todo }}k=1, 2, ..., n(\#eq:eqpro16) 
 \end{equation}
 
 ## Estimação de uma proporção sob Amostragem Aleatória Simples sem reposição - *AAS*
@@ -171,19 +171,19 @@ Uma diferença fundamental é que no caso da *AAS* a variância amostral , $s^2_
 Foi visto no capítulo anterior que a variância do estimador da média é calculado pela expressão:
 
 \begin{equation}
-V_{AAS}(\overline y)=\frac {N-n}{N}\frac{S^2_y}{n}(\#eq:17) 
+V_{AAS}(\overline y)=\frac {N-n}{N}\frac{S^2_y}{n}(\#eq:eqpro17) 
 \end{equation}
 
 Então, no caso do estimador de uma proporção, por analogia, tem-se que:
 
 \begin{equation}
-V_{AAS}(\widehat p)=\frac {N-n}{N-1}\frac{pq}{n}(\#eq:18) 
+V_{AAS}(\widehat p)=\frac {N-n}{N-1}\frac{pq}{n}(\#eq:eqpro18) 
 \end{equation}
 
 Utilizando $s^2_y$ como estimador não viciado para $S^2_y$ chega-se ao estimador para a variância de $\widehat p$:
 
 \begin{equation}
-v_{AAS}(\widehat p)=\frac {N-n}{N} \frac {\widehat p \widehat q}{n-1}(\#eq:19) 
+v_{AAS}(\widehat p)=\frac {N-n}{N} \frac {\widehat p \widehat q}{n-1}(\#eq:eqpro19) 
 \end{equation}
 
 Nota-se que para populações onde o número de unidades, $N$, é suficientemente grande tem-se que $v_{AAS}(\widehat p)\approx \frac {\widehat p \widehat q}{n-1}$, resultando numa equivalência entre os desempenhos da *AAS* e da *AASC*. Intuitivamente isso ocorre porque a probabilidade de seleção repetida tende a ser muito pequena no caso de populações muito grandes.
@@ -193,7 +193,7 @@ Nota-se que para populações onde o número de unidades, $N$, é suficientement
 Da mesma forma que na *AASC* quando a seleção da amostra aleatória simples é feita sem reposição, também para cada $y_i \in s$ tem-se que:
 
 \begin{equation}
-y_i=\displaystyle\begin{cases} 1,\text{ se a unidade i tem o atributo} \\\\ 0,\text{ em outro caso} \end{cases}(\#eq:20) 
+y_i=\displaystyle\begin{cases} 1,\text{ se a unidade i tem o atributo} \\\\ 0,\text{ em outro caso} \end{cases}(\#eq:eqpro20) 
 \end{equation}
 
 A diferença é que na *AAS*, em uma dada seleção, a probabilidade de ser selecionada uma unidade que já foi sorteada anteriormente é nula. Logo as *n* variáveis aleatórias $y_i \in s$ não são independentes, porém são identicamente distribuídas e, também neste caso $P(y_i=1)=p$ e $P(y_i=0)=q$.
@@ -203,30 +203,30 @@ O número total de amostras aleatórias simples sem reposição de tamanho $n$ q
 Utilizando o fato de que a probabilidade de um determinado evento ocorrer é obtido pela divisão do número de casos favoráveis pelo número total de casos possíveis, pode-se verificar que a distribuição da estatística $t_y$, que é o número de unidadaes da amostra com a característica de interesse,  segue uma distribuição $Hipergeométrica(N,Y,n)$, representada pela expressão:
 
 \begin{equation}
-P(t_y=k)=\frac {\binom{Y}{k} \binom{N-Y} {n-k}} {\binom{N}{n}}, {\quad\quad\quad\quad\quad\quad0\le k \le min (n,Y)}(\#eq:21) \end{equation}
+P(t_y=k)=\frac {\binom{Y}{k} \binom{N-Y} {n-k}} {\binom{N}{n}}, {\quad\quad\quad\quad\quad\quad0\le k \le min (n,Y)}(\#eq:eqpro21) \end{equation}
 
 A média ou valor esperado de uma distribuição $Hipergeométrica(N,Y,n)$ é dado por $n\frac Y N$, portanto tem-se imediatamente que:
 
 \begin{equation}
-E_{AAS}(t_y)=n\frac Y N =np\implies E_{AAS}(\widehat p)=p(\#eq:22) 
+E_{AAS}(t_y)=n\frac Y N =np\implies E_{AAS}(\widehat p)=p(\#eq:eqpro22) 
 \end{equation}
 
 A variância da mesma distribuição hipergeométrica é calculada por $n\frac Y N\frac{N-Y}{N}\left(1-\frac{n-1}{N-1}\right)=npq\left(\frac{N-n}{N-1}\right)$, levando à variância do total de unidades na amostra que tem o atributo de interesse:
 
 \begin{equation}
-V_{AAS}(t_y)=\left(\frac{N-n}{N-1}\right)npq(\#eq:23) 
+V_{AAS}(t_y)=\left(\frac{N-n}{N-1}\right)npq(\#eq:eqpro23) 
 \end{equation}
 
 Consequentemente a variância do estimador da proporção $p$ será dada por:
 
 \begin{equation}
-V_{AAS}(\widehat p)=V_{AAS}(\frac{t_y}{n}) = \left(\frac{N-n}{N-1}\right)\frac {pq}{n}(\#eq:24) 
+V_{AAS}(\widehat p)=V_{AAS}(\frac{t_y}{n}) = \left(\frac{N-n}{N-1}\right)\frac {pq}{n}(\#eq:eqpro24) 
 \end{equation}
 
 Um estimador da variância de $\widehat p$ será obtido substituindo $S^2_y$ pelo seu estimador não viciado que é a variância amostral, resultando em:
 
 \begin{equation}
-v_{AAS}(\widehat p)= \left(\frac{N-n}{N}\right)\frac {\widehat p\widehat q}{n-1}(\#eq:25) 
+v_{AAS}(\widehat p)= \left(\frac{N-n}{N}\right)\frac {\widehat p\widehat q}{n-1}(\#eq:eqpro25) 
 \end{equation}
 
 ## Intervalos de confiança para proporções na Amostragem Aleatória Simples
@@ -236,13 +236,13 @@ Foi visto que na Amostragem Aleatória Simples, tanto com ou sem reposição, s�
 Para isso, no caso de *AASC*, é necessário resolver o siatema de equações seguinte determinando os valores de $\widehat p_I$ e $\widehat p_S$ que o satisfaçam:
 
 \begin{equation}
-\begin{cases}\displaystyle\sum _{k=0}^{t_y} \binom {n}{k} \widehat p_S^k (1 - \widehat p_S)^{n-k}=\frac{\alpha} {2} \\\\ \displaystyle\sum _{k=t_y}^n \binom {n}{k} \widehat p_I^k (1 - \widehat p_I)^{n-k}=\frac{\alpha} {2}\end{cases}(\#eq:26) 
+\begin{cases}\displaystyle\sum _{k=0}^{t_y} \binom {n}{k} \widehat p_S^k (1 - \widehat p_S)^{n-k}=\frac{\alpha} {2} \\\\ \displaystyle\sum _{k=t_y}^n \binom {n}{k} \widehat p_I^k (1 - \widehat p_I)^{n-k}=\frac{\alpha} {2}\end{cases}(\#eq:eqpro26) 
 \end{equation}
 
 No caso da *AAS* o sistema a ser resolvido é baseado na distribuição Hipergeométrica como se segue:
 
 \begin{equation} 
-\begin{cases}\displaystyle\sum_ {k=0}^{t_y}\frac {\binom{N\widehat p_S}{k} \binom{N-N\widehat p_S} {n-k}}{\binom{N}{n}}=\frac {\alpha}{2} \\\\ \displaystyle \sum_ {k=t_y}^{n}\frac {\binom{N\widehat p_I}{k} \binom{N-N\widehat p_I} {n-k}} {\binom{N}{n}}={\frac {\alpha}{2}}\end{cases}(\#eq:27) 
+\begin{cases}\displaystyle\sum_ {k=0}^{t_y}\frac {\binom{N\widehat p_S}{k} \binom{N-N\widehat p_S} {n-k}}{\binom{N}{n}}=\frac {\alpha}{2} \\\\ \displaystyle \sum_ {k=t_y}^{n}\frac {\binom{N\widehat p_I}{k} \binom{N-N\widehat p_I} {n-k}} {\binom{N}{n}}={\frac {\alpha}{2}}\end{cases}(\#eq:eqpro27) 
 \end{equation}
 Em ambos os casos $\alpha$ é o nível de significância desejado, correspondendo ao nível de confiança $1-\alpha$.
 
@@ -255,7 +255,7 @@ Como já foi visto no capítulo anterior, a distribuição do estimador da propo
 Sob estas condições pode-se considerar que:
 
 \begin{equation}
-\frac {\widehat p - p} {\sqrt {V_{p(s)}(\widehat p)}} \simeq N(0,1)(\#eq:28) 
+\frac {\widehat p - p} {\sqrt {V_{p(s)}(\widehat p)}} \simeq N(0,1)(\#eq:eqpro28) 
 \end{equation}
 
 Na Figura \@ref(fig:normalaasc) a seguir o gráfico mostra a aproximação Normal para a seleção de 1000 amostras de tamanho $n=100$, selecionadas com reposição, de uma população de tamanho $N=5000$, onde exatamente metade das unidades tem a caracterísitica de interesse ($y_i=1$).
@@ -318,30 +318,30 @@ Essa tabela foi construída considerando um nível de significância de $\alpha=
 
 Nas condições estabelecidas para a validade da aproximação Normal tem-se que $S^2_y \approx \sigma^2_y=pq$, portanto, $\displaystyle V_{AAS}(\widehat p) \approx V_{AASC}(\widehat p)$, então para os dois tipos de seleção pode-se considerar o intervalo de confiança para a proporção como: 
 \begin{equation} 
-\displaystyle IC_{1-\alpha}(p):\left[\widehat p-z_{\alpha/ 2}\sqrt { {pq}/n};\widehat p+z_{\alpha/2}\sqrt {{pq}/n} \right](\#eq:29) 
+\displaystyle IC_{1-\alpha}(p):\left[\widehat p-z_{\alpha/ 2}\sqrt { {pq}/n};\widehat p+z_{\alpha/2}\sqrt {{pq}/n} \right](\#eq:eqpro29) 
 \end{equation}
 
 Caso se deseje considerar o fator de correção para populacões finitas, quando a fração amostral não possa ser considerada pequena e a seleção for sem reposição, a expressão do intervalo de confiança passa a ser: 
 \begin{equation} 
-\displaystyle IC_{1-\alpha}(p):\left[\widehat p-z_{\alpha/ 2}\sqrt { \left(\frac{N-n}{N-1} \right)\frac{pq}{n}};\widehat p+z_{\alpha/2}\sqrt { \left(\frac{N-n}{N-1} \right)\frac{pq}{n}} \right](\#eq:30) 
+\displaystyle IC_{1-\alpha}(p):\left[\widehat p-z_{\alpha/ 2}\sqrt { \left(\frac{N-n}{N-1} \right)\frac{pq}{n}};\widehat p+z_{\alpha/2}\sqrt { \left(\frac{N-n}{N-1} \right)\frac{pq}{n}} \right](\#eq:eqpro30) 
 \end{equation}
 
 Em [@Cochran1977] é apresentada uma *correção de continuidade* acrescentando a fração $1/2n$ à margem de erro do intervalo de confiança pelo fato de se fazer uma aproximação de uma distribuição discreta (Binomial ou Hipergeométrica) pela distribuição Normal, que é contínua. Desse modo a expressão do intervalo de confiança passa a ser: 
 \begin{equation} 
-\displaystyle IC_{1-\alpha}(p):\left[\widehat p-z_{\alpha/ 2}\sqrt {{pq}/n}-1/2n;\widehat p+z_{\alpha/2}\sqrt{{pq}/n} +1/2n \right](\#eq:31) \end{equation}
+\displaystyle IC_{1-\alpha}(p):\left[\widehat p-z_{\alpha/ 2}\sqrt {{pq}/n}-1/2n;\widehat p+z_{\alpha/2}\sqrt{{pq}/n} +1/2n \right](\#eq:eqpro31) \end{equation}
 Ou considerando a coreção para população finita:
 \begin{equation} 
-\displaystyle IC_{1-\alpha}(p):\left[\widehat p-z_{\alpha/ 2}\sqrt { \left(\frac {N-n}{N-1} \right)\frac{pq}{n}}-\frac 1 {2n};\widehat p+z_{\alpha/2}\sqrt { \left(\frac {N-n}{N-1} \right)\frac{pq}{n}}+\frac 1{2n} \right](\#eq:32) 
+\displaystyle IC_{1-\alpha}(p):\left[\widehat p-z_{\alpha/ 2}\sqrt { \left(\frac {N-n}{N-1} \right)\frac{pq}{n}}-\frac 1 {2n};\widehat p+z_{\alpha/2}\sqrt { \left(\frac {N-n}{N-1} \right)\frac{pq}{n}}+\frac 1{2n} \right](\#eq:eqpro32) 
 \end{equation}
 
 
 Nas aplicações práticas o valor da variância do estimador da proporção $p$, geralmente, não é conhecido. Assim o que se pode fazer é estimar um intervalo de confiança, substituindo $S^2_y$ por $s^2_y$ na expressões anteriores:
 \begin{equation} 
-\displaystyle ic_{1-\alpha}(p):\left[\widehat p-z_{\alpha/ 2}\sqrt {\frac{\widehat p \widehat q} {n-1}}-\frac 1{2n};\widehat p+z_{\alpha/2}\sqrt{\frac{\widehat p \widehat q} {n-1}} +\frac 1{2n} \right](\#eq:33)
+\displaystyle ic_{1-\alpha}(p):\left[\widehat p-z_{\alpha/ 2}\sqrt {\frac{\widehat p \widehat q} {n-1}}-\frac 1{2n};\widehat p+z_{\alpha/2}\sqrt{\frac{\widehat p \widehat q} {n-1}} +\frac 1{2n} \right](\#eq:eqpro33)
 \end{equation} 
 
 \begin{equation} 
-\displaystyle ic_{1-\alpha}(p):\left[\widehat p-z_{\alpha/ 2}\sqrt {\left(\frac{N-n}{N}\right)\frac {\widehat p\widehat q}{n-1}}-\frac 1{2n};\widehat p+z_{\alpha/2}\sqrt {\left(\frac{N-n}{N}\right)\frac {\widehat p\widehat q}{n-1}} +\frac 1{2n} \right](\#eq:34) 
+\displaystyle ic_{1-\alpha}(p):\left[\widehat p-z_{\alpha/ 2}\sqrt {\left(\frac{N-n}{N}\right)\frac {\widehat p\widehat q}{n-1}}-\frac 1{2n};\widehat p+z_{\alpha/2}\sqrt {\left(\frac{N-n}{N}\right)\frac {\widehat p\widehat q}{n-1}} +\frac 1{2n} \right](\#eq:eqpro34) 
 \end{equation}
 
 Veja que o efeito da correção de continuidade tende rapidamente a ser nulo quando o tamanho da amostra, $n$, cresce. Para uma amostra de tamanho $n=50$ esse fator já é de apenas 1%, o que pode ser desprezível dependendo da proporção que estiver sendo estimada, porém é preciso muito cuidado pois quando se está trabalhando com proporções são valores, às vezes, bastante pequenos.
@@ -352,19 +352,19 @@ O tamanho de uma amostra aleatória simples a ser selecionada, como já foi vist
 
 No caso de seleção com reposição, considerando uma margem de erro máxima admissível de $d$ com um nível de confiança $1-\alpha$, basta utilizar expressão da margem de erro:
 \begin{equation}
-d \le z_{\alpha/2}\sqrt { \frac{pq}{n}} \implies n \ge \frac{z^2_{\alpha/2}pq}{d^2} (\#eq:35) 
+d \le z_{\alpha/2}\sqrt { \frac{pq}{n}} \implies n \ge \frac{z^2_{\alpha/2}pq}{d^2} (\#eq:eqpro35) 
 \end{equation}
 Para seleção sem reposição o tamanho da amostra será calculado como:
 \begin{equation}
-d \le z_{\alpha/2}\sqrt{\left(\frac {N-n}{N-1}\right)\frac{pq}n} \implies n \ge \frac{z^2_{\alpha/2}pq} {d^2 \frac {N-1}N + \frac 1 N {z^2_{\alpha /2}pq}}\approx \frac{z^2_{\alpha/2}pq} {d^2 + \frac 1 N {z^2_{\alpha /2}pq}} (\#eq:36) 
+d \le z_{\alpha/2}\sqrt{\left(\frac {N-n}{N-1}\right)\frac{pq}n} \implies n \ge \frac{z^2_{\alpha/2}pq} {d^2 \frac {N-1}N + \frac 1 N {z^2_{\alpha /2}pq}}\approx \frac{z^2_{\alpha/2}pq} {d^2 + \frac 1 N {z^2_{\alpha /2}pq}} (\#eq:eqpro36) 
 \end{equation}
 Uma maneira prática de calcular o tamanho da amostra para uma *AAS* em dois passos é calcular primeiro: 
 \begin{equation}
-n_0=\frac{z^2_{\alpha/2}pq}{d^2}(\#eq:37) 
+n_0=\frac{z^2_{\alpha/2}pq}{d^2}(\#eq:eqpro37) 
 \end{equation}
 E depois fazer:
 \begin{equation}
-n \ge \frac {n_0}{1+n_0 /N}(\#eq:38) 
+n \ge \frac {n_0}{1+n_0 /N}(\#eq:eqpro38) 
 \end{equation}
 
 Note que $n_0$ é equivalente ao tamanho da amostra para uma *AASC* e o valor de $n$ para a *AAS* é obtido pela correção para população finita do valor $n_0$. Também pode-se concluir que quando o tamanho da população, $N$, é grande o fator $n_0/N$ tende a se anular fazendo com que $n=n_0$, ou seja: quando o tamanho da população é grande as amostras aleatórias simples com ou sem reposição são equivalentes.
@@ -383,11 +383,11 @@ plot(p,pq, type="l", main="Gráfico de pq x p",xlab="Proporção = p",ylab="Vari
 
 Como o valor máximo da variância é atingido quando $p=0,5$, caso não exista nenhuma informação sobre a proporção a ser estimada, uma maneira de determinar um tamanho de amostra conservador é supor exatamente que $p=0,5$. Assim pode-se simplificar a fórmula de cálculo de $n$ para uma *AASC*: 
 \begin{equation} 
-n \ge \frac {z^2_{\alpha /2}}{4d^2}(\#eq:39) 
+n \ge \frac {z^2_{\alpha /2}}{4d^2}(\#eq:eqpro39) 
 \end{equation}
 No caso de uma *AAS* basta fazer:
 \begin{equation}
-n_0 = \frac {z^2_{\alpha /2}}{4d^2} \implies n \ge \frac {n_0}{1+n_0/N}(\#eq:40) 
+n_0 = \frac {z^2_{\alpha /2}}{4d^2} \implies n \ge \frac {n_0}{1+n_0/N}(\#eq:eqpro40) 
 \end{equation}
 
 Geralmente os resultados das fórmulas para cálculo do tamanho da amostra não são valores inteiros. Em todos esses casos o valor de $n$ calculado deverá ser arredondado para o valor inteiro imediatamente superior, preservando assim a precisão desejada.
@@ -398,7 +398,7 @@ As fómulas apresentadas para o cálculo do tamanho da amostra utilizaram a marg
 
 Para calcular um tamanho de amostra de maneira que o coeficiente de variação máximo esperado para o estimador $\widehat p$ seja um valor fixado $c$, pode-se utilizar a fórmula:
 \begin{equation}
-n \ge \frac q {c^2p}(\#eq:41) 
+n \ge \frac q {c^2p}(\#eq:eqpro41) 
 \end{equation}
 no caso da seleção com reposição.
 
@@ -406,14 +406,14 @@ Para chegar a esse resultado basta ver que $CV_{AASC}(\widehat p)= \sqrt {V_{AAS
 
 Para a seleção sem reposição pode-se fazer:
 \begin{equation}
-n_0 = \frac q {c^2p} \implies n \ge \frac {n_0} {1+n_0/N}(\#eq:42) 
+n_0 = \frac q {c^2p} \implies n \ge \frac {n_0} {1+n_0/N}(\#eq:eqpro42) 
 \end{equation}
 
 Seguindo o mesmo raciocínio pode-se chegar às formulas para calcular *n* fixando a variância máxima esperada de $\widehat p$ em $v$ ou o seu erro relativo máximo em $r$.
 
 Para a seleção com reposição tem-se:
 \begin{equation}
-n \ge \frac {pq} {v}  { \quad\textrm { ou } \quad} n \ge \frac {z^2_{\alpha/2}}{r^2} \frac q p (\#eq:43) 
+n \ge \frac {pq} {v}  { \quad\textrm { ou } \quad} n \ge \frac {z^2_{\alpha/2}}{r^2} \frac q p (\#eq:eqpro43) 
 \end{equation}
 
 As expressões para a seleção sem reposição são derivadas como no caso em que foi fixado o valor máximo esperado para $CV(\widehat p$).
@@ -447,22 +447,22 @@ Observe que para calcular as proporções em cada uma das categorias na verdade 
 A proporção de unidades da população pertencentes à categoria $c\in (1, 2,.., M)$, é dada por:
 
 \begin{equation}
-p_c=\frac {N_c} {N}  (\#eq:44) 
+p_c=\frac {N_c} {N}  (\#eq:eqpro44) 
 \end{equation}
 0nde $N_c$ é o número de unidades na categoria $c$ e $N$ é o tamanho total da população.
 
 Seja uma amostra aleatória simples (com ou sem reposição) de tamanho $n$ e seja a variável indicadora $y_i$ definida como:
 \begin{equation}
-\displaystyle y_i= \begin{cases} 1, \text {se a unidade i pertence à categoria $c$} \\\\ 0, \text {se a unidade i não pertence à categoria $c$} \end{cases}(\#eq:45)
+\displaystyle y_i= \begin{cases} 1, \text {se a unidade i pertence à categoria $c$} \\\\ 0, \text {se a unidade i não pertence à categoria $c$} \end{cases}(\#eq:eqpro45)
 \end{equation}
 
 Com tal definição pode-se ver que o número de unidades da catecoria $c$ na amostra será dado por::
 \begin{equation}
-\displaystyle n_c=\sum_{i=1}^{n} y_i(\#eq:46)
+\displaystyle n_c=\sum_{i=1}^{n} y_i(\#eq:eqpro46)
 \end{equation}
 Um estimador para a proporção de unidades populacionais pertencentes à categoria $c$  poderá ser obtido por:
 \begin{equation}
-\displaystyle \widehat p_c=\frac {1}{n} \sum_{i=1}^{n} y_i =\frac {n_c} {n}(\#eq:47)
+\displaystyle \widehat p_c=\frac {1}{n} \sum_{i=1}^{n} y_i =\frac {n_c} {n}(\#eq:eqpro47)
 \end{equation}
 O problema foi reduzido ao caso de estimar proporções em variáveis com duas categorias.
 Pode-se obter, também, estimativas de precisão utilizando as mesmas ferramentas já apresentadas neste capítulo.
@@ -475,7 +475,8 @@ Outro caso de interesse ocorre quando na aplicação de um questionário, por ex
 
 Neste caso poderia ser estimada a proporção para cada uma das quatro categorias iniciais ou apenas a proporção de votos válidos para cada um dos dois candidatos.
 \begin{equation}
-\displaystyle \widehat p_A=\frac {n_A} {n_A+n_B} \quad\text { e } \quad\widehat p_B=\frac {n_B} {n_A+n_B}(\#eq:48)
+\displaystyle \widehat p_A=\frac {n_A} {n_A+n_B} \quad\text { e } \quad\widehat p_B=\frac {n_B} {n_A+n_B}(\#eq:eqpro48)
 \end{equation}
 
 Vale notar que neste caso tanto o numerador como o denominador do estimador da proporçãO são variáveis aleatórias, pois a população (eleitores que efetivamente vão votar num dos candidatos) é desconhecida.
+
