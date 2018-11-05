@@ -1,0 +1,27 @@
+
+#Amostragem de Conglomerados em Um ou Mais Estágios
+
+##Conceituação básica 
+
+Nos planos amostrais já apresentados (Amostragem Aleatória Simples - com ou sem reposição -, Amostragem Binomial ou de Bernoulli, Amostragem Sistemática, Amostragem com Probabilidades Desiguais - Proporcionais ao Tamanho: com reposição, Poisson, Poisson Sequencial, Pareto - e Amostragem Estratificada Simples) alguns aspectos são comuns: requerem cadastro de unidades individuais para permitir selecionar a amostra; a seleção da amostra é feita num único estágio ou etapa; as unidades de referência são iguais às unidades de amostragem; e o tamanho total da população é conhecido com base no cadastro.
+
+Se tal cadastro não existir ou não puder ser construído ou o custo de atualizá-lo for muito elevado, a solução pode ser através do uso de amostragem de conglomerados, onde grupos de unidades são selecionadas com probabilidades conhecidas. 
+
+A *amostragem de conglomerados* consiste num esquema de amostragem em estágios, sendo que em cada estágio a unidade amostral, para a qual é atribuída a probabilidade de seleção, é grupada em um subconjunto (*conglomerado*) de unidades populacionais. 
+
+A formação de conglomerados pode ser:
+ - natural (exemplos: cacho de uvas, turma de alunos, edifício, quarteirão, município); ou 
+
+ - artificial, construído pelo estatístico de acordo com o objetivo da pesquisa (exemplos: conglomerados de seis pessoas, de dez peças industriais do mesmo tipo, de cinco domicílios do mesmo edifício).
+ 
+A unidade populacional depende da análise que está sendo feita e é determinada pelo propósito da pesquisa e não pelo plano amostral. Pode acontecer de mais de uma unidade populacional estar envolvida na pesquisa, quando por exemplo, características de domicílios e de pessoas são investigadas no mesmo levantamento. 
+
+Não há uma definição possível para os congolerados. Por exemplo, a turma tanto pode ser uma unidade populacional (se estivermos interessados em investigar o número de alunos por turma), como pode ser um conglomerado de alunos (se estivermos interessados em investigar o aproveitamento dos alunos). 
+
+Para exemplificar, o Quadro \@ref(tab: cong) apresenta algumas ilustrações de possíveis conglomerados associados com a população, a variável de interesse e a unidade de referência para análise. 
+
+
+
+ 
+ 
+ 
