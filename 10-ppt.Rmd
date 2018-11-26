@@ -2,7 +2,7 @@
 
 A amostragem com probabilidades desiguais é usada porque as unidades de amostragem têm variação de tamanho e ignorar a variação de tamanho pode resultar em desenhos ineficientes. Neste sentido, é usada quando a variação dos tamanhos for grande, tiver informação auxiliar precisa sobre tamanhos disponível e o tamanho for fortemente correlacionado com as variáveis de interesse. 
 
-Trataremos inicialmente o caso de amostragem com probabilidades proporcioanis ao tamanho. Outros casos serão vistos mais adiante, tais como: amostragem estratificada com alocação desproporcional, seleção de um morador para ser entrevistado em cada domicílio, amostras de números telefônicos (“random digit dialling samples”). 
+Trataremos inicialmente o caso de amostragem com probabilidades proporcionais ao tamanho. Outros casos serão vistos mais adiante, tais como: amostragem estratificada com alocação desproporcional, seleção de um morador para ser entrevistado em cada domicílio, amostras de números telefônicos (“random digit dialling samples”). 
 
 ##Amostragem com Probabilidades Proporcionais ao Tamanho (PPT)
 
@@ -118,7 +118,7 @@ Em planos amostrais auto-ponderados, isto é, em que os $\pi_i$ são constantes,
 
 O Quadro \@ref(tab:tabppt1) apresenta um resumo da estimação de parâmetros média e total sob PPT. 
 
-$$\begin{array}{|c|c|c|}\hline
+\begin{array}{|c|c|c|}\hline
 \textrm{Parâmetro} & \textrm{Estimador PPT}  
 
 \\\hline \overline{Y}=\displaystyle\sum_{i\in U}y_i/N & \overline y_{HT}=\frac{1}{N}\displaystyle\sum_{i \in s}\frac{y_i}{\pi_i}=\sum_{i \in s}w_i^{HT}y_i
@@ -134,7 +134,7 @@ $$\begin{array}{|c|c|c|}\hline
 
 \\\hline V_{SYG}(\widehat Y_{HT})=-\frac{1}{2}\displaystyle\sum_{i \in U}\sum_{j \in U}(\pi_{ij}-\pi_i\pi_j)\left(\frac{y_i}{\pi_i}-\frac{y_j}{\pi_j}\right)^2 & \widehat V_{SYG}(\widehat Y_{HT})=-\frac{1}{2}\displaystyle\sum_{i \in s}\sum_{j \in s}\frac{(\pi_{ij}-\pi_i\pi_j)}{\pi_{ij}}\left(\frac{y_i}{\pi_i}-\frac{y_j}{\pi_j}\right)^2 
 
-\\\hline \end{array}$$
+\\\hline \end{array}
 
 
 ###Maneiras de Selecionar Amostras com PPT
