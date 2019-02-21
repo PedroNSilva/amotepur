@@ -1,6 +1,6 @@
 # Conceitos e Cadastros
 
-## Fontes de Dados e Tipos de Pesquisas
+## Fontes de dados e tipos de pesquisas
 
 Uma importante decisão em qualquer estudo ou projeto de pesquisa diz respeito ao levantamento das *fontes de dados* com potencial para atender às necessidades de informações de interesse. Um primeiro critério de classificação distingue as *fontes primárias*, cujos dados ainda não foram coletados, das *fontes secundárias*, cujos dados já foram coletados, possivelmente com outro(s) propósito(s), e estão disponíveis ou poderiam ser obtidos para uso imediato.  
 
@@ -14,7 +14,7 @@ De acordo com [@Thompson1992] tem-se a seguinte definição: "*Amostragem* consi
 
 Neste livro, o principal tipo de pesquisa a ser considerado é a *Pesquisa Amostral*, que busca conhecer a população com base numa amostra. Mas algumas vezes faremos referência a censos que poderiam, teoricamente, ser conduzidos nas mesmas populações das quais trataremos de tirar amostras para fazer inferência.
 
-## Alguns Conceitos Fundamentais
+## Alguns conceitos fundamentais
 
 Antes de avançar na apresentação da teoria relevante para *pesquisas por amostragem*, vamos introduzir vários conceitos relevantes e necessários para sustentar a discussão posterior.
 
@@ -176,12 +176,14 @@ Pesquisas por amostragem, para serem bem feitas, requerem cuidadoso planejamento
 Para uma visão de conjunto, o *Modelo Genérico do Processo de Produção Estatística (MGPPE)* ou *Generic Statistical Business Process Model (GSBPM)*, definido pela United Nations Economic Commission for Europe (UNECE), é um modelo que descreve de forma abrangente as atividades do processo de produção estatística. Este modelo tem sido utilizado como quadro de referência para nortear a modernização e a melhoria da qualidade da produção estatística em muitos institutos nacionais de estatística, entre eles o IBGE. Uma representação esquemática dessa abordagem é apresentada na Figura \@ref(fig:modpesq), adaptada do *Generic Statistical Business Process Model: GSBPM: version 5.0* (2013, p.10). 
 
 ```{r, modpesq, echo=FALSE, encoding="UTF-8", fig.cap="Modelo Genérico do Processo de Produção Estatística"}
-knitr::include_graphics("Figuras/processodepesqmodelo.png")
+knitr::include_graphics("Figuras/ProcessodePesquisaModelo.PNG")
 ```
 
 Conforme indicado neste modelo, o processo de produção de uma pesquisa por amostragem engloba atividades de supervisão e controle em todas as etapas. Como pode ser observado, a gestão da qualidade é transversal ao processo de produção, perpassando todas as etapas definidas no modelo. A seguir, é apresentada uma breve descrição de etapas fundamentais identificadas no processo de produção de uma pesquisa por amostragem.
 
-### Especificar as necessidades - definição de objetivos, conceitos e recursos
+### Especificação das necessidades da pesquisa 
+
+Esta etapa envolve os sub-processos que definem os objetivos, os conceitos e a prepração de um plano de ação para a realização da pesquisa. 
 
 Quando surge a necessidade de fazer uma pesquisa sobre um certo tema, e há uma decisão de alocar recursos para a concretização da pesquisa, deve-se identificar e especificar com clareza e precisão os objetivos específicos da pesquisa. Tal especificação deve incluir a definição da população alvo e de pesquisa, que resultados a pesquisa deve fornecer ou que perguntas principais tem que ajudar a responder, em que prazos, e com que recursos poderá ser efetivada. Juntamente com a definição dos recursos, deverá ser especificada a margem de erro tolerável nos principais resultados da pesquisa. O exemplo \@ref(exm:pnadc) acima contém vários dos elementos aqui mencionados em relação à PNAD Contínua do IBGE.
 
@@ -189,7 +191,9 @@ O papel do estatístico ou amostrista nessa etapa é o de orientar a tomada de d
 
 Nesta fase, o estatístico deve deixar claro que os resultados de uma pesquisa por amostragem só são aplicáveis à *população de pesquisa* quando a amostragem puder levar em conta todas as unidades pertencentes a esta população, e que quaisquer interesses quanto a resultados e margem de erro de estimativas da pesquisa, se não especificadas a priori, correm o risco de, mais tarde, não poderem ser contemplados. A explicitação de objetivos e recursos é uma das etapas cruciais que devem anteceder a elaboração do *plano amostral*, que vai ser objeto do trabalho do estatístico ou amostrista encarregado de planejar a pesquisa.
 
-### Planejar - definição das variáveis, obtenção e avaliação do cadastro, planejamento da amostra, metodologia de coleta, definição do processamento e análise
+### Planejamento da pesquisa 
+
+Esta etapa envolve a definição das variáveis, a obtenção e avaliação do cadastro, o planejamento da amostra, a metodologia de coleta, a definição do processamento e análise e o fluxo de produção da pesquisa. 
 
 A questão do tipo de informação a ser coletada deve ser considerada num estágio inicial do planejamento da pesquisa. Somente os dados relevantes para os propósitos da pesquisa devem ser levantados. Se muitas perguntas forem propostas, os informantes perderão o interesse em respondê-las. Por outro lado, deve ser assegurado que nenhum item importante seja esquecido. 
 
@@ -205,18 +209,19 @@ Os métodos a serem usados para a coleta das informações dependem de muitos fa
 
 Há diferentes métodos de coleta, que podem ou não ser apoiados por computador, e podem ou não necessitar da participação de entrevistadores ou observadores. Os principais métodos de coleta são: CAPI (*Computer-Assisted Personal Interviewing*), CASI (*Computer-Assisted Self Interviewing*), CATI (*Computer-Assisted Telephone Interviewing*), MASI (*Mail Assisted Self Interviewing*), PAPI (*Paper-and-Pencil Interviewing*), e métodos de observação direta, em que não ocorre uma entrevista. Um exemplo de aplicação deste último método ocorre na coleta de dados de preços em pontos de venda, onde o responsável pela coleta de dados faz isso diretamente e não requer contato com uma unidade informante para a obtenção das informações de interesse. Em tempos mais recentes, também começaram a tornar-se disponíveis opções tais como `web-scraping`, que consiste na utilização de métodos automatizados de acesso a páginas da internet e de extração de dados ou informações dessas páginas, sem intervenção humana no processo.
 
-### Construir - instrumentos de coleta, componentes de processamento e de disseminação, sistema de produção
+### Elaboração dos instrumentos de coleta e dos sistemas  
+
+Esta etapa envolve os sub-processos que definem os instrumentos de coleta, os sistemas de processamento, de disseminação e de produção da pesquisa. 
 
 Os instrumentos de coleta (questionários e outros formulários) são parte importante de uma pesquisa por amostragem. Após decidir que dados devem ser coletados, a questão de como formular e apresentar as perguntas exige grande habilidade e prática. As perguntas devem ser claras, inambíguas e diretas. Perguntas vagas tendem a ter respostas vagas. A ordenação das perguntas deve ser estudada com cuidado. Um pré-teste dos instrumentos de coleta é sempre uma ajuda efetiva na preparação de um bom material.
 
 Um protocolo de esforço de coleta deve ser especificado. Este protocolo deve incluir, por exemplo, instruções sobre o número mínimo de tentativas de contato que devem ser feitas para cada unidade da amostra selecionada, antes de dar uma unidade como perdida. Os procedimentos para lidar com recusas ou perdas de unidades da amostra selecionada também devem ser definidos previamente. Os motivos das perdas devem sempre ser registrados, e o tratamento para as perdas e para a não-resposta devem ser especificados.
 
-Nesta etapa estão ainda incluídos também a elaboração e os testes dos sistemas de apuração da pesquisa.
+Nesta etapa estão ainda incluídos também a elaboração e os testes dos sistemas de apuração e de disseminação da pesquisa.
 
+### Coleta dos dados 
 
-### Coletar - implementação da pesquisa e coleta dos dados
-
-Nesta etapa destacam-se as seguintes atividades: a preparação do cadastro, a seleção da amostra, o recrutamento e treinamento de equipes de coleta e supervisão de campo, e a realização e o acompanhamento da coleta. 
+Nesta etapa inclui a implementação da pesquisa e a coleta dos dados, onde se destacam as seguintes atividades: a preparação do cadastro, a seleção da amostra, o recrutamento e treinamento de equipes de coleta e supervisão de campo, e a realização e o acompanhamento da coleta. 
 
 Para os propósitos da seleção da amostra, a população deve poder ser subdividida no que se pode chamar de *unidades de amostragem*. É importante que tal divisão seja feita de forma que nenhuma unidade da população pertença a mais de uma unidade de amostragem ou fique de fora do conjunto de todas as unidades de amostragem. Um exemplo pode ser dado com as populações humanas, que podem ser vistas como formadas por agregações tais como setores censitários e domicílios ou por pessoas.
 
@@ -224,7 +229,9 @@ A seleção da amostra se dá de acordo com o plano (desenho) amostral especific
 
 O processo de coleta de dados envolve as estratégias de contato e de monitoramento. O sucesso de qualquer pesquisa que adote o método de entrevista direta depende fortemente da capacidade dos entrevistadores de obter as respostas desejadas. Por isso, sua seleção e treinamento é muito importante. Instruções detalhadas devem ser fornecidas no treinamento sobre os métodos de mensuração e coleta. A observação por supervisores durante os trabalhos de entrevista é fundamental para manter os padrões e para estudar a obediência às regras e o tato dos entrevistadores ao fazer as entrevistas. 
 
-### Processar - integração dos dados, classificação e codificação, crítica e tratamentos dos dados, derivação de variáveis, cálculo dos pesos ou fatores de expansão da amostra, cálculo dos resultados agregados (estimação das quantidades de interesse)
+### Processamento da pesquisa 
+
+Esta etapa envolve os sub-processos que definem a integração/organização dos dados, classificação e codificação, crítica e tratamentos dos dados, derivação de variáveis, cálculo dos pesos ou fatores de expansão da amostra, cálculo dos resultados agregados (estimação das quantidades de interesse) e preparação dos arquivos de dados.
 
 Ao final da fase de coleta de dados, as informações estão prontas para entrar na fase do processamento, quando os registros de dados são limpos e preparados para a análise. A maneira como as etapas a seguir são encadeadas e executadas depende de como a coleta de dados é organizada e do(s) modo(s) usado(s) para coletar as informações.
 
@@ -238,7 +245,9 @@ Os métodos de estimação são usados para generalizar a informação recolhida
 
 Os procedimentos de estimação das quantidades de interesse envolvem especificar: o cálculo dos pesos ou fatores de expansão; os estimadores para as quantidades de interesse; e o cálculo das medidas de precisão das estimativas.  
 
-### Analisar - análise, interpretação e assegurar a confidencialidade das informações individualizadas
+### Análise dos dados da pesquisa 
+
+Esta etapa envolve a análise, validação e interpretação dos dados, bem como  os métodos para assegurar a confidencialidade das informações individualizadas.
 
 Usualmente, a apresentação de resultados é acompanhada de um exercício analítico inicial dos dados produzidos. A análise de dados é o processo pelo qual se dá ordem, estrutura, interpretação e significado aos dados. 
 
@@ -248,14 +257,22 @@ A informação nunca é completamente útil se não for acompanhada de análise.
 
 Esta etapa também envolve a garantia de que os dados (e metadados) a serem disseminados não violem a confidencialidade de informações individualizadas, prevenindo a divulgação de informações que revelem direta ou indiretamente a identidade do informante (indivíduo, empresa ou instituição) com a associação de dados confidenciais. Devem ser usadas técnicas para limitação da revelação da identidade nas diversas formas de acesso aos dados. 
 
+### Disseminação dos resultados da pesquisa 
 
-### Disseminar - produção dos resultados e promoção dos produtos de disseminação
+Esta etapa envolve a produção dos resultados, a promoção dos produtos de disseminação e o atendimento aos usuários. 
 
 Esta etapa envolve a preparação do material de divulgação - tabelas, textos, apresentações, publicações, arquivos de microdados e sua documentação (metadados), elaboração de releases, e carga em sítios da internet. É das etapas menos discutidas do processo de pesquisa nos textos sobre métodos, mas isto não significa que é pouco importante. Na verdade, pode-se afirmar que sem adequada disseminação se perde muito do valor de uma pesquisa, já que os seus resultados ficarão sub-aproveitados.
 
-### Avaliar - avaliação e plano de ação
+### Arquivamento das informações da pesquisa 
+
+Esta etapa envolve os sub-processos que definem as regras de arquivamento; o gerenciamento do repositório; a preservação dos dados, metadados e paradados; e o plano de descarte de material. 
+
+A busca e recuperação da informação apontam para a criação de metadados (que descreve os dados de forma estruturada) e a preservação das informações, permitindo que sejam acessíveis e com a  autenticidade resguardada. Neste sentido as regras de arquivamento e o gerenciamento do repositório têm um papel relevante na estruturação das informações de forma a localizá-las e torná-las de fácil recuperação e uso.   
+
+### Avaliação da pesquisa  
 
 Esta etapa encerra a execução de uma pesquisa, e o produto final deve ser um conjunto de tabulações e relatórios de avaliação da pesquisa e de seus resultados. A avaliação e o monitoramento da qualidade das estimativas deve estar presente desde a concepção da pesquisa, a operacionalização dos processos, até a elaboração e disseminação do produto final, visando a compreensão das informações pelos usuários. 
+
 Cabe registrar a ideia de que qualidade é 'multidimensional' e que há vários aspectos da produção dos dados que se deve considerar para avaliar qualidade dos resultados. 
 
 Começamos por distinguir dois níveis onde a discussão de qualidade é importante. Num primeiro nível, trata-se de qualidade do processo de produção das estatísticas, que será referida ao desempenho da organização produtora, à sua capacidade de adotar métodos e processos de trabalho eficientes e seguros, bem como de responder às demandas que lhe são apresentadas. Um segundo nível se refere à qualidade dos dados e resultados que fazem parte da produção das estatísticas. Neste momento, a qualidade que importa é a de cada resultado (produto) frente a um conjunto de usos previstos ou antecipados que o resultado terá. 
