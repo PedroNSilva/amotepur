@@ -123,234 +123,341 @@ $(document).ready(function () {
 
 <div id="visao-geral-da-amostragem-e-estimacao" class="section level1">
 <h1>Visão Geral da Amostragem e Estimação</h1>
-<div id="definicoes-e-notacao-para-populacao-de-pesquisa" class="section level2">
-<h2>Definições e Notação para População de Pesquisa</h2>
-<p>No que se segue são introduzidas algumas definições e notação necessárias para o prosseguimento da teoria da amostragem.</p>
-<p>Chama-se <em>população</em> qualquer conjunto contendo um número finito <span class="math inline">\(N\)</span> de elementos populacionais por meio de alguma característica em comum. Os elementos deste conjunto serão denominados <em>unidades da população</em>, e o conjunto de <span class="math inline">\(N\)</span> rótulos distintos será representado por <span class="math inline">\(U=\{1,2,\dots,i,\dots,N\}\)</span>, sendo: <span class="math inline">\(N\)</span> o tamanho da população de pesquisa; e <span class="math inline">\(i\)</span> o rótulo para a unidade genérica da população.</p>
-<p>São exemplos comuns de populações sobre as quais se realizam pesquisas: domicílios de certa localidade; indústrias instaladas num certo país; fazendas situadas num certo estado; alunos da rede escolar estadual.</p>
-<p>Já foi enfatizado no capítulo anterior a importância de uma definição clara e precisa da população alvo da pesquisa. No entanto, ao estudar <em>amostragem</em>, o maior interesse está voltado para o problema de estimar ou inferir certas quantidades ou parâmetros de diversas características numéricas (variáveis) que podem ser medidas ou observadas para cada unidade da população.<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a></p>
-<p>De fato, cada característica numérica dá origem a um vetor populacional, que é o conjunto de valores numéricos da variável considerada correspondente a cada uma das unidades da população. Por exemplo, se <span class="math inline">\(y\)</span> é a variável de pesquisa / de interesse e <span class="math inline">\(y_i\)</span> é o valor da variável <span class="math inline">\(y\)</span> para a unidade <span class="math inline">\(i\)</span>, então <span class="math inline">\(Y_U=\{y_1,y_2,\dots,y_i,\dots,y_N\}\)</span> é o vetor populacional gerado pela variável <span class="math inline">\(y\)</span>.</p>
+<div id="definicoes-e-notacao-para-populacao-de-pesquisa-e-parametros-selecionados" class="section level2">
+<h2>Definições e notação para população de pesquisa e parâmetros selecionados</h2>
+<p>Nesta seção introduzimos algumas definições e notação necessárias para a apresentação da teoria da amostragem ao longo do texto.</p>
+<p>Chama-se <em>população</em> (daqui por diante, esta é a designação da <em>população de pesquisa</em> que será objeto do levantamento de dados) qualquer conjunto contendo um número finito <span class="math inline">\(N\)</span> de unidades, delimitada por compartilharem de algumas características em comum. As unidades deste conjunto serão denominadas <em>unidades da população</em>. Representaremos nosso cadastro dessa população por um conjunto de <span class="math inline">\(N\)</span> rótulos distintos denotado <span class="math inline">\(U=\{1,2,\dots,i,\dots,N\}\)</span>, sendo <span class="math inline">\(N\)</span> o <em>tamanho da população</em> e <span class="math inline">\(i\)</span> o rótulo para uma unidade genérica da população. Cada unidade da população fica devidamente identificada por seu rótulo no conjunto <span class="math inline">\(U\)</span>.</p>
+<p>São exemplos comuns de populações sobre as quais se realizam pesquisas: domicílios e moradores de certa localidade; indústrias instaladas num certo país; fazendas situadas num certo estado; alunos matriculados na 3a. série do ensino médio da rede escolar estadual em 2017, etc..</p>
+<p>Já foi enfatizada no capítulo anterior a importância de uma definição clara e precisa da população de pesquisa. No entanto, ao estudar <em>Amostragem</em>, o maior interesse está voltado para o problema de estimar ou inferir certas quantidades ou parâmetros de diversas características (variáveis) numéricas que podem ser medidas ou observadas para cada unidade da população. No caso de características ou variáveis categóricas, podem ser criadas variáveis numéricas indicadoras das categorias de resposta, tomando valor igual a <em>um</em> se a unidade é classificada na categoria em questão, e valor igual a <em>zero</em> caso contrário. Desta forma, toda a teoria de amostragem se resume à estimação de parâmetros ou quantidades descritivas de variáveis numéricas que poderiam, em tese, ser medidas para todas as unidades da população de pesquisa.</p>
+<p>De fato, cada característica numérica ou variável de interesse dá origem a um <em>vetor populacional</em>, que é o conjunto de valores da variável correspondentes a cada uma das unidades da população. Por exemplo, se <span class="math inline">\(y\)</span> é a variável de pesquisa / de interesse e <span class="math inline">\(y_i\)</span> é o valor da variável <span class="math inline">\(y\)</span> para a unidade <span class="math inline">\(i\)</span>, então <span class="math inline">\(Y_U=\{y_1,y_2,\dots,y_i,\dots,y_N\}\)</span> é o <em>vetor populacional</em> gerado pela variável <span class="math inline">\(y\)</span>.</p>
 <p>Pelo exposto, deve ficar claro que a observação de várias variáveis de uma mesma população vai gerar diversos vetores populacionais, cada um correspondendo a uma das variáveis observadas.</p>
-<p>Em muitos casos, o interesse em estudar determinada população resume-se à necessidade de conhecer os valores de alguns <em>parametros</em> de uma ou mais variáveis associadas àquela população. Esses parâmetros-alvo (de interesse) podem ser quaisquer funções dos valores dos vetores populacionais, porém o caso mais comum é o interesse em estimar totais, médias, proporções, razãoes ou mesmo variâncias, covariâncias e correlações, sendo raros os casos de interesse por outros parâmetros.</p>
-<p>Os principais <em>parâmetros-alvo</em> (de interesse) podem ser representados por meio das seguintes funções dos valores:</p>
-<p><span class="math inline">\(Y=\displaystyle\sum_{i=1}^{N}y_i=\sum_{i\in U}y_i\quad\)</span> o total populacional da variável <span class="math inline">\(y\)</span></p>
-<p><span class="math inline">\(\overline{Y}=\displaystyle \frac{Y}{N}=\frac{1}{N}\sum_{i\in U}y_i\quad\)</span> a média populacional da variável <span class="math inline">\(y\)</span></p>
-<p><span class="math inline">\(S^2_y=\displaystyle\frac{1}{N-1}\sum_{i\in U}({y_i-\overline{Y}})^2=\frac{1}{N-1}\left[\sum_{i\in U}{y_i}^2-N\overline{Y}^2\right]\quad\)</span> a variância populacional da variável <span class="math inline">\(y\)</span></p>
-<p>Seja <span class="math inline">\(z\)</span> outra variável de pesquisa, tomando valores <span class="math inline">\(z_i\)</span>, <span class="math inline">\(i\in U\)</span></p>
-<p><span class="math inline">\(R={\frac{\displaystyle\sum_{i\in U}y_i}{\displaystyle\sum_{i\in U}z_i}}\quad\)</span> a razão populacional das variáveis <span class="math inline">\(y\)</span> e <span class="math inline">\(z\)</span></p>
-<p><span class="math inline">\(S_{yz}=\displaystyle\frac{1}{N-1}\sum_{i\in U}({y_i-\overline{Y}})({z_i-\overline{Z}})=\frac{1}{N-1}\left[\sum_{i\in U}{y_i}{z_i}-N\,\overline{Y}\,\overline{Z}\right]\quad\)</span> a covariância populacional das variáveis <span class="math inline">\(y\)</span> e <span class="math inline">\(z\)</span></p>
-<p><span class="math inline">\({\rho}_{yz}=\frac{S_{yz}}{S_y S_z}\quad\)</span> o coeficiente de correlação populacional das variáveis <span class="math inline">\(y\)</span> e <span class="math inline">\(z\)</span>.</p>
-<p>Até agora foram apresentadas as definições de alguns parâmetros da população que se deseja conhecer. No entanto, para conhecer exatamente o valor de qualquer dos parâmetros definidos, seria necessário conhecer todos os valores daquela população. Isto só seria possível mediante a realização de um Censo no qual a característica fosse medida ou observada para cada uma das unidades da população.</p>
-<p>Por outro lado, pode ser que estimativas desses parâmetros, com margem de erro conhecidas e controladas, sirvam para os propósitos a que se destinam. Neste caso, então, uma pesquisa por <em>amostragem</em> poderia resolver o problemacom vantagens em relação a um Censo.</p>
-<p>De agora em diante, admitir-se-á sempre que a situação enfrentada é tal que basta conhecer <em>estimativas</em> dos parâmetros de interesse, bem como indicações da margem de erro a que tais estimativas estão sujeitas.</p>
-<p>A seguir, tomando por base a ideia de obter <em>estimativas</em> dos parâmetros de interesse, serão apresentados os principais conceitos relacionados com a <em>amostragem de populações finitas</em>.</p>
+<p>Em muitos casos, o interesse em estudar determinada população resume-se à necessidade de conhecer os valores de alguns <em>parâmetros</em> de uma ou mais variáveis que podem ser medidas ou observadas para unidades daquela população. Esses <em>parâmetros-alvo</em> (ou de interesse) podem ser quaisquer funções dos valores dos vetores populacionais. Os casos mais comuns ocorrem quando há interesse em estimar <em>totais</em>, <em>médias</em>, <em>proporções</em>, <em>razões</em>, <em>quantis</em> ou mesmo <em>variâncias</em>, <em>covariâncias</em> e <em>correlações</em>, sendo menos frequentes os casos de interesse por outros parâmetros.</p>
+<p>Os principais <em>parâmetros</em> de interesse podem ser representados por meio das seguintes funções dos valores de variáveis na população.</p>
+<p>O <em>total populacional</em> da variável <span class="math inline">\(y\)</span>, que é definido por:</p>
+<span class="math display">\[\begin{equation}
+Y=\displaystyle\sum_{i=1}^{N}y_i=\sum_{i\in U}y_i\,\,
+ (\#eq:eqvis1)
+\end{equation}\]</span>
+<p>A <em>média populacional</em> da variável <span class="math inline">\(y\)</span>, que é definida por:</p>
+<span class="math display">\[\begin{equation}
+\overline{Y} = \displaystyle \frac{Y}{N}=\frac{1}{N}\sum_{i\in U} y_i\,\,
+(\#eq:eqvis2)
+\end{equation}\]</span>
+<p>Uma <em>proporção populacional</em> <span class="math inline">\(p\)</span> é simplesmente a média populacional de uma variável <span class="math inline">\(y\)</span> do tipo indicadora, que toma apenas os valores um ou zero para cada unidade. O total de uma variável desse tipo representa a contagem de unidades na população possuidoras do atributo de interesse, e a média é exatamente essa contagem dividida pelo tamanho da população.</p>
+<p>Um caso especial de proporção populacional de interesse ocorre com a definição da <em>função de distribuição cumulativa empírica populacional</em> (<em>FDCEP</em>), dada por:</p>
+<span class="math display">\[\begin{equation}
+F_U(t) = \displaystyle \frac{1}{N} \sum_{i\in U} I(y_i \le t) \,\, (\#eq:eqvis3)
+\end{equation}\]</span>
+<p>onde <span class="math inline">\(t \in \rm{I\!R\!}\)</span> . Esta função retorna a proporção de unidades na população <span class="math inline">\(U\)</span> que têm valores de <span class="math inline">\(y\)</span> menores ou iguais a <span class="math inline">\(t\)</span>.</p>
+<p>O <em>quantil populacional</em> <span class="math inline">\(q\)</span> da distribuição da variável <span class="math inline">\(y\)</span> é definido como o menor valor de <span class="math inline">\(y\)</span> tal que a <em>FDCEP</em> tem valor maior ou igual a <span class="math inline">\(q\)</span>, isto é:</p>
+<span class="math display">\[\begin{equation}
+T_U(q)= argmin\{F_U(t) \ge q\} \,\,(\#eq:eqvis4)
+\end{equation}\]</span>
+<p>Por exemplo, a <em>mediana populacional</em> da variável <span class="math inline">\(y\)</span> corresponde ao quantil obtido quando <span class="math inline">\(q=0,5\)</span>, isto é, <span class="math inline">\(\text{Mediana}\,_U = T_U(0,5)\)</span>.</p>
+<p>A <em>variância populacional</em> da variável <span class="math inline">\(y\)</span> é dada por:</p>
+<span class="math display">\[\begin{equation}
+S^2_y=\displaystyle\frac{1}{N-1}\sum_{i\in U}({y_i-\overline{Y}})^2=\frac{1}{N-1}\left[\sum_{i\in U}{y_i}^2-N\overline{Y}^2\right]\,\,(\#eq:eqvis5)
+\end{equation}\]</span>
+<p>O <em>desvio padrão populacional</em> da variável <span class="math inline">\(y\)</span> é dado por:</p>
+<span class="math display">\[\begin{equation}
+DP_y = \sqrt{S^2_y} \,\,(\#eq:eqvis6)
+\end{equation}\]</span>
+<p>O <em>coeficiente de variação populacional</em> da variável <span class="math inline">\(y\)</span> é dado por:</p>
+<span class="math display">\[\begin{equation}
+CV_y= \displaystyle\frac{DP_y}{\overline Y}\,\,(\#eq:eqvis7)
+\end{equation}\]</span>
+<p>Seja <span class="math inline">\(z\)</span> outra variável de pesquisa, tomando valores <span class="math inline">\(z_i\)</span>, <span class="math inline">\(i\in U\)</span>. Define-se então a <em>razão de totais</em> das variáveis <span class="math inline">\(y\)</span> e <span class="math inline">\(z\)</span> como:</p>
+<span class="math display">\[\begin{equation}
+R = {\displaystyle \frac{\sum_{i \in U} y_i} {\sum_{i \in U} z_i}} = \displaystyle \frac{Y}{Z}\,\,(\#eq:eqvis8)
+\end{equation}\]</span>
+<p>Define-se também a <em>covariância populacional</em> e a <em>correlação populacional</em> das variáveis <span class="math inline">\(y\)</span> e <span class="math inline">\(z\)</span> como:</p>
+<span class="math display">\[\begin{equation}
+S_{yz}=\displaystyle\frac{1}{N-1}\sum_{i\in U}({y_i-\overline{Y}})({z_i-\overline{Z}})=\frac{1}{N-1}\left[\sum_{i\in U}{y_i}{z_i}-N\,\overline{Y}\,\overline{Z}\right]\,\,(\#eq:eqvis9)
+\end{equation}\]</span>
+<p>e</p>
+<span class="math display">\[\begin{equation}
+{\rho}_{yz}=\displaystyle\frac{S_{yz}}{S_y S_z}\,\,(\#eq:eqvis10)
+\end{equation}\]</span>
+<p>Até agora foram apresentadas as definições de alguns parâmetros da população que se deseja conhecer. No entanto, para conhecer exatamente o valor de qualquer dos parâmetros definidos, seria necessário conhecer <strong>todos</strong> os valores da variável (ou variáveis) de pesquisa naquela população. Isto só seria possível mediante a realização de um <em>Censo</em> no qual a variável fosse medida ou observada para cada uma das unidades da população.</p>
+<p>Por outro lado, pode ser que estimativas desses parâmetros, com margens de erro conhecidas e controladas, sirvam para os propósitos dos interessados. Neste caso, uma <em>pesquisa por amostragem</em> poderia resolver o problema com vantagens em relação a um <em>Censo</em>. Entre as vantagens mais diretas de pesquisas por amostragem podem ser mencionados os menores custos de obtenção das informações de interesse, a maior rapidez para obtenção dos resultados, e a redução da carga de coleta de informações sobre a população de pesquisa.</p>
+<p>De agora em diante, admitir-se-á sempre que a situação enfrentada é tal que basta conhecer <em>estimativas</em> dos parâmetros de interesse, bem como indicações da margem de erro a que tais estimativas estão sujeitas. A seguir, tomando por base a ideia de obter <em>estimativas</em> dos parâmetros de interesse, serão apresentados os principais conceitos relacionados com a <em>amostragem de populações finitas</em>.</p>
 </div>
 <div id="amostra" class="section level2">
 <h2>Amostra</h2>
-<p>Uma <em>amostra</em> <span class="math inline">\(s=\{i_1, i_2,\dots, i_n\}\)</span> é qualquer <em>subconjunto</em> não vazio de unidades da população <span class="math inline">\(U (s\subset U)\)</span> selecionadas para observação visando estimar os parâmetros de interesse.</p>
-<p>Uma amostra de tamanho <span class="math inline">\(n\)</span> é uma amostra contendo <span class="math inline">\(n\)</span> <em>unidades</em> selecionadas da população <span class="math inline">\(U\)</span>, sendo <span class="math inline">\(1\leq n \leq N\)</span>.</p>
-<p><span class="math inline">\(i\in s\)</span> designa que a unidade <span class="math inline">\(i\)</span> foi incluída na amostra.</p>
-<p>Conforme já foi dito, no entanto, somente quando a seleção das unidades integrantes da amostra for baseada em regras de aleatorização bem definidas, é que as estimativas obtidas a partir da amostra poderão ter sua margem de erro controlada, e a estimação dos parâmetros poderá ser justificada em bases científicas. Por isso, serão consideradas no contexto deste livro somente amostras probabilísticas, isto é, amostras selecionadas com base em regras de aleatorização bem definidas.</p>
-<p>Chamando de <span class="math inline">\(i\)</span> a unidade efetivamente selecionada após a realização de experiência aleatória e representado por <span class="math inline">\(y_i\)</span> o valor da variável <span class="math inline">\(y\)</span> observado em <span class="math inline">\(i\)</span>, nota-se que <span class="math inline">\(y_i\)</span> é uma <em>variável aleatória</em> que pode assumir valores no conjunto <span class="math inline">\(Y_U=\{y_1,y_2,\dots,y_N\}\)</span>.</p>
-<p>No que se segue, <span class="math inline">\(y_i\)</span> estará sempre associado à seleção de uma amostra, que é uma experiência aleatória.</p>
-<p>Os dados amostrais para a variável <span class="math inline">\(y\)</span> serão representados por <span class="math inline">\(\{y_{i_1},y_{i_2},\dots,y_{i_n}\}\)</span></p>
-<p><span class="math inline">\(t(s)=t=\displaystyle\sum_{i\in s}y_i\quad\)</span> o total (soma) amostral da variável <span class="math inline">\(y\)</span></p>
-<p><span class="math inline">\(\overline{y}=\displaystyle \frac{t(s)}{n}=\frac{1}{n}\sum_{i\in s}y_i\quad\)</span> a média amostral da variável <span class="math inline">\(y\)</span>.</p>
+<p>Uma <em>amostra</em> <span class="math inline">\(s=\{i_1, i_2, \dots, i_n\}\)</span> é qualquer subconjunto não vazio de unidades selecionadas da população <span class="math inline">\(U (s \subset U)\)</span> para observação visando <em>estimar</em> os parâmetros de interesse.</p>
+<p>Uma amostra de tamanho <span class="math inline">\(n\)</span> é uma amostra contendo <span class="math inline">\(n\)</span> <em>unidades</em> selecionadas da população <span class="math inline">\(U\)</span>, sendo <span class="math inline">\(1 \leq n \leq N\)</span>. A notação <span class="math inline">\(i \in s\)</span> designa que a unidade <span class="math inline">\(i\)</span> foi incluída na amostra <span class="math inline">\(s\)</span>. A notação <span class="math inline">\(s \ni i\)</span> indica que a amostra <span class="math inline">\(s\)</span> contém a unidade <span class="math inline">\(i\)</span>. Quando escrevemos <span class="math inline">\(\sum_{i \in s}\)</span> estamos somando em <span class="math inline">\(i\)</span> sobre o conjunto de rótulos de unidades incluídas na amostra <span class="math inline">\(s\)</span>. Quando escrevemos <span class="math inline">\(\sum_{s \ni i}\)</span> estamos somando em <span class="math inline">\(s\)</span> sobre o conjunto de amostras possíveis que contém a unidade populacional <span class="math inline">\(i\)</span>.</p>
+<p>No contexto deste livro, apresentaremos somente a teoria e resultados aplicáveis a <em>amostras probabilísticas</em>, isto é, a amostras selecionadas com base em regras de aleatorização bem definidas e que satisfazem as condições 1 a 3 enunciadas na seção @ref(abordalt), e descritas de maneira mais formal na próxima seção.</p>
+<p>Os dados amostrais para a variável <span class="math inline">\(y\)</span> serão representados por <span class="math inline">\(Y_s = \{y_{i_1}, y_{i_2}, \dots, y_{i_n}\}\)</span>.</p>
 </div>
-<div id="estimacao" class="section level2">
-<h2>Estimação</h2>
-<p>Prara tratar de estimação a ideia é introduzir uma definição do termo <em>estimador</em> e suas propriedades.</p>
-<p>Um estimador é uma função real das variáveis aleatórias. Portanto, um estimador é também uma variável aleatória.</p>
-<p>Um valor observado do estimador para uma particular determinação da amostra será chamdo de <em>estimativa</em>.</p>
-<p>Diz-se que um estimador <span class="math inline">\(\hat{\theta}\)</span> é <em>não viciado</em> ou <em>não tendencioso</em> ou <em>não viesado</em> para um certo parâmetro <span class="math inline">\(\theta\)</span> quando seu valor esperado for igual ao parâmetro <span class="math inline">\(\theta\)</span>, isto é, quando <span class="math inline">\(E(\hat{\theta})= \theta\)</span>.</p>
-<p>É essencial ter algum critério para a escolha de estimadores.</p>
-<p><em>Estimadores</em> devem ser <em>não viciados</em>, ou ao menos aproximadamente não viciados. Vício é uma propriedade indesejada em estimadores, pois significa que estimador não é centrado no alvo de inferência.</p>
-<p>No contexto da Amostragem, diferente do contexto da Inferência Estatística, não se estabelece uma distribuição e os parâmetros que se deseja estimar não são responsáveis pela especificação de um modelo. O que se faz é, usando um princípio de simetria, construir funções dos valores da amostra similares às que definem os parâmetros de interesse, e verificar as propriedades dessas funções como estimadores dos parâmetros.</p>
-<p>Suponha que o parâmetro-alvo é o <em>total populacional</em> <span class="math inline">\(Y\)</span>. O objetivo principal é usar os <em>dados amostrais</em> <span class="math inline">\(\{y_1,y_2,\dots,y_i,\dots,y_n\}\)</span> para <em>estimar</em> <span class="math inline">\(Y=\displaystyle\sum_{i\in U}y_i\)</span>.</p>
-<p>Um objetivo secundário é conseguir medir / estimar também a <em>precisão / margem de erro da estimativa</em> produzida para <span class="math inline">\(Y\)</span>.</p>
-<p>Um <em>estimador linear</em> <span class="math inline">\(\hat{Y_w}\)</span> é uma combinação linear dos valores amostrais <span class="math inline">\(y_i\)</span> com <em>pesos</em> <span class="math inline">\(w_i\)</span>, isto é: <span class="math inline">\(\hat{Y_w}=\displaystyle\sum_{i\in s}{w_i}{y_i}\)</span></p>
-<p>Precisamos de critérios para determinar os pesos <span class="math inline">\(w_i\)</span>.</p>
-<div id="amostragem-probabilistica" class="section level3">
-<h3>Amostragem Probabilística</h3>
-<p>A <em>amostragem probabilística</em> é um procedimento de amostragem satisfazendo as condições enumeradas a seguir:</p>
+<div id="amostragem-probabilistica" class="section level2">
+<h2>Amostragem probabilística</h2>
+<p>A <em>amostragem probabilística</em> é qualquer procedimento de amostragem que satisfaça todas as condições enumeradas a seguir:</p>
 <ol style="list-style-type: decimal">
-<li><p>O espaço amostral <span class="math inline">\(S\)</span>, o conjunto de todas as amostras <span class="math inline">\(s\)</span> possíveis, é bem definido.</p></li>
-<li><p>Uma probabilidade <span class="math inline">\(p(s)\)</span> <em>conhecida (ou calculável)</em> é associada a cada amostra <span class="math inline">\(s\in S\)</span>, e <span class="math inline">\(\displaystyle\sum_{s\in S}p(s)=1\)</span>.</p></li>
-<li><p>Cada unidade <span class="math inline">\(i\in U\)</span> tem uma probabilidade positiva de ser selecionada para a amostra, isto é: <span class="math inline">\(\pi_i=P(i\in s)&gt;0\)</span> <span class="math inline">\(\forall i\in U\)</span>.</p></li>
-<li><p>Uma única amostra <span class="math inline">\(s\)</span> <span class="math inline">\((s\in S)\)</span> é selecionada para observação usando um mecanismo de aleatorização (sorteio) tal que a amostra <span class="math inline">\(s\)</span> é escolhida com probabilidade <span class="math inline">\(p(s)\)</span>.</p></li>
-<li><p>As probabilidades <span class="math inline">\(\pi_i\)</span> de inclusão na amostra e outros aspectos da estrutura do plano amostral são levadas em conta ao fazer inferência sobre os parâmetros populacionais.</p></li>
+<li><p>O <em>espaço amostral</em> <span class="math inline">\(S\)</span>, correspondente ao conjunto de todas as amostras <span class="math inline">\(s\)</span> possíveis, é bem definido, e poderia ser enumerado, ao menos teoricamente.</p></li>
+<li><p>Uma probabilidade <span class="math inline">\(p(s)\)</span> conhecida (ou calculável) é associada a cada amostra <span class="math inline">\(s \in S\)</span>, de tal modo que <span class="math inline">\(\displaystyle \sum_{s \in S} p(s) = 1\)</span>. A função <span class="math inline">\(p(s)\)</span> é denominada <em>plano amostral</em>.</p></li>
+<li><p>Uma única amostra <span class="math inline">\(s\)</span> <span class="math inline">\((s \in S)\)</span> é selecionada para observação usando um mecanismo de aleatorização (sorteio) tal que a amostra <span class="math inline">\(s\)</span> é escolhida com probabilidade igual a <span class="math inline">\(p(s)\)</span>.</p></li>
+<li><p>Cada unidade <span class="math inline">\(i \in U\)</span> tem uma probabilidade positiva de ser selecionada para a amostra, isto é: <span class="math inline">\(\pi_i = P(i \in s) = \displaystyle \sum_{s \ni i} p(s) &gt; 0\)</span>, <span class="math inline">\(\forall i \in U\)</span>. A probabilidade <span class="math inline">\(\pi_i\)</span> é denominada <em>probabilidade de inclusão</em> (de primeira ordem) da unidade <span class="math inline">\(i\)</span>.</p></li>
+<li><p>As probabilidades de inclusão das unidades selecionadas para a amostra e outros aspectos da estrutura do plano amostral são levados em conta ao fazer inferência sobre os parâmetros populacionais.</p></li>
 </ol>
-<p><strong>Exemplo 2.1:</strong></p>
-<p>Considere os dados de uma população fictícia de 4 unidades <span class="math inline">\((N=4)\)</span> mulheres, de quem foi indagado o número de filhos tidos vivos (<span class="math inline">\(y\)</span>).</p>
-<p><span class="math display">\[\begin{array}{|l|c|c|c|c|c|}\hline \textrm{Rótulo da unidade}\,\, i &amp; 1 &amp; 2 &amp; 3 &amp; 4 &amp; \textrm{Total} \\\hline \textrm{Valor}\,\, y_i &amp; 0 &amp; 0 &amp; 2 &amp; 1 &amp; 3\\\hline \end{array}\]</span></p>
-<p>Existem <span class="math inline">\(\binom{4}{2}= 6\)</span> amostras possíveis de tamanho <span class="math inline">\(n=2\)</span>.</p>
-<p><span class="math inline">\(S = \{(1;2); (1;3); (1;4); (2;3); (2;4); (3;4)\}\quad\)</span> é o conjunto de todas as amostras possíveis.</p>
-<p>A notação para representar o conjunto que forma cada amostra foi o ( ), para evitar usar { } dentro de { }. Cada elemento do conjunto S é em si mesmo um conjunto de rótulos de unidades selecionadas para a amostra.</p>
-<p>As amostras são selecionadas com igual probabilidade. Cada amostra tem probabilidade de ser selecionada igual a 1/6 <span class="math inline">\(\rightarrow p(s)=1/6 \,\,\,\forall s\in S\)</span>.</p>
-<p>A tabela, a seguir, apresenta o conjunto de todas as amostras possíveis, as unidades de cada amostra, os valores de <span class="math inline">\(y\)</span> na amostra, a soma amostral e as probabilidades de cada amostra ser selecionada.</p>
-<p><span class="math display">\[\begin{array}{|c|c|c|c|c|}\hline \textrm {Amostra} \,\,s &amp; \textrm{Unidades na Amostra} &amp; \textrm{Valores na Amostra} &amp; \textrm {Soma Amostral}\,\, (t) &amp; \textrm{Probablidades} \,\, p(s)\\\hline 1 &amp; \textrm{{1;2}} &amp; \textrm{{0;0}} &amp; 0 &amp; 1/6\\\hline 2 &amp; \textrm{{1;3}} &amp; \textrm{{0;2}} &amp; 2 &amp; 1/6\\\hline 3 &amp; \textrm{{1;4}} &amp; \textrm{{0;1}} &amp; 1 &amp; 1/6\\\hline 4 &amp; \textrm{{2;3}} &amp; \textrm{{0;2}} &amp; 2 &amp; 1/6\\\hline 5 &amp; \textrm{{2;4}} &amp; \textrm{{0;1}} &amp; 1 &amp; 1/6\\\hline 6 &amp; \textrm{{3;4}} &amp; \textrm{{2;1}} &amp; 3 &amp; 1/6\\\hline \textrm{Total} &amp; \textrm{-} &amp; \textrm{-} &amp; 9 &amp; 1\\\hline  \end{array}\]</span></p>
-<p>A <em>distribuição da Soma Amostral</em> é dada por:</p>
-<p><span class="math display">\[\begin{array}{|l|c|c|c|c|}\hline \textrm{Valores possíveis de }\,\, t&amp; 0 &amp; 1 &amp; 2 &amp; 3\\\hline \textrm{Com probabilidade}\,\, p(s) &amp; 1/6 &amp; 2/6 &amp; 2/6 &amp; 1/6\\\hline \end{array}\]</span></p>
+</div>
+<div id="estatisticas-estimadores-e-estimativas" class="section level2">
+<h2>Estatísticas, estimadores e estimativas</h2>
+<p>Uma <em>estatística</em> é uma função real dos valores observados numa amostra da população, isto é, é qualquer função real <span class="math inline">\(f( y_{i_1}, y_{i_2}, \dots, y_{i_n} )\)</span>. Considere os dois exemplos a seguir:</p>
+<p>o <em>total amostral</em> ou <em>soma amostral</em> da variável <span class="math inline">\(y\)</span>:</p>
+<span class="math display">\[\begin{equation}
+t(s) = t = \displaystyle \sum_{i \in s} y_i\,\,(\#eq:eqvis11)
+\end{equation}\]</span>
+<p>a <em>média amostral</em> da variável <span class="math inline">\(y\)</span>:</p>
+<span class="math display">\[\begin{equation}
+\overline{y} = \displaystyle \frac{t(s)}{n} = \frac{1}{n} \sum_{i \in s} y_i \,\,(\#eq:eqvis12)
+\end{equation}\]</span>
+<p>Um <em>estimador</em> <span class="math inline">\(\widehat{\theta}(s)\)</span> é uma estatística usada para estimar um certo parâmetro <span class="math inline">\(\theta\)</span> de interesse. Antes de observarmos a amostra <span class="math inline">\(s\)</span>, um estimador é uma variável aleatória cuja distribuição temos interesse de conhecer, pois dela dependem propriedades importantes do estimador. Por simplicidade, daqui para a frente vamos usar a notação <span class="math inline">\(\widehat{\theta}\)</span> para designar estimadores, sem explicitar sua dependência da determinação da amostra <span class="math inline">\(s\)</span>, sempre que isso for possível.</p>
+<p>Após a determinação da amostra <span class="math inline">\(s\)</span> e a coleta dos dados das unidades nessa amostra, o valor calculado (observado) do estimador é chamado de <em>estimativa</em> do parâmetro.</p>
+<p>Uma questão central da teoria da amostragem é como escolher bons estimadores para os parâmetros de interesse. Intuitivamente, bons estimadores seriam estatísticas cujos valores fiquem próximos do valor do parâmetro que buscam estimar. Para ajudar com essa questão, é essencial dispor de critérios para a escolha de estimadores. Mas antes disso, é útil definir algumas propriedades de estimadores que serão consideradas na elaboração de critérios de decisão ou escolha que vamos propor usar.</p>
+<p>O <em>valor esperado</em> de um estimador <span class="math inline">\(\widehat{\theta}\)</span> é denotado por <span class="math inline">\(E_p(\widehat{\theta})\)</span>. A notação <span class="math inline">\(E_p(\bullet)\)</span> designa o valor esperado da quantidade sob a distribuição de probabilidades induzida pelo plano amostral, isto é:</p>
+<span class="math display">\[\begin{equation}
+E_p(\widehat{\theta}) = \displaystyle \sum_{s\in S} \widehat{\theta}(s) p(s) \,\,(\#eq:eqvis13)
+\end{equation}\]</span>
+<p>O <em>vício</em> (ou <em>viés</em> ou <em>tendência</em>) do estimador <span class="math inline">\(\widehat{\theta}\)</span> é definido como:</p>
+<span class="math display">\[\begin{equation}
+B_p(\widehat{\theta}) = E_p(\widehat{\theta}) - \theta\,\,(\#eq:eqvis14)
+\end{equation}\]</span>
+<p>Algumas vezes é de interesse expressar o vício em termos relativos, e se utiliza então o <em>vício relativo</em> do estimador, definido como:</p>
+<span class="math display">\[\begin{equation}
+RB_p(\widehat{\theta}) =\displaystyle\frac{B_p(\widehat{\theta})}{\theta}\,\,(\#eq:eqvis15)
+\end{equation}\]</span>
+<p><em>Vício</em> é uma característica indesejada num estimador, pois significa que a distribuição do estimador <span class="math inline">\(\widehat{\theta}\)</span> não é centrada no alvo de inferência <span class="math inline">\(\theta\)</span>. Diz-se que o estimador <span class="math inline">\(\widehat{\theta}\)</span> é <em>não viciado</em> (ou <em>não viesado</em> ou <em>não tendencioso</em>) para o parâmetro <span class="math inline">\(\theta\)</span> quando seu valor esperado é igual ao parâmetro <span class="math inline">\(\theta\)</span>, isto é, quando <span class="math inline">\(E_p(\widehat{\theta})= \theta\)</span>, ou alternativamente, quando <span class="math inline">\(B_p(\widehat{\theta}) = RB_p(\widehat{\theta}) = 0\)</span>.</p>
+<p>Nosso primeiro critério para apoiar a escolha de estimadores sugere então que tratemos de usar <em>estimadores</em> sem vício, ou <em>não viciados</em>, ou ao menos <em>aproximadamente não viciados</em>. Quando isto for possível, teremos estimadores cuja distribuição será centrada no alvo desejado da inferência.</p>
+<p>A <em>variância</em> do estimador <span class="math inline">\(\widehat{\theta}\)</span> é definida como:</p>
+<span class="math display">\[\begin{equation}
+V_p(\widehat{\theta}) = \displaystyle \sum_{s \in S} [\widehat{\theta}(s) - E_p(\widehat{\theta})]^2 p(s)\,\,(\#eq:eqvis16)
+\end{equation}\]</span>
+<p>Quando um estimador é não viciado, sua <em>variância</em> mede a dispersão da distribuição do estimador em torno do alvo de inferência <span class="math inline">\(\theta\)</span>. Duas medidas alternativas dessa dispersão que dependem da variância são o <em>desvio padrão</em> ou <em>DP</em> do estimador (também designado <em>erro padrão</em>), dado por:</p>
+<span class="math display">\[\begin{equation}
+DP_p(\widehat{\theta}) = [V_p(\widehat{\theta})]^{1/2}\,\,(\#eq:eqvis17)
+\end{equation}\]</span>
+<p>e o <em>coeficiente de variação</em> ou <em>CV</em> do estimador, dado por:</p>
+<span class="math display">\[\begin{equation}
+CV_p(\widehat{\theta}) = \displaystyle\frac{DP_p(\widehat{\theta})}{\theta}\,\,(\#eq:eqvis18)
+\end{equation}\]</span>
+<p>O <em>desvio padrão</em> mede a dispersão da distribuição do estimador em unidade de medida igual à usada na mensuração do parâmetro de interesse, e o <em>CV</em> expressa essa medida em termos relativos, o que pode facilitar a interpretação e a comparação em cenários onde as unidades de medida de diferentes parâmetros podem ser distintas, mas exista interesse em comparar dispersão de estimadores desses parâmetros.</p>
+<p>Quando um estimador <span class="math inline">\(\widehat{\theta}\)</span> é <em>viciado</em>, uma medida mais adequada da dispersão da distribuição do estimador em torno do alvo de inferência <span class="math inline">\(\theta\)</span> é o <em>erro quadrático médio</em> ou <em>EQM</em> dado por:</p>
+<span class="math display">\[\begin{equation}
+EQM_p(\widehat{\theta}) = \displaystyle \sum_{s\in S} [\widehat{\theta}(s) - \theta]^2 p(s)\,\,(\#eq:eqvis19)
+\end{equation}\]</span>
+<p>Versões análogas do desvio padrão e do coeficiente de variação adequadas ao caso de estimadores viciados são o <em>erro médio</em> ou <em>EM</em> e o <em>erro relativo médio</em> ou <em>ERM</em> definidos, respectivamnete, como</p>
+<span class="math display">\[\begin{equation}
+EM_p(\widehat{\theta}) = [EQM_p(\widehat{\theta})]^{1/2}\,\,(\#eq:eqvis20)
+\end{equation}\]</span>
+<p>e</p>
+<span class="math display">\[\begin{equation}
+ERM_p(\widehat{\theta}) = \displaystyle\frac{EM_p(\widehat{\theta})}{\theta} \,\,(\#eq:eqvis21)
+\end{equation}\]</span>
+<p>Um mesmo parâmetro pode ter mais de um estimador não viciado disponível. Precisamos então de um segundo critério para ajudar na escolha de estimadores. Nosso segundo critério vai usar a <em>variância</em>, no caso de estimadores exatamente não viciados, ou o <em>EQM</em> nos outros casos. Como se quer ter estimadores com os menores erros de estimação, o segundo critério é o de escolher sempre os estimadores com o menor EQM, ou com a menor variância quando forem não viciados.</p>
+<p>No contexto da Amostragem, diferente do contexto usual da Inferência Estatística, não se estabelece uma distribuição de probabilidade (ou modelo) para os valores da variável <span class="math inline">\(y\)</span> na amostra (ou na população). Além disso, em geral os parâmetros que se deseja estimar não são responsáveis pela especificação de uma tal distribuição de probabilidades (ou modelo). Como já indicado, em geral os parâmetros de interesse são definidos como funções dos valores (considerados fixos, mas desconhecidos) da variável <span class="math inline">\(y\)</span> na população.</p>
+<p>Por esse motivo, na Amostragem de populações finitas, não há um procedimento geral para gerar estimadores que sejam ótimos nalgum sentido, como é o caso do <em>método da máxima verossimilhança</em> no contexto usual da Inferência Estatística. Os princípios usados em Amostragem para derivar estimadores dos parâmetros de interesse são baseados na simplicidade e no <em>método dos momentos</em>, como vamos ilustrar.</p>
+<p>Suponha que o parâmetro-alvo é o <em>total populacional</em> <span class="math inline">\(Y\)</span>. Nesse caso, o objetivo principal seria usar os <em>dados amostrais</em> <span class="math inline">\(\{y_{i_1}, y_{i_2}, \dots, y_{i_n}\}\)</span> para <em>estimar</em> <span class="math inline">\(Y = \displaystyle \sum_{i \in U} y_i\)</span>. Um segundo objetivo seria conseguir medir ou estimar também a <em>precisão</em> ou a <em>margem de erro</em> da estimativa produzida para <span class="math inline">\(Y\)</span>.</p>
+<p>Um <em>estimador linear</em> <span class="math inline">\(\widehat Y_w\)</span> do total populacional <span class="math inline">\(Y\)</span> é uma combinação linear dos valores amostrais <span class="math inline">\(y_i\)</span> com <em>pesos amostrais</em> <span class="math inline">\(w_i\)</span> a serem definidos, isto é:</p>
+<span class="math display">\[\begin{equation}
+\widehat Y_w = \displaystyle \sum_{i \in s} {w_i}{y_i}\,\,(\#eq:eqvis22)
+\end{equation}\]</span>
+<p>Podemos então usar os critérios sugeridos para escolha de estimadores para determinar os pesos <span class="math inline">\(w_i\)</span>, como veremos mais adiante.</p>
+<p>Para ajudar a consolidar as ideias já apresentadas até aqui, faremos agora uso de um exemplo muito simples, mas através do qual poderemos ilustrar como operar com os conceitos e definições já introduzidos.</p>
+<p><strong>(#exm:filh)</strong> Considere os dados de uma população fictícia com <span class="math inline">\((N=4)\)</span> mulheres (unidades elementares), de quem foi indagado o número de filhos tidos nascidos vivos (a nossa variável <span class="math inline">\(y\)</span>).</p>
+<p><span class="math display">\[\begin{array}{|l|c|c|c|c|c|}\hline \textrm{Rótulo da unidade}\,\, (i) &amp; 1 &amp; 2 &amp; 3 &amp; 4 &amp; \textrm{Total} \\\hline \textrm{Valor da variável}\,\, (y_i) &amp; 0 &amp; 0 &amp; 2 &amp; 1 &amp; 3\\\hline \end{array}\]</span></p>
+<p>Existem <span class="math inline">\(\binom{4}{2}= 6\)</span> amostras possíveis de duas unidades distintas dessa população, isto é, de tamanho <span class="math inline">\(n=2\)</span>. O conjunto de todas as amostras possíveis é dado por: <span class="math inline">\(S = \{(1;2); (1;3); (1;4); (2;3); (2;4); (3;4)\}\)</span>.</p>
+<p>A notação para representar o conjunto que forma cada amostra foi o ( ), para evitar usar { } dentro de { }. Cada elemento do conjunto <span class="math inline">\(S\)</span> é, em si mesmo, um conjunto (neste caso, um par) de rótulos de unidades selecionadas para a amostra.</p>
+<p>Considere agora um <em>plano amostral</em> <span class="math inline">\(p1\)</span> em que uma qualquer das amostras possíveis é selecionada com igual probabilidade atribuída a todas as amostras possíveis. Considerando a condição 2, cada uma das seis amostras possíveis terá probabilidade igual a 1/6 de ser selecionada, isto é:</p>
+<p><span class="math inline">\(p1(s) = 1/6 \,\,\,\forall s \in S\)</span>.</p>
+<p>A tabela a seguir apresenta o conjunto de todas as amostras possíveis, os rótulos das unidades incluídas em cada amostra, os valores de <span class="math inline">\(y\)</span> para as unidades incluídas na amostra, a soma amostral e as probabilidades de seleção de cada amostra. As colunas 1, 2 e 5 dessa tabela correspondem à apresentação detalhada do <em>plano amostral</em> <span class="math inline">\(p1\)</span> tal como definido acima, agora representado na forma de uma tabela.</p>
+<p><span class="math display">\[\begin{array}{|c|c|c|c|c|}\hline \textrm {Amostra} \,\, &amp; \textrm{Unidades na Amostra} &amp; \textrm{Valores na Amostra} &amp; \textrm {Soma Amostral} &amp; \textrm{Probablidades}\\&amp; s &amp; s &amp; (t) &amp; p1(s)\\\hline 1 &amp; \textrm{{1;2}} &amp; \textrm{{0;0}} &amp; 0 &amp; 1/6\\\hline 2 &amp; \textrm{{1;3}} &amp; \textrm{{0;2}} &amp; 2 &amp; 1/6\\\hline 3 &amp; \textrm{{1;4}} &amp; \textrm{{0;1}} &amp; 1 &amp; 1/6\\\hline 4 &amp; \textrm{{2;3}} &amp; \textrm{{0;2}} &amp; 2 &amp; 1/6\\\hline 5 &amp; \textrm{{2;4}} &amp; \textrm{{0;1}} &amp; 1 &amp; 1/6\\\hline 6 &amp; \textrm{{3;4}} &amp; \textrm{{2;1}} &amp; 3 &amp; 1/6\\\hline \textrm{Total} &amp; \textrm{-} &amp; \textrm{-} &amp; 9 &amp; 1\\\hline  \end{array}\]</span></p>
+<p>A distribuição de probabilidades da estatística <em>Soma Amostral</em> pode ser calculada a partir das informações na tabela acima, e é dada por:</p>
+<p><span class="math display">\[\begin{array}{|l|c|c|c|c|}\hline \textrm{Valores possíveis de }\,\, t&amp; 0 &amp; 1 &amp; 2 &amp; 3\\\hline \textrm{Com probabilidade}\,\, p1(s) &amp; 1/6 &amp; 2/6 &amp; 2/6 &amp; 1/6\\\hline \end{array}\]</span></p>
 <p>O valor esperado de <span class="math inline">\(t\)</span> é:</p>
-<p><span class="math inline">\(E(t)= \displaystyle\sum_{s\in S}t(s) p(s) = 0\times\frac{1}{6}+1\times\frac{2}{6}+2\times\frac{2}{6}+3\times\frac{1}{6}= \frac{9}{6} = 1,5\)</span></p>
-<p>Porém o total populacional é: <span class="math inline">\(Y=\displaystyle\sum_{i=1}^{4}y_i= 3\)</span></p>
-<p>Como <span class="math inline">\(1,5= E(t) \neq Y=3\)</span> , dizemos que <span class="math inline">\(t\)</span> é um <em>estimador viciado</em> (ou enviesado) de <span class="math inline">\(Y\)</span> sob o plano amostral <span class="math inline">\(p(s)\)</span> adotado.</p>
-<p>Como podemos “corrigir” o estimador de modo que fique <em>não viciado</em> (não enviesado)?</p>
-<p>Resposta: multiplicando por 2 o valor da soma amostral t.</p>
-<p>Considere um novo estimador do total populacional: <span class="math inline">\(\hat{Y}= 2\times t\)</span></p>
-<p>Tal estimador na forma linear pode ser escrito como: <span class="math inline">\(\hat{Y}= 2\times t =\displaystyle\sum_{i\in S}2\times y_i= \hat{Y_w}\)</span></p>
-<p><span class="math display">\[\begin{array}{|l|c|c|c|c|}\hline \textrm{Valores possíveis de }\,\, 2\times t&amp; 0 &amp; 2 &amp; 4 &amp; 6\\\hline \textrm{Com probabilidade}\,\, p(s) &amp; 1/6 &amp; 2/6 &amp; 2/6 &amp; 1/6\\\hline \end{array}\]</span></p>
-<p>O valor esperado de <span class="math inline">\(\hat{Y}= 2\times t\)</span> é:</p>
-<p><span class="math inline">\(E(\hat{Y})= \displaystyle\sum_{s\in S}\hat{Y_s} p(s) = 0\times\frac{1}{6}+2\times\frac{2}{6}+4\times\frac{2}{6}+6\times\frac{1}{6}= \frac{18}{6} = 3\)</span></p>
-<p>Como <span class="math inline">\(E(\hat{Y})=3=Y\)</span>, dizemos que <span class="math inline">\(\hat{Y}= 2\times t\)</span> é um <em>estimador não viciado</em> de <span class="math inline">\(Y\)</span> sob o plano amostral <span class="math inline">\(p(s)\)</span> adotado.</p>
+<p><span class="math inline">\(E_{p1}(t)= \displaystyle\sum_{s \in S} t(s) p(s) = 0\times\frac{1}{6}+1\times\frac{2}{6}+2\times\frac{2}{6}+3\times\frac{1}{6}= \frac{9}{6} = 1,5\)</span></p>
+<p>Porém o <em>total populacional</em> é <span class="math inline">\(Y = \displaystyle \sum_{i \in U} y_i= 3\)</span>. Como <span class="math inline">\(1,5= E_{p1}(t) \neq Y = 3\)</span>, dizemos que <span class="math inline">\(t\)</span> seria um <em>estimador viciado</em> de <span class="math inline">\(Y\)</span> sob o plano amostral <span class="math inline">\(p1\)</span> adotado.</p>
+<p>Como poderíamos “corrigir” o estimador de modo que ficasse <em>não viciado</em> para o total populacional?</p>
+<p>Resposta: multiplicando por 2 o valor da soma amostral <span class="math inline">\(t\)</span>.</p>
+<p>Considere então um novo estimador do total populacional dado por: <span class="math inline">\(\widehat{Y} = 2 \times t\)</span>.</p>
+<p>Tal estimador na forma linear pode ser escrito como: <span class="math inline">\(\widehat{Y} = 2 \times t = \displaystyle \sum_{i \in s} 2 \times y_i = \widehat Y_w\)</span>.</p>
+<p><span class="math display">\[\begin{array}{|l|c|c|c|c|}\hline \textrm{Valores possíveis de }\,\, 2 \times t&amp; 0 &amp; 2 &amp; 4 &amp; 6\\\hline \textrm{Com probabilidade}\,\, p1(s) &amp; 1/6 &amp; 2/6 &amp; 2/6 &amp; 1/6\\\hline \end{array}\]</span></p>
+<p>Verifica-se então que o valor esperado de <span class="math inline">\(\widehat Y_w = 2 \times t\)</span> é:</p>
+<p><span class="math inline">\(E_{p1}(\widehat Y_w) = \displaystyle \sum_{s \in S} \widehat Y_w(s) p(s) = 0 \times \frac{1}{6} + 2 \times \frac{2}{6} + 4 \times \frac{2}{6} + 6 \times \frac{1}{6} = \frac{18}{6} = 3\)</span>.</p>
+<p>Como agora <span class="math inline">\(E_{p1}(\widehat Y_w) = 3 = Y\)</span>, dizemos que <span class="math inline">\(\widehat Y_w = 2 \times t\)</span> é um <em>estimador não viciado</em> de <span class="math inline">\(Y\)</span> sob o plano amostral <span class="math inline">\(p1\)</span> considerado.</p>
 </div>
-<div id="a-distribuicao-de-aleatorizacao" class="section level3">
-<h3>A Distribuição de Aleatorização</h3>
-<p>A função <span class="math inline">\(p(s)\)</span> definida no conjunto <span class="math inline">\(S\)</span> de todas as amostras possíveis é uma <em>distribuição de probabilidades</em>.</p>
-<p>A distribuição de probabilidades <span class="math inline">\(p(s)\)</span>, <span class="math inline">\(s \in S\)</span>, é chamada <em>distribuição de aleatorização</em>.</p>
-<p>Na <em>amostragem probabilística</em>, inferências são feitas considerando a <em>distribuição de aleatorização</em>.</p>
-<p>Tais inferências são baseadas no plano amostral, onde a fonte de variação ou incerteza é a repetição hipotética do processo de amostragem utilizando <span class="math inline">\(p(s\)</span>), que resultaria em diferentes amostras <span class="math inline">\(s_1, s_2, ... \in S\)</span>.</p>
-<p>A distribuição de <span class="math inline">\(\hat{Y}= 2\times t=\displaystyle\sum_{i\in S}2\times y_i= \hat{Y_w}\)</span> determinada por <span class="math inline">\(p(s)\)</span> é chamada de <em>distribuição amostral</em> do estimador.</p>
-<p>Vamos estudar suas propriedades para avaliar se <span class="math inline">\(\hat{Y}\)</span> é um bom estimador para o total populacional Y.</p>
+<div id="a-distribuicao-de-aleatorizacao" class="section level2">
+<h2>A distribuição de aleatorização</h2>
+<p>A função <span class="math inline">\(p(s)\)</span> definida no conjunto <span class="math inline">\(S\)</span> de todas as amostras possíveis é uma distribuição de probabilidades. Induzida por esta distribuição, é possível obter a distribuição de probabilidades de qualquer estatística (ou estimador) que seria calculada a partir dos dados coletados na amostra selecionada <span class="math inline">\(s\)</span>. A distribuição de probabilidades assim obtida é chamada de <em>distribuição de aleatorização</em> da estatística ou estimador. Este foi o conceito ilustrado quando obtivemos a distribuição de probabilidades da estatística <em>soma amostral</em> no (#exm:filh).</p>
+<p>Na <em>amostragem probabilística</em>, inferências são feitas considerando a <em>distribuição de aleatorização</em>. Tais inferências consideram como única fonte de variação ou incerteza a possível repetição hipotética do processo de amostragem utilizando o <em>plano amostral</em> <span class="math inline">\(p(s)\)</span>, que resultaria em diferentes amostras <span class="math inline">\(s_1, s_2, ... \in S\)</span>.</p>
+<p>A distribuição de <span class="math inline">\(\widehat Y_w = 2 \times t = \displaystyle \sum_{i \in s} 2 \times y_i\)</span> determinada por <span class="math inline">\(p(s)\)</span> é também chamada de <em>distribuição amostral</em> do estimador. Vamos estudar suas propriedades para avaliar se <span class="math inline">\(\widehat Y_w\)</span> é um bom estimador para o total populacional <span class="math inline">\(Y\)</span>.</p>
 </div>
-<div id="estimadores-nao-viciados-para-o-total" class="section level3">
-<h3>Estimadores Não Viciados para o Total</h3>
-<p><strong>Obtenção de Estimadores Não Viciados para o Total</strong></p>
-<p>Trabalhar com a distribuição <span class="math inline">\(p(s)\)</span> é complicado.</p>
-<p>O número total de amostras possíveis cresce muito rapidamente com <span class="math inline">\(N\)</span> e com <span class="math inline">\(n\)</span>.</p>
-<p>Por exemplo, o número de amostras sem reposição de tamanho <span class="math inline">\(n\)</span> de uma população com <span class="math inline">\(N\)</span> unidades é <span class="math inline">\(\binom{N}{n}\)</span> .</p>
-<p>A saída é usar propriedades simplificadoras desta distribuição.</p>
-<p><strong>Uma Propriedade Importante</strong></p>
-<p>A probabilidade de inclusão da unidade <span class="math inline">\(i\)</span> na amostra é dada por: <span class="math inline">\(P({i\in s})=\pi_i=\displaystyle\sum_{s\ni i} p(s)\)</span></p>
-<p>Se tomarmos o <em>inverso da probabilidade de inclusão</em> <span class="math inline">\(\frac{1}{\pi_i}\)</span> como peso <span class="math inline">\((w_i)\)</span> de uma unidade amostrada, é fácil verificar que o estimador é dado por:</p>
-<p><span class="math inline">\(\hat{Y_w} =\displaystyle\sum_{i\in s} w_iy_i= \displaystyle\sum_{i\in s} \frac{1}{\pi_i}y_i=\displaystyle\sum_{i\in s} {\pi_i}^{-1}y_i\quad\)</span> é <em>não viciado</em> para o total populacional <span class="math inline">\(Y\)</span>.</p>
-<p>Em continuidade do exemplo 2.1 da população de 4 unidades <span class="math inline">\((N=4)\)</span> mulheres, de quem foi indagado o número de filhos tidos vivos (<span class="math inline">\(y\)</span>), tem-se:</p>
-<p><span class="math display">\[\begin{array}{|l|c|c|c|c|c|}\hline \textrm{Rótulo da unidade}\,\, i &amp; 1 &amp; 2 &amp; 3 &amp; 4 &amp; \textrm{Total} \\\hline \textrm{Valor}\,\, y_i &amp; 0 &amp; 0 &amp; 2 &amp; 1 &amp; 3\\\hline \textrm {Probabilidade de inclusão}\,\, \pi_i &amp; 3/6=1/2 &amp; 3/6=1/2 &amp; 3/6=1/2 &amp; 3/6=1/2 &amp; \textrm{-}\\\hline \end{array}\]</span></p>
-<p>Os pesos amostrais no exemplo 2.1 são <span class="math inline">\(w_i = \frac{1}{\pi_i} = \frac{1}{1/2} = 2\)</span></p>
-<p>O estimador ponderado do total é dado por: <span class="math inline">\(\hat{Y_w} =\displaystyle\sum_{i\in s} w_iy_i= \displaystyle\sum_{i\in s} {\pi_i}^{-1}y_i = \displaystyle\sum_{i\in s} 2y_i=2t\)</span></p>
-<p>E já se mostrou que este estimador é não viciado para <span class="math inline">\(Y\)</span>.</p>
-<p><strong>Exemplo 2.2</strong> Considere a mesma população fictícia do exemplo 2.1.</p>
-<p>Considere agora o plano amostral que retira amostras de tamanho 2 dessa população segundo o plano amostral dado na tabela a seguir.</p>
-<p><span class="math display">\[\begin{array}{|c|c|c|c|c|}\hline \textrm {Amostra} \,\,s &amp; \textrm{Unidades na Amostra} &amp; \textrm{Valores na Amostra} &amp; \textrm {Soma Amostral}\,\, (t) &amp; \textrm{Probablidades} \,\, p(s)\\\hline 1 &amp; \textrm{{1;2}} &amp; \textrm{{0;0}} &amp; 0 &amp; 0,00\\\hline 2 &amp; \textrm{{1;3}} &amp; \textrm{{0;2}} &amp; 2 &amp; 0,20\\\hline 3 &amp; \textrm{{1;4}} &amp; \textrm{{0;1}} &amp; 1 &amp; 0,15\\\hline 4 &amp; \textrm{{2;3}} &amp; \textrm{{0;2}} &amp; 2 &amp; 0,20\\\hline 5 &amp; \textrm{{2;4}} &amp; \textrm{{0;1}} &amp; 1 &amp; 0,15\\\hline 6 &amp; \textrm{{3;4}} &amp; \textrm{{2;1}} &amp; 3 &amp; 0,30\\\hline \textrm{Total} &amp; \textrm{-} &amp; \textrm{-} &amp; 9 &amp; 1,00\\\hline  \end{array}\]</span></p>
-<p>Chamaremos este plano amostral de plano 2.</p>
-<p>Use as informações acima para:</p>
+<div id="estimadores-nao-viciados-para-o-total-populacional" class="section level2">
+<h2>Estimadores não viciados para o total populacional</h2>
+<p>No (#exm:filh) mostrou-se como se pode obter a <em>distribuição amostral</em> de um estimador (ou de uma estatística qualquer) a partir da distribuição de probabilidades induzida pelo plano amostral <span class="math inline">\(p(s)\)</span>. Isto foi muito fácil de fazer porque contamos com duas condições favoráveis, que não se repetirão na prática: a) os tamanhos da população <span class="math inline">\(N\)</span> e da amostra <span class="math inline">\(n\)</span> eram muito pequenos (4 e 2 respectivamente); b) consideramos conhecidos os valores da variável <span class="math inline">\(y\)</span> para todas as unidades da população <span class="math inline">\(U\)</span>.</p>
+<p>Na grande maioria das situações de interesse prático no campo das pesquisas por amostragem, os tamanhos de população e amostra serão muito maiores. Também não serão conhecidos os valores da variável de interesse para unidades que não sejam selecionadas para a amostra que vai ser pesquisada. Num cenário com estas características, trabalhar com a distribuição <span class="math inline">\(p(s)\)</span> para daí tentar derivar distribuições amostrais de estimadores é complicado.</p>
+<p>O primeiro problema é que o número total de amostras possíveis cresce muito rapidamente com <span class="math inline">\(N\)</span> e com <span class="math inline">\(n\)</span>. Por exemplo, o número de amostras sem reposição de tamanho <span class="math inline">\(n\)</span> de uma população com <span class="math inline">\(N\)</span> unidades é <span class="math inline">\(\binom{N}{n}\)</span>. A tabela XXX mostra como cresce o número de amostras no conjunto <span class="math inline">\(S\)</span> para valores selecionados de <span class="math inline">\(N\)</span> e <span class="math inline">\(n\)</span>. Note como o tamanho desse conjunto é gigantesco mesmo com tamanhos de população e amostra bem modestos (1.000 e 20), por exemplo.</p>
+<table>
+<caption>Tabela 3.1 - Tamanhos do espaço amostral S para valores selecionados de N e n</caption>
+<thead>
+<tr class="header">
+<th align="right">N</th>
+<th align="right">n</th>
+<th align="right">binom(N,n)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">4</td>
+<td align="right">2</td>
+<td align="right">6,000000e+00</td>
+</tr>
+<tr class="even">
+<td align="right">10</td>
+<td align="right">4</td>
+<td align="right">2,100000e+02</td>
+</tr>
+<tr class="odd">
+<td align="right">100</td>
+<td align="right">10</td>
+<td align="right">1,731031e+13</td>
+</tr>
+<tr class="even">
+<td align="right">1.000</td>
+<td align="right">20</td>
+<td align="right">3,394828e+41</td>
+</tr>
+<tr class="odd">
+<td align="right">10.000</td>
+<td align="right">100</td>
+<td align="right">6,520847e+241</td>
+</tr>
+</tbody>
+</table>
+<p>Uma saída é usar propriedades simplificadoras da distribuição induzida pelo plano amostral. Veremos como fazer isso na próxima seção, mas antes disso, vamos usar uma propriedade importante que pode ser deduzida a partir da distribuição de aleatorização.</p>
+<p><strong>Uma propriedade importante</strong></p>
+<p>A <em>probabilidade de inclusão</em> da unidade <span class="math inline">\(i\)</span> na amostra é dada por:</p>
+<span class="math display">\[\begin{equation}
+P({i \in s}) = \pi_i = \displaystyle \sum_{s \ni i} p(s)\,\,(\#eq:eqvis23)
+\end{equation}\]</span>
+<p>Se tomarmos o <em>inverso da probabilidade de inclusão</em> <span class="math inline">\(\frac{1}{\pi_i}\)</span> como peso <span class="math inline">\((w_i)\)</span> de uma unidade amostrada, é fácil verificar que o estimador dado por <span class="math inline">\(\widehat Y_w\)</span> é <em>não viciado</em> para o total populacional <span class="math inline">\(Y\)</span>:</p>
+<span class="math display">\[\begin{equation}
+\widehat Y_w = \displaystyle \sum_{i \in s} w_i y_i = \displaystyle \sum_{i \in s}  \frac{1}{\pi_i} y_i = \displaystyle \sum_{i \in s} {\pi_i}^{-1} y_i \,\,(\#eq:eqvis24)
+\end{equation}\]</span>
+<p>Essa propriedade será demonstrada de maneira formal na próxima seção. Mas antes disso, vamos verificar sua aplicação com os dados do (#exm:filh).</p>
+<p>Continuando a discussão do (#exm:filh), com a população de <span class="math inline">\((N=4)\)</span> mulheres, de quem foi indagado o número de filhos tidos nascidos vivos (<span class="math inline">\(y\)</span>), tem-se:</p>
+<p><span class="math display">\[\begin{array}{|l|c|c|c|c|c|}\hline \textrm{Rótulo da unidade}\,\, i &amp; 1 &amp; 2 &amp; 3 &amp; 4 &amp; \textrm{Total} \\\hline \textrm{Valor}\,\, y_i &amp; 0 &amp; 0 &amp; 2 &amp; 1 &amp; 3\\\hline \textrm {Probabilidade de inclusão}\,\, \pi_i &amp; 3/6=1/2 &amp; 3/6=1/2 &amp; 3/6=1/2 &amp; 3/6=1/2 &amp; \textrm{-}\\\hline \end{array}\]</span> Usando a propriedade recém apresentada, os pesos amostrais no (#exm:filh) seriam dados por <span class="math inline">\(w_i = \frac{1}{\pi_i} = \frac{1}{1/2} = 2\)</span> para qualquer uma das unidades da população que fossem selecionadas para a amostra de tamanho 2.</p>
+<p>O estimador ponderado do total nesse caso seria dado por: <span class="math inline">\(\widehat Y_w = \displaystyle \sum_{i \in s} w_i y_i = \displaystyle \sum_{i \in s} {\pi_i}^{-1} y_i = \displaystyle \sum_{i \in s} 2 y_i = 2t\)</span></p>
+<p>e já se mostrou que este estimador é não viciado para <span class="math inline">\(Y\)</span>.</p>
+<p><strong>(#exm:filhp2)</strong> Considere a mesma população fictícia do (#exm:filh) Considere agora o plano amostral <span class="math inline">\(p2\)</span>, que retira amostras de tamanho 2 dessa população com as probabilidades indicadas na tabela a seguir.</p>
+<p><span class="math display">\[\begin{array}{|c|c|c|c|c|}\hline \textrm {Amostra} \,\, &amp; \textrm{Unidades na Amostra} &amp; \textrm{Valores na Amostra} &amp; \textrm {Soma Amostral} &amp; \textrm{Probablidades}\\&amp; s &amp; s &amp; (t) &amp; p1(s)\\\hline 1 &amp; \textrm{{1;2}} &amp; \textrm{{0;0}} &amp; 0 &amp; 0,00\\\hline 2 &amp; \textrm{{1;3}} &amp; \textrm{{0;2}} &amp; 2 &amp; 0,20\\\hline 3 &amp; \textrm{{1;4}} &amp; \textrm{{0;1}} &amp; 1 &amp; 0,15\\\hline 4 &amp; \textrm{{2;3}} &amp; \textrm{{0;2}} &amp; 2 &amp; 0,20\\\hline 5 &amp; \textrm{{2;4}} &amp; \textrm{{0;1}} &amp; 1 &amp; 0,15\\\hline 6 &amp; \textrm{{3;4}} &amp; \textrm{{2;1}} &amp; 3 &amp; 0,30\\\hline \textrm{Total} &amp; \textrm{-} &amp; \textrm{-} &amp; 9 &amp; 1,00\\\hline  \end{array}\]</span> Vamos agora usar as informações acima para:</p>
 <ol style="list-style-type: decimal">
-<li><p>Verificar que o estimador baseado na soma amostral (<span class="math inline">\(t\)</span>) é viciado para estimar o total populacional <span class="math inline">\(Y\)</span>;</p></li>
-<li><p>Obter / definir um estimador não viciado para o total populacional <span class="math inline">\(Y\)</span>;</p></li>
-<li><p>Comente sobre o uso de um plano amostral em que as diferentes amostras têm probabilidades desiguais de serem selecionadas. Surpresas? Dificuldades?</p></li>
+<li><p>Verificar que a estatística soma amostral (<span class="math inline">\(t\)</span>) é viciada para estimar o total populacional <span class="math inline">\(Y\)</span>;</p></li>
+<li><p>Obter / definir um estimador não viciado para o total populacional <span class="math inline">\(Y\)</span>.</p></li>
 </ol>
-<p>A distribuição do Total Amostral sob plano 2 é dada por:</p>
+<p>A distribuição da soma amostral <span class="math inline">\(t\)</span> sob o plano <span class="math inline">\(p2\)</span> é dada por:</p>
 <p><span class="math display">\[\begin{array}{|l|c|c|c|c|}\hline \textrm{Valores possíveis de }\,\, t&amp; 0 &amp; 1 &amp; 2 &amp; 3\\\hline \textrm{Com probabilidade}\,\, p(s) &amp; 0,0 &amp; 0,3 &amp; 0,4 &amp; 0,3\\\hline \end{array}\]</span></p>
-<p>O valor esperado de <span class="math inline">\(t\)</span> é:</p>
-<p><span class="math inline">\(E(t)= \displaystyle\sum_{s\in S}t(s) p(s) = 0\times0,0+1\times0,3+2\times0,4+3\times0,3=2&lt;3=Y\)</span></p>
-<p>Para obter um estimador não viciado, devemos calcular pesos adequados para as unidades amostrais. Estes requerem calcular as probabilidades de inclusão na amostra.</p>
+<p>O valor esperado de <span class="math inline">\(t\)</span> sob o plano amostral <span class="math inline">\(p2\)</span> é:</p>
+<p><span class="math inline">\(E_{p2}(t) = \displaystyle \sum_{s \in S} t(s) p(s) = 0\times0,0+1\times0,3+2\times0,4+3\times0,3 = 2&lt;3 = Y\)</span></p>
+<p>Para obter um estimador não viciado, devemos calcular pesos adequados para as unidades amostrais. Estes requerem calcular as probabilidades de inclusão na amostra. A tabela a seguir mostra as probabilidades de inclusão de cada uma das unidades da população, e também os pesos amostrais correspondentes sob o plano <span class="math inline">\(p2\)</span>.</p>
 <p><span class="math display">\[\begin{array}{|l|c|c|c|c|}\hline \textrm{Rótulo da unidade}\,\, i &amp; 1 &amp; 2 &amp; 3 &amp; 4 \\\hline \textrm {Probabilidade de inclusão}\,\, \pi_i &amp; 0,35 &amp; 0,35 &amp; 0,70 &amp; 0,60  \\\hline \textrm{Peso}\,\, w_i &amp; 20/7=2,857 &amp; 20/7=2,857 &amp; 10/7=1,429 &amp; 5/3=1,667 \\\hline \end{array}\]</span></p>
-<p>Usando o estimador do total com os pesos adequados, obtém-se os valores das estimativas para cada amostra possível na coluna e da tabela abaixo.</p>
-<p><span class="math display">\[\begin{array}{|c|c|c|c|c|}\hline \textrm {Amostra} \,\,s &amp; \textrm{Valores na Amostra} &amp; \textrm {Total Amostral Ponderado}\,\,(\hat Y_w) &amp; \textrm{Probablidades} \,\, p(s) &amp; \textrm {Valor do produto}\\\hline 1 &amp; \textrm{{0;0}} &amp; 0 &amp; 0,00 &amp; 0 \\\hline 2 &amp; \textrm{{0;2}} &amp; 2\times(10/7) &amp; 0,20 &amp; 4/7\\\hline 3 &amp; \textrm{{0;1}} &amp; 1\times(5/3) &amp; 0,15 &amp;1/4\\\hline 4 &amp; \textrm{{0;2}} &amp; 2\times(10/7) &amp; 0,20 &amp; 4/7\\\hline 5 &amp; \textrm{{0;1}} &amp; 1\times (5/3) &amp; 0,15 &amp; 1/4\\\hline 6 &amp; \textrm{{2;1}} &amp; 2\times (10/7)+1\times(5/3) &amp; 0,30 &amp; 6/7+1/2\\\hline \textrm{Total} &amp; &amp; &amp; &amp; 3\\\hline  \end{array}\]</span></p>
+<p>Usando o estimador do total com os pesos adequados <span class="math inline">\(\widehat Y_w\)</span>, obtém-se os valores das estimativas para cada amostra possível na coluna e da tabela abaixo.</p>
+<p><span class="math display">\[\begin{array}{|c|c|c|c|c|}\hline \textrm {Amostra} \, &amp; \textrm{Valores na Amostra} &amp; \textrm {Total Amostral Ponderado} &amp; \textrm{Probablidades} &amp; \textrm {Valor do produto}\\&amp; s &amp; (\widehat Y_w) &amp; p2(s) &amp; \\\hline 1 &amp; \textrm{{0;0}} &amp; 0 &amp; 0,00 &amp; 0 \\\hline 2 &amp; \textrm{{0;2}} &amp; 2\times(10/7) &amp; 0,20 &amp; 4/7\\\hline 3 &amp; \textrm{{0;1}} &amp; 1\times(5/3) &amp; 0,15 &amp;1/4\\\hline 4 &amp; \textrm{{0;2}} &amp; 2\times(10/7) &amp; 0,20 &amp; 4/7\\\hline 5 &amp; \textrm{{0;1}} &amp; 1\times (5/3) &amp; 0,15 &amp; 1/4\\\hline 6 &amp; \textrm{{2;1}} &amp; 2\times (10/7)+1\times(5/3) &amp; 0,30 &amp; 6/7+1/2\\\hline \textrm{Total} &amp; &amp; &amp; &amp; 3\\\hline  \end{array}\]</span></p>
 <p><strong>Notas</strong></p>
-<ul>
-<li><p>O estimador <span class="math inline">\(\hat{Y_w}\)</span> tem valor esperado igual ao total populacional <span class="math inline">\(Y\)</span> logo é <em>NÃO VICIADO</em>.</p></li>
-<li><p>O fato de que a amostra {1;2} tem probabilidade nula de ser selecionada viola os critérios definidos para que o plano de amostragem 2 seja chamado de amostragem probabilística? Sim ou não? Porquê?</p></li>
-<li><p>Temos agora duas opções para selecionar amostras (de tamanho 2) da população U, e estimar o total populacional <span class="math inline">\(Y\)</span> sem vício.</p></li>
-<li><p>Qual das duas é melhor?</p></li>
-</ul>
-<p><strong>Estratégia 1:</strong> seleção equiprovável de pares (amostras) com estimador de total ponderado (<span class="math inline">\(\hat{Y_w} =2t\)</span>)</p>
-<p><span class="math display">\[\begin{array}{|l|c|c|c|c|}\hline \textrm{Valores possíveis de}\,\, \hat Y_w=2\times t&amp; 0 &amp; 2 &amp; 4 &amp; 6\\\hline \textrm{Com probabilidade}\,\, p(s) &amp; 1/6 &amp; 2/6 &amp; 2/6 &amp; 1/6\\\hline \end{array}\]</span></p>
-<p><strong>Estratégia 2:</strong> seleção de amostras com probabilidades desiguais, e estimador de total ponderado (<span class="math inline">\(\hat{Y_w}\)</span>)</p>
-<p><span class="math display">\[\begin{array}{|l|c|c|c|c|}\hline \textrm{Valores possíveis de}\,\, \hat Y_w &amp; 5/3 &amp; 20/7 &amp;  20/7+5/3\\\hline \textrm{Com probabilidade}\,\, p(s) &amp; 0,30 &amp; 0,40 &amp; 0,30 \\\hline \end{array}\]</span></p>
-<p>A melhor estratégia é escolhida medindo o <em>afastamento esperado</em> entre o valor do estimador e o valor do total populacional desconhecido (<span class="math inline">\(Y\)</span>). Para isso, usamos a <em>variância do estimador</em>, dada por:</p>
-<p><span class="math inline">\(V(\hat Y)=\displaystyle\sum_{s\in S}({\hat Y- Y)}^2\times p(s)\)</span></p>
-<p>ou o <em>desvio padrão do estimador</em>, dado por</p>
-<p><span class="math inline">\(DP(\hat Y)= \sqrt {V(\hat Y)}=\displaystyle\sqrt{\sum_{s\in S}({\hat Y- Y)}^2\times p(s)}\)</span></p>
-<p>A seguir são calculadas as variâncias dos estimadores sob as duas estratégias (<span class="math inline">\(E2\)</span> e <span class="math inline">\(E1\)</span>)</p>
-<p><span class="math display">\[\begin{array}{|c|c|c|c|c|}\hline \textrm {Amostra} &amp; \textrm{Valores na} &amp; \textrm {Estimador} &amp; \textrm{Probabilidade}\,\,p(s) &amp; \textrm {Estimador} &amp; \textrm{Probabilidade}\,\, p(s) \\ s &amp; \textrm{Amostra} &amp; \textrm {sob $E2$} &amp; \textrm{sob $E2$} &amp; \textrm{sob $E1$}&amp;\textrm{sob $E1$} \\\hline 1 &amp; \textrm{{0;0}} &amp; 0 &amp; 0,00 &amp; 0 &amp;1/6\\\hline 2 &amp; \textrm{{0;2}} &amp; 2\times(10/7) &amp; 0,20 &amp; 4 &amp; 1/6\\\hline 3 &amp; \textrm{{0;1}} &amp; 1\times(5/3) &amp; 0,15 &amp; 2 &amp; 1/6\\\hline 4 &amp; \textrm{{0;2}} &amp; 2\times(10/7) &amp; 0,20 &amp; 4 &amp; 1/6 \\\hline 5 &amp; \textrm{{0;1}} &amp; 1\times (5/3) &amp; 0,15 &amp; 2 &amp; 1/6\\\hline 6 &amp; \textrm{{2;1}} &amp; 2\times (10/7)+1\times(5/3) &amp; 0,30 &amp; 6 &amp; 1/6\\\hline \textrm{Variância} &amp; \textrm{-} &amp; 1,24 &amp; \textrm{-} &amp; 3,67 &amp; \textrm{-} \\\hline  \end{array}\]</span></p>
-<p><strong>Conclusões:</strong></p>
-<ul>
-<li><p>Ambas as estratégias permitem usar <em>estimadores não viciados</em> do total <span class="math inline">\(Y\)</span>.</p></li>
-<li><p>A estratégia 2 tem o <em>estimador com menor variância</em>, e deve ser preferida à estratégia 1, pois o tamanho das amostras é o mesmo.</p></li>
-<li><p><em>Minimizar a variância</em> é o critério de desempate para escolha entre <em>estratégias não viciadas de amostragem e estimação</em> de <em>igual custo total</em>.</p></li>
-</ul>
+<ol style="list-style-type: decimal">
+<li><p>O estimador <span class="math inline">\(\widehat Y_w\)</span> tem valor esperado igual ao total populacional <span class="math inline">\(Y\)</span>, logo é <em>não viciado</em> também sob o plano amostral <span class="math inline">\(p2\)</span>.</p></li>
+<li><p>O fato de que a amostra {1;2} tem probabilidade nula de ser selecionada não viola os critérios definidos para que o plano amostral <span class="math inline">\(p2\)</span> seja chamado de <em>amostragem probabilística</em>. É fácil verificar que todas as condições enumeradas para que uma amostra seja declarada probabilística são cumpridas para esse plano amostral. Em particular, verifica-se que todas as unidades populacionais elementares têm probabilidades de inclusão na amostra positivas.</p></li>
+<li><p>Temos agora duas opções de plano amostral para selecionar amostras (de tamanho <span class="math inline">\(n=2\)</span>) da população <span class="math inline">\(U\)</span>, visando estimar o total populacional <span class="math inline">\(Y\)</span>. Com ambos os planos amostrais estão disponíveis estimadores não viciados do total populacional. Coloca-se então a pergunta: qual dos dois planos é melhor?</p></li>
+</ol>
+<p><strong>Estratégia 1:</strong> Seleção equiprovável de amostras com estimador de total ponderado (<span class="math inline">\(\widehat Y_w = 2 t\)</span>)</p>
+<p><span class="math display">\[\begin{array}{|l|c|c|c|c|}\hline \textrm{Valores possíveis de}\,\, \widehat Y_w=2\times t&amp; 0 &amp; 2 &amp; 4 &amp; 6\\\hline \textrm{Com probabilidade}\,\, &amp; 1/6 &amp; 2/6 &amp; 2/6 &amp; 1/6\\\hline \end{array}\]</span></p>
+<p><strong>Estratégia 2:</strong> seleção de amostras com probabilidades desiguais, e estimador de total ponderado (<span class="math inline">\(\widehat Y_w\)</span>)</p>
+<p><span class="math display">\[\begin{array}{|l|c|c|c|c|}\hline \textrm{Valores possíveis de}\,\, \widehat Y_w &amp; 5/3 &amp; 20/7 &amp;  20/7+5/3\\\hline \textrm{Com probabilidade}\,\,  &amp; 0,30 &amp; 0,40 &amp; 0,30 \\\hline \end{array}\]</span></p>
+<p>A melhor estratégia é escolhida medindo o <em>afastamento esperado</em> entre os valores possíveis do estimador e o valor do total populacional desconhecido (<span class="math inline">\(Y\)</span>). Para isso, como em ambos os casos o estimador é não viciado, usamos a <em>variância do estimador</em>. A tabela abaixo mostra como pode ser calculada a variância de cada um dos estimadores sob as duas opções de plano amostral (<span class="math inline">\(p1\)</span> e <span class="math inline">\(p2\)</span>).</p>
+<p><span class="math display">\[\begin{array}{|c|c|c|c|c|}\hline \textrm {Amostra} &amp; \textrm{Valores na} &amp; \textrm {Estimador} &amp; \textrm{Probabilidade} &amp; \textrm {Estimador} &amp; \textrm{Probabilidade}\\ { } &amp; \textrm{Amostra} \,s &amp; \textrm{sob $p2$} &amp; p(s)\,\textrm{sob $p2$} &amp; \textrm{sob $p1$} &amp; p(s)\,\textrm{sob $p1$} \\ \hline 1 &amp; \textrm{{0;0}} &amp; 0 &amp; 0,00 &amp; 0 &amp;1/6\\\hline 2 &amp; \textrm{{0;2}} &amp; 2\times(10/7) &amp; 0,20 &amp; 4 &amp; 1/6\\\hline 3 &amp; \textrm{{0;1}} &amp; 1\times(5/3) &amp; 0,15 &amp; 2 &amp; 1/6\\\hline 4 &amp; \textrm{{0;2}} &amp; 2\times(10/7) &amp; 0,20 &amp; 4 &amp; 1/6 \\\hline 5 &amp; \textrm{{0;1}} &amp; 1\times (5/3) &amp; 0,15 &amp; 2 &amp; 1/6\\\hline 6 &amp; \textrm{{2;1}} &amp; 2\times (10/7)+1\times(5/3) &amp; 0,30 &amp; 6 &amp; 1/6\\\hline \textrm{Variância} &amp; \textrm{-} &amp; 1,24 &amp; \textrm{-} &amp; 3,67 &amp; \textrm{-} \\\hline  \end{array}\]</span></p>
+<p><strong>Conclusão</strong></p>
+<p>O plano amostral <span class="math inline">\(p2\)</span> fornece o <em>estimador não viciado com menor variância</em> em comparação com o plano <span class="math inline">\(p1\)</span>, e deve ser preferido, pois o tamanho das amostras (nossa medida de custo) é o mesmo.</p>
+<p><em>Minimizar a variância</em> é o critério de desempate para escolha entre <em>estratégias não viciadas de amostragem e estimação</em> de <em>igual custo total</em>. Este será então nosso segundo critério para escolha de estimadores.</p>
 </div>
-<div id="teoria-basica" class="section level3">
-<h3>Teoria Básica</h3>
-<p>Como já foi dito, trabalhar com a distribuição <span class="math inline">\(p(s)\)</span> é complicado.</p>
-<p>Isto ocorre porque o número total <span class="math inline">\(\binom{N}{n}\)</span> de amostras possíveis cresce muito rapidamente com <span class="math inline">\(N\)</span> e com <span class="math inline">\(n\)</span>.</p>
-<p><span class="math display">\[\begin{array}{|l|c|c|c|c|}\hline N &amp; n &amp; \textrm{Número de Amostras} &amp; &amp; N &amp; n &amp; \textrm{Número de Amostras}\\\hline 1.000 &amp; 2 &amp;5,00E+05&amp; &amp; 10.000 &amp; 2 &amp; 5,00E+07\\\hline 1.000 &amp; 10 &amp; 2,63E+29 &amp; &amp; 10.000 &amp; 10 &amp; 2,74E+33\\\hline1.000 &amp; 20 &amp;3,39E+41&amp; &amp; 10.000 &amp; 20 &amp; 4,03E+61\\\hline 1.000 &amp; 100 &amp; 6,39E+139 &amp; &amp; 10.000 &amp; 100 &amp; 6,52E+247 \\\hline \end{array}\]</span></p>
-<p>A saída encontrada é trabalhar com distribuições das variáveis aleatórias indicadoras <span class="math inline">\(\delta_1\)</span>, <span class="math inline">\(\delta_2\)</span>,… ,<span class="math inline">\(\delta_N\)</span> definidas tal que:</p>
-<p><span class="math inline">\(\delta_i=I(i\in s)=\left\{\begin{array}{ll} 1 &amp; i\in s\\ 0 &amp; i\notin s\end{array}\right.\,\,\, \forall\,\, i\in U\)</span>.</p>
+<div id="teoria-basica" class="section level2">
+<h2>Teoria básica</h2>
+<p>Nesta seção, seguimos de perto a notação e a forma de apresentar os resultados encontrada no excelente livro de <span class="citation">[@Sarndal1992]</span>. Outra referência importante é o livro de <span class="citation">[@Fuller2009]</span>.</p>
+<p>Como já foi dito, trabalhar com a distribuição <span class="math inline">\(p(s)\)</span> é complicado. Isto ocorre porque o número total <span class="math inline">\(\binom{N}{n}\)</span> de amostras possíveis no conjunto <span class="math inline">\(S\)</span> cresce muito rapidamente com <span class="math inline">\(N\)</span> e com <span class="math inline">\(n\)</span>. A saída encontrada é trabalhar com distribuições das variáveis aleatórias indicadoras <span class="math inline">\(\delta_1\)</span>, <span class="math inline">\(\delta_2\)</span>,… ,<span class="math inline">\(\delta_N\)</span> definidas tal que:</p>
+<span class="math display">\[\begin{equation}
+\delta_i = I(i \in s) = \left\{\begin{array}{ll} 1 &amp; i \in s \\ 0 &amp; i \notin s \end{array} \right.\,\,\, \forall\,\, i \in U\,\,(\#eq:eqvis25)
+\end{equation}\]</span>
 <p>A variável <span class="math inline">\(\delta_i\)</span> é indicadora do evento ‘inclusão da unidade <span class="math inline">\(i\)</span> na amostra <span class="math inline">\(s\)</span>’.</p>
-<p><strong>Exemplo 2.1</strong></p>
-<p>Para <span class="math inline">\(N=4\)</span> e <span class="math inline">\(n=2\)</span>, as seis amostras possíveis podem ser representadas por:</p>
-<p><span class="math display">\[\begin{array}{|c|c|c|c|}\hline \textrm {Amostra} \,\,s &amp; \textrm{Unidades na Amostra} &amp; \delta_1 &amp; \delta_2 &amp; \delta_3 &amp; \delta_4 \\\hline 1 &amp; \textrm{{1;2}} &amp; 1 &amp; 1 &amp; 0 &amp; 0\\\hline 2 &amp; \textrm{{1;3}} &amp; 1 &amp; 0 &amp; 1 &amp; 0\\\hline 3 &amp; \textrm{{1;4}} &amp; 1 &amp; 0 &amp; 0 &amp; 1\\\hline 4 &amp; \textrm{{2;3}} &amp; 0 &amp; 1 &amp; 1 &amp; 0 \\\hline 5 &amp; \textrm{{2;4}} &amp; 0 &amp; 1 &amp; 0 &amp; 1\\\hline 6 &amp; \textrm{{3;4}} &amp; 0 &amp; 0 &amp; 1 &amp; 1 \\\hline  \end{array}\]</span></p>
-<p>Cada amostra fica univocamente determinada pelas variáveis indicadoras <span class="math inline">\(\delta_1\)</span>, <span class="math inline">\(\delta_2\)</span>,… ,<span class="math inline">\(\delta_N\)</span> correspondentes.</p>
-<p>As variáveis indicadoras dependem da amostra <span class="math inline">\(s\)</span>, apesar de não termos indicado isto explicitamente em nossa notação.</p>
-<p>Então as probabilidades de seleção ou inclusão na amostra, denotadas <span class="math inline">\(\pi_i\)</span>, são definidas como:</p>
-<p><span class="math inline">\(\pi_i=P({i\in s})=\displaystyle\sum_{s\ni i} p(s)=P(\delta_i=1)=E(\delta_i)\, \,\,\,\forall\,\, i\in U\)</span>.</p>
+<p><strong>(#exm:filh)(Continuação)</strong> Para <span class="math inline">\(N=4\)</span> e <span class="math inline">\(n=2\)</span>, as seis amostras possíveis podem ser representadas por:</p>
+<p><span class="math display">\[\begin{array}{|c|c|c|c|} \hline \textrm {Amostra} \, &amp; \textrm{Unidades na Amostra} \,s &amp; \delta_1 &amp; \delta_2 &amp; \delta_3 &amp; \delta_4 \\\hline 1 &amp; \textrm{{1;2}} &amp; 1 &amp; 1 &amp; 0 &amp; 0\\\hline 2 &amp; \textrm{{1;3}} &amp; 1 &amp; 0 &amp; 1 &amp; 0\\\hline 3 &amp; \textrm{{1;4}} &amp; 1 &amp; 0 &amp; 0 &amp; 1\\\hline 4 &amp; \textrm{{2;3}} &amp; 0 &amp; 1 &amp; 1 &amp; 0 \\\hline 5 &amp; \textrm{{2;4}} &amp; 0 &amp; 1 &amp; 0 &amp; 1\\\hline 6 &amp; \textrm{{3;4}} &amp; 0 &amp; 0 &amp; 1 &amp; 1 \\\hline  \end{array}\]</span></p>
+<p>Cada amostra fica univocamente determinada pelas variáveis indicadoras <span class="math inline">\(\delta_1\)</span>, <span class="math inline">\(\delta_2\)</span>,… ,<span class="math inline">\(\delta_N\)</span> correspondentes. As variáveis indicadoras dependem da amostra <span class="math inline">\(s\)</span>, apesar de não termos indicado isto explicitamente em nossa notação.</p>
+<p>As probabilidades de inclusão na amostra, denotadas <span class="math inline">\(\pi_i\)</span>, podem ser vistas como:</p>
+<p><span class="math inline">\(\pi_i = P({i \in s}) = \displaystyle \sum_{s \ni i} p(s) = P(\delta_i=1) = E_p(\delta_i)\, \,\,\,\forall\,\, i \in U\)</span>.</p>
 <p>As <em>probabilidades de inclusão</em> <span class="math inline">\(\pi_i\)</span> são ditas de <em>primeira ordem</em>.</p>
-<p>Precisaremos também definir as <em>probabilidades de inclusão de segunda ordem</em>, denotadas <span class="math inline">\(\pi_{ij}\)</span>, dadas por:</p>
-<p><span class="math inline">\(\pi_{ij}=P({i,j\in s})=\displaystyle\sum_{s\ni i,j} p(s)=P(\delta_i\delta_j=1)=E(\delta_i\delta_j)\, \,\,\,\forall\,\, i,j\in U\)</span>.</p>
-<p>Note que quando <span class="math inline">\(i=j\)</span>, <span class="math inline">\(\pi_{ij}=\pi_{ii}=\pi_i\, \,\,\,\forall\,\, i,j\in U\)</span>.</p>
-<p>Logo:</p>
-<p><span class="math inline">\(V(\delta_i)=\pi_i(1-\pi_i)\)</span></p>
-<p><span class="math inline">\(COV(\delta_i,\delta_j)=\pi_{ij}-\pi_i\pi_j\)</span>.</p>
+<p>Precisamos também definir <em>probabilidades de inclusão de segunda ordem</em>, denotadas <span class="math inline">\(\pi_{ij}\)</span>, dadas por:</p>
+<p><span class="math inline">\(\pi_{ij} = P[{(i,j) \in s}] = \displaystyle \sum_{s \ni (i,j)} p(s) = P(\delta_i \delta_j = 1) = E_p(\delta_i \delta_j)\, \,\,\,\forall\,\, (i,j) \in U\)</span>.</p>
+<p>Note que quando <span class="math inline">\(i=j\)</span>, <span class="math inline">\(\pi_{ij} = \pi_{ii} = \pi_i \, \,\,\,\forall \,\, i \in U\)</span>.</p>
+<p>Além das propriedades de valor esperado das variáveis aleatórias indicadoras <span class="math inline">\(\delta_i\)</span>, pode-se também deduzir que:</p>
+<p><span class="math inline">\(V_p(\delta_i) = \pi_i (1 - \pi_i)\)</span></p>
+<p><span class="math inline">\(COV_p(\delta_i, \delta_j) = \pi_{ij} - \pi_i \pi_j\)</span>.</p>
 <p><strong>Um Método Geral de Prova em Amostragem</strong></p>
-<p>Este método se baseia nas variáveis indicadoras <span class="math inline">\(\delta_1\)</span>, <span class="math inline">\(\delta_2\)</span>,… ,<span class="math inline">\(\delta_N\)</span>.</p>
-<p>Uma propriedade importante das variáveis indicadoras é que:</p>
-<p><span class="math inline">\(\displaystyle\sum_{i\in s}\delta_i(s)=\sum_{i\in U}\delta_i(s)\)</span></p>
-<p>Segue também que <span class="math inline">\(\displaystyle\sum_{i\in s}y_i=\sum_{i\in s}\delta_iy_i=\sum_{i\in U}\delta_iy_i\)</span></p>
-<p>Note que o truque é converter a soma amostral em uma soma na população.</p>
-<p>Seja <span class="math inline">\(Y=\displaystyle\sum_{i\in U}y_i\quad\)</span> (total populacional) o parâmetro alvo.</p>
-</div>
+<p>Este método se baseia num uso inteligente das variáveis indicadoras <span class="math inline">\(\delta_1\)</span>, <span class="math inline">\(\delta_2\)</span>,… ,<span class="math inline">\(\delta_N\)</span>. Uma propriedade importante dessas variáveis indicadoras é que:</p>
+<p><span class="math inline">\(\displaystyle \sum_{i \in s} \delta_i = \sum_{i \in U} \delta_i\)</span></p>
+<p>Segue também que <span class="math inline">\(\displaystyle \sum_{i \in s} y_i = \sum_{i \in s} \delta_i y_i = \sum_{i \in U} \delta_i y_i\)</span>. Note que o truque é converter a soma amostral, cujas parcelas são aleatórias, antes de ter sido selecionada uma amostra, em uma soma na população, onde as parcelas são conhecidas mas dependem das variáveis aleatórias indicadoras <span class="math inline">\(\delta_i\)</span>.</p>
 <div id="estimador-linear-de-total" class="section level3">
 <h3>Estimador linear de total</h3>
-<p>Um <em>estimador linear de Y</em> é sempre da forma:</p>
-<p><span class="math inline">\(\hat Y_w=\displaystyle\sum_{i\in s}w_iy_i=\sum_{i\in U}w_i\delta_iy_i\)</span></p>
-<p>onde <span class="math inline">\(w_i\)</span> é o peso da unidade <span class="math inline">\(i\)</span>.</p>
-<p>Para que o estimador linear de <span class="math inline">\(Y\)</span> seja não viciado, é preciso que:</p>
-<p><span class="math inline">\(E(\hat Y_w)=Y \Leftrightarrow \displaystyle\sum_{i\in U}w_iE(\delta_i)y_i=\sum_{i\in U}y_i\Leftrightarrow\displaystyle\sum_{i\in U}w_i\pi_iy_i=\sum_{i\in U}y_i\)</span></p>
-<p>Esta relação só será válida para quaisquer valores populacionais <span class="math inline">\(y_i\)</span> da variável de pesquisa caso <span class="math inline">\(w_i*\pi_i=1 \,\,\,\forall\,\, i\in U\)</span>.</p>
-<p>Portanto a condição para que o estimador de total <span class="math inline">\(\hat Y_w=\displaystyle\sum_{i\in s}w_iy_i\)</span> seja SEMPRE não viciado é que os pesos das unidades na amostra sejam iguais ao inverso das respectivas probabilidades de inclusão:</p>
-<p><span class="math inline">\(w_i={\pi_i}^{-1}=\frac{1}{\pi_i}\,\,\,\forall\,\, i\in U\)</span>.</p>
-<p>Logo o estimador não viciado de total fica dado por:</p>
-<p><span class="math inline">\(\hat Y_w=\displaystyle\sum_{i\in s}\frac{y_i}{\pi_i}=\sum_{i\in s}{\pi_i}^{-1}y_i=\hat Y_{HT}\Rightarrow\quad\)</span>Estimador de <em>Horvitz-Thompson</em>.</p>
-<p>Este estimador está definido para qualquer plano amostral, desde que <span class="math inline">\(\pi_i&gt;0\,\,\,\forall\,\, i\in U\)</span>. Por isto esta é uma condição necessária para a amostragem probabilística de populações finitas.</p>
+<p>Considere que o total populacional <span class="math inline">\(Y = \displaystyle \sum_{i \in U} y_i \quad\)</span> é o parâmetro alvo. Um <em>estimador linear</em> de <span class="math inline">\(Y\)</span> é sempre da forma:</p>
+<span class="math display">\[\begin{equation}
+\widehat Y_w = \displaystyle \sum_{i \in s} w_i y_i = \sum_{i \in U} w_i \delta_i y_i\,\,(\#eq:eqvis26)
+\end{equation}\]</span>
+<p>onde <span class="math inline">\(w_i\)</span> é o <em>peso amostral</em> da unidade <span class="math inline">\(i\)</span>.</p>
+<p>Para que o estimador linear <span class="math inline">\(\widehat Y_w\)</span> de <span class="math inline">\(Y\)</span> seja não viciado, é preciso que:</p>
+<p><span class="math inline">\(E_p(\widehat Y_w) = Y \Leftrightarrow \displaystyle \sum_{i \in U} w_i E_p(\delta_i) y_i = \sum_{i \in U} y_i \Leftrightarrow \displaystyle \sum_{i \in U} w_i \pi_i y_i = \sum_{i \in U} y_i\)</span></p>
+<p>Esta relação só será válida para quaisquer valores populacionais <span class="math inline">\(y_i\)</span> da variável de pesquisa caso <span class="math inline">\(w_i \times \pi_i = 1 \,\,\, \forall\,\, i \in U\)</span>.</p>
+<p>Portanto a condição para que o estimador linear do total <span class="math inline">\(\widehat Y_w = \displaystyle \sum_{i \in s} w_i y_i\)</span> seja SEMPRE não viciado é que os pesos amostrais das unidades selecionadas sejam iguais ao inverso das respectivas probabilidades de inclusão, isto é:</p>
+<p><span class="math inline">\(w_i = {\pi_i}^{-1} = \frac{1}{\pi_i} = d_i \,\,\,\forall\,\, i \in U\)</span>.</p>
+<p>Os pesos amostrais <span class="math inline">\(d_i\)</span> são chamados de <em>pesos básicos</em> do plano amostral. Com esses pesos, o estimador não viciado de total fica dado pelo conhecido <em>estimador de Horvitz-Thompson</em> ou <em>estimador <span class="math inline">\(HT\)</span></em>:</p>
+<span class="math display">\[\begin{equation}
+\widehat Y_{HT} = \displaystyle \sum_{i \in s} {d_i}{y_i} = \displaystyle \sum_{i \in s} \frac{y_i}{\pi_i} = \sum_{i \in s} {\pi_i}^{-1} y_i \,\,(\#eq:eqvis27)
+\end{equation}\]</span>
+<p>Este estimador foi proposto por <span class="citation">[@Horvitz1952]</span>, e está definido para qualquer variável de pesquisa de interesse, e para qualquer <em>plano amostral probabilístico</em>, isto é, plano em que <span class="math inline">\(\pi_i &gt; 0 \, \, \, \forall \, \, i \in U\)</span>. É para permitir desfrutar dessa vantagem de sempre dispor de ao menos um estimador não viciado para totais que esta é uma das condições necessárias para a <em>amostragem probabilística</em> de populações finitas. Note também que o estimador faz uso das probabilidades de inclusão implicadas pelo plano amostral <span class="math inline">\(p(s)\)</span> adotado, mas depende deste apenas através das probabilidades de inclusão de primeira ordem das unidades selecionadas para a amostra, uma condição geralmente simples de satisfazer na prática da pesquisa.</p>
 </div>
 <div id="propriedades-do-estimador-de-horvitz-thompson" class="section level3">
-<h3>Propriedades do Estimador de Horvitz-Thompson</h3>
-<p>O <em>estimador de Horvitz-Thompson</em> é <em>não viciado</em> para estimar o total, ou seja, <span class="math inline">\(E(\hat Y_{HT})=Y\)</span></p>
+<h3>Propriedades do estimador de Horvitz-Thompson</h3>
+<p>O <em>estimador de Horvitz-Thompson</em> é <em>não viciado</em> para estimar o total, ou seja, <span class="math inline">\(E_p(\widehat Y_{HT}) = Y\)</span>.</p>
+<p><strong>Prova:</strong></p>
+<p><span class="math inline">\(E_p(\widehat Y_{HT}) = E_p \left[ \displaystyle \sum_{i \in U} \frac{\delta_i y_i}{\pi_i} \right] = \displaystyle \sum_{i \in U} \left[ \frac{ E_p(\delta_i) y_i} {\pi_i} \right] = \sum_{i \in U} y_i = Y\)</span></p>
+<p>Esta propriedade vale para qualquer população, variável de interesse <span class="math inline">\(y\)</span> e plano amostral, desde que <span class="math inline">\(\pi_i &gt; 0 \, \, \, \forall \, \, i \in U\)</span>.</p>
+<p><strong>Variância do estimador Horvitz-Thompson para o total</strong></p>
+<p><span class="math inline">\(\begin{align} V_p(\widehat Y_{HT}) &amp;= \displaystyle \sum_{i \in U} \sum_{j \in U} \left( \frac{\pi_{ij}}{\pi_i \pi_j} -1 \right) {y_i} {y_j} \\ &amp;= \displaystyle \sum_{i \in U} \sum_{j \in U} \left( \frac{d_i d_j}{d_{ij}} - 1 \right) {y_i} {y_j} \end{align}\)</span></p>
+<p>onde <span class="math inline">\(d_{ij} = \displaystyle \frac{1}{\pi_{ij}}\)</span>.</p>
+<p>Esta é a chamada forma de Horvitz-Thompson da variância. Existe uma outra forma para esta variância, que vamos conhecer mais adiante.</p>
 <p>Prova:</p>
-<p><span class="math inline">\(E(\hat Y_{HT})= E\left[\displaystyle\sum_{i\in U}\frac{\delta_iy_i}{\pi_i}\right]= \displaystyle\sum_{i\in U}\left[\frac{E(\delta_i)y_i}{\pi_i}\right]=\sum_{i\in U}y_i=Y\)</span></p>
-<p>Esta propriedade vale para qualquer população, variável de interesse <span class="math inline">\(y\)</span> e plano amostral, desde que <span class="math inline">\(\pi_i&gt;0\,\,\,\forall\,\, i\in U\)</span>.</p>
-<p><em>Variância do Estimador Horvitz-Thompson para o total</em></p>
-<p><span class="math inline">\(V(\hat Y_{HT})= \displaystyle\sum_{i\in U}\pi_i(1-\pi_i)\left(\frac{y_i}{\pi_i}\right)^2+\displaystyle \sum_{i\in U}\sum_{i\neq j}(\pi_{ij}-\pi_i\pi_j)\left(\frac{y_i}{\pi_i}\frac{y_j}{\pi_j}\right)\)</span></p>
-<p>Esta é a chamada forma de Horvitz-Thompson da variância.</p>
-<p>Existe uma outra forma para esta variância, que vamos conhecer mais tarde.</p>
-<p>Prova:</p>
-<p><span class="math inline">\(\begin{align}V(\hat Y_{HT}) &amp;= V\left[\displaystyle\sum_{i\in U}\left(\frac{y_i}{\pi_i}\right)\delta_i\right]\\ &amp; =\displaystyle\sum_{i\in U}\left(\frac{y_i}{\pi_i}\right)^2V(\delta_i)+\displaystyle \sum_{i\in U}\sum_{i\neq j}\left(\frac{y_i}{\pi_i}\frac{y_j}{\pi_j}\right)COV(\delta_i,\delta_j)\\ &amp; =\displaystyle\sum_{i\in U}\pi_i(1-\pi_i)\left(\frac{y_i}{\pi_i}\right)^2+\displaystyle \sum_{i\in U}\sum_{i\neq j}(\pi_{ij}-\pi_i\pi_j)\left(\frac{y_i}{\pi_i}\frac{y_j}{\pi_j}\right)\end{align}\)</span></p>
-<p><em>Estimador da Variância do Estimador de Total</em></p>
-<p>Um estimador não viciado da variância do estimador de Horvitz-Thompson do total é dado por:</p>
-<p><span class="math inline">\(\hat V_1(\hat Y_{HT})= \displaystyle\sum_{i\in s}\frac{\pi_i(1-\pi_i)}{\pi_i}\left(\frac{y_i}{\pi_i}\right)^2+\displaystyle \sum_{i\in s}\sum_{i\neq j}\frac{(\pi_{ij}-\pi_i\pi_j)}{\pi_i}\left(\frac{y_i}{\pi_i}\frac{y_j}{\pi_j}\right)\)</span></p>
-<p>Este estimador de variância usou estimadores tipo Horvitz-Thompson dos totais nas duas parcelas da expressão da variância <span class="math inline">\(V_p(\hat Y_{HT})\)</span>.</p>
-<p><em>Uma Forma Alternativa para a Variância</em></p>
-<p>Para planos amostrais de tamanho pré-fixado, pode-se demonstrar que uma forma equivalente da variância do estimador de Horvitz-Thompson é dada pela expressão de Sen-Yates-Grundy a seguir.</p>
-<p><span class="math inline">\(V(\hat Y_{HT})=\displaystyle\sum_{i\in U}\sum_{j&gt;i}(\pi_i \pi_j-\pi_{ij})\left(\frac{y_i}{\pi_i}\frac{y_j}{\pi_j}\right)^2\)</span></p>
-<p>Note a troca do sinal da diferença de probabilidades de inclusão em relação à fórmula anterior.</p>
-<p><em>Outro Estimador da Variância do Estimador de Total</em></p>
-<p><span class="math inline">\(\hat V_{SYG}(\hat Y_{HT})= \displaystyle\sum_{i\in s}\sum_{j&gt;i}(\pi_i \pi_j-\pi_{ij})\left(\frac{y_i}{\pi_i}\frac{y_j}{\pi_j}\right)^2\)</span>.</p>
-<p>O estimador <span class="math inline">\(\hat V_{SYG}(\hat Y_{HT})\)</span> foi obtido / motivado a partir da forma de Sen-Yates-Grundy para a variância do estimador de total.</p>
-<p>Tal estimador não coincide com o estimador de variância derivado a partir da expressão de Horvitz-Thompson.</p>
-<p><strong>Notas</strong></p>
-<p>Pode-se derivar estimadores de total e da variância do estimador de total como casos especiais para distintos planos amostrais.</p>
-<p>Há fórmulas de variância disponíveis para permitir avaliar qualidade do estimador de total sob distintas situações (população, variável e plano amostral).</p>
-<p>Um total populacional sempre pode ser estimado sem vício por uma soma amostral <span class="math inline">\(\pi\)</span>-ponderada.</p>
-</div>
-</div>
-</div>
-<div class="footnotes">
-<hr />
-<ol>
-<li id="fn1"><p>Mesmo as variáveis categóricas podem ser também transformadas em características numéricas que assumem valor <em>zero</em> (se à unidade a ser analisada não for atribuída a categoria em questão) e <em>um</em> (se à unidade analisada for atribuída a categoria em questão).<a href="#fnref1">↩</a></p></li>
+<p><span class="math inline">\(\begin{align} V_p(\widehat Y_{HT}) &amp;= V_p \left( \displaystyle \sum_{i \in U} \delta_i \displaystyle \frac{1}{\pi_{i}} {y_i} \right) \\ &amp; = \displaystyle \sum_{i \in U} \sum_{j \in U} COV_p(\delta_i, \delta_j) \left( \frac{y_i}{\pi_{i}} \right) \left( \frac{y_j}{\pi_{j}} \right) \\ &amp;= \displaystyle \sum_{i \in U} \sum_{j \in U} (\pi_{ij} - \pi_i \pi_j) \left( \frac{y_i}{\pi_i} \frac{y_j}{\pi_j} \right) \\ &amp;= \displaystyle \sum_{i \in U} \sum_{j \in U} \left( \frac{\pi_{ij}}{\pi_i \pi_j} -1 \right) {y_i} {y_j} \\ &amp;= \displaystyle \sum_{i \in U} \sum_{j \in U} \left( \frac{d_i d_j}{d_{ij}} - 1 \right) {y_i} {y_j} \end{align}\)</span></p>
+<p><strong>Estimador da variância do estimador de total</strong></p>
+<p>Um estimador não viciado da variância do estimador <span class="math inline">\(HT\)</span> do total é dado por:</p>
+<span class="math display">\[\begin{equation}
+\widehat V_1(\widehat Y_{HT}) = \displaystyle \sum_{i \in s} \sum_{j \in s} \left( {d_i d_j} - {d_{ij}} \right) {y_i} {y_j}\,\,(\#eq:eqvis28)
+\end{equation}\]</span>
+<p>Este estimador da variância foi obtido usando o princípio dos estimadores tipo Horvitz-Thompson do total, mas agora, como se tratava de estimar uma soma dupla na população, os pesos das parcelas nessa soma dependem das probabilidades de inclusão de segunda ordem, isto é, das probabilidades de inclusão dos pares de unidades. Para que este estimador seja viável, o plano amostral empregado tem que satisfazer a condição adicional de que as probabilidades de inclusão <span class="math inline">\(\pi_{ij}\)</span> sejam estritamente positivas <span class="math inline">\(\forall i \ne j \in U\)</span>.</p>
+<p><strong>Forma alternativa para a variância do estimador <span class="math inline">\(HT\)</span> do total</strong></p>
+<p>Para planos amostrais de tamanho pré-fixado, pode-se demonstrar que uma forma equivalente da variância do estimador de Horvitz-Thompson do total populacional é dada pela expressão de Sen-Yates-Grundy a seguir - ver <span class="citation">[@Yates1953]</span>, <span class="citation">[@Sen1953]</span>.</p>
+<span class="math display">\[\begin{equation}
+V_{SYG}(\widehat Y_{HT}) = \displaystyle \sum_{i \in U} \sum_{j&gt;i} (\pi_i \pi_j - \pi_{ij}) \left( \frac{y_i}{\pi_i} - \frac{y_j}{\pi_j} \right)^2 \,\,(\#eq:eqvis29)
+\end{equation}\]</span>
+<p>Note a troca do sinal da diferença de probabilidades de inclusão em relação à expressão anterior.</p>
+<p><strong>Estimador alternativo da variância do estimador <span class="math inline">\(HT\)</span> do total</strong></p>
+<span class="math display">\[\begin{equation}
+\widehat V_{SYG}(\widehat Y_{HT}) = \displaystyle \sum_{i \in s} \sum_{j&gt;i} \left( \frac{\pi_i \pi_j - \pi_{ij}}{\pi_{ij}} \right) \left( \frac{y_i}{\pi_i} - \frac{y_j}{\pi_j} \right)^2\,\,(\#eq:eqvis30)
+\end{equation}\]</span>
+<p>O estimador <span class="math inline">\(\widehat V_{SYG}(\widehat Y_{HT})\)</span> foi motivado a partir da forma de Sen-Yates-Grundy para a variância do estimador HT do total. Tal estimador não coincide com o estimador de variância derivado a partir da expressão de Horvitz-Thompson apresentada anteriormente.</p>
+<p><strong>Comentários finais</strong></p>
+<ol style="list-style-type: decimal">
+<li><p>Com amostras probabilísticas, é sempre possível estimar sem vício um total populacional usando uma soma amostral <span class="math inline">\(\pi\)</span>-ponderada, isto é, o estimador HT do total.</p></li>
+<li><p>Há expressões de variância disponíveis para permitir avaliar a qualidade do estimador de total sob distintas situações (população, variável) para qualquer plano amostral probabilístico.</p></li>
+<li><p>A estimação de muitos outros parâmetros populacionais, tais como médias, proporções, razões, etc. usa em grande medida os resultados aqui apresentados para a estimação de totais. Isto ficará mais claro nos capítulos seguintes.</p></li>
+<li><p>Pode-se derivar estimadores não viciados do total populacional, e da variância do estimador <span class="math inline">\(HT\)</span> de total para distintos planos amostrais como casos especiais da teoria geral aqui apresentada. Isto será conveniente, em particular, para a estimação de variâncias, cujas expressões gerais dependem de somas duplas que podem tornar-se inconvenientes de calcular quando os tamanhos de amostra são grandes. As expressões apresentadas para cada um dos planos amostrais específicos são úteis porque permitem simplificar os cálculos da estimação de variâncias.</p></li>
 </ol>
+</div>
+</div>
 </div>
 
 
