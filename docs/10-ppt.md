@@ -1,9 +1,8 @@
-
 #Amostragem com Probabilidades Desiguais
 
 A amostragem com probabilidades desiguais é usada porque as unidades de amostragem têm variação de tamanho e ignorar a variação de tamanho pode resultar em desenhos ineficientes. Neste sentido, é usada quando a variação dos tamanhos for grande, tiver informação auxiliar precisa sobre tamanhos disponível e o tamanho for fortemente correlacionado com as variáveis de interesse. 
 
-Trataremos inicialmente o caso de amostragem com probabilidades proporcioanis ao tamanho. Outros casos serão vistos mais adiante, tais como: amostragem estratificada com alocação desproporcional, seleção de um morador para ser entrevistado em cada domicílio, amostras de números telefônicos (“random digit dialling samples”). 
+Trataremos inicialmente o caso de amostragem com probabilidades proporcionais ao tamanho. Outros casos serão vistos mais adiante, tais como: amostragem estratificada com alocação desproporcional, seleção de um morador para ser entrevistado em cada domicílio, amostras de números telefônicos (“random digit dialling samples”). 
 
 ##Amostragem com Probabilidades Proporcionais ao Tamanho (PPT)
 
@@ -28,23 +27,34 @@ $V(\delta_i) = \pi_i(1 - \pi_i)$ e $COV(\delta_i,\delta_j) = \pi_{ij}- \pi_i \pi
 
 O Estimador de Horvitz-Thompson para estimar o total populacional  $Y=\displaystyle\sum_{i \in U}y_i$ é dado por:
 
-\begin{equation}\widehat Y=\displaystyle\sum_{i \in s}\frac{y_i}{\pi_i}=\widehat Y_{HT} (\#eq:eqppt1) \end{equation} 
+\begin{equation}
+\widehat Y=\displaystyle\sum_{i \in s}\frac{y_i}{\pi_i}=\widehat Y_{HT} (\#eq:eqppt1)
+\end{equation} 
 
 Portanto, cada unidade da amostra tem um peso amostral igual ao inverso da respectiva probabilidade de inclusão na amostra: $w_i=\pi_i^{-1}\,\,\,\forall\,\,i \in U$.
 
 O estimador $HT$ do total é não viciado, isto é: $E(\widehat Y_{HT})=Y$  e sua variância na forma de Horvitz-Thompson é dada por:
 
-\begin{equation}V(\widehat Y_{HT})=\sum_{i \in U}\sum_{j \in U}(\pi_{ij}-\pi_i\pi_j)\left(\frac{y_i}{\pi_i}\frac{y_j}{\pi_j}\right)(\#eq:eqppt2) \end{equation}.
+\begin{equation}
+V(\widehat Y_{HT})=\sum_{i \in U}\sum_{j \in U}(\pi_{ij}-\pi_i\pi_j)\left(\frac{y_i}{\pi_i}\frac{y_j}{\pi_j}\right)(\#eq:eqppt2)
+\end{equation}
 
-Um estimador não viciado da variância do estimador $HT$ é: \begin{equation}\widehat V(\widehat Y_{HT})=\sum_{i \in s}\sum_{j \in s}\frac{(\pi_{ij}-\pi_i\pi_j)}{\pi_{ij}}\left(\frac{y_i}{\pi_i}\frac{y_j}{\pi_j}\right)(\#eq:eqppt3) \end{equation}.
+Um estimador não viciado da variância do estimador $HT$ é: 
+\begin{equation}
+\widehat V(\widehat Y_{HT})=\sum_{i \in s}\sum_{j \in s}\frac{(\pi_{ij}-\pi_i\pi_j)}{\pi_{ij}}\left(\frac{y_i}{\pi_i}\frac{y_j}{\pi_j}\right)(\#eq:eqppt3)
+\end{equation}
 
 Uma fórmula alternativa para a variância do estimador HT, válida para planos amostrais de tamanhos fixos, é chamada SYG (Sen-Yates-Grundy):
 
-\begin{equation}V_{SYG}(\widehat Y_{HT})=-\frac{1}{2}\sum_{i \in U}\sum_{j \in U}(\pi_{ij}-\pi_i\pi_j)\left(\frac{y_i}{\pi_i}-\frac{y_j}{\pi_j}\right)^2(\#eq:eqppt4) \end{equation}.
+\begin{equation}
+V_{SYG}(\widehat Y_{HT})=-\frac{1}{2}\sum_{i \in U}\sum_{j \in U}(\pi_{ij}-\pi_i\pi_j)\left(\frac{y_i}{\pi_i}-\frac{y_j}{\pi_j}\right)^2(\#eq:eqppt4)
+\end{equation}
 
 Um estimador não viciado alternativo de variância obtido a partir da fórmula de Sen-Yates-Grundy é dado por:
 
-\begin{equation}\widehat V_{SYG}(\widehat Y_{HT})=-\frac{1}{2}\sum_{i \in s}\sum_{j \in s}\frac{(\pi_{ij}-\pi_i\pi_j)}{\pi_{ij}}\left(\frac{y_i}{\pi_i}-\frac{y_j}{\pi_j}\right)^2(\#eq:eqppt5) \end{equation}.
+\begin{equation}
+\widehat V_{SYG}(\widehat Y_{HT})=-\frac{1}{2}\sum_{i \in s}\sum_{j \in s}\frac{(\pi_{ij}-\pi_i\pi_j)}{\pi_{ij}}\left(\frac{y_i}{\pi_i}-\frac{y_j}{\pi_j}\right)^2(\#eq:eqppt5)
+\end{equation}
 
 Note que esta fórmula não coincide com o estimador de variância derivado a partir da expressão de Horvitz-Thompson.
 
@@ -69,7 +79,9 @@ Cabe registrar que ambos os estimadores de variância para o estimador de total 
 ###Estimação da Média Populacional
 
 Quando o tamanho da população $N$ é conhecido, o estimador “natural” da média populacional baseado no estimador $HT$ do total seria:
-\begin{equation}\overline y_{HT}=\widehat Y_{HT}/N=\frac{1}{N}\displaystyle\sum_{i \in s}\frac{y_i}{\pi_i}=\sum_{i \in s}w_i^{HT}y_i(\#eq:eqppt6) \end{equation}.
+\begin{equation}
+\overline y_{HT}=\widehat Y_{HT}/N=\frac{1}{N}\displaystyle\sum_{i \in s}\frac{y_i}{\pi_i}=\sum_{i \in s}w_i^{HT}y_i(\#eq:eqppt6)
+\end{equation}
 
 onde $w_i^{HT}= \pi_i^{-1}/N$.
 
@@ -79,17 +91,22 @@ Mesmo quando o tamanho $N$ da população é conhecido, ele pode ser estimado pe
 
 Portanto, um estimador tipo razão para a média é dado por:
 
-\begin{equation}\overline y_R=\widehat Y_{HT}/\widehat N_{HT}= \frac{\displaystyle\sum_{i \in s}y_i/\pi_i}{\displaystyle\sum_{i \in s}1/\pi_i}=\frac{\displaystyle\sum_{i \in s}w_i^{HT}y_i}{\displaystyle\sum_{i \in s}w_i^{HT}}=\sum_{i \in s}w_i^Ry_i(\#eq:eqppt7) \end{equation}.
+\begin{equation}
+\overline y_R=\widehat Y_{HT}/\widehat N_{HT}= \frac{\displaystyle\sum_{i \in s}y_i/\pi_i}{\displaystyle\sum_{i \in s}1/\pi_i}=\frac{\displaystyle\sum_{i \in s}w_i^{HT}y_i}{\displaystyle\sum_{i \in s}w_i^{HT}}=\sum_{i \in s}w_i^Ry_i(\#eq:eqppt7)
+\end{equation}
 
 onde $w_i^R=w_i^{HT}/\displaystyle\sum_{j \in s}w_j^{HT}$.
 
 Sua variância é aproximada por:
 
-\begin{equation}V(\overline y_R)\doteq\frac{1}{N^2}\sum_{i \in U}\sum_{j \in U}(\pi_{ij}-\pi_i\pi_j)\left(\frac{y_i-\overline Y}{\pi_i}\right)\left(\frac{y_j-\overline Y}{\pi_j}\right)(\#eq:eqppt8) \end{equation}.
+\begin{equation}
+V(\overline y_R)\doteq\frac{1}{N^2}\sum_{i \in U}\sum_{j \in U}(\pi_{ij}-\pi_i\pi_j)\left(\frac{y_i-\overline Y}{\pi_i}\right)\left(\frac{y_j-\overline Y}{\pi_j}\right)(\#eq:eqppt8) 
+\end{equation}
 
 Um estimador aproximadamente não viciado para essa variância é dado por: 
 
-\begin{equation}\widehat V(\overline y_R)\doteq\frac{1}{N^2}\sum_{i \in s}\sum_{j \in s}\frac{(\pi_{ij}-\pi_i\pi_j)}{\pi_{ij}}\left(\frac{y_i-\overline y_R}{\pi_i}\right)\left(\frac{y_j-\overline y_R}{\pi_j}\right)(\#eq:eqppt9) \end{equation}.
+\begin{equation}
+\widehat V(\overline y_R)\doteq\frac{1}{N^2}\sum_{i \in s}\sum_{j \in s}\frac{(\pi_{ij}-\pi_i\pi_j)}{\pi_{ij}}\left(\frac{y_i-\overline y_R}{\pi_i}\right)\left(\frac{y_j-\overline y_R}{\pi_j}\right)(\#eq:eqppt9) \end{equation}
 
 Cabe registrar que para alguns planos amostrais, os dois estimadores são equivalentes, isto é, $\overline y_R=\overline y_{HT}$ porque $w_i^R=w_i^{HT}$.
 
@@ -101,7 +118,7 @@ Em planos amostrais auto-ponderados, isto é, em que os $\pi_i$ são constantes,
 
 O Quadro \@ref(tab:tabppt1) apresenta um resumo da estimação de parâmetros média e total sob PPT. 
 
-$$\begin{array}{|c|c|c|}\hline
+\begin{array}{|c|c|c|}\hline
 \textrm{Parâmetro} & \textrm{Estimador PPT}  
 
 \\\hline \overline{Y}=\displaystyle\sum_{i\in U}y_i/N & \overline y_{HT}=\frac{1}{N}\displaystyle\sum_{i \in s}\frac{y_i}{\pi_i}=\sum_{i \in s}w_i^{HT}y_i
@@ -117,7 +134,7 @@ $$\begin{array}{|c|c|c|}\hline
 
 \\\hline V_{SYG}(\widehat Y_{HT})=-\frac{1}{2}\displaystyle\sum_{i \in U}\sum_{j \in U}(\pi_{ij}-\pi_i\pi_j)\left(\frac{y_i}{\pi_i}-\frac{y_j}{\pi_j}\right)^2 & \widehat V_{SYG}(\widehat Y_{HT})=-\frac{1}{2}\displaystyle\sum_{i \in s}\sum_{j \in s}\frac{(\pi_{ij}-\pi_i\pi_j)}{\pi_{ij}}\left(\frac{y_i}{\pi_i}-\frac{y_j}{\pi_j}\right)^2 
 
-\\\hline (\#tab:tabppt1) \end{array}$$
+\\\hline \end{array}
 
 
 ###Maneiras de Selecionar Amostras com PPT
@@ -156,7 +173,7 @@ Caso os 3 números aleatórios entre 0 e 2000 fossem: 122, 754 e 1980. Então as
 
 <div class="figure">
 <img src="Figuras/diagrama_ppt.PNG" alt="Diagrama de dispersão" width="249" />
-<p class="caption">(\#fig:modclas)Diagrama de dispersão</p>
+<p class="caption">Diagrama de dispersão</p>
 </div>
 
 
@@ -164,15 +181,21 @@ Caso os 3 números aleatórios entre 0 e 2000 fossem: 122, 754 e 1980. Então as
 ####Estimação do Total Sob Amostragem PPT Com Reposição
 
 O estimador do total sob amostragem PPT com reposição é dado por: 
-\begin{equation}\widehat Y_{PPTC}=\frac{1}{n}\sum_{j=1}^{n}\frac{y_{k_j}}{p_{k_j}}(\#eq:eqppt10) \end{equation}. 
+\begin{equation}
+\widehat Y_{PPTC}=\frac{1}{n}\sum_{j=1}^{n}\frac{y_{k_j}}{p_{k_j}}(\#eq:eqppt10) 
+\end{equation}
 onde $j$ representa o número do sorteio, e $p_i = x_i / X$ é o tamanho relativo da unidade $i \in U$.
 
 A variância de $\widehat Y_{PPTC}$ e o seu respectivo estimador são apresentados a seguir: 
 
-\begin{equation}V_{PPTC}\left(\widehat  Y_{PPTC}\right)=\frac{1}{n}\displaystyle\sum_{i \in U}\left(\frac{y_i}{p_i}-Y\right)^2 p_i(\#eq:eqppt11) \end{equation}.
+\begin{equation}
+V_{PPTC}\left(\widehat  Y_{PPTC}\right)=\frac{1}{n}\displaystyle\sum_{i \in U}\left(\frac{y_i}{p_i}-Y\right)^2 p_i(\#eq:eqppt11) 
+\end{equation}
 
 
-\begin{equation}\widehat V_{PPTC}\left(\widehat  Y_{PPTC}\right)=\frac{1}{n(n-1)}\displaystyle\sum_{j=1}^{n}\left(\frac{y_{k_j}}{p_{k_j}}-\widehat Y_{PPTC}\right)^2(\#eq:eqppt12) \end{equation}.
+\begin{equation}
+\widehat V_{PPTC}\left(\widehat  Y_{PPTC}\right)=\frac{1}{n(n-1)}\displaystyle\sum_{j=1}^{n}\left(\frac{y_{k_j}}{p_{k_j}}-\widehat Y_{PPTC}\right)^2(\#eq:eqppt12)
+\end{equation}
 
 ###Amostragem PPT de Poisson
 
@@ -201,13 +224,19 @@ Um método moderno que corrige este defeito é “Amostragem Sequencial de Poiss
 
 O estimador do total sob Amostragem de Poisson é dado por: 
 
-\begin{equation}\widehat Y_{PO}=\sum_{i \in s}\frac{y_i}{\pi_i}(\#eq:eqppt13) \end{equation}.
+\begin{equation}
+\widehat Y_{PO}=\sum_{i \in s}\frac{y_i}{\pi_i}(\#eq:eqppt13)
+\end{equation}
 
 A variância de $\widehat Y_{PO}$ e o seu respectivo estimador são apresentados a seguir: 
 
-\begin{equation}V\left(\widehat Y_{PO}\right)=\displaystyle\sum_{i \in U}\pi_i(1-\pi_i)\left(\frac{y_i}{\pi_i}\right)^2=\displaystyle\sum_{i \in U}\frac{(1-\pi_i)}{\pi_i}y_i^2(\#eq:eqppt14) \end{equation}.
+\begin{equation}
+V\left(\widehat Y_{PO}\right)=\displaystyle\sum_{i \in U}\pi_i(1-\pi_i)\left(\frac{y_i}{\pi_i}\right)^2=\displaystyle\sum_{i \in U}\frac{(1-\pi_i)}{\pi_i}y_i^2(\#eq:eqppt14) 
+\end{equation}
 
-\begin{equation}\widehat V\left(\widehat Y_{PO}\right)=\displaystyle\sum_{i \in s}(1-\pi_i)\left(\frac{y_i}{\pi_i}\right)^2=\displaystyle\sum_{i \in s}\frac{(1-\pi_i)}{\pi_i^2}y_i^2(\#eq:eqppt15) \end{equation}.
+\begin{equation}
+\widehat V\left(\widehat Y_{PO}\right)=\displaystyle\sum_{i \in s}(1-\pi_i)\left(\frac{y_i}{\pi_i}\right)^2=\displaystyle\sum_{i \in s}\frac{(1-\pi_i)}{\pi_i^2}y_i^2(\#eq:eqppt15) 
+\end{equation}
 
 Também é possível usar estimador de total tipo razão sob Amostragem de Poisson, que é mais eficiente do que o estimador $HT$. 
 
@@ -231,13 +260,19 @@ O método de Amostragem Sequencial de Poisson (ASP) consiste nos seguintes passo
 
 O estimador do total sob Amostragem Sequencial de Poisson é dado por: 
 
-\begin{equation}\widehat Y_{ASP}=\frac{1}{n}\sum_{i \in s}\frac{y_i}{p_i}(\#eq:eqppt16) \end{equation}.
+\begin{equation}
+\widehat Y_{ASP}=\frac{1}{n}\sum_{i \in s}\frac{y_i}{p_i}(\#eq:eqppt16) 
+\end{equation}
 
 A variância de $\widehat Y_{ASP}$ e o seu respectivo estimador são apresentados a seguir: 
 
-\begin{equation}V\left(\widehat Y_{ASP}\right)=\frac{1}{n}\frac{N}{N-1}\displaystyle\sum_{i \in U}\left(\frac{y_i}{p_i}-Y\right)^2(1-np_i)p_i(\#eq:eqppt17) \end{equation}.
+\begin{equation}
+V\left(\widehat Y_{ASP}\right)=\frac{1}{n}\frac{N}{N-1}\displaystyle\sum_{i \in U}\left(\frac{y_i}{p_i}-Y\right)^2(1-np_i)p_i(\#eq:eqppt17) 
+\end{equation}
 
-\begin{equation}\widehat V\left(\widehat Y_{ASP}\right)=\frac{1}{n(n-1)}\displaystyle\sum_{i \in s}\left(\frac{y_i}{p_i}-\widehat Y_{ASP}\right)^2 (1-np_i)p_i(\#eq:eqppt18) \end{equation}.
+\begin{equation}
+\widehat V\left(\widehat Y_{ASP}\right)=\frac{1}{n(n-1)}\displaystyle\sum_{i \in s}\left(\frac{y_i}{p_i}-\widehat Y_{ASP}\right)^2 (1-np_i)p_i(\#eq:eqppt18) 
+\end{equation}
 
 ###Amostragem Sistemática com PPT
 
@@ -312,14 +347,22 @@ Seguem algumas considerações sobre Amostragem PPT de Pareto (AP)
 
 O estimador do total sob Amostragem PPT de Pareto (AP) é dado por: 
 
-\begin{equation}\widehat Y_{AP}=\displaystyle\sum_{i \in s}\frac{y_i}{\lambda_i}= \frac{1}{n}\sum_{i \in s}\frac{y_i}{p_i}(\#eq:eqppt19) \end{equation}.
+\begin{equation}
+\widehat Y_{AP}=\displaystyle\sum_{i \in s}\frac{y_i}{\lambda_i}= \frac{1}{n}\sum_{i \in s}\frac{y_i}{p_i}(\#eq:eqppt19) 
+\end{equation}
 
 Note que $E\left(\widehat Y_{AP}\right)\doteq Y$.
 
 A variância de $\widehat Y_{AP}$ e o seu respectivo estimador são apresentados a seguir: 
 
-\begin{equation}V\left(\widehat Y_{AP}\right)\doteq \frac{N}{N-1}\displaystyle\sum_{i \in U}\left(\frac{y_i}{\lambda_i}-\frac{\sum_{k \in U} y_k(1-\lambda_k)}{\sum_{k \in U} \lambda_k(1-\lambda_k)}\right)^2\lambda_i(1-\lambda_i)(\#eq:eqppt20) \end{equation}.
-\begin{equation}\widehat V\left(\widehat Y_{AP}\right)= \frac{n}{n-1}\displaystyle\sum_{i \in s}\left(\frac{y_i}{\lambda_i}-\frac{\sum_{k \in s} y_k(1-\lambda_k)}{\sum_{k \in s} (1-\lambda_k)}\right)^2(1-\lambda_i)(\#eq:eqppt21) \end{equation}.
+\begin{equation}
+V\left(\widehat Y_{AP}\right)\doteq \frac{N}{N-1}\displaystyle\sum_{i \in U}\left(\frac{y_i}{\lambda_i}-\frac{\sum_{k \in U} y_k(1-\lambda_k)}{\sum_{k \in U} \lambda_k(1-\lambda_k)}\right)^2\lambda_i(1-\lambda_i)(\#eq:eqppt20)
+\end{equation}
+
+\begin{equation}
+\widehat V\left(\widehat Y_{AP}\right)= \frac{n}{n-1}\displaystyle\sum_{i \in s}\left(\frac{y_i}{\lambda_i}-\frac{\sum_{k \in s} y_k(1-\lambda_k)}{\sum_{k \in s} (1-\lambda_k)}\right)^2(1-\lambda_i)(\#eq:eqppt21) 
+\end{equation}
+
 (Veja [@Rosen2000]).
 
 

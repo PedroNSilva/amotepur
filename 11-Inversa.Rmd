@@ -1,4 +1,3 @@
-
 # Amostragem Inversa
 
 ## Introdução

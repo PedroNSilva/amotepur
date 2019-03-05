@@ -1,6 +1,6 @@
-# Amostragem de Conglomerados em Um ou Mais Estágios
+#Amostragem de Conglomerados em Um ou Mais Estágios
 
-## Conceituação básica 
+##Conceituação básica 
 
 Nos planos amostrais já apresentados (Amostragem Aleatória Simples - com ou sem reposição -, Amostragem Binomial ou de Bernoulli, Amostragem Sistemática, Amostragem com Probabilidades Desiguais - Proporcionais ao Tamanho: com reposição, Poisson, Poisson Sequencial, Pareto - e Amostragem Estratificada Simples) alguns aspectos são comuns: requerem cadastro de unidades individuais para permitir selecionar a amostra; a seleção da amostra é feita num único estágio ou etapa; as unidades de referência são iguais às unidades de amostragem; e o tamanho total da população é conhecido com base no cadastro.
 
@@ -21,33 +21,29 @@ Não há uma definição possível para os conglomerados. Por exemplo, a turma t
 Para exemplificar, o Quadro \@ref(tab: cong) apresenta algumas ilustrações de possíveis conglomerados associados com a população, a variável de interesse e a unidade de referência para análise. 
 
 
-```{r, echo=FALSE, label="congex1"}
-quadro13_1 <- data.frame (
-X1 = c("Turmas de alunos", "Estudantes de escolas de 2º grau", "Visitantes de parques nacionais", "Passageiros de avião", "Domicílios", "Moradores em favelas do Rio"),
-X2 = c("Alunos por turma", "Aproveitamento dos estudantes", "Facilidades do parque", "Propósito da viagem", "Características de domicílios", "Características de pessoas"),
-X3 = c("Turma", "Estudante", "Visitante de parque nacional", "Passageiro de avião", "Domicílio", "Morador de favela do Rio"),
-X4 = c("Escolas", "Turmas", "Veículos que entram no parque", "Lotação de passageiros", "Setores censitários", "Domicílios em favelas do Rio")
-)
 
-names(quadro13_1) <- c("População", "Variáveis de interesse", "Unidade de Referência",
-                      "Conglomerados")
+Table: Quadro 13.1 - Ilustrações de possíveis conglomerados
 
-knitr::kable(quadro13_1, booktabs = TRUE, align= "lllll",
-             format.args= list(big.mark = '.'),
-  caption = "Quadro 13.1 - Ilustrações de possíveis conglomerados"
-  )
-```
+População                          Variáveis de interesse          Unidade de Referência          Conglomerados                 
+---------------------------------  ------------------------------  -----------------------------  ------------------------------
+Turmas de alunos                   Alunos por turma                Turma                          Escolas                       
+Estudantes de escolas de 2º grau   Aproveitamento dos estudantes   Estudante                      Turmas                        
+Visitantes de parques nacionais    Facilidades do parque           Visitante de parque nacional   Veículos que entram no parque 
+Passageiros de avião               Propósito da viagem             Passageiro de avião            Lotação de passageiros        
+Domicílios                         Características de domicílios   Domicílio                      Setores censitários           
+Moradores em favelas do Rio        Características de pessoas      Morador de favela do Rio       Domicílios em favelas do Rio  
 
 Conforme ilustração na Figura \@ref(fig:hierarquia) temos regras de associação com a hieraquia com vários níveis (vários para um), considerando o cadastro de setores, os domicílios como nível 1 e a população de moradores.  
 
-```{r, hierarquia, echo=FALSE, fig.cap="Ilustração da hierarquia com vários níveis (vários para um)"}
-knitr::include_graphics("Figuras/hierarquia.png") #{width=50%}
-```
+<div class="figure">
+<img src="Figuras/hierarquia.png" alt="Ilustração da hierarquia com vários níveis (vários para um)" width="435" />
+<p class="caption">Ilustração da hierarquia com vários níveis (vários para um)</p>
+</div>
 
 Cabe registrar que os vários planos amostrais discutidos anteriormente podem ser aplicados a amostragem de conglomerados, onde os conglomerados são as unidades amostrais. 
 
  
-## Amostragem de áreas
+##Amostragem de áreas
 
 O cadastro ou sistema de referência da pesquisa é a fonte que serve de guia e permite identificar a população a ser coberta para a seleção de amostras. 
 
@@ -103,15 +99,17 @@ Portanto, a amostragem conglomerada em um estágio ou AC1 é caracterizada pelos
 
 Segue ilustração utilizando um baralho, onde pode ser observado na Figura \@ref(fig:baralho) que cada grupo de um mesmo número ou letra (Ás,1,2,...7,J,D,K) representa um conglomerado com os quatro diferentes naipes (paus, ouros, copas e espadas).  
 
-```{r, baralho, echo=FALSE, fig.cap="Ilustração de unidades elementares “naturalmente” agrupadas"}
-knitr::include_graphics("Figuras/baralho.png") #{width=50%}
-```
+<div class="figure">
+<img src="Figuras/baralho.png" alt="Ilustração de unidades elementares “naturalmente” agrupadas" width="466" />
+<p class="caption">Ilustração de unidades elementares “naturalmente” agrupadas</p>
+</div>
 
 Na ilustração da Figura \@ref(fig:baralhoAC1) temos a seleção de amostragem conglomerada em um estágio (AC1).
 
-```{r, baralhoAC1, echo=FALSE, fig.cap="Ilustração da seleção de amostragem conglomerada em um estágio"}
-knitr::include_graphics("Figuras/baralhoAC1.png") #{width=50%}
-```
+<div class="figure">
+<img src="Figuras/baralhoAC1.png" alt="Ilustração da seleção de amostragem conglomerada em um estágio" width="467" />
+<p class="caption">Ilustração da seleção de amostragem conglomerada em um estágio</p>
+</div>
 
 Foram selecionados dois conglomerados (os de número 3 e 7), resultando numa amostra de 8 cartas do baralho (3 de paus, 3 de ouros, 3 de copas, 3 de espadas, 7 de paus, 7 de ouros, 7 de copas, 7 de espadas). 
 
@@ -142,9 +140,10 @@ Tal estratégia consiste no arranjo da população em UPAs, as quais são dividi
 
 Segue ilustração na Figura \@ref(fig:baralhoAC2) de amostragem conglomerada em dois estágios (AC2), utilizando o baralho com os grupamentos definidos anteriormente.  
 
-```{r, baralhoAC2, echo=FALSE, fig.cap="Ilustração da seleção de amostragem conglomerada em 2 estágios "}
-knitr::include_graphics("Figuras/baralhoAC2.png") #{width=50%}
-```
+<div class="figure">
+<img src="Figuras/baralhoAC2.png" alt="Ilustração da seleção de amostragem conglomerada em 2 estágios " width="373" />
+<p class="caption">Ilustração da seleção de amostragem conglomerada em 2 estágios </p>
+</div>
 
 Foram selecionados os conglomerados (UPAs) 3, 7 e J (valete) e selecionadas duas cartas por conglomerado selecionado, resultando numa amostra de 6 cartas do baralho (3 de ouros, 3 de copas, 7 de paus, 7 de copas, valete de copas e valete de espadas). 
 
@@ -266,7 +265,7 @@ O estimador da variância do estimador natural do total populacional é dado por
 onde $S_e^2$ é estimado por: $\displaystyle s_e^2=\frac{1}{n-1}\displaystyle\sum_{i \in a} \left(Y_i-\overline y_C \right)^2$.
 
 
-#### Estimação do total populacional: estimador de razão do total
+####Estimação do total populacional: estimador de razão do total
 
 Há situações em que o controle da variação dos tamanhos dos conglomerados pode ser feito através da estimação por razão baseada no tamanho dos conglomerados. 
 
@@ -737,6 +736,7 @@ V\left(\widehat Y_{Plano1}\right)= \displaystyle N^2\left(\frac{1}{n}-\frac{1}{N
 
 e este plano amostral equivale ao de uma amostra de conglomerados em um estágio.
 
+
 De acordo com ([@Cochran1977], equação 11.24) o estimador da variância do estimador não viciado do total sob o Plano 1 é dado por: 
 
 \begin{equation}
@@ -1019,3 +1019,4 @@ Ou alternativamente:
 \begin{equation} 
 n_{AC2PPT}\doteq n_{AAS}\times [1+(\overline m-1)\rho]\,\,(\#eq:eqcong53)
 \end{equation}
+

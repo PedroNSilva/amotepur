@@ -1,9 +1,4 @@
----
-output:
-  html_document: default
-  pdf_document: default
----
-# Visão Geral da Amostragem e Estimação
+﻿# Visão Geral da Amostragem e Estimação
 
 ## Definições e notação para população de pesquisa e parâmetros selecionados
 
