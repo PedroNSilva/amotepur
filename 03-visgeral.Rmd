@@ -53,7 +53,7 @@ O *quantil populacional* $q$ da distribuição da variável $y$ é definido como
 T_y(q)= argmin\{F_y(a) \ge q\} \,\,(\#eq:eqvis4)
 \end{equation}
 
-Por exemplo, a *mediana populacional* da variável $y$ corresponde ao quantil obtido quando $q=0,5$, isto é, $\text{Mediana}\,_U = T_U(0,5)$.
+Por exemplo, a *mediana populacional* da variável $y$ corresponde ao quantil obtido quando $q=0,5$, isto é, $\text{Mediana}\,_y = T_y(0,5)$.
 
 A *variância populacional* da variável $y$ é dada por: 
 
