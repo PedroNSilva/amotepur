@@ -42,15 +42,15 @@ Uma *proporção populacional* $p$ é simplesmente a média populacional de uma 
 Um caso especial de proporção populacional de interesse ocorre com a definição da *função de distribuição cumulativa empírica populacional* (*FDCEP*), dada por:
 
 \begin{equation}
-F_U(t) = \displaystyle \frac{1}{N} \sum_{i\in U} I(y_i \le t) \,\, (\#eq:eqvis3)
+F_y(a) = \displaystyle \frac{1}{N} \sum_{i\in U} I(y_i \le a) \,\, (\#eq:eqvis3)
 \end{equation}
 
-onde $t \in \rm{I\!R\!}$ . Esta função retorna a proporção de unidades na população $U$ que têm valores de $y$ menores ou iguais a $t$. 
+onde $a \in \rm{I\!R\!}$ . Esta função retorna a proporção de unidades na população $U$ que têm valores de $y$ menores ou iguais a $a$. 
 
 O *quantil populacional* $q$ da distribuição da variável $y$ é definido como o menor valor de $y$ tal que a *FDCEP* tem valor maior ou igual a $q$, isto é:
 
 \begin{equation}
-T_U(q)= argmin\{F_U(t) \ge q\} \,\,(\#eq:eqvis4)
+T_y(q)= argmin\{F_y(a) \ge q\} \,\,(\#eq:eqvis4)
 \end{equation}
 
 Por exemplo, a *mediana populacional* da variável $y$ corresponde ao quantil obtido quando $q=0,5$, isto é, $\text{Mediana}\,_U = T_U(0,5)$.
