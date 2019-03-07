@@ -124,7 +124,7 @@ $(document).ready(function () {
 <div id="amostragem-com-probabilidades-desiguais" class="section level1">
 <h1>Amostragem com Probabilidades Desiguais</h1>
 <p>A amostragem com probabilidades desiguais é usada porque as unidades de amostragem têm variação de tamanho e ignorar a variação de tamanho pode resultar em desenhos ineficientes. Neste sentido, é usada quando a variação dos tamanhos for grande, tiver informação auxiliar precisa sobre tamanhos disponível e o tamanho for fortemente correlacionado com as variáveis de interesse.</p>
-<p>Trataremos inicialmente o caso de amostragem com probabilidades proporcioanis ao tamanho. Outros casos serão vistos mais adiante, tais como: amostragem estratificada com alocação desproporcional, seleção de um morador para ser entrevistado em cada domicílio, amostras de números telefônicos (“random digit dialling samples”).</p>
+<p>Trataremos inicialmente o caso de amostragem com probabilidades proporcionais ao tamanho. Outros casos serão vistos mais adiante, tais como: amostragem estratificada com alocação desproporcional, seleção de um morador para ser entrevistado em cada domicílio, amostras de números telefônicos (“random digit dialling samples”).</p>
 <div id="amostragem-com-probabilidades-proporcionais-ao-tamanho-ppt" class="section level2">
 <h2>Amostragem com Probabilidades Proporcionais ao Tamanho (PPT)</h2>
 <p>Seja a população denotada por <span class="math inline">\(U = \{ 1; 2; ...; N\}\)</span> e que os valores de uma variável auxiliar <span class="math inline">\(x_i\)</span>, <span class="math inline">\(i \in U\)</span>, são conhecidos para todos os elementos da população.</p>
@@ -195,7 +195,6 @@ V(\overline y_R)\doteq\frac{1}{N^2}\sum_{i \in U}\sum_{j \in U}(\pi_{ij}-\pi_i\p
 <p>O estimador tipo razão da média é invariante sob transformações de locação. Isto é, se tomarmos <span class="math inline">\(z_i=y_i+A\)</span>, então <span class="math inline">\(\overline z_R=\overline y_R+A\)</span> .</p>
 <p>Em planos amostrais auto-ponderados, isto é, em que os <span class="math inline">\(\pi_i\)</span> são constantes, os pesos <span class="math inline">\(w_i\)</span> ficam todos iguais a <span class="math inline">\(1/n\)</span> para ambos os estimadores de média (<span class="math inline">\(HT\)</span> e de Razão). Esta é uma vantagem de planos deste tipo, pois a tarefa de estimação fica simplificada.</p>
 <p>O Quadro @ref(tab:tabppt1) apresenta um resumo da estimação de parâmetros média e total sob PPT.</p>
-$$
 <span class="math display">\[\begin{array}{|c|c|c|}\hline
 \textrm{Parâmetro} &amp; \textrm{Estimador PPT}  
 
@@ -213,7 +212,6 @@ $$
 \\\hline V_{SYG}(\widehat Y_{HT})=-\frac{1}{2}\displaystyle\sum_{i \in U}\sum_{j \in U}(\pi_{ij}-\pi_i\pi_j)\left(\frac{y_i}{\pi_i}-\frac{y_j}{\pi_j}\right)^2 &amp; \widehat V_{SYG}(\widehat Y_{HT})=-\frac{1}{2}\displaystyle\sum_{i \in s}\sum_{j \in s}\frac{(\pi_{ij}-\pi_i\pi_j)}{\pi_{ij}}\left(\frac{y_i}{\pi_i}-\frac{y_j}{\pi_j}\right)^2 
 
 \\\hline \end{array}\]</span>
-<p>$$</p>
 </div>
 <div id="maneiras-de-selecionar-amostras-com-ppt" class="section level3">
 <h3>Maneiras de Selecionar Amostras com PPT</h3>

@@ -1,6 +1,6 @@
 # Conceitos e Cadastros
 
-## Fontes de Dados e Tipos de Pesquisas
+## Fontes de dados e tipos de pesquisas
 
 Uma importante decisão em qualquer estudo ou projeto de pesquisa diz respeito ao levantamento das *fontes de dados* com potencial para atender às necessidades de informações de interesse. Um primeiro critério de classificação distingue as *fontes primárias*, cujos dados ainda não foram coletados, das *fontes secundárias*, cujos dados já foram coletados, possivelmente com outro(s) propósito(s), e estão disponíveis ou poderiam ser obtidos para uso imediato.  
 
@@ -14,7 +14,7 @@ De acordo com [@Thompson1992] tem-se a seguinte definição: "*Amostragem* consi
 
 Neste livro, o principal tipo de pesquisa a ser considerado é a *Pesquisa Amostral*, que busca conhecer a população com base numa amostra. Mas algumas vezes faremos referência a censos que poderiam, teoricamente, ser conduzidos nas mesmas populações das quais trataremos de tirar amostras para fazer inferência.
 
-## Alguns Conceitos Fundamentais
+## Alguns conceitos fundamentais
 
 Antes de avançar na apresentação da teoria relevante para *pesquisas por amostragem*, vamos introduzir vários conceitos relevantes e necessários para sustentar a discussão posterior.
 
@@ -108,7 +108,7 @@ Na série de pesquisas PNAD, encerrada em 2015, os *domínios de análise* (prin
 
 **(#exm:ecinf)** População de pesquisa para a Pesquisa de Economia Informal Urbana (ECINF)
 
-Segundo [@IBGE2003], trata-se de “Pesquisa por amostragem de domicílios situados em áreas urbanas, onde se busca identificar os trabalhadores por conta própria e empregadores com até 5 empregados que desenvolvam atividades não agrícolas.” Além disso, “... pertencem ao informal todas as unidades econômicas de propriedade de trabalhadores por conta própria e de empregadores com até 5 empregados, moradores de áreas urbanas, sejam elas a atividade principal de seus proprietários ou atividades secundárias.” Ver [@IBGE2004] p. 16.
+Segundo [@IBGE2003], trata-se de “Pesquisa por amostragem de domicílios situados em áreas urbanas, onde se busca identificar os trabalhadores por conta própria e empregadores com até 5 empregados que desenvolvam atividades não agrícolas.” Além disso, “... pertencem ao informal todas as unidades econômicas de propriedade de trabalhadores por conta própria e de empregadores com até 5 empregados, moradores de áreas urbanas, sejam elas a atividade principal de seus proprietários ou atividades secundárias.” Ver [@IBGE2003] p. 16.
 
 Nesta pesquisa a caracterização da população de pesquisa é mais complexa, pois envolve aplicação de perguntas para identificar a situação ocupacional (só trabalhadores por conta própria e empregadores são elegíveis), bem como o porte e a atividade do estabelecimento onde o trabalho é exercido. Pesquisas assim costumam ter a missão de estimar também o tamanho da população de pesquisa.
 
@@ -118,7 +118,7 @@ Para melhor ilustrar o conceito da definição da *população de pesquisa*, o Q
 
 
 
-Table: (\#tab:popsex1)Quadro 2.1 - Exemplos de definições de populações de pesquisa
+Table: Quadro 2.1 - Exemplos de definições de populações de pesquisa
 
 Unidades                         Características Definidoras                     Localização                      Período de referência                     
 -------------------------------  ----------------------------------------------  -------------------------------  ------------------------------------------
@@ -170,14 +170,13 @@ Pesquisas por amostragem, para serem bem feitas, requerem cuidadoso planejamento
 
 Para uma visão de conjunto, o *Modelo Genérico do Processo de Produção Estatística (MGPPE)* ou *Generic Statistical Business Process Model (GSBPM)*, definido pela United Nations Economic Commission for Europe (UNECE), é um modelo que descreve de forma abrangente as atividades do processo de produção estatística. Este modelo tem sido utilizado como quadro de referência para nortear a modernização e a melhoria da qualidade da produção estatística em muitos institutos nacionais de estatística, entre eles o IBGE. Uma representação esquemática dessa abordagem é apresentada na Figura \@ref(fig:modpesq), adaptada do *Generic Statistical Business Process Model: GSBPM: version 5.0* (2013, p.10). 
 
-<div class="figure">
-<img src="Figuras/ProcessodePesquisaModelo.PNG" alt="Modelo Genérico do Processo de Produção Estatística" width="592" />
-<p class="caption">(\#fig:modpesq)Modelo Genérico do Processo de Produção Estatística</p>
-</div>
+![Modelo Genérico do Processo de Produção Estatística](Figuras/ProcessodePesquisaModelo.PNG)
 
 Conforme indicado neste modelo, o processo de produção de uma pesquisa por amostragem engloba atividades de supervisão e controle em todas as etapas. Como pode ser observado, a gestão da qualidade é transversal ao processo de produção, perpassando todas as etapas definidas no modelo. A seguir, é apresentada uma breve descrição de etapas fundamentais identificadas no processo de produção de uma pesquisa por amostragem.
 
-### Especificar as necessidades - definição de objetivos, conceitos e recursos
+### Especificação das necessidades da pesquisa 
+
+Esta etapa envolve os sub-processos que definem os objetivos, os conceitos e a prepração de um plano de ação para a realização da pesquisa. 
 
 Quando surge a necessidade de fazer uma pesquisa sobre um certo tema, e há uma decisão de alocar recursos para a concretização da pesquisa, deve-se identificar e especificar com clareza e precisão os objetivos específicos da pesquisa. Tal especificação deve incluir a definição da população alvo e de pesquisa, que resultados a pesquisa deve fornecer ou que perguntas principais tem que ajudar a responder, em que prazos, e com que recursos poderá ser efetivada. Juntamente com a definição dos recursos, deverá ser especificada a margem de erro tolerável nos principais resultados da pesquisa. O exemplo \@ref(exm:pnadc) acima contém vários dos elementos aqui mencionados em relação à PNAD Contínua do IBGE.
 
@@ -185,7 +184,9 @@ O papel do estatístico ou amostrista nessa etapa é o de orientar a tomada de d
 
 Nesta fase, o estatístico deve deixar claro que os resultados de uma pesquisa por amostragem só são aplicáveis à *população de pesquisa* quando a amostragem puder levar em conta todas as unidades pertencentes a esta população, e que quaisquer interesses quanto a resultados e margem de erro de estimativas da pesquisa, se não especificadas a priori, correm o risco de, mais tarde, não poderem ser contemplados. A explicitação de objetivos e recursos é uma das etapas cruciais que devem anteceder a elaboração do *plano amostral*, que vai ser objeto do trabalho do estatístico ou amostrista encarregado de planejar a pesquisa.
 
-### Planejar - definição das variáveis, obtenção e avaliação do cadastro, planejamento da amostra, metodologia de coleta, definição do processamento e análise
+### Planejamento da pesquisa 
+
+Esta etapa envolve a definição das variáveis, a obtenção e avaliação do cadastro, o planejamento da amostra, a metodologia de coleta, a definição do processamento e análise e o fluxo de produção da pesquisa. 
 
 A questão do tipo de informação a ser coletada deve ser considerada num estágio inicial do planejamento da pesquisa. Somente os dados relevantes para os propósitos da pesquisa devem ser levantados. Se muitas perguntas forem propostas, os informantes perderão o interesse em respondê-las. Por outro lado, deve ser assegurado que nenhum item importante seja esquecido. 
 
@@ -201,18 +202,19 @@ Os métodos a serem usados para a coleta das informações dependem de muitos fa
 
 Há diferentes métodos de coleta, que podem ou não ser apoiados por computador, e podem ou não necessitar da participação de entrevistadores ou observadores. Os principais métodos de coleta são: CAPI (*Computer-Assisted Personal Interviewing*), CASI (*Computer-Assisted Self Interviewing*), CATI (*Computer-Assisted Telephone Interviewing*), MASI (*Mail Assisted Self Interviewing*), PAPI (*Paper-and-Pencil Interviewing*), e métodos de observação direta, em que não ocorre uma entrevista. Um exemplo de aplicação deste último método ocorre na coleta de dados de preços em pontos de venda, onde o responsável pela coleta de dados faz isso diretamente e não requer contato com uma unidade informante para a obtenção das informações de interesse. Em tempos mais recentes, também começaram a tornar-se disponíveis opções tais como `web-scraping`, que consiste na utilização de métodos automatizados de acesso a páginas da internet e de extração de dados ou informações dessas páginas, sem intervenção humana no processo.
 
-### Construir - instrumentos de coleta, componentes de processamento e de disseminação, sistema de produção
+### Elaboração dos instrumentos de coleta e dos sistemas  
+
+Esta etapa envolve os sub-processos que definem os instrumentos de coleta, os sistemas de processamento, de disseminação e de produção da pesquisa. 
 
 Os instrumentos de coleta (questionários e outros formulários) são parte importante de uma pesquisa por amostragem. Após decidir que dados devem ser coletados, a questão de como formular e apresentar as perguntas exige grande habilidade e prática. As perguntas devem ser claras, inambíguas e diretas. Perguntas vagas tendem a ter respostas vagas. A ordenação das perguntas deve ser estudada com cuidado. Um pré-teste dos instrumentos de coleta é sempre uma ajuda efetiva na preparação de um bom material.
 
 Um protocolo de esforço de coleta deve ser especificado. Este protocolo deve incluir, por exemplo, instruções sobre o número mínimo de tentativas de contato que devem ser feitas para cada unidade da amostra selecionada, antes de dar uma unidade como perdida. Os procedimentos para lidar com recusas ou perdas de unidades da amostra selecionada também devem ser definidos previamente. Os motivos das perdas devem sempre ser registrados, e o tratamento para as perdas e para a não-resposta devem ser especificados.
 
-Nesta etapa estão ainda incluídos também a elaboração e os testes dos sistemas de apuração da pesquisa.
+Nesta etapa estão ainda incluídos também a elaboração e os testes dos sistemas de apuração e de disseminação da pesquisa.
 
+### Coleta dos dados 
 
-### Coletar - implementação da pesquisa e coleta dos dados
-
-Nesta etapa destacam-se as seguintes atividades: a preparação do cadastro, a seleção da amostra, o recrutamento e treinamento de equipes de coleta e supervisão de campo, e a realização e o acompanhamento da coleta. 
+Nesta etapa inclui a implementação da pesquisa e a coleta dos dados, onde se destacam as seguintes atividades: a preparação do cadastro, a seleção da amostra, o recrutamento e treinamento de equipes de coleta e supervisão de campo, e a realização e o acompanhamento da coleta. 
 
 Para os propósitos da seleção da amostra, a população deve poder ser subdividida no que se pode chamar de *unidades de amostragem*. É importante que tal divisão seja feita de forma que nenhuma unidade da população pertença a mais de uma unidade de amostragem ou fique de fora do conjunto de todas as unidades de amostragem. Um exemplo pode ser dado com as populações humanas, que podem ser vistas como formadas por agregações tais como setores censitários e domicílios ou por pessoas.
 
@@ -220,7 +222,9 @@ A seleção da amostra se dá de acordo com o plano (desenho) amostral especific
 
 O processo de coleta de dados envolve as estratégias de contato e de monitoramento. O sucesso de qualquer pesquisa que adote o método de entrevista direta depende fortemente da capacidade dos entrevistadores de obter as respostas desejadas. Por isso, sua seleção e treinamento é muito importante. Instruções detalhadas devem ser fornecidas no treinamento sobre os métodos de mensuração e coleta. A observação por supervisores durante os trabalhos de entrevista é fundamental para manter os padrões e para estudar a obediência às regras e o tato dos entrevistadores ao fazer as entrevistas. 
 
-### Processar - integração dos dados, classificação e codificação, crítica e tratamentos dos dados, derivação de variáveis, cálculo dos pesos ou fatores de expansão da amostra, cálculo dos resultados agregados (estimação das quantidades de interesse)
+### Processamento da pesquisa 
+
+Esta etapa envolve os sub-processos que definem a integração/organização dos dados, classificação e codificação, crítica e tratamentos dos dados, derivação de variáveis, cálculo dos pesos ou fatores de expansão da amostra, cálculo dos resultados agregados (estimação das quantidades de interesse) e preparação dos arquivos de dados.
 
 Ao final da fase de coleta de dados, as informações estão prontas para entrar na fase do processamento, quando os registros de dados são limpos e preparados para a análise. A maneira como as etapas a seguir são encadeadas e executadas depende de como a coleta de dados é organizada e do(s) modo(s) usado(s) para coletar as informações.
 
@@ -228,27 +232,40 @@ A codificação consiste em atribuir código numérico a respostas obtidas inici
 
 A crítica e tratamento dos dados coletados é uma etapa indispensável para permitir a eliminação de erros grosseiros na massa de dados coletados, os quais podem distorcer significativamente os resultados da pesquisa. É preciso ter formas de detectar inconsistências e definir o tratamento para a correção dos dados individuais. Um bom texto de referência sobre o tema é o livro de [@DeWaal2011]. 
 
-Uma situação que quase sempre ocorre em pesquisas estatísticas é que os dados coletados são incompletos, em função da ocorrência de valores ausentes, seja por não-resposta ou por terem sido descartados por inconsistências detectadas no processo de crítica. A obtenção de um conjunto de dados com registros completos antes da etapa de estimação se dá através de imputação, substituindo os valores ausentes ou descartados em registros incompletos por valores estimados com base nos dados disponíveis. Vários métodos estão disponíveis para imputar os valores ausentes em um conjunto de dados, dentre os quais podem ser citados: imputação dedutiva, imputação baseada em modelo (incluindo imputação por média, razão e regressão), e imputação por registro doador. Veja a respeito os excelentes livros de [@DeWaal2011], [@Little2002], [@Rubin1987], [@Schafer1997].
+Uma situação que quase sempre ocorre em pesquisas estatísticas é que os dados coletados são incompletos, em função da ocorrência de valores ausentes, seja por não-resposta ou por terem sido descartados por inconsistências detectadas no processo de crítica. A obtenção de um conjunto de dados com registros completos antes da etapa de estimação se dá através de imputação, substituindo os valores ausentes ou descartados em registros incompletos por valores estimados com base nos dados disponíveis. Vários métodos estão disponíveis para imputar os valores ausentes em um conjunto de dados, dentre os quais podem ser citados: imputação dedutiva, imputação baseada em modelo (incluindo imputação por média, razão e regressão), e imputação por registro doador. Veja a respeito os excelentes livros de [@DeWaal2011], [@Little2002], [@Rubin1987] e [@Schafer1997].
 
 Os métodos de estimação são usados para generalizar a informação recolhida de uma amostra para a população da qual foi extraída. A forma de selecionar a amostra determina como serão produzidas tais estimativas da população. De fato, o plano amostral determina os chamados *pesos amostrais* (fatores de expansão) básicos que serão usados para produzir estimativas. O *peso amostral* de uma unidade observada indica o número de unidades da população que são representadas por esta unidade da amostra. Um *peso amostral básico* é calculado como o inverso da probabilidade de incluir a unidade na amostra.
 
 Os procedimentos de estimação das quantidades de interesse envolvem especificar: o cálculo dos pesos ou fatores de expansão; os estimadores para as quantidades de interesse; e o cálculo das medidas de precisão das estimativas.  
 
-### Analisar - análise, interpretação e assegurar a confidencialidade das informações
+### Análise dos dados da pesquisa 
+
+Esta etapa envolve a análise, validação e interpretação dos dados, bem como  os métodos para assegurar a confidencialidade das informações individualizadas.
 
 Usualmente, a apresentação de resultados é acompanhada de um exercício analítico inicial dos dados produzidos. A análise de dados é o processo pelo qual se dá ordem, estrutura, interpretação e significado aos dados. 
 
-A análise permite diferentes abordagens e requer cuidado na interpretação, destacando-se que devem ser observadas as seguintes características: que seja apresentada de maneira simples, objetiva e compreensível, com significado claro; e que busque assegurar que as informações produzidas e analisadas são úteis para satisfazer aos objetivos enunciados da pesquisa. Uma boa forma de avaliar isso é verificar se os comentários da análise fornecem respostas às principais perguntas formuladas para justificar a realização da pesquisa.
+A análise permite diferentes abordagens e requer cuidado na interpretação, destacando-se que devem ser observadas as seguintes características: que seja apresentada de maneira simples, objetiva e compreensível, com significado claro; e que busque assegurar que as informações produzidas e analisadas sejam úteis para satisfazer aos objetivos enunciados da pesquisa. Uma boa forma de avaliar isso é verificar se os comentários da análise fornecem respostas às principais perguntas formuladas para justificar a realização da pesquisa.
 
 A informação nunca é completamente útil se não for acompanhada de análise. Neste caso, o foco das atenções deve ser dado sobre as questões de coerência e interpretabilidade, e em dar significado aos resultados em sua apresentação. A interpretabilidade das estatísticas também faz parte da noção de qualidade dos dados produzidos. Estatísticas definidas de maneira hermética ou complexa, cuja interpretação seja difícil, raramente conseguem estabelecer uma percepção de boa qualidade. 
 
-### Disseminar - produção dos resultados e promoção dos produtos de disseminação
+Esta etapa também envolve a garantia de que os dados (e metadados) a serem disseminados não violem a confidencialidade de informações individualizadas, prevenindo a divulgação de informações que revelem direta ou indiretamente a identidade do informante (indivíduo, empresa ou instituição) com a associação de dados confidenciais. Devem ser usadas técnicas para limitação da revelação da identidade nas diversas formas de acesso aos dados. 
+
+### Disseminação dos resultados da pesquisa 
+
+Esta etapa envolve a produção dos resultados, a promoção dos produtos de disseminação e o atendimento aos usuários. 
 
 Esta etapa envolve a preparação do material de divulgação - tabelas, textos, apresentações, publicações, arquivos de microdados e sua documentação (metadados), elaboração de releases, e carga em sítios da internet. É das etapas menos discutidas do processo de pesquisa nos textos sobre métodos, mas isto não significa que é pouco importante. Na verdade, pode-se afirmar que sem adequada disseminação se perde muito do valor de uma pesquisa, já que os seus resultados ficarão sub-aproveitados.
 
-### Avaliar - avaliação e plano de ação
+### Arquivamento das informações da pesquisa 
+
+Esta etapa envolve os sub-processos que definem as regras de arquivamento; o gerenciamento do repositório; a preservação dos dados, metadados e paradados; e o plano de descarte de material. 
+
+A busca e recuperação da informação apontam para a criação de metadados (que descreve os dados de forma estruturada) e a preservação das informações, permitindo que sejam acessíveis e com a  autenticidade resguardada. Neste sentido as regras de arquivamento e o gerenciamento do repositório têm um papel relevante na estruturação das informações de forma a localizá-las e torná-las de fácil recuperação e uso.   
+
+### Avaliação da pesquisa  
 
 Esta etapa encerra a execução de uma pesquisa, e o produto final deve ser um conjunto de tabulações e relatórios de avaliação da pesquisa e de seus resultados. A avaliação e o monitoramento da qualidade das estimativas deve estar presente desde a concepção da pesquisa, a operacionalização dos processos, até a elaboração e disseminação do produto final, visando a compreensão das informações pelos usuários. 
+
 Cabe registrar a ideia de que qualidade é 'multidimensional' e que há vários aspectos da produção dos dados que se deve considerar para avaliar qualidade dos resultados. 
 
 Começamos por distinguir dois níveis onde a discussão de qualidade é importante. Num primeiro nível, trata-se de qualidade do processo de produção das estatísticas, que será referida ao desempenho da organização produtora, à sua capacidade de adotar métodos e processos de trabalho eficientes e seguros, bem como de responder às demandas que lhe são apresentadas. Um segundo nível se refere à qualidade dos dados e resultados que fazem parte da produção das estatísticas. Neste momento, a qualidade que importa é a de cada resultado (produto) frente a um conjunto de usos previstos ou antecipados que o resultado terá. 
@@ -289,7 +306,7 @@ O *Cadastro Central de Empresas (CEMPRE)* é formado por empresas e outras organ
 
 As informações disponíveis referem-se às empresas e às unidades locais que no ano de referência estavam ativas no Cadastro. Estão disponíveis as variáveis identificadoras de empresas e de suas unidades locais, o pessoal ocupado total, o pessoal assalariado, os salários e outras remunerações pagas, e o salário médio mensal, além da Classificação Nacional de Atividades Econômicas (CNAE) e da localização de cada unidade.
 
-A cada ano, é extraído do CEMPRE um *Cadastro Básico de Seleção* usado na seleção das amostras das pesquisas econômicas anuais, tais como a Pesquisa Anual da Indústria da Construção (PAIC), a Pesquisa Anual da Indústria (PIA-Empresa), a Pesquisa Anual do Comércio (PAC), e a Pesquisa Anual de Serviços (PAS). Além destas pesquisas econômicas anuais, o CEMPRE também serve de base para a extração de amostras das pesquisas conjunturais do IBGE, tais como a Pesquisa Industrial Mensal de Produção Física (PIM-PF), a Pesquisa Mensal do Comércio (PMC) e da Pesquisa Mensal dos Serviços (PMS). 
+A cada ano, é extraído do CEMPRE um *Cadastro Básico de Seleção* usado na seleção das amostras das pesquisas econômicas anuais, tais como a Pesquisa Anual da Indústria da Construção (PAIC), a Pesquisa Anual da Indústria (PIA-Empresa), a Pesquisa Anual do Comércio (PAC) e a Pesquisa Anual de Serviços (PAS). Além destas pesquisas econômicas anuais, o CEMPRE também serve de base para a extração de amostras das pesquisas conjunturais do IBGE, tais como a Pesquisa Industrial Mensal de Produção Física (PIM-PF), a Pesquisa Mensal do Comércio (PMC) e a Pesquisa Mensal dos Serviços (PMS). 
 
 Algumas outras pesquisas feitas por outras organizações também se valem do CEMPRE para seleção de suas amostras. Este é o caso da Pesquisa TIC-Empresas do NIC.br - ver detalhes em (https://cetic.br/pesquisa/empresas/publicacoes).
 
@@ -303,26 +320,17 @@ A malha digital de setores censitários do Brasil é um conjunto de arquivos con
 
 A Figura \@ref(fig:cadset) apresenta uma ilustração do cadastro de setores do IBGE para Copacabana no município do Rio de Janeiro. 
 
-<div class="figure">
-<img src="Figuras/SetorCopacabana.PNG" alt="O cadastro de setores do IBGE - Copacabana - RJ" width="286" />
-<p class="caption">(\#fig:cadset)O cadastro de setores do IBGE - Copacabana - RJ</p>
-</div>
+![O cadastro de setores do IBGE - Copacabana - RJ](Figuras/SetorCopacabana.PNG)
 
 
 O *Cadastro Nacional de Endereços para Fins Estatísticos (CNEFE)* é uma lista com cerca de 78 milhões de endereços urbanos e rurais, associados às unidades (domicílios e unidades não residenciais) registradas pelos recenseadores durante a coleta das informações do Censo Demográfico 2010, e aos setores censitários. Foi compilado para apoiar a realização das pesquisas domiciliares do IBGE. O Cadastro pode ser acessado no link: (https://www.censo2010.ibge.gov.br/cnefe/).
 
 As Figuras \@ref(fig:cnefe1) e \@ref(fig:cnefe2) ilustram informações disponíveis no CNEFE para um determinado setor censitário (https://censo2010.ibge.gov.br/cnefe/Exibe_Tabela.html?ag=330455705100417). 
 
-<div class="figure">
-<img src="Figuras/Dadossetor.PNG" alt="Informações do CNEFE para um setor de Copacabana - RJ" width="354" />
-<p class="caption">(\#fig:cnefe1)Informações do CNEFE para um setor de Copacabana - RJ</p>
-</div>
+![Informações do CNEFE para um setor de Copacabana - RJ](Figuras/Dadossetor.PNG)
 
 
-<div class="figure">
-<img src="Figuras/CNEFE.PNG" alt="Ilustração de dados do CNEFE" width="356" />
-<p class="caption">(\#fig:cnefe2)Ilustração de dados do CNEFE</p>
-</div>
+![Ilustração de dados do CNEFE](Figuras/CNEFE.PNG)
 
 Os cadastros associados à BOG do IBGE que estão disponíveis para uso público são listados a seguir, juntamente com seus endereços de acesso via internet.
 
@@ -355,10 +363,7 @@ O cadastro deve ser estruturado de tal forma que seja possível determinar como 
 
 Nesta situação cada unidade $C_i$ do cadastro corresponde a uma e somente uma unidade de referência $U_i$ da população de pesquisa, conforme ilustração na Figura \@ref(fig:umparaum). 
 
-<div class="figure">
-<img src="Figuras/Associa1-1.PNG" alt="Ilustração da regra de associação um para um" width="2350" />
-<p class="caption">(\#fig:umparaum)Ilustração da regra de associação um para um</p>
-</div>
+![Ilustração da regra de associação um para um](Figuras/Associa1-1.PNG)
 
 Neste caso, a seleção da amostra de unidades elementares pode ser feita diretamente do cadastro. Os planos amostrais podem selecionar diretamente *unidades de referência* elementares e não há conglomeração. Portanto, a *unidade de referência* é também a *unidade de amostragem*. A seleção da amostra fica bem simplificada, porém a manutenção do cadastro costuma ser mais cara quando comparada a outros tipos de situações, e a cobertura é mais díficil de ser mantida. 
 
@@ -370,10 +375,7 @@ Um exemplo clássico de cadastro com esse tipo de associação é o *Cadastro B�
 
 Nesta situação, cada unidade de referência da população de pesquisa corresponde a uma ou mais unidades do cadastro, conforme ilustração na Figura \@ref(fig:umparavar). Consideramos aqui apenas os casos em que cada unidade elementar no cadastro tenha vínculo com no máximo uma unidade elementar na população.
 
-<div class="figure">
-<img src="Figuras/Associa1-varios.PNG" alt="Ilustração da regra de associação um para vários" width="2396" />
-<p class="caption">(\#fig:umparavar)Ilustração da regra de associação um para vários</p>
-</div>
+![Ilustração da regra de associação um para vários](Figuras/Associa1-varios.PNG)
 
 
 Neste caso, a *unidade de amostragem* é a unidade elementar do cadastro, e a seleção da amostra é feita diretamente do cadastro. As probabilidades de seleção das unidades de referência da população de pesquisa variam com o número de unidades elementares correspondentes no cadastro. A manutenção do cadastro e dos vínculos é geralmente trabalhosa e o conhecimento exaustivo e preciso dos vínculos é essencial. Note que também não se aplica aqui a ideia de amostragem conglomerada, já que as unidades de referência da população são incluídas (ou não) na amostra uma a uma, dependendo do sorteio de unidades do cadastro com que estão vinculadas.
@@ -388,22 +390,13 @@ Um bom exemplo deste tipo de situação seria um cadastro de veículos (automóv
 Nesta situação, uma ou mais unidades de referência da população de pesquisa são vinculadas a cada unidade elementar do cadastro, conforme ilustrações nas Figuras \@ref(fig:varparaum1) e \@ref(fig:varparaum2). A unidade de amostragem  é um *conglomerado* de unidades da população. Neste caso, se adotam os planos amostrais conglomerados, onde a seleção é de uma amostra de unidades conglomeradas do cadastro. Os vínculos são geralmente conhecidos só para os conglomerados da amostra. O cadastro é mais barato de construir e manter, porém a amostragem é na maioria das vezes menos eficiente do que se poderia fazer tendo cadastros do tipo um para um.
 
 
-<div class="figure">
-<img src="Figuras/Associavarios-1a.PNG" alt="Ilustração da regra de associação vários para um" width="406" />
-<p class="caption">(\#fig:varparaum1)Ilustração da regra de associação vários para um</p>
-</div>
+![Ilustração da regra de associação vários para um](Figuras/Associavarios-1a.PNG)
 
 
-<div class="figure">
-<img src="Figuras/Associavarios-1b.PNG" alt="Ilustração da regra de associação vários para um" width="428" />
-<p class="caption">(\#fig:varparaum2)Ilustração da regra de associação vários para um</p>
-</div>
+![Ilustração da regra de associação vários para um](Figuras/Associavarios-1b.PNG)
 
 **Regras de Associação - Hierarquia com vários níveis**
 
 Neste caso se adotam os planos de amostragem conglomerada em múltiplos estágios (ou etapas). Envolve uma hierarquia de diferentes tipos de unidades (unidades primárias de amostragem, unidades secundárias, terciárias, etc..). É necessário um bom cadastro em cada estágio para a seleção das unidades do estágio seguinte. Os cadastros para as unidades dos primeiros estágios são geralmente mais estáveis e fáceis de construir e manter que aqueles para os estágios subsequentes. A Figura \@ref(fig:hierarquia) apresenta uma ilustração dessa situação.
 
-<div class="figure">
-<img src="Figuras/Associavariosniveis.PNG" alt="Ilustração de regras de associação - hierarquia para vários níveis" width="2632" />
-<p class="caption">(\#fig:hierarquia)Ilustração de regras de associação - hierarquia para vários níveis</p>
-</div>
+![Ilustração de regras de associação - hierarquia para vários níveis](Figuras/Associavariosniveis.PNG)

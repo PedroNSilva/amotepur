@@ -38,38 +38,55 @@ Seguem algumas propriedades associadas com a definição dos estimadores na Amos
 
 Para verificar isso, note que $n= \sum_{i \in U}I(A_i<\pi)$
 
-Consequentemente, $n$~Binomial($N$;$\pi$). Logo:
+Consequentemente, $n$~Binomial($N$;$\pi$). Logo: $E(n)= N\times \pi$  e $V(n)= N \times \pi \times(1-\pi)$. 
 
-$$E(n)= N\times \pi$  e $V(n)= N \times \pi \times(1-\pi)$$. 
-
-2. Um estimador não viciado do total $Y$ é: $\hat Y_{AB}=\frac{1}{\pi} \sum_{i \in s}y_i$
+2. Um estimador não viciado do total $Y$ é: 
+\begin{equation}
+\widehat Y_{AB}=\frac{1}{\pi} \sum_{i \in s}y_i(\#eq:bin1)
+\end{equation} 
 
 3. A variância do estimador simples de total é dada por:
 
-$$V(\hat Y_{AB})=\left(\frac{1}{\pi}\right)^2 V(\sum_{i \in U}\delta_iy_i)=\left(\frac{1}{\pi}\right)^2 \sum_{i \in U}V(\delta_i)y_i^2)=\left(\frac{1}{\pi}\right)^2 \pi(1-\pi)\sum_{i \in U}y_i^2= \left(\frac{1}{\pi}-1\right)\sum_{i \in U}y_i^2$$
+\begin{equation}
+V(\widehat Y_{AB})=\left(\frac{1}{\pi}\right)^2 V(\sum_{i \in U}\delta_iy_i)=\left(\frac{1}{\pi}\right)^2 \sum_{i \in U}V(\delta_i)y_i^2)=\left(\frac{1}{\pi}\right)^2 \pi(1-\pi)\sum_{i \in U}y_i^2= \left(\frac{1}{\pi}-1\right)\sum_{i \in U}y_i^2(\#eq:bin2)
+\end{equation} 
 
 4. Um estimador não viciado da variância do estimador de total é dado por:
 
-$$\hat V(\hat Y_{AB})= \frac{1}{\pi}\left(\frac{1}{\pi}-1\right)\sum_{i \in s}y_i^2$$
+\begin{equation}
+\widehat V(\widehat Y_{AB})= \frac{1}{\pi}\left(\frac{1}{\pi}-1\right)\sum_{i \in s}y_i^2(\#eq:bin3)
+\end{equation} 
 
 5. Um estimador alternativo para o total, definido sempre que $n>0$, é o estimador tipo razão dado por:
 
-$$\hat Y_{AB}^R= \frac{N\pi}{n}\hat Y_{AB}= N\frac{1}{n}\sum_{i \in s}y_i=N\overline y$$
+\begin{equation}
+\widehat Y_{AB}^R= \frac{N\pi}{n}\widehat Y_{AB}= N\frac{1}{n}\sum_{i \in s}y_i=N\overline y(\#eq:bin4)
+\end{equation} 
 
 6. Uma aproximação da variância do estimador alternativo de total é dada por:
 
 
-$$V(\hat Y_{AB}^R) \cong N^2 \left(\frac{1}{N \pi}-\frac{1}{N}\right)S_y^2$$   SSW 1992, p. 65
+\begin{equation}
+V(\widehat Y_{AB}^R) \cong N^2 \left(\frac{1}{N \pi}-\frac{1}{N}\right)S_y^2(\#eq:bin5)
+\end{equation}   
+[@Sarndal1992], p. 65
 
 7. Esta variância é portanto aproximadamente igual à de uma AAS de igual tamanho esperado $N\pi$.
 
 8. A variância do estimador simples do total pode ser reescrita como:
 
-$$V(\hat Y_{AB})=N^2\left(\frac{1}{N\pi}-\frac{1}{N}\right)S_y^2 \left[1-\frac{1}{N}+\frac{1}{CV_y^2}\right]$$             SSW p. 63
+\begin{equation}
+V(\widehat Y_{AB})=N^2\left(\frac{1}{N\pi}-\frac{1}{N}\right)S_y^2 \left[1-\frac{1}{N}+\frac{1}{CV_y^2}\right](\#eq:bin6)
+\end{equation}   
+[@Sarndal1992], p. 63.
 
 9. Logo a eficiência relativa do estimador alternativo é:
 
-$$\frac{V(\hat Y_{AB})}{V(\hat Y_{AB}^R)}\cong\left[1-\frac{1}{N}+\frac{1}{CV_y^2}\right]\cong \left[1+\frac{1}{CV_y^2}\right]$$            SSW p. 65
+\begin{equation}
+\frac{V(\widehat Y_{AB})}{V(\widehat Y_{AB}^R)}\cong\left[1-\frac{1}{N}+\frac{1}{CV_y^2}\right]\cong \left[1+\frac{1}{CV_y^2}\right](\#eq:bin7)
+\end{equation} 
+[@Sarndal1992], p. 65.
+
  
  
 ## Exemplos de Aplicação da Amostragem Binomial ou de Bernoulli 
