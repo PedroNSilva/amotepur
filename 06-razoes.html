@@ -121,47 +121,146 @@ $(document).ready(function () {
 </div>
 
 
-<div id="estimacao-de-uma-razao-populacional" class="section level1">
-<h1>Estimação de uma Razão Populacional</h1>
+<div id="estimacao-de-razoes-e-funcoes-de-totais" class="section level1">
+<h1>Estimação de Razões e Funções de Totais</h1>
 <div id="razoes-populacionais-como-parametros-de-interesse" class="section level2">
-<h2>Razões Populacionais como Parâmetros de Interesse</h2>
-<p>Muitas vezes na prática de pesquisas por amostragem, o <em>parâmetro</em> populacional de interesse é uma razão entre duas variáveis que varia de unidade para unidade da população, podendo ser uma <em>razão de totais (ou médias)</em>.</p>
-<p>Alguns exemplos, que podem ser citados: a densidade de pessoas por cômodo em domicílios (razão entre o número de pessoas por domicílio e o número de cômodos por domicílio), a razão entre os gastos das famílias com alimentação e a renda das famílias, a produtividade da lavoura de certo produto (razão entre a quantidade colhida de certo produto pela área plantada), o salário médio dos trabalhadores da indústria (razão entre o salários dos trabalhadores da indústria e o número de trabalhadores da indústria).</p>
-No caso da densidade de pessoas por cômodo em domicílios tem-se o parâmetro razão na população, <span class="math inline">\(R\)</span>, de forma que:
+<h2>Razões populacionais como parâmetros de interesse</h2>
+<p>Muitas vezes na prática de pesquisas por amostragem, o <em>parâmetro</em> populacional de interesse é uma razão entre os totais (ou médias) de duas variáveis de pesquisa definidas para cada unidade da população. Nesse caso, o <em>parâmetro</em> é denominado <em>razão de totais (ou de médias)</em> ou simplesmente <em>razão</em>. Chamando de <span class="math inline">\(y\)</span> e <span class="math inline">\(x\)</span> as variáveis cujos totais aparecem no numerador e denominador da razão, respectivamente, define-se a <em>razão</em> <span class="math inline">\(R\)</span> como:</p>
 <span class="math display">\[\begin{equation}
-\frac{\textrm {Número de pessoas por domicílio}}{\textrm{Número de cômodos por domicílio}} = \frac{\sum_{i\in U}y_i}{\sum_{i\in U}x_i}=\frac{Y}{X}=\frac{\overline{Y}}{\overline{X}}=R (\#eq:eqraz1)
+R = \frac{\sum_{i\in U}y_i}{\sum_{i\in U}x_i} = \frac{Y}{X}=\frac{\overline{Y}}{\overline{X}} (\#eq:eqraz1)
+\end{equation}\]</span>
+<p>Alguns exemplos de razões de interesse incluem: ** a razão entre o total dos gastos com transporte e o total da renda das famílias;** ** a produtividade da lavoura de certo produto, definida como a razão entre o total da quantidade colhida do produto pelo total da área plantada com esse produto;<strong> </strong> o salário médio dos trabalhadores da indústria, definido como a razão entre o total dos salários dos trabalhadores da indústria e o número total de trabalhadores da indústria; e<strong> </strong> a densidade de pessoas por dormitório em domicílios particulares, definida como a razão entre o número de pessoas residentes em domicílios particulares e o número total de dormitórios em domicílios particulares.**</p>
+<p>No caso da razão entre o total dos gastos com transporte (<span class="math inline">\(y\)</span>) e o total da renda das famílias (<span class="math inline">\(x\)</span>), a razão fica definida como:</p>
+<span class="math display">\[\begin{equation}
+\frac{\textrm {Total dos gastos com transporte}}{\textrm{Total da renda}} = \frac{\sum_{i\in U}y_i}{\sum_{i\in U}x_i}=\frac{Y}{X} = R 
 \end{equation}\]</span>
 </div>
 <div id="razao-de-medias-versus-media-de-razoes" class="section level2">
-<h2>Razão de Médias versus Média de Razões</h2>
-<p>Um cuidado importante aqui é entender a diferença de parâmetros de interesse.</p>
-<p>O parâmetro <span class="math inline">\(R\)</span> não é a média <span class="math inline">\(\left(\overline{R}= \sum_{i\in U}{R_i}/{N}\right)\)</span> das <em>razões por unidade</em> <span class="math inline">\(\left(R_i=y_i/x_i\right)\)</span>.</p>
-<p><strong>Exemplo 5.1:</strong> Considere as densidades de habitantes por unidade da federação conforme o Censo 2010.</p>
-<p>Neste exemplo, vemos a discrepância grande que pode ocorrer entre as duas quantidades, quando os valores de <span class="math inline">\(R_i\)</span> são muito dispersos.</p>
+<h2>Razão de médias versus média de razões</h2>
+<p>Um cuidado importante aqui é compreender o significado do parâmetro de interesse. A razão de totais <span class="math inline">\(R\)</span> não é a média <span class="math inline">\(\left(\overline{R} = \sum_{i\in U}{r_i}/{N} \right)\)</span> das <em>razões por unidade</em> <span class="math inline">\(\left(r_i=y_i/x_i\right)\)</span>. Neste capítulo estamos interessados na razão de totais (ou médias), e não na média de razões. A média de razões <span class="math inline">\(\left(\overline{R} \right)\)</span> pode ser estimada usando os estimadores habituais de médias populacionais discutidos no capítulo @ref(visger), aplicados à variável <span class="math inline">\(r\)</span> definida aqui.</p>
+<p><strong>Exemplo 5.1:</strong> Considere as densidades de habitantes por área (em <span class="math inline">\(km^2\)</span>) das unidades da federação brasileiras, conforme o Censo 2010. Neste exemplo, vemos como uma discrepância grande pode ocorrer entre as duas quantidades (a razão de médias e a médias das razões), quando os valores de <span class="math inline">\(r_i\)</span> são muito dispersos.</p>
 <p><span class="math display">\[\begin{array}{|l|r|}\hline
-\textrm{Unidade da Federação} &amp; \textrm{Densidade (Hab/}Km^2) \\\hline \textrm{Rondônia} &amp; 6,6 \\\hline \textrm{Acre} &amp; 4,5 \\\hline \textrm{Amazonas} &amp; 2,2\\\hline \textrm{Roraima} &amp; 2,0\\\hline \textrm{Pará} &amp; 6,1\\\hline \textrm{Amapá} &amp; 4,7\\\hline \textrm{Tocantins} &amp; 5,0\\\hline \textrm{Maranhão} &amp; 19,8\\\hline \textrm{Piauí} &amp; 12,4\\\hline \textrm{Ceará} &amp; 56,8\\\hline \textrm{Rio Grande do Norte} &amp; 60,0\\\hline \textrm{Paraíba} &amp; 66,7\\\hline \textrm{Pernambuco} &amp; 89,6\\\hline \textrm{Alagoas} &amp; 112,3\\\hline \textrm{Sergipe} &amp; 94,4\\\hline \textrm{Bahia} &amp; 24,8\\\hline \textrm{Minas Gerais} &amp; 33,4\\\hline \textrm{Espírito Santo} &amp; 76,3\\\hline \textrm{Rio de Janeiro} &amp; 365,2\\\hline \textrm{São Paulo} &amp; 166,3\\\hline \textrm{Paraná} &amp; 52,4\\\hline \textrm{Santa Catarina} &amp; 65,3\\\hline \textrm{Rio Grande do Sul} &amp; 39,8\\\hline \textrm{Mato Grosso do Sul} &amp; 6,9\\\hline \textrm{Mato Grosso} &amp; 3,4\\\hline \textrm{Goiás} &amp; 17,7\\\hline \textrm{Distrito Federal} &amp; 444,1\\\hline \textbf{Brasil (Média das razões)} &amp; \textbf{68,1}\\\hline \textbf{Brasil (Razão das médias)} &amp; \textbf{22,4} \\\hline \end{array}\]</span></p>
+\textrm{Unidade da Federação} &amp; \textrm{Densidade (Hab/}km^2) \\\hline \textrm{Rondônia} &amp; 6,6 \\\hline \textrm{Acre} &amp; 4,5 \\\hline \textrm{Amazonas} &amp; 2,2\\\hline \textrm{Roraima} &amp; 2,0\\\hline \textrm{Pará} &amp; 6,1\\\hline \textrm{Amapá} &amp; 4,7\\\hline \textrm{Tocantins} &amp; 5,0\\\hline \textrm{Maranhão} &amp; 19,8\\\hline \textrm{Piauí} &amp; 12,4\\\hline \textrm{Ceará} &amp; 56,8\\\hline \textrm{Rio Grande do Norte} &amp; 60,0\\\hline \textrm{Paraíba} &amp; 66,7\\\hline \textrm{Pernambuco} &amp; 89,6\\\hline \textrm{Alagoas} &amp; 112,3\\\hline \textrm{Sergipe} &amp; 94,4\\\hline \textrm{Bahia} &amp; 24,8\\\hline \textrm{Minas Gerais} &amp; 33,4\\\hline \textrm{Espírito Santo} &amp; 76,3\\\hline \textrm{Rio de Janeiro} &amp; 365,2\\\hline \textrm{São Paulo} &amp; 166,3\\\hline \textrm{Paraná} &amp; 52,4\\\hline \textrm{Santa Catarina} &amp; 65,3\\\hline \textrm{Rio Grande do Sul} &amp; 39,8\\\hline \textrm{Mato Grosso do Sul} &amp; 6,9\\\hline \textrm{Mato Grosso} &amp; 3,4\\\hline \textrm{Goiás} &amp; 17,7\\\hline \textrm{Distrito Federal} &amp; 444,1\\\hline \textbf{Brasil (Média das razões)}  &amp; \textbf{68,1}\\\hline \textbf{Brasil (Razão das médias)} &amp; \textbf{22,4} \\\hline \end{array}\]</span></p>
 <p><span class="math display">\[\begin{array}{l} \textrm{Fonte: IBGE, Censo Demográfico 2010.} &amp;\\ \end{array}\]</span></p>
 </div>
-<div id="estimacao-de-razoes" class="section level2">
-<h2>Estimação de Razões</h2>
-<p>Para estimar razões de totais (ou médias) como R, o estimador “natural” é a <em>razão dos estimadores Horwitz-Thompson de total</em>:</p>
-<span class="math display">\[\begin{equation}
- \widehat{R}=\frac{\sum_{i\in s}w_iy_i}{\sum_{i\in s}w_ix_i}=\frac{\widehat{Y}_{HT}}{\widehat{X}_{HT}}(\#eq:eqraz2)
+<div id="outras-funcoes-de-totais" class="section level2">
+<h2>Outras funções de totais</h2>
+<p><em>Totais</em> são parâmetros muito importantes, pois muitos outros parâmetros de interesse podem ser obtidos como funções de totais. Já vimos no capítulo @ref(proporc) o exemplo das contagens de unidades pertencentes a determinados grupos que possuem características comuns, no caso em que as variáveis cujos totais se quer estimar são indicadoras da pertinência a tais grupos. No capítulo @ref(visger) também verificamos que as médias populacionais são razões de totais, onde no denominador aparece o número <span class="math inline">\(N\)</span> de unidades na população, e no numerador vai o total da variável cuja média se quer definir.</p>
+<p>Neste capítulo já definimos as <em>razões de totais</em> populacionais, e agora vamos apresentar mais alguns parâmetros que podem ser definidos como funções de totais populacionais. Para introduzir o caso mais geral, considere um parâmetro <span class="math inline">\(\theta\)</span> que pode ser definido como uma função de <span class="math inline">\(K\)</span> totais populacionais, isto é:</p>
+<span class="math display">\[\begin{equation} 
+ \theta = f(Y_1, Y_2, ..., Y_K) 
 \end{equation}\]</span>
-<p>Sob AAS, este estimador simplifica para:</p>
+<p>onde <span class="math inline">\(Y_k\)</span> é o total populacional da variável de pesquisa <span class="math inline">\(y_k\)</span>, para <span class="math inline">\(k=1,...,K\)</span>, e <span class="math inline">\(f\)</span> é uma função real que especifica como obter o valor de <span class="math inline">\(\theta\)</span> a partir dos totais das variáveis de pesquisa.</p>
+<p>Um caso geral de interesse é o das funções lineares de totais populacionais, dadas por:</p>
 <span class="math display">\[\begin{equation}
-\widehat{R}=\frac{\sum_{i\in s}y_i}{\sum_{i\in s}x_i}=\frac{\overline{y}}{\overline{x}}.(\#eq:eqraz3)
+ \theta = f(Y_1, Y_2, ..., Y_K) = \sum_{k=1}^K a_k \, Y_k
+\end{equation}\]</span>
+<p>onde <span class="math inline">\(a_k\)</span> são constantes conhecidas, para <span class="math inline">\(k=1,...,K\)</span>.</p>
+<p>Um exemplo simples de função linear é a <em>diferença</em> entre dois totais populacionais especificados, dada por:</p>
+<span class="math display">\[\begin{equation}
+ D = \sum_{i\in U} y_{2i} - \sum_{i\in U} y_{1i} = Y_2 - Y_1
+\end{equation}\]</span>
+<p>Nesse caso, temos uma situação envolvendo <span class="math inline">\(K=2\)</span> totais populacionais, com <span class="math inline">\(a_1 = 1\)</span> e <span class="math inline">\(a_2 = -1\)</span>.</p>
+<p>Outro exemplo de parâmetro que pode ser escrito como função de totais é o caso da <em>função de distribuição cumulativa</em> num ponto, dada por:</p>
+<span class="math display">\[\begin{equation}
+ F_y(a) = \displaystyle \frac{1}{N} \sum_{i\in U} I(y_i \le a) \quad
+\end{equation}\]</span>
+<p>Nesse caso, a situação envolve apenas dois totais populacionais (<span class="math inline">\(K=2\)</span>), sendo a primeira definida como <span class="math inline">\(y_{1i} \equiv I(y_i \le a)\)</span> e a segunda <span class="math inline">\(y_{2i} \equiv 1\)</span>, e a função definida como <span class="math inline">\(f(Y_1, Y_2) = Y_1 / Y_2\)</span>.</p>
+<p>A <em>variância</em> de uma variável de pesquisa <span class="math inline">\(y\)</span>, dada por</p>
+<span class="math display">\[\begin{equation}
+ S^2_y = \frac{1}{N-1} \left[ \sum_{i\in U} {y_i}^2 - N \overline{Y}^2 \right] = \frac{1}{N-1} \left[ \sum_{i\in U} {y_i}^2 -  {Y}^2/N \right]
+\end{equation}\]</span>
+<p>também pode ser vista como uma função envolvendo três totais populacionais (<span class="math inline">\(K=3\)</span>), sendo o primeiro definido como total da variãvel <span class="math inline">\(y_{1i} \equiv y_i^2\)</span>, a segunda <span class="math inline">\(y_{2i} \equiv y_i\)</span>, e a terceira como <span class="math inline">\(y_{3i} \equiv 1\)</span>. A função que retorna a variância <span class="math inline">\(S^2_y\)</span> é definida como <span class="math inline">\(f(Y_1, Y_2, Y_3) = \frac {1} {Y_3 - 1} \left[ Y_1 - (Y_2^2/Y_3) \right]\)</span>.</p>
+<p>De maneira similar, a <em>covariância</em> e a <em>correlação</em> das variáveis <span class="math inline">\(y\)</span> e <span class="math inline">\(z\)</span> podem ser definidas como:</p>
+<span class="math display">\[\begin{equation}
+S_{y_1 , y_2} = \displaystyle \frac{1}{N-1} \sum_{i\in U} \left({y_{1i} - \overline{Y_1}} \right)  \left({y_{2i} - \overline{Y_2}} \right) = \frac{1}{N-1} \left[ \sum_{i\in U} {y_{1i}} {y_{2i}} - \, Y_1 Y_2 / {N} \right] \quad  
+\end{equation}\]</span>
+<p>e</p>
+<span class="math display">\[\begin{equation}
+{\rho}_{y_1 , y_2} = \frac{S_{y_1 , y_2}} {S_{y_1} S_{y_2}},
+\end{equation}\]</span>
+<p>onde a covariância pode ser vista como uma função envolvendo quatro totais populacionais (<span class="math inline">\(K=4\)</span>), sendo o primeiro definido como o total <span class="math inline">\(Y_1\)</span> da variável <span class="math inline">\(y_1\)</span>, o segundo o total <span class="math inline">\(Y_2\)</span> da variável <span class="math inline">\(y_2\)</span>, o terceiro o total da variável definida como <span class="math inline">\(y_{3i} \equiv y_{1i} y_{2i}\)</span> e o quarto o total da variável definida como <span class="math inline">\(y_{4i} \equiv 1\)</span>. Por simplicidade, a função que define a correlação foi definida em função da covariância e dos desvios-padrão das duas variáveis de interesse, mas também poderia ser escrita como função de totais como já ilustrado nos demais casos.</p>
+<p>O ponto importante a destacar nesta seção é o fato de que muitos parâmetros de interesse podem ser vistos como funções de totais populacionais, e com isso, podem também ser estimados aplicando as funções que definem o parâmetro a estimadores dos totais correspondentes. Isto corresponde essencialmente a uma espécie de método dos momentos para estimar parâmetros populacionais, onde cada total populacional desconhecido é substituído na expressão do parâmetro por um estimador não viciado amostral do total correspondente.</p>
+<p>Essa ideia pode ser aplicada de maneira bastante geral para obter estimadores para grande quantidade de parâmetros populacionais que possam ser escritos em função de totais populacionais de variáveis bem definidas. Para fixar as ideias, este método é aplicado primeiramente para obter estimador para uma <em>razão de totais</em>.</p>
+</div>
+<div id="estimando-razoes-de-totais" class="section level2">
+<h2>Estimando razões (de totais)</h2>
+<p>Para estimar razões de totais (ou médias) como <span class="math inline">\(R\)</span>, o estimador “natural” é a <em>razão dos estimadores Horwitz-Thompson de total</em>:</p>
+<span class="math display">\[\begin{equation}
+\widehat{R} = \frac{ \sum_{i\in s} w_i y_i} {\sum_{i\in s} w_i x_i} = \frac{ \widehat{Y}_{HT} } {\widehat{X}_{HT}} (\#eq:eqraz2)
 \end{equation}\]</span>
 <p><strong>Notas</strong></p>
 <ol style="list-style-type: decimal">
 <li><p>Tanto o numerador como o denominador do estimador <span class="math inline">\(\widehat{R}\)</span> da razão <span class="math inline">\(R\)</span> podem variar com a amostra selecionada, <span class="math inline">\(s\)</span>.</p></li>
-<li><p>Apesar de termos estimadores não viciados para as médias populacionais <span class="math inline">\(\overline{Y}\)</span> e <span class="math inline">\(\overline{X}\)</span>, em geral, <span class="math inline">\(E(Z/W)\ne E(Z)E(W)\)</span>, e portanto <span class="math inline">\(E(\widehat{R})= E({\overline{y}}/{\overline {x}}) \ne E(\overline{y})/E(\overline{x})= \overline{Y}/\overline{X}=R\)</span>.</p></li>
+<li><p>Apesar de termos estimadores não viciados para os totais populacionais <span class="math inline">\(\widehat{Y}_{HT}\)</span> e <span class="math inline">\(\widehat{X}_{HT}\)</span>, em geral, <span class="math inline">\(E(Z/W) \ne E(Z)E(W)\)</span>, e portanto <span class="math inline">\(E(\widehat{R}) = E(\widehat{Y}_{HT}/ \widehat{X}_{HT}) \ne E(\widehat{Y}_{HT})/E(\widehat{X}_{HT})= {Y} / {X} = R\)</span>.</p></li>
 <li><p>Logo <span class="math inline">\(\widehat{R}\)</span> é um estimador viciado de <span class="math inline">\(R\)</span>.</p></li>
-<li><p>O vício de <span class="math inline">\(\widehat{R}\)</span> é pequeno e chamado de “vício técnico”, para distingui-lo de outros vícios tais como não resposta e outros. Para n <em>grande</em>, este <em>vício é desprezível</em>.</p></li>
+<li><p>O vício de <span class="math inline">\(\widehat{R}\)</span> é pequeno e chamado de “vício técnico”, para distingui-lo de outros vícios potencialmente causados por problemas tais como erros de cobertura, não resposta e outros. Para amostras grandes (isto é, com <span class="math inline">\(n\)</span> grande), este vício é geralmente desprezível do ponto de vista prático. Veja discussão na seção @ref(vicioraz).</p></li>
+<li><p>Sob AAS, este estimador simplifica para:</p></li>
 </ol>
+<span class="math display">\[\begin{equation}
+\widehat{R}_{AAS} = \frac{\sum_{i\in s} y_i} {\sum_{i\in s} x_i} = \frac{\overline{y}} {\overline{x}}. (\#eq:eqraz3)
+\end{equation}\]</span>
 </div>
-<div id="analisando-o-vicio-do-estimador-da-razao-sob-aas" class="section level2">
-<h2>Analisando o Vício do Estimador da Razão sob AAS</h2>
+<div id="estimando-outras-funcoes-de-totais" class="section level2">
+<h2>Estimando outras funções de totais</h2>
+<p>Quando o parâmetro de interesse é uma função de totais populacionais <span class="math inline">\(\theta = f(Y_1, Y_2, ..., Y_K)\)</span>, o método mais simples para estimar esse parâmetro é aplicar a mesma função a estimadores não viciados dos totais, isto é, usar o estimador:</p>
+<span class="math display">\[\begin{equation}
+ \widehat{\theta} = f(\widehat{Y_1}, \widehat{Y_2}, ..., \widehat{Y_K})
+\end{equation}\]</span>
+<p>onde <span class="math inline">\(\widehat{Y_k}\)</span> é o estimador HT do total populacional da variável de pesquisa <span class="math inline">\(y_k\)</span>, para <span class="math inline">\(k=1,...,K\)</span>.</p>
+<p>Para o caso de <em>funções lineares</em>, o estimador resultante será dado por:</p>
+<span class="math display">\[\begin{equation}
+ \widehat{\theta} = \sum_{k=1}^K a_k \, \widehat{Y_k}
+\end{equation}\]</span>
+<p>e será um estimador não viciado do parâmetro <span class="math inline">\(\theta\)</span>.</p>
+<p>Neste caso, a variância do estimador também é relativamente simples de obter, e dada por:</p>
+<span class="math display">\[\begin{eqnarray}
+Var_p \left( \widehat{\theta} \right) &amp; = &amp; 
+\sum_{k=1}^K \sum_{j = 1}^K a_k \, a_j Cov_p \left( \widehat{Y_k} ,  \widehat{Y_j} \right) \\
+ &amp;=&amp; \sum_{k=1}^K a_k \, Var_p \left( \widehat{Y_k} \right) +  \sum_{k=1}^K \sum_{j \ne k = 1}^K a_k \, a_j Cov_p \left( \widehat{Y_k} ,  \widehat{Y_j} \right)
+\end{eqnarray}\]</span>
+<p>e um estimador dessa variância pode ser facilmente construído usando</p>
+<span class="math display">\[\begin{eqnarray}
+\widehat{Var}_p \left( \widehat{\theta} \right) &amp; = &amp; \sum_{k=1}^K \sum_{j = 1}^K a_k \, a_j \widehat{Cov}_p \left( \widehat{Y_k} ,  \widehat{Y_j} \right) \\
+&amp; = &amp; \sum_{k=1}^K a_k \, \widehat{Var}_p \left( \widehat{Y_k} \right) +  \sum_{k=1}^K \sum_{j \ne k = 1}^K a_k \, a_j \widehat{Cov}_p \left( \widehat{Y_k} ,  \widehat{Y_j} \right)
+\end{eqnarray}\]</span>
+<p>Um resultado bastante útil é mostrado a seguir. Quando <span class="math inline">\(\theta = \sum_{k=1}^K a_k \, Y_k\)</span>, então sua variância pode ser escrita como:</p>
+<span class="math display">\[\begin{eqnarray}
+Var_p \left( \widehat{\theta} \right) &amp; = &amp; E_p \left( \widehat{\theta} -\theta \right)^2 \\ 
+&amp; = &amp; E_p \left[ \sum_{k=1}^K a_k \left( \widehat{Y_k} - Y_k \right) \right]^2 \\
+&amp; = &amp; E_p \left[ \sum_{k=1}^K a_k \sum_{i \in s} \pi_i^{-1} y_{ki} - \sum_{k=1}^K a_k \sum_{i \in U} y_{ki} \right]^2 \\
+&amp; = &amp; E_p \left[ \sum_{i \in s} \pi_i^{-1} \left( \sum_{k=1}^K a_k y_{ki} \right) - \sum_{i \in U} \left( \sum_{k=1}^K a_k y_{ki} \right) \right]^2 \\
+&amp; = &amp; E_p \left[ \sum_{i \in s} \pi_i^{-1} z_i - \sum_{i \in U} z_i \right]^2 \\
+&amp; = &amp; E_p \left[ \widehat{Z}_{HT} - Z \right]^2 \\
+&amp; = &amp; Var_p \left( \widehat{Z}_{HT} \right)
+\end{eqnarray}\]</span>
+<p>onde <span class="math inline">\(z_i = \sum _{k=1} ^K a_k y_{ki}\)</span>.</p>
+<p>Verifica-se assim que a variância do estimador para <span class="math inline">\(\theta\)</span> pode ser obtida como a variância de um estimador de total para uma variável derivada <span class="math inline">\(z\)</span> definida de maneira apropriada, tornando assim a obtenção da variância do estimador do parâmetro uma tarefa mais simples, já que a variância de estimadores de total foi apresentada no capítulo @ref(visger). Isso leva também à obtenção de estimadores da variância de forma simples, usando a mesma variável derivada:</p>
+<span class="math display">\[\begin{equation}
+\widehat{Var}_p \left( \widehat{\theta} \right) = \widehat V_1(\widehat{Z}_{HT}) = \displaystyle \sum_{i \in s} \sum_{j \in s} \left( {d_i d_j} - {d_{ij}} \right) {z_i} {z_j}
+\end{equation}\]</span>
+<p>Este resultado tem utilidade também quando <span class="math inline">\(\theta\)</span> é uma função não linear de totais, mas essa função é contínua e diferenciável. Neste caso, é possível usar a técnica de <em>linearização de Taylor</em> para obter a variância aproximada do estimador e também um estimador para essa variância. A ideia dessa técnica é simples: aproximar o estimador não linear por uma quantidade linearizada, obtida a partir da expansão em Série de Taylor do estimador <span class="math inline">\(\widehat{\theta}\)</span> ao redor do ponto <span class="math inline">\(\theta\)</span>. A expansão é dada por:</p>
+<span class="math display">\[\begin{eqnarray}
+ \widehat{\theta} &amp; = &amp; f(\widehat{Y}_1, \widehat{Y}_2, ..., \widehat{Y}_K) \\
+ &amp; = &amp; f(Y_1, Y_2, ..., Y_K) + \sum_{k=1}^K \left[ \frac {\partial {f(Y_1, Y_2, ..., Y_K)}}   {\partial{Y_k}} \right] \left( \widehat{Y}_k - Y_k \right) + \\
+ &amp; \, &amp; \sum_{q=2}^\inf \frac {1} {q!} \sum_{k=1}^K \left[ \frac {\partial ^q {f(Y_1, Y_2, ..., Y_K)}} {\partial  {Y_k}}^q \right] \left( \widehat{Y}_k - Y_k \right)^q \\
+ &amp; \doteq &amp; f(Y_1, Y_2, ..., Y_K) + \sum_{k=1}^K \left[ \frac {\partial {f(Y_1, Y_2, ..., Y_K)}}   {\partial{Y_k}} \right] \left( \widehat{Y}_k - Y_k \right)
+\end{eqnarray}\]</span>
+<p>onde a aproximação da última linha advém da exclusão de todos os termos de ordem igual ou superior a 2.</p>
+<p>É comum chamar de <span class="math inline">\(\widehat{\theta}_L\)</span> a quantidade</p>
+<span class="math display">\[\begin{eqnarray}
+ \widehat{\theta}_L &amp; = &amp; f(Y_1, Y_2, ..., Y_K) + \sum_{k=1}^K \left[ \frac {\partial {f(Y_1, Y_2, ..., Y_K)}} {\partial{Y_k}} \right] \left( \widehat{Y}_k - Y_k \right) \\
+ &amp; = &amp; f(Y_1, Y_2, ..., Y_K) + \sum_{k=1}^K a_k \left( \widehat{Y}_k - Y_k \right) 
+\end{eqnarray}\]</span>
+<p>onde agora <span class="math inline">\(a_k = \frac {\partial {f(Y_1, Y_2, ..., Y_K)}} {\partial{Y_k}}\)</span>, <span class="math inline">\(k=1, 2, ..., K\)</span>.</p>
+<p>Assim sendo, a obtenção da variância aproximada para o estimador não linear <span class="math inline">\(\widehat{\theta}\)</span> é feita calculando-se a variância do <em>estimador linearizado</em> <span class="math inline">\(\widehat{\theta}_L\)</span>, que é dada por:</p>
+<span class="math display">\[\begin{equation}
+\widehat{Var}_p \left( \widehat{\theta} \right) \doteq \widehat{Var}_p \left( \widehat{\theta}_L \right) = \widehat V_1(\widehat{Z}_{HT}) = \displaystyle \sum_{i \in s} \sum_{j \in s} \left( {d_i d_j} - {d_{ij}} \right) {z_i} {z_j}
+\end{equation}\]</span>
+<p>onde <span class="math inline">\(z_i = \sum_{k=1}^K \frac{\partial {f(Y_1, Y_2, ..., Y_K)}} {\partial{Y_k}} \, y_{ki}\)</span>.</p>
+</div>
+<div id="vicioraz" class="section level2">
+<h2>Analisando o vício do estimador da razão sob AAS</h2>
 <p>Sejam <span class="math inline">\(\Delta y=\overline{y} - \overline{Y}\)</span>, e <span class="math inline">\(\Delta x=\overline{x} - \overline{X}\)</span> os erros das estimativas de médias populacionais para as variáveis <span class="math inline">\(x\)</span> e <span class="math inline">\(y\)</span>.</p>
 <p>Lembrando que <span class="math inline">\(DP_{AAS}(\overline{y})=\sqrt{(1-f)}S_y/\sqrt{n}\)</span>, segue-se que <span class="math inline">\(\Delta y\)</span> e <span class="math inline">\(\Delta x\)</span> são de ordem <span class="math inline">\(n^{-1/2}\)</span> (a ordem de grandeza do desvio padrão).</p>
 <p>Portanto,</p>

@@ -1,3 +1,72 @@
+---
+title: "Amostragem: Teoria e Prática Usando R"
+author: "Pedro Luis do Nascimento Silva, Zélia Magalhães Bianchini e Antonio José Ribeiro Dias"
+<<<<<<< HEAD
+date: "2019-03-07"
+=======
+date: "2019-03-05"
+>>>>>>> 256f5d65b9bb8e0c4c8303eab10b41de0e07ac29
+
+site: bookdown::bookdown_site
+documentclass: book
+output:
+  bookdown::gitbook: default
+  #bookdown::pdf_book: default
+  
+bibliography: [book.bib]
+biblio-style: apalike
+link-citations: yes
+github-repo: PedroNSilva/amotepur
+description: "Este é o livro de Amostragem elaborado pelos autores."
+---
+
+# Prefácio {-}
+
+Placeholder
+
+
+## Agradecimentos {-}
+
+<!--chapter:end:index.Rmd-->
+
+
+# Introdução {#introduc}
+
+Placeholder
+
+
+## Motivação
+## Objetivos do livro
+## Estrutura do livro
+
+<!--chapter:end:01-intro.Rmd-->
+
+
+# Conceitos e Cadastros
+
+Placeholder
+
+
+## Fontes de dados e tipos de pesquisas
+## Alguns conceitos fundamentais
+## Abordagens alternativas para pesquisas por amostragem {#abordalt}
+## Planejamento e execução de pesquisas por amostragem
+### Especificação das necessidades da pesquisa 
+### Planejamento da pesquisa 
+### Elaboração dos instrumentos de coleta e dos sistemas  
+### Coleta dos dados 
+### Processamento da pesquisa 
+### Análise dos dados da pesquisa 
+### Disseminação dos resultados da pesquisa 
+### Arquivamento das informações da pesquisa 
+### Avaliação da pesquisa  
+## Cadastros 
+### Cadastros importantes no IBGE
+### Defeitos de cadastros 
+### Regras de associação das unidades da população à unidade cadastral 
+
+<!--chapter:end:02-conceitos.Rmd-->
+
 ﻿# Visão Geral da Amostragem e Estimação
 
 ## Definições e notação para população de pesquisa e parâmetros selecionados
@@ -504,3 +573,155 @@ O estimador $\widehat V_{SYG}(\widehat Y_{HT})$ foi motivado a partir da forma d
 3. A estimação de muitos outros parâmetros populacionais, tais como médias, proporções, razões, etc. usa em grande medida os resultados aqui apresentados para a estimação de totais. Isto ficará mais claro nos capítulos seguintes.
 
 4. Pode-se derivar estimadores não viciados do total populacional, e da variância do estimador $HT$ de total para distintos planos amostrais como casos especiais da teoria geral aqui apresentada. Isto será conveniente, em particular, para a estimação de variâncias, cujas expressões gerais dependem de somas duplas que podem tornar-se inconvenientes de calcular quando os tamanhos de amostra são grandes. As expressões apresentadas para cada um dos planos amostrais específicos são úteis porque permitem simplificar os cálculos da estimação de variâncias.
+
+<!--chapter:end:03-visgeral.Rmd-->
+
+
+# Amostragem Aleatória Simples
+
+Placeholder
+
+
+## Planos amostrais e algoritmos de seleção
+## Amostragem Aleatória Simples Com Reposição (AASC)
+## Amostragem Aleatória Simples Sem Reposição (AAS)
+### Sorteio de uma AAS: algoritmo “convencional”
+### Algoritmo de Hàjek para selecionar AAS 
+### Algoritmo de Fan, Muller e Rezucha
+### Probabilidades de inclusão sob AAS
+### Estimador não viciado do total e média populacionais sob AAS
+### Distribuição da média amostral
+### Comparação dos planos de Amostragem Aleatória Simples Com e Sem Reposição
+## Determinação do tamanho da amostra
+
+<!--chapter:end:04-aas.Rmd-->
+
+
+
+## Parâmetros populacionais
+## Estimação sob Amostragem Aleatória Simples com reposição - *AASC*
+## Estimação sob Amostragem Aleatória Simples sem reposição - *AAS*
+## Distribuição amostral exata de estimadores de proporção sob AASC e AAS
+## Intervalos de confiança para proporções na Amostragem Aleatória Simples
+## Intervalos de confiança utilizando a Aproximação Normal
+## Cálculo do tamanho da amostra
+### Cálculo do $n$ utilizando outras formas de representar o erro amostral
+## Estimação de proporções para variáveis com mais de duas categorias
+## Exercícios 
+
+<!--chapter:end:05-proporcoes.Rmd-->
+
+
+# Estimação de uma Razão Populacional 
+
+Placeholder
+
+
+## Razões Populacionais como Parâmetros de Interesse
+## Razão de Médias versus Média de Razões
+## Estimação de Razões
+## Analisando o Vício do Estimador da Razão sob AAS
+## Erro Quadrático Médio (EQM) de $\widehat{R}$ sob AAS
+## Exercícios
+
+<!--chapter:end:06-razoes.Rmd-->
+
+
+# Estimação para Domínios de Estudo 
+
+Placeholder
+
+
+## Domínios de Estudo 
+## Parâmetros-Alvo para o Domínio
+## Estimação de Parâmetros para o Domínio
+
+<!--chapter:end:07-dominios.Rmd-->
+
+
+# Amostragem Sistemática Simples (AS)
+
+Placeholder
+
+
+## Esquema de Seleção da Amostra
+## Aspectos Importantes na Amostragem Sistemática Simples
+## Probabilidades de Inclusão na Amostragem Sistemática
+## Variáveis Aleatórias Indicadoras
+## Composição de Amostra Sistemática de Intervalo K 
+## Estimação sob Amostragem Sistemática
+## Estimação do Total Populacional sob Amostragem Sistemática
+## Estimação da Média Populacional sob Amostragem Sistemática
+## Variância de $\widehat Y_{AS}$ Sob Amostragem Sistemática
+## Estimação de Variâncias dos Estimadores
+
+<!--chapter:end:08-sistematica.Rmd-->
+
+
+# Amostragem Binomial ou de Bernoulli (AB)
+
+Placeholder
+
+
+## Esquema de Seleção da Amostra
+## Probabilidades de Inclusão na Amostragem Binomial ou de Bernoulli
+## Algumas Propriedades da Amostragem Binomial ou de Bernoulli 
+## Exemplos de Aplicação da Amostragem Binomial ou de Bernoulli 
+
+<!--chapter:end:09-binomial.Rmd-->
+
+
+
+
+<!--chapter:end:10-ppt.Rmd-->
+
+
+# Amostragem Inversa
+
+Placeholder
+
+
+## Introdução
+## Amostragem Inversa
+
+<!--chapter:end:11-Inversa.Rmd-->
+
+
+
+
+<!--chapter:end:12-estratificada.Rmd-->
+
+
+
+## Definições básicas e notação na amostragem conglomerada
+### Amostragem Conglomerada em um estágio (AC1)
+### Amostragem conglomerada em vários estágios 
+## Teoria básica de estimação para Amostragem Conglomerada em um estágio (AC1)
+### Amostragem Conglomerada Simples (ACS)
+#### Estimação do total populacional: estimador natural 
+#### Comparação de estimadores natural e de razão do total
+#### Estimação da média por unidade: estimador natural
+#### Estimação da média por unidade: estimador de razão
+### Efeito de Plano Amostral (EPA)
+### Amostragem conglomerada com probabilidade proporcional ao tamanho (PPT) em um estágio
+#### Estimadores do total com AC1PPT
+## Amostragem Conglomerada em dois estágios (AC2)
+### Plano amostral 1 – AC2 com AAS nos 2 estágios
+#### Planos amostrais equiponderados
+### Estimação sob AC2
+#### Estimador de Horvitz-Thompson do total $Y$
+#### Estimador de Horvitz-Thompson da média
+#### Estimador de razão do total $Y$
+### Plano amostral 2 – AC2 com PPT com reposição no primeiro estágio e AAS no segundo estágio (AC2PPTC)
+### Plano amostral 3 – AC2 com PPT Poisson Sequencial no estágio 1 e AAS no estágio 2 (AC2PPPS)
+### Ideias básicas na escolha de unidades compostas 
+### Determinando tamanhos de amostra com AC2PPT
+
+<!--chapter:end:13-conglomerados.Rmd-->
+
+
+# Referências {-}
+
+
+<!--chapter:end:15-referencias.Rmd-->
+

@@ -146,14 +146,14 @@ Y=\displaystyle\sum_{i=1}^{N}y_i=\sum_{i\in U}y_i\,\,
 <p>Uma <em>proporção populacional</em> <span class="math inline">\(p\)</span> é simplesmente a média populacional de uma variável <span class="math inline">\(y\)</span> do tipo indicadora, que toma apenas os valores um ou zero para cada unidade. O total de uma variável desse tipo representa a contagem de unidades na população possuidoras do atributo de interesse, e a média é exatamente essa contagem dividida pelo tamanho da população.</p>
 <p>Um caso especial de proporção populacional de interesse ocorre com a definição da <em>função de distribuição cumulativa empírica populacional</em> (<em>FDCEP</em>), dada por:</p>
 <span class="math display">\[\begin{equation}
-F_U(t) = \displaystyle \frac{1}{N} \sum_{i\in U} I(y_i \le t) \,\, (\#eq:eqvis3)
+F_y(a) = \displaystyle \frac{1}{N} \sum_{i\in U} I(y_i \le a) \,\, (\#eq:eqvis3)
 \end{equation}\]</span>
-<p>onde <span class="math inline">\(t \in \rm{I\!R\!}\)</span> . Esta função retorna a proporção de unidades na população <span class="math inline">\(U\)</span> que têm valores de <span class="math inline">\(y\)</span> menores ou iguais a <span class="math inline">\(t\)</span>.</p>
+<p>onde <span class="math inline">\(a \in \rm{I\!R\!}\)</span> . Esta função retorna a proporção de unidades na população <span class="math inline">\(U\)</span> que têm valores de <span class="math inline">\(y\)</span> menores ou iguais a <span class="math inline">\(a\)</span>.</p>
 <p>O <em>quantil populacional</em> <span class="math inline">\(q\)</span> da distribuição da variável <span class="math inline">\(y\)</span> é definido como o menor valor de <span class="math inline">\(y\)</span> tal que a <em>FDCEP</em> tem valor maior ou igual a <span class="math inline">\(q\)</span>, isto é:</p>
 <span class="math display">\[\begin{equation}
-T_U(q)= argmin\{F_U(t) \ge q\} \,\,(\#eq:eqvis4)
+T_y(q)= argmin\{F_y(a) \ge q\} \,\,(\#eq:eqvis4)
 \end{equation}\]</span>
-<p>Por exemplo, a <em>mediana populacional</em> da variável <span class="math inline">\(y\)</span> corresponde ao quantil obtido quando <span class="math inline">\(q=0,5\)</span>, isto é, <span class="math inline">\(\text{Mediana}\,_U = T_U(0,5)\)</span>.</p>
+<p>Por exemplo, a <em>mediana populacional</em> da variável <span class="math inline">\(y\)</span> corresponde ao quantil obtido quando <span class="math inline">\(q=0,5\)</span>, isto é, <span class="math inline">\(\text{Mediana}\,_y = T_y(0,5)\)</span>.</p>
 <p>A <em>variância populacional</em> da variável <span class="math inline">\(y\)</span> é dada por:</p>
 <span class="math display">\[\begin{equation}
 S^2_y=\displaystyle\frac{1}{N-1}\sum_{i\in U}({y_i-\overline{Y}})^2=\frac{1}{N-1}\left[\sum_{i\in U}{y_i}^2-N\overline{Y}^2\right]\,\,(\#eq:eqvis5)

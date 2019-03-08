@@ -1,4 +1,4 @@
-# Estimação de proporções
+﻿# Estimação de proporções
 
 ## Parâmetros populacionais
 
@@ -12,7 +12,7 @@ Um caso especial de parâmetro de interesse para muitos estudos ou pesquisas oco
 Sendo uma variável indicadora, a variável $y$ irá assumir para cada unidade da população um de dois valores possíveis: o valor 1, se a unidade possui o atributo de interesse, ou o valor 0, caso a unidade não possua o atributo. Para fins de apresentação, seja $A \subset U$ o subconjunto das unidades da população $U$ que possuem o atributo de interesse. Então, para cada unidade $i$ da população, a variável $y$ será definida como:
 
 $$
-y_i = I(i \in A) = \displaystyle \begin{cases} 1, \text {se a unidade}\, i\, \text{possui o atributo de interesse} \\\\ 0, \text {se a unidade }\, i\, \text{não possui o atributo de interesse} \end{cases} (\#eq:eqpro1)
+y_i = I(i \in A) = \displaystyle \begin{cases} 1, \text {se a unidade i possui o atributo de interesse} \\\\ 0, \text {se a unidade i não possui o atributo de interesse} \end{cases} (\#eq:eqpro1)
 $$
 
 O total populacional da variável $y$ coincide com a contagem do número de unidades populacionais que possuem o atributo de interesse, ou que pertencem ao subconjunto $A$, e pode ser representado como:
@@ -45,7 +45,7 @@ Uma *proporção* pode assumir valores variando entre $0$, quando nenhuma unidad
 Como $y$ só pode receber valores $1$ ou $0$, a expressão da sua *variância* populacional pode ser simplificada:
 
 $$
-S^2_y = \displaystyle \frac {1}{N-1} \left( \sum_{i \in U} y^2_i - N \overline{Y}^2 \right) = \frac{1}{N-1} \left(Np-Np^2 \right) = \frac{N}{N-1} p \left(1-p\right)  (\#eq:eqpro4)
+S^2_y = \displaystyle \frac {1}{N-1} \left( \sum_{i \in U} y^2_i - N \overline{Y}^2 \right) = \frac{1}{N-1} \left(Np-Np^2 \right) = \frac{N}{N-1} p \left(1-p\right) . (\#eq:eqpro4)
 $$ 
 
 A *variância* populacional de $y$ pode também ser definida como $\sigma^2_y = p (1-p)$. Tanto $S^2_y$ como $\sigma^2_y$ representam a dispersão da distribuição dos valores de $y$ na população. Para populações com um grande número de unidades ($N \displaystyle \rightarrow \infty,$), é fácil verificar que as duas quantidades são praticamente iguais, pois pode-se considerar $S^2_y \displaystyle \doteq p(1-p) = \sigma^2_y$.
@@ -100,7 +100,7 @@ $$
 O total de unidades com o atributo de interesse, $N_A$, é estimado usando:
 
 $$
-\widehat Y_{AASC} = N \times t_y / n = N \times n_A / n = \widehat {N}_A\quad (\#eq:eqpro7)
+\widehat Y_{AASC} = N \times t_y / n = N \times n_A / n = \widehat {N}_A (\#eq:eqpro7)
 $$
 Como indicado no capítulo anterior, este estimador é não viciado sob AASC para qualquer variável $y$, logo é ENV também quando $y$ é do tipo indicadora, como aqui definido.
 
@@ -125,10 +125,10 @@ $$
 A *variância amostral* de $y$ é dada por:
 
 $$
-\displaystyle s^2_y = \frac {n}{n-1} \widehat p (1 - \widehat p)\,\, (\#eq:eqpro11) 
+\displaystyle s^2_y = \frac {n}{n-1} \widehat p (1 - \widehat p) (\#eq:eqpro11) 
 $$
 
-Sob AASC, a *variância amostral* $s^2_y$ é um estimador não viciado para a *variância populacional* $\sigma^2_y$. Assim se obtem um estimador não viciado para a variância do estimador $\widehat p$ como:
+Sob AASC, a *variância amostral *$s^2_y$ é um estimador não viciado para a *variância populacional* $\sigma^2_y$. Assim se obtem um estimador não viciado para a variância do estimador $\widehat p$ como:
 
 $$
 \displaystyle \widehat {V}_{AASC} (\widehat p) = \frac {\widehat p (1 - \widehat p)}{n-1} \,\, (\#eq:eqpro12) 
@@ -137,15 +137,14 @@ $$
 O quadro 5.1 reúne os resultados principais da estimação de contagens e proporções sob *AASC*.
 
 \begin{array} {|c|c|} \hline
-\textbf{Parâmetro} & \textbf{Estimador ENV sob AASC} 
+\textrm{Parâmetro} & \textrm{Estimador ENV sob AASC} 
 \\ \hline N_A = \displaystyle \sum_{i \in U} y_i & \widehat N_A = N \times n_A / n = N \times p
 \\ \hline p = N_A / n & \widehat{p} = n_a / n 
 \\ \hline \sigma^2_y = p (1-p) & s^2_y = \displaystyle \frac{n}{n-1} \widehat p (1 - \widehat p)  
-\\ \hline V_{AASC}(\widehat N_A) = \displaystyle N^2 \frac {p(1-p)}{n} & \widehat V_{AASC} (\widehat N_A) = N^2 \widehat{p} (1 - \widehat{p}) / (n - 1)
-\\ \hline V_{AASC} (\widehat p) = \displaystyle \frac {p(1-p)}{n} & \widehat V_{AASC}(\widehat{p}) = \widehat{p} (1 - \widehat{p}) / (n - 1)
+\\ \hline V_{AASC}(\widehat N_A) = N^2 \frac {p(1-p)}{n} & \widehat V_{AASC} (\widehat N_A) = N^2 \widehat{p} (1 - \widehat{p}) / (n - 1)
+\\ \hline V_{AASC} (\widehat p) = \frac {p(1-p)}{n} & \widehat V_{AASC}(\widehat{p}) = \widehat{p} (1 - \widehat{p}) / (n - 1)
 \\ \hline
 \end{array}
-
 
 ## Estimação sob Amostragem Aleatória Simples sem reposição - *AAS*
 
@@ -186,12 +185,12 @@ $$
 O quadro 5.2 reúne os resultados principais da estimação de contagens e proporções sob *AAS*.
 
 \begin{array} {|c|c|} \hline
-\textbf{Parâmetro} & \textbf{Estimador ENV sob AAS} 
+\textrm{Parâmetro} & \textrm{Estimador ENV sob AAS} 
 \\ \hline N_A = \displaystyle \sum_{i \in U} y_i & \widehat N_A = N \times n_A / n = N \times p
 \\ \hline p = N_A / n & \widehat{p} = n_a / n 
-\\ \hline S^2_y = \displaystyle \frac{N}{N-1} p (1-p) & s^2_y = \displaystyle \frac{n}{n-1} \widehat p (1 - \widehat p)  
-\\ \hline V_{AASC}(\widehat N_A) = \displaystyle N^2 \left( \frac 1 n - \frac {1}{N} \right) \frac{N}{N-1} p(1-p) & \displaystyle N^2 \left( \frac 1 n - \frac {1}{N} \right) \frac {\widehat p (1 - \widehat p)} {n-1}
-\\ \hline V_{AAS} (\widehat p) = \displaystyle \left( \frac 1 n - \frac {1}{N} \right) \frac{N}{N-1} p(1-p) & \displaystyle \widehat V_{AAS} (\widehat p) = \left( \frac 1 n - \frac {1}{N} \right) \frac {\widehat p (1 - \widehat p)} {n-1}
+\\ \hline \S^2_y = \frac{N}{N-1} p (1-p) & s^2_y = \displaystyle \frac{n}{n-1} \widehat p (1 - \widehat p)  
+\\ \hline V_{AASC}(\widehat N_A) = N^2 \left( \frac 1 n - \frac {1}{N} \right) \frac{N}{N-1} p(1-p) & N^2 \left( \frac 1 n - \frac {1}{N} \right) \frac {\widehat p (1 - \widehat p)} {n-1}
+\\ \hline V_{AAS} (\widehat p) = \left( \frac 1 n - \frac {1}{N} \right) \frac{N}{N-1} p(1-p) & \widehat V_{AAS} (\widehat p) = \left( \frac 1 n - \frac {1}{N} \right) \frac {\widehat p (1 - \widehat p)} {n-1}
 \\ \hline
 \end{array}
 
@@ -237,7 +236,7 @@ $Hipergeométrica(N, N_A, N)$. Isto ocorre porque sob *AAS* os $n$ sorteios são
 O número total de amostras aleatórias simples sem reposição de tamanho $n$ que podem ser selecionadas de uma população com $N$ unidades é dado por $\binom{N}{n}$, e o número dessas amostras com exatamente $v$ unidades com a característica em estudo e $n-v$ unidades sem essa característica pode se calculado por $\binom{N_A}{v}\binom{N-N_A}{n-v}$. Sendo assim, a distribuição de probabilidades da variável aleatória $t_y = n_A$ é então dada por:
 
 $$
-P \left(n_A = v \right) = \displaystyle\frac {\binom{N_A} {v} \binom{N-N_A} {n-v}}{\binom{N} {n}} , {\quad\quad \text{para todo }} v=0, 1, 2, ..., min(n;N_A) \,\, (\#eq:eqpro22) 
+P \left(n_A = v \right) = \frac {\binom{N_A} {v} \binom{N-N_A} {n-v}}{\binom{N} {n}} , {\quad\quad \text{para todo }} v=0, 1, 2, ..., min(n;N_A) \,\, (\#eq:eqpro22) 
 $$
 
 e assim fica também determinada a distribuição exada de probabilidades do estimador $\widehat p$, que é a mesma, mas com os valores possíveis da proporção amostral divididos pelo tamanho da amostra $n$.
@@ -266,13 +265,213 @@ $$
 
 Em ambos os casos $1 - \alpha$ é o *nível de confiança* desejado. Por exemplo, para intervalos de 95% de confiança, deve-se usar $\alpha=0,05$.
 
-XXX SUBSTITUIR O PARÁGRAFO ABAIXO POR EXEMPLO DE CÓDIGO R PARA RESOLVER XXX
+A solução desses sistemas costumava ser trabalhosa, exigindo aplicação de métodos iterativos que consumiam quantidade razoavelmente grande de recursos computacionais. Atualmente, com o avanço dos métodos computacionais, esse problema pode facilmente ser resolvido, por exemplo, com o uso do R. Uma maneira é utilizar as funções *qbinom* e *qhyper* que podem calcular os quantis das distribuições Binomial e Hipergeométrica para $\alfa /2$ e $1-\alfa /2$. 
+Além disso há outros programas já prontos facilmente utilizávies, como, por exemplo, as funções *binconf* e *confCI* incluídas, respectivamente nos pacotes *Hmisc* e *prevalence* do R. Essas funções estimam intervalos de confiança para vários métodos além do mostrado acima, como o da Aproximação Normal, apresentado na próxima seção, além de outras abordagens.
+Há, também, no pacote *survey* uma função específica, *svyciprop*, para calcular intervalos de confiança para proporções. Uma característica interessante do pacote *survey* é que é possível determinar a utilização do fator de correção para populações finitas, quando a seleção é sem reposição.
 
-A solução desses sistemas pode ser trabalhosa, exigindo aplicação de métodos iterativos que exigem quantidade razoavelmente grande de recursos computacionais. [@Cochran1977] dá alguns exemplos e referências para a solução desses problemas. 
+**Exemplo 5.x:** Voltando ao exemplo da escola com $N=1000$ alunos, suponha que foi selecionada uma amostra aleatória simples de tamanho $n=125$ na qual foi investigado o sexo de cada aluno da amostra, sendo que 60 são do sexo feminino. Constuir um intervalo de aproximadamente 95% de confiança para a proporção de alunos do sexo feminino, utilizando os vários métodos sugeridos acima.
 
-XXX
 
-Na maioria dos casos práticos, essa dificuldade leva à opção pelo uso da aproximação pela distribuição Normal de probabilidades. Isso pode ser feito sempre que as condições do problema assim o permitirem, como se discute na próxima seção.
+```r
+# Carregando pacotes necessários
+require(Hmisc,     quietly=TRUE,warn.conflicts=FALSE,character.only=FALSE)
+require(survey,    quietly=TRUE,warn.conflicts=FALSE,character.only=FALSE)
+require(prevalence,quietly=TRUE,warn.conflicts=FALSE,character.only=FALSE)
+```
+
+```
+## Linked to JAGS 4.3.0
+```
+
+```
+## Loaded modules: basemod,bugs
+```
+
+```r
+# Definição do arquivo da amostra para a função svyciprop
+s=as.data.frame(c(rep(1,60),rep(0,125-60)))
+names(s)=c("y")
+s$N=1000                # tamanho da população (número de alunos da escola)
+s$n=dim(s)[1]           # tamanho da amostra
+s$x=sum(s$y)            # mulheres na amostra
+s$peso=s$N/s$n          # pesos amostrais (inverso da fração amostral)
+# Parâmetros de entrada para outras funções
+N=s$N[1]
+n=s$n[1]
+x=s$x[1]
+p=x/n
+alfa = 0.05             # nível de significância
+# Caso a amostra tenha sido selecionada com reposição
+# Usando a função qbinom
+li=qbinom(alfa/2,n,p)/n
+ls=qbinom(1-alfa/2,n,p)/n
+c(p,li,ls)
+```
+
+```
+## [1] 0.480 0.392 0.568
+```
+
+```r
+# Usando a função binconf
+binconf(x,n,method="all",alpha=alfa)
+```
+
+```
+##            PointEst     Lower     Upper
+## Exact          0.48 0.3898361 0.5711333
+## Wilson         0.48 0.3943277 0.5668649
+## Asymptotic     0.48 0.3924179 0.5675821
+```
+
+```r
+# Usando a função propCI
+propCI(x,n,method="all",level=1-alfa)
+```
+
+```
+##    x   n    p        method level     lower     upper
+## 1 60 125 0.48 agresti.coull  0.95 0.3943257 0.5668669
+## 2 60 125 0.48         exact  0.95 0.3898361 0.5711333
+## 3 60 125 0.48      jeffreys  0.95 0.3937144 0.5671999
+## 4 60 125 0.48          wald  0.95 0.3924179 0.5675821
+## 5 60 125 0.48        wilson  0.95 0.3943277 0.5668649
+```
+
+```r
+# Usando a função svyciprop 
+desaasc=svydesign(ids=~1,data=s,weights=~peso, fpc=NULL) # plano amostral de AASC (sem FPC)
+svyciprop(~I(y==1),desaasc,method="logit")
+```
+
+```
+##                  2.5% 97.5%
+## I(y == 1) 0.480 0.393  0.57
+```
+
+```r
+svyciprop(~I(y==1),desaasc,method="likelihood")
+```
+
+```
+##                  2.5% 97.5%
+## I(y == 1) 0.480 0.392  0.57
+```
+
+```r
+svyciprop(~I(y==1),desaasc,method="asin")
+```
+
+```
+##                  2.5% 97.5%
+## I(y == 1) 0.480 0.392  0.57
+```
+
+```r
+svyciprop(~I(y==1),desaasc,method="beta")
+```
+
+```
+##                  2.5% 97.5%
+## I(y == 1) 0.480 0.389  0.57
+```
+
+```r
+svyciprop(~I(y==1),desaasc,method="mean")
+```
+
+```
+##                  2.5% 97.5%
+## I(y == 1) 0.480 0.391  0.57
+```
+
+```r
+svyciprop(~I(y==1),desaasc,method="xlogit")
+```
+
+```
+##                  2.5% 97.5%
+## I(y == 1) 0.480 0.393  0.57
+```
+
+```r
+# Caso a amostra tenha sido selecionada sem reposição
+# Usando a função qhyper
+li=qhyper(alfa/2,N*p,N-N*p,n)/n
+ls=qhyper(1-alfa/2,N*p,N-N*p,n)/n
+c(p,li,ls)
+```
+
+```
+## [1] 0.48 0.40 0.56
+```
+
+```r
+# Usando a função svyciprop 
+desaas=svydesign(ids=~1,data=s,weights=~peso,fpc=~N) # plano amostral de AAS (com FPC)
+svyciprop(~I(y==1),desaas,method="logit")
+```
+
+```
+##                  2.5% 97.5%
+## I(y == 1) 0.480 0.398  0.56
+```
+
+```r
+svyciprop(~I(y==1),desaas,method="likelihood")
+```
+
+```
+##                  2.5% 97.5%
+## I(y == 1) 0.480 0.398  0.56
+```
+
+```r
+svyciprop(~I(y==1),desaas,method="asin")
+```
+
+```
+##                  2.5% 97.5%
+## I(y == 1) 0.480 0.398  0.56
+```
+
+```r
+svyciprop(~I(y==1),desaas,method="beta")
+```
+
+```
+##                  2.5% 97.5%
+## I(y == 1) 0.480 0.395  0.57
+```
+
+```r
+svyciprop(~I(y==1),desaas,method="mean")
+```
+
+```
+##                  2.5% 97.5%
+## I(y == 1) 0.480 0.397  0.56
+```
+
+```r
+svyciprop(~I(y==1),desaas,method="xlogit")
+```
+
+```
+##                  2.5% 97.5%
+## I(y == 1) 0.480 0.398  0.56
+```
+Na função *binconf* o método denominado *Exact* utiliza uma aproximação da Binomial pela distribuição *F*; o método denominado *Wilson* é baseado nos *scores* do teste bonomial e é o método definido como *default* por ser considerado o melhor; já o método denominado *Asymptotic* é o da proximação pela distribuição Normal.
+
+Na função *propCI* são apresentados outros dois métodos: O método *Agresti-Coull* que é um ajuste da Aproximação Normal e o método *Jeffreys* que é um método Bayesiano. O método *Asymptotic* é chamado de *Wald*.
+
+Para as duas funções acima não se considera se a amostra foi selecionada com ou sem reposição, o que é perfeitamente aceitável para amostras grandes retiradas de populações também grandes.
+
+Para a função *svyciprop*, do pacote *survey*, é possível definir se a amostra foi selecionada sem ou com reposição, bastando fornecer, ou não, o tamanho, $N$, da população para o cálculo do fator de correção para população finita. Nessa função é possível escolher entre 6 possíveis métodos para o cálculo do intervalo de confiança (referência do R). 
+
+Pode-se observar que nos exemplos acima, onde o tamanho da amostra é grande, os resultados de todos os métodos utilizados, em termos práticos, são bastante parecidos. Fica como exercício para o leitor verificar o que acontece quando for utilizada uma amostra de tamanho pequeno (menor que 30, por exemplo).
+
+Na maioria dos casos práticos, opta-se pelo uso da aproximação pela distribuição Normal de probabilidades, pela facilidade de seu uso tanto para *AAS* como *AASC*. Isso pode ser feito sempre que as condições do problema assim o permitirem, como se discute na próxima seção.
 
 ## Intervalos de confiança utilizando a Aproximação Normal
 
@@ -281,7 +480,7 @@ Como já foi visto no capítulo anterior, a distribuição do estimador da propo
 Sob estas condições pode-se considerar que:
 
 \begin{equation}
-\frac {\widehat p - p} {\sqrt {V_{p(s)}(\widehat p)}} \approx N(0;1)(\#eq:eqpro28) 
+\frac {\widehat p - p} {\sqrt {V_{p(s)}(\widehat p)}} \simeq N(0,1)(\#eq:eqpro28) 
 \end{equation}
 
 Na Figura \@ref(fig:normalaasc) a seguir o gráfico mostra a aproximação Normal para a seleção de 1000 amostras de tamanho $n=100$, selecionadas com reposição, de uma população de tamanho $N=5000$, onde exatamente metade das unidades tem a caracterísitica de interesse ($y_i=1$).
@@ -337,7 +536,6 @@ Caso se deseje considerar o fator de correção para populacões finitas, quando
 \end{equation}
 
 Em [@Cochran1977] é apresentada uma *correção de continuidade* acrescentando a fração $1/2n$ à margem de erro do intervalo de confiança pelo fato de se fazer uma aproximação de uma distribuição discreta (Binomial ou Hipergeométrica) pela distribuição Normal, que é contínua. Desse modo a expressão do intervalo de confiança passa a ser: 
-
 \begin{equation} 
 \displaystyle IC(p;{1-\alpha})=\left[\widehat p-z_{\alpha/ 2}\sqrt {{pq}/n}-1/2n\,;\,\widehat p+z_{\alpha/2}\sqrt{{pq}/n} +1/2n \right](\#eq:eqpro31) \end{equation}
 Ou considerando a correção para população finita:
@@ -363,7 +561,7 @@ O tamanho de uma amostra aleatória simples a ser selecionada, como já foi vist
 
 No caso de seleção com reposição, considerando uma margem de erro máxima admissível de $d$ com um nível de confiança $1-\alpha$, basta utilizar expressão da margem de erro:
 \begin{equation}
-d \le z_{\alpha/2}\sqrt { \frac{pq}{n}} \implies n \ge \frac{z^2_{\alpha/2}pq}{d^2}\,\, (\#eq:eqpro35) 
+d \le z_{\alpha/2}\sqrt { \frac{pq}{n}} \implies n \ge \frac{z^2_{\alpha/2}pq}{d^2} (\#eq:eqpro35) 
 \end{equation}
 Para seleção sem reposição o tamanho da amostra será calculado como:
 \begin{equation}
@@ -371,11 +569,11 @@ d \le z_{\alpha/2}\sqrt{\left(\frac {N-n}{N-1}\right)\frac{pq}n} \implies n \ge 
 \end{equation}
 Uma maneira prática de calcular o tamanho da amostra para uma *AAS* em dois passos é calcular primeiro: 
 \begin{equation}
-n_0=\frac{z^2_{\alpha/2}pq}{d^2}\,\,(\#eq:eqpro37) 
+n_0=\frac{z^2_{\alpha/2}pq}{d^2}(\#eq:eqpro37) 
 \end{equation}
 E depois fazer:
 \begin{equation}
-n \ge \frac {n_0}{1+n_0 /N}\,\,(\#eq:eqpro38) 
+n \ge \frac {n_0}{1+n_0 /N}(\#eq:eqpro38) 
 \end{equation}
 
 Note que $n_0$ é equivalente ao tamanho da amostra para uma *AASC* e o valor de $n$ para a *AAS* é obtido pela correção para população finita do valor $n_0$. Também pode-se concluir que quando o tamanho da população, $N$, é grande o fator $n_0/N$ tende a se anular fazendo com que $n=n_0$, ou seja: quando o tamanho da população é grande as amostras aleatórias simples com ou sem reposição são equivalentes.
@@ -393,11 +591,11 @@ No caso da estimação de proporções o valor de $pq$ é limitado variando de 0
 
 Como o valor máximo da variância é atingido quando $p=0,5$, caso não exista nenhuma informação sobre a proporção a ser estimada, uma maneira de determinar um tamanho de amostra conservador é supor exatamente que $p=0,5$. Assim pode-se simplificar a fórmula de cálculo de $n$ para uma *AASC*: 
 \begin{equation} 
-n \ge \frac {z^2_{\alpha /2}}{4d^2}\,\,(\#eq:eqpro39) 
+n \ge \frac {z^2_{\alpha /2}}{4d^2}(\#eq:eqpro39) 
 \end{equation}
 No caso de uma *AAS* basta fazer:
 \begin{equation}
-n_0 = \frac {z^2_{\alpha /2}}{4d^2} \implies n \ge \frac {n_0}{1+n_0/N}\,\,(\#eq:eqpro40) 
+n_0 = \frac {z^2_{\alpha /2}}{4d^2} \implies n \ge \frac {n_0}{1+n_0/N}(\#eq:eqpro40) 
 \end{equation}
 
 Geralmente os resultados das fórmulas para cálculo do tamanho da amostra não são valores inteiros. Em todos esses casos o valor de $n$ calculado deverá ser arredondado para o valor inteiro imediatamente superior, preservando assim a precisão desejada.
@@ -408,7 +606,7 @@ As fómulas apresentadas para o cálculo do tamanho da amostra utilizaram a marg
 
 Para calcular um tamanho de amostra de maneira que o coeficiente de variação máximo esperado para o estimador $\widehat p$ seja um valor fixado $c$, pode-se utilizar a fórmula:
 \begin{equation}
-n \ge \frac q {c^2p}\,\,(\#eq:eqpro41) 
+n \ge \frac q {c^2p}(\#eq:eqpro41) 
 \end{equation}
 no caso da seleção com reposição.
 
@@ -416,14 +614,14 @@ Para chegar a esse resultado basta ver que $CV_{AASC}(\widehat p)= \sqrt {V_{AAS
 
 Para a seleção sem reposição pode-se fazer:
 \begin{equation}
-n_0 = \frac q {c^2p} \implies n \ge \frac {n_0} {1+n_0/N}\,\,(\#eq:eqpro42) 
+n_0 = \frac q {c^2p} \implies n \ge \frac {n_0} {1+n_0/N}(\#eq:eqpro42) 
 \end{equation}
 
 Seguindo o mesmo raciocínio pode-se chegar às formulas para calcular *n* fixando a variância máxima esperada de $\widehat p$ em $v$ ou o seu erro relativo máximo em $r$.
 
 Para a seleção com reposição tem-se:
 \begin{equation}
-n \ge \frac {pq} {v}  { \quad\textrm { ou } \quad} n \ge \frac {z^2_{\alpha/2}}{r^2} \frac q p \,\,(\#eq:eqpro43) 
+n \ge \frac {pq} {v}  { \quad\textrm { ou } \quad} n \ge \frac {z^2_{\alpha/2}}{r^2} \frac q p (\#eq:eqpro43) 
 \end{equation}
 
 As expressões para a seleção sem reposição são derivadas como no caso em que foi fixado o valor máximo esperado para $CV(\widehat p$).
@@ -457,22 +655,22 @@ Observe que para calcular as proporções em cada uma das categorias na verdade 
 A proporção de unidades da população pertencentes à categoria $c\in (1, 2,.., M)$, é dada por:
 
 \begin{equation}
-p_c=\frac {N_c} {N} \,\, (\#eq:eqpro44) 
+p_c=\frac {N_c} {N} (\#eq:eqpro44) 
 \end{equation}
 0nde $N_c$ é o número de unidades na categoria $c$ e $N$ é o tamanho total da população.
 
 Seja uma amostra aleatória simples (com ou sem reposição) de tamanho $n$ e seja a variável indicadora $y_i$ definida como:
 \begin{equation}
-\displaystyle y_i= \begin{cases} 1, \text {se a unidade}\, i\,\text{pertence à categoria $c$} \\\\ 0, \text {se a unidade} \,i\,\text{não pertence à categoria $c$} \end{cases}\,\,(\#eq:eqpro45)
+\displaystyle y_i= \begin{cases} 1, \text {se a unidade i pertence à categoria $c$} \\\\ 0, \text {se a unidade i não pertence à categoria $c$} \end{cases}(\#eq:eqpro45)
 \end{equation}
 
 Com tal definição pode-se ver que o número de unidades da catecoria $c$ na amostra será dado por::
 \begin{equation}
-\displaystyle n_c=\sum_{i=1}^{n} y_i\,\,(\#eq:eqpro46)
+\displaystyle n_c=\sum_{i=1}^{n} y_i(\#eq:eqpro46)
 \end{equation}
 Um estimador para a proporção de unidades populacionais pertencentes à categoria $c$  poderá ser obtido por:
 \begin{equation}
-\displaystyle \widehat p_c=\frac {1}{n} \sum_{i=1}^{n} y_i =\frac {n_c} {n}\,\,(\#eq:eqpro47)
+\displaystyle \widehat p_c=\frac {1}{n} \sum_{i=1}^{n} y_i =\frac {n_c} {n}(\#eq:eqpro47)
 \end{equation}
 O problema foi reduzido ao caso de estimar proporções em variáveis com duas categorias.
 Pode-se obter, também, estimativas de precisão utilizando as mesmas ferramentas já apresentadas neste capítulo.
@@ -485,7 +683,7 @@ Outro caso de interesse ocorre quando na aplicação de um questionário, por ex
 
 Neste caso poderia ser estimada a proporção para cada uma das quatro categorias iniciais ou apenas a proporção de votos válidos para cada um dos dois candidatos.
 \begin{equation}
-\displaystyle \widehat p_A=\frac {n_A} {n_A+n_B} \quad\text { e } \quad\widehat p_B=\frac {n_B} {n_A+n_B}\,\,(\#eq:eqpro48)
+\displaystyle \widehat p_A=\frac {n_A} {n_A+n_B} \quad\text { e } \quad\widehat p_B=\frac {n_B} {n_A+n_B}(\#eq:eqpro48)
 \end{equation}
 
 Vale notar que neste caso tanto o numerador como o denominador do estimador da proporção são variáveis aleatórias, pois a população (eleitores que efetivamente vão votar num dos candidatos) é desconhecida.
@@ -495,3 +693,23 @@ XXX INSERIR AQUI XXX
 Obtenção de intervalos de confiança quando a AASC tem tamanho pequeno ou modesto - exemplificar.
 
 Discussão de quando a aproximação Normal da proporção amostral é útil. Intervalos de confiança sob a aproximação Normal - exemplificar.
+
+## Exercícios 
+
+{exe:#exepro1} Uma pesquisa foi feita para estimar a proporção de domicílios de uma pequena vila que têm, pelo menos, um morador com 65 ou mais. A vila tem 651 domicílios dos quais foram pesquisados 60, e em 11 deles havia moradores com 65 anos ou mais.
+  a. Estime a proporção $p$ de domicílios na população que tem, pelo menos, um morador com 65 ou mais
+  b. Calcule a margem de erro da estimativa
+  c. Baseado nos resultados anteriores, quantos domiCílios deveriam ser selecionados para estimar $p$ com uma margem de erro de 0,08, com um nível de significância de 5%?
+2) Numa grande cidade deseja-se estimar a proporção de habitantes que são favoráveis à instalação de uma usina térmica para geração de eletricidade numa área próxima a uma reserva biológica.
+  a) Qual deve ser o tamanho de uma amostra aleatória para estimar essa proporção com uma margem de erro de 0,03, com um nível de confiança de 95%?
+  b) E se o mesmo problema fosse em uma pequena comunidade de $N=2000$ habitantes, qual deveria ser o tamanho da amostra, com o mesmo nível de precisão?
+3) Supondo que o valor da variância populacional, $S^2$, de uma determinada variável de interesse, $y$, é a mesma, qual dos planos amostrais apresentados abaixo tem maior precisão para estimar uma proporção populacional? Por que?
+  a) AAS de tamanho 400 de uma população de 4000;
+  b) AAS de tamanho 30 de uma população de 300;
+  c) AAS de tamanho 3000 de uma população de 300000000.
+4) Foi selecionada uma AAS de 30 unidades de uma população composta por 100 unidades. Uma variável de interesse, $y$, foi observada e os valores são: 8, 5, 2, 6, 6, 3, 8, 6, 10, 7, 15, 9, 15, 3, 5, 6, 7, 10, 14, 3, 4, 17, 10, 6, 14, 12, 7, 8, 12, 9.
+  a) Qual o peso amostral de cada unidade da amostra?
+  b) Usando o peso amostral, estime o total populacional de unidades onde $y$ é maior que 9;
+  c) Construa um intervalo de 95% de confiança para esse total populacional;
+  d) Estime a proporção de unidades onde $y$ é menor que 10;
+  e) Construa um intervalo de 95% de confiança para a proporção de unidades onde $y$ é menor que 10.

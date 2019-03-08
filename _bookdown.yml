@@ -1,4 +1,4 @@
-﻿k_filename: "bookdown-amotepur"
+k_filename: "bookdown-amotepur"
 language:
   tables: yes
   label:
@@ -38,7 +38,8 @@ output_dir: "docs"
 
 rmd_files: ["index.Rmd", "01-intro.Rmd", "02-conceitos.Rmd", "03-visgeral.Rmd",
  "04-aas.Rmd", "05-proporcoes.Rmd", "06-razoes.Rmd", "07-dominios.Rmd",
- "08-sistematica.Rmd", "09-binomial.Rmd", "10-ppt.Rmd", "12-estratificada.Rmd", "15-referencias.Rmd"]
+ "08-sistematica.Rmd", "09-binomial.Rmd", "10-ppt.Rmd", "11-Inversa.Rmd",
+ "12-estratificada.Rmd", "13-conglomerados.Rmd", "15-referencias.Rmd"]
 clean: [bookdown.bbl]
 new_session: yes
 delete_merged_file: TRUE
