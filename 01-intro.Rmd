@@ -54,15 +54,15 @@ Este livro está organizado em quatorze capítulos, incluindo esta introdução.
 
 4) **Amostragem Aleatória Simples (AAS) ** 
 
-5) **Estimação de Proporções e Tamanho da Amostra sob AAS ** 
+5) **Estimação de Proporções ** 
 
-6) **Estimação de uma Razão Populacional **
+6) **Estimação de Razões e Funções de Totais **
 
-7) **Estimação Para Domínios de Estudo **
+7) **Estimação para Domínios de Estudo **
 
-8) **Amostragem Sistemática **
+8) **Amostragem Sistemática Simples (AS) **
 
-9) **Amostragem Binomial ou de Bernoulli **
+9) **Amostragem Binomial ou de Bernoulli (AB) **
 
 10) **Amostragem com Probabilidades Desiguais **
 
