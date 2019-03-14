@@ -1,4 +1,4 @@
-﻿# Visão Geral da Amostragem e Estimação
+# Visão Geral da Amostragem e Estimação
 
 ## Definições e notação para população de pesquisa e parâmetros selecionados
 
@@ -230,7 +230,7 @@ $p1(s) = 1/6 \,\,\,\forall s \in S$.
 
 A tabela a seguir apresenta o conjunto de todas as amostras possíveis, os rótulos das unidades incluídas em cada amostra, os valores de $y$ para as unidades incluídas na amostra, a soma amostral e as probabilidades de seleção de cada amostra. As colunas 1, 2 e 5 dessa tabela correspondem à apresentação detalhada do *plano amostral* $p1$ tal como definido acima, agora representado na forma de uma tabela.
 
-$$\begin{array}{|c|c|c|c|c|}\hline \textrm {Amostra} \,\, & \textrm{Unidades na Amostra} & \textrm{Valores na Amostra} & \textrm {Soma Amostral} & \textrm{Probablidades}\\& s & s & (t) & p1(s)\\\hline 1 & \textrm{{1;2}} & \textrm{{0;0}} & 0 & 1/6\\\hline 2 & \textrm{{1;3}} & \textrm{{0;2}} & 2 & 1/6\\\hline 3 & \textrm{{1;4}} & \textrm{{0;1}} & 1 & 1/6\\\hline 4 & \textrm{{2;3}} & \textrm{{0;2}} & 2 & 1/6\\\hline 5 & \textrm{{2;4}} & \textrm{{0;1}} & 1 & 1/6\\\hline 6 & \textrm{{3;4}} & \textrm{{2;1}} & 3 & 1/6\\\hline \textrm{Total} & \textrm{-} & \textrm{-} & 9 & 1\\\hline  \end{array}$$
+$$\begin{array}{|c|c|c|c|c|}\hline \textrm {Amostra} \,\, & \textrm{Unidades na} & \textrm{Valores na} & \textrm {Soma} & \textrm{Probablidades}\\& \text{Amostra}\,s & \text{Amostra}\,s & \text{Amostral}\,(t) & p1(s)\\\hline 1 & \textrm{{1;2}} & \textrm{{0;0}} & 0 & 1/6\\\hline 2 & \textrm{{1;3}} & \textrm{{0;2}} & 2 & 1/6\\\hline 3 & \textrm{{1;4}} & \textrm{{0;1}} & 1 & 1/6\\\hline 4 & \textrm{{2;3}} & \textrm{{0;2}} & 2 & 1/6\\\hline 5 & \textrm{{2;4}} & \textrm{{0;1}} & 1 & 1/6\\\hline 6 & \textrm{{3;4}} & \textrm{{2;1}} & 3 & 1/6\\\hline \textrm{Total} & \textrm{-} & \textrm{-} & 9 & 1\\\hline  \end{array}$$
 
 A distribuição de probabilidades da estatística *Soma Amostral* pode ser calculada a partir das informações na tabela acima, e é dada por:
 
@@ -318,9 +318,9 @@ $\widehat Y_w = \displaystyle \sum_{i \in s} w_i y_i = \displaystyle \sum_{i \in
 e já se mostrou que este estimador é não viciado para $Y$.
 
 
-**(#exm:filhp2)** Considere a mesma população fictícia do (#exm:filh) Considere agora o plano amostral $p2$, que retira amostras de tamanho 2 dessa população com as probabilidades indicadas na tabela a seguir. 
+**(#exm:filhp2)** Considere a mesma população fictícia do exemplo anterior. Considere agora o plano amostral $p2$, que retira amostras de tamanho 2 dessa população com as probabilidades indicadas na tabela a seguir. 
 
-$$\begin{array}{|c|c|c|c|c|}\hline \textrm {Amostra} \,\, & \textrm{Unidades na Amostra} & \textrm{Valores na Amostra} & \textrm {Soma Amostral} & \textrm{Probablidades}\\& s & s & (t) & p1(s)\\\hline 1 & \textrm{{1;2}} & \textrm{{0;0}} & 0 & 0,00\\\hline 2 & \textrm{{1;3}} & \textrm{{0;2}} & 2 & 0,20\\\hline 3 & \textrm{{1;4}} & \textrm{{0;1}} & 1 & 0,15\\\hline 4 & \textrm{{2;3}} & \textrm{{0;2}} & 2 & 0,20\\\hline 5 & \textrm{{2;4}} & \textrm{{0;1}} & 1 & 0,15\\\hline 6 & \textrm{{3;4}} & \textrm{{2;1}} & 3 & 0,30\\\hline \textrm{Total} & \textrm{-} & \textrm{-} & 9 & 1,00\\\hline  \end{array}$$
+$$\begin{array}{|c|c|c|c|c|}\hline \textrm {Amostra} \,\, & \text{Unidades na} & \text{Valores na} & \text{Soma} & \text{Probablidades}\\& \text{Amostra}\,s & \text{Amostra}\,s & \text{Amostral}\,(t) & p1(s)\\\hline 1 & \textrm{{1;2}} & \textrm{{0;0}} & 0 & 0,00\\\hline 2 & \textrm{{1;3}} & \textrm{{0;2}} & 2 & 0,20\\\hline 3 & \textrm{{1;4}} & \textrm{{0;1}} & 1 & 0,15\\\hline 4 & \textrm{{2;3}} & \textrm{{0;2}} & 2 & 0,20\\\hline 5 & \textrm{{2;4}} & \textrm{{0;1}} & 1 & 0,15\\\hline 6 & \textrm{{3;4}} & \textrm{{2;1}} & 3 & 0,30\\\hline \textrm{Total} & \textrm{-} & \textrm{-} & 9 & 1,00\\\hline  \end{array}$$
 Vamos agora usar as informações acima para:
 
 1.	Verificar que a estatística soma amostral ($t$) é viciada para estimar o total populacional $Y$;
@@ -342,7 +342,7 @@ $$\begin{array}{|l|c|c|c|c|}\hline \textrm{Rótulo da unidade}\,\, i & 1 & 2 & 3
 
 Usando o estimador do total com os pesos adequados $\widehat Y_w$, obtém-se os valores das estimativas para cada amostra possível na coluna e da tabela abaixo. 
 
-$$\begin{array}{|c|c|c|c|c|}\hline \textrm {Amostra} \, & \textrm{Valores na Amostra} & \textrm {Total Amostral Ponderado} & \textrm{Probablidades} & \textrm {Valor do produto}\\& s & (\widehat Y_w) & p2(s) & \\\hline 1 & \textrm{{0;0}} & 0 & 0,00 & 0 \\\hline 2 & \textrm{{0;2}} & 2\times(10/7) & 0,20 & 4/7\\\hline 3 & \textrm{{0;1}} & 1\times(5/3) & 0,15 &1/4\\\hline 4 & \textrm{{0;2}} & 2\times(10/7) & 0,20 & 4/7\\\hline 5 & \textrm{{0;1}} & 1\times (5/3) & 0,15 & 1/4\\\hline 6 & \textrm{{2;1}} & 2\times (10/7)+1\times(5/3) & 0,30 & 6/7+1/2\\\hline \textrm{Total} & & & & 3\\\hline  \end{array}$$
+$$\begin{array}{|c|c|c|c|c|}\hline \textrm {Amostra} \, & \textrm{Valores na} & \textrm {Total Amostral} & \textrm{Probablidades} & \textrm {Valor do}\\& \text{Amostra}\,s & \text{ponderado}\,(\widehat Y_w) & p2(s) &\text{produto} \\\hline 1 & \textrm{{0;0}} & 0 & 0,00 & 0 \\\hline 2 & \textrm{{0;2}} & 2\times(10/7) & 0,20 & 4/7\\\hline 3 & \textrm{{0;1}} & 1\times(5/3) & 0,15 &1/4\\\hline 4 & \textrm{{0;2}} & 2\times(10/7) & 0,20 & 4/7\\\hline 5 & \textrm{{0;1}} & 1\times (5/3) & 0,15 & 1/4\\\hline 6 & \textrm{{2;1}} & 2\times (10/7)+1\times(5/3) & 0,30 & 6/7+1/2\\\hline \textrm{Total} & & & & 3\\\hline  \end{array}$$
 
 **Notas**
 
@@ -462,7 +462,7 @@ onde $d_{ij} = \displaystyle \frac{1}{\pi_{ij}}$.
 
 Esta é a chamada forma de Horvitz-Thompson da variância. Existe uma outra forma para esta variância, que vamos conhecer mais adiante.
 
-Prova:
+**Prova:**
 
 $\begin{align} V_p(\widehat Y_{HT}) &=  V_p \left( \displaystyle \sum_{i \in U} \delta_i \displaystyle \frac{1}{\pi_{i}} {y_i} \right) \\ & = \displaystyle \sum_{i \in U} \sum_{j \in U} COV_p(\delta_i, \delta_j) \left( \frac{y_i}{\pi_{i}}  \right) \left( \frac{y_j}{\pi_{j}} \right)  \\ &= \displaystyle \sum_{i \in U} \sum_{j \in U} (\pi_{ij} - \pi_i \pi_j) \left( \frac{y_i}{\pi_i} \frac{y_j}{\pi_j} \right) \\ &= \displaystyle \sum_{i \in U} \sum_{j \in U} \left( \frac{\pi_{ij}}{\pi_i \pi_j} -1 \right) {y_i} {y_j} \\ &= \displaystyle \sum_{i \in U} \sum_{j \in U} \left( \frac{d_i d_j}{d_{ij}} - 1 \right) {y_i} {y_j} \end{align}$
 
