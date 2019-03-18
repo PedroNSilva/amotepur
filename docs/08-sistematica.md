@@ -8,7 +8,7 @@ As unidades são selecionadas *sem reposição*, e têm a mesma chance $(1/K)$ d
 
 Seja $U = \{{ 1 , 2 , ..., N }\}$ a população, de tamanho $N = nK+c$, com $0 \le c < K$, sendo que o inteiro $K$ é chamado de *intervalo de seleção*; $n$ é igual ao valor inteiro da divisão de $N$ por $K$; e $c$ é o resto da divisão de $N$ por $K$.
 
-## Esquema de Seleção da Amostra
+## Esquema de seleção da amostra
 
 O esquema de seleção de uma amostra sistemática consiste nos seguintes passos: 
 
@@ -24,7 +24,7 @@ $n_r=\left\{\begin{array}{ll} n+1 & \textrm{quando} \,\,\,\,r \le c \\ n & \text
  
 O tamanho da amostra é $n+1$ com probabilidade $c/K$ e $n$ com probabilidade $1-(c/K)$.
 
-**(#exm:sis1)** De uma população de 20 unidades selecione uma amostra sistemática simples com intervalo de seleção igual a 5. 
+**(#exm:exmsis1)** De uma população de 20 unidades selecione uma amostra sistemática simples com intervalo de seleção igual a 5. 
 
 Amostra Sistemática $(N=20,\,\, K=5)$
 
@@ -34,7 +34,7 @@ Escolhendo $r=1$, as unidades na amostra seriam $1 + ( j – 1 ) K$ , para $j = 
 
 Existem 5 amostras distintas, todas de tamanho 4.
 
-**(#exm:sis2)** Especifique as amostras possíveis através de uma seleção sistemática supondo que a população seja de 19 unidades e que o tamanho desejado da amostra seja de 4 unidades. 
+**(#exm:exmsis2)** Especifique as amostras possíveis através de uma seleção sistemática supondo que a população seja de 19 unidades e que o tamanho desejado da amostra seja de 4 unidades. 
 
 Amostra Sistemática $(N=19, \,\,n=4)$
 
@@ -50,7 +50,7 @@ $s_3 = \{{ 3 ; 7 ; 11 ; 15 ; 19 }\}$ com $n_3=5$;
 
 $s_4 = \{{ 4 ; 8 ; 12 ; 16 }\}$ com $n_4=4$.
 
-**(#exm:sis3)** Calcule o tamanho efetivo da amostra resultante da seleção sistemática de uma população de 149 unidades e de tamanho desejado da amostra de 60 unidades. 
+**(#exm:exmsis3)** Calcule o tamanho efetivo da amostra resultante da seleção sistemática de uma população de 149 unidades e de tamanho desejado da amostra de 60 unidades. 
 
 Amostra Sistemática $N=149,\,\,n=60)$
 
@@ -62,21 +62,21 @@ $s_2 = \{\textrm{números pares até 148, inclusive }\}$ com $n_2=74$;
 
 Tamanho efetivo da amostra é 74 ou 75.
 
-**(#exm:sis4)** Apresente a composição de uma amostra sistemática de uma população de 36 unidades com intervalo de seleção igual a 4, tamanho esperado da amostra de 9 unidades e que 4 tenha sido o número selecionado para a partida.  
+**(#exm:exmsis4)** Apresente a composição de uma amostra sistemática de uma população de 36 unidades com intervalo de seleção igual a 4, tamanho esperado da amostra de 9 unidades e que 4 tenha sido o número selecionado para a partida.  
 
 Amostra Sistemática $(N=36, K=4, n=9, \textrm{partida}\,\,(r=4))$
 
 $$\begin{array}{|c|c|c|c|c|c|}\hline \textrm {l/c} & 1 & 2 & 3 & 4 & 5 & 6 \\\hline 1 &  & &  & X & & \\\hline 2 & & X & & & & X \\\hline 3 &  & &  & X & & \\\hline 4 & & X & & & & X \\\hline 5 &  & &  & X & & \\\hline 6 & & X & & & & X \\\hline  \end{array}$$
 Portanto as unidades atribuídas às celas da tabela com "X" correpondem as unidades selecionadas para a amostra.
 
-**(#exm:sis5)** Apresente a composição de uma amostra sistemática de uma população de 36 unidades com intervalo de seleção igual a 3, tamanho esperado da amostra de 12 unidades e que 2 tenha sido o número selecionado para a partida.  
+**(#exm:exmsis5)** Apresente a composição de uma amostra sistemática de uma população de 36 unidades com intervalo de seleção igual a 3, tamanho esperado da amostra de 12 unidades e que 2 tenha sido o número selecionado para a partida.  
 
 Amostra Sistemática $(N=36, K=3, n=12, \textrm{partida}\,\,(r=2))$ 
 
 $$\begin{array}{|c|c|c|c|c|c|}\hline \textrm {l/c} & 1 & 2 & 3 & 4 & 5 & 6 \\\hline 1 &  & X &  & & X & \\\hline 2 & & X & & & X &  \\\hline 3 & & X & & & X & \\\hline 4 & & X & & & X &  \\\hline 5 & & X & & & X & \\\hline 6 & & X & & & X & \\\hline  \end{array}$$
 Portanto as unidades atribuídas às celas das colunas 2 e 5 correpondem as unidades selecionadas para a amostra.
 
-## Aspectos Importantes na Amostragem Sistemática Simples
+## Aspectos importantes na amostragem sistemática simples
 
 Seguem alguns aspectos a serem destacados na amostragem sistemática, bem como as suas vantagens e desvantagens.
 
@@ -102,50 +102,48 @@ Seguem alguns aspectos a serem destacados na amostragem sistemática, bem como a
 
 - Complicações para estimar variâncias e precisão.
 
-## Probabilidades de Inclusão na Amostragem Sistemática
+## Probabilidades de inclusão na amostragem sistemática
 
 É fácil mostrar que a probabilidade de seleção ou inclusão na amostra da unidade $i$ é dada por: $\pi_i=1/K,\,\,i=1,\,\dots,\,\,N$.
 
-A probabilidade de seleção ou inclusão das unidade $i$ e $j$ na amostra é dada por: 
-$\pi_{ij}=\left\{\begin{array}{ll} 1/K & ,\,\,i \ne j \,\in s_r,\,\,\,r=1,\,\dots,\,K,\\\ 0 &,\,\, \textrm{caso contrário}.\end{array}\right.\,\,\,$ 
+A probabilidade de seleção ou inclusão das unidade $i$ e $j$ na amostra é dada por:
+$\pi_{ij}=\left\{\begin{array}{ll} 1/K & \,\,i \ne j \,\in s_r,\,\,\,r=1,\,\dots,\,K,\\\ 0 &\,\, \textrm{caso contrário}.\end{array}\right.\,\,\,$ 
  
 Donde se conclui que unidades em amostras diferentes nunca podem aparecer juntas na mesma amostra!
 
-## Variáveis Aleatórias Indicadoras
+## Variáveis aleatórias indicadoras
 
 Note que ao escolher $r,\, 1\le r\le K$, selecionamos a amostra inteira.
 
-Sejam portanto as variáveis indicadoras
-
-$I(r)=\left\{\begin{array}{ll} 1 & ,\,\,\textrm{se a amostra é}\,s_r\,,\ \textrm {para}\,1\le r\le K.\\ 0 &,\,\, \textrm{caso contrário}.\end{array}\right.\,\,\,$ 
+Sejam as variáveis indicadoras $I(r)=\left\{\begin{array}{ll} 1 &\textrm{se a amostra é}\,s_r\,,\ \textrm {para}\,1\le r\le K.\\ 0 & \textrm{caso contrário}.\end{array}\right.\,\,\,$ 
 
 Então:
 
 $E_{AS}[I(r)]=1/K\,,\,\,r=1,\,\dots,\,K$.
 
-**Propriedades das Variáveis Aleatórias Indicadoras**
+**Propriedades das variáveis aleatórias indicadoras**
 
-$V_{AS}[I(r)]=E_{AS}[I(r)^2]-{E_{AS}[I(r)]}^2=\frac{1}{K}\left(1-\frac{1}{K}\right)$
+$V_{AS}[I(r)]=E_{AS}[I(r)^2]-{E_{AS}[I(r)]}^2=\displaystyle\frac{1}{K}\left(1-\frac{1}{K}\right)$
 
-$COV_{AS}[I(r),I(q)]=E_{AS}[I(r)]I(q)]-\frac{1}{K^2}=0-\frac{1}{K^2}=-\frac{1}{K^2}$.
+$COV_{AS}[I(r),I(q)]=E_{AS}[I(r)]I(q)]-\displaystyle\frac{1}{K^2}=0-\frac{1}{K^2}=-\frac{1}{K^2}$.
 
 já que apenas uma amostra pode ser escolhida de cada vez. 
 
-## Composição de Amostra Sistemática de Intervalo K 
+## Composição de amostra sistemática de intervalo $K$ 
 
 Seguem as possíveis amostras sistemáticas de intervalo $K$ indicadas nas colunas da tabela a seguir.  
 
 $$\begin{array}{|c c c c c |} \hline \phantom{y} & \phantom{y} & \phantom{y} & \phantom{y}\phantom{y2}\textrm {   Amostra Número} & \phantom{y_1} & \phantom{\dots} & \phantom{y_c}\\\hline \end{array}\\ \begin{array}{|c|c|c|c|c|} \hline 1 & 2 & \dots & c & \dots & K \\\hline y_1 & y_2 & \dots & y_c & \dots & y_K \\\hline y_{K+1} & y_{K+2} & \dots & y_{K+c}& \dots & y_{2K} \\\hline \vdots & \vdots & \vdots & \vdots & \vdots& \vdots\\\hline y_{(n-1)K+1} & y_{(n-1)K+2} &\dots & y_{(n-1)K+c} & \dots & y_{nK} \\\hline y_{nK+1} & y_{nK+2} & \dots & y_{nK+c} \\\hline  \end{array} $$
 
 
-**Uma Mudança de Notação Útil**
+**Uma mudança de notação útil**
 
 Há uma outra forma de visualizar a composição de possíveis amostras sistemáticas de intervalo $K$ indicadas nas colunas da tabela a seguir, definindo $y_{ri}$, sendo $r$ o número da possível amostra $(r=1,\dots, K)$ e $i$ as unidades da respectiva amostra $(i=1,\dots,n_r)$ ou seja, $i=\left\{\begin{array}{ll} 1, \dots, n+1 & \textrm{se}\,\,\,\,r \le c \\ 1, \dots, n & \textrm{se }\,\,\,\,r>c\end{array}\right.\,\,\,$ 
 
 
 $$\begin{array}{|c c c c c |} \hline &  &  & \phantom{y}\textrm {Amostra (grupo) Número} &  & \phantom{y}\\\hline \end{array}\\ \begin{array}{|c|c|c|c|c|} \hline 1 & 2 & \dots & c & \dots & K \\\hline y_{11} & y_{21} & \dots & y_{c1} & \dots & y_{K1} \\\hline y_{12} & y_{22} & \dots & y_{c2}& \dots & y_{K2} \\\hline \vdots & \vdots & \vdots & \vdots & \vdots & \vdots \\\hline y_{1n} & y_{2n} & \dots & y_{cn} & \dots & y_{Kn} \\\hline y_{1(n+1)} & y_{2(n+1)} & \dots & y_{c(n+1)} \\\hline  \end{array} $$
 
-## Estimação sob Amostragem Sistemática
+## Estimação sob amostragem sistemática
 
 A ideia é definir estimadores dos parâmetros alvo descritos, a seguir:
 
@@ -170,11 +168,12 @@ Logo $t_r=\displaystyle \sum_{i=1}^{n_r}y_{ri}$, onde $n_r$ é o tamanho da amos
 
 Note que $\overline y_r=t_r/n_r= \overline y$, a média da amostra $s_r$.
 
-## Estimação do Total Populacional sob Amostragem Sistemática
+## Estimação do total populacional sob amostragem sistemática
  
  O total populacional pode ser escrito como: $Y=\displaystyle \sum_{r=1}^{K}t_r$.    
 
 Seja 
+
 \begin{equation}
 \widehat{Y}_{AS}=\sum_{i \in s_r}y_{ri}/(1/K)=Kt_r=K \displaystyle \sum_{r=1}^{K}I(r)t_r(\#eq:eqsis4)
 \end{equation} 
@@ -193,7 +192,7 @@ $\widehat{N}_{AS}$ é estimador não viciado para $N$, pois:
 
 $E_{AS}(\widehat{N}_{AS})=K \displaystyle \sum_{r=1}^{K}E_{AS} \left [I(r)\right]n_r= K \sum_{r=1}^{K} \frac{1}{K} n_r = \sum_{r=1}^{K}n_r=N$.
 
-## Estimação da Média Populacional sob Amostragem Sistemática
+## Estimação da média populacional sob amostragem sistemática
 
 A média populacional $\overline Y=Y/N=\displaystyle \sum_{r=1}^{K}t_r/\sum_{r=1}^{K}n_r$ pode ser vista como uma razão (de totais).
 
@@ -214,14 +213,15 @@ Este estimador tem vício para estimar a média populacional, exceto quando $N=n
 
 \begin{eqnarray}E_{AS}(\overline{y}_{AS}) & = & E_{AS}(\overline y)= E_{AS} \left [\sum_{r=1}^{K}I(r)\overline y_r \right] \\ &=& \frac{1}{K} \sum_{r=1}^{K}\overline y_r = \frac{1}{K} \sum_{r=1}^{K}\frac {t_r}{n_r} \\& \neq & \frac {\sum_{r=1}^{K}t_r}{\sum_{r=1}^{K}n_r} = \overline Y, \,\,\textrm {exceto quando N=nK.}\end{eqnarray}
 
-## Variância de $\widehat Y_{AS}$ Sob Amostragem Sistemática
+## Variância de $\widehat Y_{AS}$ sob amostragem sistemática
 
-\begin{eqnarray}V_{AS}(\widehat{Y}_{AS}) & = & K^2\,V_{AS} \left[\sum_{r=1}^{K}I(r)t_r \right] \\ & = & K^2 \left[ {\sum_{r=1}^{K}{t_r}^2 V_{AS}[I(r)]} + \sum_{r\neq K}COV_{AS}[I(r),I(q)]t_rt_q \right] \\ & = &  K^2 \left[\sum_{r=1}^{K}{t_r}^2 \frac{1}{K}\left(1-\frac{1}{K}\right)+\sum_{r\neq K}t_rt_q\left(-\frac{1}{K^2}\right)\right]\\ & = &  K^2 \left[\frac{1}{K}\sum_{r=1}^{K}{t_r}^2 - \frac{1}{K^2}\left(\sum_{r=1}^{K}{t_r}^2+\sum_{r\neq K}t_rt_q\right)\right] \\ & = &  K \left[\sum_{r=1}^{K}{t_r}^2 - \left(\sum_{r=1}^{K}{t_r}\right)^2/K\right] =K\sum_{r=1}^{K}(t_r-\overline t)^2 (\#eq:eqsis7)
+A variância de $\widehat Y_{AS}$ sob amostragem sistemática é dada por: 
+
+\begin{eqnarray}
+V_{AS}(\widehat{Y}_{AS}) & = & K^2\,V_{AS} \left[\sum_{r=1}^{K}I(r)t_r \right] \\ & = & K^2 \left[ {\sum_{r=1}^{K}{t_r}^2 V_{AS}[I(r)]} + \sum_{r\neq K}COV_{AS}[I(r),I(q)]t_rt_q \right] \\ & = &  K^2 \left[\sum_{r=1}^{K}{t_r}^2 \frac{1}{K}\left(1-\frac{1}{K}\right)+\sum_{r\neq K}t_rt_q\left(-\frac{1}{K^2}\right)\right]\\ & = &  K^2 \left[\frac{1}{K}\sum_{r=1}^{K}{t_r}^2 - \frac{1}{K^2}\left(\sum_{r=1}^{K}{t_r}^2+\sum_{r\neq K}t_rt_q\right)\right] \\ & = &  K \left[\sum_{r=1}^{K}{t_r}^2 - \left(\sum_{r=1}^{K}{t_r}\right)^2/K\right] =K\sum_{r=1}^{K}(t_r-\overline t)^2 (\#eq:eqsis7)
 \end{eqnarray}
 
 sendo: \ $\overline t= \displaystyle\sum_{r=1}^{K} t_r/K = Y/K$
-
-Variância de $\widehat Y_{AS}$ Sob Amostragem Sistemática
 
 Portanto a variância é calculada a partir da soma de quadrados dos desvios entre totais das amostras possíveis.
 
@@ -239,7 +239,7 @@ Portanto a variância é calculada a partir da soma de quadrados dos desvios ent
 
 6. Para populações periódicas, amostragem sistemática em sincronia com o período é um desastre ([@Cochran1977], p. 218).
 
-**Considere o Caso Especial Onde $N = n \times K$**
+**Considere o caso especial onde $N = n \times K$**
 
 Da tabela 8.2 do [@Cochran1977] é fácil ver que $\overline y_r= t_r/n_r$ é um estimador não viciado para $\overline Y$. Como
 
@@ -253,9 +253,9 @@ $V_{AS}(\overline y)$ é a variância de $\overline y$ sob Amostragem Sistemáti
 
 Portanto, conforme [@Cochran1977], p. 208, o estimador de média é mais eficiente sob Amostragem Sistemática que sob AAS se e somente se $S_D^2>S_y^2$ .
 
-**Uma Expressão Alternativa para $V_{AS}(\overline y)$ quando $N = n \times K$**
+**Uma expressão alternativa para $V_{AS}(\overline y)$ quando $N = n \times K$**
 
-Teorema 8.2 ([@Cochran1977], p. 209)
+De acordo com o Teorema 8.2 de @Cochran1977, p. 209, tem-se:
 
 \begin{equation}
 V_{AS}(\overline y)=\frac{S_y^2}{n}\left(\frac{N-1}{N}\right)[1+(n-1)\rho\,](\#eq:eqsis8)
@@ -270,7 +270,7 @@ onde:
 
 Este resultado mostra que a correlação positiva entre unidades de uma mesma amostra aumenta a variância da média amostral com seleção sistemática quando comparada com a variãncia da média amostral com seleção AAS.
 
-Notando que sob AAS, $V_{AAS}(\overline y)=\left(1-\frac{n}{N}\right)\frac{S_y^2}{n}$.
+Notando que sob AAS, $V_{AAS}(\overline y)=\displaystyle\left(1-\frac{n}{N}\right)\frac{S_y^2}{n}$.
 
 Então, temos a relação aproximada:
 
@@ -280,7 +280,7 @@ Então, temos a relação aproximada:
 
 Cabe notar que razões do tipo $V_{AS}(\overline y)/V_{AAS}(\overline y)$ são chamadas de *Efeito do Plano Amostral (EPA)*. No inglês, o termo é *design effect*, abreviado como *deff*.
 
-## Estimação de Variâncias dos Estimadores
+## Estimação de variâncias dos estimadores
 
 Na AS não há estimador não viciado de variância para os estimadores de total e de média.
 
@@ -290,7 +290,7 @@ Soluções usuais:
 
 2. Alternativamente pode-se usar replicação: selecionar $q$ amostras sistemáticas de tamanhos $n/q$ cada uma.
 
-##Exercícios
+## Exercícios
 
-**(#exe:sis1)** Identifique as outras 4 amostras possíveis referidas no exemplo 8.1. 
+**(#exe:exesis1)** Identifique as outras 4 amostras possíveis referidas no (#exm:exmsis1). 
 

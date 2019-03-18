@@ -1,5 +1,5 @@
 
-#Amostragem Estratificada
+# Amostragem Estratificada
 
 Amostragem Estratificada (AE) é um processo de amostragem que usa alguma informação relevante que deve estar disponível para todos os elementos da população para *dividir a população $U$ em $H$ grupos* disjuntos e exaustivos, geralmente mais *homogêneos*, chamados *estratos* e com a *seleção de amostras dentro de cada um dos estratos*, independentemente.
 
@@ -46,7 +46,7 @@ Para conseguir ganhar eficiência com o uso da estratificação, a ideia é torn
 Para isso é fundamental ter acesso a cadastro com variáveis auxiliares que possam ser usadas para estratificar a população de forma eficiente. 
 
 
-##O Método Geral
+## O método geral
 
 Particione (divida) $U$ em $H$ subconjuntos (grupos) *mutuamente exclusivos e exaustivos*, chamados *estratos*, e denotados por $U_1, ..., U_h, ..., U_H$, de modo que: $U=U_1\cup U_2\cup \dots\cup U_H=\displaystyle\bigcup_{h=1}^H U_h$ e  $U_h \cap U_k=\emptyset,\, h\ne k$.
 
@@ -78,7 +78,7 @@ População dividida em dois estratos. Num estrato se faz um censo, isto é, se 
 Amostras aleatórias simples selecionadas em cada um dos estratos definidos.
 
 
-##Amostragem Estratificada Simples (AES)
+## Amostragem estratificada simples (AES)
 
 Trata-se do caso especial em que *AAS é empregada em todos os estratos*.
 
@@ -86,7 +86,7 @@ Neste caso, os tamanhos $N_h$ de cada um dos estratos $U_h$ são considerados co
 
 O cadastro deve permitir separar as unidades da população nos $H$ estratos definidos.
 
-###Esquema de Seleção
+### Esquema de seleção
 
 Selecione uma AAS de tamanho $n_h>0$ das $N_h$ unidades do estrato $U_h$, $h=1,2,...,H$.
 
@@ -112,7 +112,7 @@ Para facilitar a apresentação das fórmulas, é costume passar a identificar a
 
 Assim, um valor típico da variável de pesquisa é $y_{hi}$, para $i=1,...,N_h$ e $h=1,...,H$.
 
-O Quadro \@ref(tab:pop estrat), a seguir, representa uma população estratificada com os tamanhos dos estratos e os *dados populacionais* da variável $y$.
+O Quadro \@ref(tab:tabest2), a seguir, representa uma população estratificada com os tamanhos dos estratos e os *dados populacionais* da variável $y$.
 
 $$\textrm{População estratificada com os dados populacionais}$$
 $$\begin{array}{|c|c|c|}\hline
@@ -124,11 +124,11 @@ $$\begin{array}{|c|c|c|}\hline
 \\\hline H&N_H&y_{H1},\dots,y_{HN_H} 
 \\\hline \end{array}$$
 
-###Parâmetros Populacionais
+### Parâmetros populacionais
 
 Seguem alguns parâmetros populacionais nos estratos e em toda população.   
 
-**Parâmetros nos Estratos:**
+**Parâmetros nos estratos:**
 
 A seguir são apresentados, respectivamente, o total do estrato $h$, a média do estrato $h$ e a variância do estrato $h$ da variável $y$:
 
@@ -145,7 +145,7 @@ S_h^2(y)=\displaystyle\sum_{i=1}^{N_h}(y_{hi}-\overline Y_h)^2/(N_h-1)
 \end{equation}
 
 
-**Parâmetros Populacionais (Globais):**
+**Parâmetros populacionais (globais):**
 
 Tamanhos populacionais: $N_1+N_2+\dots+N_H=N$
 
@@ -177,9 +177,9 @@ Para $S_y^2$ fixado, maximizar a variância *Entre* minimiza a variância *Dentr
 
 
 
-###Dados Amostrais
+### Dados amostrais
 
-A notação para os dados amostrais é semelhante à usada para denotar os dados populacionais. O Quadro \@ref(tab:amo), a seguir, representa os *dados amostrais* da variável $y$ de uma AES.
+A notação para os dados amostrais é semelhante à usada para denotar os dados populacionais. O Quadro \@ref(tab:tabest3), a seguir, representa os *dados amostrais* da variável $y$ de uma AES.
 
 $$\textrm{Dados amostrais de uma AES}$$
 $$\begin{array}{|c|c|c|c|}\hline
@@ -191,7 +191,7 @@ $$\begin{array}{|c|c|c|c|}\hline
 \\\hline H&n_H&a_H=\{{i_1,\dots,i_{n_H}}\}& y_{H{i_1}},\dots,y_{H{i_{n_H}}}
 \\\hline \end{array}$$
 
-###Estimação do Total e da Média Populacional 
+### Estimação do total e da média populacional 
 
 Como a amostragem é feita independentemente por estrato, podemos estimar separadamente os parâmetros de cada estrato.
 
@@ -271,7 +271,7 @@ O Quadro \@ref(tab:tabest1) apresenta um resumo da estimação de parâmetros m�
 \\\hline \end{array}
 
 
-###Intervalos de Confiança
+### Intervalos de confiança
 
 Se $n=\displaystyle\sum_{h=1}^{H}n_h$ for grande, então o Teorema Central do Limite também se aplica. Portanto:
 
@@ -293,7 +293,7 @@ e então um intervalo de confiança de nível $1-\alpha$ para $\overline Y_h$ é
 
 $$IC_{AES}(\overline y_h; 1-\alpha)=\left[\overline y_h\mp z_{\alpha/2}\sqrt{\widehat V_{AES}\left(\overline y_h\right)}\right]$$
 
-###Estimadores de Razão em Amostragem Estratificada Simples
+## Estimadores de razão em amostragem estratificada simples
 
 No capítulo 6 foi tratado o caso de utilização de estimador de razão para estimar o total populacional ($Y$) a partir de uma amostra aleatória simples sem reposição de tamanho $n$. No caso de uma amostra estratificada, há dois estimadores de razão usuais para estimar o total populacional (Y): 
 
@@ -303,7 +303,7 @@ No capítulo 6 foi tratado o caso de utilização de estimador de razão para es
 
 Considere então, o problema de estimar o total $Y$ a partir de uma amostra aleatória estratificada selecionada de uma população com $H$ estratos de tamanhos $N_h$ $(h=1,\dots,L)$, tendo sido selecionadas $n_h$ unidades e investigadas as variáveis $x$ e $y$ em cada unidade da amostra de cada estrato. 
 
-####Estimador de razão combinada
+### Estimador de razão combinada
 
 Suponha que seja também conhecido, de alguma fonte externa a amostra, o total populacional $(X)$ para a variável $x$. 
 
@@ -362,7 +362,7 @@ e um estimador de $V(\overline y_{RC})$ é dado por:
 \widehat V(\overline y_{RC})= \frac{1}{N^2}\widehat V(\widehat Y_{RC})(\#eq:eqest17)
 \end{equation}
 
-####Estimador de razão separada 
+### Estimador de razão separada 
 
 Uma outra forma de utilizar estimadores e razão para conseguir maior precisão na amostragem estratificada é o chamado *estimador de razão separada*.
 
@@ -420,7 +420,7 @@ e um estimador de $V(\overline y_{RS})$ é dado por:
 \widehat V(\overline y_{RS})= \frac{1}{N^2}\widehat V(\widehat Y_{RS})(\#eq:eqest23)
 \end{equation}
 
-####Comparação dos estimadores de razão combinada e separada
+### Comparação dos estimadores de razão combinada e separada
 
 Em geral, para amostras de tamanhos idênticos, o estimador de razão combinada deve ter vício menor que o estimador de razão separada.
 
@@ -433,13 +433,12 @@ V(\widehat Y_{RC})-V(\widehat Y_{RS})\doteq \displaystyle\sum_{h=1}^{H}\frac{N_h
 \end{equation}
 
 
-
 Os dois estimadores serão igualmente precisos se $R_h=R$ ou $Y_h/X_h=Y/X$ para todos os estratos. 
 
 A medida que os $R_h$ sejam mais distantes de $R$, o estimador de razão separada tende a dar maior precisão, inclusive por se basear num conhecimento mais detalhado dos dados do universo da variável $x$. 
 
 
-##Alocação da Amostra pelos Estratos
+## Alocação da amostra pelos estratos
 
 Uma importante consideração na amostragem estratificada é a forma na qual a amostra total é alocada em cada estrato, podendo ser feita de forma proporcional ou desproporcional:
 
@@ -454,7 +453,7 @@ Uma importante consideração na amostragem estratificada é a forma na qual a a
 As situações que indicam a necessidade de alocação desproporcional (igual, de Neyman ou ótima) são quando as estimativas são requeridas por estrato levando a estratos menores precisarem ser amostrados com taxas maiores ou quando os estratos diferem em termos de variabilidade entre unidades e/ou custo por unidade. 
 
 
-###Alocação Proporcional
+### Alocação Proporcional
 
 Uma amostra ‘representativa’ deveria ‘imitar’ ou se parecer bastante com a população de onde foi extraída.
 
@@ -495,7 +494,7 @@ Esta expressão tem a mesma forma que a correspondente ao caso de AAS, com $S_y^
 
 Como a variância dentro é geralmente menor que a variância total $\left(S_D^2<S_y^2\right)$, fica evidenciado que estratificação com alocação proporcional geralmente reduz a variância do estimador quando comparada com AAS de igual tamanho.
 
-###Alocação Ótima
+### Alocação Ótima
 
 A maioria das pesquisas sofre restrições orçamentárias.
 
@@ -554,7 +553,7 @@ O segundo termo à direita corresponde à *correção de população finita*.
 As soluções acima são ‘aproximadas’, pois ignoram restrições do tipo $n_h\le N_h,\,n_h\le 1, \,n_h\, \textrm{inteiro}\,\,\forall\,h$. [@Brito2005] oferece uma solução ‘exata’.
 
 
-###Comparação de Alternativas de Alocação da Amostra
+### Comparação de alternativas de alocação da amostra
 
 Usando a partição da soma de quadrados total em parcelas devidas à variação dentro e entre estratos, e ignorando termos de ordem $1/N_h$, então sob *alocação de Neyman*, isto é, com $n_h \propto N_hS_h$ prova-se ([@Cochran1977], p. 99) que:
 
@@ -563,7 +562,7 @@ $$V_{AES/Ney}\left(\overline y_{AES}\right)\le V_{AES/Prop}\left(\overline y_{AE
 ou seja, AES com alocação de Neyman é mais eficiente que AES com alocação proporcional, ambas superando AAS como plano amostral.
 
 
-###Alguns Problemas com Alocação Ótima
+### Alguns problemas com alocação ótima
 
 Seguem algumas situações enfrentadas com a alocação ótima: 
 
@@ -599,7 +598,8 @@ Em geral, ganhos são pequenos para amostras de pessoas e variáveis ligadas a a
 
 Para pesquisas amostrais de estabelecimentos ou instituições, os ganhos podem ser muito grandes.
 
-##Definição dos Limites dos Estratos
+
+## Definição dos limites dos estratos
 
 Se uma variável auxiliar $x$ estiver disponível, seus valores podem ser usados para formar estratos.
 
@@ -616,11 +616,11 @@ Evidências empíricas sugerem, entretanto, que $5\le H \le 10$. Mais detalhes s
 
 ![Soluções sobre escolha de número de estratos](Figuras/numeroestratos.png)
 
-###Número de Estratos na Amostragem Estratificada Simples 
+## Número de estratos na amostragem estratificada simples 
 
 Para estimação por domínios, recomenda-se utilizar tantos estratos quantos sejam os domínios de interesse.
 
-Para estimação de total ou média global, [@Cochran1977], seção 5A.8, recomenda-se usar até 6 (seis) estratos, se a variável de estratificação for bem correlacionada com as variáveis de interesse,conforme justificativa dada a seguir.
+Para estimação de total ou média global, @Cochran1977, seção 5A.8, recomenda usar até 6 (seis) estratos, se a variável de estratificação for bem correlacionada com as variáveis de interesse,conforme justificativa dada a seguir.
 
 Sob as hipóteses: $N$ grande, $f=n/N$ pequena; o modelo: $y_i = a + bx_i + \varepsilon_i$ para $i \in U$; estratificação “ótima” em $x$; alocação igual nos estratos ($n_h=n/H$), mostra-se que: $EPA\left(\overline y_{AES}\right)=V_{AES}\left(\overline y_{AES}\right)/V_{AAS}\left(\overline y\right)= \rho^2/H^2+\left(1-\rho~2\right)$, onde $\rho$ é correlação entre $x$ e $y$.
 
@@ -641,14 +641,14 @@ Na Figura \@ref(fig:precisaovsestratos.png) temos o gráfico dos ganhos de preci
 ![Ganhos de precisão versus número de estratos](Figuras/precisaovsestratos.png)
 
 
-##Exercícios
+## Exercícios
 
 **(#exe:exeest1)** Mostre que a média amostral global $\overline y=\frac{1}{n}\displaystyle\sum_{h=1}^{H}\sum_{i \in a_h}y_{hi}$ pode ser escrita como $\overline y=\displaystyle\sum_{h=1}^{H}\frac{n_h}{n}\overline y_h\ne \sum_{h=1}^{H}\frac{N_h}{N}\overline y_h=\overline y_{AES}$, a menos que $\frac{n_h}{n}=\frac{N_h}{N}, \,\, \forall h=1,\dots,H$ ou seja, a menos que se adote amostragem estratificada simples proporcional ou equiponderada.
 
 **(#exe:exeest2)** Quais são as probabilidades de inclusão de primeira e segunda ordem para unidades na população sob AES? Que valores estas probabilidades assumem em caso de um plano AES proporcional ou equiponderada?
 
 
-##Referências
+**Referências**
 
 Baillargeon, S. & Rivest, L. P. (2011). A General Algorithm for Univariate Stratification. Proceedings of the International Statistical Institute, Dublin.
 

@@ -1,10 +1,10 @@
-#Amostragem com Probabilidades Desiguais
+# Amostragem com Probabilidades Desiguais
 
 A amostragem com probabilidades desiguais é usada porque as unidades de amostragem têm variação de tamanho e ignorar a variação de tamanho pode resultar em desenhos ineficientes. Neste sentido, é usada quando a variação dos tamanhos for grande, tiver informação auxiliar precisa sobre tamanhos disponível e o tamanho for fortemente correlacionado com as variáveis de interesse. 
 
 Trataremos inicialmente o caso de amostragem com probabilidades proporcionais ao tamanho. Outros casos serão vistos mais adiante, tais como: amostragem estratificada com alocação desproporcional, seleção de um morador para ser entrevistado em cada domicílio, amostras de números telefônicos (“random digit dialling samples”). 
 
-##Amostragem com Probabilidades Proporcionais ao Tamanho (PPT)
+## Amostragem com probabilidades proporcionais ao tamanho (PPT)
 
 Seja a população denotada por $U = \{ 1; 2; ...; N\}$ e que os valores de uma variável auxiliar $x_i$, $i \in U$, são conhecidos para todos os elementos da população.
 
@@ -17,7 +17,7 @@ Por enquanto, vamos assumir que é possível selecionar amostras de acordo com u
 Mais tarde, discutiremos algoritmos para garantir que essas condições sejam cumpridas.
 
 
-###Estimação do Total Populacional
+### Estimação do total populacional
 
 Sejam $\delta_i$ as variáveis indicadoras de inclusão na amostra $s$, para todo $i \in U$.
 
@@ -76,7 +76,8 @@ A chave para eficiência da amostragem PPT é ter medidas de tamanho ($x$) altam
 
 Cabe registrar que ambos os estimadores de variância para o estimador de total podem tomar valores negativos. Evidências empíricas sugerem que isto ocorre mais raramente com o estimador de Sen-Yates-Grundy.
 
-###Estimação da Média Populacional
+
+### Estimação da média populacional
 
 Quando o tamanho da população $N$ é conhecido, o estimador “natural” da média populacional baseado no estimador $HT$ do total seria:
 \begin{equation}
@@ -137,12 +138,12 @@ O Quadro \@ref(tab:tabppt1) apresenta um resumo da estimação de parâmetros m�
 \\\hline \end{array}
 
 
-###Maneiras de Selecionar Amostras com PPT
+### Maneiras de selecionar amostras com PPT
 
 A seleção de amostras com PPT pode ser com reposição ou sem reposição. 
 Na amostragem PPT com reposição há uma maior simplicidade de seleção e de estimação, porém a eficiência não é plena. Já na amostragem com PPT sem reposição há várias alternativas de seleção e mais complexidade e dificuldade na estimação de precisão, porém a eficiência é plena e não tem o problema da repetição de unidade selecionada.  
 
-###Amostragem PPT Com Reposição: Método dos Totais Cumulativos
+## Amostragem PPT com reposição: método dos totais cumulativos
 
 O algoritmo para seleção da amostra pelo método dos totais cumulativos consiste nos seguintes passos: 
 
@@ -163,7 +164,8 @@ Cabe comentar que Amostragem PPT Com Reposição é um método muito simples de 
 
 **(#exm:exmppt1)** Considere uma população de $N=6$ Fazendas, com as respectivas áreas apresentadas na Tabela \@ref(tab:tabppt2). Extrair uma amostra de $n=3$ fazendas com PPT $\propto$  área, usando o método dos totais cumulativos.
 
-$$\begin{array}{|l|c|c|c|c|}\hline \text{Fazenda} & \text{Área} & \text{Tamanho  Acumulado} & \text{Limite Inferior do Intervalo} & \text{Limite Superior do Intervalo} \\\hline 1 & 50 & 50 & 0 & 50\\\hline 2 & 1000 & 1050 & 51 & 1050\\\hline 3 & 125 & 1175 &1051 &1175\\\hline 4 & 300 & 1475 & 1176 & 1475 \\\hline 5 & 500 & 1975 & 1476 & 1975\\\hline 6 & 25 & 2000 & 1976 & 2000\\\hline\end{array}$$
+$$\begin{array}{|l|c|c|c|c|}\hline \text{Fazenda} & \text{Área} & \text{Tamanho} & \text{Limite Inferior} & \text{Limite Superior} \\\ & & \text{Acumulado}&\text{do Intervalo}&\text{do Intervalo}
+\\\hline 1 & 50 & 50 & 0 & 50\\\hline 2 & 1000 & 1050 & 51 & 1050\\\hline 3 & 125 & 1175 &1051 &1175\\\hline 4 & 300 & 1475 & 1176 & 1475 \\\hline 5 & 500 & 1975 & 1476 & 1975\\\hline 6 & 25 & 2000 & 1976 & 2000\\\hline\end{array}$$
 Supondo que os 3 números aleatórios entre 0 e 2000 foram: 654, 1230 e 1555. Então as fazendas 2, 4 e 5 foram as selecionadas. 
 
 Caso os 3 números aleatórios entre 0 e 2000 fossem: 122, 754 e 1980. Então as fazendas 2 e 6 seriam as selecionadas, com a fazenda 2 sendo selecionada duas vezes.  
@@ -176,8 +178,7 @@ knitr::include_graphics("Figuras/diagrama_ppt.PNG")
 ```
 
 
-
-####Estimação do Total Sob Amostragem PPT Com Reposição
+### Estimação do total sob amostragem PPT com reposição
 
 O estimador do total sob amostragem PPT com reposição é dado por: 
 \begin{equation}
@@ -196,7 +197,7 @@ V_{PPTC}\left(\widehat  Y_{PPTC}\right)=\frac{1}{n}\displaystyle\sum_{i \in U}\l
 \widehat V_{PPTC}\left(\widehat  Y_{PPTC}\right)=\frac{1}{n(n-1)}\displaystyle\sum_{j=1}^{n}\left(\frac{y_{k_j}}{p_{k_j}}-\widehat Y_{PPTC}\right)^2(\#eq:eqppt12)
 \end{equation}
 
-###Amostragem PPT de Poisson
+## Amostragem PPT de Poisson
 
 O método PPT de Poisson é uma generalização simples do método de *Amostragem Binomial* e consiste nos seguintes passos:
 
@@ -219,7 +220,7 @@ A Amostragem PPT de Poisson é pouco usada na prática devido à variabilidade d
 Um método moderno que corrige este defeito é “Amostragem Sequencial de Poisson” (ASP) - veja [@Ohlsson1998].
 
 
-####Estimador Simples de Total sob Amostragem de Poisson
+### Estimador simples de total sob amostragem de Poisson
 
 O estimador do total sob Amostragem de Poisson é dado por: 
 
@@ -240,7 +241,7 @@ V\left(\widehat Y_{PO}\right)=\displaystyle\sum_{i \in U}\pi_i(1-\pi_i)\left(\fr
 Também é possível usar estimador de total tipo razão sob Amostragem de Poisson, que é mais eficiente do que o estimador $HT$. 
 
 
-###Amostragem Sequencial de Poisson (ASP)
+## Amostragem sequencial de Poisson (ASP)
 
 O método de Amostragem Sequencial de Poisson (ASP) consiste nos seguintes passos:
 
@@ -255,7 +256,7 @@ O método de Amostragem Sequencial de Poisson (ASP) consiste nos seguintes passo
 5. Selecionar para a amostra as $n$ unidades com os menores valores de $C_i$ .
 
 
-####Estimação com Amostragem Sequencial de Poisson
+### Estimação com amostragem sequencial de Poisson
 
 O estimador do total sob Amostragem Sequencial de Poisson é dado por: 
 
@@ -273,7 +274,7 @@ V\left(\widehat Y_{ASP}\right)=\frac{1}{n}\frac{N}{N-1}\displaystyle\sum_{i \in 
 \widehat V\left(\widehat Y_{ASP}\right)=\frac{1}{n(n-1)}\displaystyle\sum_{i \in s}\left(\frac{y_i}{p_i}-\widehat Y_{ASP}\right)^2 (1-np_i)p_i(\#eq:eqppt18) 
 \end{equation}
 
-###Amostragem Sistemática com PPT
+## Amostragem sistemática com PPT
 
 O método de Amostragem Sistemática com PPT consiste nos seguintes passos:
 
@@ -296,7 +297,7 @@ Seguem alguns cuidados a serem tomados no uso da Amostragem Sistemática com PPT
 * Repita a verificação até que nenhuma unidade tenha tamanho maior que o intervalo de seleção.
 
 
-###Amostragem PPT Sistemática com Ordenação
+## Amostragem PPT sistemática com ordenação
 
 A seleção com amostragem PPT sistemática com ordenação segue os seguintes passos:
 
@@ -315,7 +316,7 @@ Cabe registrar os seguintes comentários:
 3. Com ordenação prévia da população por alguma outra característica, amostragem sistemática PPT confere efeito de estratificação implícita da amostra, podendo aumentar sua eficiência. 
 
 
-###Amostragem PPT de Pareto (AP) 
+## Amostragem PPT de Pareto (AP) 
 
 A seleção com amostragem PPT de Pareto, de acordo com [@Rosen2000], segue os seguintes passos:
 
@@ -342,7 +343,7 @@ Seguem algumas considerações sobre Amostragem PPT de Pareto (AP)
 5. Resultados quanto a estimadores são assintóticos e vício pode ocorrer com pequenas amostras.
 
 
-####Estimação com Amostragem PPT de Pareto (AP)
+### Estimação com amostragem PPT de Pareto (AP)
 
 O estimador do total sob Amostragem PPT de Pareto (AP) é dado por: 
 
@@ -362,10 +363,10 @@ V\left(\widehat Y_{AP}\right)\doteq \frac{N}{N-1}\displaystyle\sum_{i \in U}\lef
 \widehat V\left(\widehat Y_{AP}\right)= \frac{n}{n-1}\displaystyle\sum_{i \in s}\left(\frac{y_i}{\lambda_i}-\frac{\sum_{k \in s} y_k(1-\lambda_k)}{\sum_{k \in s} (1-\lambda_k)}\right)^2(1-\lambda_i)(\#eq:eqppt21) 
 \end{equation}
 
-(Veja [@Rosen2000]).
+(Veja @Rosen2000).
 
 
-##Exercícios
+## Exercícios
 
 **(#exe:exeppt1)** Verifique que o estimador de $HT$ da média não é invariante sob transformações de locação. Isto é, se tomarmos $z_i=y_i+A$, então $\overline z_{HT}\ne\overline y_{HT}+A$ 
 

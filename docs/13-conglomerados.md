@@ -1,6 +1,6 @@
-#Amostragem de Conglomerados em Um ou Mais Estágios
+# Amostragem de Conglomerados em Um ou Mais Estágios 
 
-##Conceituação básica 
+## Conceituação básica 
 
 Nos planos amostrais já apresentados (Amostragem Aleatória Simples - com ou sem reposição -, Amostragem Binomial ou de Bernoulli, Amostragem Sistemática, Amostragem com Probabilidades Desiguais - Proporcionais ao Tamanho: com reposição, Poisson, Poisson Sequencial, Pareto - e Amostragem Estratificada Simples) alguns aspectos são comuns: requerem cadastro de unidades individuais para permitir selecionar a amostra; a seleção da amostra é feita num único estágio ou etapa; as unidades de referência são iguais às unidades de amostragem; e o tamanho total da população é conhecido com base no cadastro.
 
@@ -18,7 +18,7 @@ A unidade populacional depende da análise que está sendo feita e é determinad
 
 Não há uma definição possível para os conglomerados. Por exemplo, a turma tanto pode ser uma unidade populacional (se estivermos interessados em investigar o número de alunos por turma), como pode ser um conglomerado de alunos (se estivermos interessados em investigar o aproveitamento dos alunos). 
 
-Para exemplificar, o Quadro \@ref(tab: cong) apresenta algumas ilustrações de possíveis conglomerados associados com a população, a variável de interesse e a unidade de referência para análise. 
+Para exemplificar, o Quadro \@ref(tab:cong) apresenta algumas ilustrações de possíveis conglomerados associados com a população, a variável de interesse e a unidade de referência para análise. 
 
 
 
@@ -35,15 +35,12 @@ Moradores em favelas do Rio        Características de pessoas      Morador de f
 
 Conforme ilustração na Figura \@ref(fig:hierarquia) temos regras de associação com a hieraquia com vários níveis (vários para um), considerando o cadastro de setores, os domicílios como nível 1 e a população de moradores.  
 
-<div class="figure">
-<img src="Figuras/hierarquia.png" alt="Ilustração da hierarquia com vários níveis (vários para um)" width="435" />
-<p class="caption">Ilustração da hierarquia com vários níveis (vários para um)</p>
-</div>
+![Ilustração da hierarquia com vários níveis (vários para um)](Figuras/hierarquia.png)
 
 Cabe registrar que os vários planos amostrais discutidos anteriormente podem ser aplicados a amostragem de conglomerados, onde os conglomerados são as unidades amostrais. 
 
  
-##Amostragem de áreas
+## Amostragem de áreas
 
 O cadastro ou sistema de referência da pesquisa é a fonte que serve de guia e permite identificar a população a ser coberta para a seleção de amostras. 
 
@@ -99,17 +96,11 @@ Portanto, a amostragem conglomerada em um estágio ou AC1 é caracterizada pelos
 
 Segue ilustração utilizando um baralho, onde pode ser observado na Figura \@ref(fig:baralho) que cada grupo de um mesmo número ou letra (Ás,1,2,...7,J,D,K) representa um conglomerado com os quatro diferentes naipes (paus, ouros, copas e espadas).  
 
-<div class="figure">
-<img src="Figuras/baralho.png" alt="Ilustração de unidades elementares “naturalmente” agrupadas" width="466" />
-<p class="caption">Ilustração de unidades elementares “naturalmente” agrupadas</p>
-</div>
+![Ilustração de unidades elementares “naturalmente” agrupadas](Figuras/baralho.png)
 
 Na ilustração da Figura \@ref(fig:baralhoAC1) temos a seleção de amostragem conglomerada em um estágio (AC1).
 
-<div class="figure">
-<img src="Figuras/baralhoAC1.png" alt="Ilustração da seleção de amostragem conglomerada em um estágio" width="467" />
-<p class="caption">Ilustração da seleção de amostragem conglomerada em um estágio</p>
-</div>
+![Ilustração da seleção de amostragem conglomerada em um estágio](Figuras/baralhoAC1.png)
 
 Foram selecionados dois conglomerados (os de número 3 e 7), resultando numa amostra de 8 cartas do baralho (3 de paus, 3 de ouros, 3 de copas, 3 de espadas, 7 de paus, 7 de ouros, 7 de copas, 7 de espadas). 
 
@@ -128,7 +119,7 @@ Tal estratégia consiste no arranjo da população em UPAs, as quais são dividi
 
 *Estágio 3*: amostra de unidades elementares é selecionada dentro de cada uma das USAs selecionadas. 
 
-**(#exm:3est)** Como exemplo, considere a amostragem em três estágios onde: as UPAs são os Municípios; as USAs são os setores censitários e as unidades elementares são os domicílios.
+**(#exm:exmcon1)** Como exemplo, considere a amostragem em três estágios onde: as UPAs são os Municípios; as USAs são os setores censitários e as unidades elementares são os domicílios.
 
 **Notas**
 
@@ -140,16 +131,13 @@ Tal estratégia consiste no arranjo da população em UPAs, as quais são dividi
 
 Segue ilustração na Figura \@ref(fig:baralhoAC2) de amostragem conglomerada em dois estágios (AC2), utilizando o baralho com os grupamentos definidos anteriormente.  
 
-<div class="figure">
-<img src="Figuras/baralhoAC2.png" alt="Ilustração da seleção de amostragem conglomerada em 2 estágios " width="373" />
-<p class="caption">Ilustração da seleção de amostragem conglomerada em 2 estágios </p>
-</div>
+![Ilustração da seleção de amostragem conglomerada em 2 estágios ](Figuras/baralhoAC2.png)
 
 Foram selecionados os conglomerados (UPAs) 3, 7 e J (valete) e selecionadas duas cartas por conglomerado selecionado, resultando numa amostra de 6 cartas do baralho (3 de ouros, 3 de copas, 7 de paus, 7 de copas, valete de copas e valete de espadas). 
 
 Populações humanas em geral são organizadas segundo uma hierarquia definida por regiões, estados, municípios, bairros, endereços, domicílios, famílias, pessoas.
 
-**(#exm:esthierar)** Como outros exemplos de estruturas com hierarquia, considere:
+**(#exm:exmcon2)** Como outros exemplos de estruturas com hierarquia, considere:
 
 a) Conglomerados = áreas num mapa; e unidades elementares = fazendas
 
@@ -161,7 +149,7 @@ d) Conglomerados = carros cruzando pedágio; e unidades elementares = passageiro
 
 e) UPAs = empresas industriais; e unidades elementares = unidades locais. 
 
-**(exm:PMESP)** Pesquisa Mensal de Emprego na Região Metropolitana de São Paulo realizada pelo IBGE
+**(#exm:exmcon3)** Pesquisa Mensal de Emprego na Região Metropolitana de São Paulo realizada pelo IBGE
 
 Consiste em aplicar amostragem conglomerada em três estagios, onde os setores censitários da Região Matroplitana de São Paulo são as UPAs, os domícilios são as USAs e as unidades elementares são os moradores em domicílios particulares. O número médio de domicílios (USAs) por setor (UPA) era de 300 na zona urbana e 200 na zona rural. Todos os moradores dos domicílios selecionados eram pesquisados, sendo que somente os que tinham 10 anos ou mais de idade preenchiam a parte referente às características de ocupação e rendimento. Eram 431 setores na amostra por mês para a Região Metropolitana de São Paulo, aproximadamente 18 domicílios selecionados em cada setor da amostra, resultando em aproximadamente 7.820 domicílios na amostra por mês.
 
@@ -178,7 +166,7 @@ A amostragem conglomerada em vários estágios deve ser adotada em situações e
 
 ## Teoria básica de estimação para Amostragem Conglomerada em um estágio (AC1)
 
-O Quadro \@ref(tab: tamcong) apresenta a notação de tamanhos da população e da amostra na AC1 para o conjunto das unidades em questão. 
+O Quadro \@ref(tab:tabcon1) apresenta a notação de tamanhos da população e da amostra na AC1 para o conjunto das unidades em questão. 
 
 Quadro 13.2 - Notação dos tamanhos da população e amostra na AC1
 
@@ -191,7 +179,7 @@ Quadro 13.2 - Notação dos tamanhos da população e amostra na AC1
 \\\hline \end{array}
 
 
-O Quadro \@ref(tab: parcong) apresenta parâmetros populacionais no conglomerado e em toda população.
+O Quadro \@ref(tab:tabcon1) apresenta parâmetros populacionais no conglomerado e em toda população.
 
 Quadro 13.3 - Parâmetros populacionais 
 
@@ -208,7 +196,7 @@ Quadro 13.3 - Parâmetros populacionais
 \\\hline \end{array}
 
 
-### Amostragem Conglomerada Simples (ACS)
+## Amostragem conglomerada simples (ACS)
 
 O esquema de seleção de uma amostra conglomerada simples consiste nos seguintes passos: 
 
@@ -218,7 +206,7 @@ O esquema de seleção de uma amostra conglomerada simples consiste nos seguinte
 
 A amostra desejada é formada por *todas as unidades elementares existentes nos $n$ conglomerados selecionados*.
 
-O Quadro \@ref(tab: amocong) apresenta as informações amostrais nos conglomerados selecionados e em toda amostra.
+O Quadro \@ref(tab:amocong) apresenta as informações amostrais nos conglomerados selecionados e em toda amostra.
 
 Quadro 13.4 - Informações amostrais na ACS  
 
@@ -237,7 +225,7 @@ Quadro 13.4 - Informações amostrais na ACS
 \\\hline \end{array}
 
 
-#### Estimação do total populacional: estimador natural 
+### Estimação do total populacional: estimador natural 
 
 O estimador natural, de Horvitz-Thompson, do total populacional é dado por: 
 
@@ -265,7 +253,7 @@ O estimador da variância do estimador natural do total populacional é dado por
 onde $S_e^2$ é estimado por: $\displaystyle s_e^2=\frac{1}{n-1}\displaystyle\sum_{i \in a} \left(Y_i-\overline y_C \right)^2$.
 
 
-####Estimação do total populacional: estimador de razão do total
+### Estimação do total populacional: estimador de razão do total
 
 Há situações em que o controle da variação dos tamanhos dos conglomerados pode ser feito através da estimação por razão baseada no tamanho dos conglomerados. 
 
@@ -294,7 +282,7 @@ O estimador da variância do estimador de razão do total pode ser obtido por:
 \end{equation} 
 
 
-#### Comparação de estimadores natural e de razão do total
+### Comparação de estimadores natural e de razão do total
 
 1. Se os conglomerados tiverem todos tamanhos iguais (isto é, se $M_i=\overline M=M_0/N\,\,\forall i=1,\dots,N$) então $\widehat Y_R =\widehat Y$. 
 
@@ -338,7 +326,7 @@ Se $\widehat Y$ tiver que ser usado: *estratifique os conglomerados* por tamanho
 Em termos de eficiência não parece haver vantagem nítida de qualquer das duas alternativas, sendo bastante semelhante os resultados obtidos com ambas as técnicas em termos da precisão final das estimativas. 
 
 
-#### Estimação da média por unidade: estimador natural
+### Estimação da média por unidade: estimador natural
 
 O estimador natural, de Horvitz-Thompson, da média por unidade $\overline Y$ é dado por: 
 
@@ -359,7 +347,7 @@ O estimador da variância do estimador natural da média é dado por:
 \end{equation} 
 
 
-#### Estimação da média por unidade: estimador de razão
+### Estimação da média por unidade: estimador de razão
 
 Um estimador de razão da média por unidade  $\overline Y$ é dado por:  
 
@@ -408,7 +396,7 @@ O Quadro \@ref(tab:tabcong1) apresenta um resumo da estimação de parâmetros m
 \\\hline \end{array}
 
 
-### Efeito de Plano Amostral (EPA)
+## Efeito de plano amostral (EPA)
 
 O *efeito de plano amostral* é uma medida para comparar a *eficiência* de duas estratégias ($E_1$ e $E_2$, digamos), formadas por combinações de *plano amostral e estimador*, para um tamanho de amostra comum.
 
@@ -424,7 +412,7 @@ O $FPA$ compara diretamente o *desvio padrão* de um estimador sob duas estraté
 
 É mais comum o uso do EPA que do FPA, mas são medidas equivalentes, embora expressas em unidades distintas. 
 
-**(#exm:epanat)** Efeito do plano amostral ao estimar a média populacional por unidade elementar, através do estimador natural com amostragem conglomerada simples em relação ao uso da AAS, ou seja:
+**(#exm:con4)** Efeito do plano amostral ao estimar a média populacional por unidade elementar, através do estimador natural com amostragem conglomerada simples em relação ao uso da AAS, ou seja:
 
 *Estratégia 1*: Amostragem conglomerada simples (ACS), com o estimador natural $\overline y_N$.
 
@@ -442,7 +430,7 @@ $EPA > 1 \Rightarrow$ *perda de precisão* devida ao uso de amostragem conglomer
 
 $EPA < 1 \Rightarrow$ *ganho de precisão* devido ao uso de amostragem conglomerada. 
 
-**(#exm:eparaz)** Efeito do plano amostral ao estimar a média populacional por unidade elementar, através do estimador de razão com amostragem conglomerada simples em relação ao uso da AAS, ou seja:
+**(#exm:exmcon5)** Efeito do plano amostral ao estimar a média populacional por unidade elementar, através do estimador de razão com amostragem conglomerada simples em relação ao uso da AAS, ou seja:
 
 *Estratégia 1*: Amostragem conglomerada simples (ACS), com estimador de razão $\displaystyle \overline y_R= \frac{1}{m_0}\displaystyle \sum_{i \in a}Y_i$ para a média.
 
@@ -524,7 +512,7 @@ O Quadro \@ref(tab:tabepa) apresenta efeitos de plano amostral sob ACS de acordo
 Observe que com o aumento do tamanho do conglomerado, como aumenta a perda de precisão da ACS em relação à AAS e para conglomerados maiores a medida que aumenta o coeficiente de correlação intraclasse diminui a eficiência da ACS.  
 
 
-### Amostragem conglomerada com probabilidade proporcional ao tamanho (PPT) em um estágio
+## Amostragem conglomerada com probabilidade proporcional ao tamanho (PPT) em um estágio
 
 A ocorrência de variabilidade nos tamanhos dos conglomerados causa acentuda perda de precisão nos estimadores naturais com amostragem de conglomerados em um estágio. 
 
@@ -537,7 +525,7 @@ A amostragem conglomerada com probabilidade proporcional ao tamanho (PPT) em um 
 3. Selecionar conglomerados com probabilidades proporcionais ao seu tamanho (número de unidades subordinadas ou outra medida de tamanho). 
 
 
-#### Estimadores do total com AC1PPT
+### Estimadores do total com AC1PPT
 
 A seguir, o estimador não viciado do total $Y$ com AC1PPT, no caso de PPT com reposição. 
 
@@ -596,7 +584,7 @@ e) $\widehat Y_{PPTC}$ tem desempenho similar ao estimador de razão do total, $
 f) $\widehat Y_{PPTC}$ possui propriedades exatas (não viciado, variância, estimador não viciado de variância) que valem também para amostras pequenas.
 
 
-## Amostragem Conglomerada em dois estágios (AC2)
+## Amostragem conglomerada em dois estágios (AC2)
 
 O plano amostral de conglomerados em dois estágios (AC2) se caracteriza pela seleção de uma amostra de conglomerados com subamostragem, assim definida: 
 
@@ -633,7 +621,7 @@ Para esse plano, a probabilidade de inclusão da unidade $j$ da UPA $i$ é dada 
 \pi_{ij}=P(i \in a, j\in s)= P(i \in a)\times P(j \in s|i \in a) = \frac{n}{N}\times \frac{m_i}{M_i}\,\,(\#eq:eqcong25) 
 \end{equation}
 
-#### Planos amostrais equiponderados
+### Planos amostrais equiponderados
 
 Planos amostrais são mais simples quando as probabilidades de inclusão são constantes, isto é, para quaisquer $\pi_{ij}=f=m_0/M_0 \,\,\forall i$ e $j$. Nestas condições o plano amostral é dito *equiponderado* ou *autoponderado*.
 
@@ -735,7 +723,6 @@ V\left(\widehat Y_{Plano1}\right)= \displaystyle N^2\left(\frac{1}{n}-\frac{1}{N
 \end{equation} 
 
 e este plano amostral equivale ao de uma amostra de conglomerados em um estágio.
-
 
 De acordo com ([@Cochran1977], equação 11.24) o estimador da variância do estimador não viciado do total sob o Plano 1 é dado por: 
 
@@ -847,7 +834,7 @@ Um estimador da variância de $\widehat Y_{Plano2}$, de acordo com ([@Cochran197
 \end{eqnarray}
 
 
-O Quadro \@ref(tab:tabAC2) apresenta um resumo da estimação do parâmetro do  total da variável $y$ sob os Planos 1 e 2 de AC2. 
+O Quadro \@ref(tab:tabcon1) apresenta um resumo da estimação do parâmetro do  total da variável $y$ sob os Planos 1 e 2 de AC2. 
 
 \begin{array}{|c|c|}\hline
 \textbf{Parâmetro} & \textbf{Estimador AC2}  
@@ -1019,4 +1006,3 @@ Ou alternativamente:
 \begin{equation} 
 n_{AC2PPT}\doteq n_{AAS}\times [1+(\overline m-1)\rho]\,\,(\#eq:eqcong53)
 \end{equation}
-

@@ -1,4 +1,4 @@
-# Amostragem Aleatória Simples
+# Amostragem Aleatória Simples (AAS)
 
 ## Planos amostrais e algoritmos de seleção
 
@@ -32,7 +32,7 @@ A forma usual de selecionar a amostra consiste em realizar $n$ sorteios consecut
 
 AASC é raramente usada na prática, pois é ineficiente em comparação com a amostragem *sem reposição* de igual tamanho inicial $n$, pelo fato de não incorporar nova informação quando a mesma unidade é selecionada mais de uma vez para a amostra. Na AASC o *tamanho efetivo* da amostra é $m \le n$, onde $m$ designa o número de unidades *distintas* selecionadas.   
 
-Considere os dados amostrais para a variável $y$ sob AASC, representados por $\{y_{i_1}, y_{i_2}, \dots, y_{i_k}, \dots, y_{i_n}\}$. Tais valores são observações de variáveis aleatórias $Y_1, Y_2, ..., Y_k, ..., Y_n$ independentes e identicamente distribuídas (IID), com distribuição comum dada conforme a tabela abaixo.
+Considere os dados amostrais para a variável $y$ sob AASC, representados por $\{y_{i_1}, y_{i_2}, \dots, y_{i_k}, \dots, y_{i_n}\}$. Tais valores são observações de variáveis aleatórias $Y_1, Y_2, ..., Y_k, ..., Y_n$ independentes e identicamente distribuídas (IID), com distribuição comum dada conforme o Quadro \@ref(tab:tabaas3).
 
 $$\begin{array}{|l|c|c|c|c|c|}\hline \textrm{Unidade populacional } (i) & 1 & 2 & \dots & N & \textrm{Soma na linha} \\\hline \textrm{Valores que}\,\, Y_k\, \textrm{pode assumir } (y_i) & y_1 & y_2 & \dots & y_N & Y\\\hline \textrm{Probabilidades}\,\, [P(Y_k = y_i)] & 1/N & 1/N & \dots & 1/N & 1\\\hline\end{array}$$
 
@@ -75,7 +75,7 @@ A estimação da média populacional $\overline{Y}$ segue-se facilmente dividind
 
 A variância e estimador de variância correspondentes são também facilmente obtidos, uma vez que ${V}_{AASC} (\overline{y})=V_{AASC} (\widehat{Y}_{AASC})/N^2$. 
 
-O quadro \@ref(tab:estAASC) apresenta um resumo da estimação de parâmetros média e total sob AASC.
+O Quadro \@ref(tab:tabaas1) apresenta um resumo da estimação de parâmetros média e total sob AASC.
 
 $$\begin{array}{|c|c|}\hline
 \textrm{Parâmetro} & \textrm{Estimador ENV sob AASC}\,\,
@@ -88,7 +88,7 @@ $$\begin{array}{|c|c|}\hline
 
 Para provas destes resultados, veja por exemplo o teorema 3.3 de [@Bolfarine2005].
 
-Note que o estimador $\widehat{Y}_{AASC}$ para o total não é o estimador tipo Horvitz-Thompson para este plano amostral. Veja o (#exe:estHT) para uma discussão dessa questão.
+Note que o estimador $\widehat{Y}_{AASC}$ para o total não é o estimador tipo Horvitz-Thompson para este plano amostral. Veja o (#exe:exeaas1) para uma discussão dessa questão.
 
 A importância da AASC é principalmente teórica: através dela se mostra que é possível obter amostras de forma simples, cujos dados são utilizáveis mediante a aplicação de procedimentos convencionais da Inferência Estatística clássica. Por exemplo, a estimação não enviesada da média populacional $\overline{Y}$ pode ser feita simplesmente com o estimador média amostral $\overline{y}$, e a obtenção das propriedades deste estimador fica facilitada porque as variáveis aleatórias correspondentes aos valores das observações na amostra são IID, mesmo quando a população alvo tem tamanho finito. Ainda mais, o estimador $\overline{y}$ da média $\overline{Y}$ continua válido mesmo quando não se propõe um modelo estocástico para descrever a distribuição dos valores da população, sendo este estimador não enviesado independente da forma que tem a distribuição dos valores da população. Tudo isso justifica a apresentação da AASC dentro do conjunto de técnicas abordadas neste livro.
 
@@ -121,7 +121,7 @@ Tal algoritmo fornecia a regra para *seleção manual* com uso de *tabelas de n�
 
 Este algoritmo foi proposto por [@Hajek1960] e consiste nos seguintes passos: 
 
-*Passo 1:* Para cada $i \in U$, associe um *número pseudoaleatório* $a_i$, onde os $a_i$ são determinações de variáveis aleatórias IID $A_1, A_2, ..., A_N$, todas com distribuição $U[0;1]$.
+*Passo 1:* Para cada $i\in U$, associe um *número pseudoaleatório* $a_i$, onde os $a_i$ são determinações de variáveis aleatórias IID $A_1, A_2, ..., A_N$, todas com distribuição $U[0;1]$.
 
 $$\begin{array}{|l|c|c|c|c|}\hline \textrm{Rótulo da unidade}\,\, i & 1 & 2 & \dots & N \\\hline \textrm{Número pseudoaleatório}\,(a_i) & a_1 & a_2 & \dots & a_N\\\hline \end{array}$$
 *Passo 2:* Ordene a população segundo os números pseudoaleatórios $a_1, a_2, ..., a_N$, obtendo uma *permutação aleatória* dos rótulos das unidades populacionais.
@@ -163,7 +163,7 @@ Foi para eliminar essa dificuldade que introduzimos resumos simples derivados da
 
 4) Sob AAS, as probabilidades de inclusão $\pi_i$, $\pi_{ij}$, etc. não dependem de $i$ ou $j$, e essa é a razão da simplicidade desse plano amostral.
 
-Sob AAS de tamanho $n$ de população com $N$ tem-se:
+Sob AAS de tamanho $n$ de população com $N$, para a variável $\delta_i$ indicadora do evento ´inclusão da unidade $i$ na amostra $s$´, tem-se:
 
 $E_{AAS} [{\delta_i}] = \displaystyle\frac{n}{N}$, 
  
@@ -196,7 +196,7 @@ Um estimador da variância do estimador de total é dado por:
 
 onde $s^2_y = \displaystyle \frac{1}{n-1} \sum_{i \in s} ({y_i - \overline{y}})^2$ .
 
-O quadro \@ref(tab:estAAS) apresenta um resumo da estimação de parâmetros média e total sob AAS.
+O Quadro \@ref(tab:tabaas2) apresenta um resumo da estimação de parâmetros média e total sob AAS.
 
 \begin{array}{|c|c|}\hline
 \textrm{Parâmetro} & \textrm{Estimador ENV sob AAS} 
@@ -219,7 +219,7 @@ O quadro \@ref(tab:estAAS) apresenta um resumo da estimação de parâmetros mé
 
 2.	Se a fração amostral $f = n/N$ for pequena (tipo menor que 1% ou 2%), então a *correção de população finita* é desprezível, pois $(1 – f) \cong 1$. 
 
-3.	Neste caso $f \cong 0$, a AAS (amostragem sem reposição) se comporta como se fosse AASC (com reposição).
+3.	Neste caso $f \doteq 0$, a AAS (amostragem sem reposição) se comporta como se fosse AASC (com reposição).
 
 ### Distribuição da média amostral
 
@@ -275,11 +275,11 @@ b) Qual a precisão desejada (esperada) dos resultados?
 
 A primeira decisão é qual dos dois caminhos seguir para determinar o tamanho da amostra: fixar *custo* ou *precisão*? 
 
-###Tamanho amostral para custo fixado
+### Tamanho amostral para custo fixado
 
 Se a escolha for determinar o tamanho da amostra fixando parâmetros de *custo*, recomendamos usar como tamanho de amostra o *maior tamanho* permitido pelo orçamento (ou tempo) disponível. Nesse caso, não há uma teoria geral pronta para ser aplicada a toda e qualquer pesquisa. Há que estudar a *função de custo* de cada pesquisa e com base nela, definir o tamanho da amostra.
 
-**(#exm:tamamo)** Determinando tamanho de amostra para uma pesquisa junto a empresas
+**(#exm:exmaas1)** Determinando tamanho de amostra para uma pesquisa junto a empresas
 
 Considere um cenário em que o interesse é realizar uma pesquisa junto a empresas, para estimar alguns totais ou médias. O cliente que demanda a pesquisa informa que tem disponível um orçamento limitado, e que para a atividade de coleta da pesquisa o valor disponível é de R$ 400.000,00 (quatrocentos mil reais). 
 
@@ -289,7 +289,7 @@ Considerando o orçamento disponível para a coleta, o recomendável seria entã
 
 Após calcular este tamanho de amostra, o responsável pelo planejamento da amostra deve comunicar ao cliente alguma ideia de que precisão seria possível alcançar com esse tamanho de amostra e orçamento para os principais indicadores de interesse da pesquisa. Isto ajudaria a evitar frustrações ou reclamações após a coleta dos dados, e a obtenção das estimativas de interesse.
 
-###Tamanho amostral para precisão fixada
+### Tamanho amostral para precisão fixada
 
 Se a escolha for determinar o tamanho amostral para garantir resultados com certa *precisão* (margem de erro) especificada, devemos também especificar o grau de confiança a adotar. 
 
@@ -348,7 +348,7 @@ Seguem algumas sugestões de como fazer para resolver a questão de que $S_y^2$ 
 
 Seja $d$ a *precisão desejada*, o *erro máximo admissível* na estimação de $\overline Y$, a *semi-amplitude* desejada para o intervalo de confiança de $\overline Y$. Seja $1-\alpha$ o *coeficiente de confiança* desejado para o procedimento. Para *intervalos de confiança* de 95% usamos $z_{\alpha/2} = 1,96$.
 
-Um intervalo de confiança não é uma especificação sobre uma particular amostra, mas sobre o desempenho do procedimento sob todas as possíveis amostras. Quando se usa um intervalo de confiança de 95% para um parâmetro, isto quer dizer que os intervalos construídos com cerca de 95 de cada 100 amostras selecionadas (sob idênticas condições) cobririam o "verdadeiro" valor do parâmetro de interesse. Para uma amostra específica, selecionada pelo método escolhido, acredita-se que é de 95% a chance que o "verdadeiro" valor seja coberto pelo intervalo: [Estimativa - 1,96dp ; Estimativa + 1,96dp].
+Um intervalo de confiança não é uma especificação sobre uma particular amostra, mas sobre o desempenho do procedimento sob todas as possíveis amostras. Quando se usa um intervalo de confiança de 95% para um parâmetro, isto quer dizer que os intervalos construídos com cerca de 95 de cada 100 amostras selecionadas (sob idênticas condições) cobririam o "verdadeiro" valor do parâmetro de interesse. Para uma amostra específica, selecionada pelo método escolhido, acredita-se que é de 95% a chance que o "verdadeiro" valor seja coberto pelo intervalo: $[\text{Estimativa} - 1,96 \times \text{desvio padrão} ; \text{Estimativa} + 1,96 \times \text{desvio padrão}]$.
 
 Assim:  
 
@@ -368,3 +368,7 @@ n = \displaystyle\frac{1}{\displaystyle\left( \frac{d}{z_{\alpha/2}} \right)^2 \
 2. É possível derivar expressões similares para o caso da estimação de totais, entre outros parâmetros.
 
 3. Para planos amostrais mais complexos, é mais difícil resolver equações do tipo acima para determinar tamanhos amostrais, e sua alocação em estratos e conglomerados. Entretanto, a ideia de *Efeito de Plano Amostral* (EPA) vai ser útil neste contexto. Veja discussão no capítulo 13.
+
+## Exercícios 
+
+**(#exe:exeaas1)** Mostre que o estimador $\widehat{Y}_{AASC}$ para o total não é o estimador tipo Horvitz-Thompson. 

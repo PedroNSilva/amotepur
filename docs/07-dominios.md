@@ -1,6 +1,6 @@
 # Estimação para Domínios de Estudo 
 
-## Domínios de Estudo 
+## Domínios de estudo 
 
 Em inúmeras pesquisas são produzidas e divulgadas estimativas para um certo conjunto de categorias nas quais a população está dividida. 
 
@@ -14,11 +14,13 @@ Seja $d_i$ a variável indicadora do domínio $d$, isto é: $d_i=\left\{\begin{a
  
 Denotamos por $U_d=\{{i: d_i=1}\}$   a população no domínio $d$, e por $N_d=\sum_{i\in U} d_i$ o tamanho do domínio $d$. 
 
-Então, $y_{id}=y_id_i=\left\{\begin{array}{ll} y_i & \textrm{se}\,\, i\in U_d,\\ 0 & \textrm{caso contrário}\end{array}\right.\,\,\,$   define a variável de estudo $y$ relevante para estimação no domínio $d$.
+Então, $y_{id}=y_id_i=\left\{\begin{array}{ll} y_i & \textrm{se}\,\, i\in U_d,\\ 0 & \textrm{caso contrário}\end{array}\right.\,\,\,$   
+
+define a variável de estudo $y$ relevante para estimação no domínio $d$.
 
 Note que $y_{id}$ é uma variável ‘derivada’, formada pelo produto de duas outras variáveis de pesquisa: $y_i$ e $d_i$.
 
-## Parâmetros-Alvo para o Domínio
+## Parâmetros-alvo para o domínio
 
 Os parâmetros populacionais, que usualmente se deseja estimar para o domínio $d$, são: 
 
@@ -48,7 +50,7 @@ S_d^2=\sum_{i\in U} d_i(y_i-\overline{Y}_d)^2/(N_d-1).(\#eq:eqdom3)
 p_d=N_d/N= \overline {D}.(\#eq:eqdom4)
 \end{equation}
 
-## Estimação de Parâmetros para o Domínio
+## Estimação de parâmetros para o domínio
 
 Nesta seção se estuda como estimar os parâmetros populacionais para o domínio $d$ gerados para uma característica $y$ qualquer, com base numa amostra aleatória simples sem reposição de tamanho $n$. 
 
@@ -78,9 +80,9 @@ O estimador de variância correspondente é:
 \widehat V_{AAS}(\overline{y}_d) = \frac{1}{p_d^2}\left(1-\frac{n}{N}\right)\frac{1}{n}\frac{1}{n-1}\displaystyle\sum_{i\in s} d_i\left(y_i-\overline{y}_d\right)^2(\#eq:eqdom7)
 \end{equation}
 
-###Estimação da Média do Domínio: Propriedades Condicionais (fixando $n_d$)
+### Estimação da média do domínio: propriedades condicionais (fixando $n_d$)
 
-[@Cochran1977] (seção 2.12) sugere analisar a distribuição da média considerando o tamanho da amostra no domínio $n_d$ como fixo (em seu valor observado). Nesse caso, mostra que as $n_d$ observações na amostra $s$ formam uma AAS da população $U_d$.
+@Cochran1977 (seção 2.12) sugere analisar a distribuição da média considerando o tamanho da amostra no domínio $n_d$ como fixo (em seu valor observado). Nesse caso, mostra que as $n_d$ observações na amostra $s$ formam uma AAS da população $U_d$.
 
 Então segue-se que: 
 
@@ -98,13 +100,13 @@ onde $s_d^2=\sum_{i\in s} d_i(y_i-\overline{y}_d)^2/(n_d-1)$  é um estimador n�
 
 Se $N_d$ for desconhecido, $\widehat V_{AAS}(\overline{y}_d |\,n_d>0)$  não é calculável.
 
-[@Cochran1977] (p. 35) sugere substituir $n_d/N_d$ por $n/N$, o que implica em:
+@Cochran1977 (p. 35) sugere substituir $n_d/N_d$ por $n/N$, o que implica em:
  
  \begin{equation}
  \widehat V_{AAS}^*(\overline{y}_d |\,n_d>0)= \left(1-\frac{n}{N}\right)\frac{s_d^2}{n_d}(\#eq:eqdom10)
 \end{equation}
  
-###Estimação de Total do Domínio 
+###Estimação de total do domínio 
 
 Para obter estimadores do total populacional $Y_d$ note que: $Y_d=N_d\overline{Y}_d$. 
 
@@ -173,7 +175,7 @@ O Quadro a seguir apresenta um resumo da estimação de parâmetros média e tot
 \\\hline \end{array}
 
 
-###Intervalos de Confiança na Estimação de Parâmetros para o Domínio
+### Intervalos de confiança na estimação de parâmetros para o domínio
 
 A obtenção de intervalos de confiança na estimação de parâmetros populacionais para o domínio requer *amostra grande no domínio*.
 
@@ -195,11 +197,11 @@ Desse modo, as respectivas expressões dos intervalos de confiança de nível (1
 \begin{equation} 
 \displaystyle IC_{AAS}(\overline Y_d;1-\alpha)=\left[\overline y_d-z_{\alpha/ 2}\sqrt{\widehat V_{AAS}\left(\overline y_d \right)}\,\,;\,\overline y_d+z_{\alpha/2}\sqrt{\widehat V_{AAS}\left(\overline y_d \right)}\,\right] (\#eq:eqdom19) \end{equation}
 
-###Comparação da Eficiência dos Estimadores de Total do Domínio
+### Comparação da eficiência dos estimadores de total do domínio
 
 Foram propostos dois estimadores para o total populacional $Y_d$. Portanto, é importante saber quando usar um ou outro.
 
-Comparando as respectivas variâncias [@Cochran1977] (p. 38), tem-se:
+Comparando as respectivas variâncias, de acordo com @Cochran1977 (p. 38), tem-se:
 
 \begin{equation}
 \frac{V_{AAS}\left(\widehat{Y}_d^R|n_d>0 \,\,\textrm{e} \,\,N_d \,\textrm{conhecido}\right)}{V_{AAS}\left(\widehat{Y}_d)|n_d>0 \,\,\textrm{e}\,\, N_d \,\textrm{desconhecido}\right)}\cong \frac{S_d^2}{S_d^2 +(1-p_d)\overline{Y}_d^2}= \frac{C_d^2}{C_d^2 +(1-p_d)}(\#eq:eqdom20)
@@ -209,7 +211,7 @@ onde $C_d^2=S_d^2/\overline{Y}_d^2$ é a variância relativa do domínio $d$ par
  
 Isto mostra que conhecer o valor de $N_d$ sempre melhora a eficiência do estimador de total do domínio $d$; e que a melhoria é maior quando $p_d$ é pequena. Além disso, para valores pequenos de $p_d$ o estimador do total do domínio $d$ para $N_d$ desconhecido é bem pouco preciso, devendo talvez indicar o uso de um desenho de amostragem específico para a estimação de $Y_d$.  
 
-###Estimação de Proporção no Domínio
+### Estimação de proporção no domínio
 
 Há o caso de interesse prático e de aplicação de estimação de proporção no domínio. O problema surge quando se torna necessário estimar uma proporção de unidades de uma certa categoria da população e que são também portadoras de certo atributo. 
 
@@ -231,7 +233,8 @@ p_A^´=\frac{N_A}{N_A+N_B}(\#eq:eqdom22)
 
 Um estimador para $p_A^´$ pode ser construído com base na proporção de unidades da amostra pertencentes à categoria A dentro das unidades pertencentes às categorias A e B, isto é: 
 
-\begin{equation}\widehat p_A^´=\frac{n_A}{n_A+n_B}(\#eq:eqdom23)
+\begin{equation}
+\widehat p_A^´=\frac{n_A}{n_A+n_B}(\#eq:eqdom23)
 \end{equation}
 sendo $n_A$,$n_B$ e $n_c$, respectivamente, os números de unidades da amostra pertencentes às categorias A,B e C.
 
@@ -271,9 +274,9 @@ IC_{AAS} (p_A^´; 1 - \alpha) = \left [\widehat p_A^´\mp z_{\alpha/2} \sqrt{\le
 Caso $N^´$ não seja conhecido $n^´/N^´$ pode ser aproximado por $n/N$ na expressão anterior. 
 
 
-##Exercícios
+## Exercícios
 
-(#exe:desemprego) A população total de uma cidade é de 5000 pessoas. Uma amostra de fração amostral igual a 20% é selecionada aleatoriamente sem reposição. Na amostra 4000 pessoas estão na força de trabalho, das quas 200 estão sem emprego.
+(#exe:exedom1) A população total de uma cidade é de 5000 pessoas. Uma amostra de fração amostral igual a 20% é selecionada aleatoriamente sem reposição. Na amostra 4000 pessoas estão na força de trabalho, das quas 200 estão sem emprego.
 a) que proporção da força de trabalho está desempregada?
 b) qual o intervalo com 68% de confiança para essa proporção populacional? 
 
