@@ -12,7 +12,7 @@ Um caso especial de parâmetro de interesse para muitos estudos ou pesquisas oco
 Sendo uma variável indicadora, a variável $y$ irá assumir para cada unidade da população um de dois valores possíveis: o valor 1, se a unidade possui o atributo de interesse, ou o valor 0, caso a unidade não possua o atributo. Para fins de apresentação, seja $A \subset U$ o subconjunto das unidades da população $U$ que possuem o atributo de interesse. Então, para cada unidade $i$ da população, a variável $y$ será definida como:
 
 \begin{equation}
-y_i = I(i \in A) = \displaystyle \begin{cases} 1, \text {se a unidade} \textit{ i } \text{possui o atributo de interesse} \\\\ 0, \text {se a unidade} \textit{ i } \text{não possui o atributo de interesse} \end{cases} (\#eq:eqpro1)
+y_i = I(i \in A) = \displaystyle \begin{cases} 1, \text {se a unidade} \textit{ i } \text{possui o atributo de interesse} \\ 0, \text {se a unidade} \textit{ i } \text{não possui o atributo de interesse} \end{cases} (\#eq:eqpro1)
 \end{equation}
 
 O total populacional da variável $y$ coincide com a contagem do número de unidades populacionais que possuem o atributo de interesse, ou que pertencem ao subconjunto $A$, e pode ser representado como:
@@ -56,7 +56,7 @@ CV_y = \frac {\sqrt {\sigma^2_y}} {\overline Y} = \sqrt {{p(1-p) / p^2}} = \sqrt
 
 **(#exm:prop1)** Seja uma escola de ensino fundamental onde se deseja estudar a composição dos estudantes por sexo. Vamos supor que a escola tenha um total de 1000 estudantes, dos quais 480 são do sexo feminino. Pode-se definir a variável $y$ de interesse como:
 $$
-\displaystyle y_i =  \begin{cases} 1, \,\, \text {se o estudante for do sexo feminino} \\\\ 0, \,\, \text {em outro caso} \end{cases}
+\displaystyle y_i =  \begin{cases} 1, \,\, \text {se o estudante for do sexo feminino} \\ 0, \,\, \text {em outro caso} \end{cases}
 $$
 
 O total de meninas da escola será o total da variável $y$, dado por: 
