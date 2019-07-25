@@ -118,7 +118,7 @@ Para melhor ilustrar o conceito da definição da *população de pesquisa*, o Q
 
 
 
-Table: Quadro 2.1 - Exemplos de definições de populações de pesquisa
+Table: (\#tab:popsex1)Quadro 2.1 - Exemplos de definições de populações de pesquisa
 
 Unidades                         Características Definidoras                     Localização                      Período de referência                     
 -------------------------------  ----------------------------------------------  -------------------------------  ------------------------------------------
@@ -170,7 +170,10 @@ Pesquisas por amostragem, para serem bem feitas, requerem cuidadoso planejamento
 
 Para uma visão de conjunto, o *Modelo Genérico do Processo de Produção Estatística (MGPPE)* ou *Generic Statistical Business Process Model (GSBPM)*, definido pela United Nations Economic Commission for Europe (UNECE), é um modelo que descreve de forma abrangente as atividades do processo de produção estatística. Este modelo tem sido utilizado como quadro de referência para nortear a modernização e a melhoria da qualidade da produção estatística em muitos institutos nacionais de estatística, entre eles o IBGE. Uma representação esquemática dessa abordagem é apresentada na Figura \@ref(fig:modpesq), adaptada do *Generic Statistical Business Process Model: GSBPM: version 5.0* (2013, p.10). 
 
-![Modelo Genérico do Processo de Produção Estatística](Figuras/ProcessodePesquisaModelo.PNG)
+<div class="figure">
+<img src="Figuras/ProcessodePesquisaModelo.PNG" alt="Modelo Genérico do Processo de Produção Estatística" width="576" />
+<p class="caption">(\#fig:modpesq)Modelo Genérico do Processo de Produção Estatística</p>
+</div>
 
 Conforme indicado neste modelo, o processo de produção de uma pesquisa por amostragem engloba atividades de supervisão e controle em todas as etapas. Como pode ser observado, a gestão da qualidade é transversal ao processo de produção, perpassando todas as etapas definidas no modelo. A seguir, é apresentada uma breve descrição de etapas fundamentais identificadas no processo de produção de uma pesquisa por amostragem.
 
@@ -320,17 +323,26 @@ A malha digital de setores censitários do Brasil é um conjunto de arquivos con
 
 A Figura \@ref(fig:cadset) apresenta uma ilustração do cadastro de setores do IBGE para Copacabana no município do Rio de Janeiro. 
 
-![O cadastro de setores do IBGE - Copacabana - RJ](Figuras/SetorCopacabana.PNG)
+<div class="figure">
+<img src="Figuras/SetorCopacabana.PNG" alt="O cadastro de setores do IBGE - Copacabana - RJ" width="286" />
+<p class="caption">(\#fig:cadset)O cadastro de setores do IBGE - Copacabana - RJ</p>
+</div>
 
 
 O *Cadastro Nacional de Endereços para Fins Estatísticos (CNEFE)* é uma lista com cerca de 78 milhões de endereços urbanos e rurais, associados às unidades (domicílios e unidades não residenciais) registradas pelos recenseadores durante a coleta das informações do Censo Demográfico 2010, e aos setores censitários. Foi compilado para apoiar a realização das pesquisas domiciliares do IBGE. O Cadastro pode ser acessado no link: (https://www.censo2010.ibge.gov.br/cnefe/).
 
 As Figuras \@ref(fig:cnefe1) e \@ref(fig:cnefe2) ilustram informações disponíveis no CNEFE para um determinado setor censitário (https://censo2010.ibge.gov.br/cnefe/Exibe_Tabela.html?ag=330455705100417). 
 
-![Informações do CNEFE para um setor de Copacabana - RJ](Figuras/Dadossetor.PNG)
+<div class="figure">
+<img src="Figuras/Dadossetor.PNG" alt="Informações do CNEFE para um setor de Copacabana - RJ" width="354" />
+<p class="caption">(\#fig:cnefe1)Informações do CNEFE para um setor de Copacabana - RJ</p>
+</div>
 
 
-![Ilustração de dados do CNEFE](Figuras/CNEFE.PNG)
+<div class="figure">
+<img src="Figuras/CNEFE.PNG" alt="Ilustração de dados do CNEFE" width="356" />
+<p class="caption">(\#fig:cnefe2)Ilustração de dados do CNEFE</p>
+</div>
 
 Os cadastros associados à BOG do IBGE que estão disponíveis para uso público são listados a seguir, juntamente com seus endereços de acesso via internet.
 
@@ -363,7 +375,10 @@ O cadastro deve ser estruturado de tal forma que seja possível determinar como 
 
 Nesta situação cada unidade $C_i$ do cadastro corresponde a uma e somente uma unidade de referência $U_i$ da população de pesquisa, conforme ilustração na Figura \@ref(fig:umparaum). 
 
-![Ilustração da regra de associação um para um](Figuras/Associa1-1.PNG)
+<div class="figure">
+<img src="Figuras/Associa1-1.PNG" alt="Ilustração da regra de associação um para um" width="2350" />
+<p class="caption">(\#fig:umparaum)Ilustração da regra de associação um para um</p>
+</div>
 
 Neste caso, a seleção da amostra de unidades elementares pode ser feita diretamente do cadastro. Os planos amostrais podem selecionar diretamente *unidades de referência* elementares e não há conglomeração. Portanto, a *unidade de referência* é também a *unidade de amostragem*. A seleção da amostra fica bem simplificada, porém a manutenção do cadastro costuma ser mais cara quando comparada a outros tipos de situações, e a cobertura é mais díficil de ser mantida. 
 
@@ -375,7 +390,10 @@ Um exemplo clássico de cadastro com esse tipo de associação é o *Cadastro B�
 
 Nesta situação, cada unidade de referência da população de pesquisa corresponde a uma ou mais unidades do cadastro, conforme ilustração na Figura \@ref(fig:umparavar). Consideramos aqui apenas os casos em que cada unidade elementar no cadastro tenha vínculo com no máximo uma unidade elementar na população.
 
-![Ilustração da regra de associação um para vários](Figuras/Associa1-varios.PNG)
+<div class="figure">
+<img src="Figuras/Associa1-varios.PNG" alt="Ilustração da regra de associação um para vários" width="2396" />
+<p class="caption">(\#fig:umparavar)Ilustração da regra de associação um para vários</p>
+</div>
 
 
 Neste caso, a *unidade de amostragem* é a unidade elementar do cadastro, e a seleção da amostra é feita diretamente do cadastro. As probabilidades de seleção das unidades de referência da população de pesquisa variam com o número de unidades elementares correspondentes no cadastro. A manutenção do cadastro e dos vínculos é geralmente trabalhosa e o conhecimento exaustivo e preciso dos vínculos é essencial. Note que também não se aplica aqui a ideia de amostragem conglomerada, já que as unidades de referência da população são incluídas (ou não) na amostra uma a uma, dependendo do sorteio de unidades do cadastro com que estão vinculadas.
@@ -390,13 +408,22 @@ Um bom exemplo deste tipo de situação seria um cadastro de veículos (automóv
 Nesta situação, uma ou mais unidades de referência da população de pesquisa são vinculadas a cada unidade elementar do cadastro, conforme ilustrações nas Figuras \@ref(fig:varparaum1) e \@ref(fig:varparaum2). A unidade de amostragem  é um *conglomerado* de unidades da população. Neste caso, se adotam os planos amostrais conglomerados, onde a seleção é de uma amostra de unidades conglomeradas do cadastro. Os vínculos são geralmente conhecidos só para os conglomerados da amostra. O cadastro é mais barato de construir e manter, porém a amostragem é na maioria das vezes menos eficiente do que se poderia fazer tendo cadastros do tipo um para um.
 
 
-![Ilustração da regra de associação vários para um](Figuras/Associavarios-1a.PNG)
+<div class="figure">
+<img src="Figuras/Associavarios-1a.PNG" alt="Ilustração da regra de associação vários para um" width="406" />
+<p class="caption">(\#fig:varparaum1)Ilustração da regra de associação vários para um</p>
+</div>
 
 
-![Ilustração da regra de associação vários para um](Figuras/Associavarios-1b.PNG)
+<div class="figure">
+<img src="Figuras/Associavarios-1b.PNG" alt="Ilustração da regra de associação vários para um" width="428" />
+<p class="caption">(\#fig:varparaum2)Ilustração da regra de associação vários para um</p>
+</div>
 
 **Regras de Associação - Hierarquia com vários níveis**
 
 Neste caso se adotam os planos de amostragem conglomerada em múltiplos estágios (ou etapas). Envolve uma hierarquia de diferentes tipos de unidades (unidades primárias de amostragem, unidades secundárias, terciárias, etc..). É necessário um bom cadastro em cada estágio para a seleção das unidades do estágio seguinte. Os cadastros para as unidades dos primeiros estágios são geralmente mais estáveis e fáceis de construir e manter que aqueles para os estágios subsequentes. A Figura \@ref(fig:hierarquia) apresenta uma ilustração dessa situação.
 
-![Ilustração de regras de associação - hierarquia para vários níveis](Figuras/Associavariosniveis.PNG)
+<div class="figure">
+<img src="Figuras/Associavariosniveis.PNG" alt="Ilustração de regras de associação - hierarquia para vários níveis" width="2632" />
+<p class="caption">(\#fig:hierarquia)Ilustração de regras de associação - hierarquia para vários níveis</p>
+</div>

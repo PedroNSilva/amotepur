@@ -279,7 +279,7 @@ Na grande maioria das situações de interesse prático no campo das pesquisas p
 O primeiro problema é que o número total de amostras possíveis cresce muito rapidamente com $N$ e com $n$. Por exemplo, o número de amostras sem reposição de tamanho $n$ de uma população com $N$ unidades é  $\binom{N}{n}$. A tabela XXX mostra como cresce o número de amostras no conjunto $S$ para valores selecionados de $N$ e $n$. Note como o tamanho desse conjunto é gigantesco mesmo com tamanhos de população e amostra bem modestos (1.000 e 20), por exemplo.
 
 
-Table: Tabela 3.1 - Tamanhos do espaço amostral S para valores selecionados de N e n
+Table: (\#tab:unnamed-chunk-1)Tabela 3.1 - Tamanhos do espaço amostral S para valores selecionados de N e n
 
       N     n      binom(N,n)
 -------  ----  --------------

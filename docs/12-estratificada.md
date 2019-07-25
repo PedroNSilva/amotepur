@@ -614,7 +614,10 @@ Quanto maior for a correlação entre a variável de pesquisa $y$ e a variável 
 Evidências empíricas sugerem, entretanto, que $5\le H \le 10$. Mais detalhes sobre esta escolha podem ser estudadas em diversas referências apresentadas na Figura \@ref(fig:numeroestratos). 
 
 
-![Soluções sobre escolha de número de estratos](Figuras/numeroestratos.png)
+<div class="figure">
+<img src="Figuras/numeroestratos.png" alt="Soluções sobre escolha de número de estratos" width="379" />
+<p class="caption">(\#fig:modclas)Soluções sobre escolha de número de estratos</p>
+</div>
 
 ## Número de estratos na amostragem estratificada simples 
 
@@ -638,7 +641,10 @@ A análise dos resultados acima evidencia que ganhos adicionais de eficiência c
 Na Figura \@ref(fig:precisaovsestratos.png) temos o gráfico dos ganhos de precisão versus número de estratos para $\rho=0,85$ e $\rho=0,95$. 
 
 
-![Ganhos de precisão versus número de estratos](Figuras/precisaovsestratos.png)
+<div class="figure">
+<img src="Figuras/precisaovsestratos.png" alt="Ganhos de precisão versus número de estratos" width="310" />
+<p class="caption">(\#fig:unnamed-chunk-1)Ganhos de precisão versus número de estratos</p>
+</div>
 
 
 ## Exercícios

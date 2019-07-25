@@ -173,7 +173,10 @@ Caso os 3 números aleatórios entre 0 e 2000 fossem: 122, 754 e 1980. Então as
 **(#exm:exmppt2)** Diagrama de dispersão com dados de quantidade colhida e área plantada de cana de açúcar, apresentado na Figura \@ref(fig:diagrama_ppt).
 
 
-![Diagrama de dispersão](Figuras/diagrama_ppt.PNG)
+<div class="figure">
+<img src="Figuras/diagrama_ppt.PNG" alt="Diagrama de dispersão" width="249" />
+<p class="caption">(\#fig:modclas)Diagrama de dispersão</p>
+</div>
 
 
 ### Estimação do total sob amostragem PPT com reposição

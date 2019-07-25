@@ -5,11 +5,11 @@
 
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Capítulo 8 Amostragem Sistemática Simples (AS) | Amostragem: Teoria e Prática Usando R</title>
+  <title>Amostragem: Teoria e Prática Usando R</title>
   <meta name="description" content="Este é o livro de Amostragem elaborado pelos autores.">
-  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+  <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
 
-  <meta property="og:title" content="Capítulo 8 Amostragem Sistemática Simples (AS) | Amostragem: Teoria e Prática Usando R" />
+  <meta property="og:title" content="Amostragem: Teoria e Prática Usando R" />
   <meta property="og:type" content="book" />
   
   
@@ -17,7 +17,7 @@
   <meta name="github-repo" content="PedroNSilva/amotepur" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Capítulo 8 Amostragem Sistemática Simples (AS) | Amostragem: Teoria e Prática Usando R" />
+  <meta name="twitter:title" content="Amostragem: Teoria e Prática Usando R" />
   
   <meta name="twitter:description" content="Este é o livro de Amostragem elaborado pelos autores." />
   
@@ -25,7 +25,7 @@
 <meta name="author" content="Pedro Luis do Nascimento Silva, Zélia Magalhães Bianchini e Antonio José Ribeiro Dias">
 
 
-<meta name="date" content="2019-03-17">
+<meta name="date" content="2019-07-25">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -36,7 +36,6 @@
 <link rel="next" href="amostragem-binomial-ou-de-bernoulli-ab.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
@@ -50,6 +49,69 @@
 
 
 
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
 
 </head>
 
@@ -199,9 +261,35 @@
 </ul></li>
 <li class="chapter" data-level="11" data-path="amostragem-inversa.html"><a href="amostragem-inversa.html"><i class="fa fa-check"></i><b>11</b> Amostragem Inversa</a><ul>
 <li class="chapter" data-level="11.1" data-path="amostragem-inversa.html"><a href="amostragem-inversa.html#introducao"><i class="fa fa-check"></i><b>11.1</b> Introdução</a></li>
-<li class="chapter" data-level="11.2" data-path="amostragem-inversa.html"><a href="amostragem-inversa.html#amostragem-inversa-1"><i class="fa fa-check"></i><b>11.2</b> Amostragem Inversa</a></li>
+<li class="chapter" data-level="11.2" data-path="amostragem-inversa.html"><a href="amostragem-inversa.html#amostragem-inversa-1"><i class="fa fa-check"></i><b>11.2</b> Amostragem Inversa</a><ul>
+<li class="chapter" data-level="11.2.1" data-path="amostragem-inversa.html"><a href="amostragem-inversa.html#amostragem-inversa-simples"><i class="fa fa-check"></i><b>11.2.1</b> Amostragem Inversa Simples</a></li>
+<li class="chapter" data-level="11.2.2" data-path="amostragem-inversa.html"><a href="amostragem-inversa.html#amostragem-inversa-com-probabilidades-desiguais-com-reposicao"><i class="fa fa-check"></i><b>11.2.2</b> Amostragem inversa com probabilidades desiguais com reposição</a></li>
 </ul></li>
-<li class="chapter" data-level="12" data-path="amostragem-estratificada.html"><a href="amostragem-estratificada.html"><i class="fa fa-check"></i><b>12</b> Amostragem Estratificada</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="amostragem-estratificada.html"><a href="amostragem-estratificada.html"><i class="fa fa-check"></i><b>12</b> Amostragem Estratificada</a><ul>
+<li class="chapter" data-level="12.1" data-path="amostragem-estratificada.html"><a href="amostragem-estratificada.html#o-metodo-geral"><i class="fa fa-check"></i><b>12.1</b> O método geral</a></li>
+<li class="chapter" data-level="12.2" data-path="amostragem-estratificada.html"><a href="amostragem-estratificada.html#amostragem-estratificada-simples-aes"><i class="fa fa-check"></i><b>12.2</b> Amostragem estratificada simples (AES)</a><ul>
+<li class="chapter" data-level="12.2.1" data-path="amostragem-estratificada.html"><a href="amostragem-estratificada.html#esquema-de-selecao"><i class="fa fa-check"></i><b>12.2.1</b> Esquema de seleção</a></li>
+<li class="chapter" data-level="12.2.2" data-path="amostragem-estratificada.html"><a href="amostragem-estratificada.html#parametros-populacionais-1"><i class="fa fa-check"></i><b>12.2.2</b> Parâmetros populacionais</a></li>
+<li class="chapter" data-level="12.2.3" data-path="amostragem-estratificada.html"><a href="amostragem-estratificada.html#dados-amostrais"><i class="fa fa-check"></i><b>12.2.3</b> Dados amostrais</a></li>
+<li class="chapter" data-level="12.2.4" data-path="amostragem-estratificada.html"><a href="amostragem-estratificada.html#estimacao-do-total-e-da-media-populacional"><i class="fa fa-check"></i><b>12.2.4</b> Estimação do total e da média populacional</a></li>
+<li class="chapter" data-level="12.2.5" data-path="amostragem-estratificada.html"><a href="amostragem-estratificada.html#intervalos-de-confianca"><i class="fa fa-check"></i><b>12.2.5</b> Intervalos de confiança</a></li>
+</ul></li>
+<li class="chapter" data-level="12.3" data-path="amostragem-estratificada.html"><a href="amostragem-estratificada.html#estimadores-de-razao-em-amostragem-estratificada-simples"><i class="fa fa-check"></i><b>12.3</b> Estimadores de razão em amostragem estratificada simples</a><ul>
+<li class="chapter" data-level="12.3.1" data-path="amostragem-estratificada.html"><a href="amostragem-estratificada.html#estimador-de-razao-combinada"><i class="fa fa-check"></i><b>12.3.1</b> Estimador de razão combinada</a></li>
+<li class="chapter" data-level="12.3.2" data-path="amostragem-estratificada.html"><a href="amostragem-estratificada.html#estimador-de-razao-separada"><i class="fa fa-check"></i><b>12.3.2</b> Estimador de razão separada</a></li>
+<li class="chapter" data-level="12.3.3" data-path="amostragem-estratificada.html"><a href="amostragem-estratificada.html#comparacao-dos-estimadores-de-razao-combinada-e-separada"><i class="fa fa-check"></i><b>12.3.3</b> Comparação dos estimadores de razão combinada e separada</a></li>
+</ul></li>
+<li class="chapter" data-level="12.4" data-path="amostragem-estratificada.html"><a href="amostragem-estratificada.html#alocacao-da-amostra-pelos-estratos"><i class="fa fa-check"></i><b>12.4</b> Alocação da amostra pelos estratos</a><ul>
+<li class="chapter" data-level="12.4.1" data-path="amostragem-estratificada.html"><a href="amostragem-estratificada.html#alocacao-proporcional"><i class="fa fa-check"></i><b>12.4.1</b> Alocação Proporcional</a></li>
+<li class="chapter" data-level="12.4.2" data-path="amostragem-estratificada.html"><a href="amostragem-estratificada.html#alocacao-otima"><i class="fa fa-check"></i><b>12.4.2</b> Alocação Ótima</a></li>
+<li class="chapter" data-level="12.4.3" data-path="amostragem-estratificada.html"><a href="amostragem-estratificada.html#comparacao-de-alternativas-de-alocacao-da-amostra"><i class="fa fa-check"></i><b>12.4.3</b> Comparação de alternativas de alocação da amostra</a></li>
+<li class="chapter" data-level="12.4.4" data-path="amostragem-estratificada.html"><a href="amostragem-estratificada.html#alguns-problemas-com-alocacao-otima"><i class="fa fa-check"></i><b>12.4.4</b> Alguns problemas com alocação ótima</a></li>
+</ul></li>
+<li class="chapter" data-level="12.5" data-path="amostragem-estratificada.html"><a href="amostragem-estratificada.html#definicao-dos-limites-dos-estratos"><i class="fa fa-check"></i><b>12.5</b> Definição dos limites dos estratos</a></li>
+<li class="chapter" data-level="12.6" data-path="amostragem-estratificada.html"><a href="amostragem-estratificada.html#numero-de-estratos-na-amostragem-estratificada-simples"><i class="fa fa-check"></i><b>12.6</b> Número de estratos na amostragem estratificada simples</a></li>
+<li class="chapter" data-level="12.7" data-path="amostragem-estratificada.html"><a href="amostragem-estratificada.html#exercicios-6"><i class="fa fa-check"></i><b>12.7</b> Exercícios</a></li>
+</ul></li>
 <li class="chapter" data-level="13" data-path="amostragem-de-conglomerados-em-um-ou-mais-estagios.html"><a href="amostragem-de-conglomerados-em-um-ou-mais-estagios.html"><i class="fa fa-check"></i><b>13</b> Amostragem de Conglomerados em Um ou Mais Estágios</a><ul>
 <li class="chapter" data-level="13.1" data-path="amostragem-de-conglomerados-em-um-ou-mais-estagios.html"><a href="amostragem-de-conglomerados-em-um-ou-mais-estagios.html#conceituacao-basica"><i class="fa fa-check"></i><b>13.1</b> Conceituação básica</a></li>
 <li class="chapter" data-level="13.2" data-path="amostragem-de-conglomerados-em-um-ou-mais-estagios.html"><a href="amostragem-de-conglomerados-em-um-ou-mais-estagios.html#amostragem-de-areas"><i class="fa fa-check"></i><b>13.2</b> Amostragem de áreas</a></li>
@@ -209,19 +297,45 @@
 <li class="chapter" data-level="13.3.1" data-path="amostragem-de-conglomerados-em-um-ou-mais-estagios.html"><a href="amostragem-de-conglomerados-em-um-ou-mais-estagios.html#amostragem-conglomerada-em-um-estagio-ac1"><i class="fa fa-check"></i><b>13.3.1</b> Amostragem Conglomerada em um estágio (AC1)</a></li>
 <li class="chapter" data-level="13.3.2" data-path="amostragem-de-conglomerados-em-um-ou-mais-estagios.html"><a href="amostragem-de-conglomerados-em-um-ou-mais-estagios.html#amostragem-conglomerada-em-varios-estagios"><i class="fa fa-check"></i><b>13.3.2</b> Amostragem conglomerada em vários estágios</a></li>
 </ul></li>
-<li class="chapter" data-level="13.4" data-path="amostragem-de-conglomerados-em-um-ou-mais-estagios.html"><a href="amostragem-de-conglomerados-em-um-ou-mais-estagios.html#teoria-basica-de-estimacao-para-amostragem-conglomerada-em-um-estagio-ac1"><i class="fa fa-check"></i><b>13.4</b> Teoria básica de estimação para Amostragem Conglomerada em um estágio (AC1)</a><ul>
-<li class="chapter" data-level="13.4.1" data-path="amostragem-de-conglomerados-em-um-ou-mais-estagios.html"><a href="amostragem-de-conglomerados-em-um-ou-mais-estagios.html#amostragem-conglomerada-simples-acs"><i class="fa fa-check"></i><b>13.4.1</b> Amostragem Conglomerada Simples (ACS)</a></li>
-<li class="chapter" data-level="13.4.2" data-path="amostragem-de-conglomerados-em-um-ou-mais-estagios.html"><a href="amostragem-de-conglomerados-em-um-ou-mais-estagios.html#efeito-de-plano-amostral-epa"><i class="fa fa-check"></i><b>13.4.2</b> Efeito de Plano Amostral (EPA)</a></li>
-<li class="chapter" data-level="13.4.3" data-path="amostragem-de-conglomerados-em-um-ou-mais-estagios.html"><a href="amostragem-de-conglomerados-em-um-ou-mais-estagios.html#amostragem-conglomerada-com-probabilidade-proporcional-ao-tamanho-ppt-em-um-estagio"><i class="fa fa-check"></i><b>13.4.3</b> Amostragem conglomerada com probabilidade proporcional ao tamanho (PPT) em um estágio</a></li>
+<li class="chapter" data-level="13.4" data-path="amostragem-de-conglomerados-em-um-ou-mais-estagios.html"><a href="amostragem-de-conglomerados-em-um-ou-mais-estagios.html#teoria-basica-de-estimacao-para-amostragem-conglomerada-em-um-estagio-ac1"><i class="fa fa-check"></i><b>13.4</b> Teoria básica de estimação para Amostragem Conglomerada em um estágio (AC1)</a></li>
+<li class="chapter" data-level="13.5" data-path="amostragem-de-conglomerados-em-um-ou-mais-estagios.html"><a href="amostragem-de-conglomerados-em-um-ou-mais-estagios.html#amostragem-conglomerada-simples-acs"><i class="fa fa-check"></i><b>13.5</b> Amostragem conglomerada simples (ACS)</a><ul>
+<li class="chapter" data-level="13.5.1" data-path="amostragem-de-conglomerados-em-um-ou-mais-estagios.html"><a href="amostragem-de-conglomerados-em-um-ou-mais-estagios.html#estimacao-do-total-populacional-estimador-natural"><i class="fa fa-check"></i><b>13.5.1</b> Estimação do total populacional: estimador natural</a></li>
+<li class="chapter" data-level="13.5.2" data-path="amostragem-de-conglomerados-em-um-ou-mais-estagios.html"><a href="amostragem-de-conglomerados-em-um-ou-mais-estagios.html#estimacao-do-total-populacional-estimador-de-razao-do-total"><i class="fa fa-check"></i><b>13.5.2</b> Estimação do total populacional: estimador de razão do total</a></li>
+<li class="chapter" data-level="13.5.3" data-path="amostragem-de-conglomerados-em-um-ou-mais-estagios.html"><a href="amostragem-de-conglomerados-em-um-ou-mais-estagios.html#comparacao-de-estimadores-natural-e-de-razao-do-total"><i class="fa fa-check"></i><b>13.5.3</b> Comparação de estimadores natural e de razão do total</a></li>
+<li class="chapter" data-level="13.5.4" data-path="amostragem-de-conglomerados-em-um-ou-mais-estagios.html"><a href="amostragem-de-conglomerados-em-um-ou-mais-estagios.html#estimacao-da-media-por-unidade-estimador-natural"><i class="fa fa-check"></i><b>13.5.4</b> Estimação da média por unidade: estimador natural</a></li>
+<li class="chapter" data-level="13.5.5" data-path="amostragem-de-conglomerados-em-um-ou-mais-estagios.html"><a href="amostragem-de-conglomerados-em-um-ou-mais-estagios.html#estimacao-da-media-por-unidade-estimador-de-razao"><i class="fa fa-check"></i><b>13.5.5</b> Estimação da média por unidade: estimador de razão</a></li>
 </ul></li>
-<li class="chapter" data-level="13.5" data-path="amostragem-de-conglomerados-em-um-ou-mais-estagios.html"><a href="amostragem-de-conglomerados-em-um-ou-mais-estagios.html#amostragem-conglomerada-em-dois-estagios-ac2"><i class="fa fa-check"></i><b>13.5</b> Amostragem Conglomerada em dois estágios (AC2)</a><ul>
-<li class="chapter" data-level="13.5.1" data-path="amostragem-de-conglomerados-em-um-ou-mais-estagios.html"><a href="amostragem-de-conglomerados-em-um-ou-mais-estagios.html#plano-amostral-1-ac2-com-aas-nos-2-estagios"><i class="fa fa-check"></i><b>13.5.1</b> Plano amostral 1 – AC2 com AAS nos 2 estágios</a></li>
-<li class="chapter" data-level="13.5.2" data-path="amostragem-de-conglomerados-em-um-ou-mais-estagios.html"><a href="amostragem-de-conglomerados-em-um-ou-mais-estagios.html#estimacao-sob-ac2"><i class="fa fa-check"></i><b>13.5.2</b> Estimação sob AC2</a></li>
-<li class="chapter" data-level="13.5.3" data-path="amostragem-de-conglomerados-em-um-ou-mais-estagios.html"><a href="amostragem-de-conglomerados-em-um-ou-mais-estagios.html#plano-amostral-2-ac2-com-ppt-com-reposicao-no-primeiro-estagio-e-aas-no-segundo-estagio-ac2pptc"><i class="fa fa-check"></i><b>13.5.3</b> Plano amostral 2 – AC2 com PPT com reposição no primeiro estágio e AAS no segundo estágio (AC2PPTC)</a></li>
-<li class="chapter" data-level="13.5.4" data-path="amostragem-de-conglomerados-em-um-ou-mais-estagios.html"><a href="amostragem-de-conglomerados-em-um-ou-mais-estagios.html#plano-amostral-3-ac2-com-ppt-poisson-sequencial-no-estagio-1-e-aas-no-estagio-2-ac2ppps"><i class="fa fa-check"></i><b>13.5.4</b> Plano amostral 3 – AC2 com PPT Poisson Sequencial no estágio 1 e AAS no estágio 2 (AC2PPPS)</a></li>
-<li class="chapter" data-level="13.5.5" data-path="amostragem-de-conglomerados-em-um-ou-mais-estagios.html"><a href="amostragem-de-conglomerados-em-um-ou-mais-estagios.html#ideias-basicas-na-escolha-de-unidades-compostas"><i class="fa fa-check"></i><b>13.5.5</b> Ideias básicas na escolha de unidades compostas</a></li>
-<li class="chapter" data-level="13.5.6" data-path="amostragem-de-conglomerados-em-um-ou-mais-estagios.html"><a href="amostragem-de-conglomerados-em-um-ou-mais-estagios.html#determinando-tamanhos-de-amostra-com-ac2ppt"><i class="fa fa-check"></i><b>13.5.6</b> Determinando tamanhos de amostra com AC2PPT</a></li>
+<li class="chapter" data-level="13.6" data-path="amostragem-de-conglomerados-em-um-ou-mais-estagios.html"><a href="amostragem-de-conglomerados-em-um-ou-mais-estagios.html#efeito-de-plano-amostral-epa"><i class="fa fa-check"></i><b>13.6</b> Efeito de plano amostral (EPA)</a></li>
+<li class="chapter" data-level="13.7" data-path="amostragem-de-conglomerados-em-um-ou-mais-estagios.html"><a href="amostragem-de-conglomerados-em-um-ou-mais-estagios.html#amostragem-conglomerada-com-probabilidade-proporcional-ao-tamanho-ppt-em-um-estagio"><i class="fa fa-check"></i><b>13.7</b> Amostragem conglomerada com probabilidade proporcional ao tamanho (PPT) em um estágio</a><ul>
+<li class="chapter" data-level="13.7.1" data-path="amostragem-de-conglomerados-em-um-ou-mais-estagios.html"><a href="amostragem-de-conglomerados-em-um-ou-mais-estagios.html#estimadores-do-total-com-ac1ppt"><i class="fa fa-check"></i><b>13.7.1</b> Estimadores do total com AC1PPT</a></li>
 </ul></li>
+<li class="chapter" data-level="13.8" data-path="amostragem-de-conglomerados-em-um-ou-mais-estagios.html"><a href="amostragem-de-conglomerados-em-um-ou-mais-estagios.html#amostragem-conglomerada-em-dois-estagios-ac2"><i class="fa fa-check"></i><b>13.8</b> Amostragem conglomerada em dois estágios (AC2)</a><ul>
+<li class="chapter" data-level="13.8.1" data-path="amostragem-de-conglomerados-em-um-ou-mais-estagios.html"><a href="amostragem-de-conglomerados-em-um-ou-mais-estagios.html#plano-amostral-1-ac2-com-aas-nos-2-estagios"><i class="fa fa-check"></i><b>13.8.1</b> Plano amostral 1 – AC2 com AAS nos 2 estágios</a></li>
+<li class="chapter" data-level="13.8.2" data-path="amostragem-de-conglomerados-em-um-ou-mais-estagios.html"><a href="amostragem-de-conglomerados-em-um-ou-mais-estagios.html#planos-amostrais-equiponderados"><i class="fa fa-check"></i><b>13.8.2</b> Planos amostrais equiponderados</a></li>
+<li class="chapter" data-level="13.8.3" data-path="amostragem-de-conglomerados-em-um-ou-mais-estagios.html"><a href="amostragem-de-conglomerados-em-um-ou-mais-estagios.html#estimacao-sob-ac2"><i class="fa fa-check"></i><b>13.8.3</b> Estimação sob AC2</a></li>
+<li class="chapter" data-level="13.8.4" data-path="amostragem-de-conglomerados-em-um-ou-mais-estagios.html"><a href="amostragem-de-conglomerados-em-um-ou-mais-estagios.html#plano-amostral-2-ac2-com-ppt-com-reposicao-no-primeiro-estagio-e-aas-no-segundo-estagio-ac2pptc"><i class="fa fa-check"></i><b>13.8.4</b> Plano amostral 2 – AC2 com PPT com reposição no primeiro estágio e AAS no segundo estágio (AC2PPTC)</a></li>
+<li class="chapter" data-level="13.8.5" data-path="amostragem-de-conglomerados-em-um-ou-mais-estagios.html"><a href="amostragem-de-conglomerados-em-um-ou-mais-estagios.html#plano-amostral-3-ac2-com-ppt-poisson-sequencial-no-estagio-1-e-aas-no-estagio-2-ac2ppps"><i class="fa fa-check"></i><b>13.8.5</b> Plano amostral 3 – AC2 com PPT Poisson Sequencial no estágio 1 e AAS no estágio 2 (AC2PPPS)</a></li>
+<li class="chapter" data-level="13.8.6" data-path="amostragem-de-conglomerados-em-um-ou-mais-estagios.html"><a href="amostragem-de-conglomerados-em-um-ou-mais-estagios.html#ideias-basicas-na-escolha-de-unidades-compostas"><i class="fa fa-check"></i><b>13.8.6</b> Ideias básicas na escolha de unidades compostas</a></li>
+<li class="chapter" data-level="13.8.7" data-path="amostragem-de-conglomerados-em-um-ou-mais-estagios.html"><a href="amostragem-de-conglomerados-em-um-ou-mais-estagios.html#determinando-tamanhos-de-amostra-com-ac2ppt"><i class="fa fa-check"></i><b>13.8.7</b> Determinando tamanhos de amostra com AC2PPT</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="cap-calib.html"><a href="cap-calib.html"><i class="fa fa-check"></i><b>14</b> Estimadores de Calibração</a><ul>
+<li class="chapter" data-level="14.1" data-path="cap-calib.html"><a href="cap-calib.html#motivacao-melhorar-a-precisao-com-informacoes-auxiliares"><i class="fa fa-check"></i><b>14.1</b> Motivação: melhorar a precisão com informações auxiliares</a></li>
+<li class="chapter" data-level="14.2" data-path="cap-calib.html"><a href="cap-calib.html#sec:prob"><i class="fa fa-check"></i><b>14.2</b> O problema</a></li>
+<li class="chapter" data-level="14.3" data-path="cap-calib.html"><a href="cap-calib.html#sec:estreg"><i class="fa fa-check"></i><b>14.3</b> Estimadores de regressão como estimadores de calibração</a></li>
+<li class="chapter" data-level="14.4" data-path="cap-calib.html"><a href="cap-calib.html#razoes-para-calibracao"><i class="fa fa-check"></i><b>14.4</b> Razões para calibração</a></li>
+<li class="chapter" data-level="14.5" data-path="cap-calib.html"><a href="cap-calib.html#propriedades-dos-estimadores-para-grandes-amostras"><i class="fa fa-check"></i><b>14.5</b> Propriedades dos estimadores para grandes amostras</a></li>
+<li class="chapter" data-level="14.6" data-path="cap-calib.html"><a href="cap-calib.html#alguns-problemas-praticos-com-calibracao"><i class="fa fa-check"></i><b>14.6</b> Alguns problemas práticos com calibração</a><ul>
+<li class="chapter" data-level="14.6.1" data-path="cap-calib.html"><a href="cap-calib.html#tamanhos-pequenos-de-amostra"><i class="fa fa-check"></i><b>14.6.1</b> Tamanhos Pequenos de Amostra</a></li>
+<li class="chapter" data-level="14.6.2" data-path="cap-calib.html"><a href="cap-calib.html#pesos-negativos-ou-extremos"><i class="fa fa-check"></i><b>14.6.2</b> Pesos negativos ou extremos</a></li>
+<li class="chapter" data-level="14.6.3" data-path="cap-calib.html"><a href="cap-calib.html#grande-numero-de-variaveis-de-pesquisa-ou-de-grupos-de-modelos"><i class="fa fa-check"></i><b>14.6.3</b> Grande número de variáveis de pesquisa ou de ‘grupos de modelos’</a></li>
+<li class="chapter" data-level="14.6.4" data-path="cap-calib.html"><a href="cap-calib.html#sec:gvaraux"><i class="fa fa-check"></i><b>14.6.4</b> Grande número de variáveis auxiliares</a></li>
+<li class="chapter" data-level="14.6.5" data-path="cap-calib.html"><a href="cap-calib.html#nao-resposta-e-calibracao"><i class="fa fa-check"></i><b>14.6.5</b> Não resposta e calibração</a></li>
+</ul></li>
+<li class="chapter" data-level="14.7" data-path="cap-calib.html"><a href="cap-calib.html#selecao-de-variaveis-para-calibracao-com-nao-resposta"><i class="fa fa-check"></i><b>14.7</b> Seleção de variáveis para calibração com não resposta</a></li>
+<li class="chapter" data-level="14.8" data-path="cap-calib.html"><a href="cap-calib.html#indicadores-de-qualidade-da-calibracao"><i class="fa fa-check"></i><b>14.8</b> Indicadores de qualidade da calibração</a></li>
+<li class="chapter" data-level="14.9" data-path="cap-calib.html"><a href="cap-calib.html#um-guia-para-aplicacao-de-calibracao"><i class="fa fa-check"></i><b>14.9</b> Um guia para aplicação de calibração</a></li>
+<li class="chapter" data-level="14.10" data-path="cap-calib.html"><a href="cap-calib.html#observacoes-finais"><i class="fa fa-check"></i><b>14.10</b> Observações finais</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="referencias.html"><a href="referencias.html"><i class="fa fa-check"></i>Referências</a></li>
 </ul>
@@ -279,10 +393,12 @@
 <p>Tamanho efetivo da amostra é 74 ou 75.</p>
 <p><strong>Exemplo 8.4 </strong> Apresente a composição de uma amostra sistemática de uma população de 36 unidades com intervalo de seleção igual a 4, tamanho esperado da amostra de 9 unidades e que 4 tenha sido o número selecionado para a partida.</p>
 <p>Amostra Sistemática <span class="math inline">\((N=36, K=4, n=9, \textrm{partida}\,\,(r=4))\)</span></p>
-<p><span class="math display">\[\begin{array}{|c|c|c|c|c|c|}\hline \textrm {l/c} &amp; 1 &amp; 2 &amp; 3 &amp; 4 &amp; 5 &amp; 6 \\\hline 1 &amp;  &amp; &amp;  &amp; X &amp; &amp; \\\hline 2 &amp; &amp; X &amp; &amp; &amp; &amp; X \\\hline 3 &amp;  &amp; &amp;  &amp; X &amp; &amp; \\\hline 4 &amp; &amp; X &amp; &amp; &amp; &amp; X \\\hline 5 &amp;  &amp; &amp;  &amp; X &amp; &amp; \\\hline 6 &amp; &amp; X &amp; &amp; &amp; &amp; X \\\hline  \end{array}\]</span> Portanto as unidades atribuídas às celas da tabela com “X” correpondem as unidades selecionadas para a amostra.</p>
+<p><span class="math display">\[\begin{array}{|c|c|c|c|c|c|}\hline \textrm {l/c} &amp; 1 &amp; 2 &amp; 3 &amp; 4 &amp; 5 &amp; 6 \\\hline 1 &amp;  &amp; &amp;  &amp; X &amp; &amp; \\\hline 2 &amp; &amp; X &amp; &amp; &amp; &amp; X \\\hline 3 &amp;  &amp; &amp;  &amp; X &amp; &amp; \\\hline 4 &amp; &amp; X &amp; &amp; &amp; &amp; X \\\hline 5 &amp;  &amp; &amp;  &amp; X &amp; &amp; \\\hline 6 &amp; &amp; X &amp; &amp; &amp; &amp; X \\\hline  \end{array}\]</span>
+Portanto as unidades atribuídas às celas da tabela com “X” correpondem as unidades selecionadas para a amostra.</p>
 <p><strong>Exemplo 8.5 </strong> Apresente a composição de uma amostra sistemática de uma população de 36 unidades com intervalo de seleção igual a 3, tamanho esperado da amostra de 12 unidades e que 2 tenha sido o número selecionado para a partida.</p>
 <p>Amostra Sistemática <span class="math inline">\((N=36, K=3, n=12, \textrm{partida}\,\,(r=2))\)</span></p>
-<p><span class="math display">\[\begin{array}{|c|c|c|c|c|c|}\hline \textrm {l/c} &amp; 1 &amp; 2 &amp; 3 &amp; 4 &amp; 5 &amp; 6 \\\hline 1 &amp;  &amp; X &amp;  &amp; &amp; X &amp; \\\hline 2 &amp; &amp; X &amp; &amp; &amp; X &amp;  \\\hline 3 &amp; &amp; X &amp; &amp; &amp; X &amp; \\\hline 4 &amp; &amp; X &amp; &amp; &amp; X &amp;  \\\hline 5 &amp; &amp; X &amp; &amp; &amp; X &amp; \\\hline 6 &amp; &amp; X &amp; &amp; &amp; X &amp; \\\hline  \end{array}\]</span> Portanto as unidades atribuídas às celas das colunas 2 e 5 correpondem as unidades selecionadas para a amostra.</p>
+<p><span class="math display">\[\begin{array}{|c|c|c|c|c|c|}\hline \textrm {l/c} &amp; 1 &amp; 2 &amp; 3 &amp; 4 &amp; 5 &amp; 6 \\\hline 1 &amp;  &amp; X &amp;  &amp; &amp; X &amp; \\\hline 2 &amp; &amp; X &amp; &amp; &amp; X &amp;  \\\hline 3 &amp; &amp; X &amp; &amp; &amp; X &amp; \\\hline 4 &amp; &amp; X &amp; &amp; &amp; X &amp;  \\\hline 5 &amp; &amp; X &amp; &amp; &amp; X &amp; \\\hline 6 &amp; &amp; X &amp; &amp; &amp; X &amp; \\\hline  \end{array}\]</span>
+Portanto as unidades atribuídas às celas das colunas 2 e 5 correpondem as unidades selecionadas para a amostra.</p>
 </div>
 <div id="aspectos-importantes-na-amostragem-sistematica-simples" class="section level2">
 <h2><span class="header-section-number">8.2</span> Aspectos importantes na amostragem sistemática simples</h2>
@@ -308,7 +424,8 @@
 <div id="probabilidades-de-inclusao-na-amostragem-sistematica" class="section level2">
 <h2><span class="header-section-number">8.3</span> Probabilidades de inclusão na amostragem sistemática</h2>
 <p>É fácil mostrar que a probabilidade de seleção ou inclusão na amostra da unidade <span class="math inline">\(i\)</span> é dada por: <span class="math inline">\(\pi_i=1/K,\,\,i=1,\,\dots,\,\,N\)</span>.</p>
-<p>A probabilidade de seleção ou inclusão das unidade <span class="math inline">\(i\)</span> e <span class="math inline">\(j\)</span> na amostra é dada por: <span class="math inline">\(\pi_{ij}=\left\{\begin{array}{ll} 1/K &amp; \,\,i \ne j \,\in s_r,\,\,\,r=1,\,\dots,\,K,\\\ 0 &amp;\,\, \textrm{caso contrário}.\end{array}\right.\,\,\,\)</span></p>
+<p>A probabilidade de seleção ou inclusão das unidade <span class="math inline">\(i\)</span> e <span class="math inline">\(j\)</span> na amostra é dada por:
+<span class="math inline">\(\pi_{ij}=\left\{\begin{array}{ll} 1/K &amp; \,\,i \ne j \,\in s_r,\,\,\,r=1,\,\dots,\,K,\\\ 0 &amp;\,\, \textrm{caso contrário}.\end{array}\right.\,\,\,\)</span></p>
 <p>Donde se conclui que unidades em amostras diferentes nunca podem aparecer juntas na mesma amostra!</p>
 </div>
 <div id="variaveis-aleatorias-indicadoras" class="section level2">
@@ -333,18 +450,18 @@
 <div id="estimacao-sob-amostragem-sistematica" class="section level2">
 <h2><span class="header-section-number">8.6</span> Estimação sob amostragem sistemática</h2>
 <p>A ideia é definir estimadores dos parâmetros alvo descritos, a seguir:</p>
-<span class="math display" id="eq:eqsis1">\[\begin{equation}
+<p><span class="math display" id="eq:eqsis1">\[\begin{equation}
 Y=\displaystyle\sum_{i \in U} y_i\tag{8.1}
 \end{equation}\]</span>
-<p>o total populacional da variável <span class="math inline">\(y\)</span>;</p>
-<span class="math display" id="eq:eqsis2">\[\begin{equation}
+o total populacional da variável <span class="math inline">\(y\)</span>;</p>
+<p><span class="math display" id="eq:eqsis2">\[\begin{equation}
 \overline Y=\frac{Y}{N}=\frac{\displaystyle\sum_{i \in U} y_i}{N}\tag{8.2}
 \end{equation}\]</span>
-<p>a média populacional da variável <span class="math inline">\(y\)</span>; e</p>
-<span class="math display" id="eq:eqsis3">\[\begin{equation}
+a média populacional da variável <span class="math inline">\(y\)</span>; e</p>
+<p><span class="math display" id="eq:eqsis3">\[\begin{equation}
 S_y^2= \frac{1}{N-1}\displaystyle\sum_{i \in U}(y_i-\overline Y)^2\tag{8.3}
 \end{equation}\]</span>
-<p>a variância populacional da variável <span class="math inline">\(y\)</span>.</p>
+a variância populacional da variável <span class="math inline">\(y\)</span>.</p>
 <p>Seja <span class="math inline">\(t_r\)</span> o total para a amostra <span class="math inline">\(s_r\)</span>, <span class="math inline">\(r=1,\,\dots,\,K\)</span>.</p>
 <p>Logo <span class="math inline">\(t_r=\displaystyle \sum_{i=1}^{n_r}y_{ri}\)</span>, onde <span class="math inline">\(n_r\)</span> é o tamanho da amostra <span class="math inline">\(s_r\)</span>.</p>
 <p>Note que <span class="math inline">\(\overline y_r=t_r/n_r= \overline y\)</span>, a média da amostra <span class="math inline">\(s_r\)</span>.</p>
@@ -353,9 +470,9 @@ S_y^2= \frac{1}{N-1}\displaystyle\sum_{i \in U}(y_i-\overline Y)^2\tag{8.3}
 <h2><span class="header-section-number">8.7</span> Estimação do total populacional sob amostragem sistemática</h2>
 <p>O total populacional pode ser escrito como: <span class="math inline">\(Y=\displaystyle \sum_{r=1}^{K}t_r\)</span>.</p>
 <p>Seja</p>
-<span class="math display" id="eq:eqsis4">\[\begin{equation}
+<p><span class="math display" id="eq:eqsis4">\[\begin{equation}
 \widehat{Y}_{AS}=\sum_{i \in s_r}y_{ri}/(1/K)=Kt_r=K \displaystyle \sum_{r=1}^{K}I(r)t_r\tag{8.4}
-\end{equation}\]</span>
+\end{equation}\]</span></p>
 <p>Então:</p>
 <p><span class="math inline">\(E_{AS}(\widehat{Y}_{AS})=K \displaystyle \sum_{r=1}^{K}E_{AS} \left [I(r) \right ]t_r= K \sum_{r=1}^{K}\frac{1}{K}t_r= \sum_{r=1}^{K}t_r = Y\)</span>.</p>
 <p>Logo <span class="math inline">\(\widehat{Y}_{AS}\)</span> é não viciado para o total populacional <span class="math inline">\(Y\)</span>.</p>
@@ -368,23 +485,23 @@ S_y^2= \frac{1}{N-1}\displaystyle\sum_{i \in U}(y_i-\overline Y)^2\tag{8.3}
 <h2><span class="header-section-number">8.8</span> Estimação da média populacional sob amostragem sistemática</h2>
 <p>A média populacional <span class="math inline">\(\overline Y=Y/N=\displaystyle \sum_{r=1}^{K}t_r/\sum_{r=1}^{K}n_r\)</span> pode ser vista como uma razão (de totais).</p>
 <p>Um estimador não viciado para a média quando <span class="math inline">\(N\)</span> é conhecido é dado por:</p>
-<span class="math display" id="eq:eqsis5">\[\begin{equation}
+<p><span class="math display" id="eq:eqsis5">\[\begin{equation}
 \widehat{\overline Y}_{AS}= \widehat Y_{AS}/N=\frac {1}{N}\,K\,t_r\tag{8.5}
-\end{equation}\]</span>
+\end{equation}\]</span></p>
 <p>Quando <span class="math inline">\(N\)</span> é desconhecido, um estimador alternativo para a média é:</p>
-<span class="math display" id="eq:eqsis6">\[\begin{equation}
+<p><span class="math display" id="eq:eqsis6">\[\begin{equation}
 \overline y_{AS}= \widehat Y_{AS}/\widehat N_{AS}=K\,t_r/K\,n_r=t_r/n_r=\overline y_r=\overline y\tag{8.6}
 \end{equation}\]</span>
-<p>a média amostral.</p>
+a média amostral.</p>
 <p>Este estimador tem vício para estimar a média populacional, exceto quando <span class="math inline">\(N=nK\)</span>, pois:</p>
-<span class="math display">\[\begin{eqnarray}E_{AS}(\overline{y}_{AS}) &amp; = &amp; E_{AS}(\overline y)= E_{AS} \left [\sum_{r=1}^{K}I(r)\overline y_r \right] \\ &amp;=&amp; \frac{1}{K} \sum_{r=1}^{K}\overline y_r = \frac{1}{K} \sum_{r=1}^{K}\frac {t_r}{n_r} \\&amp; \neq &amp; \frac {\sum_{r=1}^{K}t_r}{\sum_{r=1}^{K}n_r} = \overline Y, \,\,\textrm {exceto quando N=nK.}\end{eqnarray}\]</span>
+<p><span class="math display">\[\begin{eqnarray}E_{AS}(\overline{y}_{AS}) &amp; = &amp; E_{AS}(\overline y)= E_{AS} \left [\sum_{r=1}^{K}I(r)\overline y_r \right] \\ &amp;=&amp; \frac{1}{K} \sum_{r=1}^{K}\overline y_r = \frac{1}{K} \sum_{r=1}^{K}\frac {t_r}{n_r} \\&amp; \neq &amp; \frac {\sum_{r=1}^{K}t_r}{\sum_{r=1}^{K}n_r} = \overline Y, \,\,\textrm {exceto quando N=nK.}\end{eqnarray}\]</span></p>
 </div>
 <div id="variancia-de-widehat-y_as-sob-amostragem-sistematica" class="section level2">
 <h2><span class="header-section-number">8.9</span> Variância de <span class="math inline">\(\widehat Y_{AS}\)</span> sob amostragem sistemática</h2>
 <p>A variância de <span class="math inline">\(\widehat Y_{AS}\)</span> sob amostragem sistemática é dada por:</p>
-<span class="math display" id="eq:eqsis7">\[\begin{eqnarray}
+<p><span class="math display" id="eq:eqsis7">\[\begin{eqnarray}
 V_{AS}(\widehat{Y}_{AS}) &amp; = &amp; K^2\,V_{AS} \left[\sum_{r=1}^{K}I(r)t_r \right] \\ &amp; = &amp; K^2 \left[ {\sum_{r=1}^{K}{t_r}^2 V_{AS}[I(r)]} + \sum_{r\neq K}COV_{AS}[I(r),I(q)]t_rt_q \right] \\ &amp; = &amp;  K^2 \left[\sum_{r=1}^{K}{t_r}^2 \frac{1}{K}\left(1-\frac{1}{K}\right)+\sum_{r\neq K}t_rt_q\left(-\frac{1}{K^2}\right)\right]\\ &amp; = &amp;  K^2 \left[\frac{1}{K}\sum_{r=1}^{K}{t_r}^2 - \frac{1}{K^2}\left(\sum_{r=1}^{K}{t_r}^2+\sum_{r\neq K}t_rt_q\right)\right] \\ &amp; = &amp;  K \left[\sum_{r=1}^{K}{t_r}^2 - \left(\sum_{r=1}^{K}{t_r}\right)^2/K\right] =K\sum_{r=1}^{K}(t_r-\overline t)^2 \tag{8.7}
-\end{eqnarray}\]</span>
+\end{eqnarray}\]</span></p>
 <p>sendo:  <span class="math inline">\(\overline t= \displaystyle\sum_{r=1}^{K} t_r/K = Y/K\)</span></p>
 <p>Portanto a variância é calculada a partir da soma de quadrados dos desvios entre totais das amostras possíveis.</p>
 <p><strong>Notas</strong></p>
@@ -405,20 +522,20 @@ V_{AS}(\widehat{Y}_{AS}) &amp; = &amp; K^2\,V_{AS} \left[\sum_{r=1}^{K}I(r)t_r \
 <p>Portanto, conforme <span class="citation">(Cochran <a href="#ref-Cochran1977">1977</a>)</span>, p. 208, o estimador de média é mais eficiente sob Amostragem Sistemática que sob AAS se e somente se <span class="math inline">\(S_D^2&gt;S_y^2\)</span> .</p>
 <p><strong>Uma expressão alternativa para <span class="math inline">\(V_{AS}(\overline y)\)</span> quando <span class="math inline">\(N = n \times K\)</span></strong></p>
 <p>De acordo com o Teorema 8.2 de <span class="citation">Cochran (<a href="#ref-Cochran1977">1977</a>)</span>, p. 209, tem-se:</p>
-<span class="math display" id="eq:eqsis8">\[\begin{equation}
+<p><span class="math display" id="eq:eqsis8">\[\begin{equation}
 V_{AS}(\overline y)=\frac{S_y^2}{n}\left(\frac{N-1}{N}\right)[1+(n-1)\rho\,]\tag{8.8}
-\end{equation}\]</span>
+\end{equation}\]</span></p>
 <p>onde:</p>
-<span class="math display" id="eq:eqsis9">\[\begin{equation}
+<p><span class="math display" id="eq:eqsis9">\[\begin{equation}
 \rho=\frac{1}{(n-1)(N-1)S_y^2}\,\,\displaystyle \sum_{r=1}^{K}\sum_{i \neq j}^{n}(y_{ri}-\overline Y)(y_{rj}-\overline Y)\tag{8.9}
 \end{equation}\]</span>
-<p>é a correlação intraclasse dentro das amostras possíveis.</p>
+é a correlação intraclasse dentro das amostras possíveis.</p>
 <p>Este resultado mostra que a correlação positiva entre unidades de uma mesma amostra aumenta a variância da média amostral com seleção sistemática quando comparada com a variãncia da média amostral com seleção AAS.</p>
 <p>Notando que sob AAS, <span class="math inline">\(V_{AAS}(\overline y)=\displaystyle\left(1-\frac{n}{N}\right)\frac{S_y^2}{n}\)</span>.</p>
 <p>Então, temos a relação aproximada:</p>
-<span class="math display" id="eq:eqsis10">\[\begin{equation}
+<p><span class="math display" id="eq:eqsis10">\[\begin{equation}
 \frac{V_{AS}(\overline y)}{V_{AAS}(\overline y)}=1+(n-1)\rho\,\left\{\begin{array}{lll} &lt; 1 &amp; \textrm{se} \,\,\,\rho&lt;0\,, \\ = 1 &amp; \textrm{se} \,\,\,\rho=0\,,\\ &gt; 1 &amp; \textrm{se} \,\,\,\rho&gt;0\,.\end{array}\right.\tag{8.10}
-\end{equation}\]</span>
+\end{equation}\]</span></p>
 <p>Cabe notar que razões do tipo <span class="math inline">\(V_{AS}(\overline y)/V_{AAS}(\overline y)\)</span> são chamadas de <em>Efeito do Plano Amostral (EPA)</em>. No inglês, o termo é <em>design effect</em>, abreviado como <em>deff</em>.</p>
 </div>
 <div id="estimacao-de-variancias-dos-estimadores" class="section level2">
@@ -468,7 +585,7 @@ gitbook.start({
 "google": false,
 "linkedin": false,
 "weibo": false,
-"instapaper": false,
+"instapper": false,
 "vk": false,
 "all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
 },
@@ -478,10 +595,6 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": null,
-"text": null
-},
-"history": {
 "link": null,
 "text": null
 },
@@ -498,8 +611,8 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    var src = "";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:" && /^https?:/.test(src))
       src = src.replace(/^https?:/, '');
     script.src = src;

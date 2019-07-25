@@ -22,7 +22,7 @@ Para exemplificar, o Quadro \@ref(tab:cong) apresenta algumas ilustrações de p
 
 
 
-Table: Quadro 13.1 - Ilustrações de possíveis conglomerados
+Table: (\#tab:congex1)Quadro 13.1 - Ilustrações de possíveis conglomerados
 
 População                          Variáveis de interesse          Unidade de Referência          Conglomerados                 
 ---------------------------------  ------------------------------  -----------------------------  ------------------------------
@@ -35,7 +35,10 @@ Moradores em favelas do Rio        Características de pessoas      Morador de f
 
 Conforme ilustração na Figura \@ref(fig:hierarquia) temos regras de associação com a hieraquia com vários níveis (vários para um), considerando o cadastro de setores, os domicílios como nível 1 e a população de moradores.  
 
-![Ilustração da hierarquia com vários níveis (vários para um)](Figuras/hierarquia.png)
+<div class="figure">
+<img src="Figuras/hierarquia.png" alt="Ilustração da hierarquia com vários níveis (vários para um)" width="435" />
+<p class="caption">(\#fig:hierarquia)Ilustração da hierarquia com vários níveis (vários para um)</p>
+</div>
 
 Cabe registrar que os vários planos amostrais discutidos anteriormente podem ser aplicados a amostragem de conglomerados, onde os conglomerados são as unidades amostrais. 
 
@@ -96,11 +99,17 @@ Portanto, a amostragem conglomerada em um estágio ou AC1 é caracterizada pelos
 
 Segue ilustração utilizando um baralho, onde pode ser observado na Figura \@ref(fig:baralho) que cada grupo de um mesmo número ou letra (Ás,1,2,...7,J,D,K) representa um conglomerado com os quatro diferentes naipes (paus, ouros, copas e espadas).  
 
-![Ilustração de unidades elementares “naturalmente” agrupadas](Figuras/baralho.png)
+<div class="figure">
+<img src="Figuras/baralho.png" alt="Ilustração de unidades elementares “naturalmente” agrupadas" width="466" />
+<p class="caption">(\#fig:baralho)Ilustração de unidades elementares “naturalmente” agrupadas</p>
+</div>
 
 Na ilustração da Figura \@ref(fig:baralhoAC1) temos a seleção de amostragem conglomerada em um estágio (AC1).
 
-![Ilustração da seleção de amostragem conglomerada em um estágio](Figuras/baralhoAC1.png)
+<div class="figure">
+<img src="Figuras/baralhoAC1.png" alt="Ilustração da seleção de amostragem conglomerada em um estágio" width="467" />
+<p class="caption">(\#fig:baralhoAC1)Ilustração da seleção de amostragem conglomerada em um estágio</p>
+</div>
 
 Foram selecionados dois conglomerados (os de número 3 e 7), resultando numa amostra de 8 cartas do baralho (3 de paus, 3 de ouros, 3 de copas, 3 de espadas, 7 de paus, 7 de ouros, 7 de copas, 7 de espadas). 
 
@@ -131,7 +140,10 @@ Tal estratégia consiste no arranjo da população em UPAs, as quais são dividi
 
 Segue ilustração na Figura \@ref(fig:baralhoAC2) de amostragem conglomerada em dois estágios (AC2), utilizando o baralho com os grupamentos definidos anteriormente.  
 
-![Ilustração da seleção de amostragem conglomerada em 2 estágios ](Figuras/baralhoAC2.png)
+<div class="figure">
+<img src="Figuras/baralhoAC2.png" alt="Ilustração da seleção de amostragem conglomerada em 2 estágios " width="373" />
+<p class="caption">(\#fig:baralhoAC2)Ilustração da seleção de amostragem conglomerada em 2 estágios </p>
+</div>
 
 Foram selecionados os conglomerados (UPAs) 3, 7 e J (valete) e selecionadas duas cartas por conglomerado selecionado, resultando numa amostra de 6 cartas do baralho (3 de ouros, 3 de copas, 7 de paus, 7 de copas, valete de copas e valete de espadas). 
 
