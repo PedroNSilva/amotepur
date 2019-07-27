@@ -1,4 +1,4 @@
-# Estimadores de Calibração {#cap:calib}
+# Estimadores de Calibração {#calib}
 
 ## Motivação: melhorar a precisão com informações auxiliares
 
@@ -26,13 +26,15 @@ Suponha por hora que é possível observar as *respostas* ${\bf y}_k$ para *toda
 O *alvo de inferência* que vamos considerar inicialmente é o *total populacional* definido como:
 
 \begin{equation}
-{\bf T}_y = \sum_{k \in U}{\bf y}_k\,\,(\#eq:eqcal1)
+{\bf T}_y = \sum_{k \in U}{\bf y}_k\,\,
+(\#eq:eqcal1)
 \end{equation}
 
 Um estimador 'padrão' para este total é o estimador $HT$ [@Horvitz1952] definido por:
 
 \begin{equation}
-{\bf\widehat T}_y = \sum_{k \in s}d_k{\bf y}_k\,\,(\#eq:eqcal2)
+{\bf\widehat T}_y = \sum_{k \in s}d_k{\bf y}_k\,\,
+(\#eq:eqcal2)
 \end{equation}
 
 onde $d_k$ são *pesos amostrais do desenho* dados por $d_k= \pi_k^{-1}$, sendo $\pi_k=P(k \in s)$ a *probabilidade de inclusão* da unidade $k$ na amostra $s$.
@@ -50,26 +52,29 @@ Na *estimação de calibração* a ideia básica é que as estimativas amostrais
 Isto pode ser feito, modificando os pesos amostrais $d_k$ usados no estimador $HT$ para ‘expandir’ a amostra, usando um *estimador calibrado* tal que os *novos pesos* ($w_k$) permitam reproduzir exatamente os totais populacionais conhecidos, definido por: 
 
 \begin{equation}
-{\bf \widehat T}_x^C = \sum_{k \in s}w_k{\bf x}_k=\bf T_x\,\,(\#eq:eqcal3)
+{\bf \widehat T}_x^C = \sum_{k \in s}w_k{\bf x}_k=\bf T_x\,\,
+(\#eq:eqcal3)
 \end{equation}
 
 onde ${w_k, k \in s},$ são os *pesos calibrados* satisfazendo: 
 
 \begin{equation}
-{\bf \widehat T}_x^C- {\bf T}_x = \sum_{k \in s}w_k{\bf x}_k - {\bf T}_x=0\,\,(\#eq:eqcal4)
+{\bf \widehat T}_x^C- {\bf T}_x = \sum_{k \in s}w_k{\bf x}_k - {\bf T}_x=0\,\,
+(\#eq:eqcal4)
 \end{equation}
 
 As condições da (#eq:eqcal4) são chamadas de *restrições de calibração*. A ideia é que, se os *pesos calibrados* ${w_k, k \in s},$ tiverem sucesso em reduzir ou evitar erros ao 'estimar' os totais $x$, eles também podem reduzir o erro ao estimar os totais $y$, usando o estimador de calibração:
 
 \begin{equation}
-{\bf \widehat T}_y^C=\sum_{k \in s}w_k{\bf y}_k \,\,(\#eq:eqcal5)
+{\bf \widehat T}_y^C=\sum_{k \in s}w_k{\bf y}_k \,\,
+(\#eq:eqcal5)
 \end{equation}
 
 Os pesos calibrados ${w_k, k \in s},$ podem depender de todas as informações disponíveis sobre as variáveis auxiliares $x$, mas não das variáveis de pesquisa $y$. Se este for o caso, então (\#eq:eqcal5) é um estimador linear de ${\bf T}_y$.
 
-Neste capítulo, nos concentramos nos estimadores de *calibração para total* da forma (\#eq:eqcal5), ou seja, estimadores lineares definidos por conjuntos de pesos ${w_k, k \in s},$ satisfazendo as *restrições de calibração para totais* em (eq:eqcal4). 
+Neste capítulo, nos concentramos nos estimadores de *calibração para total* da forma (\#eq:eqcal5), ou seja, estimadores lineares definidos por conjuntos de pesos ${w_k, k \in s},$ satisfazendo as *restrições de calibração para totais* em (eqcal4). 
 
-Outras formas de restrições de calibração podem ser consideradas, como calibração para momentos de ordem mais alta ou até mesmo para a função de distribuição de população finita das variáveis auxiliares (veja a discussão na seção 10 em [@Chambers1997]). Entretanto, essas outras formas de estimadores de calibração não devem ser consideradas aqui e, por simplicidade, seguiremos a denominação simples predominante dos estimadores definidos por (\#eq:eqcal5) com pesos que satisfazem (eq:eqcal4) como *estimadores de calibração*.
+Outras formas de restrições de calibração podem ser consideradas, como calibração para momentos de ordem mais alta ou até mesmo para a função de distribuição de população finita das variáveis auxiliares - veja a discussão na seção 10 em [@Chambers1997]. Entretanto, essas outras formas de estimadores de calibração não devem ser consideradas aqui e, por simplicidade, seguiremos a denominação simples predominante dos estimadores definidos por (\#eq:eqcal5) com pesos que satisfazem (eqcal4) como *estimadores de calibração*.
 
 Um grande número de conjuntos de pesos $\{w_k, k \in s\},$ pode satisfazer as restrições de calibração. Uma maneira de selecionar aqueles que levam a conjuntos de pesos 'razoáveis' a serem usados para estimar totais para as variáveis $y$ é pensar nos pesos de calibração $w_k$ como modificações nos pesos do desenho $d_k$ que *não diferem muito* dos pesos originais. Isso se justifica porque o uso dos pesos originais de desenho $d_k$ dado pelo estimador Horvitz-Thompson assegura propriedades desejáveis, como *estimação não viciada e consistente* do total (no sentido de que à medida que o tamanho da amostra aumenta, o estimador converge em probabilidade em direção ao alvo correto ${\bf T}_y$).
 
@@ -187,7 +192,7 @@ Podemos então observar que o estimador de regressão (calibração) deverá ter
 
 <div class="figure">
 <img src="Figuras/Figcalib1.PNG" alt="Residuos para o modelo de regressão da população para os estimadores de Horvitz-Thompson (esquerda) e de calibração (direita)" width="281" />
-<p class="caption">(\#fig:figcalib1)Residuos para o modelo de regressão da população para os estimadores de Horvitz-Thompson (esquerda) e de calibração (direita)</p>
+<p class="caption">Residuos para o modelo de regressão da população para os estimadores de Horvitz-Thompson (esquerda) e de calibração (direita)</p>
 </div>
 
 **(#exm:exmcalib1)** Considere o gráfico que ilustra, para uma população de fazendas de cana de açúcar, a relação entre a quantidade produzida ($y$) e a área plantada ($x$). 
@@ -195,7 +200,7 @@ Podemos então observar que o estimador de regressão (calibração) deverá ter
 
 <div class="figure">
 <img src="Figuras/Figcalib2.PNG" alt="Regressão linear para a população de fazendas de cana de açúcar" width="142" />
-<p class="caption">(\#fig:figcalib2)Regressão linear para a população de fazendas de cana de açúcar</p>
+<p class="caption">Regressão linear para a população de fazendas de cana de açúcar</p>
 </div>
 
 Usando uma amostra aleatória simples com $n=50$ fazendas, e considerando a *Área* como variável auxiliar, estimamos os totais populacionais por dois métodos: pelo estimador HT e pelo estimador de regressão (GREG).
@@ -495,7 +500,7 @@ Portanto, os estimadores de calibração definidos por uma das funções de dist
 
 O estimador de calibração resultante do algoritmo *não é mais eficiente* que o estimador GREG, mas oferece *flexibilidade* para lidar com pesos extremos. 
 
-Os estimadores de calibração deste tipo foram implementados na Macro *CALMAR* em SAS do INSEE ([@Sautory1993]). Este programa executa apenas o cálculo de peso, mas uma variante denominada CALJACK foi desenvolvida no Statistics Canada ([@Bernier1994]) que inclui a estimativa de variância de Jackknife para totais, médias, razões e diferenças destes. O CALMAR também requer o SAS, mas uma implementação mais recente (mas limitada) do método está disponível: a Macro *g-CALIB-S*, desenvolvida na Statistics Belgium, é executada no SPSS ([@Vanderhoeft2001]). As funções *calibrate, postStratify* e *rake* do pacote *survey* do sistema $R$ ([@Lumley2010]) também têm o método implementado.
+Os estimadores de calibração deste tipo foram implementados na Macro *CALMAR* em SAS do INSEE ([@Sautory1993]). Este programa executa apenas o cálculo de peso, mas uma variante denominada CALJACK foi desenvolvida no Statistics Canada ([@Bernier1994]) que inclui a estimativa de variância de Jackknife para totais, médias, razões e diferenças destes. O CALMAR também requer o SAS, mas uma implementação mais recente (mas limitada) do método está disponível: a Macro *g-CALIB-S*, desenvolvida na Statistics Belgium, é executada no SPSS ([@Vanderhoeft2000]). As funções *calibrate, postStratify* e *rake* do pacote *survey* do sistema $R$ ([@Lumley2010]) também têm o método implementado.
 
 A estimação por calibração como agora estendida fornece as ferramentas para tentar *resolver o problema de pesos negativos*, o que pode ser evitado escolhendo as funções de calibração 2 a 7 no Quadro \#tab:tabcalib5. Também dá algum *controle sobre o problema de pesos extremos ou pesos menores que 1*, o que pode ser evitado escolhendo as funções de calibração 6 ou 7, usando $LI=1/\min \{d_k,\,\,k \in s\}$ e especificando algum $LS$ adequado. 
 
@@ -519,7 +524,7 @@ Primeiro, pode ser mais difícil resolver o sistema de equações de calibraçã
 
 Segundo, números maiores de variáveis $x$ podem levar a problemas de *dependência linear* que afetem a solução das equações de calibração. [@Bankier1990] e [@Sautory1993] propuseram o *descarte de variáveis auxiliares* linearmente dependentes antes de tentar a solução das equações de calibração na etapa 2 do algoritmo. Essa solução é bastante fácil de implementar e não leva à perda de calibração para nenhuma variável $x$, já que as variáveis descartadas são combinações lineares exatas de variáveis retidas no problema de calibração, e os estimadores de calibração resultantes são lineares. 
 
-Uma solução alternativa usando *inversa generalizada* de matrizes foi implementada no programa g-CALIB-S ([@Vanderhoeft2001]).
+Uma solução alternativa usando *inversa generalizada* de matrizes foi implementada no programa g-CALIB-S ([@Vanderhoeft2000]).
 
 [@Bankier1990] e [@Bankier1992] também propuseram o descarte de variáveis auxiliares *quase linearmente dependentes* para controlar a variação de peso, mantendo a função de distância padrão do tipo 1. Essa solução leva à perda de calibração de variáveis $x$ descartadas, bem como não permite controlar sobre quais variáveis $x$ teriam calibração.
 
@@ -551,7 +556,7 @@ Como uma ilustração do problema, a Figura \@ref(fig:figcalib3) plota o $EQM$ d
 
 <div class="figure">
 <img src="Figuras/Figcalib3.PNG" alt="$EQM$ do estimador de regressão versus número de variáveis $x$" width="164" />
-<p class="caption">(\#fig:figcalib3)$EQM$ do estimador de regressão versus número de variáveis $x$</p>
+<p class="caption">$EQM$ do estimador de regressão versus número de variáveis $x$</p>
 </div>
 
 [@Silva1997] mostraram, em um exercício de simulação limitado, que estimadores de de regressão *após seleção de subconjuntos de variáveis auxiliares* podem ser mais eficientes do que estimadores de regressão que considera todas as variáveis auxiliares *(modelo saturado)*, para amostras de tamanhos moderados ($n = 100 \,\, \text{e}\,\, Z = 5; 10$). Achados semelhantes são relatados por [@Clark2002] para $n = 100; 250\,\, \text{e}\,\, Z = 24; 40$. Ambas as fontes relataram também que a incidência de pesos negativos foi menor após a seleção de subconjuntos do que quando a calibração usou o conjunto saturado de variáveis $x$. Isso sugere que parte do problema com pesos negativos vem da calibração 'excessiva'.
@@ -712,7 +717,7 @@ Mas os autores sugerem que, na prática, o modelo incompleto servirá quase tão
   \\
   \\ \small\text{Sexo x Idade} &\small 12 &\small 24012 &\small 167 &\small 23684 &\small 24340
   \\ \small\text{Sexo + Idade} &\small 7 &\small 24065 &\small 168 &\small 23736 &\small 24349
-  \\ \small\text{Sexo x Mar} &\small 4 &\small 23809 &\small 160 &\small 23496\small24123
+  \\ \small\text{Sexo x Mar} &\small 4 &\small 23809 &\small 160 &\small 23496 &\small 24123
   \\ \small\text{Sexo + Mar} &\small 3 &\small 23675 &\small 160 &\small 23361 &\small 23990
   \\ \small\text{Idade x Mar} &\small 12 &\small 23987 &\small153 &\small 23687 &\small 24287   
   \\ \small\text{Idade + Mar} &\small 7 &\small 24071 &\small154 &\small 23769 &\small 24374
@@ -871,10 +876,6 @@ BANKIER, M. D. (1990). Generalized least squares estimation under poststratifica
 
 BANKIER, M. D., Rathwell, S. & Majkowski, M. (1992, Statistics Canada, Methodology Branch Working Paper Series SSMD 92-007E) – Two step generalized least squares estimation in the 1991 Canadian Census.
 
-CHAMBERS, R. L. (1997). Weighting and calibration in sample survey estimation. In Conference on Statistical Science Honouring the Bicentennial of Stefano Franscini’s Birth, Birkhäuser Verlag Basel.
-
-CLARK, R. G. (2002). Sample design and estimation for household surveys. Wollongong: University of Wollongong, School of Mathematics and Applied Statistics, unpublished Ph.D. dissertation.
-
 ESTEVAO, V., Hidiroglou, M.A. & Särndal, C.E. (1995). Methodological principles for a generalized estimation system at Statistics Canada. Journal of Official Statistics, 11, 181-204.
 
 HUANG, E. T. & Fuller, W. A. (1978). Nonnegative regression estimation for sample survey data. Proceedings of the Social Statistics Section, American Statistical Association, 300-305.
@@ -893,6 +894,3 @@ SÄRNDAL, C.E., Swensson, B. and Wretman, J.H. (1989). The weighted residual tec
 
 SAUTORY, O. (1993) – La macro CALMAR: redressement d’un echantillon par calage sur marges, INSEE.
 
-SILVA, P. L. d. N. (1996). Utilizing auxiliary information in sample survey estimation and analysis. Southampton: Univ. of Southampton, Department of Social Statistics, unpublished Ph.D. dissertation.
-
-VANDERHOEFT, C. (2001) – Generalised calibration at Statistics Belgium – SPSS module g-CALIB-S and current practices, Statistics Belgium Working Paper N. 3.

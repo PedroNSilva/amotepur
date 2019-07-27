@@ -302,7 +302,7 @@ c(p,li,ls)
     # Usando a função binconf
 binconf(x,n,method="all",alpha=alfa)
     # Usando a função propCI
-propCI(x,n,method="all",level=1-alfa)
+# prevalence::propCI(x,n,method="all",level=1-alfa)
     # Usando a função svyciprop 
 desaasc=svydesign(ids=~1,data=s,weights=~peso, fpc=NULL) # plano amostral de AASC (sem FPC)
 svyciprop(~I(y==1),desaasc,method="logit")

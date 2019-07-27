@@ -284,11 +284,14 @@ require(prevalence,quietly=TRUE,warn.conflicts=FALSE,character.only=FALSE)
 ```
 
 ```
-## Linked to JAGS 4.3.0
-```
-
-```
-## Loaded modules: basemod,bugs
+## Error: package or namespace load failed for 'rjags':
+##  .onLoad failed in loadNamespace() for 'rjags', details:
+##   call: fun(libname, pkgname)
+##   error: Failed to locate any version of JAGS version 4
+## 
+## The rjags package is just an interface to the JAGS library
+## Make sure you have installed JAGS-4.x.y.exe (for any x >=0, y>=0) from
+## http://www.sourceforge.net/projects/mcmc-jags/files
 ```
 
 ```r
@@ -330,19 +333,7 @@ binconf(x,n,method="all",alpha=alfa)
 
 ```r
     # Usando a função propCI
-propCI(x,n,method="all",level=1-alfa)
-```
-
-```
-##    x   n    p        method level     lower     upper
-## 1 60 125 0.48 agresti.coull  0.95 0.3943257 0.5668669
-## 2 60 125 0.48         exact  0.95 0.3898361 0.5711333
-## 3 60 125 0.48      jeffreys  0.95 0.3937144 0.5671999
-## 4 60 125 0.48          wald  0.95 0.3924179 0.5675821
-## 5 60 125 0.48        wilson  0.95 0.3943277 0.5668649
-```
-
-```r
+# prevalence::propCI(x,n,method="all",level=1-alfa)
     # Usando a função svyciprop 
 desaasc=svydesign(ids=~1,data=s,weights=~peso, fpc=NULL) # plano amostral de AASC (sem FPC)
 svyciprop(~I(y==1),desaasc,method="logit")
