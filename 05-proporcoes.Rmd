@@ -1,4 +1,4 @@
-# Estimação de proporções
+# Estimação de Proporções {#proporc}
 
 ## Parâmetros populacionais
 
@@ -302,7 +302,7 @@ c(p,li,ls)
     # Usando a função binconf
 binconf(x,n,method="all",alpha=alfa)
     # Usando a função propCI
-# prevalence::propCI(x,n,method="all",level=1-alfa)
+propCI(x,n,method="all",level=1-alfa)
     # Usando a função svyciprop 
 desaasc=svydesign(ids=~1,data=s,weights=~peso, fpc=NULL) # plano amostral de AASC (sem FPC)
 svyciprop(~I(y==1),desaasc,method="logit")
@@ -384,9 +384,9 @@ curve(dnorm(x), col=2, lty=2, lwd=2, add=T)
 
 Tanto nos casos de seleção com ou sem reposição pode-se considerar que as aproximações são satisfatórias, com os histogramas das distribuições amostrais do estimador $\widehat p$ aderindo consideravelmente à curva Normal padrão.
 
-[@Cochran1977] mostra uma tabela, reproduzida na (\#tab: prop1) Tabela 5.1, com alguns valores mínimos do total de unidades observadas na amostra, $t_y$, onde a aproximação Normal pode se utilizada.
+[@Cochran1977] mostra uma tabela, reproduzida na \@ref(tab: prop1) Tabela 5.1, com alguns valores mínimos do total de unidades observadas na amostra, $t_y$, onde a aproximação Normal pode se utilizada.
 
-<center> (#tab: prop1) Tabela 5.1 - Valores mínimos de $t_y$ para uso da aproximação Normal
+<center> (\#tab: prop1) Tabela 5.1 - Valores mínimos de $t_y$ para uso da aproximação Normal
 
 \begin{array}{r r r} 
 \hline
