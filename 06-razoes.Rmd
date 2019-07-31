@@ -1,4 +1,4 @@
-# Estimação de Razões e Funções de Totais 
+# Estimação de Razões e Funções de Totais {#razao}
 
 ## Razões populacionais como parâmetros de interesse
 
@@ -8,11 +8,15 @@ Muitas vezes na prática de pesquisas por amostragem, o *parâmetro* populaciona
 R = \frac{\sum_{i\in U}y_i}{\sum_{i\in U}x_i} = \frac{Y}{X}=\frac{\overline{Y}}{\overline{X}} (\#eq:eqraz1)
 \end{equation}
  
-Alguns exemplos de razões de interesse incluem: 
-** a razão entre o total dos gastos com transporte e o total da renda das famílias;** 
-** a produtividade da lavoura de certo produto, definida como a razão entre o total da quantidade colhida do produto pelo total da área plantada com esse produto;**
-** o salário médio dos trabalhadores da indústria, definido como a razão entre o total dos salários dos trabalhadores da indústria e o número total de trabalhadores da indústria; e**
-** a densidade de pessoas por dormitório em domicílios particulares, definida como a razão entre o número de pessoas residentes em domicílios particulares e o número total de dormitórios em domicílios particulares.**
+Alguns exemplos de razões de interesse incluem:
+
+- a razão entre o total dos gastos com transporte e o total da renda das famílias;
+
+- a produtividade da lavoura de certo produto, definida como a razão entre o total da quantidade colhida do produto pelo total da área plantada com esse produto;
+
+- o salário médio dos trabalhadores da indústria, definido como a razão entre o total dos salários dos trabalhadores da indústria e o número total de trabalhadores da indústria; e
+
+- a densidade de pessoas por dormitório em domicílios particulares, definida como a razão entre o número de pessoas residentes em domicílios particulares e o número total de dormitórios em domicílios particulares.
 
 No caso da razão entre o total dos gastos com transporte ($y$) e o total da renda das famílias ($x$), a razão fica definida como:
 
@@ -24,7 +28,7 @@ No caso da razão entre o total dos gastos com transporte ($y$) e o total da ren
 
 Um cuidado importante aqui é compreender o significado do parâmetro de interesse. A razão de totais $R$ não é a média $\left(\overline{R} = \sum_{i\in U}{r_i}/{N} \right)$ das *razões por unidade* $\left(r_i=y_i/x_i\right)$. Neste capítulo estamos interessados na razão de totais (ou médias), e não na média de razões. A média de razões $\left(\overline{R} \right)$ pode ser estimada usando os estimadores habituais de médias populacionais discutidos no capítulo \@ref(visger), aplicados à variável $r$ definida aqui.
 
-**Exemplo 5.1:** Considere as densidades de habitantes por área (em $km^2$) das unidades da federação brasileiras, conforme o Censo 2010. Neste exemplo, vemos como uma discrepância grande pode ocorrer entre as duas quantidades (a razão de médias e a médias das razões), quando os valores de $r_i$  são muito dispersos.
+**(#exm:exmrazao1)** Considere as densidades de habitantes por área (em $km^2$) das unidades da federação brasileiras, conforme o Censo 2010. Neste exemplo, vemos como uma discrepância grande pode ocorrer entre as duas quantidades (a razão de médias e a médias das razões), quando os valores de $r_i$  são muito dispersos.
 
 
 $$\begin{array}{|l|r|}\hline
@@ -141,28 +145,28 @@ e será um estimador não viciado do parâmetro $\theta$.
 Neste caso, a variância do estimador também é relativamente simples de obter, e dada por:
 
 \begin{eqnarray}
-Var_p \left( \widehat{\theta} \right) & = & 
+V_p \left( \widehat{\theta} \right) & = & 
 \sum_{k=1}^K \sum_{j = 1}^K a_k \, a_j Cov_p \left( \widehat{Y_k} ,  \widehat{Y_j} \right) \\
- &=& \sum_{k=1}^K a_k \, Var_p \left( \widehat{Y_k} \right) +  \sum_{k=1}^K \sum_{j \ne k = 1}^K a_k \, a_j Cov_p \left( \widehat{Y_k} ,  \widehat{Y_j} \right)
+ &=& \sum_{k=1}^K a_k \, V_p \left( \widehat{Y_k} \right) +  \sum_{k=1}^K \sum_{j \ne k = 1}^K a_k \, a_j Cov_p \left( \widehat{Y_k} ,  \widehat{Y_j} \right)
 \end{eqnarray}
 
 e um estimador dessa variância pode ser facilmente construído usando
 
 \begin{eqnarray}
-\widehat{Var}_p \left( \widehat{\theta} \right) & = & \sum_{k=1}^K \sum_{j = 1}^K a_k \, a_j \widehat{Cov}_p \left( \widehat{Y_k} ,  \widehat{Y_j} \right) \\
-& = & \sum_{k=1}^K a_k \, \widehat{Var}_p \left( \widehat{Y_k} \right) +  \sum_{k=1}^K \sum_{j \ne k = 1}^K a_k \, a_j \widehat{Cov}_p \left( \widehat{Y_k} ,  \widehat{Y_j} \right)
+\widehat{V}_p \left( \widehat{\theta} \right) & = & \sum_{k=1}^K \sum_{j = 1}^K a_k \, a_j \widehat{Cov}_p \left( \widehat{Y_k} ,  \widehat{Y_j} \right) \\
+& = & \sum_{k=1}^K a_k \, \widehat{V}_p \left( \widehat{Y_k} \right) +  \sum_{k=1}^K \sum_{j \ne k = 1}^K a_k \, a_j \widehat{Cov}_p \left( \widehat{Y_k} ,  \widehat{Y_j} \right)
 \end{eqnarray}
 
 Um resultado bastante útil é mostrado a seguir. Quando $\theta = \sum_{k=1}^K a_k \, Y_k$, então sua variância pode ser escrita como:
 
 \begin{eqnarray}
-Var_p \left( \widehat{\theta} \right) & = & E_p \left( \widehat{\theta} -\theta \right)^2 \\ 
+V_p \left( \widehat{\theta} \right) & = & E_p \left( \widehat{\theta} -\theta \right)^2 \\ 
 & = & E_p \left[ \sum_{k=1}^K a_k \left( \widehat{Y_k} - Y_k \right) \right]^2 \\
 & = & E_p \left[ \sum_{k=1}^K a_k \sum_{i \in s} \pi_i^{-1} y_{ki} - \sum_{k=1}^K a_k \sum_{i \in U} y_{ki} \right]^2 \\
 & = & E_p \left[ \sum_{i \in s} \pi_i^{-1} \left( \sum_{k=1}^K a_k y_{ki} \right) - \sum_{i \in U} \left( \sum_{k=1}^K a_k y_{ki} \right) \right]^2 \\
 & = & E_p \left[ \sum_{i \in s} \pi_i^{-1} z_i - \sum_{i \in U} z_i \right]^2 \\
 & = & E_p \left[ \widehat{Z}_{HT} - Z \right]^2 \\
-& = & Var_p \left( \widehat{Z}_{HT} \right)
+& = & V_p \left( \widehat{Z}_{HT} \right)
 \end{eqnarray}
 
 onde $z_i = \sum _{k=1} ^K a_k y_{ki}$.
@@ -170,7 +174,7 @@ onde $z_i = \sum _{k=1} ^K a_k y_{ki}$.
 Verifica-se assim que a variância do estimador para $\theta$ pode ser obtida como a variância de um estimador de total para uma variável derivada $z$ definida de maneira apropriada, tornando assim a obtenção da variância do estimador do parâmetro uma tarefa mais simples, já que a variância de estimadores de total foi apresentada no capítulo \@ref(visger). Isso leva também à obtenção de estimadores da variância de forma simples, usando a mesma variável derivada:
 
 \begin{equation}
-\widehat{Var}_p \left( \widehat{\theta} \right) = \widehat V_1(\widehat{Z}_{HT}) = \displaystyle \sum_{i \in s} \sum_{j \in s} \left( {d_i d_j} - {d_{ij}} \right) {z_i} {z_j}
+\widehat{V}_p \left( \widehat{\theta} \right) = \widehat V_1(\widehat{Z}_{HT}) = \displaystyle \sum_{i \in s} \sum_{j \in s} \left( {d_i d_j} - {d_{ij}} \right) {z_i} {z_j}
 \end{equation}
 
 Este resultado tem utilidade também quando $\theta$ é uma função não linear de totais, mas essa função é contínua e diferenciável. Neste caso, é possível usar a técnica de *linearização de Taylor* para obter a variância aproximada do estimador e também um estimador para essa variância. A ideia dessa técnica é simples: aproximar o estimador não linear por uma quantidade linearizada, obtida a partir da expansão em Série de Taylor do estimador $\widehat{\theta}$ ao redor do ponto $\theta$. A expansão é dada por:
@@ -191,15 +195,15 @@ onde a aproximação da última linha advém da exclusão de todos os termos de 
  & = & f(Y_1, Y_2, ..., Y_K) + \sum_{k=1}^K a_k \left( \widehat{Y}_k - Y_k \right) 
 \end{eqnarray}
 
-onde agora $a_k = \frac {\partial {f(Y_1, Y_2, ..., Y_K)}} {\partial{Y_k}}$, $k=1, 2, ..., K$.
+onde agora $a_k = \displaystyle\frac {\partial {f(Y_1, Y_2, ..., Y_K)}} {\partial{Y_k}}$, $k=1, 2, ..., K$.
 
 Assim sendo, a obtenção da variância aproximada para o estimador não linear $\widehat{\theta}$ é feita calculando-se a variância do *estimador linearizado* $\widehat{\theta}_L$, que é dada por:
 
 \begin{equation}
-\widehat{Var}_p \left( \widehat{\theta} \right) \doteq \widehat{Var}_p \left( \widehat{\theta}_L \right) = \widehat V_1(\widehat{Z}_{HT}) = \displaystyle \sum_{i \in s} \sum_{j \in s} \left( {d_i d_j} - {d_{ij}} \right) {z_i} {z_j}
+\widehat{V}_p \left( \widehat{\theta} \right) \doteq \widehat{V}_p \left( \widehat{\theta}_L \right) = \widehat V_1(\widehat{Z}_{HT}) = \displaystyle \sum_{i \in s} \sum_{j \in s} \left( {d_i d_j} - {d_{ij}} \right) {z_i} {z_j}
 \end{equation}
 
-onde $z_i = \sum_{k=1}^K \frac{\partial {f(Y_1, Y_2, ..., Y_K)}} {\partial{Y_k}} \, y_{ki}$.
+onde $z_i =\displaystyle\sum_{k=1}^K \frac{\partial {f(Y_1, Y_2, ..., Y_K)}} {\partial{Y_k}} \, y_{ki}$.
 
 ## Analisando o vício do estimador da razão sob AAS {#vicioraz}
 
@@ -209,14 +213,17 @@ Lembrando que $DP_{AAS}(\overline{y})=\sqrt{(1-f)}S_y/\sqrt{n}$, segue-se que $\
 
 Portanto, 
 
-$\frac{\overline{y}}{\overline{x}}=\frac{\overline{Y}+\Delta{y}}{\overline{x}+\Delta{x}}=\frac{\overline{Y}}{\overline{X}}\left(1+\frac{\Delta{y}}{Y}\right)\left(1+\frac{\Delta{x}}{X}\right)^{-1}$
+$\displaystyle\frac{\overline{y}}{\overline{x}}=\frac{\overline{Y}+\Delta{y}}{\overline{x}+\Delta{x}}=\frac{\overline{Y}}{\overline{X}}\left(1+\frac{\Delta{y}}{Y}\right)\left(1+\frac{\Delta{x}}{X}\right)^{-1}$
 
 Desenvolvendo-se o fator $\left(1+\frac{\Delta{x}}{X}\right)^{-1}$ como série de potências de $\Delta{x}$, tem-se: 
-$\frac{\overline{y}}{\overline{x}}=\frac{\overline{Y}}{\overline{X}}\left(1+\frac{\Delta{y}}{Y}\right)\left(1+\frac{\Delta{x}}{X}\right)^{-1}=\frac{\overline{Y}}{\overline{X}}\left(1+\frac{\Delta{y}}{Y}\right)\left[1-\frac{\Delta{x}}{X}+\left(\frac{\Delta{x}}{X}\right)^2+´´´\right]=\frac{\overline{Y}}{\overline{X}}\left(1+\frac{\Delta{y}}{Y}-\frac{\Delta{x}}{X}+\textrm{termos em} \,\Delta^2\right)$.
+
+\begin{eqnarray}
+\displaystyle\frac{\overline{y}}{\overline{x}}&=&\frac{\overline{Y}}{\overline{X}}\left(1+\frac{\Delta{y}}{Y}\right)\left(1+\frac{\Delta{x}}{X}\right)^{-1}\\ & = &\frac{\overline{Y}}{\overline{X}}\left(1+\frac{\Delta{y}}{Y}\right)\left[1-\frac{\Delta{x}}{X}+\left(\frac{\Delta{x}}{X}\right)^2+´´´\right]\\& = &\frac{\overline{Y}}{\overline{X}}\left(1+\frac{\Delta{y}}{Y}-\frac{\Delta{x}}{X}+\textrm{termos em} \,\Delta^2\right)
+\end{eqnarray}
 
 Logo:
 
-$E(\widehat{R})=E(\overline{y}/\overline{x})=R\left[1+\frac{E(\Delta{y})}{\overline{Y}}-\frac{E(\Delta{x})}{\overline{X}}+\textrm{termos em}\,\, E(\Delta^2)\right]= R +\textrm{termos em ordem}\,\,n^{-1}$
+$E(\widehat{R})=E(\overline{y}/\overline{x})=R\left[1+\displaystyle\frac{E(\Delta{y})}{\overline{Y}}-\frac{E(\Delta{x})}{\overline{X}}+\textrm{termos em}\,\, E(\Delta^2)\right]= R +\textrm{termos em ordem}\,\,n^{-1}$
 
 porque $E(\Delta{y})=E(\Delta{x})=0$.
 
@@ -228,7 +235,9 @@ Vícios desse tipo são geralmente desprezados na prática, a menos que se tenha
 
 Como $\widehat{R}$ tem um pequeno vício técnico, avaliamos seu *Erro Quadrático Médio (EQM)* sob AAS, ao invés da variância:
 
-\begin{eqnarray}EQM_{AAS}(\widehat{R}) & = & E_{AAS}\left(\widehat{R}-R\right)^2 \\ &=& E_{AAS}\left[R^2\left(\frac{\Delta{y}}{\overline{Y}}-\frac{\Delta{x}}{\overline{X}}\right)^2\right]+\textrm{termos em} \,\Delta^3 \\ &\cong & R^2 E_{AAS}\left(\frac{\overline{y}-\overline{Y}}{\overline{Y}}-\frac{\overline{x}-\overline{X}}{\overline{X}}\right)^2 \\ &=& \frac{R^2}{\overline{Y}^2}E_{AAS}(\overline{y}-R\overline{x})^2\\ &=& \frac{(1-f)}{n\overline{X}^2}\frac{1}{(N-1)}\displaystyle\sum_{i\in U}\left(y_i-Rx_i\right)^2(\#eq:eqraz4)\end{eqnarray}.
+\begin{eqnarray}
+EQM_{AAS}(\widehat{R}) & = & E_{AAS}\left(\widehat{R}-R\right)^2 \\ &=& E_{AAS}\left[R^2\left(\frac{\Delta{y}}{\overline{Y}}-\frac{\Delta{x}}{\overline{X}}\right)^2\right]+\textrm{termos em} \,\Delta^3 \\ &\doteq & R^2 E_{AAS}\left(\frac{\overline{y}-\overline{Y}}{\overline{Y}}-\frac{\overline{x}-\overline{X}}{\overline{X}}\right)^2 \\ &=& \frac{R^2}{\overline{Y}^2}E_{AAS}(\overline{y}-R\overline{x})^2\\ &=& \frac{(1-f)}{n\overline{X}^2}\frac{1}{(N-1)}\displaystyle\sum_{i\in U}\left(y_i-Rx_i\right)^2(\#eq:eqraz4)
+\end{eqnarray}
 
 
 Um estimador desse EQM que tem vício de ordem $n^{-1}$ é: 
@@ -242,17 +251,17 @@ Portanto, sob AAS temos a seguinte estrutura para estimação de razões:
 
 (1)	$\widehat{R}$ estima $R$ e $E_{AAS}(\widehat{R})=R+O(n^{-1})$;
 
-(2)	$EQM_{AAS}(\widehat{R})=\frac{(1-f)}{n\overline{X}^2}\frac{\displaystyle\sum_{i\in U}\left(y_i-Rx_i\right)^2}{N-1}+ O\left(n^{-3/2}\right)$ 
+(2)	$EQM_{AAS}(\widehat{R})=\displaystyle\frac{(1-f)}{n\overline{X}^2}\frac{\displaystyle\sum_{i\in U}\left(y_i-Rx_i\right)^2}{N-1}+ O\left(n^{-3/2}\right)$ 
 
-(3) $\widehat{V}_{AAS}(\widehat{R})=\frac{(1-f)}{n\overline{x}^2}\frac{1}{(n-1)}\displaystyle\sum_{i\in s}\left(y_i-\widehat{R}x_i\right)^2$
+(3) $\widehat{V}_{AAS}(\widehat{R})=\displaystyle\frac{(1-f)}{n\overline{x}^2}\frac{1}{(n-1)}\displaystyle\sum_{i\in s}\left(y_i-\widehat{R}x_i\right)^2$
 
-(4)	$\frac{\widehat{R}-R}{{\sqrt{\widehat{V}_{AAS}(\widehat{R})}}}\approx N(0;1)$  para $n$ grande.
+(4)	$\displaystyle\frac{\widehat{R}-R}{{\sqrt{\widehat{V}_{AAS}(\widehat{R})}}}\approx N(0;1)$  para $n$ grande.
 
 ## Exercícios
 
-**Exercício 5.1:** Identifique e defina duas razões que você já tenha utilizado em seu trabalho.
+**(#exe:exerazao1)** Identifique e defina duas razões que você já tenha utilizado em seu trabalho.
 
-**Exercício 5.2:** Estimando Razões e Médias de Razões
+**(#exe:exerazao2)** Estimando Razões e Médias de Razões
 
 Considere a população de municípios brasileiros fornecida no arquivo MunicBR.xlsx. 
 
