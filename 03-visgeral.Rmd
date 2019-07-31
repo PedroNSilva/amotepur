@@ -1,4 +1,4 @@
-# Visão Geral da Amostragem e Estimação
+# Visão Geral da Amostragem e Estimação {#visger}
 
 ## Definições e notação para população de pesquisa e parâmetros selecionados
 
