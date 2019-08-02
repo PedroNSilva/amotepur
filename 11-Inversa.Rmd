@@ -66,7 +66,7 @@ E(n)= \frac{(N+1)m}{M+1}(\#eq:eqinv4)
 e
 
 \begin{equation}\displaystyle
-Var(n)= \frac{(N+1)(M-m+1)(N-M)}{(M+1)^2 (M+2)}(\#eq:eqinv5)
+V(n)= \frac{(N+1)(M-m+1)(N-M)}{(M+1)^2 (M+2)}(\#eq:eqinv5)
 \end{equation}
 
 onde $\displaystyle 1 \le m \le M$ e $\displaystyle m \le k \le N$
