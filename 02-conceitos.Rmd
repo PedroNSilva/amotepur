@@ -1,4 +1,4 @@
-# Conceitos e Cadastros
+# Conceitos e Cadastros {#conceitos}
 
 ## Fontes de dados e tipos de pesquisas
 
@@ -114,7 +114,7 @@ Nesta pesquisa a caracterização da população de pesquisa é mais complexa, p
 
 **(#exm:popsex)** Definindo populações de pesquisa
 
-Para melhor ilustrar o conceito da definição da *população de pesquisa*, o Quadro \@ref(tab:popsex1) apresenta diversos exemplos de definição para populações de pesquisa com as seguintes especificações: as unidades a serem pesquisadas; características definidoras das unidades; localização espacial das unidades; e período de referência considerado. Esta separação de componentes da definição ajuda a identificar quais são os elementos essenciais que devem compor a definição de uma *população de pesquisa*.
+Para melhor ilustrar o conceito da definição da *população de pesquisa*, a Tabela \@ref(tab:popsex1) apresenta diversos exemplos de definição para populações de pesquisa com as seguintes especificações: as unidades a serem pesquisadas; características definidoras das unidades; localização espacial das unidades; e período de referência considerado. Esta separação de componentes da definição ajuda a identificar quais são os elementos essenciais que devem compor a definição de uma *população de pesquisa*.
 
 
 ```{r, echo=FALSE, label="popsex1"}
@@ -123,13 +123,11 @@ X1 = c("Pessoas", "Empresas do comércio varejista", "Pessoas", "Alunos", "Estab
 X2 = c("Habitando domicílios particulares permanentes", "Classificados como supermercados", "Maiores de 5 anos de idade", "Do curso de mestrado da ENCE", "Produtores de café"),
 X3 = c("Em Macaé", "Em Recife", "Que visitaram o Museu Nacional", "No Rio de Janeiro", "No Paraná"),
 X4 = c("Durante a semana da pesquisa", "Em 1996", "Entre 1 de junho e 30 de setembro de 1996", "Primeiro semestre de 2002", "No ano de 1998"))
-
 names(quadro1_1) <- c("Unidades", "Características Definidoras", "Localização",
                       "Período de referência")
-
 knitr::kable(quadro1_1, booktabs = TRUE, align= "llll",
              format.args= list(big.mark = '.'),
-  caption = "Quadro 2.1 - Exemplos de definições de populações de pesquisa"
+  caption = "Exemplos de definições de populações de pesquisa"
   )
 ```
 
@@ -173,7 +171,7 @@ Apesar da relevância do tema para um pesquisador interessado nos fundamentos da
 
 Pesquisas por amostragem, para serem bem feitas, requerem cuidadoso planejamento, dedicada execução, e rigorosa avaliação. Os métodos e processos de trabalho necessários para o sucesso da pesquisa já são bem conhecidos e descritos na literatura especializada - veja por exemplo o excelente livro de [@Backstrom1981] ou o mais moderno de [@Groves2009]. 
 
-Para uma visão de conjunto, o *Modelo Genérico do Processo de Produção Estatística (MGPPE)* ou *Generic Statistical Business Process Model (GSBPM)*, definido pela United Nations Economic Commission for Europe (UNECE), é um modelo que descreve de forma abrangente as atividades do processo de produção estatística. Este modelo tem sido utilizado como quadro de referência para nortear a modernização e a melhoria da qualidade da produção estatística em muitos institutos nacionais de estatística, entre eles o IBGE. Uma representação esquemática dessa abordagem é apresentada na Figura \@ref(fig:modpesq), adaptada do *Generic Statistical Business Process Model: GSBPM: version 5.0* (2013, p.10). 
+Para uma visão de conjunto, o *Modelo Genérico do Processo de Produção Estatística (MGPPE)* ou *Generic Statistical Business Process Model (GSBPM)*, definido pela United Nations Economic Commission for Europe (UNECE), é um modelo que descreve de forma abrangente as atividades do processo de produção estatística. Este modelo tem sido utilizado como quadro de referência para nortear a modernização e a melhoria da qualidade da produção estatística em muitos institutos nacionais de estatística, entre eles o IBGE. Uma representação esquemática dessa abordagem é apresentada na Figura \@ref(fig:modpesq), adaptada do *Generic Statistical Business Process Model: GSBPM: version 5.0* ([@GSBPM2013], p.10). 
 
 ```{r, modpesq, echo=FALSE, encoding="UTF-8", fig.cap="Modelo Genérico do Processo de Produção Estatística"}
 knitr::include_graphics("Figuras/ProcessodePesquisaModelo.PNG")
@@ -423,3 +421,33 @@ Neste caso se adotam os planos de amostragem conglomerada em múltiplos estágio
 ```{r, hierarquia, echo=FALSE, fig.cap="Ilustração de regras de associação - hierarquia para vários níveis"}
 knitr::include_graphics("Figuras/Associavariosniveis.PNG")
 ```
+
+## Exercícios 
+
+**(#exr:execonc1)** Toda pesquisa deve procurar registrar com clareza seus conceitos básicos. Dessa clareza depende a capacidade dos usuários de interpretar os resultados e avaliar sua qualidade e adequação. Para perceber a importância dessa questão, nada melhor do que praticar, e se colocar “na pele” de um usuário que procura identificar, na documentação disponível de uma dada pesquisa, seus principais conceitos e definições.
+
+Visite a página do CETIC.br na internet (https://cetic.br/) e identifique a publicação de resultados da Pesquisa TIC Domicílios 2017. Nesta publicação, localize a seção do ‘relatório metodológico’ e usando somente essa documentação, procure responder às perguntas abaixo.
+
+a)	Qual é o *objetivo* da pesquisa? 
+
+b)	Qual é a *população alvo*? Qual é a *população de pesquisa*?
+
+c)	Qual é o principal *cadastro* utilizado?
+
+d)	Quais são as *unidades de referência*?
+
+e)	Quais são as *unidades informantes*?
+
+f)	Quais são as *unidades de análise*?
+
+g)	Quais são as *unidades de amostragem*?
+
+h)	Qual é o *tipo* de pesquisa? *Censo*, *amostra*, compilação de *registro administrativo*? 
+
+i)	Como a pesquisa se desenvolve no *tempo*? Uma só ocasião? Pesquisa Repetida? Se a pesquisa é repetida, qual é a periodicidade com que isso ocorre?
+
+j)	Como são *coletados* os dados? Entrevistas, correio, observação, etc.?
+
+k)	Para que tipos de *quantidades resumo* são publicadas estimativas? Totais, médias, proporções, razões, taxas, índices? Exemplifique alguns que encontrar.
+
+l)	Foi possível responder todas as perguntas acima só com a documentação da pesquisa disponível na internet? Comente sobre suas dificuldades. O que ficou faltando?
