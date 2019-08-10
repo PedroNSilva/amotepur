@@ -451,3 +451,20 @@ j)	Como são *coletados* os dados? Entrevistas, correio, observação, etc.?
 k)	Para que tipos de *quantidades resumo* são publicadas estimativas? Totais, médias, proporções, razões, taxas, índices? Exemplifique alguns que encontrar.
 
 l)	Foi possível responder todas as perguntas acima só com a documentação da pesquisa disponível na internet? Comente sobre suas dificuldades. O que ficou faltando?
+
+**(#exr:execonc2)** Um pesquisador está planejando a realização de uma pesquisa por amostragem junto a estudantes do ensino fundamental regular (EFR) matriculados em *escolas públicas municipais* no município do Rio de Janeiro. A coleta dos dados será realizada entre *setembro e outubro de 2019*. Ele começou a investigar opções de cadastros que poderia utilizar para realizar a seleção da amostra. De imediato, localizou os seguintes cadastros:
+
+a)	*Cadastro* derivado do *Censo Escolar do MEC*, referente ao ano calendário *2018*, que pode ser acessado no endereço: http://portal.inep.gov.br/web/guest/microdados .
+
+b) *Lista* de todas as *escolas públicas municipais* que oferecem turmas do ensino fundamental regular fornecida pela Prefeitura municipal, atualizada até Agosto de 2019, contendo nome e endereço da escola, nome e dados de contato do diretor da escola, e séries que a escola oferece no ano de 2019.
+
+Tratar das seguintes questões:
+
+1)	Para cada um dos cadastros disponíveis para o pesquisador, indique o tipo de associação entre as unidades do cadastro e as unidades de referência da pesquisa (estudantes do ensino fundamental regular matriculados em escolas públicas municipais em setembro de 2019). 
+
+2)	Discuta as vantagens e desvantagens de utilizar cada um dos cadastros disponíveis para o pesquisador. 
+3)	Caso o pesquisador opte pelo uso do cadastro listado em a), que cuidados deveria adotar para mitigar ou eliminar possíveis erros de cobertura?
+
+4)	Caso o pesquisador opte pelo uso do cadastro listado em b), que procedimento(s) precisa adotar para assegurar a cobertura da população de interesse?
+
+5)	Se você fosse o pesquisador, como usaria um ou mais dos cadastros citados? Como?
