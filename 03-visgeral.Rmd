@@ -240,7 +240,7 @@ Considere agora um *plano amostral* $p1$ em que uma qualquer das amostras possí
 
 $p1(s) = 1/6 \,\,\,\forall s \in S$.  
 
-A tabela \@ref(tab:amoposp1) apresenta o conjunto de todas as amostras possíveis, os rótulos das unidades incluídas em cada amostra, os valores de $y$ para as unidades incluídas na amostra, a soma amostral e as probabilidades de seleção de cada amostra. As colunas 1, 2 e 5 dessa tabela correspondem à apresentação detalhada do *plano amostral* $p1$ tal como definido acima, agora representado na forma de uma tabela.
+A Tabela \@ref(tab:amoposp1) apresenta o conjunto de todas as amostras possíveis, os rótulos das unidades incluídas em cada amostra, os valores de $y$ para as unidades incluídas na amostra, a soma amostral e as probabilidades de seleção de cada amostra. As colunas 1, 2 e 5 dessa tabela correspondem à apresentação detalhada do *plano amostral* $p1$ tal como definido acima, agora representado na forma de uma tabela.
 
 ```{r, echo=FALSE, label="amoposp1"}
 suppressMessages(library(kableExtra)) # Pacote usado para a tabela não ocupar a largura toda da página
@@ -256,7 +256,7 @@ knitr::kable(tabela, booktabs = TRUE, align= "ccccc",
 kable_styling(full_width = F)
 ```  
   
-A distribuição de probabilidades da estatística *Soma Amostral* pode ser calculada a partir das informações na tabela acima, e é dada por:
+A distribuição de probabilidades da estatística *Soma Amostral* pode ser calculada a partir das informações na Tabela \@ref(tab:amoposp1), e é dada por:
 
 ```{r, echo=FALSE}
 suppressMessages(library(kableExtra)) # Pacote usado para a tabela não ocupar a largura toda da página
@@ -322,7 +322,7 @@ b) consideramos conhecidos os valores da variável $y$ para todas as unidades da
 
 Na grande maioria das situações de interesse prático no campo das pesquisas por amostragem, os tamanhos de população e amostra serão muito maiores. Também não serão conhecidos os valores da variável de interesse para unidades que não sejam selecionadas para a amostra que vai ser pesquisada. Num cenário com estas características, trabalhar com a distribuição $p(s)$ para daí tentar derivar distribuições amostrais de estimadores é complicado. 
 
-O primeiro problema é que o número total de amostras possíveis cresce muito rapidamente com $N$ e com $n$. Por exemplo, o número de amostras sem reposição de tamanho $n$ de uma população com $N$ unidades é  $\binom{N}{n}$. A tabela \@ref(tab:tamesp) mostra como cresce o número de amostras no conjunto $S$ para valores selecionados de $N$ e $n$. Note como o tamanho desse conjunto é gigantesco mesmo com tamanhos de população e amostra bem modestos (1.000 e 20), por exemplo.
+O primeiro problema é que o número total de amostras possíveis cresce muito rapidamente com $N$ e com $n$. Por exemplo, o número de amostras sem reposição de tamanho $n$ de uma população com $N$ unidades é  $\binom{N}{n}$. A Tabela \@ref(tab:tamesp) mostra como cresce o número de amostras no conjunto $S$ para valores selecionados de $N$ e $n$. Note como o tamanho desse conjunto é gigantesco mesmo com tamanhos de população e amostra bem modestos (1.000 e 20), por exemplo.
 
 ```{r, echo=FALSE,label="tamesp"}
 
@@ -646,23 +646,23 @@ Tratar das seguintes questões:
 
 1.	Para cada variável de interesse (Renda, Número de Moradores, e Número de Trabalhadores), calcule os seguintes parâmetros populacionais:
 
-a.	Total;
+    a.	Total;
 
-b.	Média;
+    b.	Média;
 
-c.	Variância.
+    c.	Variância.
 
 2.	Liste o conjunto $S$ de todas as amostras possíveis de tamanho 2 da população, considerando apenas amostras de unidades distintas.
 
 3.	Supondo que todas as amostras listadas no conjunto $S$ são equiprováveis (Plano A), calcule:
 
-a.	As probabilidades de inclusão das unidades;
+    a.	As probabilidades de inclusão das unidades;
 
-b.	As probabilidades de inclusão dos pares de unidades;
+    b.	As probabilidades de inclusão dos pares de unidades;
 
-c.	Os valores possíveis para o estimador Horvitz-Thompson do total populacional para a variável Renda;
+    c.	Os valores possíveis para o estimador Horvitz-Thompson do total populacional para a variável Renda;
 
-d.	O valor esperado e a variância para o estimador Horvitz-Thompson do total populacional para a variável Renda.
+    d.	O valor esperado e a variância para o estimador Horvitz-Thompson do total populacional para a variável Renda.
 
 4.	Considere agora que o conjunto $S$ é formado somente pelas amostras (1;2), (2;3), (2;4), (2;5) e (2;6), tendo cada uma delas probabilidade 1/5 de ser a amostra selecionada (Plano B). Repita a) a d) do item 3 para este novo plano amostral.
 
