@@ -1,4 +1,4 @@
-# Amostragem Aleatória Simples (AAS)
+# Amostragem Aleatória Simples (AAS) {#aas}
 
 ## Planos amostrais e algoritmos de seleção
 
@@ -32,11 +32,15 @@ A forma usual de selecionar a amostra consiste em realizar $n$ sorteios consecut
 
 AASC é raramente usada na prática, pois é ineficiente em comparação com a amostragem *sem reposição* de igual tamanho inicial $n$, pelo fato de não incorporar nova informação quando a mesma unidade é selecionada mais de uma vez para a amostra. Na AASC o *tamanho efetivo* da amostra é $m \le n$, onde $m$ designa o número de unidades *distintas* selecionadas.   
 
-Considere os dados amostrais para a variável $y$ sob AASC, representados por $\{y_{i_1}, y_{i_2}, \dots, y_{i_k}, \dots, y_{i_n}\}$. Tais valores são observações de variáveis aleatórias $Y_1, Y_2, ..., Y_k, ..., Y_n$ independentes e identicamente distribuídas (IID), com distribuição comum dada conforme o Quadro \@ref(tab:tabaas3).
+Considere os dados amostrais para a variável $y$ sob AASC, representados por $\{y_{i_1}, y_{i_2}, \dots, y_{i_k}, \dots, y_{i_n}\}$. Tais valores são observações de variáveis aleatórias $Y_1, Y_2, ..., Y_k, ..., Y_n$ independentes e identicamente distribuídas (IID), com distribuição comum dada conforme descrito a seguir.
 
-$$\begin{array}{|l|c|c|c|c|c|}\hline \textrm{Unidade populacional } (i) & 1 & 2 & \dots & N & \textrm{Soma na linha} \\\hline \textrm{Valores que}\,\, Y_k\, \textrm{pode assumir } (y_i) & y_1 & y_2 & \dots & y_N & Y\\\hline \textrm{Probabilidades}\,\, [P(Y_k = y_i)] & 1/N & 1/N & \dots & 1/N & 1\\\hline\end{array}$$
+|Unidade populacional $(i)$            |1      |2      |...    |N      |Soma na linha|
+|:------------------------------------ |:-----:|:-----:|:-----:|:-----:|:-----------:|
+|Valores que $Y_k$ pode assumir $(y_i)$|$y_1$  |$y_2$  |...    |$y_N$  |$Y$          |
+|Probabilidades $[P(Y_k = y_i)]$       |$1/N$  |$1/N$  |...    |$1/N$  |1            |
 
-###Estimação do total e média populacionais sob AASC
+
+### Estimação do total e média populacionais sob AASC
 
 Lembrando o princípio de estimação que está por trás do estimador tipo Horvitz-Thompson, que consiste em multiplicar cada valor observado na amostra pelo inverso sua probabilidade de inclusão, considere a variável aleatória igual a $Z_k = Y_k / (1/N) = N \times Y_k$. A cada sorteio de uma unidade para a amostra sobre AASC, esta variável aleatória fornece um estimador não enviesado para o total populacional $Y$:
 
@@ -75,20 +79,24 @@ A estimação da média populacional $\overline{Y}$ segue-se facilmente dividind
 
 A variância e estimador de variância correspondentes são também facilmente obtidos, uma vez que ${V}_{AASC} (\overline{y})=V_{AASC} (\widehat{Y}_{AASC})/N^2$. 
 
-O Quadro \@ref(tab:tabaas1) apresenta um resumo da estimação de parâmetros média e total sob AASC.
+A Tabela \@ref(tab:tabaas1) apresenta um resumo da estimação de parâmetros média e total sob AASC.
 
-$$\begin{array}{|c|c|}\hline
-\textrm{Parâmetro} & \textrm{Estimador ENV sob AASC}\,\,
-\\\hline \overline{Y}=\displaystyle\sum_{i\in U}y_i/N & \overline{y}=\displaystyle\sum_{k=1}^{n}y_{i_{k}}/n 
-\\\hline Y=\displaystyle\sum_{i\in U}y_i &\widehat{Y}=N\overline{y} 
-\\\hline \sigma^2_y=\displaystyle\frac{1}{N}\sum_{i\in U}({y_i-\overline{Y}})^2 &s^2_y=\displaystyle\frac{1}{n-1}\sum_{i\in s}({y_i-\overline{y}})^2  
-\\\hline V_{AASC}(\overline{y}) = \sigma^2_y /n  & \widehat V_{AASC}(\overline{y}) = s_y^2 / n
-\\\hline V_{AASC}(\widehat{Y}) = N^2 \sigma^2_y /n & \widehat V_{AASC}(\widehat{Y}) = N^2 s_y^2 / n
-\\\hline \end{array}$$
+```{r myDThtmltools, results="asis", echo=FALSE}
+cat("<table>",paste0("<caption>", "(#tab:tabaas1)", "Resumo de estimadores dos parâmetros média e total sob AASC", "</caption>"),"</table>", sep ="\n")
+```
+<center>
+|Parâmetro| |Estimador ENV sob AASC |
+|:---:|:---:|:---:|
+|$\overline{Y}=\displaystyle\sum_{i\in U}y_i/N$| |$\overline{y}=\displaystyle\sum_{k=1}^{n}y_{i_{k}}/n$|
+|$Y=\displaystyle\sum_{i\in U}y_i$             | |$\widehat{Y}=N\overline{y}$                          |
+|$\sigma^2_y=\displaystyle\frac{1}{N}\sum_{i\in U}({y_i-\overline{Y}})^2$ | | $s^2_y=\displaystyle\frac{1}{n-1}\sum_{i\in s}({y_i-\overline{y}})^2$|
+|$V_{AASC}(\overline{y}) = \sigma^2_y /n$  | |$\widehat V_{AASC}(\overline{y}) = s_y^2 / n$        |
+|$V_{AASC}(\widehat{Y}) = N^2 \sigma^2_y /n$  | |$\widehat V_{AASC}(\widehat{Y}) = N^2 s_y^2 / n$     |
+</center>
 
 Para provas destes resultados, veja por exemplo o teorema 3.3 de [@Bolfarine2005].
 
-Note que o estimador $\widehat{Y}_{AASC}$ para o total não é o estimador tipo Horvitz-Thompson para este plano amostral. Veja o (#exe:exeaas1) para uma discussão dessa questão.
+Note que o estimador $\widehat{Y}_{AASC}$ para o total não é o estimador tipo Horvitz-Thompson para este plano amostral. Veja o (#exr:exeaas1) para uma discussão dessa questão.
 
 A importância da AASC é principalmente teórica: através dela se mostra que é possível obter amostras de forma simples, cujos dados são utilizáveis mediante a aplicação de procedimentos convencionais da Inferência Estatística clássica. Por exemplo, a estimação não enviesada da média populacional $\overline{Y}$ pode ser feita simplesmente com o estimador média amostral $\overline{y}$, e a obtenção das propriedades deste estimador fica facilitada porque as variáveis aleatórias correspondentes aos valores das observações na amostra são IID, mesmo quando a população alvo tem tamanho finito. Ainda mais, o estimador $\overline{y}$ da média $\overline{Y}$ continua válido mesmo quando não se propõe um modelo estocástico para descrever a distribuição dos valores da população, sendo este estimador não enviesado independente da forma que tem a distribuição dos valores da população. Tudo isso justifica a apresentação da AASC dentro do conjunto de técnicas abordadas neste livro.
 
@@ -123,12 +131,23 @@ Este algoritmo foi proposto por [@Hajek1960] e consiste nos seguintes passos:
 
 *Passo 1:* Para cada $i\in U$, associe um *número pseudoaleatório* $a_i$, onde os $a_i$ são determinações de variáveis aleatórias IID $A_1, A_2, ..., A_N$, todas com distribuição $U[0;1]$.
 
-$$\begin{array}{|l|c|c|c|c|}\hline \textrm{Rótulo da unidade}\,\, i & 1 & 2 & \dots & N \\\hline \textrm{Número pseudoaleatório}\,(a_i) & a_1 & a_2 & \dots & a_N\\\hline \end{array}$$
+<center>
+|Rótulo da unidade $i$ |1 |2 |... |$N$ | 
+|:------- |:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|
+|Número pseudoaleatório$(a_i)$|$a_1$  |$a_2$  |...|$a_N$|
+</center>
+
+
 *Passo 2:* Ordene a população segundo os números pseudoaleatórios $a_1, a_2, ..., a_N$, obtendo uma *permutação aleatória* dos rótulos das unidades populacionais.
 
-$$\begin{array}{|l|c|c|c|c|}\hline \textrm{Rótulos permutados} & i_1 & i_2 & \dots & i_N \\\hline \textrm{Número pseudoaleatório ordenado}\,a_{(i)} & a_{(1)} & a_{(2)} & \dots & a_{(N)}\\\hline \end{array}$$
+<center>
+|Rótulos permutados |$i_1$ |$i_2$ |... |$i_N$|
+|:------- |:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|
+|Número pseudoaleatório ordenado $a_{(i)}$|$a_{(1)}$|$a_{(2)}$  |...|$a_{(N)}$|
+</center>
 
-A notação $a_{(i)}$ indica o valor posicionado na i-ésima posição na sequência ordenada dos valores dos números pseudoaleatórios, isto é, corresponde à i-ésima estatística de ordem da sequência $a_1 , a_2 , \dots , a_N$.
+
+A notação $a_{(i)}$ indica o valor posicionado na i-ésima posição na sequência ordenada dos valores dos números pseudoaleatórios, isto é, corresponde à $i$-ésima estatística de ordem da sequência $a_1 , a_2 , \dots , a_N$.
 
 *Passo 3:* Para selecionar uma amostra de tamanho $n$, inclua na amostra uma sequência de $n$ rótulos consecutivos quaisquer, na ordem em que aparecem nesta permutação. 
 
@@ -196,22 +215,21 @@ Um estimador da variância do estimador de total é dado por:
 
 onde $s^2_y = \displaystyle \frac{1}{n-1} \sum_{i \in s} ({y_i - \overline{y}})^2$ .
 
-O Quadro \@ref(tab:tabaas2) apresenta um resumo da estimação de parâmetros média e total sob AAS.
+A Tabela \@ref(tab:tabaas2) apresenta um resumo da estimação de parâmetros média e total sob AAS.
 
-\begin{array}{|c|c|}\hline
-\textrm{Parâmetro} & \textrm{Estimador ENV sob AAS} 
+```{r myDThtmltools2, results="asis", echo=FALSE}
+cat("<table>",paste0("<caption>", "(#tab:tabaas2)", "Resumo de estimadores dos parâmetros média e total sob AAS", "</caption>"),"</table>", sep ="\n")
+```
+<center>
+|Parâmetro| |Estimador ENV sob AAS|
+|:---:|:---:|:---:|
+|$\overline{Y}=\displaystyle\sum_{i\in U}y_i/N$| |$\overline{y} = \displaystyle \sum_{i \in s} y_i / n$|
+|$Y=\displaystyle\sum_{i\in U}y_i$| |$\widehat{Y} = N \overline{y} = \displaystyle \frac {N}{n} \sum_{i \in s} y_i$|
+|$S^2_y = \displaystyle \frac{1}{N-1} \sum_{i \in U} \left( {y_i - \overline{Y}} \right)^2$ | | $s^2_y = \displaystyle \frac{1}{n-1} \sum_{i \in s} \left( {y_i-\overline{y}} \right)^2$|
+|$V_{AAS} (\overline{y}) = \displaystyle \left( \frac{1}{n} - \frac{1}{N} \right) S^2_y$  | |$\widehat {V}_{AAS} (\overline{y}) = \displaystyle \left( \frac{1}{n} - \frac{1}{N} \right) s^2_y$|
+|$V_{AAS} (\widehat{Y}) = \displaystyle N^2 \left( \frac{1}{n} - \frac{1}{N} \right) S^2_y$| |$\widehat V_{AAS}(\widehat{Y}) = \displaystyle N^2 \left( \frac{1}{n} - \frac{1}{N} \right) s^2_y$     |
+</center>
 
-\\\hline \overline{Y} = \displaystyle \sum_{i \in U} y_i / N & \overline{y} = \displaystyle \sum_{i \in s} y_i / n 
-
-\\\hline Y = \displaystyle \sum_{i \in U} y_i & \widehat{Y} = N \overline{y} = \displaystyle \frac {N}{n} \sum_{i \in s} y_i 
-
-\\\hline S^2_y = \displaystyle \frac{1}{N-1} \sum_{i \in U} \left( {y_i - \overline{Y}} \right)^2 & s^2_y = \displaystyle \frac{1}{n-1} \sum_{i \in s} \left( {y_i-\overline{y}} \right)^2  
-
-\\\hline V_{AAS} (\overline{y}) = \displaystyle \left( \frac{1}{n} - \frac{1}{N} \right) S^2_y & \widehat {V}_{AAS} (\overline{y}) = \displaystyle \left( \frac{1}{n} - \frac{1}{N} \right) s^2_y
-
-\\\hline V_{AASC} (\widehat{Y}) = \displaystyle N^2 \left( \frac{1}{n} - \frac{1}{N} \right) S^2_y  & \widehat V_{AASC}(\widehat{Y}) = \displaystyle N^2 \left( \frac{1}{n} - \frac{1}{N} \right) s^2_y
-
-\\\hline \end{array}
 
 **Notas**
 
@@ -231,7 +249,7 @@ Se $n$ for grande e $f = n/N$ for pequena, o *Teorema Central do Limite* (ver [@
 \frac{\overline {y}-E_{AAS}(\overline{y})}{\sqrt{V_{AAS}(\overline{y})}}=\frac{\overline {y}-\overline{Y}}{\displaystyle\sqrt{\left(\frac{1}{n}-\frac{1}{N}\right)S_y^2}}\approx N(0;1)\,\,(\#eq:eqaas7)
 \end{equation}
 
-onde $N(0;1)$ denota uma variável aleatória com distribuição normal padrão com média zero e variância um. Mais detalhes podem ser obtidos em [@Cochran1977]	seções 2.8 e 2.15, ou [@Sarndal1992] seção 2.11.
+onde $N(0;1)$ denota uma variável aleatória com distribuição normal padrão com média zero e variância um. Mais detalhes podem ser obtidos em [@Cochran1977], seções 2.8 e 2.15, ou [@Sarndal1992], seção 2.11.
 
 É com base nessa distribuição assintótica que se pode fazer inferência por intervalos de confiança para a média populacional, e com base nesta ideia, medir a *margem de erro* de uma estimativa da média populacional. Um intervalo de confiança de nível $(1 - \alpha)\%$ para a média populacional sob AAS é dado por:
 
@@ -246,8 +264,6 @@ A *margem de erro* da estimativa de média é, então, estimada por:
 \begin{equation}
 \widehat{ME}_{AAS} (\overline{y}) = z_{\alpha/2} \sqrt{\widehat {V}_{AAS}(\overline{y})}\,\,(\#eq:eqaas9)
 \end{equation}
-
-
 
 ### Comparação dos planos de Amostragem Aleatória Simples Com e Sem Reposição
 
@@ -348,7 +364,7 @@ Seguem algumas sugestões de como fazer para resolver a questão de que $S_y^2$ 
 
 Seja $d$ a *precisão desejada*, o *erro máximo admissível* na estimação de $\overline Y$, a *semi-amplitude* desejada para o intervalo de confiança de $\overline Y$. Seja $1-\alpha$ o *coeficiente de confiança* desejado para o procedimento. Para *intervalos de confiança* de 95% usamos $z_{\alpha/2} = 1,96$.
 
-Um intervalo de confiança não é uma especificação sobre uma particular amostra, mas sobre o desempenho do procedimento sob todas as possíveis amostras. Quando se usa um intervalo de confiança de 95% para um parâmetro, isto quer dizer que os intervalos construídos com cerca de 95 de cada 100 amostras selecionadas (sob idênticas condições) cobririam o "verdadeiro" valor do parâmetro de interesse. Para uma amostra específica, selecionada pelo método escolhido, acredita-se que é de 95% a chance que o "verdadeiro" valor seja coberto pelo intervalo: $[\text{Estimativa} - 1,96 \times \text{desvio padrão} ; \text{Estimativa} + 1,96 \times \text{desvio padrão}]$.
+Um intervalo de confiança não é uma especificação sobre uma particular amostra, mas sobre o desempenho do procedimento sob todas as possíveis amostras. Quando se usa um intervalo de confiança de 95% para um parâmetro, isto quer dizer que os intervalos construídos com cerca de 95 de cada 100 amostras selecionadas (sob idênticas condições) cobririam o "verdadeiro" valor do parâmetro de interesse. Para uma amostra específica, selecionada pelo método escolhido, acredita-se que é de 95% a chance que o "verdadeiro" valor seja coberto pelo intervalo: $[\text{Estimativa} - 1,96 \times \text{desvio padrão} ;\,\, \text{Estimativa} + 1,96 \times \text{desvio padrão}]$.
 
 Assim:  
 
@@ -360,15 +376,57 @@ Portanto, o tamanho de uma AAS que assegura precisão $d$ com nível de confian�
 n = \displaystyle\frac{1}{\displaystyle\left( \frac{d}{z_{\alpha/2}} \right)^2 \displaystyle\frac{1}{S_y^2} + \frac{1}{N}} = \displaystyle\frac{N z_{\alpha/2}^2 S_Y^2} {N{d}^2 + {z_{\alpha/2}^2} S_y^2}\,\,(\#eq:eqaas10)
 \end{equation}
 
-
 **Comentários**
 
-1. Estas expressões só se aplicam para o caso do estimador média amostral $\overline y$ para a média populacional $\overline Y$ sob AAS.
+1. A expressão \@ref(eq:eqaas10) só se aplica para o caso do estimador média amostral $\overline y$ para a média populacional $\overline Y$ sob AAS.
 
 2. É possível derivar expressões similares para o caso da estimação de totais, entre outros parâmetros.
 
-3. Para planos amostrais mais complexos, é mais difícil resolver equações do tipo acima para determinar tamanhos amostrais, e sua alocação em estratos e conglomerados. Entretanto, a ideia de *Efeito de Plano Amostral* (EPA) vai ser útil neste contexto. Veja discussão no capítulo 13.
+3. Para planos amostrais mais complexos, é mais difícil resolver equações do tipo acima para determinar tamanhos amostrais, e sua alocação em estratos e conglomerados. Entretanto, a ideia de *Efeito de Plano Amostral* (EPA) vai ser útil neste contexto. Veja discussão no capítulo \@ref(cong).
+
+**(#exm:exmaas2)** Considere a população dos municípios brasileiros, conforme consta do arquivo ‘MunicBR_dat.rds’.
+  
+Tendo esta população em mente, imagine que seria usada para seleção de uma amostra com $n=200$ municípios, a serem selecionados por AAS, para estimar a *média populacional da área* dos municípios. 
+
+1.	Com esta perspectiva, use os *dados populacionais* para:
+  
+    a)	Calcular a *média populacional*;
+
+    b)	Calcular a *variância*, *desvio padrão* e *coeficiente de variação* do estimador usual;
+
+    c)	Avaliar a *margem de erro relativo* que a estimativa teria ao nível 95% de confiança;
+
+    d)	Determinar o *tamanho da amostra* que seria necessária para estimar a média da área com um erro máximo de $150\, km^2$ ao nível de confiança de 95%.
+
+2.	Selecione uma AAS de tamanho $n=200$ e calcule:
+  
+    a)	Estimativa da *média populacional*;
+
+    b)	Estimativas da *variância*, *desvio padrão* e *coeficiente de variação* da média estimada;
+
+    c)	Estime a *margem de erro relativo* que a estimativa obtida em a) teria ao nível 95% de confiança;
+
+    d)	Determine o *tamanho da amostra* que seria necessária para estimar a média da área com um erro máximo de $150$ ao nível de confiança de 95%.
+
+3.	Compare estimativas obtidas no item 2 com os valores obtidos no item 1 e analise/comente.
+
+INCLUIR o conteúdo do arquivo Exercícios Unidade 03.R
+
 
 ## Exercícios 
 
-**(#exe:exeaas1)** Mostre que o estimador $\widehat{Y}_{AASC}$ para o total não é o estimador tipo Horvitz-Thompson. 
+**(#exr:exeaas1)** Mostre que o estimador $\widehat{Y}_{AASC}$ para o total não é o estimador tipo Horvitz-Thompson. 
+  
+**(#exr:exeaas2)** Considere a população de 338 fazendas produtoras de cana de açúcar fornecida no arquivo “fazendas_dat.rds”. Esse arquivo contém os dados de algumas variáveis econômicas medidas para cada uma das fazendas dessa população, tais como área plantada com cana de açúcar (*Area*), quantidade colhida de cana (*Quant*), receita (*Receita*) e despesa com a produção de cana (*Despesa*), e algumas variáveis de contexto sobre as fazendas, tais como região de localização (*Regiao*) e classe de tamanho da fazenda (*Classe*). 
+
+Imagine que há interesse em pesquisar por amostragem essa população de fazendas, visando estimar medidas descritivas da população, tais como os totais das variáveis Quant, Receita e Despesa. O objetivo do exercício é usar os dados fornecidos para estudar o comportamento esperado de um plano amostral. Considere a ideia de selecionar uma amostra de $n=50$ fazendas da população usando Amostragem AAS.
+
+1.	Use os valores populacionais das variáveis de interesse (Area, Quant e Receita) para calcular os totais populacionais de interesse. Calcule também o desvio padrão (DP) e o coeficiente de variação (CV) esperados para os estimadores dos totais populacionais de interesse, supondo que o estimador Horvitz-Thompson para o total seria empregado. Compare os resultados para as diversas variáveis. 
+
+2.	Selecione efetivamente uma amostra segundo o esquema amostral indicado e use essa amostra para estimar os totais populacionais de interesse, bem como os respectivos DPs e CVs. Compare os resultados com os valores obtidos no item 1 e comente aspectos dignos de nota.
+
+3.	Use a amostra selecionada por AAS para estimar a variância populacional de Quant e Receita. Use estas informações para dimensionar a amostra necessária para estimar o total com CV de 10% para cada uma das duas variáveis. Ao final, que tamanho de amostra você usaria na pesquisa para atingir o objetivo estabelecido?
+
+4.	Repita 500 vezes o item 2, e analise a distribuição resultante das estimativas de total para as variáveis *Quant* e *Receita*. Analise, comente.
+
+  
