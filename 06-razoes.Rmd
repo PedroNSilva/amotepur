@@ -28,13 +28,44 @@ No caso da razão entre o total dos gastos com transporte ($y$) e o total da ren
 
 Um cuidado importante aqui é compreender o significado do parâmetro de interesse. A razão de totais $R$ não é a média $\left(\overline{R} = \sum_{i\in U}{r_i}/{N} \right)$ das *razões por unidade* $\left(r_i=y_i/x_i\right)$. Neste capítulo estamos interessados na razão de totais (ou médias), e não na média de razões. A média de razões $\left(\overline{R} \right)$ pode ser estimada usando os estimadores habituais de médias populacionais discutidos no capítulo \@ref(visger), aplicados à variável $r$ definida aqui.
 
-**(#exm:exmrazao1)** Considere as densidades de habitantes por área (em $km^2$) das unidades da federação brasileiras, conforme o Censo 2010. Neste exemplo, vemos como uma discrepância grande pode ocorrer entre as duas quantidades (a razão de médias e a médias das razões), quando os valores de $r_i$  são muito dispersos.
+**(#exm:exmrazao1)** Considere as densidades de habitantes por área (em $km^2$) das unidades da federação brasileiras apresentadas na Tabela \@ref(tab:tabrazao1), conforme o Censo 2010. Neste exemplo, vemos como uma discrepância grande pode ocorrer entre as duas quantidades (a razão de médias e a médias das razões), quando os valores de $r_i$  são muito dispersos.
 
-
-$$\begin{array}{|l|r|}\hline
-\textrm{Unidade da Federação} & \textrm{Densidade (Hab/}km^2) \\\hline \textrm{Rondônia} & 6,6 \\\hline \textrm{Acre} & 4,5 \\\hline \textrm{Amazonas} & 2,2\\\hline \textrm{Roraima} & 2,0\\\hline \textrm{Pará} & 6,1\\\hline \textrm{Amapá} & 4,7\\\hline \textrm{Tocantins} & 5,0\\\hline \textrm{Maranhão} & 19,8\\\hline \textrm{Piauí} & 12,4\\\hline \textrm{Ceará} & 56,8\\\hline \textrm{Rio Grande do Norte} & 60,0\\\hline \textrm{Paraíba} & 66,7\\\hline \textrm{Pernambuco} & 89,6\\\hline \textrm{Alagoas} & 112,3\\\hline \textrm{Sergipe} & 94,4\\\hline \textrm{Bahia} & 24,8\\\hline \textrm{Minas Gerais} & 33,4\\\hline \textrm{Espírito Santo} & 76,3\\\hline \textrm{Rio de Janeiro} & 365,2\\\hline \textrm{São Paulo} & 166,3\\\hline \textrm{Paraná} & 52,4\\\hline \textrm{Santa Catarina} & 65,3\\\hline \textrm{Rio Grande do Sul} & 39,8\\\hline \textrm{Mato Grosso do Sul} & 6,9\\\hline \textrm{Mato Grosso} & 3,4\\\hline \textrm{Goiás} & 17,7\\\hline \textrm{Distrito Federal} & 444,1\\\hline \textbf{Brasil (Média das razões)}  & \textbf{68,1}\\\hline \textbf{Brasil (Razão das médias)} & \textbf{22,4} \\\hline \end{array}$$
-
-$$\begin{array}{l} \textrm{Fonte: IBGE, Censo Demográfico 2010.} &\\ \end{array}$$
+```{r, echo=FALSE, label="tabrazao1"}
+suppressMessages(library(kableExtra))
+knitr::kable(NULL,caption= "Densidade por Unidade da Federação, média das razões e razão das médias para o Brasil") 
+```
+|Unidade da Federação|Densidade ($\text{Hab}/Km^2$)|
+|:-------------------|:-----:|
+|Rondônia            |6,6    |
+|Acre                |4,5    |
+|Amazonas            |2,2    |
+|Roraima             |2,0    |
+|Pará                |6,1    |
+|Amapá               |4,7    |
+|Tocantins           |5,0    |
+|Maranhão            |19,8   |
+|Piauí               |12,4   |
+|Ceará               |56,8   |
+|Rio Grande do Norte |60,0   |
+|Paraíba             |66,7   |
+|Pernambuco          |89,6   |
+|Alagoas             |112,3  |
+|Sergipe             |94,4   |
+|Bahia               |24,8   |
+|Minas Gerais        |33,4   |
+|Espírito Santo      |76,3   |
+|Rio de Janeiro      |365,2  |
+|São Paulo           |166,3  |
+|Paraná              |52,4   |
+|Santa Catarina      |65,3   |
+|Rio Grande do Sul   |39,8   |
+|Mato Grosso do Sul  |6,9    |
+|Mato Grosso         |3,4    |
+|Goiás               |17,7   |
+|Distrito Federal    |444,1  |
+|**Brasil (Média das razões)** |68,1|
+|**Brasil (Razão das médias)** |22,4|
+Fonte: IBGE, Censo Demográfico 2010.
 
 ## Outras funções de totais
 
@@ -78,7 +109,7 @@ A *variância* de uma variável de pesquisa $y$, dada por
  S^2_y = \frac{1}{N-1} \left[ \sum_{i\in U} {y_i}^2 - N \overline{Y}^2 \right] = \frac{1}{N-1} \left[ \sum_{i\in U} {y_i}^2 -  {Y}^2/N \right]
 \end{equation}
 
-também pode ser vista como uma função envolvendo três totais populacionais ($K=3$), sendo o primeiro definido como total da variãvel $y_{1i} \equiv y_i^2$, a segunda $y_{2i} \equiv y_i$, e a terceira como $y_{3i} \equiv 1$. A função que retorna a variância $S^2_y$ é definida como 
+também pode ser vista como uma função envolvendo três totais populacionais ($K=3$), sendo o primeiro definido como total da variável $y_{1i} \equiv y_i^2$, a segunda $y_{2i} \equiv y_i$, e a terceira como $y_{3i} \equiv 1$. A função que retorna a variância $S^2_y$ é definida como 
 $f(Y_1, Y_2, Y_3) = \frac {1} {Y_3 - 1} \left[ Y_1 - (Y_2^2/Y_3) \right]$.
 
 De maneira similar, a *covariância* e a *correlação* das variáveis $y$ e $z$ podem ser definidas como:
@@ -257,23 +288,28 @@ Portanto, sob AAS temos a seguinte estrutura para estimação de razões:
 
 (4)	$\displaystyle\frac{\widehat{R}-R}{{\sqrt{\widehat{V}_{AAS}(\widehat{R})}}}\approx N(0;1)$  para $n$ grande.
 
-## Exercícios
+**(#exm:exmrazao2)** Estimando Razões e Médias de Razões
 
-**(#exe:exerazao1)** Identifique e defina duas razões que você já tenha utilizado em seu trabalho.
-
-**(#exe:exerazao2)** Estimando Razões e Médias de Razões
-
-Considere a população de municípios brasileiros fornecida no arquivo MunicBR.xlsx. 
+Considere a população de municípios brasileiros fornecida no arquivo MunicBR.xlsx.
 
 1.	Selecione uma AAS de $n=20$ municípios, e use esta amostra para estimar os seguintes parâmetros populacionais:
 
-a.	Densidade habitacional média por $km^2$ no Brasil;
+    a. Densidade habitacional média por $km^2$ no Brasil;
 
-b.	Média da densidade habitacional por $km^2$ por município.
+    b. Média da densidade habitacional por $km^2$ por município.
 
 2.	Para cada uma das estimativas acima:
 
-a.	Estime o erro padrão e o coeficiente de variação; 
+    a.	Estime o erro padrão e o coeficiente de variação; 
 
-b.	Compare com os correspondentes parâmetros populacionais.
+    b.	Compare com os correspondentes parâmetros populacionais.
+    
+ INCLUIR o conteúdo do arquivo Exercícios Unidade 05.R
+
+
+
+
+## Exercícios
+
+**(#exr:exerazao1)** Identifique e defina duas razões que você já tenha utilizado em seu trabalho.
 
