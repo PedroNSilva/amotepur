@@ -1,4 +1,4 @@
-# Estimação para Domínios de Estudo 
+# Estimação para Domínios de Estudo {#domin}
 
 ## Domínios de estudo 
 
@@ -150,29 +150,32 @@ V_{AAS}(\widehat{Y}_d) =N^2\left(1-\frac{n}{N}\right)\frac{1}{n}\frac{1}{N-1}\di
 
 onde $t_d$ é o total de unidades na amostra pertencentes ao domínio, dado por: $t_d=\displaystyle\sum_{i \in s} d_i$.
 
-O Quadro a seguir apresenta um resumo da estimação de parâmetros média e total do domínio  $d$ sob AAS. 
+A Tabela \@ref(tab:tabdom1) apresenta um resumo da estimação de parâmetros média e total do domínio  $d$ sob AAS. 
 
-\begin{array}{|c|c|}\hline
-\textrm{Parâmetro do Domínio}\,\,d & \textrm{Estimador do Domínio}\,\,d\,\,\text{sob AAS} 
 
-\\\hline\overline{Y}_d=Y_d/N_d & \overline{y}_d=\widehat{Y}_d/\widehat{N}_d=\displaystyle\sum_{i\in s}y_{id}/n_d 
+```{r myDThtmltools4, results="asis", echo=FALSE}
+cat("<table>",paste0("<caption>", "(#tab:tabdom1)", "Resumo de estimadores dos parâmetros média e total do domínio $d$ sob AAS", "</caption>"),"</table>", sep ="\n")
+```
+<center>
+-----------------------------------------------   ------------------------------------
+**Parâmetro do Domínio $d$**                      **Estimador do Domínio $d$ sob AAS**
 
-\\\hline Y_d=N_d\overline{Y}_d & \widehat{Y}_d^R=N_d\overline{y}_d\,\,\,(N_d\,\text{conhecido}) 
+$\overline{Y}_d=Y_d/N_d$                                         $\overline{y}_d=\widehat{Y}_d/\widehat{N}_d=\displaystyle\sum_{i\in s}y_{id}/n_d$
 
-\\ & \widehat{Y}_d=N/n\displaystyle\sum_{i\in s} y_{id}\,\,\,(N_d\,\text{desconhecido}) 
+$Y_d=N_d\overline{Y}_d$                           $\widehat{Y}_d^R=N_d\overline{y}_d\,\,(N_d\,\text{conhecido})$   
+                                                  $\widehat{Y}_d=N/n\displaystyle\sum_{i\in s} y_{id}\,\,(N_d \,\text{desconhecido})$
 
-\\\hline V_{AAS}(\overline{y}_d)\cong \frac{1}{p_d^2}\left(1-\frac{n}{N}\right)\frac{1}{n}\frac{1}{N-1}\displaystyle\sum_{i\in U} d_i\left(y_i-\overline{Y}_d\right)^2 & \widehat V_{AAS}(\overline{y}_d) = \frac{1}{p_d^2}\left(1-\frac{n}{N}\right)\frac{1}{n}\frac{1}{n-1}\displaystyle\sum_{i\in s} d_i\left(y_i-\overline{y}_d\right)^2
+$V_{AAS}(\overline{y}_d)$                         $\widehat V_{AAS}(\overline{y}_d) = \frac{1}{p_d^2}\left(1-\frac{n}{N}\right)\frac{1}{n}\frac{1}{n-1}\displaystyle\sum_{i\in s} d_i\left(y_i-\overline{y}_d\right)^2$
 
-\\\hline V_{AAS}(\overline{y}_d |\,n_d>0)= \left(1-\frac{n_d}{N_d}\right)\frac{S_d^2}{n_d} & \widehat V_{AAS}(\overline{y}_d |\,n_d>0)= \left(1-\frac{n_d}{N_d}\right)\frac{s_d^2}{n_d}\\\,\,(n_d\,\text{fixo})
+$V_{AAS}(\overline{y}_d\mid{n_d>0},\,\text{fixo})$                         $\widehat V_{AAS}(\overline{y}_d\mid n_d>0)= \left(1-\frac{n_d}{N_d}\right)\frac{s_d^2}{n_d}$   
+                                                                       $\widehat V_{AAS}^*(\overline{y}_d\mid n_d>0)= \left(1-\frac{n}{N}\right)\frac{s_d^2}{n_d}\,\,(N_d\,\text{desconhecido})$
+    
+    
+$V_{AAS}\left(\widehat{Y}_d^R\mid{n_d>0}\right)$                                        $\widehat V_{AAS}\left(\widehat{Y}_d^R\mid n_d>0 \right)= N_d^2\left(1-\frac{n_d}{N_d}\right)\frac{s_d^2}{n_d}$
 
-\\ & \widehat V_{AAS}^*(\overline{y}_d |\,n_d>0)= \left(1-\frac{n}{N}\right)\frac{s_d^2}{n_d}
-\\&\,(N_d\,\text{desconhecido})
-
-\\\hline V_{AAS}\left(\widehat{Y}_d^R |\,n_d>0 \right)= N_d^2\left(1-\frac{n_d}{N_d}\right)\frac{S_d^2}{n_d} & \widehat V_{AAS}\left(\widehat{Y}_d^R |\,n_d>0 \right)= N_d^2\left(1-\frac{n_d}{N_d}\right)\frac{s_d^2}{n_d}
-
-\\\hline V_{AAS}(\widehat{Y}_d) =N^2\left(1-\frac{n}{N}\right)\frac{1}{n}\frac{1}{N-1}\displaystyle\sum_{i\in U} \left(y_{id}-\frac{Y_d}{N}\right)^2  & \widehat V_{AAS}(\widehat{Y}_d) =N^2\left(1-\frac{n}{N}\right)\frac{1}{n}\frac{1}{N-1}\displaystyle\sum_{i\in s} \left(y_{id}-\frac{t_d}{n}\right)^2
-
-\\\hline \end{array}
+$V_{AAS}(\widehat{Y}_d)$                               $\widehat V_{AAS}(\widehat{Y}_d) =N^2\left(1-\frac{n}{N}\right)\frac{1}{n}\frac{1}{N-1}\displaystyle\sum_{i\in s} \left(y_{id}-\frac{t_d}{n}\right)^2$
+------------------------- ---------------------------------
+</center>
 
 
 ### Intervalos de confiança na estimação de parâmetros para o domínio
@@ -196,6 +199,23 @@ Desse modo, as respectivas expressões dos intervalos de confiança de nível (1
 
 \begin{equation} 
 \displaystyle IC_{AAS}(\overline Y_d;1-\alpha)=\left[\overline y_d-z_{\alpha/ 2}\sqrt{\widehat V_{AAS}\left(\overline y_d \right)}\,\,;\,\overline y_d+z_{\alpha/2}\sqrt{\widehat V_{AAS}\left(\overline y_d \right)}\,\right] (\#eq:eqdom19) \end{equation}
+
+**(#exm:exmdom1)** Estimando totais e médias por domínios
+
+Considere os dados da população de municípios brasileiros fornecidos no arquivo ‘MunicBR_dat.rds’.
+
+Selecione uma AAS de $n=250$ municípios, e use esta amostra para estimar os seguintes parâmetros populacionais:
+
+a)	População total por macro-região do Brasil, e correspondentes margens de erro relativo ao nível de confiança de 95%; suponha *conhecidos* os tamanhos dos domínios;
+
+b)	População total por macro-região do Brasil, e correspondentes margens de erro relativo ao nível de confiança de 95%; suponha *desconhecidos* os tamanhos dos domínios;
+
+c)	Média da densidade habitacional por $km^2$ por município para municípios com população igual ou superior a 100 mil habitantes, e correspondente margem de erro ao nível de confiança de 95%. Nesse caso, considere que o tamanho do domínio relevante é *desconhecido*.
+
+Usando os dados populacionais, calcule os valores dos parâmetros estimados em a) e c) e compare com suas estimativas amostrais. Comente.
+
+INCLUIR o conteúdo do arquivo Exercícios Unidade 06.R
+	
 
 ### Comparação da eficiência dos estimadores de total do domínio
 
@@ -273,18 +293,55 @@ IC_{AAS} (p_A^´; 1 - \alpha) = \left [\widehat p_A^´\mp z_{\alpha/2} \sqrt{\le
 
 Caso $N^´$ não seja conhecido $n^´/N^´$ pode ser aproximado por $n/N$ na expressão anterior. 
 
+Estimando totais e médias por domínios
+Considere os dados da população de municípios brasileiros fornecidos no arquivo ‘MunicBR_dat.rds’. 
+Selecione uma AAS de n=250 municípios, e use esta amostra para estimar os seguintes parâmetros populacionais:
+a)	População total por macro-região do Brasil, e correspondentes margens de erro relativo ao nível de confiança de 95%; suponha conhecidos os tamanhos dos domínios;
+b)	População total por macro-região do Brasil, e correspondentes margens de erro relativo ao nível de confiança de 95%; suponha desconhecidos os tamanhos dos domínios;
+c)	Média da densidade habitacional por km2 por município para municípios com população igual ou superior a 100 mil habitantes, e correspondente margem de erro ao nível de confiança de 95%. Nesse caso, considere que o tamanho do domínio relevante é desconhecido.
+Usando os dados populacionais, calcule os valores dos parâmetros estimados em a) e c) e compare com suas estimativas amostrais. Comente.
+
+
 
 ## Exercícios
 
-(#exe:exedom1) A população total de uma cidade é de 5000 pessoas. Uma amostra de fração amostral igual a 20% é selecionada aleatoriamente sem reposição. Na amostra 4000 pessoas estão na força de trabalho, das quas 200 estão sem emprego.
+(#exr:exedom1) A população total de uma cidade é de 5000 pessoas. Uma amostra de fração amostral igual a 20% é selecionada aleatoriamente sem reposição. Na amostra 4000 pessoas estão na força de trabalho, das quas 200 estão sem emprego.
+
 a) que proporção da força de trabalho está desempregada?
+    
 b) qual o intervalo com 68% de confiança para essa proporção populacional? 
 
+(#exr:exedom2) Considere a população de 338 fazendas produtoras de cana de açúcar fornecida. 
 
+1.	Considere um plano AAS e tamanhos amostrais $n$ variando no conjunto {5, 10, 20, 50, 100}. Imagine que há interesse em estimar dois parâmetros:
 
+   I.	A média da variável Produtividade = Quant / Area;
 
+   II.	A produtividade média por unidade de área na população.
 
+  Para cada um dos tamanhos de amostra considerados:
 
+a)	Obtenha 500 amostras por AAS da população de fazendas; 
+    
+b)	Use cada uma destas amostras para calcular estimativas dos dois parâmetros de interesse, e dos respectivos erros padrão;
 
+c)	Use as 500 estimativas pontuais obtidas para cada parâmetro para avaliar:
 
+-	O comportamento do viés dos estimadores;
 
+-	O comportamento do viés dos estimadores dos erros padrões;
+
+-	A adequação da aproximação normal para a distribuição dos estimadores usados.
+
+2. Considere um plano AAS e dois tamanhos amostrais $n_1=20$ e $n_2=100$. Agora, temos interesse em estimar a despesa com a *produção total de cana para um domínio de interesse*, definido como o conjunto de fazendas pertencentes às classes de tamanho 4, 5 e 6.
+
+Para cada um dos dois tamanhos de amostra considerados: 
+
+a)	Obtenha 500 amostras por AAS da população de fazendas; 
+
+b)	Use cada uma destas amostras para calcular estimativas do parâmetro de interesse e dos correspondentes erros padrões supondo que o tamanho do domínio é desconhecido;
+
+c)	Use cada uma destas amostras para calcular estimativas do parâmetro de interesse e dos correspondentes erros padrões supondo que o tamanho do domínio é conhecido;
+
+d)	Use as 500 estimativas pontuais obtidas em b) e em c) para avaliar a adequação da aproximação normal para a distribuição dos estimadores usados.
+    
