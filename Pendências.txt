@@ -1,0 +1,7 @@
+Pendências do livro
+
+1. Geral: 'and' separando nomes de autores nas citações e referências. Tentei substituir por 'e', mas o Latex perde a separação de nomes dos autores, e faz confusão. Temos que ver se há alguma solução no latex para essa questão.
+
+2. Cap 2 - definir metadados e paradados.
+
+3. Cap 2 - acertar tamanhos das figuras.

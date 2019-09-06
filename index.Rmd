@@ -17,7 +17,7 @@ description: "Este é o livro de Amostragem elaborado pelos autores."
 
 # Prefácio {-}
 
-Este é um livro escrito para apoiar a aprendizagem de **Amostragem**. Nosso objetivo principal é orientar um leitor no caminho para aprender os conceitos, principais ideias e a usar as ferramentas de amostragem para resolver problemas.
+Este é um livro escrito para apoiar a aprendizagem de **Amostragem**. Nosso objetivo principal é orientar um leitor no caminho para aprender os conceitos, as principais ideias e a usar as ferramentas de amostragem para resolver problemas.
 
 
 ## Agradecimentos {-}
