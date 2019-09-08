@@ -30,11 +30,14 @@ Um cuidado importante aqui é compreender o significado do parâmetro de interes
 
 **(#exm:exmrazao1)** Considere as densidades de habitantes por área (em $km^2$) das unidades da federação brasileiras apresentadas na Tabela \@ref(tab:tabrazao1), conforme o Censo 2010. Neste exemplo, vemos como uma discrepância grande pode ocorrer entre as duas quantidades (a razão de médias e a médias das razões), quando os valores de $r_i$  são muito dispersos.
 
-```{r, echo=FALSE, label="tabrazao1"}
-suppressMessages(library(kableExtra))
-knitr::kable(NULL,align='lr', 
-    caption= "Densidade por Unidade da Federação, média das razões e razão das médias para o Brasil") 
-```
+<table>
+<caption>Densidade por Unidade da Federação, média das razões e razão das médias para o Brasil</caption>
+<tbody>
+  <tr>
+
+  </tr>
+</tbody>
+</table>
 |Unidade da Federação|Densidade ($\text{Hab}/km^2$)|
 |:-------------------|:-----:|
 |Rondônia            |6,6    |
@@ -330,15 +333,25 @@ e o estimador da variância fica igual a
 
 Para mais detalhes, veja [@Cochran1977].
 
+Portanto, sob AAS temos a seguinte estrutura para estimação de razões:
+
+(1)	$\widehat{R}$ estima $R$ e $E_{AAS}(\widehat{R})=R+O(n^{-1})$;
+
+(2)	$EQM_{AAS}(\widehat{R})=\displaystyle\frac{(1-f)}{n\overline{X}^2}\frac{\displaystyle\sum_{i\in U}\left(y_i-Rx_i\right)^2}{N-1}+ O\left(n^{-3/2}\right)$ 
+
+(3) $\widehat{V}_{AAS}(\widehat{R})=\displaystyle\frac{(1-f)}{n\overline{x}^2}\frac{1}{(n-1)}\displaystyle\sum_{i\in s}\left(y_i-\widehat{R}x_i\right)^2$
+
+(4)	$\displaystyle\frac{\widehat{R}-R}{{\sqrt{\widehat{V}_{AAS}(\widehat{R})}}}\approx N(0;1)$  para $n$ grande.
+
 **(#exm:exmrazao2)** Estimando Razões e Médias de Razões
 
-Considere a população de municípios brasileiros fornecida no arquivo MunicBR_dat.
+Considere a população de municípios brasileiros fornecida no arquivo MunicBR.xlsx.
 
-1.	Selecione uma AAS de $n = 200$ municípios, e use esta amostra para estimar os seguintes parâmetros populacionais:
+1.	Selecione uma AAS de $n=20$ municípios, e use esta amostra para estimar os seguintes parâmetros populacionais:
 
     a. Densidade habitacional média por $km^2$ no Brasil;
 
-    b. Média da variável densidade habitacional por $km^2$ por município.
+    b. Média da densidade habitacional por $km^2$ por município.
 
 2.	Para cada uma das estimativas acima:
 
@@ -346,9 +359,10 @@ Considere a população de municípios brasileiros fornecida no arquivo MunicBR_
 
     b.	Compare com os correspondentes parâmetros populacionais.
     
-3.	Calcule o tamanho da amostra que seria necessário para a estimar densidade habitacional média por km2 no Brasil com erro máximo de 10 $km^2/hab.$ com nível de confiança de 95%.
+ INCLUIR o conteúdo do arquivo Exercícios Unidade 05.R
 
-4.	Selecione uma amostra do tamanho calculado em 3 e estime o parâmetro e sua margem de erro, considerando coeficiente de confiança de 95%.
+
+
 
 ## Exercícios
 
