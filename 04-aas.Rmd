@@ -32,12 +32,20 @@ A forma usual de selecionar a amostra consiste em realizar $n$ sorteios consecut
 
 AASC é raramente usada na prática, pois é ineficiente em comparação com a amostragem *sem reposição* de igual tamanho inicial $n$, pelo fato de não incorporar nova informação quando a mesma unidade é selecionada mais de uma vez para a amostra. Na AASC o *tamanho efetivo* da amostra é $m \le n$, onde $m$ designa o número de unidades *distintas* selecionadas.   
 
-Considere os dados amostrais para a variável $y$ sob AASC, representados por $\{y_{i_1}, y_{i_2}, \dots, y_{i_k}, \dots, y_{i_n}\}$. Tais valores são observações de variáveis aleatórias $Y_1, Y_2, ..., Y_k, ..., Y_n$ independentes e identicamente distribuídas (IID), com distribuição comum dada conforme descrito a seguir.
+Considere os dados amostrais para a variável $y$ sob AASC, representados por $\{y_{i_1}, y_{i_2},\dots, y_{i_k},\dots, y_{i_n}\}$. Tais valores são observações de variáveis aleatórias $Y_1, Y_2, ..., Y_k, ..., Y_n$ independentes e identicamente distribuídas (IID), com distribuição comum dada conforme descrito na Tabela \@ref(tab:tabaas1).
 
-|Unidade populacional $(i)$            |1      |2      |...    |N      |Soma na linha|
-|:------------------------------------ |:-----:|:-----:|:-----:|:-----:|:-----------:|
-|Valores que $Y_k$ pode assumir $(y_i)$|$y_1$  |$y_2$  |...    |$y_N$  |$Y$          |
-|Probabilidades $[P(Y_k = y_i)]$       |$1/N$  |$1/N$  |...    |$1/N$  |1            |
+```{r, results="asis", echo=FALSE}
+cat("<table>",paste0("<caption>", "(#tab:tabaas1)", "Valores das variáveis aleatórias e probabilidades por unidade populacional", "</caption>"),"</table>", sep ="\n")
+```
+<center>
+---------
+ Unidade populacional $(i)$              1      2    $\dots$   $N$     Soma na linha
+--------------------------------------- ----- ----- --------- ------- ---------------
+Valores que $Y_k$ pode assumir $(y_i)$  $y_1$ $y_2$  $\dots$   $y_N$        $Y$  
+
+Probabilidades $[P(Y_k = y_i)]$         $1/N$ $1/N$  $\dots$   $1/N$         1  
+---------
+</center>
 
 
 ### Estimação do total e média populacionais sob AASC
@@ -79,10 +87,10 @@ A estimação da média populacional $\overline{Y}$ segue-se facilmente dividind
 
 A variância e estimador de variância correspondentes são também facilmente obtidos, uma vez que ${V}_{AASC} (\overline{y})=V_{AASC} (\widehat{Y}_{AASC})/N^2$. 
 
-A Tabela \@ref(tab:tabaas1) apresenta um resumo da estimação de parâmetros média e total sob AASC.
+A Tabela \@ref(tab:tabaas2) apresenta um resumo da estimação de parâmetros média e total sob AASC.
 
-```{r myDThtmltools, results="asis", echo=FALSE}
-cat("<table>",paste0("<caption>", "(#tab:tabaas1)", "Resumo de estimadores dos parâmetros média e total sob AASC", "</caption>"),"</table>", sep ="\n")
+```{r, results="asis", echo=FALSE}
+cat("<table>",paste0("<caption>", "(#tab:tabaas2)", "Resumo de estimadores dos parâmetros média e total sob AASC", "</caption>"),"</table>", sep ="\n")
 ```
 <center>
 |Parâmetro| |Estimador ENV sob AASC |
@@ -129,25 +137,35 @@ Tal algoritmo fornecia a regra para *seleção manual* com uso de *tabelas de n�
 
 Este algoritmo foi proposto por [@Hajek1960] e consiste nos seguintes passos: 
 
-*Passo 1:* Para cada $i\in U$, associe um *número pseudoaleatório* $a_i$, onde os $a_i$ são determinações de variáveis aleatórias IID $A_1, A_2, ..., A_N$, todas com distribuição $U[0;1]$.
+*Passo 1:* Para cada $i\in U$, associe um *número pseudoaleatório* $a_i$, onde os $a_i$ são determinações de variáveis aleatórias IID $A_1, A_2, ..., A_N$, todas com distribuição $U[0;1]$, conforme apresentado na
+Tabela \@ref(tab:tabaas3).
 
+```{r, results="asis", echo=FALSE}
+cat("<table>",paste0("<caption>", "(#tab:tabaas3)", "Número pseudoaleatório associado a cada unidade da população", "</caption>"),"</table>", sep ="\n")
+```
 <center>
-|Rótulo da unidade $i$ |1 |2 |... |$N$ | 
-|:------- |:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|
-|Número pseudoaleatório$(a_i)$|$a_1$  |$a_2$  |...|$a_N$|
+---------
+ Rótulo da unidade $i$          1      2      $\dots$   $N$
+-----------------------        ---    ---    --------- -------
+Número pseudoaleatório $(a_i)$  $a_1$  $a_2$  $\dots$   $a_N$                 
+---------
 </center>
 
+*Passo 2:* Ordene a população segundo os números pseudoaleatórios $a_1, a_2, ..., a_N$, obtendo uma *permutação aleatória* dos rótulos das unidades populacionais, conforme apresentado na
+Tabela \@ref(tab:tabaas4).
 
-*Passo 2:* Ordene a população segundo os números pseudoaleatórios $a_1, a_2, ..., a_N$, obtendo uma *permutação aleatória* dos rótulos das unidades populacionais.
-
+```{r, results="asis", echo=FALSE}
+cat("<table>",paste0("<caption>", "(#tab:tabaas4)", "Número pseudoaleatório ordenado associado ao rótulo permutado de cada unidade", "</caption>"),"</table>", sep ="\n")
+```
 <center>
-|Rótulos permutados |$i_1$ |$i_2$ |... |$i_N$|
-|:------- |:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|
-|Número pseudoaleatório ordenado $a_{(i)}$|$a_{(1)}$|$a_{(2)}$  |...|$a_{(N)}$|
+---------
+ Rótulo permutado da unidade $i$           $i_1$     $i_2$     $\dots$   $i_N$
+---------------------------------         -------   --------- --------- ---------
+Número pseudoaleatório ordenado $a_{(i)}$ $a_{(1)}$ $a_{(2)}$ $\dots$   $a_{(N)}$                 
+---------
 </center>
 
-
-A notação $a_{(i)}$ indica o valor posicionado na i-ésima posição na sequência ordenada dos valores dos números pseudoaleatórios, isto é, corresponde à $i$-ésima estatística de ordem da sequência $a_1 , a_2 , \dots , a_N$.
+A notação $a_{(i)}$ indica o valor posicionado na $i$-ésima posição na sequência ordenada dos valores dos números pseudoaleatórios, isto é, corresponde à $i$-ésima estatística de ordem da sequência $a_1 , a_2 , \dots , a_N$.
 
 *Passo 3:* Para selecionar uma amostra de tamanho $n$, inclua na amostra uma sequência de $n$ rótulos consecutivos quaisquer, na ordem em que aparecem nesta permutação. 
 
@@ -215,10 +233,10 @@ Um estimador da variância do estimador de total é dado por:
 
 onde $s^2_y = \displaystyle \frac{1}{n-1} \sum_{i \in s} ({y_i - \overline{y}})^2$ .
 
-A Tabela \@ref(tab:tabaas2) apresenta um resumo da estimação de parâmetros média e total sob AAS.
+A Tabela \@ref(tab:tabaas5) apresenta um resumo da estimação de parâmetros média e total sob AAS.
 
-```{r myDThtmltools2, results="asis", echo=FALSE}
-cat("<table>",paste0("<caption>", "(#tab:tabaas2)", "Resumo de estimadores dos parâmetros média e total sob AAS", "</caption>"),"</table>", sep ="\n")
+```{r, results="asis", echo=FALSE}
+cat("<table>",paste0("<caption>", "(#tab:tabaas5)", "Resumo de estimadores dos parâmetros média e total sob AAS", "</caption>"),"</table>", sep ="\n")
 ```
 <center>
 |Parâmetro| |Estimador ENV sob AAS|
@@ -410,7 +428,67 @@ Tendo esta população em mente, imagine que seria usada para seleção de uma a
 
 3.	Compare estimativas obtidas no item 2 com os valores obtidos no item 1 e analise/comente.
 
-INCLUIR o conteúdo do arquivo Exercícios Unidade 03.R
+Solução do (#exm:exmaas2) usando R
+
+```{r,echo=TRUE}
+# Limpa área de trabalho
+rm(list = ls())
+
+# Define pasta onde ficam dados usados nesta sessão
+getwd()
+
+# Carrega biblioteca(s) requerida(s)
+library(sampling)
+
+# Leitura dos dados
+MunicBR_dat <- readRDS(file="MunicBR_dat.rds")
+str(MunicBR_dat)
+
+# Item 1
+# Tamanho da população
+(N = nrow(MunicBR_dat))
+# Tamanho inicial da amostra
+(n <- 50)
+
+# Soluções para item 1
+# a. Média populacional
+(med_pop <- mean(MunicBR_dat$Area))
+
+# b. Dispersão do estimador de média sob AAS
+(VAR_med_amo <- ((1/n) - (1/N)) * var(MunicBR_dat$Area))
+(DP_med_amo <- sqrt(VAR_med_amo))
+(CV_med_amo <- 100 * DP_med_amo / med_pop)
+
+# c. Margem de erro relativo do estimador de média sob AAS
+(ME_med_amo <- qnorm(0.975)*CV_med_amo)
+
+# d. Tamanho de amostra para obter margem de erro relativo de 2% ao nível 95%
+(dr <- 0.02)
+(n_amo <- (N * qnorm(0.975)^2 * var(MunicBR_dat$Area)) /
+          (N * dr^2 * med_pop^2 + qnorm(0.975)^2 * var(MunicBR_dat$Area)))
+(n_amo <- ceiling(n_amo))
+
+# Soluções para item 2
+# Seleciona amostra
+munic_amo <- getdata(MunicBR_dat, srswor(n, N))
+
+# a. Média amostral
+(med_amo <- mean(munic_amo$Area))
+
+# b. Estimativas da dispersão do estimador de média sob AAS
+(var_med_amo <- ((1/n) - (1/N)) * var(munic_amo$Area))
+(dp_med_amo <- sqrt(VAR_med_amo))
+(cv_med_amo <- 100 * DP_med_amo / med_amo)
+
+# c. Margem de erro relativo do estimador de média sob AAS
+(me_med_amo <- qnorm(0.975)*cv_med_amo)
+
+# d. Tamanho de amostra para obter margem de erro relativo de 2% ao nível 95%
+(dr <- 0.02)
+(n_amo_est <- (N * qnorm(0.975)^2 * var(munic_amo$Area)) /
+              (N * dr^2 * med_amo^2 + qnorm(0.975)^2 * var(munic_amo$Area)))
+(n_amo_est <- ceiling(n_amo_est))
+```
 
 
 ## Exercícios 
