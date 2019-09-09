@@ -152,15 +152,15 @@ onde $t_d$ é o total de unidades na amostra pertencentes ao domínio, dado por:
 
 A Tabela \@ref(tab:tabdom1) apresenta um resumo da estimação de parâmetros média e total do domínio  $d$ sob AAS. 
 
-
-```{r myDThtmltools4, results="asis", echo=FALSE}
+```{r, results="asis", echo=FALSE}
 cat("<table>",paste0("<caption>", "(#tab:tabdom1)", "Resumo de estimadores dos parâmetros média e total do domínio $d$ sob AAS", "</caption>"),"</table>", sep ="\n")
 ```
 <center>
------------------------------------------------   ------------------------------------
-**Parâmetro do Domínio $d$**                      **Estimador do Domínio $d$ sob AAS**
+------------------------------------------------- -----------------------------------------------
+      **Parâmetro do Domínio $d$**                    **Estimador do Domínio $d$ sob AAS**
 
-$\overline{Y}_d=Y_d/N_d$                                         $\overline{y}_d=\widehat{Y}_d/\widehat{N}_d=\displaystyle\sum_{i\in s}y_{id}/n_d$
+    $\overline{Y}_d=Y_d/N_d$                                        
+                                                  $\overline{y}_d=\widehat{Y}_d/\widehat{N}_d=\displaystyle\sum_{i\in s}y_{id}/n_d$
 
 $Y_d=N_d\overline{Y}_d$                           $\widehat{Y}_d^R=N_d\overline{y}_d\,\,(N_d\,\text{conhecido})$   
                                                   $\widehat{Y}_d=N/n\displaystyle\sum_{i\in s} y_{id}\,\,(N_d \,\text{desconhecido})$
@@ -174,9 +174,8 @@ $V_{AAS}(\overline{y}_d\mid{n_d>0},\,\text{fixo})$                         $\wid
 $V_{AAS}\left(\widehat{Y}_d^R\mid{n_d>0}\right)$                                        $\widehat V_{AAS}\left(\widehat{Y}_d^R\mid n_d>0 \right)= N_d^2\left(1-\frac{n_d}{N_d}\right)\frac{s_d^2}{n_d}$
 
 $V_{AAS}(\widehat{Y}_d)$                               $\widehat V_{AAS}(\widehat{Y}_d) =N^2\left(1-\frac{n}{N}\right)\frac{1}{n}\frac{1}{N-1}\displaystyle\sum_{i\in s} \left(y_{id}-\frac{t_d}{n}\right)^2$
-------------------------- ---------------------------------
+----- ------------
 </center>
-
 
 ### Intervalos de confiança na estimação de parâmetros para o domínio
 
@@ -204,18 +203,130 @@ Desse modo, as respectivas expressões dos intervalos de confiança de nível (1
 
 Considere os dados da população de municípios brasileiros fornecidos no arquivo ‘MunicBR_dat.rds’.
 
-Selecione uma AAS de $n=250$ municípios, e use esta amostra para estimar os seguintes parâmetros populacionais:
+1. Selecione uma AAS de $n=250$ municípios, e use esta amostra para estimar os seguintes parâmetros populacionais:
 
-a)	População total por macro-região do Brasil, e correspondentes margens de erro relativo ao nível de confiança de 95%; suponha *conhecidos* os tamanhos dos domínios;
+    a.	População total por macro-região do Brasil, e correspondentes margens de erro relativo ao nível de confiança de 95%; suponha *conhecidos* os tamanhos dos domínios;
 
-b)	População total por macro-região do Brasil, e correspondentes margens de erro relativo ao nível de confiança de 95%; suponha *desconhecidos* os tamanhos dos domínios;
+    b.	População total por macro-região do Brasil, e correspondentes margens de erro relativo ao nível de confiança de 95%; suponha *desconhecidos* os tamanhos dos domínios;
 
-c)	Média da densidade habitacional por $km^2$ por município para municípios com população igual ou superior a 100 mil habitantes, e correspondente margem de erro ao nível de confiança de 95%. Nesse caso, considere que o tamanho do domínio relevante é *desconhecido*.
+    c.	Média da densidade habitacional por $km^2$ por município para municípios com população igual ou superior a 100 mil habitantes, e correspondente margem de erro ao nível de confiança de 95%. Nesse caso, considere que o tamanho do domínio relevante é *desconhecido*.
 
-Usando os dados populacionais, calcule os valores dos parâmetros estimados em a) e c) e compare com suas estimativas amostrais. Comente.
+2. Usando os dados populacionais, calcule os valores dos parâmetros estimados em a) e c) e compare com suas estimativas amostrais. Comente.
 
-INCLUIR o conteúdo do arquivo Exercícios Unidade 06.R
-	
+Solução do (#exm:exmdom1) usando R
+
+```{r,echo=TRUE}
+# Limpa área de trabalho
+rm(list = ls())
+
+# Define pasta onde ficam dados usados nesta sessão
+getwd()
+
+# Carrega biblioteca(s) requerida(s)
+library(sampling)
+library(tidyverse)
+
+# Leitura dos dados
+MunicBR_dat <- readRDS(file="MunicBR_dat.rds")
+str(MunicBR_dat)
+
+# Cria código de região nos dados da população
+reglabels = c("Norte", "Nordeste", "Sudeste", "Sul", "Centro-Oeste")
+MunicBR_dat <- mutate(MunicBR_dat,
+                      Regiao = substr(CodUF,1,1))  %>%
+               mutate(Regiao = factor(Regiao, labels=reglabels))
+table(MunicBR_dat$Regiao)  
+
+# Define senha para geração de números aleatórios para permitir repetição
+set.seed(123)
+
+# Item 1
+# Tamanho da amostra
+(n <- 250)
+# Tamanho da população
+(N <- nrow(MunicBR_dat))
+
+# Seleciona amostra AAS dos municípios
+munic_amo <- getdata(MunicBR_dat, srswor(n,N))
+str(munic_amo)
+table(munic_amo$Regiao)
+
+# Soluções para item 1
+# Estima população total por macro-região
+# Calcula as contagens populacionais por domínio
+(N_d <- MunicBR_dat %>%
+        group_by(Regiao) %>%
+        summarise(N_d = n()) %>%
+        select(Regiao, N_d) )
+
+# Calcula médias amostrais por domínio
+(ybar_d <- munic_amo %>%
+    group_by(Regiao) %>%
+    summarise(ybar_d = mean(Pop),
+              t_d = sum(Pop)) %>%
+    select(Regiao, ybar_d, t_d) )
+# Junta informações das duas tabelas por Região
+resumo_regiao <- left_join(N_d, ybar_d, by=c("Regiao"))
+# a. Calcula estimativas dos totais, supondo contagens populacionais conhecidas
+(Total_reg_est1 <- resumo_regiao %>%
+   mutate(Total_reg_est1 = N_d * ybar_d) %>%
+   select(Regiao, Total_reg_est1))
+# b. Calcula estimativas dos totais, supondo contagens populacionais desconhecidas
+(Total_reg_est2 <- resumo_regiao %>%
+    mutate(Total_reg_est2 = N * t_d / n) %>%
+    select(Regiao, Total_reg_est2))    
+# Calcula totais populacionais para comparação
+(Total_reg_pop <- MunicBR_dat %>%
+    group_by(Regiao) %>%    
+    summarise(Total_reg_pop = sum(Pop)) %>%
+    select(Regiao, Total_reg_pop))
+
+
+# Estima densidade habitacional média por km2 no Brasil
+(r_chapeu <- munic_amo %>%
+             summarise(Popm = mean(Pop),
+                       Aream = mean(Area)) %>%
+             mutate(Densm = Popm / Aream) %>%
+             select(Densm))
+
+# c. Estima média da densidade habitacional por km2 por município
+(media.densidade <- munic_amo %>%
+                    summarise(Densm = mean(Densidade)))
+
+# Adiciona valor de r_chapeu aos dados da amostra
+munic_amo <- cbind(munic_amo, r_chapeu)
+
+# Calcula precisão 
+(precisao.r_chapeu <- munic_amo %>% 
+                     mutate(Z = Pop - Densm * Area) %>%
+                     summarise(varZ = var(Z),
+                               Aream = mean(Area),
+                               Densm = mean(Densm)) %>%
+                     mutate(dp.r_chapeu = sqrt((1/n - 1/N)*varZ)/Aream, 
+                            cv.r_chapeu = 100 * dp.r_chapeu / Densm)  %>%
+                     select(dp.r_chapeu, cv.r_chapeu))
+
+# Calcula precisão do item c)
+(precisao.media.densidade <- munic_amo %>%
+         summarise(Densv = var(Densidade),
+                   Densm = mean(Densidade)) %>%
+         mutate(dp.media.dens = sqrt((1/n - 1/N)*Densv),
+                cv.media.dens = 100 * dp.media.dens / Densm) %>%
+         select(dp.media.dens, cv.media.dens))
+ 
+
+# Calcula densidade habitacional média por km2 no Brasil
+(R <- MunicBR_dat %>%
+      summarise(Popm = mean(Pop),
+                Aream = mean(Area)) %>%
+      mutate(Densidade_pop = Popm / Aream) %>%
+      select(Densidade_pop))   
+
+# Estima média da densidade habitacional por km2 por município
+(densidade_media_pop <- MunicBR_dat %>%
+    summarise(densidade_media_pop = mean(Densidade)))
+
+```
 
 ### Comparação da eficiência dos estimadores de total do domínio
 
