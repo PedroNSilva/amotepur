@@ -148,29 +148,27 @@ $$
 \displaystyle \widehat {V}_{AASC} (\widehat p) = \frac {\widehat p (1 - \widehat p)}{n-1} \,\, (\#eq:eqpro12) 
 $$
 
-A tabela \@ref(tab:tabprop1) reúne os resultados principais da estimação de contagens e proporções sob *AASC*.
+A Tabela \@ref(tab:tabprop1) reúne os resultados principais da estimação de contagens e proporções sob *AASC*.
 
 <center>
-
-```{r,label="tabprop1",echo=F}
-
-knitr::kable(NULL, align='c', caption="Principais resultados de contagens e proporções sob *AASC*")
+```{r,results="asis",echo=FALSE}
+cat("<table>",paste0("<caption>", "(#tab:tabprop1)","Principais resultados de contagens e proporções sob *AASC*", "</caption>"),"</table>", sep ="\n")
 ```
 
-+------------------------------------------------------+----------------------------------------------------------------------------------+
-|Parâmetro                                             |Estimador ENV sob AASC                                                            |
-+:====================================================:+:================================================================================:+
-|$\displaystyle N_A = \sum_{i \in U} y_i$              |$\displaystyle\widehat N_A= N\times n_A/n = N\times p$                            |
-|                                                      |                                                                                  |
-|$\displaystyle p = N_A /N$                            |$\displaystyle\widehat{p}=\displaystyle n_a / n$                                  |
-|                                                      |                                                                                  |
-|$\displaystyle\sigma^2_y = p (1-p)$                   |$\displaystyle s^2_y=\displaystyle\frac{n}{n-1}\widehat p (1-\widehat p)$         |  
-|                                                      |                                                                                  |
-|$\displaystyle V_{AASC}(\widehat N_A)=N^2{p(1-p)}/{n}$|$\displaystyle\widehat V_{AASC}(\widehat N_A)=N^2\widehat{p}(1-\widehat{p})/(n-1)$|
-|                                                      |                                                                                  |
-|$\displaystyle V_{AASC} (\widehat p) ={p(1-p)}/{n}$   |$\displaystyle\widehat V_{AASC}(\widehat{p})=\widehat{p} (1-\widehat{p})/(n-1)$   |
-+------------------------------------------------------+----------------------------------------------------------------------------------+
+----------
+         Parâmetro                                             Estimador ENV sob AASC                                                            
+------------------------------------------------------- -----------------------------------------------------------------------------------
+$\displaystyle N_A = \sum_{i \in U} y_i$                $\displaystyle\widehat N_A= N\times n_A/n = N\times p$                            
+                                                                                                                                        
+$\displaystyle p = N_A /N$                              $\displaystyle\widehat{p}=\displaystyle n_a / n$                                  
+                                                                                                                                        
+$\displaystyle\sigma^2_y = p (1-p)$                     $\displaystyle s^2_y=\displaystyle\frac{n}{n-1}\widehat p (1-\widehat p)$           
+                                                                                                                                        
+$\displaystyle V_{AASC}(\widehat N_A)=N^2{p(1-p)}/{n}$  $\displaystyle\widehat V_{AASC}(\widehat N_A)=N^2\widehat{p}(1-\widehat{p})/(n-1)$
+                                                                                                                                        
+$\displaystyle V_{AASC} (\widehat p) ={p(1-p)}/{n}$     $\displaystyle\widehat V_{AASC}(\widehat{p})=\widehat{p} (1-\widehat{p})/(n-1)$   
 
+----------
 </center>
 
 
@@ -178,7 +176,7 @@ knitr::kable(NULL, align='c', caption="Principais resultados de contagens e prop
 
 No caso de uma amostra $s$ obtida por seleção do tipo *AAS*, as expressões da soma amostral $t_y$, da proporção amostral $\widehat p$ e da variância amostral $s^2_y$ têm a mesma forma já apresentada acima para amostras obtidas por *AASC*. Em consequência, também são idênticos os estimadores para o total populacional $N_A$ e a proporção populacional $p$. Entretanto, uma diferença é que no caso da *AAS* a variância amostral $s^2_y$ é um estimador não viciado para $S^2_y$ e não para $\sigma^2_y$. Também são diferentes as expressões para as variâncias dos estimadores amostrais e seus correspondentes estimadores não viciados.
 
-Foi visto no capítulo \@ref(aas) que as variâncias dos estimadores do total e da média são dadas pelas expressões:
+Foi visto no capítulo \@ref(cap:aas) que as variâncias dos estimadores do total e da média são dadas pelas expressões:
 
 $$
 V_{AAS} (\widehat Y) = N^2 \left( \frac 1 n - \frac {1}{N} \right) {S^2_y} \,\, (\#eq:eqpro13) 
@@ -210,30 +208,29 @@ $$
 \widehat V_{AAS} (\widehat p) = \left( \frac 1 n - \frac {1}{N} \right) \frac {\widehat p (1 - \widehat p)} {n-1} \,\,(\#eq:eqpro18) 
 $$
 
-A tabela \@ref(tab:tabprop2) reúne os resultados principais da estimação de contagens e proporções sob *AAS*.
+A Tabela \@ref(tab:tabprop2) reúne os resultados principais da estimação de contagens e proporções sob *AAS*.
 
 
 <center>
 
-```{r,label="tabprop2",echo=F}
-
-knitr::kable(NULL, align='c', caption="Principais resultados de contagens e proporções sob *AAS*")
+```{r,results="asis",echo=FALSE}
+cat("<table>",paste0("<caption>", "(#tab:tabprop2)","Principais resultados de contagens e proporções sob *AAS*", "</caption>"),"</table>", sep ="\n")
 ```
 
-+------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------+
-|Parâmetro                                                                           |Estimador ENV sob AAS                                                                                                     |
-+:==================================================================================:+:========================================================================================================================:+
-|$\displaystyle N_A=\sum_{i \in U} y_i$                                              |$\displaystyle\widehat N_A = N \times n_A / n = N \times p$                                                               |
-|                                                                                    |                                                                                                                          |
-|$\displaystyle p = N_A/N$                                                           |$\displaystyle\widehat{p} = n_a/n$                                                                                        |
-|                                                                                    |                                                                                                                          |
-|$\displaystyle S^2_y =\frac{N}{N-1}p(1-p)$                                          |$\displaystyle s^2_y =\displaystyle\frac{n}{n-1} \widehat p (1 - \widehat p)$                                             |
-|                                                                                    |                                                                                                                          |
-|$\displaystyle V_{AAS}(\widehat N_A)= N^2\left(\frac1 n-\frac1 N\right)S^2_y$       |$\displaystyle\widehat V_{AAS}(\widehat N_A)=N^2\left(\frac 1 n-\frac {1}{N}\right)\frac{\widehat p (1-\widehat p)}{n-1}$ | 
-|                                                                                    |                                                                                                                          |
-|$\displaystyle V_{AAS}(\widehat p)=\displaystyle\left(\frac1 n-\frac1 N\right)S^2_y$|$\displaystyle\widehat V_{AAS}(\widehat p)=\left(\frac 1 n-\frac{1}{N}\right)\frac{\widehat p(1-\widehat p)} {n-1}$       |
-+------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------+
+----------
+     Parâmetro                                                                                   Estimador ENV sob AAS  
+------------------------------------------------------------------------------------- --------------------------------------------------------------------------------------------------------------------------
+$\displaystyle N_A=\sum_{i \in U} y_i$                                                $\displaystyle\widehat N_A = N \times n_A / n = N \times p$                                                               
+                                                                                                                                                                                                              
+$\displaystyle p = N_A/N$                                                             $\displaystyle\widehat{p} = n_a/n$                                                                                        
+                                                                                                                                                                                                              
+$\displaystyle S^2_y =\frac{N}{N-1}p(1-p)$                                            $\displaystyle s^2_y =\displaystyle\frac{n}{n-1} \widehat p (1 - \widehat p)$                                             
+                                                                                                                                                                                                              
+$\displaystyle V_{AAS}(\widehat N_A)= N^2\left(\frac1 n-\frac1 N\right)S^2_y$         $\displaystyle\widehat V_{AAS}(\widehat N_A)=N^2\left(\frac 1 n-\frac {1}{N}\right)\frac{\widehat p (1-\widehat p)}{n-1}$  
+                                                                                                                                                                                                              
+$\displaystyle V_{AAS}(\widehat p)=\displaystyle\left(\frac1 n-\frac1 N\right)S^2_y$  $\displaystyle\widehat V_{AAS}(\widehat p)=\left(\frac 1 n-\frac{1}{N}\right)\frac{\widehat p(1-\widehat p)} {n-1}$       
 
+----------
 </center>
  
 
@@ -435,37 +432,36 @@ curve(dnorm(x), col=2, lty=2, lwd=2, add=T)
 
 Tanto nos casos de seleção com ou sem reposição pode-se considerar que as aproximações são satisfatórias, com os histogramas das distribuições amostrais do estimador $\widehat p$ aderindo consideravelmente à curva Normal padrão.
 
-[@Cochran1977] mostra uma tabela, reproduzida na tabela \@ref(tab:tabprop3), com alguns valores mínimos do total de unidades observadas na amostra, $t_y$, onde a aproximação Normal pode se utilizada.
+[@Cochran1977] mostra uma tabela, reproduzida na Tabela \@ref(tab:tabprop3), com alguns valores mínimos do total de unidades observadas na amostra, $t_y$, onde a aproximação Normal pode se utilizada.
 
 
 <center>
-
-```{r,label="tabprop3",echo=F}
-
-knitr::kable(NULL,caption="Valores mínimos de $t_y$ para uso da aproximação Normal")
+```{r,results="asis",echo=FALSE}
+cat("<table>",paste0("<caption>", "(#tab:tabprop3)","Valores mínimos de $t_y$ para uso da aproximação Normal", "</caption>"),"</table>", sep ="\n")
 ```
 
-+------------+-------+----------+
-| $P$        | $t_y$ |  $n$     |
-+:==========:+:=====:+:========:+
-| 0,50       |  15   |30        |
-|            |       |          |
-| 0,40       |  20   |50        |
-|            |       |          |
-| 0,30       |  24   |80        |
-|            |       |          |
-| 0,20       |  40   |200       |
-|            |       |          |
-| 0,10       |  60   |600       |
-|            |       |          |
-| 0,05       |  70   |1400      |
-|            |       |          |
-| $\doteq 0$ |  80   |$\infty$  |
-+------------+-------+----------+
+----------
+ $P$           $t_y$         $n$     
+------------  ------ -----------
+ 0,50         15     30        
+                             
+ 0,40         20     50        
+                             
+ 0,30         24     80        
+                             
+ 0,20         40     200       
+                             
+ 0,10         60     600       
+                             
+ 0,05         70     1400      
+                             
+ $\doteq 0$   80     $\infty$  
+
+----------
 
 </center>
 
-Essa tabela foi construída considerando um nível de significância de $\alpha=0,05$, que é um valor comumente utilizado em muitas situações práticas.Tem-se a partir daí critérios práticos para assumir a utilização da aproximação Normal, notando-se que o tamanho mínimo da amostra requerido é de $n=30$.
+A Tabela \@ref(tab:tabprop3) foi construída considerando um nível de significância de $\alpha=0,05$, que é um valor comumente utilizado em muitas situações práticas.Tem-se a partir daí critérios práticos para assumir a utilização da aproximação Normal, notando-se que o tamanho mínimo da amostra requerido é de $n=30$.
 
 Nas condições estabelecidas para a validade da aproximação Normal tem-se que $S^2_y \doteq \sigma^2_y=pq$, portanto, $\displaystyle V_{AAS}(\widehat p) \doteq V_{AASC}(\widehat p)$, então para os dois tipos de seleção pode-se considerar o intervalo de confiança para a proporção como: 
 \begin{equation} 
@@ -678,41 +674,38 @@ Até o momento foi tratado o caso em que temos uma variável indicadora com duas
 
 Nestes casos há interesse de estimar a proporção de unidades em cada uma das possíveis categorias e respectiva precisão dessas estimativas.
 
-**(#exm:exmprop5)** Seja uma escola com 1000 alunos distribuídos entre as 9 etapas do ensino fundamental como na tabela  \@ref(tab:tabprop4):
+**(#exm:exmprop5)** Seja uma escola com 1000 alunos distribuídos entre as 9 etapas do ensino fundamental como na Tabela  \@ref(tab:tabprop4):
 
 
 <center>
-
-
-```{r,label="tabprop4",echo=F}
-
-knitr::kable(NULL, align='c', caption="Distribuição dos alunos por etapa de ensino")
+```{r,results="asis",echo=FALSE}
+cat("<table>",paste0("<caption>", "(#tab:tabprop4)","Distribuição dos alunos por etapa de ensino", "</caption>"),"</table>", sep ="\n")
 ```
 
-+---------------+------+---------+
-|Etapa de ensino|Alunos|Proporção|
-+:==============+=====:+========:+
-| 1° ano        | 110  |0,110    |
-|               |      |         |
-| 2° ano        | 108  |0,108    |
-|               |      |         |
-| 3° ano        | 110  |0,110    |
-|               |      |         |
-| 4° ano        | 115  |0,115    |
-|               |      |         |
-| 5° ano        | 104  |0,104    |
-|               |      |         |
-| 6° ano        | 119  |0,119    |
-|               |      |         |
-| 7° ano        | 116  |0,116    |
-|               |      |         |
-| 8° ano        | 107  |0,107    |
-|               |      |         |
-| 9° ano        | 111  |0,111    |
-|               |      |         |
-| Total         |1000  |1,000    |
-+---------------+------+---------+
-
+----------
+Etapa de ensino   Alunos    Proporção
+---------------- --------- ----------
+ 1° ano          110       0,110    
+                              
+ 2° ano          108       0,108    
+                              
+ 3° ano          110       0,110    
+                              
+ 4° ano          115       0,115    
+                              
+ 5° ano          104       0,104    
+                              
+ 6° ano          119       0,119    
+                              
+ 7° ano          116       0,116    
+                              
+ 8° ano          107       0,107    
+                              
+ 9° ano          111       0,111    
+                              
+ **Total**       **1000**  **1,000**
+ 
+----------
 </center>
 
 
@@ -801,23 +794,19 @@ Para cada um dos tamanhos de amostra considerados:
 
 **Nota:** Nesta questão, identifique a notação usada para representar os dados fornecidos e justifique as hipóteses e aproximações eventualmente efetuadas.
 
-**(#exr:exrprop8)** Uma amostra aleatória simples sem reposição de 290 domicílios foi selecionada em certa cidade que possui 14828 domicílios. Em cada domicílio da amostra investigou-se a condição da família que o habitava, se proprietária ou locatária, e também a existência ou não de pelos menos um quarto tipo suíte (com banheiro). Os resultados obtidos são mostrados na \@ref(tab:tabprop5).
+**(#exr:exrprop8)** Uma amostra aleatória simples sem reposição de 290 domicílios foi selecionada em certa cidade que possui 14828 domicílios. Em cada domicílio da amostra investigou-se a condição da família que o habitava, se proprietária ou locatária, e também a existência ou não de pelos menos um quarto tipo suíte (com banheiro). Os resultados obtidos são mostrados na Tabela \@ref(tab:tabprop5).
 
 <center>
-
-
-```{r,label="tabprop5",echo=F}
-
-knitr::kable(NULL, align='c', caption="Resultados obtidos na amostra de domicílios")
+```{r,results="asis",echo=FALSE}
+cat("<table>",paste0("<caption>", "(#tab:tabprop5)","Resultados obtidos na amostra de domicílios", "</caption>"),"</table>", sep ="\n")
 ```
-
-+----------+--------+--------+
-|Domicílios|Próprios|Alugados|
-+:=========+=======:+=======:+
-|Com suíte |141     |109     |
-|          |        |        |
-|Sem suíte |6       |34      |
-+----------+--------+--------+
+---------
+Domicílios   Próprios  Alugados
+----------- --------- ---------
+Com suíte         141       109     
+                          
+Sem suíte           6        34      
+---------
 
 </center>
 
