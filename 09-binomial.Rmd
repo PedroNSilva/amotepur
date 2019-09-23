@@ -1,4 +1,4 @@
-# Amostragem Binomial ou de Bernoulli (AB)
+# Amostragem Binomial ou de Bernoulli (AB) {#binom}
 
 A Amostragem Binomial ou de Bernoulli (AB) oferece outra alternativa (pouco usada) à AAS, para selecionar unidades com *equiprobabilidade*.
 
