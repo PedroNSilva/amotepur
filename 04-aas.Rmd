@@ -436,7 +436,7 @@ rm(list = ls())
 
 # Define pasta onde ficam dados usados nesta sessão
 getwd()
-setwd("C:\\Users\\Vermelho\\Documents\\GitHub\\amotepur\\amotepur\\Dados")
+
 # Carrega biblioteca(s) requerida(s)
 library(sampling)
 
