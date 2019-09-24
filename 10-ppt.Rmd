@@ -1,4 +1,4 @@
-# Amostragem com Probabilidades Desiguais
+# Amostragem com Probabilidades Desiguais {#ppt}
 
 A amostragem com probabilidades desiguais é usada porque as unidades de amostragem têm variação de tamanho e ignorar a variação de tamanho pode resultar em desenhos ineficientes. Neste sentido, é usada quando a variação dos tamanhos for grande, tiver informação auxiliar precisa sobre tamanhos disponível e o tamanho for fortemente correlacionado com as variáveis de interesse. 
 
@@ -6,7 +6,7 @@ Trataremos inicialmente o caso de amostragem com probabilidades proporcionais ao
 
 ## Amostragem com probabilidades proporcionais ao tamanho (PPT)
 
-Seja a população denotada por $U = \{ 1; 2; ...; N\}$ e que os valores de uma variável auxiliar $x_i$, $i \in U$, são conhecidos para todos os elementos da população.
+Seja a população denotada por $U = \{ 1, 2, ..., N\}$ e que os valores de uma variável auxiliar $x_i$, $i \in U$, são conhecidos para todos os elementos da população.
 
 Se $x_i>0\,\,\forall\, i \in U$, então podemos usar esta variável como uma medida de tamanho das unidades populacionais.
 
@@ -107,7 +107,7 @@ V(\overline y_R)\doteq\frac{1}{N^2}\sum_{i \in U}\sum_{j \in U}(\pi_{ij}-\pi_i\p
 Um estimador aproximadamente não viciado para essa variância é dado por: 
 
 \begin{equation}
-\widehat V(\overline y_R)\doteq\frac{1}{N^2}\sum_{i \in s}\sum_{j \in s}\frac{(\pi_{ij}-\pi_i\pi_j)}{\pi_{ij}}\left(\frac{y_i-\overline y_R}{\pi_i}\right)\left(\frac{y_j-\overline y_R}{\pi_j}\right)(\#eq:eqppt9) \end{equation}
+\widehat V(\overline y_R)=\frac{1}{N^2}\sum_{i \in s}\sum_{j \in s}\frac{(\pi_{ij}-\pi_i\pi_j)}{\pi_{ij}}\left(\frac{y_i-\overline y_R}{\pi_i}\right)\left(\frac{y_j-\overline y_R}{\pi_j}\right)(\#eq:eqppt9) \end{equation}
 
 Cabe registrar que para alguns planos amostrais, os dois estimadores são equivalentes, isto é, $\overline y_R=\overline y_{HT}$ porque $w_i^R=w_i^{HT}$.
 
@@ -117,26 +117,31 @@ O estimador tipo razão da média é invariante sob transformações de locaçã
 
 Em planos amostrais auto-ponderados, isto é, em que os $\pi_i$ são constantes, os pesos $w_i$ ficam todos iguais a $1/n$ para ambos os estimadores de média ($HT$ e de Razão). Esta é uma vantagem de planos deste tipo, pois a tarefa de estimação fica simplificada.
 
-O Quadro \@ref(tab:tabppt1) apresenta um resumo da estimação de parâmetros média e total sob PPT. 
+A Tabela \@ref(tab:tabppt1) apresenta um resumo da estimação de parâmetros média e total sob PPT. 
 
-\begin{array}{|c|c|c|}\hline
-\textrm{Parâmetro} & \textrm{Estimador PPT}  
 
-\\\hline \overline{Y}=\displaystyle\sum_{i\in U}y_i/N & \overline y_{HT}=\frac{1}{N}\displaystyle\sum_{i \in s}\frac{y_i}{\pi_i}=\sum_{i \in s}w_i^{HT}y_i
-\\ &\overline y_R=\frac{\displaystyle\sum_{i \in s}w_i^{HT}y_i}{\displaystyle\sum_{i \in s}w_i^{HT}}=\displaystyle\sum_{i \in s}w_i^Ry_i
+```{r, results="asis", echo=FALSE}
+cat("<table>",paste0("<caption>", "(#tab:tabppt1)", "Resumo de estimadores dos parâmetros média e total sob PPT", "</caption>"),"</table>", sep ="\n")
+```
+<center>
+-------------------------------------------------------   ------------------------------------
+ **Parâmetro**                                                **Estimador PPT**
 
-\\\hline Y=\displaystyle\sum_{i\in U}y_i &\widehat Y=\displaystyle\sum_{i \in s}\frac{y_i}{\pi_i}=\widehat Y_{HT} 
+$\overline{Y}=\displaystyle\sum_{i\in U}y_i/N$               $\overline y_{HT}=\frac{1}{N}\displaystyle\sum_{i \in s}\frac{y_i}{\pi_i}=\sum_{i \in s}w_i^{HT}y_i$
+                                                             $\overline y_R=\frac{\displaystyle\sum_{i \in s}w_i^{HT}y_i}{\displaystyle\sum_{i \in s}w_i^{HT}}=\displaystyle\sum_{i \in s}w_i^Ry_i$
+                                                  
+$Y=\displaystyle\sum_{i\in U}y_i$                            $\widehat Y=\displaystyle\sum_{i \in s}\frac{y_i}{\pi_i}=\widehat Y_{HT}$                                                  
 
-\\\hline V(\overline y_{HT})=\frac{1}{N^2}V(\widehat Y_{HT}) & \frac{1}{N^2}\widehat V(\widehat Y_{HT})
+$V(\overline y_{HT})=\frac{1}{N^2}V(\widehat Y_{HT})$        $\widehat V(\overline y_{HT})=\frac{1}{N^2}\widehat V(\widehat Y_{HT})$
 
-\\\hline V(\overline y_R)\doteq\frac{1}{N^2}\displaystyle\sum_{i \in U}\sum_{j \in U}(\pi_{ij}-\pi_i\pi_j)\left(\frac{y_i-\overline Y}{\pi_i}\right)\left(\frac{y_j-\overline Y}{\pi_j}\right) & \widehat V(\overline y_R)\doteq\frac{1}{N^2}\displaystyle\sum_{i \in s}\sum_{j \in s}\frac{(\pi_{ij}-\pi_i\pi_j)}{\pi_{ij}}\left(\frac{y_i-\overline y_R}{\pi_i}\right)\left(\frac{y_j-\overline y_R}{\pi_j}\right)
+$V(\overline y_R)$                                           $\widehat V(\overline y_R)=\frac{1}{N^2}\displaystyle\sum_{i \in s}\sum_{j \in s}\frac{(\pi_{ij}-\pi_i\pi_j)}{\pi_{ij}}\left(\frac{y_i-\overline y_R}{\pi_i}\right)\left(\frac{y_j-\overline y_R}{\pi_j}\right)$   
+                                                                       
+    
+$V(\widehat Y_{HT})$                                         $\widehat V(\widehat Y_{HT})=\displaystyle\sum_{i \in s}\sum_{j \in s}\frac{(\pi_{ij}-\pi_i\pi_j)}{\pi_{ij}}\left(\frac{y_i}{\pi_i}\frac{y_j}{\pi_j}\right)$
 
-\\\hline V(\widehat Y_{HT})=\displaystyle\sum_{i \in U}\sum_{j \in U}(\pi_{ij}-\pi_i\pi_j)\left(\frac{y_i}{\pi_i}\frac{y_j}{\pi_j}\right) & \widehat V(\widehat Y_{HT})=\displaystyle\sum_{i \in s}\sum_{j \in s}\frac{(\pi_{ij}-\pi_i\pi_j)}{\pi_{ij}}\left(\frac{y_i}{\pi_i}\frac{y_j}{\pi_j}\right)  
-
-\\\hline V_{SYG}(\widehat Y_{HT})=-\frac{1}{2}\displaystyle\sum_{i \in U}\sum_{j \in U}(\pi_{ij}-\pi_i\pi_j)\left(\frac{y_i}{\pi_i}-\frac{y_j}{\pi_j}\right)^2 & \widehat V_{SYG}(\widehat Y_{HT})=-\frac{1}{2}\displaystyle\sum_{i \in s}\sum_{j \in s}\frac{(\pi_{ij}-\pi_i\pi_j)}{\pi_{ij}}\left(\frac{y_i}{\pi_i}-\frac{y_j}{\pi_j}\right)^2 
-
-\\\hline \end{array}
-
+$V_{SYG}(\widehat Y_{HT})$                                   $\widehat V_{SYG}(\widehat Y_{HT})=-\frac{1}{2}\displaystyle\sum_{i \in s}\sum_{j \in s}\frac{(\pi_{ij}-\pi_i\pi_j)}{\pi_{ij}}\left(\frac{y_i}{\pi_i}-\frac{y_j}{\pi_j}\right)^2$
+------------------------- 
+</center>
 
 ### Maneiras de selecionar amostras com PPT
 
@@ -164,18 +169,32 @@ Cabe comentar que Amostragem PPT Com Reposição é um método muito simples de 
 
 **(#exm:exmppt1)** Considere uma população de $N=6$ Fazendas, com as respectivas áreas apresentadas na Tabela \@ref(tab:tabppt2). Extrair uma amostra de $n=3$ fazendas com PPT $\propto$  área, usando o método dos totais cumulativos.
 
-$$\begin{array}{|l|c|c|c|c|}\hline \text{Fazenda} & \text{Área} & \text{Tamanho} & \text{Limite Inferior} & \text{Limite Superior} \\\ & & \text{Acumulado}&\text{do Intervalo}&\text{do Intervalo}
-\\\hline 1 & 50 & 50 & 0 & 50\\\hline 2 & 1000 & 1050 & 51 & 1050\\\hline 3 & 125 & 1175 &1051 &1175\\\hline 4 & 300 & 1475 & 1176 & 1475 \\\hline 5 & 500 & 1975 & 1476 & 1975\\\hline 6 & 25 & 2000 & 1976 & 2000\\\hline\end{array}$$
+
+```{r, echo=FALSE, label="tabppt2"}
+suppressMessages(library(kableExtra)) # Pacote usado para a tabela não ocupar a largura toda da página
+  x1=c(1,2,3,4,5,6)
+  x2=c(50,1000,125,300,500,25)
+  x3=c(50,1000,1175,1475,1975,2000)
+  x4=c(0,51,1051,1176,1476,1976)
+  x5=c(50,1050,1175,1475,1975,2000)
+  tabela <- data.frame(x1,x2,x3,x4,x5)
+colnames(tabela)=c("**Fazenda**","**Área**","**Tamanho Acumulado**","**Limite inferior do intervalo**","**Limite superior do intervalo**")
+
+knitr::kable(tabela, align= "ccccc",format.args= list(big.mark = '.',dec=','),
+             caption= "Informações das áreas de uma população de $N=6$ fazendas ")%>%
+kable_styling(full_width = F) 
+```
+
 Supondo que os 3 números aleatórios entre 0 e 2000 foram: 654, 1230 e 1555. Então as fazendas 2, 4 e 5 foram as selecionadas. 
 
 Caso os 3 números aleatórios entre 0 e 2000 fossem: 122, 754 e 1980. Então as fazendas 2 e 6 seriam as selecionadas, com a fazenda 2 sendo selecionada duas vezes.  
 
 **(#exm:exmppt2)** Diagrama de dispersão com dados de quantidade colhida e área plantada de cana de açúcar, apresentado na Figura \@ref(fig:diagrama_ppt).
-
-
+<center>
 ```{r,modclas, echo=FALSE, fig.cap= "Diagrama de dispersão"}
 knitr::include_graphics("Figuras/diagrama_ppt.PNG")
 ```
+</center>
 
 
 ### Estimação do total sob amostragem PPT com reposição
@@ -368,6 +387,6 @@ V\left(\widehat Y_{AP}\right)\doteq \frac{N}{N-1}\displaystyle\sum_{i \in U}\lef
 
 ## Exercícios
 
-**(#exe:exeppt1)** Verifique que o estimador de $HT$ da média não é invariante sob transformações de locação. Isto é, se tomarmos $z_i=y_i+A$, então $\overline z_{HT}\ne\overline y_{HT}+A$ 
+**(#exr:exeppt1)** Verifique que o estimador de $HT$ da média não é invariante sob transformações de locação. Isto é, se tomarmos $z_i=y_i+A$, então $\overline z_{HT}\ne\overline y_{HT}+A$ 
 
 
