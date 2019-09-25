@@ -189,9 +189,9 @@ Supondo que os 3 números aleatórios entre 0 e 2000 foram: 654, 1230 e 1555. En
 
 Caso os 3 números aleatórios entre 0 e 2000 fossem: 122, 754 e 1980. Então as fazendas 2 e 6 seriam as selecionadas, com a fazenda 2 sendo selecionada duas vezes.  
 
-**(#exm:exmppt2)** Diagrama de dispersão com dados de quantidade colhida e área plantada de cana de açúcar, apresentado na Figura \@ref(fig:diagrama_ppt).
+**(#exm:exmppt2)** Diagrama de dispersão com dados de quantidade colhida e área plantada de cana de açúcar, apresentado na Figura \@ref(fig:diagrama).
 <center>
-```{r,modclas, echo=FALSE, fig.cap= "Diagrama de dispersão"}
+```{r,diagrama, echo=FALSE, fig.cap= "Diagrama de dispersão"}
 knitr::include_graphics("Figuras/diagrama_ppt.PNG")
 ```
 </center>
