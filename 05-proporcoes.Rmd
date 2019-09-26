@@ -176,7 +176,7 @@ $\displaystyle V_{AASC} (\widehat p) ={p(1-p)}/{n}$     $\displaystyle\widehat V
 
 No caso de uma amostra $s$ obtida por seleção do tipo *AAS*, as expressões da soma amostral $t_y$, da proporção amostral $\widehat p$ e da variância amostral $s^2_y$ têm a mesma forma já apresentada acima para amostras obtidas por *AASC*. Em consequência, também são idênticos os estimadores para o total populacional $N_A$ e a proporção populacional $p$. Entretanto, uma diferença é que no caso da *AAS* a variância amostral $s^2_y$ é um estimador não viciado para $S^2_y$ e não para $\sigma^2_y$. Também são diferentes as expressões para as variâncias dos estimadores amostrais e seus correspondentes estimadores não viciados.
 
-Foi visto no capítulo \@ref(cap:aas) que as variâncias dos estimadores do total e da média são dadas pelas expressões:
+Foi visto no Capítulo \@ref(cap:aas) que as variâncias dos estimadores do total e da média são dadas pelas expressões:
 
 $$
 V_{AAS} (\widehat Y) = N^2 \left( \frac 1 n - \frac {1}{N} \right) {S^2_y} \,\, (\#eq:eqpro13) 
@@ -318,10 +318,10 @@ No caso da *AAS* o sistema a ser resolvido é baseado na distribuição Hipergeo
 Em ambos os casos $1 - \alpha$ é o *nível de confiança* desejado. Por exemplo, para intervalos de 95% de confiança, deve-se usar $\alpha=0,05$.
 
 A solução desses sistemas costumava ser trabalhosa, exigindo aplicação de métodos iterativos que consumiam quantidade razoavelmente grande de recursos computacionais. Atualmente, com o avanço dos métodos computacionais, esse problema pode facilmente ser resolvido, por exemplo, com o uso do R. Uma maneira é utilizar as funções *qbinom* e *qhyper* que podem calcular os quantis das distribuições Binomial e Hipergeométrica para $\alpha /2$ e $1-\alpha /2$. 
-Além disso há outros programas já prontos facilmente utilizávies, como, por exemplo, as funções *binconf* e *confCI* incluídas, respectivamente nos pacotes *Hmisc* e *prevalence* do R. Essas funções estimam intervalos de confiança para vários métodos além do mostrado acima, como o da Aproximação Normal, apresentado na próxima seção, além de outras abordagens.
+Além disso há outros programas já prontos facilmente utilizávies, como, por exemplo, as funções *binconf* e *confCI* incluídas, respectivamente nos pacotes *Hmisc* e *prevalence* do R. Essas funções estimam intervalos de confiança para vários métodos além do mostrado acima, como o da aproximação Normal, apresentado na próxima seção, além de outras abordagens.
 Há, também, no pacote *survey* uma função específica, *svyciprop*, para calcular intervalos de confiança para proporções. Uma característica interessante do pacote *survey* é que é possível determinar a utilização do fator de correção para populações finitas, quando a seleção é sem reposição.
 
-**(#exm:exmprop2)** Voltando ao exemplo da escola com $N=1000$ alunos, suponha que foi selecionada uma amostra aleatória simples de tamanho $n=125$ na qual foi investigado o sexo de cada aluno da amostra, sendo que 60 são do sexo feminino. Constuir um intervalo de aproximadamente 95% de confiança para a proporção de alunos do sexo feminino, utilizando os vários métodos sugeridos acima.
+**(#exm:exmprop2)** Voltando ao exemplo da escola com $N=1000$ alunos, suponha que foi selecionada uma amostra aleatória simples de tamanho $n=125$ na qual foi investigado o sexo de cada aluno da amostra, sendo que 60 são do sexo feminino. Constuir um intervalo de aproximadamente 95% de confiança para a proporção de alunos do sexo feminino, utilizando os vários métodos  da linguagem R sugeridos acima.
 
 ```{r,echo=TRUE}
      # Carregando pacotes necessários
@@ -375,7 +375,7 @@ svyciprop(~I(y==1),desaas,method="xlogit")
 ```
 Na função *binconf* o método denominado *Exact* utiliza uma aproximação da Binomial pela distribuição *F*; o método denominado *Wilson* é baseado nos *scores* do teste bonomial e é o método definido como *default* por ser considerado o melhor; já o método denominado *Asymptotic* é o da proximação pela distribuição Normal.
 
-Na função *propCI* são apresentados outros dois métodos: O método *Agresti-Coull* que é um ajuste da Aproximação Normal e o método *Jeffreys* que é um método Bayesiano. O método *Asymptotic* é chamado de *Wald*.
+Na função *propCI* são apresentados outros dois métodos: O método *Agresti-Coull* que é um ajuste da aproximação Normal e o método *Jeffreys* que é um método Bayesiano. O método *Asymptotic* é chamado de *Wald*.
 
 Para as duas funções acima não se considera se a amostra foi selecionada com ou sem reposição, o que é perfeitamente aceitável para amostras grandes retiradas de populações também grandes.
 
@@ -385,7 +385,7 @@ Pode-se observar que nos exemplos acima, onde o tamanho da amostra é grande, os
 
 Na maioria dos casos práticos, opta-se pelo uso da aproximação pela distribuição Normal de probabilidades, pela facilidade de seu uso tanto para *AAS* como *AASC*. Isso pode ser feito sempre que as condições do problema assim o permitirem, como se discute na próxima seção.
 
-## Intervalos de confiança utilizando a Aproximação Normal
+## Intervalos de confiança utilizando a aproximação Normal
 
 Como já foi visto no capítulo anterior, a distribuição do estimador da proporção, $\widehat p$, pode ser aproximada pela distribuição Normal de probabilidade. Esta aproximação pode ser utilizada mesmo no caso da *AAS* onde os $y_i$ observados na amostra não são independentes, desde que se tenha valores de $N$ e $n$ suficientemente grandes e valor da fração amostral, $f=\frac n N$, pequeno.
 
@@ -397,7 +397,7 @@ Sob estas condições pode-se considerar que:
 
 Na Figura \@ref(fig:figprop1) a seguir o gráfico mostra a aproximação Normal para a seleção de 1000 amostras de tamanho $n=100$, selecionadas com reposição, de uma população de tamanho $N=5000$, onde exatamente metade das unidades tem a caracterísitica de interesse ($y_i=1$).
 <center>
-```{r,figprop1,echo=F,fig.cap="Aproximação Normal no caso de uma *AASC*"}
+```{r,figprop1,echo=F,fig.cap="aproximação Normal no caso de uma *AASC*"}
 x=0
 s=0
 
@@ -597,7 +597,7 @@ $$n\ge\frac {Npq}{Nd^2 /{z^2_{\alpha /2}} + pq}$$
   b)  Que tamanho deveria ter a amostra para estimar a proporção de domicílios que consomem suprimentos para animais domésticos, tal que a estimativa não se afaste do verdadeiro valor da proporção mais do que 1% com 95% de confiança?
   c)  Se o diretor da empresa informar ao estatístico que a proporção de domicílios que consomem suprimentos para animais domésticos varia no intervalo [0,10 – 0,30], mudaria a resposta para b)? Caso afirmativo, qual seria a nova resposta?
   
-  A reposta para o item $a$ é que a fórmula está correta, pois, sendo a população bastante grande, $N=30.000$, pode-se desprezar o fator de correção $(N-1)/N$ como mostrado na equação \@ref(eq:eqpro36), além de se tratar de fração amostral bastante pequena, justificando o uso da aproximação normal.
+  A reposta para o item $a$ é que a fórmula está correta, pois, sendo a população bastante grande, $N=30.000$, pode-se desprezar o fator de correção $(N-1)/N$ como mostrado na equação \@ref(eq:eqpro36), além de se tratar de fração amostral bastante pequena, justificando o uso da aproximação Normal.
   
   Para os demais itens pode-se recorrer ao R.
   
@@ -779,7 +779,7 @@ Vale notar que neste caso tanto o numerador como o denominador do estimador da p
 
   a)  Proporção de fazendas na região 1;
   b)  Proporção de fazendas com $AREA$ maior que $100$; 
-  c)  Proporção de fazendas com produtividade $(QUANT/AREA)$ maior que $67&.
+  c)  Proporção de fazendas com produtividade $(QUANT/AREA)$ maior que $67$.
 
 **(#exr:exrprop6)** Para o mesmo arquivo de fazendas do exercício \@ref(exr:exrprop5) considere um plano AAS e tamanhos amostrais n variando no conjunto $\{5; 10; 20; 50; 100; 150 \}$. Imagine que há interesse em estimar dois parâmetros: proporção $p_1$ de fazendas com $AREA$ maior que $100$; proporção $p_2$ de fazendas com produtividade $(QUANT/AREA)$ maior que $67$. 
 
@@ -788,7 +788,7 @@ Para cada um dos tamanhos de amostra considerados:
   a)  Obtenha 500 amostras por AAS da população de fazendas;
   b)  Use cada uma destas amostras para calcular estimativas dos parâmetros de interesse;
   c)  Use cada uma destas amostras para estimar o erro padrão das estimativas calculadas em $b$;
-  d)  Use as 500 estimativas pontuais obtidas para cada parâmetro para avaliar a adequação da aproximação normal para a distribuição dos estimadores usados.
+  d)  Use as 500 estimativas pontuais obtidas para cada parâmetro para avaliar a adequação da aproximação Normal para a distribuição dos estimadores usados.
   
 **(#exr:exrprop7)** Um partido político (cliente) encomendou a um instituto de pesquisa uma sondagem das intenções de votos dos eleitores brasileiros com relação a candidatos à eleição para a Presidência da República. O cliente deseja estimativas para as proporções de eleitores que intencionam votar em cada um dos três principais candidatos com erro não superior a 0,02 (2%), ao nível de confiança de 95%. Suponha que o instituto de pesquisa tem acesso a uma lista completa dos eleitores e seus endereços e pode usar essa lista para selecionar uma amostra aleatória simples sem reposição de eleitores para entrevistar. Qual o tamanho da amostra necessária para garantir a obtenção de resultados com a qualidade requerida pelo cliente?
 
