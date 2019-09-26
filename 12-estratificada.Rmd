@@ -1,5 +1,4 @@
-
-# Amostragem Estratificada
+# Amostragem Estratificada {#estrat}
 
 Amostragem Estratificada (AE) é um processo de amostragem que usa alguma informação relevante que deve estar disponível para todos os elementos da população para *dividir a população $U$ em $H$ grupos* disjuntos e exaustivos, geralmente mais *homogêneos*, chamados *estratos* e com a *seleção de amostras dentro de cada um dos estratos*, independentemente.
 
@@ -93,7 +92,7 @@ Selecione uma AAS de tamanho $n_h>0$ das $N_h$ unidades do estrato $U_h$, $h=1,2
 Então:
 
 \begin{equation}
-p_h(a_h)=1/\binom {N_h}{n_h}= \binom {N_h}{n_h}^{-1}\,\,\,, \,\,h=1,2,\dots,H.\,\,\textrm (\#eq:eqest1)
+p_h(a_h)=1/\binom {N_h}{n_h}= \binom {N_h}{n_h}^{-1}\,\,\,, \,\,h=1,2,\dots,H\,\,(\#eq:eqest1)
 \end{equation}
 
 e
@@ -112,17 +111,26 @@ Para facilitar a apresentação das fórmulas, é costume passar a identificar a
 
 Assim, um valor típico da variável de pesquisa é $y_{hi}$, para $i=1,...,N_h$ e $h=1,...,H$.
 
-O Quadro \@ref(tab:tabest2), a seguir, representa uma população estratificada com os tamanhos dos estratos e os *dados populacionais* da variável $y$.
+A Tabela \@ref(tab:tabestr1) representa uma população estratificada com os tamanhos dos estratos e os *dados populacionais* da variável $y$.
 
-$$\textrm{População estratificada com os dados populacionais}$$
-$$\begin{array}{|c|c|c|}\hline
-\textrm{Estrato} & \textrm{Tamanho do Estrato}\,N_h & \textrm{Dados}
-\\\hline 1&N_1&y_{11},\dots,y_{1N_1} 
-\\\hline \vdots&\vdots&\vdots
-\\\hline h&N_h & y_{h1},\dots,y_{hN_h} 
-\\\hline \vdots&\vdots&\vdots   
-\\\hline H&N_H&y_{H1},\dots,y_{HN_H} 
-\\\hline \end{array}$$
+```{r, results="asis", echo=FALSE}
+cat("<table>",paste0("<caption>", "(#tab:tabestr1)", "Tamanho do estrato e dados populacionais da variável $y$ por estrato", "</caption>"),"</table>", sep ="\n")
+```
+<center>
+---------
+ Estrato    Tamanho do estrato    Dados populacionais
+--------- --------------------- -------------------------- 
+ 1          $N_1$                 $y_{11},\dots,y_{1N_1}$ 
+
+$\vdots$    $\vdots$              $\vdots$
+
+ $h$        $N_h$                 $y_{h1},\dots,y_{hN_h}$
+ 
+$\vdots$    $\vdots$              $\vdots$
+ 
+ $H$        $N_H$                 $y_{H1},\dots,y_{HN_H}$
+---------
+</center>
 
 ### Parâmetros populacionais
 
@@ -179,17 +187,27 @@ Para $S_y^2$ fixado, maximizar a variância *Entre* minimiza a variância *Dentr
 
 ### Dados amostrais
 
-A notação para os dados amostrais é semelhante à usada para denotar os dados populacionais. O Quadro \@ref(tab:tabest3), a seguir, representa os *dados amostrais* da variável $y$ de uma AES.
+A notação para os dados amostrais é semelhante à usada para denotar os dados populacionais. A Tabela \@ref(tab:tabestr2) representa o tamanho amostral e os *dados amostrais* da variável $y$ de cada estrato de uma AES.
 
-$$\textrm{Dados amostrais de uma AES}$$
-$$\begin{array}{|c|c|c|c|}\hline
-\textrm{Estrato} & \textrm{Tamanho amostral}\,n_h &\textrm{Rótulos na amostra} &\textrm{Dados amostrais}
-\\\hline 1&n_1&a_1=\{{i_1,\dots,i_{n_1}}\}&y_{1{i_1}},\dots,y_{1{i_{n_1}}} 
-\\\hline \vdots&\vdots&\vdots&\vdots
-\\\hline h&n_h &a_h=\{{i_1,\dots,i_{n_h}}\}& y_{h{i_1}},\dots,y_{h{i_{n_h}}} 
-\\\hline \vdots&\vdots&\vdots&\vdots   
-\\\hline H&n_H&a_H=\{{i_1,\dots,i_{n_H}}\}& y_{H{i_1}},\dots,y_{H{i_{n_H}}}
-\\\hline \end{array}$$
+```{r, results="asis", echo=FALSE}
+cat("<table>",paste0("<caption>", "(#tab:tabestr2)", "Tamanho amostral e dados amostrais da variável $y$ por estrato", "</caption>"),"</table>", sep ="\n")
+```
+<center>
+---------
+ Estrato   Tamanho amostral    Rótulos na amostra              Dados amostrais
+--------- ------------------ ------------------------------- ----------------------------------- 
+ 1         $n_1$              $a_1=\{{i_1,\dots,i_{n_1}}\}$   $y_{1{i_1}},\dots,y_{1{i_{n_1}}}$ 
+
+$\vdots$   $\vdots$           $\vdots$                        $\vdots$
+
+ $h$       $n_h$              $a_h=\{{i_1,\dots,i_{n_h}}\}$   $y_{h{i_1}},\dots,y_{h{i_{n_h}}}$
+ 
+$\vdots$   $\vdots$           $\vdots$                        $\vdots$
+ 
+ $H$       $n_H$              $a_H=\{{i_1,\dots,i_{n_H}}\}$   $y_{H{i_1}},\dots,y_{H{i_{n_H}}}$
+---------
+</center>
+
 
 ### Estimação do total e da média populacional 
 
@@ -260,15 +278,24 @@ No caso da estimação de total $\widehat Y_{AES}$, um estimador não viciado da
 \widehat V_{AES}\left(\widehat Y_{AES}\right)= N^2\displaystyle\sum_{h=1}^{H}W_h^2\left(\frac{1}{n_h}-\frac{1}{N_h}\right)s_h^2(y)(\#eq:eqest10)
 \end{equation} 
 
-O Quadro \@ref(tab:tabest1) apresenta um resumo da estimação de parâmetros média e total da variável $y$ sob AES. 
+A Tabela \@ref(tab:tabestr3) apresenta um resumo da estimação de parâmetros média e total da variável $y$ sob AES. 
 
-\begin{array}{|c|c|c|}\hline
-\textrm{Parâmetro} & \textrm{Estimador AES}  
-\\\hline \overline Y=\displaystyle\sum_{h=1}^H N_h\overline Y_h/N=\sum_{h=1}^H W_h\overline Y_h & \overline y_{AES}=\displaystyle\sum_{h=1}^{H}W_h \overline y_h =\sum_{h=1}^{H}\frac{N_h}{N}\overline y_h
-\\\hline Y=\displaystyle\sum_{h=1}^H Y_h=\displaystyle\sum_{h=1}^H N_h\overline Y_h & \widehat Y_{AES}=\displaystyle\sum_{h=1}^{H}\widehat Y_h =\sum_{h=1}^{H}N_h\overline y_h
-\\\hline V_{AES}\left(\overline y_{AES}\right)=\displaystyle\sum_{h=1}^{H}W_h^2\left(\frac{1}{n_h}-\frac{1}{N_h}\right)S_h^2(y) & \widehat V_{AES}\left(\overline y_{AES}\right)=\displaystyle\sum_{h=1}^{H}W_h^2\left(\frac{1}{n_h}-\frac{1}{N_h}\right)s_h^2(y)
-\\\hline V_{AES}\left(\widehat Y_{AES}\right)= N^2\displaystyle\sum_{h=1}^{H}W_h^2\left(\frac{1}{n_h}-\frac{1}{N_h}\right)S_h^2(y) & \widehat V_{AES}\left(\widehat Y_{AES}\right)= N^2\displaystyle\sum_{h=1}^{H}W_h^2\left(\frac{1}{n_h}-\frac{1}{N_h}\right)s_h^2(y)
-\\\hline \end{array}
+```{r, results="asis", echo=FALSE}
+cat("<table>",paste0("<caption>", "(#tab:tabestr3)", "Resumo de estimadores dos parâmetros média e total sob AES", "</caption>"),"</table>", sep ="\n")
+```
+<center>
+---------
+ Parâmetro                                                                                                                  Estimador AES
+-------------------------------------------------------------------------------------------------------------------------- ------------------------------------------------------------------------------------------------------------ 
+ $\overline Y=\sum_{h=1}^H W_h\overline Y_h$                                                                                $\overline y_{AES}=\displaystyle\sum_{h=1}^{H}W_h \overline y_h =\sum_{h=1}^{H}\frac{N_h}{N}\overline y_h$
+ 
+ $Y=\displaystyle\sum_{h=1}^H Y_h=\displaystyle\sum_{h=1}^H N_h\overline Y_h$                                               $\widehat Y_{AES}=\displaystyle\sum_{h=1}^{H}\widehat Y_h =\sum_{h=1}^{H}N_h\overline y_h$
+ 
+ $V_{AES}\left(\overline y_{AES}\right)=\displaystyle\sum_{h=1}^{H}W_h^2\left(\frac{1}{n_h}-\frac{1}{N_h}\right)S_h^2(y)$   $\widehat V_{AES}\left(\overline y_{AES}\right)=\displaystyle\sum_{h=1}^{H}W_h^2\left(\frac{1}{n_h}-\frac{1}{N_h}\right)s_h^2(y)$
+ 
+ $V_{AES}\left(\widehat Y_{AES}\right)= N^2 V_{AES}\left(\overline y_{AES}\right)$                                          $\widehat V_{AES}\left(\widehat Y_{AES}\right)= N^2\displaystyle\sum_{h=1}^{H}W_h^2\left(\frac{1}{n_h}-\frac{1}{N_h}\right)s_h^2(y)$
+---------
+</center>
 
 
 ### Intervalos de confiança
@@ -327,9 +354,9 @@ V(\widehat Y_{RC})\doteq \displaystyle\sum_{h=1}^{H}\frac{N_h^2(1-f_h)}{n_h}\lef
 
 onde: 
 
-$f_h=\frac{n_h}{N_h}$, $R=\frac{Y}{X}$ e
+$\displaystyle f_h=\frac{n_h}{N_h}$, $\displaystyle R=\frac{Y}{X}$ e
 
-$S_h(x,y)=\frac{1}{N_h-1}\displaystyle\sum_{i=1}^{N_h}(x_{hi}-\overline X_h)(y_{hi}-\overline Y_h)$ é a covariância populacional do estrato $h$ das variáveis $x$ e $y$. 
+$S_h(x,y)=\displaystyle\frac{1}{N_h-1}\displaystyle\sum_{i=1}^{N_h}(x_{hi}-\overline X_h)(y_{hi}-\overline Y_h)$ é a covariância populacional do estrato $h$ das variáveis $x$ e $y$. 
 
 Um estimador de $V(\widehat Y_{RC})$ é dado por: 
 
@@ -372,7 +399,7 @@ O *estimador de razão separada* $\widehat Y_{RS}$ para estimar o total populaci
 \widehat Y_{RS}= \displaystyle\sum_{h=1}^{H}\frac{y_h}{x_h} X_h = \displaystyle\sum_{h=1}^{H}\frac{\overline y_h}{\overline x_h} X_h= \displaystyle\sum_{h=1}^{H}\widehat R_h X_h(\#eq:eqest18)
 \end{equation}
 
-sendo $\widehat R_h=\frac{\overline y_h}{\overline x_h}=\frac{y_h}{x_h}$.
+sendo $\displaystyle\widehat R_h=\frac{\overline y_h}{\overline x_h}=\frac{y_h}{x_h}$.
 
 Note-se que é necessário conhecer os totais por estrato $X_h$ da variável auxiliar $x$. 
 
@@ -394,7 +421,7 @@ Supondo os $n_h$ suficientemente grandes, a variância $\widehat Y_{RS}$ é apro
 V(\widehat Y_{RS})\doteq \displaystyle\sum_{h=1}^{H}\frac{N_h^2(1-f_h)}{n_h}\left(S_h^2(y)+R_h^2S_h^2(x) -2R_hS_h(x,y)\right) (\#eq:eqest19)
 \end{equation}
 
-sendo $R_h=\frac{Y_h}{X_h}$.
+sendo $\displaystyle R_h=\frac{Y_h}{X_h}$.
 
 Um estimador de $V(\widehat Y_{RS})$ é dado por: 
 
@@ -464,11 +491,11 @@ $\lambda_h=n_h/n,\,\,h=1,\dots,H$, com $\displaystyle\sum_{h=1}^{H}\lambda_h=1$.
 
 Então o critério acima sugeriria tentar fazer $\lambda_h=W_h\,\,\,\forall h=1,2,\dots,H$.
 
-Isto implica fazer $\frac{n_h}{n}=\frac{N_h}{N}$ ou $n_h=n\frac{N_h}{N}= nW_h, \,\,\, \forall h=1,2,\dots,H$.
+Isto implica fazer $\displaystyle\frac{n_h}{n}=\frac{N_h}{N}$ ou $\displaystyle n_h=n\frac{N_h}{N}= nW_h, \,\,\, \forall h=1,2,\dots,H$.
 
 Esta distribuição da amostra nos estratos é chamada *Alocação Proporcional*.
 
-Um plano AES com $\frac{n_h}{n}=\frac{N_h}{N}$ é chamado de amostragem estratificada simples proporcional ou equiponderada.
+Um plano AES com $\displaystyle\frac{n_h}{n}=\frac{N_h}{N}$ é chamado de amostragem estratificada simples proporcional ou equiponderada.
 
 Sob alocação proporcional, a *média amostral simples* é o estimador não viciado da média populacional, pois se $n_h=nW_h$, então:
 
@@ -613,10 +640,12 @@ Quanto maior for a correlação entre a variável de pesquisa $y$ e a variável 
 
 Evidências empíricas sugerem, entretanto, que $5\le H \le 10$. Mais detalhes sobre esta escolha podem ser estudadas em diversas referências apresentadas na Figura \@ref(fig:numeroestratos). 
 
-
-```{r,modclas, echo=FALSE, fig.cap="Soluções sobre escolha de número de estratos"}
+<center>
+```{r,numeroestratos, echo=FALSE, fig.cap="Soluções sobre escolha de número de estratos"}
 knitr::include_graphics("Figuras/numeroestratos.png")
 ```
+</center>
+
 
 ## Número de estratos na amostragem estratificada simples 
 
@@ -626,41 +655,44 @@ Para estimação de total ou média global, @Cochran1977, seção 5A.8, recomend
 
 Sob as hipóteses: $N$ grande, $f=n/N$ pequena; o modelo: $y_i = a + bx_i + \varepsilon_i$ para $i \in U$; estratificação “ótima” em $x$; alocação igual nos estratos ($n_h=n/H$), mostra-se que: $EPA\left(\overline y_{AES}\right)=V_{AES}\left(\overline y_{AES}\right)/V_{AAS}\left(\overline y\right)= \rho^2/H^2+\left(1-\rho~2\right)$, onde $\rho$ é correlação entre $x$ e $y$.
 
-A Tabela \@ref(tab:efic) apresenta valores de $V_{AES}\left(\overline y_{AES}\right)/V_{AAS}\left(\overline y\right)$ para vários valores de $H$.
+A Tabela \@ref(tab:tabestr4) apresenta valores de $EPA\left(\overline y_{AES}\right)$ para valores variados de $H$ e de $\rho$.
 
-$$\textrm{Valores de} V_{AES}\left(\overline y_{AES}\right)/V_{AAS}\left(\overline y\right) \textrm{para vários valores de}\, H$$
-$$\begin{array}{ccccccc}\hline
-H & 2 & 3 & 4 & 5 & 6 & \infty
-\\\hline \rho=0,85 & 0,458 & 0,358 & 0,323 & 0,306 & 0,298 & 0,277 
-\\ \rho=0,95 & 0,323 & 0,198 & 0,154 & 0,134 & 0,123 & 0,098
-\\\hline \end{array}$$
+```{r, results="asis", echo=FALSE}
+cat("<table>",paste0("<caption>", "(#tab:tabestr4)", "Valores de $EPA$ para valores variados de $H$ e de correlação", "</caption>"),"</table>", sep ="\n")
+```
+<center>
+---------
+Valores de $\rho$   $H=2$   $H=3$   $H=4$   $H=5$   $H=6$   $H=\infty$
+------------------ ------- ------- ------- ------- ------- ------------ 
+$\rho=0,85$         0,458   0,358   0,323   0,306   0,298   0,277
+
+$\rho=0,95$         0,323   0,198   0,154   0,134   0,123   0,098
+
+---------
+</center>
 
 A análise dos resultados acima evidencia que ganhos adicionais de eficiência com mais de seis estratos é modesto.
 
-Na Figura \@ref(fig:precisaovsestratos.png) temos o gráfico dos ganhos de precisão versus número de estratos para $\rho=0,85$ e $\rho=0,95$. 
+Na Figura \@ref(fig:precisaovsestratos) temos o gráfico dos ganhos de precisão versus número de estratos para $\rho=0,85$ e $\rho=0,95$. 
 
-
-```{r, echo=FALSE, fig.cap="Ganhos de precisão versus número de estratos"}
+<center>
+```{r, precisaovsestratos,echo=FALSE, fig.cap="Ganhos de precisão versus número de estratos"}
 knitr::include_graphics("Figuras/precisaovsestratos.png")
 ```
-
+</center>
 
 ## Exercícios
 
-**(#exe:exeest1)** Mostre que a média amostral global $\overline y=\frac{1}{n}\displaystyle\sum_{h=1}^{H}\sum_{i \in a_h}y_{hi}$ pode ser escrita como $\overline y=\displaystyle\sum_{h=1}^{H}\frac{n_h}{n}\overline y_h\ne \sum_{h=1}^{H}\frac{N_h}{N}\overline y_h=\overline y_{AES}$, a menos que $\frac{n_h}{n}=\frac{N_h}{N}, \,\, \forall h=1,\dots,H$ ou seja, a menos que se adote amostragem estratificada simples proporcional ou equiponderada.
+**(#exr:exeest1)** Mostre que a média amostral global $\overline y=\displaystyle\frac{1}{n}\displaystyle\sum_{h=1}^{H}\sum_{i \in a_h}y_{hi}$ pode ser escrita como $\overline y=\displaystyle\sum_{h=1}^{H}\frac{n_h}{n}\overline y_h\ne \sum_{h=1}^{H}\frac{N_h}{N}\overline y_h=\overline y_{AES}$, a menos que $\displaystyle\frac{n_h}{n}=\frac{N_h}{N}, \,\, \forall h=1,\dots,H$ ou seja, a menos que se adote amostragem estratificada simples proporcional ou equiponderada.
 
-**(#exe:exeest2)** Quais são as probabilidades de inclusão de primeira e segunda ordem para unidades na população sob AES? Que valores estas probabilidades assumem em caso de um plano AES proporcional ou equiponderada?
+**(#exr:exeest2)** Quais são as probabilidades de inclusão de primeira e segunda ordem para unidades na população sob AES? Que valores estas probabilidades assumem em caso de um plano AES proporcional ou equiponderada?
 
 
-**Referências**
+**Referências não incluídas no book.bib**
 
 Baillargeon, S. & Rivest, L. P. (2011). A General Algorithm for Univariate Stratification. Proceedings of the International Statistical Institute, Dublin.
 
-Brito, J. A. M. (2005). Uma Formulação de Programação Inteira para o Problema de Alocação Ótima em Amostras Estratificadas. In: Anais do XXXVII Simpósio Brasileiro de Pesquisa Operacional - SOBRAPO, Gramado – RS, v. 1. p. 1851-1859.
-
 Brito, J. A. M.; Maculan, N.; Lila, M. F. e Montenegro, F. T. (2010). An exact algorithm for the stratification problem with proportional allocation. Optimization Letters, v. 4, pp. 185 – 195.
-
-Brito, J. A. de M., Silva, P. L. do N., Semaan, G. S., & Maculan, N. (2015). Integer programming formulations applied to optimal allocation in stratified sampling. Survey Methodology, 41(2), 427–442.
 
 Dalenius T. & Hodges Jr., Joseph L. (1959). Minimum Variance Stratification. Journal of the American Statistical Association, Vol. 54, No. 285, pp. 88-101.
 
