@@ -342,11 +342,11 @@ O *estimador de razão combinada* $\widehat Y_{RC}$ para estimar o total populac
 
 É sabido que os estimadores de razão são viciados exceto se a população for de um tipo muito especial em termos da relação entre $x$ e $y$. Apesar disso, tem-se afirmado que em muitos casos o estimador de razão é preferível ao estimador natural (simples) por que dá melhor precisão. Entretanto, esta afirmação só é verdadeira quando se consegue tornar desprezível o vício do estimador de razão,
 
-De acordo com [@Cochran1977], é usual considerar o vício desprezível quando $CV(\widehat X_{AES})=CV(\overline x_{AES})\leq 0,10$. 
+De acordo com @Cochran1977, é usual considerar o vício desprezível quando $CV(\widehat X_{AES})=CV(\overline x_{AES})\leq 0,10$. 
 
 Há que notar a equivalência de fixar um coeficiente de variação de 10% para $\overline x_{AES}$e de admitir um erro máximo de 20% na estimação de $\overline X$ com 95% de confiança. 
 
-Não se dispõe de uma expressão exata para a variância do estimador de razão combinada. Porém, se a amostra é de tamanho suficientemente grande para tornar o vício desprezível, pode-se obter uma expressão aproximada para a variância $\widehat Y_{RC}$ dada por ([@Cochran1977], p. 166): 
+Não se dispõe de uma expressão exata para a variância do estimador de razão combinada. Porém, se a amostra é de tamanho suficientemente grande para tornar o vício desprezível, pode-se obter uma expressão aproximada para a variância $\widehat Y_{RC}$ dada por @Cochran1977 (p. 166): 
 
 \begin{equation}
 V(\widehat Y_{RC})\doteq \displaystyle\sum_{h=1}^{H}\frac{N_h^2(1-f_h)}{n_h}\left(S_h^2(y)+R^2S_h^2(x) -2RS_h(x,y)\right) (\#eq:eqest13)
@@ -409,7 +409,7 @@ Quanto ao vício, este estimador precisa ser analisado com maior cuidado, porque
 
 Se os $n_h$ forem suficientemente grandes, pode-se admitir que o vício de $\widehat Y_{RS}$ é desprezível. Caso isto não aconteça o uso deste estimador não é aconselhável. 
 
-De acordo com [@Cochran1977], no uso do estimador de razão separada, há que verificar se: 
+De acordo com @Cochran1977, no uso do estimador de razão separada, há que verificar se: 
 
 \begin{equation}
 \sqrt H\, CV_{AES}(\overline x_h)\leq0,30 \,\, \,\forall h
@@ -582,7 +582,7 @@ As soluções acima são ‘aproximadas’, pois ignoram restrições do tipo $n
 
 ### Comparação de alternativas de alocação da amostra
 
-Usando a partição da soma de quadrados total em parcelas devidas à variação dentro e entre estratos, e ignorando termos de ordem $1/N_h$, então sob *alocação de Neyman*, isto é, com $n_h \propto N_hS_h$ prova-se ([@Cochran1977], p. 99) que:
+Usando a partição da soma de quadrados total em parcelas devidas à variação dentro e entre estratos, e ignorando termos de ordem $1/N_h$, então sob *alocação de Neyman*, isto é, com $n_h \propto N_hS_h$ prova-se (@Cochran1977, p. 99) que:
 
 $$V_{AES/Ney}\left(\overline y_{AES}\right)\le V_{AES/Prop}\left(\overline y_{AES}\right)\le V_{AAS}\left(\overline y\right)$$
 
@@ -613,11 +613,11 @@ Se a estimação de variâncias for importante, então force $n_h\geq 2$.
 
 Na prática, costuma-se fazer $n_h\geq 5$ devido à não resposta.
 
-Caso contrário, use métodos aproximados somente para estimação de variâncias, tais como agregação de estratos ou similar (ver [@Cochran1977], seção 5A.12).
+Caso contrário, use métodos aproximados somente para estimação de variâncias, tais como agregação de estratos ou similar (ver @Cochran1977, seção 5A.12).
 
 5. Ganhos de eficiência podem ser modestos, particularmente para estimação de proporções. 
 
-[@Cochran1977], p. 99, mostra que  $V_{AES/Ney}\left(\overline y_{AES}\right)\le V_{AES/Prop}\left(\overline y_{AES}\right)\le V_{AAS}\left(\overline y\right)$.
+@Cochran1977 (p. 99) mostra que  $V_{AES/Ney}\left(\overline y_{AES}\right)\le V_{AES/Prop}\left(\overline y_{AES}\right)\le V_{AAS}\left(\overline y\right)$.
 
 Os ganhos possíveis de precisão dependem da relação entre a(s) variável(is) de estratificação e as variáveis de pesquisa.
 
