@@ -25,16 +25,16 @@ onde $N_A$ representa o número de unidades populacionais que possuem o atributo
 Um exemplo clássico do uso de variáveis indicadoras ocorre quando se quer tabular frequências de respostas a uma pergunta categórica numa pesquisa ou censo. Considere uma pergunta cujas respostas podem ser um dos valores inteiros de $1$ a $C$, onde $C$ representa o número de categorias de resposta da pergunta. Por exemplo, para a pergunta 'Qual é o sexo do morador', há duas categorias de resposta ($C=2$): 1 (=Feminino) e 2 (=Masculino). Logo, para contar o número de pessoas por sexo na população, seria necessário criar duas variáveis indicadoras: $y_{1i} = I[Sexo(i) = 1]$ e $y_{2i} = I[Sexo(i) = 2]$. Estas contagens poderiam ser representadas por $N_1$ para as pessoas do sexo Feminino, e $N_2$ para as pessoas do sexo Masculino, que seriam obtidos como dois totais populacionais:
 
 
-\begin{equation}
+$$
 \displaystyle Y_1 = \sum_{i \in U} y_{1i} = N_1 \\ Y_2 = \sum_{i \in U} y_{2i} = N_2
-\end{equation}
+$$
 
 
-Como já adiantado no capítulo 3, quando a variável $y$ é do tipo indicadora, a *média populacional* dada por: 
+Como já adiantado no Capítulo \@ref(visger), quando a variável $y$ é do tipo indicadora, a *média populacional* dada por: 
 
-\begin{equation}
+$$
 \overline {Y} = \displaystyle \frac{1}{N} \sum_{i \in U} y_i = \frac {Y}{N} = \frac {N_A} {N} = p \, \, (\#eq:eqpro3)
-\end{equation}
+$$
 
 corresponde à *proporção* $p$ de unidades da população que têm o atributo de interesse. O parâmetro populacional *proporção* é aqui representado pela letra $p$ minúscula, já que a letra $P$ maiúscula já foi usada para denotar *probabilidade*.
 
@@ -176,7 +176,7 @@ $\displaystyle V_{AASC} (\widehat p) ={p(1-p)}/{n}$     $\displaystyle\widehat V
 
 No caso de uma amostra $s$ obtida por seleção do tipo *AAS*, as expressões da soma amostral $t_y$, da proporção amostral $\widehat p$ e da variância amostral $s^2_y$ têm a mesma forma já apresentada acima para amostras obtidas por *AASC*. Em consequência, também são idênticos os estimadores para o total populacional $N_A$ e a proporção populacional $p$. Entretanto, uma diferença é que no caso da *AAS* a variância amostral $s^2_y$ é um estimador não viciado para $S^2_y$ e não para $\sigma^2_y$. Também são diferentes as expressões para as variâncias dos estimadores amostrais e seus correspondentes estimadores não viciados.
 
-Foi visto no Capítulo \@ref(cap:aas) que as variâncias dos estimadores do total e da média são dadas pelas expressões:
+Foi visto no Capítulo \@ref(aas) que as variâncias dos estimadores do total e da média são dadas pelas expressões:
 
 $$
 V_{AAS} (\widehat Y) = N^2 \left( \frac 1 n - \frac {1}{N} \right) {S^2_y} \,\, (\#eq:eqpro13) 
