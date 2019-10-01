@@ -1,203 +1,254 @@
 # Estimação para Domínios de Estudo {#domin}
 
-## Domínios de estudo 
+## Domínios de estudo {#domin1}
 
-Em inúmeras pesquisas são produzidas e divulgadas estimativas para um certo conjunto de categorias nas quais a população está dividida. 
+Grande parte das pesquisas amostrais produz e divulga estimativas para certos subgrupos nos quais a população pode ser dividida. Tais subgrupos, aqui denominados *domínios* de estudo, *subpopulações* ou *pequenas áreas*, são quaisquer *subconjuntos da população* $U$ para os quais desejamos obter ou produzir estimativas separadas a partir da amostra selecionada e observada dessa população. 
 
-*Domínios* de estudo, *subpopulações* ou *“pequenas áreas”* são quaisquer *subconjuntos da população* para os quais desejamos obter ou produzir estimativas separadas a partir de uma amostra maior. 
+Por exemplo, pesquisas domiciliares costumam apresentar estimativas para grupos tais como: homens de 40 anos ou mais, mulheres em idade reprodutiva (15 a 49 anos), crianças e adolescentes, etc. Pesquisas de empresas costumam apresentar estimativas por faixas de tamanho das empresas (por exemplo definido como o número de pessoas ocupadas nas empresas) ou classes de atividade econômica exercida. Em pesquisas agropecuárias, costuma-se apresentar estimativas por faixas de área total dos estabelecimentos (em hectares), ou segundo ocorrência de produção de certos produtos (por exemplo, para estabelecimentos com produção de café). Em todas estas, também é comum a apresentação de estimativas por regiões, unidades da federação, ou outras particições geográficas de interesse. Cada um dos subgrupos assim definidos configura um *domínio* de interesse.
 
-Por exemplo, em pesquisas domiciliares são apresentadas estimativas para os homens de 40 anos ou mais, mulheres em idade reprodutiva (15 a 49 anos), crianças e adolescentes, etc.; em pesquisas da indústria, estimativas são apresentadas por grupos de número de pessoas ocupadas; nas pesquisas agropecuárias, costuma-se apresentar estimativas por categorias de área total dos estabelecimentos (em hectares), os estabelecimentos com produção de café; estimativas para municípios ou regiões específicas, etc.
+Neste capítulo apresentamos as ideias centrais de como fazer *estimação para domínios*. Apresentaremos com detalhes o caso da estimação sob *Amostragem Aleatória Simples*, mas as ideias sobre como proceder com outros planos amostrais são as mesmas. A principal estratégia para estimar parâmetros em domínios de interesse é definir duas variáveis derivadas que podem ser calculadas para as unidades da amostra selecionada. 
 
-Para tratar do tema usaremos a seguinte notação. 
+A primeira destas é simplesmente uma variável indicadora de pertinência ao domínio de interesse: seja $d_i$ a variável indicadora do domínio $d$, isto é: 
 
-Seja $d_i$ a variável indicadora do domínio $d$, isto é: $d_i=\left\{\begin{array}{ll} 1 & \textrm{se} \,\,\,\,i \textrm{ pertence ao domínio}\,\, d,\\ 0 & \textrm{caso contrário.}\end{array}\right.\,\,\,$ 
+$$
+d_i = I(i \in U_d) = \left\{\begin{array}{ll} 1 & \textrm{se} \,\,\,\,i \textrm{ pertence ao domínio}\,\, d,\\ 0 & \textrm{caso contrário.}\end{array}\right.\,\,\, 
+$$
+onde $U_d \subset U$ denota a parte da população $U$ que forma o domínio $d$.
+
+Denotamos por $N_d = \sum_{i\in U} d_i$ o tamanho do domínio $d$. 
+
+A segunda variável derivada é formada simplesmente pelo produto de duas outras variáveis de pesquisa: $y_i$ e $d_i$, a saber:
+
+$$
+y_{id} = y_i d_i = \left \{\begin{array}{ll} y_i & \textrm{se}\,\, i\in U_d,\\ 0 & \textrm{caso contrário}\end{array}\right.\,\,\,
+$$
+
+onde $y$ é a variável de estudo cujos parâmetros se quer estimar para o domínio de interesse.
+
+
+## Parâmetros de interesse para domínios {#domin2}
+
+Os parâmetros populacionais que usualmente se deseja estimar para um domínio genérico $d$ são descritos a seguir. 
+
+A *proporção* de unidades populacionais no domínio $d$ dada por: 
+
+$$
+ p_d = \sum_{i\in U} d_i / N = N_d / N = \overline {D} (\#eq:eqdom1)
+$$
+onde $\overline D$ é a média populacional da variável derivada $d_i$.
+
+O *total* da variável $y$ no domínio $d$ dado por: 
+
+$$
+ Y_d = \sum_{i\in U} y_{id} = \sum_{i\in U} y_i d_i = \sum_{i\in U_d} y_i (\#eq:eqdom2)
+$$
  
-Denotamos por $U_d=\{{i: d_i=1}\}$   a população no domínio $d$, e por $N_d=\sum_{i\in U} d_i$ o tamanho do domínio $d$. 
+A *média* da variável $y$ no domínio $d$ dada por: 
 
-Então, $y_{id}=y_id_i=\left\{\begin{array}{ll} y_i & \textrm{se}\,\, i\in U_d,\\ 0 & \textrm{caso contrário}\end{array}\right.\,\,\,$   
+$$
+ \overline{Y}_d = Y_d / N_d = \sum_{i\in U} y_{id} / \sum_{i \in U} d_i (\#eq:eqdom3)
+$$
 
-define a variável de estudo $y$ relevante para estimação no domínio $d$.
+Note que $\overline{Y}_d$ é um caso especial de *Razão de Médias* das variáveis $y_{id}$ e $d_i$.
 
-Note que $y_{id}$ é uma variável ‘derivada’, formada pelo produto de duas outras variáveis de pesquisa: $y_i$ e $d_i$.
+A *variância* da variável $y$ no domínio $d$ dada por: 
 
-## Parâmetros-alvo para o domínio
-
-Os parâmetros populacionais, que usualmente se deseja estimar para o domínio $d$, são: 
-
-- *Total* do domínio $d$ para uma característica $y$ qualquer, dado por: 
-
-\begin{equation}
-Y_d=\sum_{i\in U} y_{id}=\sum_{i\in U} y_id_i=\sum_{i\in U_d}y_i.(\#eq:eqdom1)
-\end{equation}
+$$
+ S_d^2 = \sum_{i \in U} d_i (y_i - \overline{Y}_d)^2 / (N_d - 1) (\#eq:eqdom4)
+$$
  
-- *Média* do domínio $d$ para uma característica $y$ qualquer, dada por: 
+Muitos outros parâmetros podem ser definidos para domínios, mas não é comum que os livros de Amostragem dediquem espaço ao tratamento de outros casos que não os considerados aqui. Isto se dá porque os casos de parâmetros que podem ser escritos como funções de totais populacionais são facilmente resolvidos empregando-se as ideias de estimação discutidas na seção \@ref(estoft).
 
-\begin{equation}
-\overline{Y}_d=Y_d/N_d=\sum_{i\in U} y_{id}/\sum_{i\in U}d_i.(\#eq:eqdom2)
-\end{equation}
+## Estimação de parâmetros para domínios sob AAS
 
-Note que $\overline{Y}_d$ é um caso especial de Razão de Médias das variáveis $y_{id}$ e $d_i$.
+Esta seção mostra como fazer para estimar os parâmetros populacionais para o domínio $d$ considerados na seção \@ref(domin2), com base numa amostra aleatória simples sem reposição de tamanho $n$ extraída da população $U$. Embora a discussão seja restrita aqui ao caso de amostras aleatórias simples, o processo de adaptação de estimadores para parâmetros de domínios aqui mostrado pode ser facilmente seguido para o caso de outros planos amostrais. Tudo se baseia na ideia de criação das variáveis derivadas apresentada na seção \@ref(domin1). 
 
-- *Variância* do domínio $d$ para uma característica $y$ qualquer, dada por: 
+*Passo 1:* Selecionar uma AAS de tamanho $n$ da população $U$ de tamanho $N$, e observar ($y_i$) para todo $i \in s$.
 
-\begin{equation}
-S_d^2=\sum_{i\in U} d_i(y_i-\overline{Y}_d)^2/(N_d-1).(\#eq:eqdom3)
-\end{equation}
+*Passo 2:* Então construir as variáveis derivadas $d_i = I(i \in U_d)$ e $y_{id} = y_i d_i$.
+
+*Passo 3:* Estimar os parâmetros de interesse, adaptando os estimadores apresentados nos capítulos \@ref(aas), \@ref(proporc) e \@ref(razao) para considerar as variáveis derivadas definidas.
+
+Começamos tratando da estimação da proporção $p_d$ de unidades no domínio, por ser o caso mais simples. Considerando os resultados da Tabela \@ref(tab:tabprop2), o estimador dessa proporção sob AAS é dado por:
+
+$$
+ \widehat{p}_d = n_d / n = \overline {d} (\#eq:eqdom5)
+$$
+onde $n_d = \sum_{i \in s} d_i$ denota o tamanho da amostra no domínio $d$ e $\overline {d}$ é a média amostral da variável derivada $d_i$.
+
+A estimação da proporção no domínio só é necessária quando o *tamanho do domínio* na população $(N_d)$ é desconhecido. Quando este tamanho for conhecido, não é necessário estimar a proporção $p_d$, e essa informação será útil também para melhorar estimativas de outros parâmetros do domínio, como veremos adiante.
+
+A variância do estimador da proporção é dada por
+
+$$
+ V_{AAS}(\widehat p_d) = \left(\frac 1 n - \frac 1 N \right) \frac N {N-1} p_d (1 - p_d) (\#eq:eqdom6)
+$$
+e pode ser estimada sem vício usando
+
+$$
+ \widehat V_{AAS} (\widehat p_d) = \left(\frac 1 n - \frac 1 N \right) \frac n {n-1} \widehat p_d (1 - \widehat p_d) (\#eq:eqdom7)
+$$
+
+Ainda considerando o caso em que o *tamanho do domínio* na população é desconhecido, o próximo parâmetro do domínio que podemos estimar é o total $Y_d$. O estimador não viciado deste total é obtido simplesmente aplicando o estimador de Horvitz-Thompson à variável derivada $y_{id}$, resultando em: 
+
+$$
+ \widehat{Y}_d = N/n \sum_{i \in s} y_{id} = N \frac {t_d} {n} (\#eq:eqdom8)
+$$
+onde $t_d$ é a soma amostral da variável $y$ para unidades pertencentes ao domínio $d$, dada por $t_d = \displaystyle \sum_{i \in s} y_{id}$.
+
+A variância deste estimador é obtida diretamente dos resultados usuais da estimação de totais sob AAS para a variável derivada $y_{id}$, levando a
  
-- *Proporção* de unidades populacionais no domínio $d$, dada por: 
+$$
+ V_{AAS} (\widehat{Y}_d) = N^2 \left(\frac{1}{n} - \frac 1 N \right) \frac{1}{N-1} \displaystyle \sum_{i \in U} \left( y_{id} - \frac{Y_d}{N} \right)^2 (\#eq:eqdom9)
+$$
+e pode ser estimada de forma não viciada usando
 
-\begin{equation}
-p_d=N_d/N= \overline {D}.(\#eq:eqdom4)
-\end{equation}
+$$
+\widehat V_{AAS} (\widehat{Y}_d)  = N^2 \left(\frac{1}{n} - \frac 1 N \right) \frac{1}{n-1} \displaystyle \sum_{i \in s} \left( y_{id} - \frac{t_d}{n} \right)^2 (\#eq:eqdom10)
+$$
 
-## Estimação de parâmetros para o domínio
+A média no domínio $\overline{Y}_d$ pode ser estimada usando:
 
-Nesta seção se estuda como estimar os parâmetros populacionais para o domínio $d$ gerados para uma característica $y$ qualquer, com base numa amostra aleatória simples sem reposição de tamanho $n$. 
+$$
+\overline{y}_d = \frac {\widehat Y_d} {\widehat N_d} = \frac {(N/n)\sum_{i\in s} y_{id}} {(N/n)\sum_{i\in s}d_i}  = \sum_{i\in s}y_{id}/n_d (\#eq:eqdom11)
+$$
 
-*Passo 1:* Selecionamos uma AAS de tamanho $n$ da população $U$ de tamanho $N$, e observamos ($y_i$ ; $d_i$) para todo $i\in s$.
+Note que o estimador da média do domínio $d$ é uma razão de totais estimados, e que $n_d$ é uma *variável aleatória*, aparecendo no denominador da expressão do estimador da média no domínio.
 
-*Passo 2:* Então construímos a variável derivada $y_{id}= y_id_i$.
-
-*Passo 3:* Estimamos a média $\overline{Y}_d=Y_d/N_d$ usando:
-
-\begin{equation}
-\overline{y}_d=\widehat{Y}_d/\widehat{N}_d=\sum_{i\in s} w_iy_{id}/\sum_{i\in s} w_id_i=(N/n)\sum_{i\in s} y_{id}/(N/n)\sum_{i\in s}d_i= \sum_{i\in s}y_{id}/n_d (\#eq:eqdom5)
-\end{equation}
-
-onde $n_d$ é o número de observações no domínio $d$ na amostra. Note que $n_d$ é uma *variável aleatória*.
-
-O estimador de média do domínio $d$ é uma razão de totais estimados. 
-
-Para obter sua variância, podemos recorrer aos resultados disponíveis, no capítulo 6, para estimar razões, resultando em:
+Para obter sua variância, podemos recorrer aos resultados para estimação de razões disponíveis no capítulo \@ref(razao), resultando em:
 
 \begin{eqnarray}
-V_{AAS}(\overline{y}_d) & \cong & \frac{1}{p_d^2}\left(1-\frac{n}{N}\right)\frac{1}{n}\frac{1}{N-1}\displaystyle\sum_{i\in U}\left(y_{id}-\overline{Y}_d d_i\right)^2 \\ &=& \frac{1}{p_d^2}\left(1-\frac{n}{N}\right)\frac{1}{n}\frac{1}{N-1}\displaystyle\sum_{i\in U} d_i\left(y_i-\overline{Y}_d\right)^2 (\#eq:eqdom6)
+V_{AAS}(\overline{y}_d) &\cong & \frac{1} {p_d^2} \left( \frac 1 n - \frac{1}{N} \right) \frac{1}{N-1} \displaystyle \sum_{i \in U} \left( y_{id} -\overline{Y}_d d_i \right)^2 \\&=& \frac{1}{p_d^2} \left( \frac 1 n - \frac{1}{N} \right) \frac{1}{N-1} \displaystyle \sum_{i \in U} d_i \left( y_i - \overline{Y}_d \right)^2 (\#eq:eqdom12)
 \end{eqnarray}
 
-O estimador de variância correspondente é:
+O estimador de variância correspondente é dado por:
  
-\begin{equation}
-\widehat V_{AAS}(\overline{y}_d) = \frac{1}{p_d^2}\left(1-\frac{n}{N}\right)\frac{1}{n}\frac{1}{n-1}\displaystyle\sum_{i\in s} d_i\left(y_i-\overline{y}_d\right)^2(\#eq:eqdom7)
-\end{equation}
+$$
+\widehat V_{AAS} (\overline{y}_d) =  \frac{1}{\widehat p_d^2} \left( \frac 1 n - \frac{1}{N} \right) \frac{1}{n-1} \displaystyle \sum_{i \in s} d_i \left(y_i - \overline{y}_d \right)^2 (\#eq:eqdom13)
+$$
 
-### Estimação da média do domínio: propriedades condicionais (fixando $n_d$)
 
-@Cochran1977 (seção 2.12) sugere analisar a distribuição da média considerando o tamanho da amostra no domínio $n_d$ como fixo (em seu valor observado). Nesse caso, mostra que as $n_d$ observações na amostra $s$ formam uma AAS da população $U_d$.
+## Intervalos de confiança para os parâmetros para o domínio
 
-Então segue-se que: 
+A obtenção de intervalos de confiança na estimação de parâmetros populacionais para o domínio requer *amostra grande no domínio*, isto é, requer que $n_d$ seja suficientemente grande para justificar o uso da aproximação pela distribuição Normal para os vários estimadores considerados. Quando este for o caso, valem as seguintes aproximações:
 
- \begin{equation}
- V_{AAS}(\overline{y}_d |\,n_d>0)= \left(1-\frac{n_d}{N_d}\right)\frac{S_d^2}{n_d}(\#eq:eqdom8)
-\end{equation}
-
-A variância pode então ser estimada usando:
-
-\begin{equation}
-\widehat V_{AAS}(\overline{y}_d |\,n_d>0)= \left(1-\frac{n_d}{N_d}\right)\frac{s_d^2}{n_d}(\#eq:eqdom9)
-\end{equation}
+$$
+\left( \widehat{p}_d - p_d \right) / \sqrt{\widehat V_{AAS} \left(\widehat{p}_d \right)} \approx N(0;1) \,\,\textrm{para}\,\, n_d \,\,\textrm{grande.}
+$$
  
-onde $s_d^2=\sum_{i\in s} d_i(y_i-\overline{y}_d)^2/(n_d-1)$  é um estimador não viciado para $S_d^2$  (quando $n_d$ é fixado).
-
-Se $N_d$ for desconhecido, $\widehat V_{AAS}(\overline{y}_d |\,n_d>0)$  não é calculável.
-
-@Cochran1977 (p. 35) sugere substituir $n_d/N_d$ por $n/N$, o que implica em:
+$$
+\left( \widehat{Y}_d - Y_d \right) / \sqrt{\widehat V_{AAS} \left( \widehat{Y}_d \right)} \approx N(0;1) \,\,\textrm{para}\,\, n_d\,\,\textrm{grande.}
+$$
  
- \begin{equation}
- \widehat V_{AAS}^*(\overline{y}_d |\,n_d>0)= \left(1-\frac{n}{N}\right)\frac{s_d^2}{n_d}(\#eq:eqdom10)
-\end{equation}
- 
-###Estimação de total do domínio 
-
-Para obter estimadores do total populacional $Y_d$ note que: $Y_d=N_d\overline{Y}_d$. 
-
-Portanto, há duas situações importantes a distinguir:
-
--	Quando o tamanho do domínio $(N_d)$ é *conhecido*; e
-
--	Quando o tamanho do domínio $(N_d)$ é *desconhecido*.
-
-Para estimar o Total supondo que $N_d$ é conhecido tem-se: 
-
-\begin{equation}
-\widehat{Y}_d^R=N_d\overline{y}_d=N_d/n_d\sum_{i\in s} y_{id}(\#eq:eqdom11)
-\end{equation}
-
-\begin{equation}
-V_{AAS}\left(\widehat{Y}_d^R |\,n_d>0 \right)= N_d^2\left(1-\frac{n_d}{N_d}\right)\frac{S_d^2}{n_d}(\#eq:eqdom12)
-\end{equation}
-
-A variância pode então ser estimada usando:
-
-\begin{equation}
-\widehat V_{AAS}\left(\widehat{Y}_d^R |\,n_d>0 \right)= N_d^2\left(1-\frac{n_d}{N_d}\right)\frac{s_d^2}{n_d}(\#eq:eqdom13)
-\end{equation}
-
-Para estimação não viciada do total supondo que $N_d$ é desconhecido, usar: 
-
-\begin{equation}
-\widehat{Y}_d=N/n\sum_{i\in s} y_{id}.(\#eq:eqdom14)
-\end{equation}
-
-Para prova deste resultado basta aplicar os resultados usuais de estimação de totais sob AAS para a variável derivada $y_{id}$.
- 
-\begin{equation}
-V_{AAS}(\widehat{Y}_d) =N^2\left(1-\frac{n}{N}\right)\frac{1}{n}\frac{1}{N-1}\displaystyle\sum_{i\in U} \left(y_{id}-\frac{Y_d}{N}\right)^2(\#eq:eqdom15)
-\end{equation}
-
-\begin{equation}
-\widehat V_{AAS}(\widehat{Y}_d) =N^2\left(1-\frac{n}{N}\right)\frac{1}{n}\frac{1}{N-1}\displaystyle\sum_{i\in s} \left(y_{id}-\frac{t_d}{n}\right)^2(\#eq:eqdom16)
-\end{equation}
-
-onde $t_d$ é o total de unidades na amostra pertencentes ao domínio, dado por: $t_d=\displaystyle\sum_{i \in s} d_i$.
-
-A Tabela \@ref(tab:tabdom1) apresenta um resumo da estimação de parâmetros média e total do domínio  $d$ sob AAS. 
-
-```{r, results="asis", echo=FALSE}
-cat("<table>",paste0("<caption>", "(#tab:tabdom1)", "Resumo de estimadores dos parâmetros média e total do domínio $d$ sob AAS", "</caption>"),"</table>", sep ="\n")
-```
-<center>
-------------------------------------------------- -----------------------------------------------
-      **Parâmetro do Domínio $d$**                    **Estimador do Domínio $d$ sob AAS**
-
-    $\overline{Y}_d=Y_d/N_d$                                        
-                                                  $\overline{y}_d=\widehat{Y}_d/\widehat{N}_d=\displaystyle\sum_{i\in s}y_{id}/n_d$
-
-$Y_d=N_d\overline{Y}_d$                           $\widehat{Y}_d^R=N_d\overline{y}_d\,\,(N_d\,\text{conhecido})$   
-                                                  $\widehat{Y}_d=N/n\displaystyle\sum_{i\in s} y_{id}\,\,(N_d \,\text{desconhecido})$
-
-$V_{AAS}(\overline{y}_d)$                         $\widehat V_{AAS}(\overline{y}_d) = \frac{1}{p_d^2}\left(1-\frac{n}{N}\right)\frac{1}{n}\frac{1}{n-1}\displaystyle\sum_{i\in s} d_i\left(y_i-\overline{y}_d\right)^2$
-
-$V_{AAS}(\overline{y}_d\mid{n_d>0},\,\text{fixo})$                         $\widehat V_{AAS}(\overline{y}_d\mid n_d>0)= \left(1-\frac{n_d}{N_d}\right)\frac{s_d^2}{n_d}$   
-                                                                       $\widehat V_{AAS}^*(\overline{y}_d\mid n_d>0)= \left(1-\frac{n}{N}\right)\frac{s_d^2}{n_d}\,\,(N_d\,\text{desconhecido})$
-    
-    
-$V_{AAS}\left(\widehat{Y}_d^R\mid{n_d>0}\right)$                                        $\widehat V_{AAS}\left(\widehat{Y}_d^R\mid n_d>0 \right)= N_d^2\left(1-\frac{n_d}{N_d}\right)\frac{s_d^2}{n_d}$
-
-$V_{AAS}(\widehat{Y}_d)$                               $\widehat V_{AAS}(\widehat{Y}_d) =N^2\left(1-\frac{n}{N}\right)\frac{1}{n}\frac{1}{N-1}\displaystyle\sum_{i\in s} \left(y_{id}-\frac{t_d}{n}\right)^2$
------ ------------
-</center>
-
-### Intervalos de confiança na estimação de parâmetros para o domínio
-
-A obtenção de intervalos de confiança na estimação de parâmetros populacionais para o domínio requer *amostra grande no domínio*.
-
-Nesse caso, valem as seguintes aproximações:
-
-$$\left(\widehat{Y}_d^R-Y_d\right)/\sqrt{\widehat V_{AAS}\left(\widehat{Y}_d^R \right)}\approx N(0;1)\,\,\textrm{para}\,\, n_d \,\,\textrm{grande.}$$
- 
-$$\left(\widehat{Y}_d-Y_d\right)/\sqrt{\widehat V_{AAS}\left(\widehat{Y}_d \right)}\approx N(0;1)\,\,\textrm{para}\,\, n_d\,\,\textrm{grande.}$$
- 
-$$\left(\overline{y}_d-\overline{Y}_d\right)/\sqrt{\widehat V_{AAS}(\overline{y}_d)}\approx N(0;1)\,\,\textrm{para} \,\,n_d\,\,\textrm{grande.}$$
+$$
+\left( \overline{y}_d - \overline{Y}_d \right) / \sqrt{\widehat V_{AAS}(\overline{y}_d)} \approx N(0;1) \,\,\textrm{para} \,\,n_d\,\,\textrm{grande.}
+$$
 Desse modo, as respectivas expressões dos intervalos de confiança de nível (1-$\alpha$)% para a estimação de total e média do domínio $d$ sob AAS passam a ser: 
 
-\begin{equation} 
-\displaystyle IC_{AAS}(Y_d;1-\alpha)=\left[\widehat{Y}_d^R-z_{\alpha/ 2}\sqrt{\widehat V_{AAS}\left(\widehat{Y}_d^R \right)}\,\,;\,\widehat{Y}_d^R+z_{\alpha/2}\sqrt{\widehat V_{AAS}\left(\widehat{Y}_d^R \right)}\,\right] (\#eq:eqdom17) \end{equation}
+$$ 
+IC_{AAS} (p_d ; 1-\alpha) = \left[ \widehat{p}_d \mp z_{\alpha / 2} \widehat {V}_{AAS} ( \widehat{p}_d ) \right] (\#eq:eqdom14) 
+$$
 
-\begin{equation} 
-\displaystyle IC_{AAS}(Y_d;1-\alpha)=\left[\widehat{Y}_d-z_{\alpha/ 2}\sqrt{\widehat V_{AAS}\left(\widehat{Y}_d \right)}\,\,;\,\widehat{Y}_d+z_{\alpha/2}\sqrt{\widehat V_{AAS}\left(\widehat{Y}_d \right)}\,\right] (\#eq:eqdom18) \end{equation}
 
-\begin{equation} 
-\displaystyle IC_{AAS}(\overline Y_d;1-\alpha)=\left[\overline y_d-z_{\alpha/ 2}\sqrt{\widehat V_{AAS}\left(\overline y_d \right)}\,\,;\,\overline y_d+z_{\alpha/2}\sqrt{\widehat V_{AAS}\left(\overline y_d \right)}\,\right] (\#eq:eqdom19) \end{equation}
+$$ 
+\displaystyle IC_{AAS}(Y_d ; 1- \alpha) = \left[ \widehat{Y}_d \mp z_{\alpha/ 2} \sqrt{\widehat V_{AAS} \left( \widehat{Y}_d \right)} \right] (\#eq:eqdom15) 
+$$ 
+
+$$ 
+\displaystyle IC_{AAS}(\overline Y_d ; 1-\alpha) = \left[ \overline y_d \mp z_{\alpha/ 2} \sqrt{ \widehat V_{AAS} \left(\overline y_d \right)} \right] (\#eq:eqdom16) 
+$$ 
+
+
+## Propriedades condicionais (fixando $n_d$)
+
+@Cochran1977 (seção 2.12) sugere analisar a distribuição da média considerando o tamanho da amostra no domínio $n_d$ como fixado em seu valor observado. Nesse caso, mostra que as $n_d$ observações na amostra $s$ formam uma AAS da população $U_d$. Segue-se então que: 
+
+$$
+ V_{AAS} (\overline{y}_d | \, n_d>0) = \left( \frac 1 {n_d} - \frac{1}{N_d} \right) S_d^2 (\#eq:eqdom17)
+$$
+
+A variância pode então ser estimada usando:
+
+$$
+\widehat V_{AAS} (\overline{y}_d | \, n_d>0) = \left(\frac 1 {n_d} - \frac{1}{N_d} \right) s_d^2  (\#eq:eqdom18)
+$$
+ 
+onde $s_d^2 = \sum_{i \in s} d_i (y_i - \overline{y}_d)^2 / (n_d-1)$  é um estimador não viciado para $S_d^2$  (quando $n_d$ é fixado).
+
+Quando $N_d$ é desconhecido, $\widehat V_{AAS}(\overline{y}_d |\,n_d>0)$  não é calculável. 
+
+@Cochran1977 (p. 35) sugere substituir a fração amostral no domínio $n_d/N_d$ pela fração amostral esperada no domínio, dada por $n/N$, o que implica em:
+ 
+$$
+ \widehat V_{AAS}^* (\overline{y}_d | \, n_d>0) = \left(1-\frac{n}{N} \right) \frac {s_d^2} {n_d} (\#eq:eqdom19)
+$$
+
+## Estimação do total no domínio quando tamanho do domínio é conhecido 
+
+Em algumas situações de pesquisa, é possível supor conhecido o *tamanho do domínio* $N_d$, a partir de dados de uma fonte secundária confiável. Nesses casos, temos as seguintes consequências:
+
+*a)* Não é necessário estimar a proporção de unidades no domínio $p_d$;
+
+*b)* Fica disponível um estimador alternativo para o total populacional $Y_d$ que pode ser mais preciso que o estimador tipo Horvitz-Thompson descrito na expressão \@ref(eq:eqdom8). 
+
+Para obter o estimador alternativo, note que: 
+
+$$
+Y_d = N_d \overline {Y}_d (\#eq:eqdom20)
+$$
+
+Logo, é possível usar o *estimador tipo razão* para o total dado por:
+
+$$
+\widehat{Y}_d^R = N_d \overline {y}_d = N_d /n_d \sum_{i\in s} y_{id} \,\, (\#eq:eqdom21)
+$$
+
+A variância condicional deste estimador, considerando fixado o tamanho da amostra no domínio $d$, é dada por:
+
+$$
+V_{AAS} \left(\widehat {Y}_d^R | \, n_d>0 \right) = N_d^2 \left( \frac 1 {n_d} - \frac {1} {N_d} \right) S_d^2 \,\, (\#eq:eqdom22)
+$$
+
+Essa variância pode ser estimada usando:
+
+$$
+\widehat V_{AAS} \left( \widehat{Y}_d^R | \, n_d>0 \right) = N_d^2 \left( \frac 1 {n_d} - \frac {1} {N_d} \right) s_d^2 \,\, (\#eq:eqdom23)
+$$
+
+A Tabela \@ref(tab:tabdom1) apresenta um resumo da estimação de parâmetros proporção, média e total do domínio $d$ sob AAS. 
+
+```{r, results="asis", echo=FALSE}
+cat("<table>",paste0("<caption>", "(#tab:tabdom1)", "Resumo de estimadores dos parâmetros proporção, média e total do domínio $d$ sob AAS", "</caption>"),"</table>", sep ="\n")
+```
+<center>
+----------------------------------------------------  ---------------------------------------------------------------------------------------------------------------------------------------------------------
+  **Parâmetro do Domínio $d$**                              **Estimador do Domínio $d$ sob AAS**
+     
+ $p_d=\sum_{i\in U}d_i/N= N_d/N$                       $\widehat{p}_d=n_d/n \,\,(N_d \,\text{desconhecido})$ 
+      
+ $\overline{Y}_d=Y_d/N_d$                                        
+                                                       $\overline{y}_d=\widehat{Y}_d/\widehat{N}_d=\displaystyle\sum_{i\in s}y_{id}/n_d\,\,(N_d \,\text{desconhecido})$
+
+$Y_d=N_d\overline{Y}_d$                                $\widehat{Y}_d=N/n\displaystyle\sum_{i\in s} y_{id}\,\,(N_d \,\text{desconhecido})$
+                                                       $\widehat{Y}_d^R=N_d\overline{y}_d\,\,(N_d\,\text{conhecido})$  
+                                                  
+$V_{AAS}(\widehat p_d)$                                $\widehat V_{AAS}(\widehat p_d)=\displaystyle\left(\frac 1 n-\frac 1 N\right)\frac n {n-1}\widehat p_d(1-\widehat p_d)$
+
+$V_{AAS}(\overline{y}_d)$                              $\widehat V_{AAS}(\overline{y}_d) = \displaystyle\frac{1}{\widehat p_d^2}\left(1-\frac{n}{N}\right)\frac{1}{n}\frac{1}{n-1}\displaystyle\sum_{i\in s}                                                             d_i\left(y_i-\overline{y}_d\right)^2$
+
+
+$V_{AAS}(\overline{y}_d\mid{n_d>0},\,\text{fixo})$     $\widehat V_{AAS}(\overline{y}_d\mid n_d>0)=\displaystyle\left(1-\frac{n_d}{N_d}\right)\frac{s_d^2}{n_d}$   
+                                                       $\widehat V_{AAS}^*(\overline{y}_d\mid n_d>0)=\displaystyle\left(1-\frac{n}{N}\right)\frac{s_d^2}{n_d}\,\,(N_d\,\text{desconhecido})$
+ 
+$V_{AAS}(\widehat{Y}_d)$                               $\widehat V_{AAS}(\widehat{Y}_d) =N^2\displaystyle\left(1-\frac{n}{N}\right)\frac{1}{n}\frac{1}{N-1}\displaystyle\sum_{i\in s}      
+                                                        \left(y_{id}-\frac{t_d}{n}\right)^2$ 
+   
+    
+$V_{AAS}\left(\widehat{Y}_d^R\mid{n_d>0}\right)$       $\widehat V_{AAS}\left(\widehat{Y}_d^R\mid n_d>0 \right)= \displaystyle N_d^2\left(1-\frac{n_d}{N_d}\right)\frac{s_d^2}{n_d}$
+
+-----------
+</center>
+
 
 **(#exm:exmdom1)** Estimando totais e médias por domínios
 
@@ -220,7 +271,7 @@ Solução do (#exm:exmdom1) usando R
 rm(list = ls())
 
 # Define pasta onde ficam dados usados nesta sessão
-getwd()
+setwd(paste0(getwd(), "/Dados"))
 
 # Carrega biblioteca(s) requerida(s)
 library(sampling)
@@ -328,115 +379,95 @@ munic_amo <- cbind(munic_amo, r_chapeu)
 
 ```
 
-### Comparação da eficiência dos estimadores de total do domínio
+## Comparação da eficiência dos estimadores de total do domínio
 
-Foram propostos dois estimadores para o total populacional $Y_d$. Portanto, é importante saber quando usar um ou outro.
+Foram propostos dois estimadores para o total populacional $Y_d$, sendo um deles viável apenas quando o *tamanho do domínio* é conhecido. Nesse caso, é importante saber se o estimador tipo razão é preferível ao estimador tipo Horvitz-Thompson em termos de eficiência. Comparando as respectivas variâncias, de acordo com @Cochran1977 (p. 38), tem-se que a eficiência relativa do estimador tipo razão é dada por:
 
-Comparando as respectivas variâncias, de acordo com @Cochran1977 (p. 38), tem-se:
+$$
+\frac {V_{AAS} \left(\widehat{Y}_d^R \, | \, n_d>0  \right) } {V_{AAS} \left( \widehat{Y}_d \, | \, n_d>0 \right)} \cong \frac {S_d^2} {S_d^2 + (1-p_d) \overline{Y}_d^2} = \frac{C_d^2} {C_d^2 + (1-p_d)} \,\, (\#eq:eqdom24)
+$$
 
-\begin{equation}
-\frac{V_{AAS}\left(\widehat{Y}_d^R|n_d>0 \,\,\textrm{e} \,\,N_d \,\textrm{conhecido}\right)}{V_{AAS}\left(\widehat{Y}_d)|n_d>0 \,\,\textrm{e}\,\, N_d \,\textrm{desconhecido}\right)}\cong \frac{S_d^2}{S_d^2 +(1-p_d)\overline{Y}_d^2}= \frac{C_d^2}{C_d^2 +(1-p_d)}(\#eq:eqdom20)
-\end{equation}
-
-onde $C_d^2=S_d^2/\overline{Y}_d^2$ é a variância relativa do domínio $d$ para uma característica $y$ qualquer.
+onde $C_d^2 = S_d^2 / \overline{Y}_d^2$ é a variância relativa da característica $y$ no domínio $d$.  
  
-Isto mostra que conhecer o valor de $N_d$ sempre melhora a eficiência do estimador de total do domínio $d$; e que a melhoria é maior quando $p_d$ é pequena. Além disso, para valores pequenos de $p_d$ o estimador do total do domínio $d$ para $N_d$ desconhecido é bem pouco preciso, devendo talvez indicar o uso de um desenho de amostragem específico para a estimação de $Y_d$.  
+Isto mostra que conhecer o valor de $N_d$ sempre melhora a eficiência do estimador de total do domínio $d$, e que a melhoria é maior quando $p_d$ é pequena. Essa expressão também torna evidente que, para domínios raros na população, isto é, aqueles com valores bem pequenos de $p_d$, o estimador do total do domínio $d$ para $N_d$ desconhecido é bem pouco preciso, devendo talvez indicar a necessidade de uso de plano amostral que favoreça a estimação de $Y_d$ com melhor precisão que uma AAS.  
 
-### Estimação de proporção no domínio
+## Estimação de proporções dentro do domínio
 
-Há o caso de interesse prático e de aplicação de estimação de proporção no domínio. O problema surge quando se torna necessário estimar uma proporção de unidades de uma certa categoria da população e que são também portadoras de certo atributo. 
-
-Por exemplo, quando se deseja estimar a proporção de mulheres de 10 anos ou mais que já tiveram pelo menos um filho, ou quando se procura estimar a proporção de homens de 18 anos ou mais que prestaram o serviço militar. 
-
-Em casos como os acima citados, o problema é estimar proporções dos domínios da população: mulheres de 10 anos ou mais; e homens com 18 anos ou mais.
+Em algumas situações práticas, o parâmetro de interesse é a proporção de unidades do domínio $d$ que possuem um atributo ou característica $A$. Por exemplo, quando se deseja estimar a proporção de mulheres de 10 anos ou mais que já tiveram pelo menos um filho, ou quando se procura estimar a proporção de homens de 18 anos ou mais que prestaram o serviço militar. Em casos como os acima citados, o problema é estimar proporções dos domínios da população: mulheres de 10 anos ou mais; e homens com 18 anos ou mais.
  
-Nesta situação, suponha-se que as unidades da população possam ser classificadas em três categorias mutuamente exclusivas A,B e C e que se deseja estimar a proporção $p'_A$ de unidades da categoria A dentro do domínio formado pelas categorias A e C. Se $N_A$,$N_B$ e $N_c$ forem, respectivamente, os números de unidades da população pertencentes às categorias A,B e C então: 
+Nesses casos, a variável de pesquisa $y$ seria dada por:
 
-\begin{equation}
-p_A=\frac{N_A}{N}(\#eq:eqdom21)
-\end{equation} 
-é a proporção de unidades da população no domínio A;
+$$
+ y_i = I(i \in A) = \left\{\begin{array}{ll} 1 & \textrm{se} \,\,\,\,i \textrm{ possui o atributo A},\,\,\\ 0 & \textrm{caso contrário.}\end{array}\right.\,\,\, 
+$$
 
-\begin{equation}
-p_A^´=\frac{N_A}{N_A+N_B}(\#eq:eqdom22)
-\end{equation}
-é a proporção de unidades da população das categorias A e B no domínio A;
+Na população como um todo, a proporção de unidades com atributo $A$ é definida como $p = N_A / N$, e a estimação desta proporção foi tratada no capítulo \@ref(proporc). Considere a notação a seguir.
 
-Um estimador para $p_A^´$ pode ser construído com base na proporção de unidades da amostra pertencentes à categoria A dentro das unidades pertencentes às categorias A e B, isto é: 
+O número de unidades no domínio $d$ que também possuem o atributo $A$ é definido como: 
 
-\begin{equation}
-\widehat p_A^´=\frac{n_A}{n_A+n_B}(\#eq:eqdom23)
-\end{equation}
-sendo $n_A$,$n_B$ e $n_c$, respectivamente, os números de unidades da amostra pertencentes às categorias A,B e C.
+$$
+N_{dA} = \sum_{i \in U} y_{id} = \sum_{i \in U} y_i d_i = \sum_{i \in U_d} y_i 
+$$
+E a proporção de unidades no domínio $d$ que também possuem o atributo $A$ é definida como:
 
-Fazendo $N^´=N_A+N_B$ e $n^´=n_A+n_B$, pode-se escrever $p_A^´$ e $\widehat p_A^´$ como: $p_A^´=\frac{N_A}{N^´}\quad\text{e}\quad\widehat p_A^´=\frac{n_A}{n^´}$
+$$
+p_{dA} = N_{dA} / N_d \,\, (\#eq:eqdom25)
+$$
 
-Assim, é possível mostrar que a distribuição de probabilidades de $p_A^´$ dado $n^´$ é também binomial ou hipergeométrica, conforme a amostra seja com ou sem reposição, isto é: 
+Sob AAS, o estimador simples para $p_{dA}$ pode ser obtido a partir do estimador\@ref(eq:eqdom11), lembrando que agora a variável $y$ é também do tipo indicadora, resultando em: 
 
-\begin{equation}
-P\left[\widehat p_A^´=\frac{k}{n^´}|n^´\right]=\binom{N^´}{k}p_A^{´k}(1-p_A^´)^k\quad \,\,k=0,1,2,\dots,n^´(\#eq:eqdom24)
-\end{equation} 
-na amostra com reposição. 
+$$
+\widehat {p}_{dA} = \sum_{i\in s}y_{id}/n_d = \frac {n_{dA}} {n_d} \,\, (\#eq:eqdom26)
+$$
+onde $n_{dA}$ denota o número de unidades na amostra do domínio $d$ que também possuem o atributo $A$. 
 
+Considerando fixado o tamanho da amostra no domínio $d$, a variância condicional do estimador $\widehat {p}_{dA}$ é dada por:
 
-\begin{equation}
-P\left[\widehat p_A^´=\frac{k}{n^´}|n^´\right]=\frac{\binom{N_A}{k}\binom{N_B}{n^´-k}}{\binom{N^´}{n^´}}\quad\,\,k=0,1,2,\dots,min\{{n^´,N_A}^´\}\quad(\#eq:eqdom25)
-\end{equation} 
-na amostra sem reposição. 
+$$
+V_{AAS}(\widehat p_{dA} ) = \left( \frac 1 {n_d} - \frac{1}{N_d} \right) \frac {N_d} {N_d -1} p_{dA} (1- p_{dA}) (\#eq:eqdom27) 
+$$
 
-Consequentemente a variância do estimador da proporção $p_A^´$  sob AAS será dada por:
+Um estimador da variância de $\widehat p_{dA}$ sob AAS resulta em:
 
-\begin{equation}
-V_{AAS}(\widehat p_A^´)=\left(\frac{N^´-n^´}{N^´-1}\right)\frac {p_A^´(1-p_A^´)}{n^´}(\#eq:eqdom26) 
-\end{equation}
+$$
+\widehat V_{AAS} (\widehat p_{dA}) = \left( \frac 1 {n_d} - \frac{1}{N_d} \right) {\widehat p_{dA} (1 - \widehat p_{dA}) } \,\, (\#eq:eqdom28) 
+$$
+Caso $N_d$ não seja conhecido, a fração amostral no domínio $n_d / N_d$ pode ser aproximado por $n / N$ na expressão anterior, levando ao estimador
 
-Um estimador da variância de $\widehat p_A^´$ sob AAS resulta em:
+$$
+\widehat V_{AAS} (\widehat p_{dA}) = \left( 1 - \frac{n}{N} \right) \frac {\widehat p_{dA} (1 - \widehat p_{dA}) } {n_d} \,\, (\#eq:eqdom29) 
+$$
 
-\begin{equation}
-\widehat V_{AAS}(\widehat p_A^´)= \left((1-\frac{n^´}{N^´}\right)\frac {\widehat p_A^´(1-\widehat p_A^´)}{n^´-1}(\#eq:eqdom27) 
-\end{equation}
+Para completar a inferência sobre uma proporção de unidades portadoras do atributo $A$ no domínio $d$, admite-se a validade da aproximação normal para a distribuição de $\widehat p_{dA}$, tal como no capítulo \@ref(proporc), e se agrega uma *correção de continuidade*. Assim a expressão do intervalo de confiança para a proporção populacional $p_{dA}$ é dada por:
 
-Admite-se então, a validade da aproximação normal para a distribuição de $\widehat p_A^´$ e considera (tal como no capítulo 5) uma *correção de continuidade* acrescentando a fração $1/2n^´$ à margem de erro do intervalo de confiança pelo fato de se fazer uma aproximação de uma distribuição discreta (Binomial ou Hipergeométrica) pela distribuição Normal, que é contínua. Desse modo a expressão do intervalo de confiança para a proporção populacional $p_A^´$ pode ser obtida com base em:
-
-\begin{equation}
-IC_{AAS} (p_A^´; 1 - \alpha) = \left [\widehat p_A^´\mp z_{\alpha/2} \sqrt{\left(1-\frac{n^´}{N^´}\right)\frac{\widehat p_A^´(1-\widehat p_A^´)}{n^´-1}}+\frac{1}{2n^´}\right] (\#eq:eqdom28)
-\end{equation}
-
-Caso $N^´$ não seja conhecido $n^´/N^´$ pode ser aproximado por $n/N$ na expressão anterior. 
-
-Estimando totais e médias por domínios
-Considere os dados da população de municípios brasileiros fornecidos no arquivo ‘MunicBR_dat.rds’. 
-Selecione uma AAS de n=250 municípios, e use esta amostra para estimar os seguintes parâmetros populacionais:
-a)	População total por macro-região do Brasil, e correspondentes margens de erro relativo ao nível de confiança de 95%; suponha conhecidos os tamanhos dos domínios;
-b)	População total por macro-região do Brasil, e correspondentes margens de erro relativo ao nível de confiança de 95%; suponha desconhecidos os tamanhos dos domínios;
-c)	Média da densidade habitacional por km2 por município para municípios com população igual ou superior a 100 mil habitantes, e correspondente margem de erro ao nível de confiança de 95%. Nesse caso, considere que o tamanho do domínio relevante é desconhecido.
-Usando os dados populacionais, calcule os valores dos parâmetros estimados em a) e c) e compare com suas estimativas amostrais. Comente.
-
-
+$$
+IC_{AAS} (p_{dA} \, ; \, 1 - \alpha) = \left[ \widehat p_{dA} \mp \left( z_{\alpha / 2} \sqrt{ \widehat V_{AAS} (\widehat p_{dA}) } + \frac{1}{2n_d} \right) \right] (\#eq:eqdom30)
+$$
 
 ## Exercícios
 
-(#exr:exedom1) A população total de uma cidade é de 5000 pessoas. Uma amostra de fração amostral igual a 20% é selecionada aleatoriamente sem reposição. Na amostra 4000 pessoas estão na força de trabalho, das quas 200 estão sem emprego.
+**(#exr:exrdom1)** A população total de uma cidade é de $N = 50.000$ pessoas. Uma amostra de fração amostral igual a 20% é selecionada aleatoriamente sem reposição. Na amostra 4.000 pessoas estão na força de trabalho, das quais 200 estão sem emprego.
 
-a) que proporção da força de trabalho está desempregada?
+a) Que proporção da força de trabalho está desempregada?
     
-b) qual o intervalo com 68% de confiança para essa proporção populacional? 
+b) Qual o intervalo com 90% de confiança para essa proporção populacional? 
 
-(#exr:exedom2) Considere a população de 338 fazendas produtoras de cana de açúcar fornecida. 
 
-1.	Considere um plano AAS e tamanhos amostrais $n$ variando no conjunto {5, 10, 20, 50, 100}. Imagine que há interesse em estimar dois parâmetros:
+**(#exr:exrdom2)** Considere a população de $N = 338$ fazendas produtoras de cana de açúcar fornecida no arquivo 'fazendas_dat.rds'. 
 
-   I.	A média da variável Produtividade = Quant / Area;
+Considere um plano AAS e tamanhos amostrais $n$ variando no conjunto {5, 10, 20, 50, 100}. Imagine que há interesse em estimar dois parâmetros:
 
-   II.	A produtividade média por unidade de área na população.
+   I)	A média da variável Produtividade = Quant / Area;
 
-  Para cada um dos tamanhos de amostra considerados:
+   II)	A produtividade média por unidade de área na população.
 
-a)	Obtenha 500 amostras por AAS da população de fazendas; 
+Para cada um dos tamanhos de amostra considerados, realize as tarefas abaixo indicadas.
+
+a) Obtenha 500 amostras por AAS da população de fazendas. 
     
-b)	Use cada uma destas amostras para calcular estimativas dos dois parâmetros de interesse, e dos respectivos erros padrão;
+b) Use cada uma destas amostras para calcular estimativas dos dois parâmetros de interesse, e dos respectivos erros padrão.
 
-c)	Use as 500 estimativas pontuais obtidas para cada parâmetro para avaliar:
+c) Use as 500 estimativas pontuais obtidas para cada parâmetro para avaliar:
 
 -	O comportamento do viés dos estimadores;
 
@@ -444,15 +475,17 @@ c)	Use as 500 estimativas pontuais obtidas para cada parâmetro para avaliar:
 
 -	A adequação da aproximação normal para a distribuição dos estimadores usados.
 
-2. Considere um plano AAS e dois tamanhos amostrais $n_1=20$ e $n_2=100$. Agora, temos interesse em estimar a despesa com a *produção total de cana para um domínio de interesse*, definido como o conjunto de fazendas pertencentes às classes de tamanho 4, 5 e 6.
 
-Para cada um dos dois tamanhos de amostra considerados: 
+**(#exr:exrdom3)** Considere a população de $N = 338$ fazendas produtoras de cana de açúcar fornecida no arquivo 'fazendas_dat.rds'. 
 
-a)	Obtenha 500 amostras por AAS da população de fazendas; 
+Considere agora um plano AAS e dois tamanhos amostrais $n_1 = 20$ e $n_2 = 100$. Agora o interesse é estimar a despesa com a *produção total de cana para um domínio de interesse*, definido como o conjunto de fazendas pertencentes às classes de tamanho 4, 5 e 6.
 
-b)	Use cada uma destas amostras para calcular estimativas do parâmetro de interesse e dos correspondentes erros padrões supondo que o tamanho do domínio é desconhecido;
+Para cada um dos tamanhos de amostra considerados, realize as tarefas abaixo indicadas.
 
-c)	Use cada uma destas amostras para calcular estimativas do parâmetro de interesse e dos correspondentes erros padrões supondo que o tamanho do domínio é conhecido;
+a) Obtenha 500 amostras por AAS da população de fazendas. 
 
-d)	Use as 500 estimativas pontuais obtidas em b) e em c) para avaliar a adequação da aproximação normal para a distribuição dos estimadores usados.
-    
+b) Use cada uma destas amostras para calcular estimativas do parâmetro de interesse e dos correspondentes erros padrões supondo que o tamanho do domínio é *desconhecido*.
+
+c) Use cada uma destas amostras para calcular estimativas do parâmetro de interesse e dos correspondentes erros padrões supondo que o tamanho do domínio é *conhecido*.
+
+d) Use as 500 estimativas pontuais obtidas em b) e em c) para avaliar a adequação da aproximação normal para a distribuição dos estimadores usados, e também para avaliar qual dos dois estimadores fornece resultados mais precisos.
