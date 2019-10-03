@@ -43,7 +43,7 @@ Uma *proporção* pode assumir valores variando entre $0$, quando nenhuma unidad
 Como $y$ só pode receber valores $0$ ou $1$, a expressão da sua *variância* populacional pode ser simplificada:
 
 \begin{equation}
-S^2_y = \displaystyle \frac {1}{N-1} \left( \sum_{i \in U} y^2_i - N \overline{Y}^2 \right) = \frac{1}{N-1} \left(Np-Np^2 \right) = \frac{N}{N-1} p \left(1-p\right) . (\#eq:eqpro4)
+S^2_y = \displaystyle \frac {1}{N-1} \left( \sum_{i \in U} y^2_i - N \overline{Y}^2 \right) = \frac{1}{N-1} \left(Np-Np^2 \right) = \frac{N}{N-1} p \left(1-p\right) (\#eq:eqpro4)
 \end{equation} 
 
 A *variância* populacional de $y$ pode também ser definida como $\sigma^2_y = p (1-p)$. Tanto $S^2_y$ como $\sigma^2_y$ representam a dispersão da distribuição dos valores de $y$ na população. Para populações com um grande número de unidades ($N \displaystyle \rightarrow \infty,$), é fácil verificar que as duas quantidades são praticamente iguais, pois pode-se considerar $S^2_y \displaystyle \doteq p(1-p) = \sigma^2_y$.
@@ -201,11 +201,11 @@ Note que para populações onde o número de unidades $N$ é suficientemente gra
 Utilizando $s^2_y$ como estimador não viciado para $S^2_y$ chega-se aos estimadores para as variâncias dos estimadores de total e proporção:
 
 $$
-\widehat V_{AAS} (\widehat {N} _A) = N^2 \left( \frac 1 n - \frac {1}{N} \right) \frac {\widehat p (1 - \widehat p)} {n-1} \,\,(\#eq:eqpro17) 
+\widehat V_{AAS} (\widehat {N} _A) = N^2 \left( \frac 1 n - \frac {1}{N} \right) \frac {n\widehat p (1 - \widehat p)} {n-1} \,\,(\#eq:eqpro17) 
 $$
 
 $$
-\widehat V_{AAS} (\widehat p) = \left( \frac 1 n - \frac {1}{N} \right) \frac {\widehat p (1 - \widehat p)} {n-1} \,\,(\#eq:eqpro18) 
+\widehat V_{AAS} (\widehat p) = \left( \frac 1 n - \frac {1}{N} \right) \frac {n\widehat p (1 - \widehat p)} {n-1} \,\,(\#eq:eqpro18) 
 $$
 
 A Tabela \@ref(tab:tabprop2) reúne os resultados principais da estimação de contagens e proporções sob *AAS*.
@@ -226,9 +226,9 @@ $\displaystyle p = N_A/N$                                                       
                                                                                                                                                                                                               
 $\displaystyle S^2_y =\frac{N}{N-1}p(1-p)$                                            $\displaystyle s^2_y =\displaystyle\frac{n}{n-1} \widehat p (1 - \widehat p)$                                             
                                                                                                                                                                                                               
-$\displaystyle V_{AAS}(\widehat N_A)= N^2\left(\frac1 n-\frac1 N\right)S^2_y$         $\displaystyle\widehat V_{AAS}(\widehat N_A)=N^2\left(\frac 1 n-\frac {1}{N}\right)\frac{\widehat p (1-\widehat p)}{n-1}$  
+$\displaystyle V_{AAS}(\widehat N_A)= N^2\left(\frac1 n-\frac1 N\right)S^2_y$         $\displaystyle\widehat V_{AAS}(\widehat N_A)=N^2\left(\frac 1 n-\frac {1}{N}\right)\frac{n\widehat p (1-\widehat p)}{n-1}$  
                                                                                                                                                                                                               
-$\displaystyle V_{AAS}(\widehat p)=\displaystyle\left(\frac1 n-\frac1 N\right)S^2_y$  $\displaystyle\widehat V_{AAS}(\widehat p)=\left(\frac 1 n-\frac{1}{N}\right)\frac{\widehat p(1-\widehat p)} {n-1}$       
+$\displaystyle V_{AAS}(\widehat p)=\displaystyle\left(\frac1 n-\frac1 N\right)S^2_y$  $\displaystyle\widehat V_{AAS}(\widehat p)=\left(\frac 1 n-\frac{1}{N}\right)\frac{n\widehat p(1-\widehat p)} {n-1}$       
 
 ----------
 </center>
@@ -432,7 +432,7 @@ curve(dnorm(x), col=2, lty=2, lwd=2, add=T)
 
 Tanto nos casos de seleção com ou sem reposição pode-se considerar que as aproximações são satisfatórias, com os histogramas das distribuições amostrais do estimador $\widehat p$ aderindo consideravelmente à curva Normal padrão.
 
-[@Cochran1977] mostra uma tabela, reproduzida na Tabela \@ref(tab:tabprop3), com alguns valores mínimos do total de unidades observadas na amostra, $t_y$, onde a aproximação Normal pode se utilizada.
+@Cochran1977 mostra uma tabela, reproduzida na Tabela \@ref(tab:tabprop3), com alguns valores mínimos do total de unidades observadas na amostra, $t_y$, onde a aproximação Normal pode se utilizada.
 
 
 <center>
@@ -473,7 +473,7 @@ Caso se deseje considerar o fator de correção para populacões finitas, quando
 \displaystyle IC(p;{1-\alpha})=\left[\widehat p-z_{\alpha/ 2}\sqrt { \left(\frac{N-n}{N-1} \right)\frac{pq}{n}}\,;\,\widehat p+z_{\alpha/2}\sqrt { \left(\frac{N-n}{N-1} \right)\frac{pq}{n}}\,\, \right]\,\,(\#eq:eqpro30) 
 \end{equation}
 
-Em [@Cochran1977] é apresentada uma *correção de continuidade* acrescentando a fração $1/2n$ à margem de erro do intervalo de confiança pelo fato de se fazer uma aproximação de uma distribuição discreta (Binomial ou Hipergeométrica) pela distribuição Normal, que é contínua. Desse modo a expressão do intervalo de confiança passa a ser: 
+Em @Cochran1977 é apresentada uma *correção de continuidade* acrescentando a fração $1/2n$ à margem de erro do intervalo de confiança pelo fato de se fazer uma aproximação de uma distribuição discreta (Binomial ou Hipergeométrica) pela distribuição Normal, que é contínua. Desse modo a expressão do intervalo de confiança passa a ser: 
 \begin{equation} 
 \displaystyle IC(p;{1-\alpha})=\left[\widehat p \mp \left(z_{\alpha/ 2}\sqrt {{pq}/n}+1/2n \right) \right] (\#eq:eqpro31) \end{equation}
 Ou considerando a correção para população finita:

@@ -191,17 +191,19 @@ As unidades componentes das possíveis amostras sistemáticas de intervalo $K$ p
 cat("<table>",paste0("<caption>", "(#tab:tabsis3)","Unidades que compõe as possíveis $K$ amostras sistemáticas com partida aleatória no intervalo $[1,   2,   ...,   K]$","</caption>"),"</table>", sep ="\n")
 ```
 ----------
-Amostras possíveis    **1**             **2**        **...**     **c**        **...**    **K** 
-------------------- --------------- -------------- ---------- -------------- --------- ---------
-                    $y_1$           $y_2$          $...$      $y_c$           $...$     $y_K$
+                                 Amostras   possíveis                           
+--------------- -------------- ----------- -------------- --------- ---------
+**1**             **2**        **...**     **c**          **...**   **K**
 
-                    $y_{K+1}$       $y_{K+2}$      $...$      $y_{K+c}$       $...$     $y_{2K}$
+$y_1$           $y_2$          $...$       $y_c$          $...$     $y_K$
 
-                    $\vdots$        $\vdots$       $\vdots$   $\vdots$        $\vdots$  $\vdots$
+$y_{K+1}$       $y_{K+2}$      $...$       $y_{K+c}$      $...$     $y_{2K}$
 
-                    $y_{(n-1)K+1}$  $y_{(n-1)K+2}$ $...$      $y_{(n-1)K+c}$  $...$     $y_{nK}$
+$\vdots$        $\vdots$       $\vdots$    $\vdots$       $\vdots$  $\vdots$
 
-                    $y_{nK+1}$      $y_{nK+2}$     $...$      $y_{nK+c}$
+$y_{(n-1)K+1}$  $y_{(n-1)K+2}$ $...$       $y_{(n-1)K+c}$ $...$     $y_{nK}$
+
+$y_{nK+1}$      $y_{nK+2}$     $...$       $y_{nK+c}$
 
 ----------
 </center>
@@ -215,17 +217,19 @@ Há uma outra forma, mostrada na Tabela \@ref(tab:tabsis4), de visualizar a comp
 cat("<table>",paste0("<caption>", "(#tab:tabsis4)","Notação alternativa das unidades que compõe as possíveis $K$ amostras sistemáticas com partida aleatória no intervalo $[1,   2,   ...,   K]$","</caption>"),"</table>", sep ="\n")
 ```
 ----------
-Amostras possíveis    **1**             **2**        **...**     **c**        **...**    **K** 
-------------------- --------------- -------------- ---------- -------------- --------- ---------
-                    $y_{11}$        $y_{21}$       $...$       $y_{c1}$       $...$     $y_{K1}$
+                               Amostras   possíveis                     
+------------- -------------- ----------- -------------- --------- ---------
+**1**         **2**          **...**     **c**          **...**   **K**
+                     
+$y_{11}$      $y_{21}$       $...$       $y_{c1}$       $...$     $y_{K1}$
+ 
+$y_{12}$      $y_{22}$       $...$       $y_{c2}$       $...$     $y_{K2}$
 
-                    $y_{12}$        $y_{22}$       $...$       $y_{c2}$       $...$     $y_{K2}$
+$\vdots$      $\vdots$       $\vdots$    $\vdots$       $\vdots$  $\vdots$
 
-                    $\vdots$        $\vdots$       $\vdots$    $\vdots$       $\vdots$  $\vdots$
-
-                    $y_{1n}$        $y_{2n}$       $...$       $y_{cn}$       $...$     $y_{Kn}$
-
-                    $y_{1(n+1)}$    $y_{2(n+1)}$   $...$       $y_{c(n+1)}$
+$y_{1n}$      $y_{2n}$       $...$       $y_{cn}$       $...$     $y_{Kn}$
+ 
+$y_{1(n+1)}$  $y_{2(n+1)}$   $...$       $y_{c(n+1)}$
 
 ----------
 </center>
@@ -568,19 +572,19 @@ Fica como exercício para o leitor verificar que o mesmo não ocorre quando se u
 
 1. Como $r$ pode tomar apenas um valor, $V_{AS}(\widehat Y_{AS})$ não pode ser diretamente estimada a partir da amostra. Isto ocorre porque $\pi_{ij} = 0$ para quaisquer duas unidades em amostras distintas.
 
-2. Em [@Cochran1977] é apresentada uma boa discussão sobre como a ordenação dos valores da variável de pesquisa para unidades populacionais pode afetar a eficiência de amostras sistemáticas.
+2. Em @Cochran1977 é apresentada uma boa discussão sobre como a ordenação dos valores da variável de pesquisa para unidades populacionais pode afetar a eficiência de amostras sistemáticas.
 
-3. Para populações em “ordem aleatória”, a performance da amostragem sistemática é semelhante a da amostragem aleatória simples sem reposição ([@Cochran1977], seção 8.5). 
+3. Para populações em “ordem aleatória”, a performance da amostragem sistemática é semelhante a da amostragem aleatória simples sem reposição (@Cochran1977, seção 8.5). 
 
-4. Para populações com tendência linear, amostragem sistemática é melhor que AAS ([@Cochran1977], seção 8.6).
+4. Para populações com tendência linear, amostragem sistemática é melhor que AAS (@Cochran1977, seção 8.6).
 
-5. Amostragem sistemática é como uma forma de *amostragem estratificada*, com sorteio de apenas uma unidade por estrato ([@Cochran1977], p. 215).
+5. Amostragem sistemática é como uma forma de *amostragem estratificada*, com sorteio de apenas uma unidade por estrato (@Cochran1977, p. 215).
 
-6. Para populações periódicas, amostragem sistemática em sincronia com o período é um desastre ([@Cochran1977], p. 218).
+6. Para populações periódicas, amostragem sistemática em sincronia com o período é um desastre (@Cochran1977, p. 218).
 
 **Considere o caso especial onde $N = n \times K$**
 
-Da tabela 8.2 do [@Cochran1977] é fácil ver que $\overline y_r= t_r/n_r$ é um estimador não viciado para $\overline Y$. Como
+Da tabela 8.2 do @Cochran1977 é fácil ver que $\overline y_r= t_r/n_r$ é um estimador não viciado para $\overline Y$. Como
 
 $$
 \displaystyle\sum_{r=1}^{K}\sum_{i=1}^{n}(y_{ri}-\overline Y)^2=n\sum_{r=1}^{K}(\overline y_r - \overline Y)^2+\sum_{r=1}^{K}\sum_{i=1}^{n}(y_{ri}-\overline y_r)^2
@@ -595,7 +599,7 @@ onde $S_y^2$ é a variância populacional “total”, $S_D^2$ é a variância *
 
 $V_{AS}(\overline y)$ é a variância de $\overline y$ sob amostragem sistemática.
 
-Portanto, conforme [@Cochran1977], p. 208, o estimador de média é mais eficiente sob amostragem sistemática que sob AAS se e somente se $S_D^2>S_y^2$ .
+Portanto, conforme @Cochran1977, p. 208, o estimador de média é mais eficiente sob amostragem sistemática que sob AAS se e somente se $S_D^2>S_y^2$ .
 
 **Uma expressão alternativa para $V_{AS}(\overline y)$ quando $N = nK$**
 
@@ -629,7 +633,7 @@ Cabe notar que razões do tipo $V_{AS}(\overline y)/V_{AAS}(\overline y)$ são c
 
 Como foi visto, existem dificuldades quando o tamanho da população, $N$, não é um múltiplo do intervalo de seleção $K$, ou seja, quando $N \ne nK$. Neste caso os estimadores de total e da média têm um vício.
 
-Em [@Cochran1977] é dito que esse vício pode ser considerado desprezível quando se trabalha com tamanhos de amostra razoavelmente grandes, podendo-se considerar como tal amostras a partir de $n=50$.
+Em @Cochran1977 é dito que esse vício pode ser considerado desprezível quando se trabalha com tamanhos de amostra razoavelmente grandes, podendo-se considerar como tal amostras a partir de $n=50$.
 
 Há também alternativas que podem ser utilizadas quando a seleção da amostra sistemática for feita a partir de um cadastro ou lista das unidades populacionais. Uma possibilidade é "completar" a população sorteando aleatóriamente unidades da população e adicioná-las à população original até o número mais próximo de N tal que o novo tamanho da população seja $N' = nK$. Dessa maneira vai-se obter uma AS onde todas as amostras terão o mesmo tamanho e o problema do vício desaparece. Outra possíbilidade é eleiminar ao acaso unidades da população até obter um número $N'$ menor que $N$ tal que $N'=nK$. É aconselhável optar pelo caso em que se altere menos possível a população original. 
 
@@ -637,7 +641,7 @@ Por exemplo, no caso de uma população de $N=19$ unidades onde se deseja uma AS
 
 No caso de se desejar uma AS de uma população de $N=25$, pode´se eliminar aleatóriamente uma unidade da população, obtendo-se uma nova população de $N'=24$, donde todas as $4$ amostras sistemáticas possíveis com K=4 terão o tamanho $n=6$.
 
-Também é sugerido por [@Cochran1977] um método de seleção de uma amostra sistemática de forma circular proposta por Lahiri em 1952. Esse método consiste em:
+Também é sugerido por @Cochran1977 um método de seleção de uma amostra sistemática de forma circular proposta por Lahiri em 1952. Esse método consiste em:
 
   1)  Numerar as unidades da população de forma circular de maneira que após a última unidade esteja novamente a primeira;
   2)  Tomar como intervalo de seleção o inteiro mais próximo de $N/n$, ou $K=round(N/n)$;
@@ -696,11 +700,11 @@ $$
  \widehat V_{2AS}(\overline y_{AS})=\frac {N-n}{Nn}\frac 1{2(n-1)}\sum_{i=i}^{n_r}(y_i-y_{i+K})^2 (\#eq:eqsis14)
 $$
 
-Alternativamente e independente da ordenação da população, pode-se usar um estimador do tipo replicação, onde são selecionadas $q$ amostras sistemáticas de tamanhos $n/q$ cada uma, tomando a variância das estimativas dadas por cada uma das amostras. Essa técnica, também chamada *amostra sistemática repetida*, está descrita em [@Scheaffer1990].
+Alternativamente e independente da ordenação da população, pode-se usar um estimador do tipo replicação, onde são selecionadas $q$ amostras sistemáticas de tamanhos $n/q$ cada uma, tomando a variância das estimativas dadas por cada uma das amostras. Essa técnica, também chamada *amostra sistemática repetida*, está descrita em @Scheaffer1990.
 
 Quando a seleção de uma AS for realizada a partir de um cadastro conhecido, é sempre possível reordenar as unidades aleatóriamente antes proceder a seleção. Esse é um artifício muito útil e que permite que se utilize os estimadores equivalentes aos da AAS para estimar a variância dos estimadores.
 
-Pode-se encontrar boas discussões sobre a estimação da variância na amostragem sistemática em, por exemplo, [@Cochran1977] ou [@Thompson2012].
+Pode-se encontrar boas discussões sobre a estimação da variância na amostragem sistemática em, por exemplo, @Cochran1977 ou @Thompson2012.
 
 ## Exercícios
 
