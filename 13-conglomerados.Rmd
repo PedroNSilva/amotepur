@@ -1,4 +1,4 @@
-# Amostragem de Conglomerados em Um ou Mais Estágios 
+# Amostragem de Conglomerados em Um ou Mais Estágios {#cong}
 
 ## Conceituação básica 
 
