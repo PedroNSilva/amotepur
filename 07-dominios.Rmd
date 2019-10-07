@@ -218,7 +218,7 @@ $$
 A Tabela \@ref(tab:tabdom1) apresenta um resumo da estimação de parâmetros proporção, média e total do domínio $d$ sob AAS. 
 
 ```{r, results="asis", echo=FALSE}
-cat("<table>",paste0("<caption>", "(#tab:tabdom1)", "Resumo de estimadores dos parâmetros proporção, média e total do domínio $d$ sob AAS", "</caption>"),"</table>", sep ="\n")
+cat("<table>",paste0("<caption>", "(#tab:tabdom1)", "Estimadores dos parâmetros proporção, média e total do domínio $d$ sob AAS", "</caption>"),"</table>", sep ="\n")
 ```
 <center>
 ----------------------------------------------------  ---------------------------------------------------------------------------------------------------------------------------------------------------------
