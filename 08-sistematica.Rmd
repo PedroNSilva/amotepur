@@ -486,9 +486,9 @@ Como já foi visto no Capítulo \@ref(cap:proporc), muitas vezes o interesse é 
 Como já foi visto que a proporção equivale à média de uma variável do tipo indicadora, quando o tamanho total da população, $N$, for conhecido um estimador não viciado para a proporção será dado por:
 
 $$
-\widehat p_{AS}=\frac KN \sum_{i=1}^{n_r} y_i=\frac KN t_r=\frac KN n_A (\#eq:eqsis8)
+\widehat p_{AS}=\frac KN \sum_{i=1}^{n_r} y_i=\frac KN t_r=\frac KN n_a (\#eq:eqsis8)
 $$
-onde $n_A$ denota o número de unidades que tem a caracteristica de interesse na amostra.
+onde $n_a$ denota o número de unidades que tem a caracteristica de interesse na amostra.
 
 **(#exm:exmsis10)** Utilizando o R pode-se ver núméricamente que o estimador para a proporção é não viciado quando $N$ é conhecido.
 
@@ -510,13 +510,13 @@ p_AS
 
 No caso em que o tamanho, $N$ da população é desconhecido pode-se utilizar o estimador de razão que, neste caso será igual à proporção amostral:
 $$
-\widehat p_{AS}=\frac {n_A}{n_r},
+\widehat p_{AS}=\frac {n_a}{n_r},
 $$
 sendo um estimador viciado, a menos do caso onde $N=nK$, como já foi visto.
 
 
 
-### Variância de $\widehat Y_{AS}$ sob amostragem sistemática
+## Variância dos estimadores sob amostragem sistemática
 
 A variância de $\widehat Y_{AS}$ sob amostragem sistemática é dada por: 
 
@@ -531,7 +531,7 @@ Portanto a variância é calculada a partir da soma de quadrados dos desvios ent
 Quando $N$ é conhecido a variância do estimador da média populacional é dada por:
 
 $$
-V_{AS}(\widehat {\overline Y})= \frac1{N^2} V_{AS}(\widehat Y)
+V_{AS}(\overline y_{AS})= \frac1{N^2} V_{AS}(\widehat Y_{AS})
 $$
 
 Um problema que ocorre com a amostragem sistemática é o fato da ordenação da população em relação aos valores da variável, $y$, de interesse afetar a variância (precisão) dos estimadores.
@@ -629,6 +629,57 @@ $$
 
 Cabe notar que razões do tipo $V_{AS}(\overline y)/V_{AAS}(\overline y)$ são chamadas de *Efeito do Plano Amostral (EPA)*. Em inglês, usa-se o termo *design effect*, abreviado como *deff*.
 
+## Estimação de variâncias dos estimadores na amostragem sistemática
+
+Na amostragem sistemática não há um estimador não viciado para a variância dos estimadores do total e da média.
+
+O que se faz é utilizar estimadores mais adequados de acordo com a ordenação da população.
+
+No caso de se poder supor que não há uma ordenação ou que a população esteja espalhada aleatoriamente no cadastro de seleção em relação à variavel (variáveis) de interesse, de modo que as médias dentro de cada intervalo de seleção sejam, pelo menos aproximadamente, iguais ($\overline Y_r = constante$), o que se pode fazer é utilizar um estimador para a variância da média equivalente ao usado quando se tem uma AAS, dado pela fórmula:
+
+$$
+ \widehat V_{1AS}(\overline y_{AS})=\frac {N-n}{Nn}\frac 1{n-1}\sum_{i=i}^{n_r} (y_i-\overline y_{AS})^2 (\#eq:eqsis13)
+$$
+Esses estimadores são para o caso de $N$ conhecido e serão não viciados caso a suposição de ordenação aleatória das unidades na população esteja correta. No caso de não se conhecer $N$ pode-se utilizar as alternativas dadas pelos estimadores de razão.
+
+No caso em que a população esteja ordenada segundo uma "estratificação" de modo que as médias em cada intervalo de seleção variem (p.ex.: a população é ordenada segundo os valores de $y$), pode-se utilizar, para estimar a variancia do estimador da média, a fórmula:
+
+$$
+ \widehat V_{2AS}(\overline y_{AS})=\frac {N-n}{Nn}\frac 1{2(n-1)}\sum_{i=i}^{n_r}(y_i-y_{i+K})^2 (\#eq:eqsis14)
+$$
+
+Alternativamente e independente da ordenação da população, pode-se usar um estimador do tipo replicação, onde são selecionadas $q$ amostras sistemáticas de tamanhos $n/q$ cada uma, tomando a variância das estimativas dadas por cada uma das amostras. Essa técnica, também chamada *amostra sistemática repetida*, está descrita em @scheaffer2011.
+
+Quando a seleção de uma AS for realizada a partir de um cadastro conhecido, é sempre possível reordenar as unidades aleatóriamente antes proceder a seleção. Esse é um artifício muito útil e que permite que se utilize os estimadores equivalentes aos da AAS para estimar a variância dos estimadores.
+
+Pode-se encontrar boas discussões sobre a estimação da variância na amostragem sistemática em, por exemplo, @Cochran1977 ou @Thompson2012.
+
+A Tabela \@ref(tab:tabsis6) apresenta um resumo sobre a estimação de alguns parâmetros na AS.
+
+<center>
+```{r,results="asis",echo=FALSE}
+cat("<table>",paste0("<caption>", "(#tab:tabsis6)","Principais resultados para os estimadores sob *AS*", "</caption>"),"</table>", sep ="\n")
+```
+
+----------
+Parâmetro                                                                             Estimador sob AS  
+------------------------------------------------------------------------------------- --------------------------------------------------------------------------------------------------------------------------
+$\displaystyle Y=\sum_{i \in U} y_i$                                                  $\widehat{Y}_{AS}=Kt_r=K \displaystyle \sum_{r=1}^{K}I(r)t_r$
+
+$N$                                                                                   $\displaystyle \widehat N_{AS}=Kn_r,\,\, \text{ se  } N \text{ é desconhecido }$
+
+$\displaystyle \overline Y=Y/N$                                                       $\displaystyle \overline {y}_{AS}=\frac KNt_r,\,\,\text{ se } N \text{ é conhecido }\\ \displaystyle  \overline{y}_{AS}= \frac {t_r}{n_r}=\overline y,\,\,\text{ se }N \text{ é desconhecido }$
+
+$\displaystyle p = N_A/N$                                                             $\displaystyle \widehat {p}_{AS}=\frac KNn_a,\,\, \text{ se }  N \text{ é conhecido }\\  \displaystyle \widehat {p}_{AS}= \frac {n_a} {n_r},\,\,\text{ se }N \text{ é desconhecido }$                                                                                        
+                                                                                                                                                                                                              
+$\displaystyle V_{AS}(\widehat Y_{AS})=K\sum_{r=1}^K(t_r-\overline t)^2$              $\text{Depende da ordenação das unidades na população amostrada}$
+
+$\displaystyle V_{AS}(\overline y_{AS})=\frac K{N^2}\sum_{r=1}^K(t_r-\overline t)^2$  $\text{Depende da ordenação das unidades na população amostrada}$
+                                                                                                                                                                                                              
+----------
+</center>
+ 
+
 ## Alternativas de seleção em amostragem sistemática
 
 Como foi visto, existem dificuldades quando o tamanho da população, $N$, não é um múltiplo do intervalo de seleção $K$, ou seja, quando $N \ne nK$. Neste caso os estimadores de total e da média têm um vício.
@@ -680,41 +731,15 @@ Neste método a seleção é feita com equiprobabilidade e sem reposição, como
 
 Fica para o leitor mostrar que os estimadores para a média e total são não viciados.
 
-
-## Estimação de variâncias dos estimadores na amostragem sistemática
-
-Na amostragem sistemática não há um estimador não viciado para a variância dos estimadores do total e da média.
-
-O que se faz é utilizar estimadores mais adequados de acordo com a ordenação da população.
-
-No caso de se poder supor que não há uma ordenação ou que a população esteja espalhada aleatoriamente no cadastro de seleção em relação à variavel (variáveis) de interesse, de modo que as médias dentro de cada intervalo de seleção sejam, pelo menos aproximadamente, iguais ($\overline Y_r = constante$), o que se pode fazer é utilizar um estimador para a variância da média equivalente ao usado quando se tem uma AAS, dado pela fórmula:
-
-$$
- \widehat V_{1AS}(\overline y_{AS})=\frac {N-n}{Nn}\frac 1{n-1}\sum_{i=i}^{n_r} (y_i-\overline y_{AS})^2 (\#eq:eqsis13)
-$$
-Esses estimadores são para o caso de $N$ conhecido e serão não viciados caso a suposição de ordenação aleatória das unidades na população esteja correta. No caso de não se conhecer $N$ pode-se utilizar as alternativas dadas pelos estimadores de razão.
-
-No caso em que a população esteja ordenada segundo uma "estratificação" de modo que as médias em cada intervalo de seleção variem (p.ex.: a população é ordenada segundo os valores de $y$), pode-se utilizar, para estimar a variancia do estimador da média, a fórmula:
-
-$$
- \widehat V_{2AS}(\overline y_{AS})=\frac {N-n}{Nn}\frac 1{2(n-1)}\sum_{i=i}^{n_r}(y_i-y_{i+K})^2 (\#eq:eqsis14)
-$$
-
-Alternativamente e independente da ordenação da população, pode-se usar um estimador do tipo replicação, onde são selecionadas $q$ amostras sistemáticas de tamanhos $n/q$ cada uma, tomando a variância das estimativas dadas por cada uma das amostras. Essa técnica, também chamada *amostra sistemática repetida*, está descrita em @Scheaffer1990.
-
-Quando a seleção de uma AS for realizada a partir de um cadastro conhecido, é sempre possível reordenar as unidades aleatóriamente antes proceder a seleção. Esse é um artifício muito útil e que permite que se utilize os estimadores equivalentes aos da AAS para estimar a variância dos estimadores.
-
-Pode-se encontrar boas discussões sobre a estimação da variância na amostragem sistemática em, por exemplo, @Cochran1977 ou @Thompson2012.
-
 ## Exercícios
 
 **(#exr:exrsis1)**  Identifique as outras 4 amostras possíveis referidas no Exemplo \@ref(exm:exmsis1). 
 
-**(#exr:exrsis2)**  A Tabela \@ref(tab:tabsis6) mostra a listagem dos moradores dos 13 domicílios de uma rua. As pessoas foram listadas de acordo com a seguinte regra: H=homem adulto, M=mulher adulta, h=homem criança e m=mulher criança. Cada coluna da tabela representa um dos domicílios da rua.
+**(#exr:exrsis2)**  A Tabela \@ref(tab:tabsis7) mostra a listagem dos moradores dos 13 domicílios de uma rua. As pessoas foram listadas de acordo com a seguinte regra: H=homem adulto, M=mulher adulta, h=homem criança e m=mulher criança. Cada coluna da tabela representa um dos domicílios da rua.
 
 <center>
 ```{r, results="asis", echo=FALSE}
-cat("<table>",paste0("<caption>", "(#tab:tabsis6)","Composição das familias dos domicílios da rua","</caption>"),"</table>", sep ="\n")
+cat("<table>",paste0("<caption>", "(#tab:tabsis7)","Composição das familias dos domicílios da rua","</caption>"),"</table>", sep ="\n")
 ```
 
 ----------
@@ -747,11 +772,11 @@ cat("<table>",paste0("<caption>", "(#tab:tabsis6)","Composição das familias do
   c)  Uma pessoa usou os dados da amostra e calculou uma estimativa para o total de erros da seguinte maneira: calculou o número médio de erros por página da amostra e multiplicou por 207, resultando 331,20 erros. Esta é uma estimativa não viciada considerando o plano amostral utilizado? Por quê?
   d) A variância do estimador foi estimada por $207\times(207-20)\times1,09/20$, onde $\small1,09$ é a variância amostral dos 20 valores observados. Essa estimativa é não viciada? Por quê?
 
-**(#exr:exrsis4)**  A Tabela \@ref(tab:tabsis7) mostra o número de sementes germinadas em cada canteiro de um viveiro de mudas com um total de 200 canteiros. Suponha que se deseja estimar a média de sementes por canteiro, através de uma amostra de tamanho 10. (**Dica:** As linhas, $i$, são as possíveis amostras sistemáticas e as colunas, $h$, representam uma estratificação dos canteiros)
+**(#exr:exrsis4)**  A Tabela \@ref(tab:tabsis8) mostra o número de sementes germinadas em cada canteiro de um viveiro de mudas com um total de 200 canteiros. Suponha que se deseja estimar a média de sementes por canteiro, através de uma amostra de tamanho 10. (**Dica:** As linhas, $i$, são as possíveis amostras sistemáticas e as colunas, $h$, representam uma estratificação dos canteiros)
 
 <center>
 ```{r, results="asis", echo=FALSE}
-cat("<table>",paste0("<caption>", "(#tab:tabsis7)","Número de sementes germinadas por canteiro","</caption>"),"</table>", sep ="\n")
+cat("<table>",paste0("<caption>", "(#tab:tabsis8)","Número de sementes germinadas por canteiro","</caption>"),"</table>", sep ="\n")
 ```
 
 ----------
@@ -820,11 +845,11 @@ Totais   410 459 674 551 325 528 303 358 342 205    4155
   c) Estime a média de ocupantes por veículo no dia da pesquisa;
   d) Supondo que a distribuição do número de ocupantes é aleatória, estime um intervalo de 95% de confiança para a média de ocupantes por veículo.
   
-**(#exr:exrsis6)**  O departamento de controle de qualidade de uma indústria alimentícia utiliza amostragem sistemática para estimar a média da quantidade de determinado alimento colocada em cada lata na linha de produção. A Tabela \@ref(tab:tabsis8) relaciona a amostra selecionada de 1 em cada 50 latas num dia, quando a produção diária foi de 1820 latas.
+**(#exr:exrsis6)**  O departamento de controle de qualidade de uma indústria alimentícia utiliza amostragem sistemática para estimar a média da quantidade de determinado alimento colocada em cada lata na linha de produção. A Tabela \@ref(tab:tabsis9) relaciona a amostra selecionada de 1 em cada 50 latas num dia, quando a produção diária foi de 1820 latas.
 
 <center>
 ```{r, results="asis", echo=FALSE}
-cat("<table>",paste0("<caption>", "(#tab:tabsis8)","Quantidade de alimento, em onças, por lata na AS.","</caption>"),"</table>", sep ="")
+cat("<table>",paste0("<caption>", "(#tab:tabsis9)","Quantidade de alimento, em onças, por lata na AS.","</caption>"),"</table>", sep ="")
 ```
 ----------
   A     B     C     D     E     F
@@ -851,7 +876,7 @@ cat("<table>",paste0("<caption>", "(#tab:tabsis8)","Quantidade de alimento, em o
 
 <center>
 ```{r, results="asis", echo=FALSE}
-cat("<table>",paste0("<caption>", "(#tab:tabsis9)","Valores da variável $y$ para a população","</caption>"),"</table>", sep ="\n")
+cat("<table>",paste0("<caption>", "(#tab:tabsis10)","Valores da variável $y$ para a população","</caption>"),"</table>", sep ="\n")
 ```
 ----------
  i     I   II   III   IV   V
