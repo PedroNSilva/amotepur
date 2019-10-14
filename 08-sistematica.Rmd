@@ -851,8 +851,7 @@ Totais   410 459 674 551 325 528 303 358 342 205    4155
 ```{r, results="asis", echo=FALSE}
 cat("<table>",paste0("<caption>", "(#tab:tabsis9)","Quantidade de alimento, em onças, por lata na AS.","</caption>"),"</table>", sep ="")
 ```
-----------
-  A     B     C     D     E     F
+
 ----- ----- ----- ----- ----- -----
 12,00 11,97 12,01 12,03 12,01 11,80 
 
@@ -865,6 +864,7 @@ cat("<table>",paste0("<caption>", "(#tab:tabsis9)","Quantidade de alimento, em o
 11,85 11,98 11,87 12,05 12,02 12,04
 
 12,05 11,87 11,91 11,93 11,94 11,89
+
 ----------
 </center>
 
