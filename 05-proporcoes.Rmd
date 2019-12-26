@@ -11,14 +11,14 @@ Um caso especial de parâmetro de interesse para muitos estudos ou pesquisas oco
 
 Sendo uma variável indicadora, a variável $y$ irá assumir para cada unidade da população um de dois valores possíveis: o valor 1, se a unidade possui o atributo de interesse, ou o valor 0, caso a unidade não possua o atributo. Para fins de apresentação, seja $A \subset U$ o subconjunto das unidades da população $U$ que possuem o atributo de interesse. Então, para cada unidade $i$ da população, a variável $y$ será definida como:
 
-\begin{equation} 
+$$
 \displaystyle y_i = I(i \in A) =
 \begin{cases} 
 1, \text { se a unidade} \textit{ i } \text{possui o atributo de interesse} \\ 
 0, \text{ caso contrário}   
 \end{cases}
 (\#eq:eqpro1)
-\end{equation} 
+$$
 
 O total populacional da variável $y$ coincide com a contagem do número de unidades populacionais que possuem o atributo de interesse, ou que pertencem ao subconjunto $A$, e pode ser representado como:
 
@@ -166,7 +166,7 @@ A Tabela \@ref(tab:tabprop1) reúne os resultados principais da estimação de c
 
 <center>
 ```{r,results="asis",echo=FALSE}
-cat("<table>",paste0("<caption>", "(#tab:tabprop1)","Principais resultados de contagens e proporções sob *AASC*", "</caption>"),"</table>", sep ="\n")
+cat("<table>",paste0("<caption>", "(#tab:tabprop1)","Estimadores de contagens e proporções sob *AASC*", "</caption>"),"</table>", sep ="\n")
 ```
 
 ----------
@@ -227,7 +227,7 @@ A Tabela \@ref(tab:tabprop2) reúne os resultados principais da estimação de c
 <center>
 
 ```{r,results="asis",echo=FALSE}
-cat("<table>",paste0("<caption>", "(#tab:tabprop2)","Principais resultados de contagens e proporções sob *AAS*", "</caption>"),"</table>", sep ="\n")
+cat("<table>",paste0("<caption>", "(#tab:tabprop2)","Estimadores de contagens e proporções sob *AAS*", "</caption>"),"</table>", sep ="\n")
 ```
 
 ----------
@@ -474,7 +474,7 @@ cat("<table>",paste0("<caption>", "(#tab:tabprop3)","Valores mínimos de $n_A$ p
 ```
 
 ----------
- $P$           $n_A$         $n$     
+ $p$           $n_A$         $n$     
 ------------  ------ -----------
  0,50         15     30        
                              
@@ -496,32 +496,37 @@ cat("<table>",paste0("<caption>", "(#tab:tabprop3)","Valores mínimos de $n_A$ p
 
 A Tabela \@ref(tab:tabprop3) foi construída considerando um nível de significância de $\alpha=0,05$, que é um valor comumente utilizado em muitas situações práticas.Tem-se, a partir daí, critérios práticos para assumir a utilização da aproximação Normal, notando-se que o tamanho mínimo da amostra requerido é de $n=30$.
 
-Nas condições estabelecidas para a validade da aproximação Normal, tem-se que $S^2_y \doteq \sigma^2_y=p(1-P)$, portanto, $\displaystyle V_{AAS}(\widehat p) \doteq V_{AASC}(\widehat p)$. Então, para os dois tipos de seleção, pode-se considerar o intervalo de confiança para a proporção como: 
-\begin{equation} 
-\displaystyle IC(p;{1-\alpha})=\left[\widehat p-z_{\alpha/ 2}\sqrt { {p(1-P)}/n}\,;\,\widehat p+z_{\alpha/2}\sqrt {{p(1-P)}/n}\,\, \right]\,\,(\#eq:eqpro29) 
-\end{equation}
+Nas condições estabelecidas para a validade da aproximação Normal, tem-se que $S^2_y \doteq \sigma^2_y=p(1-p)$, portanto, $\displaystyle V_{AAS}(\widehat p) \doteq V_{AASC}(\widehat p)$. Então, para os dois tipos de seleção, pode-se considerar o intervalo de confiança para a proporção como: 
+
+$$ 
+\displaystyle IC(p;{1-\alpha})=\left[\widehat p-z_{\alpha/ 2}\sqrt { {p(1-p)}/n}\,;\,\widehat p+z_{\alpha/2}\sqrt {{p(1-p)}/n}\,\, \right]\,\,(\#eq:eqpro29) 
+$$
 Caso se deseje considerar o fator de correção para populacões finitas, quando a fração amostral não possa ser considerada pequena e a seleção for sem reposição, a expressão do intervalo de confiança passa a ser: 
-\begin{equation} 
-\displaystyle IC(p;{1-\alpha})=\left[\widehat p \mp z_{\alpha/ 2}\sqrt { \left(\frac{N-n}{N-1} \right)\frac{p(1-P)}{n}}\ \right]\,\,(\#eq:eqpro30) 
-\end{equation}
+
+$$
+\displaystyle IC(p;{1-\alpha})=\left[\widehat p \mp z_{\alpha/ 2}\sqrt { \left(\frac{N-n}{N-1} \right)\frac{p(1-p)}{n}}\ \right]\,\,(\#eq:eqpro30) 
+$$
 
 Em @Cochran1977 é apresentada uma *correção de continuidade* acrescentando a fração $1/2n$ à margem de erro do intervalo de confiança pelo fato de se fazer uma aproximação de uma distribuição discreta (Binomial ou Hipergeométrica) pela distribuição Normal, que é contínua. Desse modo a expressão do intervalo de confiança passa a ser: 
-\begin{equation} 
-\displaystyle IC(p;{1-\alpha})=\left[\widehat p \mp \left(z_{\alpha/ 2}\sqrt {{p(1-P)}/n}+1/2n \right) \right] (\#eq:eqpro31) \end{equation}
-Ou considerando a correção para população finita:
-\begin{equation} 
-\displaystyle IC(p;{1-\alpha})=\left[\widehat p \mp \left(z_{\alpha/ 2}\sqrt { \left(\frac {N-n}{N-1} \right) \frac{p(1-P)}{n}}+\frac 1 {2n} \right) \right](\#eq:eqpro32) 
-\end{equation}
 
+$$
+\displaystyle IC(p;{1-\alpha})=\left[\widehat p \mp \left(z_{\alpha/ 2}\sqrt {{p(1-p)}/n}+1/2n \right) \right] (\#eq:eqpro31)
+$$
+Ou considerando a correção para população finita:
+
+$$
+\displaystyle IC(p;{1-\alpha})=\left[\widehat p \mp \left(z_{\alpha/ 2}\sqrt { \left(\frac {N-n}{N-1} \right) \frac{p(1-p)}{n}}+\frac 1 {2n} \right) \right](\#eq:eqpro32) 
+$$
 
 Nas aplicações práticas o valor da variância do estimador da proporção $p$, geralmente, não é conhecido. Assim o que se pode fazer é estimar um intervalo de confiança, substituindo $S^2_y$ por $s^2_y$ na expressões anteriores:
-\begin{equation} 
-\displaystyle \widehat{IC}(p;{1-\alpha})=\left[\widehat p \mp \left(z_{\alpha/ 2}\sqrt {\frac{\widehat p \widehat q} {n-1}} + \frac 1{2n} \right) \right](\#eq:eqpro33)
-\end{equation} 
 
-\begin{equation} 
+$$
+\displaystyle \widehat{IC}(p;{1-\alpha})=\left[\widehat p \mp \left(z_{\alpha/ 2}\sqrt {\frac{\widehat p \widehat q} {n-1}} + \frac 1{2n} \right) \right](\#eq:eqpro33)
+$$ 
+
+$$
 \displaystyle \widehat{IC}(p;{1-\alpha})=\left[\widehat p \mp \left(z_{\alpha/ 2}\sqrt {\left(\frac{N-n}{N}\right) \frac{\widehat p \widehat q} {n-1}} + \frac 1{2n} \right) \right](\#eq:eqpro34)
-\end{equation} 
+$$
 
 Veja que o efeito da correção de continuidade tende rapidamente a ser nulo quando o tamanho da amostra, $n$, cresce. Para uma amostra de tamanho $n=50$ esse fator já é de apenas 1%, o que pode ser desprezível dependendo da proporção que estiver sendo estimada, porém é preciso muito cuidado pois quando se está trabalhando com proporções são valores, às vezes, bastante pequenos.
 
@@ -579,21 +584,25 @@ options(scipen=8)
 O tamanho de uma amostra aleatória simples a ser selecionada, como já foi visto no capítulo anterior, é calculado a partir da definição do erro amostral ou margem de erro admissível para o caso, do nível de confiança desejado e se a seleção for com ou sem reposição.
 
 No caso de seleção com reposição, considerando uma margem de erro máxima admissível $D$ com um nível de confiança $1-\alpha$, basta utilizar a expressão da margem de erro:
-\begin{equation}
+
+$$
 D \le z_{\alpha/2}\sqrt { \frac{p(1-p)}{n}} \implies n \ge \frac{z^2_{\alpha/2}{p(1-p)}}{D^2} (\#eq:eqpro35) 
-\end{equation}
+$$
 Para a seleção sem reposição, o tamanho da amostra é calculado como:
-\begin{equation}
+
+$$
 D \le z_{\alpha/2}\sqrt{\left(\frac {N-n}{N-1}\right)\frac{p(1-p)}n} \implies \\ n \ge \frac{z^2_{\alpha/2}p(1-p)} {D^2 \frac {N-1}N + \frac 1 N {z^2_{\alpha /2}p(1-p)}}\doteq \frac{z^2_{\alpha/2}p(1-p)} {D^2 + \frac 1 N {z^2_{\alpha /2}p(1-p)}} = \frac {Np(1-p)}{ND^2 /{z^2_{\alpha /2}} + p(1-p)} (\#eq:eqpro36) 
-\end{equation}
+$$
 Uma maneira prática de calcular o tamanho da amostra para uma *AAS* em dois passos é calcular primeiro: 
-\begin{equation}
+
+$$
 n_0=\frac{z^2_{\alpha/2}p(1-p)}{D^2}(\#eq:eqpro37) 
-\end{equation}
+$$
 E depois fazer:
-\begin{equation}
+
+$$
 n \ge \frac {n_0}{1+n_0 /N}(\#eq:eqpro38) 
-\end{equation}
+$$
 
 Note que $n_0$ é equivalente ao tamanho da amostra para uma *AASC* e o valor de $n$ para a *AAS* é obtido pela correção para população finita do valor $n_0$. Também pode-se concluir que quando o tamanho da população, $N$, é grande o fator $n_0/N$ tende a se anular fazendo com que $n \doteq n_0$, ou seja, quando o tamanho da população é grande as amostras aleatórias simples com ou sem reposição são equivalentes.
 
@@ -614,13 +623,15 @@ plot(p,pq, type="l", xlab="p",ylab="p(1-p)")
 </center>
 
 Como o valor máximo de $S_y^2\doteq \sigma _y^2=p(1-p)$, que é a maior variabilidade da variável de interesse, é atingido quando $p=0,5$, caso não exista nenhuma informação sobre o a proporção a ser estimada, uma maneira de determinar um tamanho de amostra conservador é supor exatamente que $p=0,5$. Assim pode-se simplificar a fórmula de cálculo de $n$ para uma *AASC*: 
-\begin{equation} 
+
+$$ 
 n \ge \frac {z^2_{\alpha /2}}{4d^2}(\#eq:eqpro39) 
-\end{equation}
+$$
 No caso de uma *AAS* basta fazer:
-\begin{equation}
+
+$$
 n_0 = \frac {z^2_{\alpha /2}}{4d^2} \:\:\:\:\text{e}\:\:\:\:n \ge \frac {n_0}{1+n_0/N}(\#eq:eqpro40) 
-\end{equation}
+$$
 
 Geralmente os resultados das fórmulas para cálculo do tamanho da amostra não são valores inteiros. Em todos esses casos o valor de $n$ calculado deverá ser arredondado para o valor inteiro imediatamente superior, preservando assim a precisão desejada.
 
@@ -681,24 +692,27 @@ Sugere-se que o leitor refaça o exercício com uma margem de erro diferente, $d
 As fómulas apresentadas para o cálculo do tamanho da amostra utilizaram a margem de erro $d$ como parâmetro de entrada, porém o erro amostral pode ser representado de outras maneiras. Pode-se defini-lo como o *coeficiente de variação*, como a *variância* ou como o *erro relativo* do estimador a ser calculado.
 
 Para calcular um tamanho de amostra de maneira que o coeficiente de variação máximo esperado para o estimador $\widehat p$ seja um valor fixado $c$, pode-se utilizar a fórmula:
-\begin{equation}
+
+$$
 n \ge \frac {1-p} {c^2p}(\#eq:eqpro41) 
-\end{equation}
+$$
 no caso da seleção com reposição.
 
 Para chegar a esse resultado, basta ver que $CV_{AASC}(\widehat p)= \frac {\sqrt {V_{AASC}(\widehat p)}}p$ e substituir na fórmula apresentada para o cálculo de $n$ a partir da margem de erro fixada.
 
 Para a seleção sem reposição pode-se fazer:
-\begin{equation}
+
+$$
 n_0 = \frac {1-p} {c^2p} \:\:\:\:\text{e}\:\:\:\: n \ge \frac {n_0} {1+n_0/N}(\#eq:eqpro42) 
-\end{equation}
+$$
 
 Seguindo o mesmo raciocínio pode-se chegar às formulas para calcular *n* fixando a variância máxima esperada de $\widehat p$ em $v$ ou o seu erro relativo máximo em $r$.
 
 Para a seleção com reposição tem-se:
-\begin{equation}
+
+$$
 n \ge \frac {p(1-p)} {v}  { \quad\text { ou } \quad} n \ge \frac {z^2_{\alpha/2}}{r^2} \frac {1-p} p (\#eq:eqpro43) 
-\end{equation}
+$$
 
 As expressões para a seleção sem reposição são derivadas como no caso em que foi fixado o valor máximo esperado para $CV(\widehat p$).
 
@@ -752,24 +766,28 @@ Observe que, para calcular as proporções em cada uma das categorias, na verdad
 
 A proporção de unidades da população pertencentes à categoria $c\in (1, 2,.., M)$, é dada por:
 
-\begin{equation}
+$$
 p_c=\frac {N_c} {N} (\#eq:eqpro44) 
-\end{equation}
+$$
 0nde $N_c$ é o número de unidades na categoria $c$ e $N$ é o tamanho total da população.
 
 Seja uma amostra aleatória simples (com ou sem reposição) de tamanho $n$ e seja a variável indicadora $y_i$ definida como:
-\begin{equation}
-\displaystyle y_i= \begin{cases} 1, \text { se a unidade} \textit{ i } \text{pertence à categoria $c$} \\ 0, \text { se a unidade}\textit{ i } \text{ pertence a outra categoria} \end{cases}(\#eq:eqpro45)
-\end{equation}
+
+$$
+\displaystyle y_i= \begin{cases} 1, \text { se a unidade} \textit{ i } \text{pertence à categoria $c$} \\ 0, \text { se a unidade}\textit{ i } \text{ pertence a outra categoria} \end{cases}
+(\#eq:eqpro45)
+$$
 
 Com tal definição pode-se ver que o número de unidades da categoria $c$ na amostra será dado por:
-\begin{equation}
+
+$$
 \displaystyle n_c=\sum_{i=1}^{n} y_i(\#eq:eqpro46)
-\end{equation}
+$$
 Um estimador para a proporção de unidades populacionais pertencentes à categoria $c$ é dado por:
-\begin{equation}
+
+$$
 \displaystyle \widehat p_c=\frac {1}{n} \sum_{i=1}^{n} y_i =\frac {n_c} {n}(\#eq:eqpro47)
-\end{equation}
+$$
 O problema foi reduzido ao caso de estimar proporções em variáveis com duas categorias.
 Pode-se obter, também, estimativas de precisão utilizando as mesmas ferramentas já apresentadas neste capítulo.
 
@@ -780,9 +798,10 @@ Voltando ao exemplo da escola do ensino fundamental, pode ser de interesse estud
 Outro caso de interesse ocorre quando, na aplicação de um questionário, por exemplo, aparecem respondentes que se recusaram a responder ou, mesmo, disseram que não sabiam a resposta. Num caso como esse, pode-se estar interessado em estimar a proporção das pessoas que responderam determinada alternativa, entre as pessoas que efetivamente responderam a pesquisa escolhendo uma das alternativas válidas. Um exemplo prático seria uma pesquisa sobre a intenção de voto numa eleição com apenas dois candidatos. Nesse caso, o entrevistado poderia responder que votará no canditato A, no candidato B, que votará nulo ou em branco, onde apenas as duas primeiras alternativas seriam consideradas como votos válidos.
 
 Pode-se estimar a proporção para cada uma das quatro categorias iniciais ou apenas a proporção de votos válidos para cada um dos dois candidatos:
-\begin{equation}
+
+$$
 \displaystyle \widehat p_A=\frac {n_A} {n_A+n_B} \quad\text { e } \quad\widehat p_B=\frac {n_B} {n_A+n_B}(\#eq:eqpro48)
-\end{equation}
+$$
 
 Vale notar que em \@ref(eq:eqpro48) tanto o numerador como o denominador do estimador da proporção são variáveis aleatórias, pois a população (eleitores que efetivamente vão votar num dos candidatos) é desconhecida.
 
