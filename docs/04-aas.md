@@ -435,9 +435,6 @@ Solução do (#exm:exmaas2) usando R
 # Limpa área de trabalho
 rm(list = ls())
 
-# Define pasta onde ficam dados usados nesta sessão
-setwd(paste0(getwd(), "/Dados"))
-
 # Carrega biblioteca(s) requerida(s)
 library(sampling)
 
@@ -555,7 +552,7 @@ munic_amo <- getdata(MunicBR_dat, srswor(n, N))
 ```
 
 ```
-## [1] 1119.561
+## [1] 1478.212
 ```
 
 ```r
@@ -564,7 +561,7 @@ munic_amo <- getdata(MunicBR_dat, srswor(n, N))
 ```
 
 ```
-## [1] 23610.33
+## [1] 38633.75
 ```
 
 ```r
@@ -580,7 +577,7 @@ munic_amo <- getdata(MunicBR_dat, srswor(n, N))
 ```
 
 ```
-## [1] 34.78732
+## [1] 26.34706
 ```
 
 ```r
@@ -589,7 +586,7 @@ munic_amo <- getdata(MunicBR_dat, srswor(n, N))
 ```
 
 ```
-## [1] 68.18189
+## [1] 51.63929
 ```
 
 ```r
@@ -607,7 +604,7 @@ munic_amo <- getdata(MunicBR_dat, srswor(n, N))
 ```
 
 ```
-## [1] 727.0749
+## [1] 1098.478
 ```
 
 ```r
@@ -615,7 +612,7 @@ munic_amo <- getdata(MunicBR_dat, srswor(n, N))
 ```
 
 ```
-## [1] 728
+## [1] 1099
 ```
 
 
