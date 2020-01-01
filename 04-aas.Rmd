@@ -435,7 +435,7 @@ Solução do (#exm:exmaas2) usando R
 rm(list = ls())
 
 # Define pasta onde ficam dados usados nesta sessão
-getwd()
+setwd(paste0(getwd(), "/Dados"))
 
 # Carrega biblioteca(s) requerida(s)
 library(sampling)

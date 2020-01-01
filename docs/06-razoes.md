@@ -30,46 +30,77 @@ Um cuidado importante aqui é compreender o significado do parâmetro de interes
 
 **(#exm:exmrazao1)** Considere as densidades de habitantes por área (em $km^2$) das unidades da federação brasileiras apresentadas na Tabela \@ref(tab:tabrazao1), conforme o Censo 2010. Neste exemplo, vemos como uma discrepância grande pode ocorrer entre as duas quantidades (a razão de médias e a médias das razões), quando os valores de $r_i$  são muito dispersos.
 
+<center>
 <table>
-<caption>Densidade por Unidade da Federação, média das razões e razão das médias para o Brasil</caption>
-<tbody>
-  <tr>
-
-  </tr>
-</tbody>
+<caption>(#tab:tabrazao1)Densidade demográfica por Unidade da Federação, média das razões e razão das médias para o Brasil</caption>
 </table>
-|Unidade da Federação|Densidade ($\text{Hab}/km^2$)|
-|:-------------------|:-----:|
-|Rondônia            |6,6    |
-|Acre                |4,5    |
-|Amazonas            |2,2    |
-|Roraima             |2,0    |
-|Pará                |6,1    |
-|Amapá               |4,7    |
-|Tocantins           |5,0    |
-|Maranhão            |19,8   |
-|Piauí               |12,4   |
-|Ceará               |56,8   |
-|Rio Grande do Norte |60,0   |
-|Paraíba             |66,7   |
-|Pernambuco          |89,6   |
-|Alagoas             |112,3  |
-|Sergipe             |94,4   |
-|Bahia               |24,8   |
-|Minas Gerais        |33,4   |
-|Espírito Santo      |76,3   |
-|Rio de Janeiro      |365,2  |
-|São Paulo           |166,3  |
-|Paraná              |52,4   |
-|Santa Catarina      |65,3   |
-|Rio Grande do Sul   |39,8   |
-|Mato Grosso do Sul  |6,9    |
-|Mato Grosso         |3,4    |
-|Goiás               |17,7   |
-|Distrito Federal    |444,1  |
-|**Brasil (Média das razões)** |68,1|
-|**Brasil (Razão das médias)** |22,4|
-Fonte: IBGE, Censo Demográfico 2010.
+
+---------
+Unidade da Federação           Densidade demográfica
+                               ($Hab/km^2$)
+----------------------------- ----------------------- 
+Rondônia                                          6,6
+
+Acre                                              4,5 
+
+Amazonas                                          2,2 
+
+Roraima                                           2,0
+
+Pará                                              6,1
+
+Amapá                                             4,7
+
+Tocantins                                         5,0
+
+Maranhão                                         19,8 
+
+Piauí                                            12,4
+
+Ceará                                            56,8
+
+Rio Grande do Norte                              60,0
+
+Paraíba                                          66,7
+
+Pernambuco                                       89,6
+
+Alagoas                                         112,3
+
+Sergipe                                          94,4
+
+Bahia                                            24,8
+
+Minas Gerais                                     33,4
+
+Espírito Santo                                   76,3
+
+Rio de Janeiro                                  365,2
+
+São Paulo                                       166,3 
+
+Paraná                                           52,4
+
+Santa Catarina                                   65,3
+
+Rio Grande do Sul                                39,8
+
+Mato Grosso do Sul                                6,9
+
+Mato Grosso                                       3,4
+
+Goiás                                            17,7
+
+Distrito Federal                                444,1
+
+**Brasil (Média das razões)**                    68,1 
+
+**Brasil (Razão das médias)**                    22,4
+---------
+Fonte: IBGE, Censo Demográfico 2010.                                                        
+</center>
+
+Os dados apurados nas últimas duas linhas da Tabela \@ref(tab:tabrazao1) ilustram bem a importância de identificar corretamente que parâmetro se deseja estimar. No exemplo aqui considerado, a densidade demográfica apurada no nível do País como um todo é 22,4 $Hab/km^2$, enquando a média das densidades demográficas calculadas por unidades da federação é de 68,1 $Hab/km^2$, mais que três vezes maior. Portanto, ao enfrentar uma situação em que o parâmetro de interesse pode ser caracterizado como uma das duas situações, cabe ao responsável por planejar a pesquisa esclarecer junto aos demandantes da mesma qual dos dois conceitos melhor descreve a quantidade de interesse. Isto permitirá selecionar adequadamente o estimador que deve ser empregado com os dados da amostra a ser coletada.
 
 ## Outras funções de totais
 
@@ -86,7 +117,7 @@ onde $Y_k$ é o total populacional da variável de pesquisa $y_k$, para $k=1,...
 Um caso geral de interesse é o das funções lineares de totais populacionais, dadas por:
 
 \begin{equation}
- \theta = f(Y_1, Y_2, ..., Y_K) = \sum_{k=1}^K a_k \, Y_k
+ \theta = f(Y_1, Y_2, ..., Y_K) = \sum_{k=1}^K a_k \, Y_k (\#eq:eqraz2)
 \end{equation}
 
 onde $a_k$ são constantes conhecidas, para $k=1,...,K$.
@@ -113,7 +144,7 @@ A *variância* de uma variável de pesquisa $y$, dada por
  S^2_y = \frac{1}{N-1} \left[ \sum_{i\in U} {y_i}^2 - N \overline{Y}^2 \right] = \frac{1}{N-1} \left[ \sum_{i\in U} {y_i}^2 -  {Y}^2/N \right]
 \end{equation}
 
-também pode ser vista como uma função envolvendo três totais populacionais ($K=3$), sendo o primeiro definido como total da variável $y_{1i} \equiv y_i^2$, a segunda $y_{2i} \equiv y_i$, e a terceira como $y_{3i} \equiv 1$. A função que retorna a variância $S^2_y$ é definida como 
+também pode ser vista como uma função envolvendo três totais populacionais $(K=3)$, sendo o primeiro definido como total da variável $y_{1i} \equiv y_i^2$, a segunda $y_{2i} \equiv y_i$, e a terceira como $y_{3i} \equiv 1$. A função que retorna a variância $S^2_y$ é definida como 
 $f(Y_1, Y_2, Y_3) = \frac {1} {Y_3 - 1} \left[ Y_1 - (Y_2^2/Y_3) \right]$.
 
 De maneira similar, a *covariância* e a *correlação* das variáveis $y$ e $z$ podem ser definidas como:
@@ -128,7 +159,7 @@ e
 {\rho}_{y , z} = \frac{S_{y , z}} {S_{y} S_{z}}.
 \end{equation}
 
-A covariância pode ser vista como uma função envolvendo quatro totais populacionais ($K=4$), sendo o primeiro definido como o total $Y_1$ da variável $y_{1i} \equiv y$, o segundo o total $Y_2$ da variável $y_{2i} \equiv z$, o terceiro o total da variável definida como $y_{3i} \equiv y_{i} z_{i}$ e o quarto o total da variável definida como $y_{4i} \equiv 1$. Por simplicidade, a função que define a correlação foi definida em função da covariância e dos desvios-padrão das duas variáveis de interesse, mas também poderia ser escrita como função de totais como já ilustrado nos demais casos.
+A covariância pode ser vista como uma função envolvendo quatro totais populacionais $(K=4)$, sendo o primeiro definido como o total $Y_1$ da variável $y_{1i} \equiv y$, o segundo o total $Y_2$ da variável $y_{2i} \equiv z$, o terceiro o total da variável definida como $y_{3i} \equiv y_{i} z_{i}$ e o quarto o total da variável definida como $y_{4i} \equiv 1$. Por simplicidade, a função que define a correlação foi definida em função da covariância e dos desvios-padrão das duas variáveis de interesse, mas também poderia ser escrita como função de totais como já ilustrado nos demais casos.
 
 O ponto importante a destacar nesta seção é o fato de que muitos parâmetros de interesse podem ser vistos como funções de totais populacionais, e com isso, podem também ser estimados aplicando as funções que definem os parâmetros a estimadores dos totais correspondentes. Isto corresponde essencialmente a uma espécie de *método dos momentos* para estimar parâmetros populacionais, onde cada total populacional desconhecido é substituído na expressão do parâmetro por um estimador amostral não viciado do total correspondente.
 
@@ -139,7 +170,7 @@ Essa ideia pode ser aplicada de maneira bastante geral para obter estimadores pa
 Para estimar *razões de totais* (ou médias) como $R$, o estimador “natural” é a *razão dos estimadores Horwitz-Thompson de total*:
 
 \begin{equation}
-\widehat{R} = \frac{ \sum_{i\in s} w_i y_i} {\sum_{i\in s} w_i x_i} = \frac{ \widehat{Y}_{HT} } {\widehat{X}_{HT}} (\#eq:eqraz2)
+\widehat{R} = \frac{ \sum_{i\in s} w_i y_i} {\sum_{i\in s} w_i x_i} = \frac{ \widehat{Y}_{HT} } {\widehat{X}_{HT}} (\#eq:eqraz3)
 \end{equation}
 
 
@@ -147,7 +178,10 @@ Para estimar *razões de totais* (ou médias) como $R$, o estimador “natural�
 
 1. Tanto o numerador como o denominador do estimador $\widehat{R}$ da razão $R$ podem variar com a amostra selecionada, $s$.
 
-2. Apesar de termos estimadores não viciados para os totais populacionais $\widehat{Y}_{HT}$ e $\widehat{X}_{HT}$, em geral,  $E(Z/W) \ne E(Z)E(W)$, e portanto $E(\widehat{R}) = E(\widehat{Y}_{HT}/ \widehat{X}_{HT}) \ne E(\widehat{Y}_{HT})/E(\widehat{X}_{HT})= {Y} / {X} = R$.
+2. Apesar de termos estimadores não viciados para os totais populacionais $\widehat{Y}_{HT}$ e $\widehat{X}_{HT}$, em geral,  $E(Z/W) \ne E(Z)E(W)$, e portanto 
+$$
+E(\widehat{R}) = E(\widehat{Y}_{HT}/ \widehat{X}_{HT}) \ne E(\widehat{Y}_{HT})/E(\widehat{X}_{HT})= {Y} / {X} = R
+$$
 
 3. Logo $\widehat{R}$ é um *estimador viciado* de $R$.
 
@@ -156,7 +190,7 @@ Para estimar *razões de totais* (ou médias) como $R$, o estimador “natural�
 5. Sob AAS, como os pesos amostrais são constantes (e iguais a $N/n$ para todas as unidades da amostra), o estimador $\widehat{R}$ simplifica para:
 
 \begin{equation}
-\widehat{R}_{AAS} = \frac{\sum_{i\in s} y_i} {\sum_{i\in s} x_i} = \frac{\overline{y}} {\overline{x}}. (\#eq:eqraz3)
+\widehat{R}_{AAS} = \frac{\sum_{i\in s} y_i} {\sum_{i\in s} x_i} = \frac{\overline{y}} {\overline{x}} (\#eq:eqraz4)
 \end{equation}
 
 
@@ -165,15 +199,15 @@ Para estimar *razões de totais* (ou médias) como $R$, o estimador “natural�
 Quando o parâmetro de interesse é uma função de totais populacionais $\theta = f(Y_1, Y_2, ..., Y_K)$, o método mais simples para estimar esse parâmetro é aplicar a mesma função a estimadores não viciados dos totais, isto é, usar o estimador:
 
 \begin{equation}
- \widehat{\theta} = f(\widehat{Y_1}, \widehat{Y_2}, ..., \widehat{Y_K})
+ \widehat{\theta} = f(\widehat{Y_1}, \widehat{Y_2}, ..., \widehat{Y_K}) (\#eq:eqraz5)
 \end{equation}
 
-onde $\widehat{Y_k}$ é o estimador HT do total populacional da variável de pesquisa $y_k$, para $k=1,...,K$.
+onde $\widehat{Y_k}$ é o estimador $HT$ do total populacional da variável de pesquisa $y_k$, para $k=1,...,K$.
 
 Para o caso de *funções lineares*, o estimador resultante será dado por:
 
 \begin{equation}
- \widehat{\theta} = \sum_{k=1}^K a_k \, \widehat{Y_k}
+ \widehat{\theta} = \sum_{k=1}^K a_k \, \widehat{Y_k} (\#eq:eqraz6)
 \end{equation}
 
 e será um estimador não viciado do parâmetro $\theta$. 
@@ -183,14 +217,14 @@ Neste caso, a variância do estimador também é relativamente simples de obter,
 \begin{eqnarray}
 V_p \left( \widehat{\theta} \right) & = & 
 \sum_{k=1}^K \sum_{j = 1}^K a_k \, a_j Cov_p \left( \widehat{Y_k} ,  \widehat{Y_j} \right) \\
- &=& \sum_{k=1}^K a^2_k \, V_p \left( \widehat{Y_k} \right) +  \sum_{k=1}^K \sum_{j \ne k = 1}^K a_k \, a_j Cov_p \left( \widehat{Y_k} ,  \widehat{Y_j} \right)
+ &=& \sum_{k=1}^K a^2_k \, V_p \left( \widehat{Y_k} \right) +  \sum_{k=1}^K \sum_{j \ne k = 1}^K a_k \, a_j Cov_p \left( \widehat{Y_k} ,  \widehat{Y_j} \right) (\#eq:eqraz7)
 \end{eqnarray}
 
 e um estimador dessa variância pode ser facilmente construído usando
 
 \begin{eqnarray}
 \widehat{V}_p \left( \widehat{\theta} \right) & = & \sum_{k=1}^K \sum_{j = 1}^K a_k \, a_j \widehat{Cov}_p \left( \widehat{Y_k} ,  \widehat{Y_j} \right) \\
-& = & \sum_{k=1}^K a^2_k \, \widehat{V}_p \left( \widehat{Y_k} \right) +  \sum_{k=1}^K \sum_{j \ne k = 1}^K a_k \, a_j \widehat{Cov}_p \left( \widehat{Y_k} ,  \widehat{Y_j} \right)
+& = & \sum_{k=1}^K a^2_k \, \widehat{V}_p \left( \widehat{Y_k} \right) +  \sum_{k=1}^K \sum_{j \ne k = 1}^K a_k \, a_j \widehat{Cov}_p \left( \widehat{Y_k} ,  \widehat{Y_j} \right) (\#eq:eqraz8)
 \end{eqnarray}
 
 Um resultado bastante útil é mostrado a seguir. Quando $\theta = \sum_{k=1}^K a_k \, Y_k$, então sua variância pode ser escrita como:
@@ -202,16 +236,16 @@ V_p \left( \widehat{\theta} \right) & = & E_p \left( \widehat{\theta} -\theta \r
 & = & E_p \left[ \sum_{i \in s} \pi_i^{-1} \left( \sum_{k=1}^K a_k y_{ki} \right) - \sum_{i \in U} \left( \sum_{k=1}^K a_k y_{ki} \right) \right]^2 \\
 & = & E_p \left( \sum_{i \in s} \pi_i^{-1} z_i - \sum_{i \in U} z_i \right)^2 \\
 & = & E_p \left( \widehat{Z}_{HT} - Z \right)^2 \\
-& = & V_p \left( \widehat{Z}_{HT} \right)
+& = & V_p \left( \widehat{Z}_{HT} \right) (\#eq:eqraz9)
 \end{eqnarray}
 
 onde $z_i = \sum _{k=1} ^K a_k y_{ki}$.
 
 Verifica-se assim que a variância do estimador para $\theta$ pode ser obtida como a variância de um estimador de total para uma *variável derivada* $z$ definida de maneira apropriada, tornando assim a obtenção da variância do estimador do parâmetro uma tarefa mais simples, já que a variância de estimadores de total foi apresentada no capítulo \@ref(visger). Isso leva também à obtenção de estimadores da variância de forma simples, usando a mesma variável derivada:
 
-\begin{equation}
-\widehat{V}_p \left( \widehat{\theta} \right) = \widehat V_1(\widehat{Z}_{HT}) = \displaystyle \sum_{i \in s} \sum_{j \in s} \left( {d_i d_j} - {d_{ij}} \right) {z_i} {z_j}
-\end{equation}
+$$
+\widehat{V}_p \left( \widehat{\theta} \right) = \widehat V_{HT}(\widehat{Z}_{HT}) = \displaystyle \sum_{i \in s} \sum_{j \in s} \left( {d_i d_j} - {d_{ij}} \right) {z_i} {z_j}  (\#eq:eqraz10)
+$$
 
 Este resultado tem utilidade também quando $\theta$ é uma função não linear de totais, mas essa função é contínua e diferenciável. Neste caso, é possível usar a técnica de *linearização de Taylor* para obter a variância aproximada do estimador e também um estimador para essa variância. A ideia dessa técnica é simples: aproximar o estimador não linear por uma quantidade linearizada, obtida a partir da expansão em Série de Taylor do estimador $\widehat{\theta}$ ao redor do ponto $\theta$. A expansão é dada por:
 
@@ -219,7 +253,7 @@ Este resultado tem utilidade também quando $\theta$ é uma função não linear
  \widehat{\theta} & = & f(\widehat{Y}_1, \widehat{Y}_2, ..., \widehat{Y}_K) \\
  & = & f(Y_1, Y_2, ..., Y_K) + \sum_{k=1}^K \left[ \frac {\partial {f(Y_1, Y_2, ..., Y_K)}}   {\partial{Y_k}} \right] \left( \widehat{Y}_k - Y_k \right) + \\
  & \, & \sum_{q=2}^\inf \frac {1} {q!} \sum_{k=1}^K \left[ \frac {\partial ^q {f(Y_1, Y_2, ..., Y_K)}} {\partial {Y^q_k}} \right] \left( \widehat{Y}_k - Y_k \right)^q \\
- & \doteq & f(Y_1, Y_2, ..., Y_K) + \sum_{k=1}^K \left[ \frac {\partial {f(Y_1, Y_2, ..., Y_K)}}   {\partial{Y_k}} \right] \left( \widehat{Y}_k - Y_k \right)
+ & \doteq & f(Y_1, Y_2, ..., Y_K) + \sum_{k=1}^K \left[ \frac {\partial {f(Y_1, Y_2, ..., Y_K)}}   {\partial{Y_k}} \right] \left( \widehat{Y}_k - Y_k \right) (\#eq:eqraz11)
 \end{eqnarray}
 
 onde a aproximação da última linha advém da exclusão de todos os termos de ordem igual ou superior a 2.
@@ -235,9 +269,9 @@ onde agora $a_k = \displaystyle\frac {\partial {f(Y_1, Y_2, ..., Y_K)}} {\partia
 
 Assim sendo, a obtenção da variância aproximada para o estimador não linear $\widehat{\theta}$ é feita calculando-se a variância do *estimador linearizado* $\widehat{\theta}_L$, que é dada por:
 
-\begin{equation}
-\widehat{V}_p \left( \widehat{\theta} \right) \doteq \widehat{V}_p \left( \widehat{\theta}_L \right) = \widehat V_1(\widehat{Z}_{HT}) = \displaystyle \sum_{i \in s} \sum_{j \in s} \left( {d_i d_j} - {d_{ij}} \right) {z_i} {z_j}
-\end{equation}
+$$
+\widehat{V}_p \left( \widehat{\theta} \right) \doteq \widehat{V}_p \left( \widehat{\theta}_L \right) = \widehat V_{HT} (\widehat{Z}_{HT}) = \displaystyle \sum_{i \in s} \sum_{j \in s} \left( {d_i d_j} - {d_{ij}} \right) {z_i} {z_j} (\#eq:eqraz12)
+$$
 
 onde $z_i =\displaystyle\sum_{k=1}^K \frac{\partial {f(Y_1, Y_2, ..., Y_K)}} {\partial{Y_k}} \, y_{ki}$.
 
@@ -259,32 +293,29 @@ E_p \left( \widehat{R} \right) & = & \frac{Y}{X} - \frac{1}{X} \times Cov_p \lef
  & = & R - \frac{1}{X} \times Cov_p \left( \widehat{R} , \widehat{X} \right)
 \end{eqnarray}
 
-Chamando agora de $B_p( \widehat{R} ) = E_p \left( \widehat{R} \right) - R $ o vício do estimador $\widehat{R}$, mostrou-se que este pode ser obtido como:
+Chamando agora de $B_p( \widehat{R} ) = E_p \left( \widehat{R} \right) - R$, o vício do estimador $\widehat{R}$, mostrou-se que este pode ser obtido como:
 
 \begin{equation}
-B_p( \widehat{R} ) = - \frac{1}{X} \times Cov_p \left( \widehat{R} , \widehat{X} \right)
+B_p( \widehat{R} ) = - \frac{1}{X} \times Cov_p \left( \widehat{R} , \widehat{X} \right) (\#eq:eqraz13)
 \end{equation}
 
 Esta expressão fornece um caminho para estabelecer um limite superior para o valor absoluto do vício dividido pelo desvio padrão do estimador da razão. Notando que $Cov_p \left( \widehat{R} , \widehat{X} \right) = Corr_p \left( \widehat{R} , \widehat{X} \right) \times DP_p(\widehat{R}) \times DP_p(\widehat{X})$, segue-se que:
 
-$\left| \frac {B_p( \widehat{R} )}{DP_p(\widehat{R})} \right|$
-
 \begin{eqnarray}
  \left| \frac {B_p( \widehat{R} )}{DP_p(\widehat{R})} \right| & = & \frac{1}{X} \times \left| \frac{Corr_p \left( \widehat{R} , \widehat{X} \right) \times DP_p(\widehat{R}) \times DP_p(\widehat{X})} {DP_p(\widehat{R})} \right| \\ 
  & = & \left| Corr_p \left( \widehat{R} , \widehat{X} \right) \right| \times \frac {DP_p(\widehat{X})}{X} \\
- & \le & CV_p(\widehat{X}) 
+ & \le & CV_p(\widehat{X}) (\#eq:eqraz14)
 \end{eqnarray}
  
-Assim, quando o tamanho da amostra for grande o suficiente para tornar o CV do estimador do total $\widehat{X}$ no denominador da razão $\widehat{R}$ pequeno (digamos, menor que 0,1 ou 10%), então o vício do estimador da razão será pequeno quando comparado com o desvio padrão desse estimador. Vícios desse tipo são geralmente desprezados na prática, a menos que se tenha amostras *muito pequenas*.
+Assim, quando o tamanho da amostra for grande o suficiente para tornar o CV do estimador do total $\widehat{X}$ no denominador da razão $\widehat{R}$ pequeno (digamos, menor que 0,1 ou 10%), então o vício do estimador da razão será pequeno quando comparado com o desvio padrão desse estimador. Vícios desse tipo são geralmente desprezados na prática, a menos que se tenha amostra *muito pequena*.
 
 
 ## Erro Quadrático Médio (EQM) de $\widehat{R}$
 
-Como $\widehat{R}$ tem um pequeno vício técnico, a avaliação de sua precisão deve ser feita considerando seu *Erro Quadrático Médio (EQM)*. Entretanto, sempre que a amostra for grande o suficiente (o que pode ser avaliado calculando o coeficiente de variação da estimativa de total do denominador da razão), o EQM poderá ser bem aproximado pela variância. Isto segue porque:
+Como $\widehat{R}$ tem um pequeno vício técnico, a avaliação de sua precisão deve ser feita considerando seu *Erro Quadrático Médio (EQM)*. Entretanto, sempre que a amostra for grande o suficiente (o que pode ser avaliado calculando o coeficiente de variação da estimativa de total do denominador da razão), o EQM poderá ser bem aproximado pela variância, como indicado:
 
 \begin{eqnarray}
- EQM_p(\widehat{R}) & = & V_p(\widehat{R}) + \left[ B_p( \widehat{R} ) \right]^2 \\
-  & \doteq & V_p(\widehat{R}) 
+ EQM_p(\widehat{R}) & = & V_p(\widehat{R}) + \left[ B_p( \widehat{R} ) \right]^2 & \doteq & V_p(\widehat{R}) (\#eq:eqraz15)
 \end{eqnarray}
 
 já que o termo $\left[ B_p( \widehat{R} ) \right]^2$ fica menor que 1% da variância $V_p(\widehat{R})$ sempre que $CV_p(\widehat{X}) \le 0,1$.
@@ -310,48 +341,56 @@ z_i = \frac {1}{X} y_i - \frac {Y}{X^2} x_i = \frac {1}{X} \left( y_i - R x_i \r
 Sendo assim, a variância aproximada do estimador $\widehat{R}$ pode ser obtida calculando a variância do estimador de total da variável linearizada $z_i$:
 
 \begin{equation}
- V_p ( \widehat{R} ) \doteq V_p(\widehat{Z}_{HT}) = \displaystyle \sum_{i \in U} \sum_{j \in U} \left( \frac{d_i d_j}{d_{ij}} - 1 \right) {z_i} {z_j}
+ V_p ( \widehat{R} ) \doteq V_p(\widehat{Z}_{HT}) = \displaystyle \sum_{i \in U} \sum_{j \in U} \left( \frac{d_i d_j}{d_{ij}} - 1 \right) {z_i} {z_j} (\#eq:eqraz16)
 \end{equation}
 
-e um estimador dessa variância aproximada é dado por
+e um estimador dessa variância aproximada é dado por:
 
 \begin{equation}
-\widehat{V}_p ( \widehat{R} ) = \widehat{V}_p(\widehat{Z}_{HT}) = \displaystyle \sum_{i \in s} \sum_{j \in s} \left( {d_i d_j} - {d_{ij}} \right) {z_i} {z_j}
+\widehat{V}_p ( \widehat{R} ) = \widehat{V}_p(\widehat{Z}_{HT}) = \displaystyle \sum_{i \in s} \sum_{j \in s} \left( {d_i d_j} - {d_{ij}} \right) {z_i} {z_j} (\#eq:eqraz17)
 \end{equation}
 
-Sob AAS, as expressões acima simplificam para:
+Sob AAS, as expressões acima simplificam para as expressões a seguir. Para mais detalhes, veja @Cochran1977. A variância aproximada do estimador da razão é dada por:
 
 \begin{equation}
-V_{AAS} (\widehat{R}) \doteq \frac{1}{\overline{X}^2} \left( \frac{1}{n} -  \frac{1}{N}) \right) \times \frac{1}{N-1} \displaystyle \sum_{i \in U} \left( y_i - R x_i \right)^2 (\#eq:eqraz4)
+V_{AAS} (\widehat{R}) \doteq \frac{1}{\overline{X}^2} \left( \frac{1}{n} -  \frac{1}{N}\right) \times \frac{1}{N-1} \displaystyle \sum_{i \in U} \left( y_i - R x_i \right)^2 (\#eq:eqraz18)
 \end{equation}
 
-e o estimador da variância fica igual a 
+e o estimador da variância fica igual a:
 
 \begin{equation}
-\widehat{V}_{AAS}(\widehat{R}) = \frac{1}{\overline{x}^2}  \left( \frac{1}{n} -  \frac{1}{N}  \right) \times \frac{1}{n-1} \displaystyle\sum_{i\in s} \left( y_i - \widehat{R} x_i \right)^2 (\#eq:eqraz5)
+\widehat{V}_{AAS}(\widehat{R}) = \frac{1}{\overline{x}^2}  \left( \frac{1}{n} -  \frac{1}{N}  \right) \times \frac{1}{n-1} \displaystyle\sum_{i\in s} \left( y_i - \widehat{R} x_i \right)^2 (\#eq:eqraz19)
 \end{equation}
 
-Para mais detalhes, veja [@Cochran1977].
+A Tabela \@ref(tab:tabrazao2) apresenta um resumo da estimação de parâmetros de uma razão sob AAS.
 
-Portanto, sob AAS temos a seguinte estrutura para estimação de razões:
+<center>
+<table>
+<caption>(#tab:tabrazao2)Estimadores dos parâmetros de uma razão sob AAS</caption>
+</table>
 
-(1)	$\widehat{R}$ estima $R$ e $E_{AAS}(\widehat{R})=R+O(n^{-1})$;
+---------
+       Parâmetro                                                                                                        Estimador sob AAS                     
+---------------------------------------------------------------------------------------------- ---------------------------------------------------------------------------------------------------------------
+$R =\frac{Y}{X}=\frac{\overline{Y}}{\overline{X}}$                                              $\widehat{R}= \frac{\sum_{i\in s} y_i} {\sum_{i\in s} x_i} = \frac{\overline{y}} {\overline{x}}$
+                                                                                                          
+$V_{AAS}(\widehat{R})\doteq\frac{1}{\overline{X}^2}\left(\frac{1}{n}-\frac{1}{N}\right)$        $\widehat{V}_{AAS}(\widehat{R})=\frac{1}{\overline{x}^2}\left(\frac{1}{n}-\frac{1}{N}\right)$
+$\,\,\,\,\,\,\,\,\,\,\,\times\frac{1}{N-1}\displaystyle\sum_{i\in U}\left(y_i-R x_i\right)^2$   $\,\,\,\,\,\,\,\,\,\,\,\,\,\,\times\frac{1}{n-1}\displaystyle\sum_{i\in s}\left(y_i-\widehat{R}x_i\right)^2$  
 
-(2)	$EQM_{AAS}(\widehat{R})=\displaystyle\frac{(1-f)}{n\overline{X}^2}\frac{\displaystyle\sum_{i\in U}\left(y_i-Rx_i\right)^2}{N-1}+ O\left(n^{-3/2}\right)$ 
+------------
+</center>
 
-(3) $\widehat{V}_{AAS}(\widehat{R})=\displaystyle\frac{(1-f)}{n\overline{x}^2}\frac{1}{(n-1)}\displaystyle\sum_{i\in s}\left(y_i-\widehat{R}x_i\right)^2$
 
-(4)	$\displaystyle\frac{\widehat{R}-R}{{\sqrt{\widehat{V}_{AAS}(\widehat{R})}}}\approx N(0;1)$  para $n$ grande.
 
 **(#exm:exmrazao2)** Estimando Razões e Médias de Razões
 
-Considere a população de municípios brasileiros fornecida no arquivo MunicBR.xlsx.
+Considere a população de municípios brasileiros fornecida no arquivo MunicBR_dat.
 
-1.	Selecione uma AAS de $n=20$ municípios, e use esta amostra para estimar os seguintes parâmetros populacionais:
+1.	Selecione uma AAS de $n = 200$ municípios, e use esta amostra para estimar os seguintes parâmetros populacionais:
 
-    a. Densidade habitacional média por $km^2$ no Brasil;
+    a. Densidade demográfica média por $km^2$ no Brasil;
 
-    b. Média da densidade habitacional por $km^2$ por município.
+    b. Média da variável densidade demográfica por $km^2$ por município.
 
 2.	Para cada uma das estimativas acima:
 
@@ -359,10 +398,186 @@ Considere a população de municípios brasileiros fornecida no arquivo MunicBR.
 
     b.	Compare com os correspondentes parâmetros populacionais.
     
- INCLUIR o conteúdo do arquivo Exercícios Unidade 05.R
+3.	Calcule o tamanho da amostra que seria necessário para a estimar densidade demográfica média por $km^2$ no Brasil com erro máximo de 10 $Hab/km^2/$ com nível de confiança de 95%.
+
+4.	Selecione uma amostra do tamanho calculado em 3 e estime o parâmetro e sua margem de erro, considerando coeficiente de confiança de 95%.
+
+Solução dos itens 1. e 2. do (#exm:exmrazao2), usando R:  
 
 
+```r
+# Limpa área de trabalho
+rm(list = ls())
 
+# Define pasta onde ficam dados usados nesta sessão
+setwd(paste0(getwd(), "/Dados"))
+
+# Carrega biblioteca(s) requerida(s)
+library(sampling)
+library(tidyverse)
+```
+
+```
+## -- Attaching packages -------------------------------------------------------------------------------------------------- tidyverse 1.2.1 --
+```
+
+```
+## v ggplot2 3.0.0     v purrr   0.2.5
+## v tibble  1.4.2     v dplyr   0.7.6
+## v tidyr   0.8.1     v stringr 1.3.1
+## v readr   1.1.1     v forcats 0.3.0
+```
+
+```
+## -- Conflicts ----------------------------------------------------------------------------------------------------- tidyverse_conflicts() --
+## x dplyr::filter() masks stats::filter()
+## x dplyr::lag()    masks stats::lag()
+```
+
+```r
+# Leitura dos dados
+MunicBR_dat <- readRDS(file="MunicBR_dat.rds")
+str(MunicBR_dat)
+```
+
+```
+## Classes 'tbl_df', 'tbl' and 'data.frame':	5570 obs. of  6 variables:
+##  $ CodMunic : chr  "1100015" "1100023" "1100031" "1100049" ...
+##  $ SiglaUF  : chr  "RO" "RO" "RO" "RO" ...
+##  $ CodUF    : chr  "11" "11" "11" "11" ...
+##  $ Pop      : num  25728 101269 6495 85863 18041 ...
+##  $ Area     : num  7067 4427 1314 3793 2783 ...
+##  $ Densidade: num  3.64 22.88 4.94 22.64 6.48 ...
+```
+
+```r
+# Define semente para geração de números aleatórios para permitir repetição
+set.seed(123)
+
+# Item 1
+# Tamanho da amostra
+(n <- 200)
+```
+
+```
+## [1] 200
+```
+
+```r
+# Tamanho da população
+(N <- nrow(MunicBR_dat))
+```
+
+```
+## [1] 5570
+```
+
+```r
+# Seleciona amostra AAS dos municípios
+munic_amo <- getdata(MunicBR_dat, srswor(n,N))
+str(munic_amo)
+```
+
+```
+## 'data.frame':	200 obs. of  7 variables:
+##  $ ID_unit  : int  4 57 137 234 253 254 332 416 496 513 ...
+##  $ CodMunic : chr  "1100049" "1200179" "1400027" "1505205" ...
+##  $ SiglaUF  : chr  "RO" "AC" "RR" "PA" ...
+##  $ CodUF    : chr  "11" "12" "14" "15" ...
+##  $ Pop      : num  85863 9836 10432 30088 17774 ...
+##  $ Area     : num  3793 1703 28472 3852 4115 ...
+##  $ Densidade: num  22.638 5.777 0.366 7.81 4.32 ...
+```
+
+```r
+# Soluções para item 1
+# a. Estima densidade demográfica média por km2 no Brasil
+(r_chapeu <- munic_amo %>%
+             summarise(Popm = mean(Pop),
+                       Aream = mean(Area)) %>%
+             mutate(Densm = Popm / Aream) %>%
+             select(Densm))
+```
+
+```
+##      Densm
+## 1 34.74338
+```
+
+```r
+# b. Estima média da densidade demográfica por km2 por município
+(media.densidade <- munic_amo %>%
+                    summarise(Densm = mean(Densidade)))
+```
+
+```
+##      Densm
+## 1 147.5197
+```
+
+```r
+# Adiciona valor de r_chapeu aos dados da amostra
+munic_amo <- cbind(munic_amo, r_chapeu)
+
+# Soluções para item 2
+#a.Estima o erro padrão e o coeficiente de variação
+(precisao.r_chapeu <- munic_amo %>% 
+                     mutate(Z = Pop - Densm * Area) %>%
+                     summarise(varZ = var(Z),
+                               Aream = mean(Area),
+                               Densm = mean(Densm)) %>%
+                     mutate(dp.r_chapeu = sqrt((1/n - 1/N)*varZ)/Aream, 
+                            cv.r_chapeu = 100 * dp.r_chapeu / Densm)  %>%
+                     select(dp.r_chapeu, cv.r_chapeu))
+```
+
+```
+##   dp.r_chapeu cv.r_chapeu
+## 1    8.781149    25.27431
+```
+
+```r
+(precisao.media.densidade <- munic_amo %>%
+         summarise(Densv = var(Densidade),
+                   Densm = mean(Densidade)) %>%
+         mutate(dp.media.dens = sqrt((1/n - 1/N)*Densv),
+                cv.media.dens = 100 * dp.media.dens / Densm) %>%
+         select(dp.media.dens, cv.media.dens))
+```
+
+```
+##   dp.media.dens cv.media.dens
+## 1      47.43697      32.15637
+```
+
+```r
+# b. Calcula densidade demográfica média por km2 no Brasil
+(R <- MunicBR_dat %>%
+      summarise(Popm = mean(Pop),
+                Aream = mean(Area)) %>%
+      mutate(Densidade_pop = Popm / Aream) %>%
+      select(Densidade_pop))   
+```
+
+```
+## # A tibble: 1 x 1
+##   Densidade_pop
+##           <dbl>
+## 1          23.6
+```
+
+```r
+# Estima média da densidade demográfica por km2 por município
+(densidade_media_pop <- MunicBR_dat %>%
+    summarise(densidade_media_pop = mean(Densidade)))
+```
+
+```
+## # A tibble: 1 x 1
+##   densidade_media_pop
+##                 <dbl>
+## 1                114.
+```
 
 ## Exercícios
 
