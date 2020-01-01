@@ -25,7 +25,7 @@ Para um plano amostral $p(s)$ qualquer sabemos que: $E(\delta_i) = \pi_i$, $E(\d
 
 $V(\delta_i) = \pi_i(1 - \pi_i)$ e $COV(\delta_i,\delta_j) = \pi_{ij}- \pi_i \pi_j = \Delta_{ij}$
 
-O Estimador de Horvitz-Thompson para estimar o total populacional  $Y=\displaystyle\sum_{i \in U}y_i$ é dado por:
+O estimador de Horvitz-Thompson ($HT$) para estimar o total populacional  $Y=\displaystyle\sum_{i \in U}y_i$ é dado por:
 
 $$
 \widehat Y = \displaystyle\sum_{i \in s}\frac{y_i}{\pi_i} = \widehat Y_{HT}\,\, (\#eq:eqppt1)
@@ -36,13 +36,13 @@ Portanto, cada unidade da amostra tem um peso amostral igual ao inverso da respe
 O estimador $HT$ do total é não viciado, isto é: $E(\widehat Y_{HT})=Y$  e sua variância na forma de Horvitz-Thompson é dada por:
 
 $$
-V_{HT}(\widehat Y_{HT}) = \sum_{i \in U}\sum_{j \in U}(\pi_{ij}-\pi_i\pi_j) \left(\frac{y_i}{\pi_i} \frac{y_j}{\pi_j}\right)\,\,(\#eq:eqppt2)
+V_{PPT}(\widehat Y_{HT}) = \sum_{i \in U}\sum_{j \in U}(\pi_{ij}-\pi_i\pi_j) \left(\frac{y_i}{\pi_i} \frac{y_j}{\pi_j}\right)\,\,(\#eq:eqppt2)
 $$
 
 Um estimador não viciado da variância do estimador $HT$ é dado por: 
 
 $$
-\widehat V_{HT}(\widehat Y_{HT}) = \sum_{i \in s}\sum_{j \in s}\frac{(\pi_{ij}-\pi_i\pi_j)}{\pi_{ij}}\left(\frac{y_i}{\pi_i}\frac{y_j}{\pi_j}\right)\,\,(\#eq:eqppt3)
+\widehat V_{PPT}(\widehat Y_{HT}) = \sum_{i \in s}\sum_{j \in s}\frac{(\pi_{ij}-\pi_i\pi_j)}{\pi_{ij}}\left(\frac{y_i}{\pi_i}\frac{y_j}{\pi_j}\right)\,\,(\#eq:eqppt3)
 $$
 
 Uma fórmula alternativa para a variância do estimador $HT$, válida para planos amostrais de tamanhos fixos, é chamada SYG (Sen-Yates-Grundy):
@@ -104,13 +104,13 @@ onde $w_i^R=w_i^{HT}/\displaystyle\sum_{j \in s}w_j^{HT}$.
 Sua variância é aproximada por:
 
 $$
-V(\overline y_R) \doteq \frac{1}{N^2}\sum_{i \in U}\sum_{j \in U}(\pi_{ij} - \pi_i\pi_j)\left(\frac{y_i-\overline Y}{\pi_i}\right)\left(\frac{y_j - \overline Y}{\pi_j}\right)\,\,(\#eq:eqppt8) 
+V_{PPT}(\overline y_R) \doteq \frac{1}{N^2}\sum_{i \in U}\sum_{j \in U}(\pi_{ij} - \pi_i\pi_j)\left(\frac{y_i-\overline Y}{\pi_i}\right)\left(\frac{y_j - \overline Y}{\pi_j}\right)\,\,(\#eq:eqppt8) 
 $$
 
 Um estimador aproximadamente não viciado para essa variância é dado por: 
 
 $$
-\widehat V(\overline y_R) = \frac{1}{N^2}\sum_{i \in s}\sum_{j \in s}\frac{(\pi_{ij} - \pi_i\pi_j)}{\pi_{ij}}\left(\frac{y_i - \overline y_R}{\pi_i}\right)\left(\frac{y_j - \overline y_R}{\pi_j}\right)\,\,(\#eq:eqppt9) 
+\widehat V_{PPT}(\overline y_R) = \frac{1}{N^2}\sum_{i \in s}\sum_{j \in s}\frac{(\pi_{ij} - \pi_i\pi_j)}{\pi_{ij}}\left(\frac{y_i - \overline y_R}{\pi_i}\right)\left(\frac{y_j - \overline y_R}{\pi_j}\right)\,\,(\#eq:eqppt9) 
 $$
 
 Cabe registrar que para alguns planos amostrais, os dois estimadores são equivalentes, isto é, $\overline y_R=\overline y_{HT}$ porque $w_i^R=w_i^{HT}$.
@@ -128,24 +128,25 @@ A Tabela \@ref(tab:tabppt1) apresenta um resumo da estimação de parâmetros m�
 cat("<table>",paste0("<caption>", "(#tab:tabppt1)", "Estimadores dos parâmetros média e total sob PPT", "</caption>"),"</table>", sep ="\n")
 ```
 <center>
------------------------------------------------------------- ------------------------------------
- **Parâmetro**                                                **Estimador PPT**
+----------------------------------------------------------------- ------------------------------------
+**Parâmetro**                                                     **Estimador PPT**
 
-$\overline{Y}=\displaystyle\sum_{i\in U}y_i/N$                 $\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,$    $\overline y_{HT}=\frac{1}{N}\displaystyle\sum_{i \in s}\frac{y_i}{\pi_i}=\sum_{i \in s}w_i^{HT}y_i$
-                                                             $\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,$                                $\overline y_R=\frac{\sum_{i \in s}w_i^{HT}y_i}{\sum_{i \in s}w_i^{HT}}=\displaystyle\sum_{i \in s}w_i^Ry_i$
+$\overline{Y}=\displaystyle\sum_{i\in U}y_i/N$                    $\overline y_{HT}=\frac{1}{N}\displaystyle\sum_{i \in s}\frac{y_i}{\pi_i}=\sum_{i \in s}w_i^{HT}y_i$
+                                                                  $\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,$$\overline y_R=\frac{\sum_{i \in s}w_i^{HT}y_i}{\sum_{i \in s}w_i^{HT}}=\displaystyle\sum_{i \in s}w_i^Ry_i$
                                                   
-$Y=\displaystyle\sum_{i\in U}y_i$                            $\widehat Y_{HT}=\displaystyle\sum_{i \in s}\frac{y_i}{\pi_i}$                                                  
+$Y=\displaystyle\sum_{i\in U}y_i$                                 $\widehat Y_{HT}=\displaystyle\sum_{i \in s}\frac{y_i}{\pi_i}$                                                  
 
-$V_{HT}(\overline y_{HT})=\frac{1}{N^2}V(\widehat Y_{HT})$   $\widehat V_{HT}(\overline y_{HT})=\frac{1}{N^2}\widehat V(\widehat Y_{HT})$
+$V_{PPT}(\overline y_{HT})=\frac{1}{N^2}V_{PPT}(\widehat Y_{HT})$ $\widehat V_{PPT}(\overline y_{HT})=\displaystyle\frac{1}{N^2}\widehat V_{PPT}(\widehat Y_{HT})$
 
-$V_{HT}(\widehat Y_{HT})$                                    $\widehat V_{HT}(\widehat Y_{HT})=\displaystyle\sum_{i \in s}\sum_{j \in s}\frac{(\pi_{ij}-\pi_i\pi_j)}{\pi_{ij}}\left(\frac{y_i}{\pi_i}\frac{y_j}{\pi_j}\right)$
+$V_{PPT}(\widehat Y_{HT})$                                        $\widehat V_{PPT}(\widehat Y_{HT})=\displaystyle\sum_{i \in s}\sum_{j \in s}\frac{(\pi_{ij}-\pi_i\pi_j)}{\pi_{ij}}\left(\frac{y_i}{\pi_i}\frac{y_j}{\pi_j}\right)$
 
-$V(\overline y_R)$                                           $\widehat V(\overline y_R)=\frac{1}{N^2}\displaystyle\sum_{i \in s}\sum_{j \in s}\frac{(\pi_{ij}-\pi_i\pi_j)}{\pi_{ij}}\left(\frac{y_i-\overline y_R}{\pi_i}\right)\left(\frac{y_j-\overline y_R}{\pi_j}\right)$   
+$V_{PPT}(\overline y_R)$                                          $\widehat V_{PPT}(\overline y_R)=\frac{1}{N^2}\displaystyle\sum_{i \in s}\sum_{j \in s}\frac{(\pi_{ij}-\pi_i\pi_j)}{\pi_{ij}}\left(\frac{y_i-\overline y_R}{\pi_i}\right)\left(\frac{y_j-\overline y_R}{\pi_j}\right)$   
                                                                        
   
-$V_{SYG}(\widehat Y_{HT})$                                   $\widehat V_{SYG}(\widehat Y_{HT})=-\frac{1}{2}\displaystyle\sum_{i \in s}\sum_{j \in s}\frac{(\pi_{ij}-\pi_i\pi_j)}{\pi_{ij}}\left(\frac{y_i}{\pi_i}-\frac{y_j}{\pi_j}\right)^2$
+$V_{SYG}(\widehat Y_{HT})$                                        $\widehat V_{SYG}(\widehat Y_{HT})=-\frac{1}{2}\displaystyle\sum_{i \in s}\sum_{j \in s}\frac{(\pi_{ij}-\pi_i\pi_j)}{\pi_{ij}}\left(\frac{y_i}{\pi_i}-\frac{y_j}{\pi_j}\right)^2$
 ------------------------- 
 </center>
+
 ### Maneiras de selecionar amostras com PPT
 
 A seleção de amostras com PPT pode ser com reposição ou sem reposição. 
@@ -192,7 +193,7 @@ Supondo que os 3 números aleatórios entre 0 e 2000 foram: 654, 1230 e 1555. En
 
 Caso os 3 números aleatórios entre 0 e 2000 fossem: 122, 754 e 1980. Então as fazendas 2 e 6 seriam as selecionadas, com a fazenda 2 sendo selecionada duas vezes.  
 
-**(#exm:exmppt2)** Diagrama de dispersão com dados de quantidade colhida e área plantada de cana de açúcar, apresentado na Figura \@ref(fig:diagrama).
+**(#exm:exmppt2)** Diagrama de dispersão com dados de quantidade colhida e área plantada de cana-de-açúcar, apresentado na Figura \@ref(fig:diagrama).
 <center>
 ```{r,diagrama, echo=FALSE, fig.cap= "Diagrama de dispersão"}
 knitr::include_graphics("Figuras/diagrama_ppt.PNG")

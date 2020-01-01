@@ -216,14 +216,13 @@ $$
 $$
 
 A Tabela \@ref(tab:tabdom1) apresenta um resumo da estimação de parâmetros proporção, média e total do domínio $d$ sob AAS. 
-
+<center>
 ```{r, results="asis", echo=FALSE}
 cat("<table>",paste0("<caption>", "(#tab:tabdom1)", "Estimadores dos parâmetros proporção, média e total do domínio $d$ sob AAS", "</caption>"),"</table>", sep ="\n")
 ```
-<center>
+----------
+Parâmetro do Domínio $d$                              Estimador do Domínio $d$ sob AAS
 ----------------------------------------------------  ---------------------------------------------------------------------------------------------------------------------------------------------------------
-  **Parâmetro do Domínio $d$**                              **Estimador do Domínio $d$ sob AAS**
-     
  $p_d=\sum_{i\in U}d_i/N= N_d/N$                       $\widehat{p}_d=n_d/n \,\,(N_d \,\text{desconhecido})$ 
       
  $\overline{Y}_d=Y_d/N_d$                                        
@@ -248,7 +247,6 @@ $V_{AAS}\left(\widehat{Y}_d^R\mid{n_d>0}\right)$       $\widehat V_{AAS}\left(\w
 
 -----------
 </center>
-
 
 **(#exm:exmdom1)** Estimando totais e médias por domínios
 
@@ -449,43 +447,136 @@ $$
 **(#exr:exrdom1)** A população total de uma cidade é de $N = 50.000$ pessoas. Uma amostra de fração amostral igual a 20% é selecionada aleatoriamente sem reposição. Na amostra 4.000 pessoas estão na força de trabalho, das quais 200 estão sem emprego.
 
 a) Que proporção da força de trabalho está desempregada?
-    
 b) Qual o intervalo com 90% de confiança para essa proporção populacional? 
 
+**(#exr:exrdom2)** Um economista deseja estimar o gasto médio com alimentação das famílias com crianças em uma determinada localidade conhecida como uma área onde residem famílias pobres. Está disponível uma listagem com os endereçoes da 250 famílias que habitam a localidade, porém é impossível identificar nesse cadastro as famílias com crianças. Foi selecionada e pesquisada uma AAS de 50 famílias. Destas, 42 famílias têm pelo menos uma criança. Foi apurado que o total do gasto semanal com alimentos dessas 42 famílias foi de $\$1720$ e que a soma dos quadrados dos gastos dessas mesmas famílias foi de $72000$.
 
-**(#exr:exrdom2)** Considere a população de $N = 338$ fazendas produtoras de cana de açúcar fornecida no arquivo 'fazendas_dat.rds'. 
+a)  Estime a média semanal dos gastos com alimentação das famílias com criança da localidade.
+b)  Construa um intervalo de 95% de confiança para a média estimada.
+c)  Estime total semanal dos gastos com alimentação das famílias com criança da localidade.
+d)  Construa um intervalo de 95% de confiança para o total estimado.
+
+**(#exr:exrdom3)** Considere a população de $N = 338$ fazendas produtoras de cana de açúcar fornecida no arquivo 'fazendas_dat.rds'. 
 
 Considere um plano AAS e tamanhos amostrais $n$ variando no conjunto {5, 10, 20, 50, 100}. Imagine que há interesse em estimar dois parâmetros:
 
    I)	A média da variável Produtividade = Quant / Area;
-
-   II)	A produtividade média por unidade de área na população.
+   II)  A produtividade média por unidade de área na população.
 
 Para cada um dos tamanhos de amostra considerados, realize as tarefas abaixo indicadas.
 
 a) Obtenha 500 amostras por AAS da população de fazendas. 
-    
 b) Use cada uma destas amostras para calcular estimativas dos dois parâmetros de interesse, e dos respectivos erros padrão.
-
 c) Use as 500 estimativas pontuais obtidas para cada parâmetro para avaliar:
-
--	O comportamento do viés dos estimadores;
-
--	O comportamento do viés dos estimadores dos erros padrões;
-
--	A adequação da aproximação normal para a distribuição dos estimadores usados.
+    -  O comportamento do viés dos estimadores;
+    -  O comportamento do viés dos estimadores dos erros padrões;
+    -  A adequação da aproximação normal para a distribuição dos estimadores usados.
 
 
-**(#exr:exrdom3)** Considere a população de $N = 338$ fazendas produtoras de cana de açúcar fornecida no arquivo 'fazendas_dat.rds'. 
+**(#exr:exrdom4)** Considere a população de $N = 338$ fazendas produtoras de cana de açúcar fornecida no arquivo 'fazendas_dat.rds'. 
 
 Considere agora um plano AAS e dois tamanhos amostrais $n_1 = 20$ e $n_2 = 100$. Agora o interesse é estimar a despesa com a *produção total de cana para um domínio de interesse*, definido como o conjunto de fazendas pertencentes às classes de tamanho 4, 5 e 6.
 
 Para cada um dos tamanhos de amostra considerados, realize as tarefas abaixo indicadas.
 
 a) Obtenha 500 amostras por AAS da população de fazendas. 
-
 b) Use cada uma destas amostras para calcular estimativas do parâmetro de interesse e dos correspondentes erros padrões supondo que o tamanho do domínio é *desconhecido*.
-
 c) Use cada uma destas amostras para calcular estimativas do parâmetro de interesse e dos correspondentes erros padrões supondo que o tamanho do domínio é *conhecido*.
-
 d) Use as 500 estimativas pontuais obtidas em b) e em c) para avaliar a adequação da aproximação normal para a distribuição dos estimadores usados, e também para avaliar qual dos dois estimadores fornece resultados mais precisos.
+
+**(#exr:exrdom5)** Foi realizado um estudo sobre a distância percorrida pelos reponsáveis pelos domicílios de uma localidade de suas residencias até o seus locais de trabalho. Uma AAS de 30 responsáveis foi selecionada entre os 393 responsáveis por domicílios da área em questão. Durante as entrevistas foi verificado que alguns dos selecionados não precisavam se deslocar para o trabalho por estarem aposentados, entre outras razões. Da amostra selecionada, apenas 24 dos responsáveis se adequavam ao estudo. A Tabela \@ref(tab:tabdom2) da a distância percorrida por cada entrevistado para chegar ao trabalho.
+
+<center>
+```{r, results="asis", echo=FALSE}
+cat("<table>",paste0("<caption>", "(#tab:tabdom2)", "Distância percorrida para chegar ao trabalho pelos 24 entrevistados", "</caption>"),"</table>", sep ="\n")
+```
+------- ------- ------- ------ ------ ------- ------- -------
+    8,5    10,2	   25,1    5,0    6,3     7,9    15,8     2,1
+  
+    9,2     4,2	    8,3    4,2    6,7    10,1    15,6    22,1
+ 
+   10,0     6,1	    7,9    1,5    8,0    11,0    20,2     9,3
+
+----------
+</CENTER>
+a)  Estime a média da distância entre as residências e os locais de trabalho dos responsáveis pelos domicílios da localidade.
+b)  Construa um intervalo de 95% de confiança para a média estimada.
+c)  Estime a distância total percorrida pelos responsáveis para chegar aos seus locais de trabalho.
+d)  Construa um intervalo de 95% de confiança para o total estimado.
+
+**(#exr:exrdom6)**  Uma cidade tem 468 escolas entre as quais uma amostra aleatória simples de 100 escolas foi selecionada. Verificou-se, após a seleção, que 54 eram escolas públicas e as demais, privadas. Foram pesquisados em cada escola o número de professores e o número de estudantes. Um resumo das informações é apresentado na Tabela \@ref(tab:tabdom3).
+
+<center>
+```{r, results="asis", echo=FALSE}
+cat("<table>",paste0("<caption>", "(#tab:tabdom3)", "Resumo das informações amostrais para as 100 escolas da amostra", "</caption>"),"</table>", sep ="\n")
+```
+----------
+Tipo       $n$  $\sum  y_i$  $\sum x_i$  $\sum y_i^2$  $\sum x_i^2$  $\sum y_ix_i$
+-------- ----- ------------ ----------- ------------- ------------- --------------
+Pública     54        31281        2024      29881219       1110901        1729349
+
+Privada     46        13707        1075       6366785         33119         431041
+
+----------
+</center>
+a)  Estime o total de alunos para as escolas públicas da cidade e construa um intervalo de 95% de confiança para a estimativa.
+b)  Estime o total de alunos para as escolas particulares da cidade e construa um intervalo de 95% de confiança para a estimativa.
+c)  Refaça o item $a$ sabendo que existem 251 escolas públicas na cidade. Compare e comente os dois resultados.
+d)  Estime a razão (número de profesores)/(número de estudantes) para cada tipo de escola e calcule o respectivo erro padrão das estimativas.
+
+**(#exr:exrdom7)** Um dentista, o Dr. A, selecionou uma amostra do tipo AAS de tamanho 20 entre 200 crianças de uma comunidade. Ele contou o número de dentes com cárie de cada uma das crianças e o resultado é mostrado na Tabela de frequências \@ref(tab:tabdom4).
+
+<center>
+```{r, results="asis", echo=FALSE}
+cat("<table>",paste0("<caption>", "(#tab:tabdom4)", "Tabela de frequências do número de cáries por criança", "</caption>"),"</table>", sep ="\n")
+```
+--------------------------- -- -- -- -- -- -- -- -- -- -- ---
+Número de dentes com cárie   0  1  2  3  4  5  6  7  8  9  10
+
+Número de crianças           8  4  2  2  1  1  0  0  0  1   1
+
+----------
+</center>
+Outro dentista, o Dr. B, examinou todas as 200 crianças e apenas verificou que 60 delas tinham, pelo menos, um dente com cárie.
+
+a)  Estime a média de dentes cariados na população de crianças utilizando apenas as informações obtidas pelo Dr. A, obtendo, também, um intervalo de $95\%$ de confiança para o parâmetro estimado.
+b)  Repita o item $a$ utilizando as informações obtidas pelos dois dentistas.
+c)  Estime a média de dentes com cárie somente para as crianças da população que tem dentes cariados, usando somente as informações do Dr. A. Dê um intervalo de $95\%$ de confiança para a média.
+d)  Repita o item $c$ utilizando as informações obtidas pelos dois dentistas.
+
+**(#exr:exrdom8)** Utilizando o arquivo dos municípios brasileiros ($MunicBR\_dat.rds$), selecione uma AAS de 300 municípios. Utilizando as informações contidas nessa amostra:
+
+a)  Estime a área total de cada uma das 5 grandes regiões brasileiras (N, NE, SE, S e CO) e calcule a estimativa do $CV$ para cada caso.
+a)  Estime a proporção de municípios brasileiros com população menor que 10000 habitantes e respectivo erro padrão.
+c)  Estime a população total, para o Brasil, dos municípios com menos de 10000 habitantes e de um intervalo de $95\%$ de confiança.
+
+**(#exr:exrdom9)** Selecione uma amostra de 30 fazendas do arquivo $fazendas\_dat.rds$, estime os seguintes parâmetros populacionais e respectivos erros padrão:
+
+a) Razão entre Despesa e Receita para os estabelecimentos com área menor que 100.
+b) Razão entre Despesa e Receita para os estabelecimentos com área igual ou maior que 100.
+c) As razões podem ser consideradas iguais ao nível de significância $\alpha=5\%$?
+
+**(#exr:exrdom10)** Uma granja tem um plantel de 10000 aves de 5 espécies diferentes. Foi selecionada uma AAS de 100 aves. A Tabela \@ref(tab:tabdom5) apresenta as contagens dos animais da amostra.
+<center>
+```{r, results="asis", echo=FALSE}
+cat("<table>",paste0("<caption>", "(#tab:tabdom5)", "Quantidade de aves na amostra por espécie", "</caption>"),"</table>", sep ="\n")
+```
+---------
+Espécie     Quantidade
+---------- -----------
+Pato               20
+
+Galinha            21
+
+Peru               22
+
+Ganso              18
+
+Marreco            19
+
+**Total**     **100**
+
+----------
+</center>
+a)  Estime o total de cada espécie de ave do plantel.
+b)  Construa um intervalo de $95\%$ de confiança para cada espécie.

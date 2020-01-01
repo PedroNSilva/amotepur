@@ -282,18 +282,17 @@ cat("<table>",paste0("<caption>", "(#tab:tabestr3)", "Estimadores dos parâmetro
 ```
 <center>
 ---------
- **Parâmetro**                                                                                                                  **Estimador AES**
--------------------------------------------------------------------------------------------------------------------------- ------------------------------------------------------------------------------------------------------------ 
- $\overline Y=\sum_{h=1}^H W_h\overline Y_h$                                                                                $\overline y_{AES}=\displaystyle\sum_{h=1}^{H}W_h \overline y_h =\sum_{h=1}^{H}\frac{N_h}{N}\overline y_h$
+Parâmetro                                                                                                                  Estimador AES
+-------------------------------------------------------------------------------------------------------------------------- ------------------------------------------------------- 
+$\overline Y=\displaystyle\sum_{h=1}^H W_h\overline Y_h$                                                                                $\overline y_{AES}=\displaystyle\sum_{h=1}^{H}W_h \overline y_h =\sum_{h=1}^{H}\frac{N_h}{N}\overline y_h$
  
- $Y=\displaystyle\sum_{h=1}^H Y_h=\displaystyle\sum_{h=1}^H N_h\overline Y_h$                                               $\widehat Y_{AES}=\displaystyle\sum_{h=1}^{H}\widehat Y_h =\sum_{h=1}^{H}N_h\overline y_h$
+$Y=\displaystyle\sum_{h=1}^H Y_h=\displaystyle\sum_{h=1}^H N_h\overline Y_h$                                               $\widehat Y_{AES}=\displaystyle\sum_{h=1}^{H}\widehat Y_h =\sum_{h=1}^{H}N_h\overline y_h$
  
- $V_{AES}\left(\overline y_{AES}\right)=\displaystyle\sum_{h=1}^{H}W_h^2\left(\frac{1}{n_h}-\frac{1}{N_h}\right)S_h^2(y)$   $\widehat V_{AES}\left(\overline y_{AES}\right)=\displaystyle\sum_{h=1}^{H}W_h^2\left(\frac{1}{n_h}-\frac{1}{N_h}\right)s_h^2(y)$
+$V_{AES}\left(\overline y_{AES}\right)=\displaystyle\sum_{h=1}^{H}W_h^2\left(\frac{1}{n_h}-\frac{1}{N_h}\right)S_h^2(y)$   $\widehat V_{AES}\left(\overline y_{AES}\right)=\displaystyle\sum_{h=1}^{H}W_h^2\left(\frac{1}{n_h}-\frac{1}{N_h}\right)s_h^2(y)$
  
- $V_{AES}\left(\widehat Y_{AES}\right)= N^2 V_{AES}\left(\overline y_{AES}\right)$                                          $\widehat V_{AES}\left(\widehat Y_{AES}\right)= N^2\displaystyle\sum_{h=1}^{H}W_h^2\left(\frac{1}{n_h}-\frac{1}{N_h}\right)s_h^2(y)$
+$V_{AES}\left(\widehat Y_{AES}\right)= N^2 V_{AES}\left(\overline y_{AES}\right)$                                          $\widehat V_{AES}\left(\widehat Y_{AES}\right)= N^2\displaystyle\sum_{h=1}^{H}W_h^2\left(\frac{1}{n_h}-\frac{1}{N_h}\right)s_h^2(y)$
 ---------
 </center>
-
 
 ### Intervalos de confiança
 
