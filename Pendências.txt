@@ -5,3 +5,29 @@ Pendências do livro
 2. Cap 2 - definir metadados e paradados.
 
 3. Cap 2 - acertar tamanhos das figuras.
+
+4. Citações a documentos tipo '.pdf' direto no texto: melhor colocar referências e transferir os detalhes da citação para as referências.
+
+5. Troquei j por l no capítulo 8.
+
+6. Comando que pode ser usado para melhorar saídas impressas do R que aparecem no texto:
+print(paste("Título ou rótulo do resultado que vai ser exibido", resultado))
+
+7. Acho que usar direto exercícios ou exemplos tirados e traduzidos do livro do Cochran não é boa ideia... Ver exemplos encontrados no capítulo 8 (exrsis2, etc.).
+
+8. No capítulo 9, incorporar expressões para estimação da variância dos estimadores alternativos de total e média.
+
+9. Compilar lista de pacotes que precisam ser instalados para poder gerar o livro todo. Inserir num script que faça essa instalação e tornar disponível para os que forem acessar os scripts incluídos ao longo do livro.
+
+10. Na ENCE, o pacote 'prevalence' tem problemas porque não consigo instalar 'rjags'. Ocorre porque é preciso instalar 'JAGS-4.x.y.exe' do sourceforge, e isto não é permitido pelas regras do firewall do IBGE.
+
+11. No capítulo 9, inserir discussão comparando o uso de AB com AS no contexto da amostragem de expectadores entrando no teatro.
+
+12. Inserir exercícios no Capítulo 9.
+
+13. Tirar [] das referências.
+
+14. Tirar referências dos capítulos.
+
+15. Limpar conteúdo das referências do book.bib.
+

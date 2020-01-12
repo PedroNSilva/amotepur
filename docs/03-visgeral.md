@@ -884,7 +884,7 @@ $$
 
 Este estimador foi proposto por @Horvitz1952 e está definido para qualquer variável de pesquisa $y$ e para qualquer *plano amostral probabilístico*, isto é, plano em que $\pi_i > 0 \, \, \, \forall \, \, i \in U$. É para permitir desfrutar dessa vantagem de sempre dispor de ao menos um estimador não viciado para totais que esta é uma das condições necessárias para a *amostragem probabilística* de populações finitas. Note também que o estimador faz uso das probabilidades de inclusão implicadas pelo plano amostral $p(s)$ adotado, mas depende deste apenas através das probabilidades de inclusão de primeira ordem das unidades selecionadas para a amostra, uma condição geralmente simples de satisfazer na prática da pesquisa.
 
-### Propriedades do estimador de Horvitz-Thompson
+### Propriedades do estimador de Horvitz-Thompson (#propHT)
 
 O *estimador de Horvitz-Thompson* é *não viciado* para estimar o total, ou seja, $E_p(\widehat Y_{HT}) = Y$.
 
@@ -932,6 +932,10 @@ $$
 $$
 
 Note a troca do sinal da diferença de probabilidades de inclusão em relação à expressão anterior. 
+
+Uma análise dessa expressão de variância nos dá uma indicação de quando empregar probabilidades de inclusão distintas pode ser vantajoso. A variância do estimador de total seria nula caso $\frac{y_i}{\pi_i} = \frac{y_j}{\pi_j} \forall \, i \ne j \in U$. Isto só seria possível quando $\pi_i \propto y_i \,\, \forall \, i \in U$, isto é, quando as probabilidades de inclusão fossem exatamente proporcionais aos valores da variável de interesse. Na prática, é impossível aplicar essa ideia já que os valores da variável de interesse são desconhecidos antes da seleção da amostra.
+
+Entretanto, veremos no capítulo \@ref(ppt) que esta ideia pode ser usada de forma aproximada fazendo as probabilidades de inclusão proporcionais a uma medida de tamanho cujos valores estejam disponíveis para todas as unidades da população $U$. Sempre que a medida de tamanho for positivamente correlacionada com a(s) variável(is) de interesse $y$, veremos que é possível tirar proveito da informação de tamanho para aplicar métodos de amostragem que levam a estimadores mais eficientes do total que no caso de planos amostrais com equiprobabilidade para amostras de tamanhos iguais.
 
 **Estimador alternativo da variância do estimador $HT$ do total**
 
