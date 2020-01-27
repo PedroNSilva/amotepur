@@ -270,9 +270,6 @@ options(warn=-1)
 # Limpa área de trabalho
 rm(list = ls())
 
-# Define pasta onde ficam dados usados neste exemplo
-setwd(paste0(getwd(), "/Dados"))
-
 # Carrega biblioteca(s) requerida(s)
 library(sampling)
 library(tidyverse)
