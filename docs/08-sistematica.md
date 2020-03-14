@@ -241,7 +241,7 @@ Foi visto na Equação \@ref(eq:eqsis1) que a primeira unidade a ser incluída n
 As demais unidades selecionadas são obtidas somando a $r$ os múltiplos $l K$, com $l$ variando de $1$ a $n$, enquanto $lK+r \le nK+c$,  varrendo assim os intervalos de seleção subsequentes. Desta forma, ao selecionar $r$ todas as unidades amostrais ficam definidas, implicando que a probabilidade de selecionar uma unidade qualquer da população é igual à de selecionar a partida aleatória que determina qual das amostras $s_r$ será observada.
 
 A probabilidade de inclusão das unidades $i \ne j$ na amostra é dada por:
-$$\pi_{ij}=\left\{\begin{array}{ll} 1/K & \,\,\textrm{se }i \ne j \,\in s_r,\,\,\,  r=1,\,\dots,\,K,\\\ 0 &\,\, \textrm{caso contrário}.\end{array}\right.\,\,\,$$ 
+$$\pi_{ij}=\left\{\begin{array}{ll} 1/K & \,\,\textrm{se }i \ne j \,\in s_r,\,\,\,  r=1,\,\dots,\,K\\\ 0 &\,\, \textrm{caso contrário} \end{array}\right.\,\,\,$$ 
 
 ## Variáveis aleatórias indicadoras - propriedades
 
@@ -252,11 +252,11 @@ $$
 
 Então o valor esperado de $I(r)$ é
 $$
-E_{AS}[I(r)]=1/K\,,\,\,r=1,\,\dots,\,K ,
+E_{AS}[I(r)]=1/K\,,\,\,r=1,\,\dots,\,K 
 $$
 A variância é dada por:
 $$
-V_{AS}[I(r)]=E_{AS}\{[I(r)]^2\}-\{E_{AS}[I(r)]\}^2=\displaystyle\frac1{K}-\frac1{K^2}=\frac{1}{K}\left(1-\frac{1}{K}\right) ,
+V_{AS}[I(r)]=E_{AS}\{[I(r)]^2\}-\{E_{AS}[I(r)]\}^2=\displaystyle\frac1{K}-\frac1{K^2}=\frac{1}{K}\left(1-\frac{1}{K}\right)
 $$
 E a covariância entre $I(r)$ e $I(q)$ quando $r \ne q$ é:
 $$
@@ -272,6 +272,7 @@ $$
 t_r = \sum_{i \in s_r} y_i
 $$
 Como a probabilidade de inclusão de uma amostra sistemática simples $s_r$ qualquer é $1/K$, o peso amostral das unidades dessa amostra é sempre igual a $d_i = 1 / \pi_i = K$. Sendo assim, sob AS o estimador de Horvitz-Thompson para o total é dado por:
+
 $$
 \widehat{Y}_{AS} = K t_r = K \sum_{i \in s_r} y_i (\#eq:eqsis5)
 $$ 
@@ -394,6 +395,7 @@ $$
 \overline Y = \frac Y N = \displaystyle \frac {\sum_{r=1}^{K} t_r} {\sum_{r=1}^{K} n_r}
 $$
 Para estimá-la deve-se considerar duas situações: quando o tamanho $N$ da população é conhecido, ou quando esse valor é desconhecido. Um estimador não viciado para a média quando $N$ é conhecido é dado por: 
+
 $$
 \overline y_{AS} = \frac {\widehat Y_{AS}} N = \frac {K t_r}{N}  (\#eq:eqsis6)
 $$ 
@@ -527,7 +529,7 @@ O vício desse estimador (quando $N \ne nK$) é o preço pago quando não se con
 
 ## Estimação de uma proporção na amostragem Sistemática
 
-Como já foi visto no Capítulo \@ref(cap:proporc), muitas vezes o interesse é estimar a proporção de unidades da população que possuem uma determinada característica de interesse. Nesse caso, para as unidades onde a característica de interesse estiver presente a variável $y$ terá o valor $1$ e para as demais unidades $y$ receberá o valor $0$.
+Como já foi visto no Capítulo \@ref(proporc), muitas vezes o interesse é estimar a proporção de unidades da população que possuem uma determinada característica de interesse. Nesse caso, para as unidades onde a característica de interesse estiver presente a variável $y$ terá o valor $1$ e para as demais unidades $y$ receberá o valor $0$.
 
 Como já foi visto que a proporção equivale à média de uma variável do tipo indicadora, quando o tamanho total da população, $N$, for conhecido um estimador não viciado para a proporção é dado por:
 
@@ -614,7 +616,7 @@ print(paste("Proporção na população p:", p), quote=FALSE)
 
 No caso em que o tamanho $N$ da população é desconhecido pode-se utilizar o estimador tipo razão que, nesse caso, é igual à proporção amostral:
 $$
-\widehat p_{AS} = \frac {n_a} {n_r},
+\widehat p_{AS} = \frac {n_a} {n_r}
 $$
 Este estimador é viciado, a menos do caso onde $N=nK$, como já foi visto.
 
@@ -743,7 +745,7 @@ Fica como exercício para o leitor verificar que o mesmo não ocorre quando se u
 
 4. Para populações com tendência linear, amostragem sistemática simples é melhor que AAS (@Cochran1977, seção 8.6).
 
-5. Para populações periódicas, amostragem sistemática simples com intervalo de seleção em sincronia com o período é um desastre (@Cochran1977, p. 218).
+5. Para populações periódicas, amostragem sistemática simples com intervalo de seleção em sincronia com o período é um desastre (@Cochran1977, página 218).
 
 **Considere o caso especial onde $N = n \times K$**
 
@@ -760,11 +762,11 @@ $$
 
 onde $S_y^2$ é a variância populacional total, $S_D^2$ é a variância *dentro* das amostras sistemáticas e $V_{AS}(\overline y)$ é a variância de $\overline y$ sob amostragem sistemática simples.
 
-Portanto, conforme @Cochran1977, p. 208, o estimador de média é mais eficiente sob amostragem sistemática que sob AAS se e somente se $S_D^2 > S_y^2$.
+Portanto, conforme @Cochran1977, página 208, o estimador de média é mais eficiente sob amostragem sistemática que sob AAS se e somente se $S_D^2 > S_y^2$.
 
 **Uma expressão alternativa para $V_{AS}(\overline y)$ quando $N = nK$**
 
-De acordo com o Teorema 8.2 de @Cochran1977, p. 209, tem-se:
+De acordo com o Teorema 8.2 de @Cochran1977, página 209, tem-se:
 
 $$
 \begin{array}{ll}
@@ -788,7 +790,7 @@ Lembrando que sob AAS, $V_{AAS}(\overline y) = \displaystyle \left( 1 - \frac {n
 Então, tem-se a relação aproximada:
 
 $$
-\frac {V_{AS}(\overline y)} {V_{AAS}(\overline y)} = 1 + (n-1) \rho \, \left\{\begin{array}{lll} < 1 & \textrm{se} \,\,\, \rho<0\,, \\ = 1 & \textrm{se} \,\,\,\rho=0 \,,\\ > 1 & \textrm{se} \,\,\, \rho>0 \,. \end{array} \right. (\#eq:eqsis12)
+\frac {V_{AS}(\overline y)} {V_{AAS}(\overline y)} = 1 + (n-1) \rho \, \left\{\begin{array}{lll} < 1 & \textrm{se} \,\,\, \rho<0\, \\ = 1 & \textrm{se} \,\,\,\rho=0 \,\\ > 1 & \textrm{se} \,\,\, \rho>0 \, \end{array} \right. (\#eq:eqsis12)
 $$ 
 
 Cabe notar que razões do tipo $V_{AS}(\overline y)/V_{AAS}(\overline y)$ são chamadas de *Efeito do Plano Amostral (EPA)*. Em inglês, usa-se o termo *design effect*, abreviado como *deff*.
@@ -820,9 +822,8 @@ A Tabela \@ref(tab:tabsis6) apresenta um resumo sobre a estimação de alguns pa
 
 <center>
 <table>
-<caption>(#tab:tabsis6)Principais resultados para os estimadores sob *AS*</caption>
+<caption>(#tab:tabsis6)Parâmetros e Estimadores sob AS</caption>
 </table>
-
 ----------
 Parâmetro                                                                             Estimador sob AS  
 ------------------------------------------------------------------------------------- --------------------------------------------------------------------------------------------------------------------------
@@ -832,7 +833,9 @@ $N$                                                                             
 
 $\displaystyle \overline Y=Y/N$                                                       $\displaystyle \overline {y}_{AS}=\frac KNt_r,\,\,\text{ se } N \text{ é conhecido }\\ \displaystyle  \overline{y}_{AS}= \frac {t_r}{n_r}=\overline y,\,\,\text{ se }N \text{ é desconhecido }$
 
-$\displaystyle p = N_A/N$                                                             $\displaystyle \widehat {p}_{AS}=\frac KNn_a,\,\, \text{ se }  N \text{ é conhecido }\\  \displaystyle \widehat {p}_{AS}= \frac {n_a} {n_r},\,\,\text{ se }N \text{ é desconhecido }$                                                                                                                                   
+$\displaystyle p = N_A/N$                                                             $\displaystyle \widehat {p}_{AS}=\frac KNn_a,\,\, \text{ se }  N \text{ é conhecido }\\  \displaystyle \widehat {p}_{AS}= \frac {n_a} {n_r},\,\,\text{ se }N \text{ é desconhecido }$  
+
+
 $\displaystyle V_{AS}(\widehat Y_{AS})=K\sum_{r=1}^K(t_r-\overline t)^2$              $\text{Depende da ordenação das unidades na população amostrada}$
 
 $\displaystyle V_{AS}(\overline y_{AS})=\frac K{N^2}\sum_{r=1}^K(t_r-\overline t)^2$  $\text{Depende da ordenação das unidades na população amostrada}$
@@ -909,25 +912,24 @@ Fica para o leitor verificar que os estimadores para a média e total são não 
 
 **(#exr:exrsis1)**  Identifique as outras 4 amostras possíveis referidas no Exemplo \@ref(exm:exmsis1). 
 
-**(#exr:exrsis2)**  A Tabela \@ref(tab:tabsis7) mostra a listagem dos moradores dos 13 domicílios de uma rua. As pessoas foram listadas de acordo com a seguinte regra: H=homem adulto, M=mulher adulta, h=homem criança e m=mulher criança. Cada coluna da tabela representa um dos domicílios da rua.
+**(#exr:exrsis2)** Transcrito de @Cochran1977, exercício 8.4. A Tabela \@ref(tab:tabsis7) mostra a listagem dos moradores dos 13 domicílios de uma rua. As pessoas foram listadas de acordo com a seguinte regra: H=homem adulto, M=mulher adulta, h=homem criança e m=mulher criança. Cada coluna da tabela representa um dos domicílios da rua.
 
 <center>
 <table>
-<caption>(#tab:tabsis7)Composição das familias dos domicílios da rua</caption>
+<caption>(#tab:tabsis7)Composição dos domicílios da rua</caption>
 </table>
-
 ----------
- Domicílios   1   2   3   4   5   6   7   8   9   10   11   12   13
------------- --- --- --- --- --- --- --- --- --- ---- ---- ---- ----
-              H   H   H   H   H   H   H   H   H   H    H    H    H
+ 1   2   3   4   5   6   7   8   9   10   11   12   13
+--- --- --- --- --- --- --- --- --- ---- ---- ---- ----
+ H   H   H   H   H   H   H   H   H   H    H    H    H
            
-              M   M   M   M   M   M   M   M   M   M    M    M    M 
+ M   M   M   M   M   M   M   M   M   M    M    M    M 
             
-              m   m   h       h   m   m   h   h   h    m    m      
+ m   m   h       h   m   m   h   h   h    m    m      
            
-              h   h   m       h   h   m   m       m    h           
+ h   h   m       h   h   m   m       m    h           
            
-              m   m           m       h                            
+ m   m           m       h                            
             
 ----------
 </center>
@@ -935,7 +937,7 @@ Fica para o leitor verificar que os estimadores para a média e total são não 
   a) Calcule a variância do estimador da proporção de homens adultos usando AS de 1 em cada 5 pessoas;
   b) Calcule a variância do estimador da proporção de homens adultos usando AAS com fração amostral de 20%;
   c) Repita os itens $a$ e $b$ para a proporção de crianças;
-  d) Em que casos a AS é mais indicada que a AAS? Por que?
+  d) Em que casos a AS é mais indicada que a AAS? Por quê?
   
 **Dica:** para selecionar a amostra sistemática numere as pessoas sequencialmente a partir do homem adulto do domicílio 1, descendo na coluna e passando para o topo da coluna seguinte.
   
@@ -1021,7 +1023,7 @@ Totais   410 459 674 551 325 528 303 358 342 205    4155
 **(#exr:exrsis6)**  O departamento de controle de qualidade de uma indústria alimentícia utiliza amostragem sistemática para estimar a média da quantidade de determinado alimento colocada em cada lata na linha de produção. A Tabela \@ref(tab:tabsis9) relaciona a amostra selecionada de 1 em cada 50 latas num dia, quando a produção diária foi de 1820 latas.
 
 <center>
-<table><caption>(#tab:tabsis9)Quantidade de alimento, em onças, por lata na AS.</caption></table>
+<table><caption>(#tab:tabsis9)Quantidade de alimento, em onças, por lata na AS</caption></table>
 
 ----- ----- ----- ----- ----- -----
 12,00 11,97 12,01 12,03 12,01 11,80 
@@ -1072,8 +1074,7 @@ Caso não fossem conhecidos os valores da variável representada na tabela, qual
 
   a)  Uma amostra sistemática com $k=5$?
   b)  Uma AAS de tamanho $n=6$?
-  c)  Uma amostra de Bernoulli com $p=0,2$? (ESSE PLANO AMOSTRAL AINDA NÃO FOI APRESENTADO!)
-  
+ 
 Em cada caso calcule a variância do estimador do total populacional para sustentar sua resposta.
 
 **(#exr:exrsis8)**  Numa determinada região há 3 comunidades consistindo, respectivamente, de pessoas de descendência Anglo-saxã, Polonesa e Italiana. Está disponível um cadastro atualizado, no qual as pessoas de cada domicílio estão listadas na seguinte ordem: esposo, esposa, filhos por idade e outros residentes.Os domicílios estão listados em ordem em cada rua.  O número médio de pessoas por domicílio é 5. Você pode escolher entre uma amostra sistemática com K=5 ou uma AAS com fração amostral de 20%. Para quais das seguintes variáveis você espera, e qual a razão, que a amostragem sistemática seja mais precisa?

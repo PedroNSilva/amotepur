@@ -552,7 +552,7 @@ munic_amo <- getdata(MunicBR_dat, srswor(n, N))
 ```
 
 ```
-## [1] 1587.12
+## [1] 1635.395
 ```
 
 ```r
@@ -561,7 +561,7 @@ munic_amo <- getdata(MunicBR_dat, srswor(n, N))
 ```
 
 ```
-## [1] 145084.7
+## [1] 121153
 ```
 
 ```r
@@ -577,7 +577,7 @@ munic_amo <- getdata(MunicBR_dat, srswor(n, N))
 ```
 
 ```
-## [1] 24.53913
+## [1] 23.81476
 ```
 
 ```r
@@ -586,7 +586,7 @@ munic_amo <- getdata(MunicBR_dat, srswor(n, N))
 ```
 
 ```
-## [1] 48.09581
+## [1] 46.67608
 ```
 
 ```r
@@ -604,7 +604,7 @@ munic_amo <- getdata(MunicBR_dat, srswor(n, N))
 ```
 
 ```
-## [1] 2672.81
+## [1] 2423.778
 ```
 
 ```r
@@ -612,7 +612,7 @@ munic_amo <- getdata(MunicBR_dat, srswor(n, N))
 ```
 
 ```
-## [1] 2673
+## [1] 2424
 ```
 
 
