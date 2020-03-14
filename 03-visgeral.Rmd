@@ -4,13 +4,13 @@
 
 Nesta seção introduzimos algumas definições e notação necessárias para a apresentação da teoria da amostragem ao longo do texto.
 
-Chama-se *população* (daqui por diante, esta é a designação da *população de pesquisa* que será objeto do levantamento de dados) qualquer conjunto contendo um número finito $N$ de unidades, delimitada por compartilharem algumas características em comum. As unidades deste conjunto são denominadas *unidades da população*. Representamos nosso cadastro dessa população por um conjunto de $N$ rótulos distintos denotado $U=\{1,2,\dots,i,\dots,N\}$, sendo $N$ o *tamanho da população* e $i$ o rótulo para uma unidade genérica da população. Cada unidade da população fica devidamente identificada por seu rótulo no conjunto $U$.
+Chama-se *população* (daqui por diante, esta é a designação da *população de pesquisa* que será objeto do levantamento de dados) qualquer conjunto contendo um número finito $N$ de unidades, delimitada por compartilharem algumas características em comum. As unidades deste conjunto são denominadas *unidades da população*. Representamos nosso cadastro dessa população por um conjunto de $N$ rótulos distintos denotado $U=\{1,\;2,\;...,\;i,\;...,\;N\}$, sendo $N$ o *tamanho da população* e $i$ o rótulo para uma unidade genérica da população. Cada unidade da população fica devidamente identificada por seu rótulo no conjunto $U$.
 
-São exemplos comuns de populações sobre as quais se realizam pesquisas: domicílios e moradores de certa localidade; indústrias instaladas num certo país; fazendas situadas num certo estado; alunos matriculados na $3^a$ série do ensino médio da rede escolar estadual em 2017, etc. 
+São exemplos comuns de populações sobre as quais se realizam pesquisas: domicílios e moradores de certa localidade; indústrias instaladas num certo país; fazendas situadas num certo estado; alunos matriculados na 3<sup>a</sup> série do ensino médio da rede escolar estadual em 2017, etc. 
 
 No capítulo anterior já enfatizamos a importância de uma definição clara e precisa da *população de pesquisa*. No entanto, ao estudar *Amostragem*, o maior interesse está voltado para o problema de estimar ou inferir certas quantidades ou parâmetros de diversas características (variáveis) numéricas que podem ser medidas ou observadas para cada unidade da população. No caso de características ou variáveis categóricas, podem ser criadas variáveis numéricas indicadoras das categorias de resposta, tomando valor igual a *um* se a unidade é classificada na categoria em questão, e valor igual a *zero* caso contrário. Desta forma, toda a teoria de amostragem se resume à estimação de parâmetros ou quantidades descritivas de variáveis numéricas que poderiam, em tese, ser medidas para todas as unidades da população de pesquisa. 
 
-De fato, cada característica numérica ou variável de interesse dá origem a um *vetor populacional*, que é o conjunto de valores da variável correspondentes às unidades da população. Por exemplo, se $y$ é a variável de pesquisa (de interesse) e $y_i$ é o valor dessa variável $y$ para a unidade $i$, então $Y_U = \{y_1,y_2,\dots,y_i,\dots,y_N\}$ é o *vetor populacional* gerado pela variável $y$.
+De fato, cada característica numérica ou variável de interesse dá origem a um *vetor populacional*, que é o conjunto de valores da variável correspondentes às unidades da população. Por exemplo, se $y$ é a variável de pesquisa (de interesse) e $y_i$ é o valor dessa variável $y$ para a unidade $i$, então $Y_U = \{y_1,\;y_2,\;...,\;y_i,\;..., \;y_N\}$ é o *vetor populacional* gerado pela variável $y$.
 
 Pelo exposto, fica claro que a observação de várias variáveis sobre uma mesma população gera diversos vetores populacionais, cada um correspondendo a uma das variáveis observadas. 
 
@@ -215,24 +215,18 @@ Podemos então usar os critérios sugeridos para escolha de estimadores para det
 
 Para ajudar a consolidar as ideias já apresentadas até aqui, fazemos agora uso de um exemplo muito simples, mas através do qual podemos ilustrar como operar com os conceitos e definições já introduzidos.
 
-**(#exm:filh)** Considere os dados da Tabela \@ref(tab:tabvis1) de uma população fictícia com $(N=4)$ mulheres (unidades populacionais), de quem foi indagado o número de filhos tidos nascidos vivos (a nossa variável $y$).
+**(#exm:filh)** Considere os dados da Tabela \@ref(tab:tabvis1) de uma população fictícia com $(N=4)$ mulheres (unidades populacionais), de quem foi indagado o número de filhos tidos nascidos vivos (a variável $y$).
 
-```{r, echo=FALSE, label="tabvis1"}
-suppressMessages(library(kableExtra)) # Pacote usado para a tabela não ocupar a largura toda da página
-x1=c("Valor da variável $(y_i)$")
-x2=c(0)
-x3=c(0)
-x4=c(2)
-x5=c(1)
-x6=c(3)
-tabela <- data.frame(x1,x2,x3,x4,x5,x6)
-colnames(tabela)=c("Rótulo da unidade $(i)$", 1, 2, 3, 4,"Total")
-
-knitr::kable(tabela, booktabs = TRUE, align= "lccccc",
-       caption= "Valor da variável $y$ por unidade da população de mulheres")%>%
-kable_styling(full_width = F)
+<center>
+```{r,results="asis",echo=FALSE}
+cat("<table>",paste0("<caption>", "(#tab:tabvis1)","Valor da variável $y$ por unidade da população de mulheres", "</caption>"),"</table>", sep ="\n")
 ```
-
+----------
+Rótulo da unidade $(i)$     1   2   3   4   Total
+-------------------------- --- --- --- --- -------
+Valor da variável $(y_i)$   0   0   2   1     3
+----------
+</center>
 
 Existem $\binom{4}{2} = 6$ amostras possíveis de duas unidades distintas dessa população, isto é, de tamanho $n=2$. O conjunto de todas as amostras possíveis é dado por: $S = \{(1;2); (1;3); (1;4); (2;3); (2;4); (3;4)\}$. 
 
@@ -244,35 +238,42 @@ $p_1(s) = 1/6 \,\,\,\forall s \in S$.
 
 A Tabela \@ref(tab:tabvis2) apresenta o conjunto de todas as amostras possíveis, os rótulos das unidades incluídas em cada amostra, os valores de $y$ para as unidades incluídas na amostra, a soma amostral e as probabilidades de seleção de cada amostra. As colunas 1, 2 e 5 dessa tabela correspondem à apresentação detalhada do *plano amostral* $p_1$ tal como definido acima, agora representado na forma de uma tabela.
 
-```{r, echo=FALSE, label="tabvis2"}
-suppressMessages(library(kableExtra)) # Pacote usado para a tabela não ocupar a largura toda da página
-  x1=c(1,2,3,4,5,6,"Total")
-  x2=c("{1;2}","{1;3}","{1;4}","{2;3}", "{2;4}", "{3;4}", "_")
-  x3=c("{0;0}","{0;2}","{0;1}","{0;2}", "{0;1}", "{2;1}", "_")
-  x4=c(0,2,1,2,1,3,"_")
-  x5=c("1/6","1/6","1/6","1/6","1/6","1/6",1)
-tabela <- data.frame (x1,x2,x3,x4,x5)
-names(tabela)<- c("**Amostra**","**Unidades na Amostra $s$**","**Valores na Amostra $s$**","**Soma Amostral $(t)$**","**Probabilidades $p_1(s)$**")
-knitr::kable(tabela, booktabs = TRUE, align= "ccccc",
-       caption= "Informações de cada amostra possível sob plano amostral $p_1$")%>%
-kable_styling(full_width = F)
-```  
+<center>
+```{r,results="asis",echo=FALSE}
+cat("<table>",paste0("<caption>", "(#tab:tabvis2)","Informações de cada amostra possível sob plano amostral $p_1$", "</caption>"),"</table>", sep ="\n")
+```
+----------
+ Amostra   Unidades na Amostra $s$    Valores na Amostra $s$    Soma Amostral $(t)$    Probabilidades $p_1(s)$  
+--------- -------------------------- ------------------------- ---------------------- --------------------------
+ 1	            {1;2}                        {0;0}	                 0	                       1/6
+ 
+ 2              {1;3}                        {0;2}                   2                         1/6
+ 
+ 3              {1;4}                        {0;1}                   1                         1/6
+ 
+ 4              {2;3}                        {0;2}                   2                         1/6
+ 
+ 5              {2;4}                        {0;1}                   1                         1/6
+ 
+ 6              {3;4}                        {2;1}                   3                         1/6
+ 
+ Total            _                            _                     _                          1
+----------
+</center>
   
 A distribuição de probabilidades da estatística *Soma Amostral*, apresentada na Tabela \@ref(tab:tabvis3), pode ser calculada a partir das informações na Tabela \@ref(tab:tabvis2), e é dada por:
 
-```{r, echo=FALSE, label="tabvis3"}
-suppressMessages(library(kableExtra)) # Pacote usado para a tabela não ocupar a largura toda da página
-x1=c("Com probabilidade $p_1(s)$")
-x2=c("1/6")
-x3=c("2/6")
-x4=c("2/6")
-x5=c("1/6")
-tabela <- data.frame(x1,x2,x3,x4,x5)
-colnames(tabela)=c("Valores possíveis de $t$", 0, 1, 2,3)
-knitr::kable(tabela, booktabs = TRUE, align= "lcccc",
-       caption= "Probabilidade sob $p_1$ para cada valor de $t$")%>%
-kable_styling(full_width = F)
+<center>
+```{r,results="asis",echo=FALSE}
+cat("<table>",paste0("<caption>", "(#tab:tabvis3)","Probabilidade sob $p_1$ para cada valor de $t$", "</caption>"),"</table>", sep ="\n")
 ```
+----------
+Valores possíveis de $t$       0     1     2     3
+---------------------------- ----- ----- ----- -----
+Com probabilidade $p_1(s)$    1/6   2/6   2/6   1/6
+----------
+</Center>
+
 O valor esperado de $t$ é:
 
 $$
@@ -289,20 +290,17 @@ Considere então o novo estimador do total populacional dado por: $\widehat{Y} =
 
 A Tabela \@ref(tab:tabvis4) apresenta os valores possíveis e a distribuição de probabilidades do novo estimador $\widehat Y_w = 2 \times t$.
 
-```{r, echo=FALSE, label="tabvis4"}
-suppressMessages(library(kableExtra)) # Pacote usado para a tabela não ocupar a largura toda da página
-x1=c("Com probabilidade $p_1(s)$")
-x2=c("1/6")
-x3=c("2/6")
-x4=c("2/6")
-x5=c("1/6")
-tabela <- data.frame(x1,x2,x3,x4,x5)
-colnames(tabela)=c("Valores possíveis de 2 x $t$", 0, 2, 4,6)
-
-knitr::kable(tabela, booktabs = TRUE, align= "lcccc",
-       caption= "Probabilidade sob $p_1$ para cada valor de 2 x $t$")%>%
-kable_styling(full_width = F)
+<center>
+```{r,results="asis",echo=FALSE}
+cat("<table>",paste0("<caption>", "(#tab:tabvis4)","Probabilidade sob $p_1$ para cada valor de $2 \times t$", "</caption>"),"</table>", sep ="\n")
 ```
+----------
+Valores possíveis de $2 \times t$     0     2     4     6
+----------------------------------- ----- ----- ----- ----- 
+Com probabilidade $p_1(s)$           1/6   2/6   2/6   1/6
+----------
+</center>
+
 Verifica-se então que o valor esperado de $\widehat Y_w = 2 \times t$ é:
 
 $$
@@ -333,23 +331,22 @@ Na grande maioria das situações de interesse prático no campo das pesquisas p
 
 O primeiro problema é que o número total de amostras possíveis cresce muito rapidamente com $N$ e com $n$. Por exemplo, o número de amostras sem reposição de tamanho $n$ de uma população com $N$ unidades é  $\binom{N}{n}$. A Tabela \@ref(tab:tabvis5) mostra como cresce o número de amostras no conjunto $S$ para valores selecionados de $N$ e $n$. Note como o tamanho desse conjunto é gigantesco mesmo com tamanhos de população e amostra bem modestos (1.000 e 20), por exemplo. 
 
+<center>
 ```{r, results="asis", echo=FALSE}
 cat("<table>",paste0("<caption>", "(#tab:tabvis5)", "Tamanhos do espaço amostral $S$ para valores selecionados de $N$ e $n$", "</caption>"),"</table>", sep ="\n")
 ```
-<center>
 ---------
-    $N$     $n$           $\binom{N}{n}$      
-------- ------- ------------------------ ----
-   4         2                      6 
+   $N$     $n$           $\binom{N}{n}$      
+------ ------- ------------------------
+     4       2                       6 
   
-   10        4                    210
+    10       4                     210
   
-  100       10         17310309456440 
+   100      10      17.310.309.456.440 
  
-1.000       20    3.39482811302458e+41
+ 1.000      20    3,39482811302458e+41
 
-10.000     100   6.52084692454763e+241
-
+1.0000     100   6,52084692454763e+241
 ---------
 </center>
 
@@ -371,10 +368,10 @@ $$
 
 Essa propriedade é demonstrada de maneira formal na próxima seção. Mas antes disso, vamos verificar sua aplicação com os dados do (#exm:filh). Continuando a discussão desse exemplo com a população de $(N=4)$ mulheres de quem foi indagado o número de filhos tidos nascidos vivos ($y$), tem-se, na Tabela \@ref(tab:tabvis6), o valor da variável $y$ e  a probabilidade de inclusão ${\pi}_i$ de cada unidade da população de mulheres.   
 
+<center>
 ```{r, results="asis", echo=FALSE}
 cat("<table>",paste0("<caption>", "(#tab:tabvis6)", "Valor da variável $y$ e probabilidade de inclusão para cada unidade da população", "</caption>"),"</table>", sep ="\n")
 ```
-<center>
 ---------
 Rótulo da unidade $(i)$               1          2          3          4        Total
 ----------------------------------- ---------- ---------  --------- ---------- --------
@@ -395,19 +392,30 @@ $$
 e já se mostrou que este estimador é não viciado para $Y$.
 
 
-**(#exm:filhp2)** Considere a mesma população fictícia do exemplo anterior. Considere agora o plano amostral $p_2$, que retira amostras de tamanho $n=2$- dessa população com as probabilidades indicadas na Tabela \@ref(tab:tabvis7). 
+**(#exm:filhp2)** Considere a mesma população fictícia do exemplo anterior. Considere agora o plano amostral $p_2$, que retira amostras de tamanho $n=2$ dessa população com as probabilidades indicadas na Tabela \@ref(tab:tabvis7). 
 
-```{r, echo=FALSE, label="tabvis7"}
-  x1=c(1,2,3,4,5,6,"Total")
-  x2=c("{1;2}","{1;3}","{1;4}","{2;3}", "{2;4}", "{3;4}", "_")
-  x3=c("{0;0}","{0;2}","{0;1}","{0;2}", "{0;1}", "{2;1}", "_")
-  x4=c(0,2,1,2,1,3,"_")
-  x5=c("0,00","0,20","0,15","0,20","0,15","0,30","1,00")
-tabela <- data.frame (x1,x2,x3,x4,x5)
-names(tabela)<- c("**Amostra**","**Unidades na Amostra $s$**","**Valores na Amostra $s$**","**Soma Amostral $(t)$**","**Probabilidades $p_2(s)$**")
-knitr::kable(tabela, booktabs = TRUE, align= "ccccc",
-       caption= "Informações de cada amostra possível sob plano amostral $p_2$")
+<center>
+```{r, results="asis", echo=FALSE}
+cat("<table>",paste0("<caption>", "(#tab:tabvis7)", "Informações de cada amostra possível sob plano amostral $p_2$", "</caption>"),"</table>", sep ="\n")
 ```
+----------
+ Amostra   Unidades na Amostra $s$    Valores na Amostra $s$    Soma Amostral $(t)$    Probabilidades $p_1(s)$  
+--------- -------------------------- ------------------------- ---------------------- --------------------------
+ 1	            {1;2}                        {0;0}	                 0	                       0,00
+ 
+ 2              {1;3}                        {0;2}                   2                         0,20
+ 
+ 3              {1;4}                        {0;1}                   1                         0,15
+ 
+ 4              {2;3}                        {0;2}                   2                         0,20
+ 
+ 5              {2;4}                        {0;1}                   1                         0,15
+ 
+ 6              {3;4}                        {2;1}                   3                         0,30
+ 
+ Total            _                            _                     _                         1,00
+----------
+</center>
 
 Vamos agora usar as informações acima para:
 
@@ -417,20 +425,17 @@ Vamos agora usar as informações acima para:
 
 A distribuição da soma amostral $t$ sob o plano $p_2$ é apresentada na Tabela \@ref(tab:tabvis8). 
 
-```{r, echo=FALSE, label="tabvis8"}
-suppressMessages(library(kableExtra)) # Pacote usado para a tabela não ocupar a largura toda da página
-x1=c("Com probabilidade $p_2(s)$")
-x2=c("0,0")
-x3=c("0,3")
-x4=c("0,4")
-x5=c("0,3")
-tabela <- data.frame(x1,x2,x3,x4,x5)
-colnames(tabela)=c("Valores possíveis de $t$", 0, 1, 2,3)
-
-knitr::kable(tabela, booktabs = TRUE, align= "lcccc",
-       caption= "Probabilidade sob $p_2$ para cada valor de $t$")%>%
-kable_styling(full_width = F)
+<center
+```{r, results="asis", echo=FALSE}
+cat("<table>",paste0("<caption>", "(#tab:tabvis8)", "Probabilidade sob $p_2$ para cada valor de $t$", "</caption>"),"</table>", sep ="\n")
 ```
+----------
+Valores possíveis de $t$      0     1     2     3
+--------------------------- ----- ----- ----- -----
+Com probabilidade $p_2(s)$   0,0   0,3   0,4   0,3
+----------
+</center>
+
 O valor esperado de $t$ sob o plano amostral $p_2$ é:
 
 $$
@@ -440,36 +445,43 @@ $$
 Para obter um estimador não viciado, devemos calcular pesos adequados para as unidades amostrais. 
 Estes requerem calcular as probabilidades de inclusão na amostra. A seguir, são apresentadas na Tabela \@ref(tab:tabvis9) as probabilidades de inclusão de cada uma das unidades da população, e também os pesos amostrais correspondentes sob o plano $p_2$.
 
+<center>
 ```{r, results="asis", echo=FALSE}
 cat("<table>",paste0("<caption>", "(#tab:tabvis9)", "Probabilidade de inclusão e peso amostral de cada unidade sob o plano amostral $p_2$", "</caption>"),"</table>", sep ="\n")
 ```
-<center>
 ---------
-Rótulo da unidade $(i)$                 1          2            3          4        
-------------------------------------- ---------- ----------- ---------- -------- 
-Probabilidade de inclusão $({\pi}_i)$ 7/20=0,35   7/20=0,35   7/10=0,70 3/5=0,60  
+Rótulo da unidade $(i)$                       1          2            3          4        
+-------------------------------------- ------------ ------------ ----------- ----------- 
+Probabilidade de inclusão $({\pi}_i)$   7/20=0,35    7/20=0,35    7/10=0,70   3/5=0,60  
 
-Peso $(w_i)$                          20/7=2,857 20/7=2,857  10/7=1,429 5/3=1,667
+Peso $(w_i)$                            20/7=2,857   20/7=2,857   10/7=1,429  5/3=1,667
 ---------
 </center>
 
 Usando o estimador do total com os pesos adequados $\widehat Y_w$, obtém-se os valores das estimativas para cada amostra possível na coluna cinco da Tabela \@ref(tab:tabvis10). 
 
-
-```{r, echo=FALSE, label="tabvis10"}
-suppressMessages(library(kableExtra)) # Pacote usado para a tabela não ocupar a largura toda da página
-  x1=c(1,2,3,4,5,6,"Total")
-  x2=c("{0;0}","{0;2}","{0;1}","{0;2}", "{0;1}", "{2;1}", "_")
-  x3=c(0, "2x(10/7)","1x(5/3)","2x(10/7)","1x(5/3)","2x(10/7)+1x(5/3)","")
-  x4=c("0,00","0,20","0,15","0,20","0,15","0,30","1,00")
-  x5=c(0,"4/7","1/4","4/7","1/4","6/7+1/2",3)
-tabela <- data.frame (x1,x2,x3,x4,x5)
-names(tabela)<- c("**Amostra**","**Valores na Amostra $s$**","**Total Amostral ponderado**","**Probabilidades $p_2(s)$**", "**Total x probabilidade**")
-knitr::kable(tabela, booktabs = TRUE, align= "ccccc",
-       caption= "Obtenção de estimativa sob plano amostral $p_2$ para cada amostra possível") %>%
-kable_styling(full_width = F)
+<center>
+```{r, results="asis", echo=FALSE}
+cat("<table>",paste0("<caption>", "(#tab:tabvis10)", "Obtenção de estimativa sob plano amostral $p_2$ para cada amostra possível", "</caption>"),"</table>", sep ="\n")
 ```
-
+----------
+ Amostra   Valores na Amostra $s$   Total Amostral ponderado   Probabilidades $p_2(s)$   Total x probabilidade
+--------- ------------------------ -------------------------- ------------------------- -----------------------
+    1            {0;0}	               0	                               0,00	                      0
+    
+    2            {0;2}	               2x(10/7)                          0,20                      4/7
+    
+    3            {0;1}                 1x(5/3)                           0,15                      1/4
+    
+    4            {0;2}                 2x(10/7)                          0,20                      4/7
+    
+    5            {0;1}                 1x(5/3)                           0,15                      1/4
+    
+    6            {2;1}                 2x(10/7)+1x(5/3)                  0,30                    6/7+1/2
+    
+  Total            	-                 -                                 1,00                       3
+----------
+</center>
 **Notas**
 
 1. O estimador $\widehat Y_w$ obtido usando os pesos iguais a $1 / \pi_i$ tem valor esperado (ver total da última coluna da Tabela \@ref(tab:tabvis10)) igual ao total populacional $Y$. Logo, o estimador assim obtido é *não viciado* também sob o plano amostral $p_2$.
@@ -493,10 +505,10 @@ Com probabilidade $p(s)$ sob $p_1(s)$    1/6  2/6   2/6  1/6
 
 **Estratégia 2:** Seleção de amostras com probabilidades desiguais, e estimador de total ponderado ($\widehat Y_w$), conforme especificado na Tabela \@ref(tab:tabvis12). 
 
+<center>
 ```{r, results="asis", echo=FALSE}
 cat("<table>",paste0("<caption>", "(#tab:tabvis12)", "Probabilidade de seleção sob $p_2(s)$ para cada valor do estimador ponderado", "</caption>"),"</table>", sep ="\n")
 ```
-<center>
 ---------
 Valores possíveis de $\widehat Y_w$    5/3   20/7   20/7+5/3      
 ------------------------------------- ----- ------ ---------- 
@@ -506,19 +518,29 @@ Com probabilidade $p(s)$ sob $p_2(s)$  0,30  0,40   0,30
 
 A melhor estratégia é escolhida medindo o *afastamento esperado* entre os valores possíveis do estimador e o valor do total populacional desconhecido ($Y$).  Para isso, como em ambos os casos o estimador é não viciado, usamos a *variância do estimador*. A Tabela \@ref(tab:tabvis13) indica como pode ser calculada a variância de cada um dos estimadores sob as duas opções de plano amostral ($p_1$ e $p_2$).
 
-
-```{r, echo=FALSE, label="tabvis13"}
-  x1=c(1,2,3,4,5,6,"Variância")
-  x2=c("{0;0}","{0;2}","{0;1}","{0;2}", "{0;1}", "{2;1}", "_")
-  x3=c(0, "2x(10/7)","1x(5/3)","2x(10/7)","1x(5/3)","2x(10/7)+1x(5/3)","1,24")
-  x4=c("0,00","0,20","0,15","0,20","0,15","0,30","_")
-  x5=c(0,4,2,4,2,6,"3,67")
-  x6=c("1/6","1/6","1/6","1/6","1/6","1/6","_")
-tabela <- data.frame (x1,x2,x3,x4,x5,x6)
-names(tabela)<- c("**Amostra**","**Valores na Amostra $s$**","**Estimativa sob $p_2$**","**Probabilidade sob $p_2$**", "**Estimativa sob $p_1$**", "**Probabilidade sob $p_1$**")
-knitr::kable(tabela, booktabs = TRUE, align= "cccccc",
-       caption= "Obtenção da variância dos estimadores sob os planos amostrais $p_1$ e $p_2$")
+<center>
+```{r, results="asis", echo=FALSE}
+cat("<table>",paste0("<caption>", "(#tab:tabvis13)", "Obtenção da variância dos estimadores sob os planos amostrais $p_1$ e $p_2$", "</caption>"),"</table>", sep ="\n")
 ```
+----------
+ Amostra     Valores na Amostra $s$   Estimativa sob $p_2$   Probabilidade sob $p_2$   Estimativa sob $p_1$   Probabilidade sob $p_1$    
+----------- ------------------------ ---------------------- ------------------------- ---------------------- --------------------------
+   1	            {0;0}	                   0	                0,00	                        0                    1/6
+   
+   2	            {0;2}	                   2x(10/7)	          0,20                          4                    1/6
+   
+   3              {0;1}	                   1x(5/3)            0,15                          2	                   1/6
+   
+   4              {0;2}	                   2x(10/7)           0,20                          4                    1/6
+   
+   5              {0;1}	                   1x(5/3)            0,15                          2                    1/6
+   
+   6              {2;1}                   2x(10/7)+1x(5/3)    0,30                          6                    1/6
+   
+ Variância          -                        1,24              -   	                       3,67	                  -
+----------
+</center>
+
 
 **Conclusão**
 
@@ -531,7 +553,7 @@ O plano amostral $p_2$ fornece o *estimador não viciado com menor variância* e
 
 Nesta seção, seguimos de perto a notação e a forma de apresentar os resultados encontrada no excelente livro de @Sarndal1992. Outra referência importante é o livro de @Fuller2009.
 
-Como já foi dito, trabalhar com a distribuição $p(s)$ é complicado. Isto ocorre porque o número total $\binom{N}{n}$ de amostras possíveis no conjunto $S$ cresce muito rapidamente com $N$ e com $n$. A saída encontrada é trabalhar com distribuições das variáveis aleatórias indicadoras $\delta_1$, $\delta_2$,... ,$\delta_N$ definidas tal que:
+Como já foi dito, trabalhar com a distribuição $p(s)$ é complicado. Isto ocorre porque o número total, $\binom{N}{n}$, de amostras possíveis no conjunto $S$ cresce muito rapidamente com $N$ e com $n$. A saída encontrada é trabalhar com distribuições das variáveis aleatórias indicadoras $\delta_1$, $\delta_2$,... ,$\delta_N$ definidas tal que:
 
 $$
 \delta_i = I(i \in s) = \left\{\begin{array}{ll} 1 & i \in s \\ 0 & i \notin s \end{array} \right.\,\,\, \forall\,\, i \in U\,\,(\#eq:eqvis25)
@@ -541,26 +563,26 @@ A variável $\delta_i$ é indicadora do evento 'inclusão da unidade $i$ na amos
 
 **(#exm:filh)(Continuação)** Para $N=4$ e $n=2$, as seis amostras possíveis podem ser representadas pelas indicadoras conforme apresentado na Tabela \@ref(tab:tabvis14).
 
-```{r, echo=FALSE, label="tabvis14"}
-knitr::kable(NULL,caption= "Representação de cada amostra possível pelas indicadoras") 
+<center>
+```{r, results="asis", echo=FALSE}
+cat("<table>",paste0("<caption>", "(#tab:tabvis14)", "Representação de cada amostra possível pelas variáveis indicadoras", "</caption>"),"</table>", sep ="\n")
 ```
-------------------------------------------------------------------------------
- **Amostra**    **Unidades na**      $\delta_1$   $\delta_2$   $\delta_3$   $\delta_4$ 
-                **Amostra $s$** 
-------------- -------------------- ------------ ------------ ------------ ------------
-1                   {1;2}                1          1            0           0
+----------
+ Amostra   Unidades na Amostra $s$   $\delta_1$   $\delta_2$   $\delta_3$   $\delta_4$ 
+--------- ------------------------- ------------ ------------ ------------ ------------
+ 1                   {1;2}                1          1            0           0
    
-2                   {1;3}                1          0            1           0
+ 2                   {1;3}                1          0            1           0
    
-3                   {1;4}                1          0            0           1
+ 3                   {1;4}                1          0            0           1
    
-4                   {2;3}                0          1            1           0  
+ 4                   {2;3}                0          1            1           0  
     
-5                   {2;4}                0          1            0           1
+ 5                   {2;4}                0          1            0           1
     
-6                   {3;4}                0          0            1           1
----------------------------------------------------------------------------------------
-
+ 6                   {3;4}                0          0            1           1
+----------
+</center>
 Cada amostra fica univocamente determinada pelas variáveis indicadoras $\delta_1$, $\delta_2$,... ,$\delta_N$ correspondentes. As variáveis indicadoras dependem da amostra $s$, apesar de não termos indicado isto explicitamente em nossa notação.
 
 As probabilidades de inclusão na amostra, denotadas $\pi_i$, podem ser vistas como:
@@ -713,19 +735,29 @@ O estimador $\widehat V_{SYG}(\widehat Y_{HT})$ foi motivado a partir da forma d
 
 **(#exr:exevisger1)** Considere a população com $N=6$ domicílios listada com os respectivos valores de variáveis de interesse na Tabela \@ref(tab:tabvis15).
 
-```{r, echo=FALSE, label="tabvis15"}
-suppressMessages(library(kableExtra)) # Pacote usado para a tabela não ocupar a largura toda da página
-  x1=c(1,2,3,4,5,6,"Total")
-  x2=c(800,4200,1600,500,900,2000,10000)
-  x3=c(2,4,2,2,4,1,15)
-  x4=c(2,3,1,1,2,1,10)
-  tabela <- data.frame(x1,x2,x3,x4)
-colnames(tabela)=c("**Domicílio**","**Renda (R$)**","**Número de Moradores**","**Número de Trabalhadores**")
-
-knitr::kable(tabela, align= "crrr",format.args= list(big.mark = '.',dec=','),
-             caption= "Valores de variáveis de interesse para cada domicílio da população")%>%
-kable_styling(full_width = F) 
+<center>
+```{r, results="asis", echo=FALSE}
+cat("<table>",paste0("<caption>", "(#tab:tabvis15)", "Valores de variáveis de interesse para cada domicílio da população", "</caption>"),"</table>", sep ="\n")
 ```
+----------
+ Domicílio    Renda (R$)   Número de Moradores   Número de Trabalhadores
+----------- ------------ --------------------- -------------------------
+    1	          800	             2	                       2
+    
+    2	        4.200	             4                         3
+    
+    3	        1.600	             2                         1
+    
+    4	          500	             2                         1
+    
+    5	          900	             4                         2
+    
+    6	        2.000              1                         1
+    
+   Total	   10.000             15                        10
+----------
+</center>
+
 Tratar das seguintes questões:
 
 1.	Para cada variável de interesse (Renda, Número de Moradores e Número de Trabalhadores), calcule os seguintes parâmetros populacionais:
@@ -748,7 +780,7 @@ Tratar das seguintes questões:
 
     d.	O valor esperado e a variância para o estimador Horvitz-Thompson do total populacional para a variável Renda.
 
-4.	Considere agora que o conjunto $S$ é formado somente pelas amostras (1;2), (2;3), (2;4), (2;5) e (2;6), tendo cada uma delas probabilidade 1/5 de ser a amostra selecionada (Plano B). Repita a) a d) do item 3 para este novo plano amostral.
+4.	Considere agora que o conjunto $S$ é formado somente pelas amostras (1;2), (2;3), (2;4), (2;5) e (2;6), tendo cada uma delas probabilidade 1/5 de ser a amostra selecionada (Plano B). Repita os itens a. a d. do item 3 para este novo plano amostral.
 
 5.	Faça gráficos dos valores possíveis do estimador de total sob os dois planos amostrais para comparar as respectivas distribuições.
 
