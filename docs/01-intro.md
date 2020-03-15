@@ -62,19 +62,17 @@ Este livro está organizado em quatorze capítulos, incluindo esta introdução.
 
 8) **Amostragem Sistemática Simples (AS) **
 
-9) **Amostragem Binomial ou de Bernoulli (AB) **
+9) **Outros Métodos de Amostragem com Equiprobabilidade **
 
 10) **Amostragem com Probabilidades Desiguais **
 
-11) **Amostragem Inversa **
+11) **Amostragem Estratificada **
 
-12) **Amostragem Estratificada **
+12) **Amostragem de Conglomerados em Um ou Mais Estágios **
 
-13) **Amostragem de Conglomerados em Um ou Mais Estágios **
+13) **Estimadores de Calibração **
 
-14) **Estimadores de Calibração **
-
-Cada um dos capítulos é auto-contido, e vários deles podem ser saltados. Por exemplo, os capítulos sobre Amostragem Sistemática, Amostragem Binomial e Amostragem Inversa podem ser omitidos num curso que tenha carga horária insuficiente para cobrir todo o material. O capítulo sobre Estimadores de Calibração tem grande importância prática, e pode ser apresentado antes do tratamento da Amostragem de Conglomerados, se necessário.
+Cada um dos capítulos é auto-contido, e vários deles podem ser saltados. Por exemplo, os capítulos sobre *Outros Métodos de Amostragem com Equiprobabilidade* pode ser omitido num curso que tenha carga horária insuficiente para cobrir todo o material. O capítulo sobre Estimadores de Calibração tem grande importância prática, e pode ser apresentado antes do tratamento da Amostragem de Conglomerados, se necessário.
 
 O leitor de qualquer livro precisa reconhecer que não é possível começar do zero: é preciso contar com conhecimento prévio de algumas ideias e conceitos básicos essenciais à compreensão do material tratado. Nossa abordagem pressupõe que o leitor está familiarizado com um curso básico de introdução à probabilidade e à inferência estatística, no nível tratado, por exemplo, em @Magalhaes2004 e @Magalhaes2006.
 

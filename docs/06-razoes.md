@@ -35,70 +35,41 @@ Um cuidado importante aqui é compreender o significado do parâmetro de interes
 <caption>(#tab:tabrazao1)Densidade demográfica por Unidade da Federação, média das razões e razão das médias para o Brasil</caption>
 </table>
 
+--------- 
+Unidade da Federação           Densidade demográfica Unidade da Federação           Densidade demográfica
+                                        ($Hab/km^2$)                                         ($Hab/km^2$)
+----------------------------- ---------------------- ----------------------------- ----------------------  
+Rondônia                                     6,6      Sergipe                                  94,4
+
+Acre                                         4,5      Bahia                                    24,8
+
+Amazonas                                     2,2      Minas Gerais                             33,4
+
+Roraima                                      2,0      Espírito Santo                           76,3
+
+Pará                                         6,1      Rio de Janeiro                          365,2
+
+Amapá                                        4,7      São Paulo                               166,3 
+
+Tocantins                                    5,0      Paraná                                   52,4
+
+Maranhão                                    19,8      Santa Catarina                           65,3
+
+Piauí                                       12,4      Rio Grande do Sul                        39,8
+
+Ceará                                       56,8      Mato Grosso do Sul                        6,9
+
+Rio Grande do Norte                         60,0      Mato Grosso                               3,4
+
+Paraíba                                     66,7      Goiás                                    17,7
+
+Pernambuco                                  89,6      Distrito Federal                        444,1
+        
+Alagoas                                    112,3 
+
+**Brasil(Média de razões)**                 68,1      **Brasil(Razão de médias)**              22,4
 ---------
-Unidade da Federação           Densidade demográfica
-                               ($Hab/km^2$)
------------------------------ ----------------------- 
-Rondônia                                          6,6
-
-Acre                                              4,5 
-
-Amazonas                                          2,2 
-
-Roraima                                           2,0
-
-Pará                                              6,1
-
-Amapá                                             4,7
-
-Tocantins                                         5,0
-
-Maranhão                                         19,8 
-
-Piauí                                            12,4
-
-Ceará                                            56,8
-
-Rio Grande do Norte                              60,0
-
-Paraíba                                          66,7
-
-Pernambuco                                       89,6
-
-Alagoas                                         112,3
-
-Sergipe                                          94,4
-
-Bahia                                            24,8
-
-Minas Gerais                                     33,4
-
-Espírito Santo                                   76,3
-
-Rio de Janeiro                                  365,2
-
-São Paulo                                       166,3 
-
-Paraná                                           52,4
-
-Santa Catarina                                   65,3
-
-Rio Grande do Sul                                39,8
-
-Mato Grosso do Sul                                6,9
-
-Mato Grosso                                       3,4
-
-Goiás                                            17,7
-
-Distrito Federal                                444,1
-
-**Brasil (Média das razões)**                    68,1 
-
-**Brasil (Razão das médias)**                    22,4
----------
-Fonte: IBGE, Censo Demográfico 2010.                                                        
-</center>
+</center>   Fonte: IBGE, Censo Demográfico 2010.
 
 Os dados apurados nas últimas duas linhas da Tabela \@ref(tab:tabrazao1) ilustram bem a importância de identificar corretamente que parâmetro se deseja estimar. No exemplo aqui considerado, a densidade demográfica apurada no nível do País como um todo é 22,4 $Hab/km^2$, enquando a média das densidades demográficas calculadas por unidades da federação é de 68,1 $Hab/km^2$, mais que três vezes maior. Portanto, ao enfrentar uma situação em que o parâmetro de interesse pode ser caracterizado como uma das duas situações, cabe ao responsável por planejar a pesquisa esclarecer junto aos demandantes da mesma qual dos dois conceitos melhor descreve a quantidade de interesse. Isto permitirá selecionar adequadamente o estimador que deve ser empregado com os dados da amostra a ser coletada.
 
@@ -366,11 +337,10 @@ A Tabela \@ref(tab:tabrazao2) apresenta um resumo da estimação de parâmetros 
 
 <center>
 <table>
-<caption>(#tab:tabrazao2)Estimadores dos parâmetros de uma razão sob AAS</caption>
+<caption>(#tab:tabrazao2)Parâmetros e estimadores para uma razão sob AAS</caption>
 </table>
-
 ---------
-Parâmetro                                                                                                                                                    Estimador sob AAS                     
+Parâmetro                                                                                                                                                    Estimador                     
 ------------------------------------------------------------------------------------------------------------------------------------------------------------ ---------------------------------------------------------------------------------------------------------------
 $R =\frac{Y}{X}=\frac{\overline{Y}}{\overline{X}}$                                                                                                            $\widehat{R}= \frac{\sum_{i\in s} y_i} {\sum_{i\in s} x_i} = \frac{\overline{y}} {\overline{x}}$
                                                                                                           
@@ -414,7 +384,7 @@ library(tidyverse)
 ```
 
 ```
-## -- Attaching packages -------------------------------------------------------------------------------------------------- tidyverse 1.2.1 --
+## -- Attaching packages ------------------------------------------------------------------------------------------------------------------- tidyverse 1.2.1 --
 ```
 
 ```
@@ -425,7 +395,7 @@ library(tidyverse)
 ```
 
 ```
-## -- Conflicts ----------------------------------------------------------------------------------------------------- tidyverse_conflicts() --
+## -- Conflicts ---------------------------------------------------------------------------------------------------------------------- tidyverse_conflicts() --
 ## x dplyr::filter() masks stats::filter()
 ## x dplyr::lag()    masks stats::lag()
 ```
@@ -447,7 +417,7 @@ str(MunicBR_dat)
 ```
 
 ```r
-# Define semente para geração de números aleatórios para permitir repetição
+# Define semente fixa para geração de números aleatórios para permitir repetição
 set.seed(123)
 
 # Item 1
@@ -593,6 +563,7 @@ b) Estimador de razão, utilizando como variável auxiliar a população (caract
 c) Compare e comente os resultados.
 
 **(#exr:exerazao3)** Numa cidade com 75.000 habitantes,  uma amostra aleatória simples de $n=4$ domicílios foi selecionada dos $25.000$ domicílios da cidade para estimar o custo médio de alimentação por domicílio em uma semana. A Tabela \@ref(tab:tabrazao3) mostra os resultados obtidos na amostra.
+
 <center>
 <table>
 <caption>(#tab:tabrazao3)Informações coletadas na amostra de domicílios</caption>
@@ -619,6 +590,7 @@ Considerando que $(N − n)/ N \dot= 1$:
   e) Baseado nos resultados, qual estimador é preferível nesta situação? Por que?
 
 **(#exr:exerazao4)** Num estudo para estimar a quantidade total de açúcar contida num carregamento de laranjas, uma AAS de $n=10$ laranjas foi selecionada. Cada uma das laranjas foi pesada, retirado o suco e pesada a quantidade de açúcar no suco. A Tabela \@ref(tab:tabrazao4) dá os resultados para as $10$ laranjas da amostra. O caminhão foi pesado carregado com as laranjas e, depois, vazio levando a conclusão que o peso total da carga de laranjas era de 1800 libras. Estime o total de açúcar contido em todas as laranjas e dê um intervalo de $95\%$ de confiança para esse total.
+
 <center>
 <table>
 <caption>(#tab:tabrazao4)Peso e quantidade de açúcar, ambos em libras, nas laranjas da amostra</caption>
@@ -645,10 +617,11 @@ Considerando que $(N − n)/ N \dot= 1$:
  9                   0,42                 0,023
 
 10                   0,44                 0,025
-
 ----------
 </center>
+
 **(#exr:exerazao5)**  Uma reserva florestal foi dividida em 200 áreas de mesmo tamanho. Através de aerofotogrametria foram contadas as árvores mortas de todas as áreas chegando-se a um total de 15600 árvores. Foi selecionada uma amostra aleatória de 10 áreas onde foram contadas localmente as árvores mortas. Os resultados aparecem na Tabela \@ref(tab:tabrazao5).
+
 <center>
 <table>
 <caption>(#tab:tabrazao5)Contagem das árvores mortas na amostra, por aerofotogrametria ($x_i$) e localmente($y_i$)</caption>
@@ -661,6 +634,7 @@ $x_i$  12  30  24  24  18  30  12  6   36  42
 $y_i$  18  42  24  36  24  36  14  10  48  54
 ----------
 </center>
+
 a)  Supondo que a amostra é *AAS*, estime o número total de árvores mortas na reserva e dê uma estimativa para a variância.
 b)  Estime o vício do número de árvores mortas.
 c)  Recalcule as estimativas sem utilizar a informação auxiliar e compare os resultados.
@@ -677,6 +651,7 @@ $$\widehat{\overline B}=\frac 1 {200} \sum|\overline y_i -\overline Y|\,\,\,\tex
 g)  Compare e comente os resultados. 
 
 **(#exr:exerazao7)**  Foi solicitado a um grupo de 50 alunos de uma escola que cada um declarasse quanto dinheiro tinha no bolso $(x_i)$, sem contar. A média dos valores declarados por todos os alunos foi de $\overline X=R\$4,93$. Em seguida foram selecionados, aleatoriamente e sem reposição, 10 desses alunos que foram solicitados a contar quanto dinheiro cada um tinha no bolso $(y_i)$. A Tabela \@ref(tab:tabrazao6) mostra os dois valores para cada aluno da amostra.
+
 <center>
 <table>
 <caption>(#tab:tabrazao6)Quantias declaradas ($x_i$) e contadas ($y_i$) pelos alunos da amostra</caption>
@@ -688,6 +663,7 @@ $y_i$  3,65  7,56  4,24 11,93  5,86  8,05  6,55  2,95  8,63  1,44
 
 ----------
 </center>
+
 a)  Estime o total do dinheiro dos 50 alunos do grupo e a variância da estimativa.
 b)  Refaça as estimativas sem utilizar as informações da variável auxiliar.
 c)  Comente os resultados.
@@ -724,6 +700,7 @@ A Tabela \@ref(tab:tabrazao7) apresenta os dados para a amostra selecionada.
  10         11,3    168     20           8,2     99
 -----------
 </center>
+
 a)  Estime a idade média das árvores do bosque usando o estimador não viciado e dê um intervalo de $95\%$ de confiança.
 b)  Estime a idade média das árvores do bosque usando o estimador de razão e dê um intervalo de $95\%$ de confiança.
 c)  Qual das estimativas você prefere e por quê?
@@ -732,6 +709,7 @@ d)  Utilizando a amostra já disponível como se fosse uma pesquisa piloto, veri
 **(#exr:exerazao9)**  Considere os dados de uma população hipotética.
 
 A Tabela \@ref(tab:tabrazao8) contém os dados dessa população de pesquisa.
+
 <center>
 <table>
 <caption>(#tab:tabrazao8)População hipotética de $N=9$ unidades</caption>
@@ -758,8 +736,44 @@ A Tabela \@ref(tab:tabrazao8) contém os dados dessa população de pesquisa.
  9          5      4
 ----------     
 </center>
+
 a) Calcule os parâmetros populacionais: $X,\:Y,\:S^2_x,\:S^2_y,\:\rho_{xy}$ e $R$.
 b) Determine todas AAS possíveis de tamanho 3 e construa as distribuições amostrais dos estimadores da média utilizando o estimador não viciado e o estimador de razão.
 c) Construa os histogramas para as duas distribuições e comente os resultados.
 d) Calcule a média e a variância para as duas distribuições e as compare.
 e) Calcule o vício do estimador de razão para a média e compare com o resultado obtido pela fórmula aproximada do vício.
+
+**(#exr:exerazao10)**  As notas da primeira prova de Cálculo 1 de 486 alunos de uma faculdade são conhecidas e sua média é $\overline X=52$. Esses alunos foram submetidos à primeira prova de Cálculo 2 e, para ter uma prévia do rendimento dos alunos, foi selecionada uma AAS dessas provas. As notas dos alunos da amostra estão na Tabela  \@ref(tab:tabrazao9): 
+
+<center>
+<table>
+<caption>(#tab:tabrazao9)Notas de Cálculo 1 e Cálculo 2 para os alunos da amostra</caption>
+</table>
+----------
+ Aluno $(i)$   Cálculo 1 $(x_i)$   Cálculo 2 $(y_i)$ 
+------------- ------------------- -------------------
+      1                   39                  65
+      
+      2                   43                  78
+      
+      3                   21                  52
+      
+      4                   64                  82
+      
+      5                   57                  92
+      
+      6                   47                  89
+      
+      7                   28                  73
+      
+      8                   75                  98
+      
+      9                   34                  56
+      
+     10                   52                  75
+----------
+</center>
+
+a)  Estime a média das notas de Cálculo 2 utilizando o estimador natural da AAS e construa um $ic_{95\%}$; 
+b)  Estime a média das notas de Cálculo 2 utilizando o estimador de razão e construa um $ic_{95\%}$; 
+c)  Faça um gráfico comparando os intervalos de confiança e comente os resultados.

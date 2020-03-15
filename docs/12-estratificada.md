@@ -16,13 +16,13 @@ Dentre as vantagens da AE destacam-se:
 
 - a viabilidade de ser operacionalmente e/ou administrativamente mais conveniente. 
 
-Por outro lado, a AE requer conhecimento das variáveis de estratificação para todas as unidades do cadastro antes da amostragem e a re-estruturação do cadastro antes da amostragem. Apenas uma estratificação é possível e dividir a população em muitos estratos pode levar a ter amostras muito pequenas em cada estrato.
+Por outro lado, a AE requer conhecimento das variáveis de estratificação para todas as unidades do cadastro e a re-estruturação do cadastro antes da amostragem. Apenas uma estratificação é possível e dividir a população em muitos estratos pode levar a ter amostras muito pequenas para cada estrato.
 
 Seguem as razões para estratificar uma população:
 
 1. Estratos formam domínios “naturais” ou substantivos de interesse. Por exemplo: regiões geográficas; farmácias e lojas de departamentos; homens e mulheres; etc.
 
-2. Para “espalhar” a amostra sobre toda a população, isto é, para fazer a amostra “representativa”e assegurar que todas as partes (estratos) da população estão representados na amostra.
+2. Para “espalhar” a amostra sobre toda a população, isto é, para fazer a amostra “representativa” e assegurar que todas as partes (estratos) da população estão representadas na amostra.
 
 3. Para melhorar a eficiência amostral, isto é, para reduzir a variância dos estimadores quanto maior for a homogeneidade dentro dos estratos.
 
@@ -47,43 +47,41 @@ Para isso é fundamental ter acesso a cadastro com variáveis auxiliares que pos
 
 ## O método geral
 
-Particione (divida) $U$ em $H$ subconjuntos (grupos) *mutuamente exclusivos e exaustivos*, chamados *estratos*, e denotados por $U_1, ..., U_h, ..., U_H$, de modo que: $U=U_1\cup U_2\cup \dots\cup U_H=\displaystyle\bigcup_{h=1}^H U_h$ e  $U_h \cap U_k=\emptyset,\, h\ne k$.
+Particione (divida) $U$ em $H$ subconjuntos (grupos) *mutuamente exclusivos e exaustivos*, chamados *estratos*, e denotados por $U_1, ..., U_h, ..., U_H$, de modo que: $U=U_1\cup \dots\cup U_h\cup \dots\cup U_H=\displaystyle\bigcup_{h=1}^H U_h$ e  $U_h \cap U_k=\emptyset,\, h\ne k$.
 
-Então $U_h = \textrm {\{unidades pertencentes ao estrato h}\}$, para $h=1,2,...,H$.
+Então $U_h = \textrm {\{unidades pertencentes ao estrato h}\}$, para $h=1, 2, ...,H$.
 
-Seja $N_h$ o tamanho de $U_h$. Então $N_1+N-2+\dots+N_H=N$.
+Seja $N_h$ o tamanho de $U_h$. O tamanho total da população será dado pela soma dos tamanhos dos estratos, $N=N_1+\dots +N_h+\dots+N_H$.
 
-Selecione uma amostra $a_h$ de tamanho $n_h$, com $n_h>0$, segundo um plano amostral $p_h(a_h)$ *independentemente dentro de cada estrato* $h$, onde $h = 1, 2, ..., H$, e $\displaystyle \sum_{h=1}^{H}n_h=n$.
+Selecione uma amostra $s_h$ de tamanho $n_h$, com $n_h>0$, segundo um plano amostral $p_h(s_h)$ *independentemente dentro de cada estrato* $h$, onde $h = 1, 2, ..., H$, e $\displaystyle \sum_{h=1}^{H}n_h=n$.
 
-Assim, fica assegurado que cada estrato tem sua população representada na amostra completa dada por: $s=a_1\cup a_2 \cup\dots\cup a_H$. 
+Assim, fica assegurado que cada estrato tem sua população representada na amostra completa dada por: $s=s_1\cup\dots\cup s_h \cup\dots\cup s_H$. 
 
-A independência da amostragem nos estratos consiste em tratar cada estrato como se fosse uma população separada, para fins de sorteio da amostra.
+A independência da amostragem nos estratos permite tratar cada estrato como se fosse uma população separada, para fins de sorteio da amostra.
 
-Devido à independência da seleção nos estratos, temos: $p(s)=p_1(a_1)\times p_2(a_2)\times \dots \times p_H(a_H)$.
+Devido à independência da seleção nos estratos, tem-se que: $$p(s)=p_1(s_1)\times\dots \times p_h(s_h)\times \dots \times p_H(s_H)$$. 
 
-Diferentes planos amostrais podem ser empregados nos diversos estratos, embora isso seja pouco comum na prática.
-
-O mais comum é usar um mesmo tipo de sorteio nos vários estratos. 
-
+A seguir, exemplos de possíveis planos de Amostragem Estratificada:
 
 **(#exm:exmest1)** População dividida em 2 estratos. AAS usada no estrato 1, com Amostragem Binomial usada no estrato 2.
 
 **(#exm:exmest2)** Amostragem Estratificada por Corte (AEC)
 
-População dividida em dois estratos. Num estrato se faz um censo, isto é, se pesquisa o conjunto completo de unidades ali existentes, e no outro se faz AAS.
+A população é dividida em estratos. Num estrato onde existe uma grande variabilidade, porém composto de um número relativamente pequeno de unidades populacionais, se faz um censo, isto é, se pesquisa o conjunto completo de unidades desse estrato. Nos demais estratos são pesquisadas amostras de suas unidades. Esse tipo de amostragem é utilizado em populações onde há uma grande assimetria, como, por exemplo, em pesquisas econômicas na área indústrial onde, geralmente, um número relativamente pequeno de estabelecimentos industriais é responsável por grande parte do valor da produção e um número grande de pequenas industrias é responsável pelo restante desse valor. Neste caso a precisão das estimativas produzidas será significativamente melhorada, pois como é feito um censo no estrato certo a variabilidade devida a esse estrato será nula.
 
 **(#exm:exmest3)** Amostragem Estratificada Simples (AES)
 
 Amostras aleatórias simples selecionadas em cada um dos estratos definidos.
 
+Diferentes planos amostrais podem ser empregados nos diversos estratos, embora isso seja pouco comum na prática. O mais comum é usar um mesmo tipo de amostragem nos vários estratos definidos. 
 
 ## Amostragem estratificada simples (AES)
 
-Trata-se do caso especial em que *AAS é empregada em todos os estratos*.
-
-Neste caso, os tamanhos $N_h$ de cada um dos estratos $U_h$ são considerados conhecidos.
+Trata-se do caso especial, muito utilizado na prática, em que *AAS é empregada em todos os estratos*. Neste caso, os tamanhos $N_h$ de cada um dos estratos $U_h$ são considerados conhecidos.
 
 O cadastro deve permitir separar as unidades da população nos $H$ estratos definidos.
+
+Nesta seção serão apresentados os resultados supondo AAS em cada estrato, mas o mesmo tipo de enfoque pode ser adaptado quando se utilizar outro tipo de seleção amostral nos estratos, como seleção PPT, seleção sistemática ou qualquer outro tipo de seleção que se pretenda utilizar. Como os estratos são independentes, basta fazer as estimativas, utilizando as fórmulas adequadas à seleção utilizada, para cada estrato e agregar os resultados para obter estimativas para a população como um todo.
 
 ### Esquema de seleção
 
@@ -92,13 +90,13 @@ Selecione uma AAS de tamanho $n_h>0$ das $N_h$ unidades do estrato $U_h$, $h=1,2
 Então:
 
 $$
-p_h(a_h) = 1\Big/\binom {N_h}{n_h} = \binom {N_h}{n_h}^{-1}\,\,\,,\,\,h=1,2,\dots,H\,\,(\#eq:eqest1)
+p_h(s_h) = 1\Big/\binom {N_h}{n_h} = \binom {N_h}{n_h}^{-1}\,\,\,,\,\,h=1,2,\dots,H\,\,(\#eq:eqest1)
 $$
 
 e
 
 $$
-p(s) = \prod_{h=1}^H p_h(a_h) = \prod_{h=1}^H \binom {N_h}{n_h}^{-1}(\#eq:eqest2) 
+p(s) = \prod_{h=1}^H p_h(s_h) = \prod_{h=1}^H \binom {N_h}{n_h}^{-1}(\#eq:eqest2) 
 $$
 
 O *tamanho total da amostra* é: $n_1+n_2+\dots+n_H=n$.
@@ -113,10 +111,10 @@ Assim, um valor típico da variável de pesquisa é $y_{hi}$, para $i=1,...,N_h$
 
 A Tabela \@ref(tab:tabestr1) representa uma população estratificada com os tamanhos dos estratos e os *dados populacionais* da variável $y$.
 
+<center>
 <table>
 <caption>(#tab:tabestr1)Tamanho do estrato e dados populacionais da variável $y$ por estrato</caption>
 </table>
-<center>
 ---------
  Estrato    Tamanho do estrato    Dados populacionais
 --------- --------------------- -------------------------- 
@@ -134,7 +132,7 @@ $\vdots$    $\vdots$              $\vdots$
 
 ### Parâmetros populacionais
 
-Seguem alguns parâmetros populacionais nos estratos e em toda população.   
+Seguem alguns parâmetros populacionais de interesse nos estratos e em toda população.   
 
 **Parâmetros nos estratos:**
 
@@ -149,12 +147,12 @@ $$
 $$ 
 
 $$
-S_h^2(y) = \displaystyle\sum_{i=1}^{N_h}(y_{hi} - \overline Y_h)^2/(N_h - 1)
+S_h^2(y)=\displaystyle\sum_{i=1}^{N_h}(y_{hi}-\overline Y_h)^2/(N_h - 1)
 $$
 
 **Parâmetros populacionais (globais):**
 
-Tamanhos populacionais: $N_1+N_2+\dots+N_H=N$
+Tamanhos populacionais: $N=N_1+N_2+\dots+N_H$
 
 O total populacional é dado por: 
 
@@ -168,19 +166,21 @@ $$
 \overline Y = Y/N = \displaystyle\sum_{h=1}^H N_h\overline Y_h/N = \sum_{h=1}^H W_h\overline Y_h (\#eq:eqest4)
 $$
 
-com $W_h=N_h/N$  
+onde $W_h=N_h/N$ é o chamado peso do estrato $h$, $h=1, 2, ..., H$.  
 
-e a variância do total populacional pode ser escrita como:
+A variância do total populacional pode ser escrita como:
 
 \begin{eqnarray}
-S_y^2& = &\displaystyle\sum_{h=1}^H\sum_{i=1}^{N_h}(y_{hi}-\overline Y)^2/(N-1)\\& = &\sum_{h=1}^H\sum_{i=1}^{N_h}[(y_{hi} - \overline Y_h)+(\overline Y_h - \overline Y)]^2/(N - 1)\\& = &\sum_{h=1}^H\frac{N_h - 1}{N - 1}S_h^2(y) + \sum_{h=1}^{H}\frac{N_h}{N - 1}(\overline Y_h - \overline Y)^2 (\#eq:5)
+S_y^2& = &\displaystyle\sum_{h=1}^H\sum_{i=1}^{N_h}(y_{hi}-\overline Y)^2/(N-1)\\& = &\sum_{h=1}^H\sum_{i=1}^{N_h}[(y_{hi} - \overline Y_h)+(\overline Y_h - \overline Y)]^2/(N - 1)\\& = &\frac1{N - 1}\sum_{h=1}^H(N_h - 1)S_h^2(y) + \frac1{N - 1}\sum_{h=1}^{H}{N_h}(\overline Y_h - \overline Y)^2 (\#eq:5)
 \end{eqnarray}
 
 Isto é: Variância *Total* = Variância *Dentro* + Variância *Entre*, 
 
-sendo $\textrm{Variância Dentro} = \displaystyle\sum_{h=1}^H\frac{N_h - 1}{N - 1}S_h^2(y)$ e $\textrm{Variância Entre} = \displaystyle\sum_{h=1}^{H}\frac{N_h}{N - 1}(\overline Y_h - \overline Y)^2$.
+sendo 
+$$\textrm{Variância Dentro} = \displaystyle\frac1{N - 1}\sum_{h=1}^H(N_h - 1)S_h^2(y)$$ e 
+$$\textrm{Variância Entre} = \displaystyle\frac1{N - 1}\sum_{h=1}^{H}{N_h}(\overline Y_h - \overline Y)^2$$.
 
-Para $S_y^2$ fixado, maximizar a variância *Entre* minimiza a variância *Dentro*. 
+Para $S_y^2$ fixado, maximizar a variância *Entre* significa minimizar a variância *Dentro*, o que é a meta de uma boa estratificação. Dessa maneira tem-se estratos o mais homogêneos possível, possibilitando boas estimativas com tamanhos pequenos de amostra.
 
 ### Dados amostrais
 
@@ -193,15 +193,15 @@ A notação para os dados amostrais é semelhante à usada para denotar os dados
 ---------
  Estrato   Tamanho amostral    Rótulos na amostra              Dados amostrais
 --------- ------------------ ------------------------------- ----------------------------------- 
- 1         $n_1$              $a_1=\{{i_1,\dots,i_{n_1}}\}$   $y_{1{i_1}},\dots,y_{1{i_{n_1}}}$ 
+ 1         $n_1$              $s_1=\{{i_1,\dots,i_{n_1}}\}$   $y_{1{i_1}},\dots,y_{1{i_{n_1}}}$ 
 
 $\vdots$   $\vdots$           $\vdots$                        $\vdots$
 
- $h$       $n_h$              $a_h=\{{i_1,\dots,i_{n_h}}\}$   $y_{h{i_1}},\dots,y_{h{i_{n_h}}}$
+ $h$       $n_h$              $s_h=\{{i_1,\dots,i_{n_h}}\}$   $y_{h{i_1}},\dots,y_{h{i_{n_h}}}$
  
 $\vdots$   $\vdots$           $\vdots$                        $\vdots$
  
- $H$       $n_H$              $a_H=\{{i_1,\dots,i_{n_H}}\}$   $y_{H{i_1}},\dots,y_{H{i_{n_H}}}$
+ $H$       $n_H$              $s_H=\{{i_1,\dots,i_{n_H}}\}$   $y_{H{i_1}},\dots,y_{H{i_{n_H}}}$
 ---------
 </center>
 
@@ -212,13 +212,13 @@ Como a amostragem é feita independentemente por estrato, podemos estimar separa
 
 Sob AES, os estimadores usuais dos parâmetros nos estratos são descritos a seguir:
 
-$\widehat Y_h = \displaystyle\sum_{i \in a_h}w_{hi}y_{hi} = \frac{N_h}{n_h}\sum_{i \in a_h}y_{hi} = N_h\overline y_h$  é o estimador do total do estrato $h$da variável $y$.
+$\widehat Y_h = \displaystyle\sum_{i \in s_h}w_{hi}y_{hi} = \frac{N_h}{n_h}\sum_{i \in s_h}y_{hi} = N_h\overline y_h$  é o estimador do total do estrato $h$ da variável $y$.
 
 Nota-se que o peso $w_{hi} = w_h = N_h/n_h$ é o inverso da probabilidade de inclusão para unidades dentro de cada estrato $h$ sob AES. 
 
-$\overline y_h = \frac{1}{n_h}\displaystyle\sum_{i \in a_h}y_{hi}$ é o estimador da média do estrato $h$ da variável $y$; e 
+$\overline y_h = \frac{1}{n_h}\displaystyle\sum_{i \in s_h}y_{hi}$ é o estimador da média do estrato $h$ da variável $y$; e 
 
-$s_h^2(y) = \frac{1}{n_h - 1}\displaystyle\sum_{i \in a_h}(y_{hi} - \overline y_h)^2$ é o estimador da variância do estrato $h$ da variável $y$. 
+$s_h^2(y) = \frac{1}{n_h - 1}\displaystyle\sum_{i \in s_h}(y_{hi} - \overline y_h)^2$ é o estimador da variância do estrato $h$ da variável $y$. 
 
 Como temos AAS de $n_h$ unidades dentro do estrato $h$, são válidas as seguintes propriedades: 
 
@@ -261,7 +261,8 @@ $$
 
 Isto segue devido à independência da amostragem nos estratos, que implica em $COV_{AES}(\overline y_h,\overline y_k)=0$, $h\ne k$. 
 
-Então,  $V_{AES}\left(\overline y_{AES}\right) = \displaystyle\sum_{h=1}^{H}W_h^2\left(\frac{1}{n_h} - \frac{1}{N_h}\right)S_h^2(y)$ e $V_{AES}\left(\widehat Y_{AES}\right) = N^2\displaystyle\sum_{h=1}^{H}W_h^2\left(\frac{1}{n_h} - \frac{1}{N_h}\right)S_h^2(y)$.
+Então,  
+$$V_{AES}\left(\overline y_{AES}\right) = \displaystyle\sum_{h=1}^{H}W_h^2\left(\frac{1}{n_h} - \frac{1}{N_h}\right)S_h^2(y)$$ e $$V_{AES}\left(\widehat Y_{AES}\right) = N^2\displaystyle\sum_{h=1}^{H}W_h^2\left(\frac{1}{n_h} - \frac{1}{N_h}\right)S_h^2(y)$$.
 
 Um estimador não viciado da variância de $\overline y_{AES}$ é dado por:
 
@@ -277,14 +278,14 @@ $$
 
 A Tabela \@ref(tab:tabestr3) apresenta um resumo da estimação de parâmetros média e total da variável $y$ sob AES. 
 
-<table>
-<caption>(#tab:tabestr3)Estimadores dos parâmetros média e total sob AES</caption>
-</table>
 <center>
+<table>
+<caption>(#tab:tabestr3)Parâmetros e respectivos estimadores sob AES</caption>
+</table>
 ---------
-Parâmetro                                                                                                                  Estimador AES
+Parâmetro                                                                                                                  Estimador    
 -------------------------------------------------------------------------------------------------------------------------- ------------------------------------------------------- 
-$\overline Y=\displaystyle\sum_{h=1}^H W_h\overline Y_h$                                                                                $\overline y_{AES}=\displaystyle\sum_{h=1}^{H}W_h \overline y_h =\sum_{h=1}^{H}\frac{N_h}{N}\overline y_h$
+$\displaystyle\overline Y=\sum_{h=1}^H \frac{N_h}N\overline Y_h=\displaystyle\sum_{h=1}^H W_h\overline Y_h$                                                                                $\displaystyle\overline y_{AES}=\sum_{h=1}^{H}\frac{N_h}{N}\overline y_h=\displaystyle\sum_{h=1}^{H}W_h \overline y_h$
  
 $Y=\displaystyle\sum_{h=1}^H Y_h=\displaystyle\sum_{h=1}^H N_h\overline Y_h$                                               $\widehat Y_{AES}=\displaystyle\sum_{h=1}^{H}\widehat Y_h =\sum_{h=1}^{H}N_h\overline y_h$
  
@@ -305,9 +306,8 @@ $$
 IC_{AES}(\overline y_{AES}; 1-\alpha) = \left[\overline y_{AES} \mp z_{\alpha/2}\sqrt{\widehat V_{AES}\left(\overline y_{AES}\right)}\right](\#eq:eqest11)
 $$
 
- Para médias dentro de estratos, $\overline y_h$, os tamanhos de amostras *por estratos* $n_h$ devem ser grandes. 
+ Para médias dentro de estratos, $\overline y_h$, os tamanhos de amostras *por estratos* $n_h$ sendo suficientemente grandes: 
  
- Nesse caso:
  
  $$z = \frac{\overline y_h - \overline Y_h}{\sqrt{\widehat V_{AES}\left(\overline y_h\right)}} \approx N(0;1)$$
  
@@ -318,7 +318,7 @@ $$IC_{AES}(\overline y_h; 1-\alpha) = \left[\overline y_h \mp z_{\alpha/2}\sqrt{
 
 ## Estimadores de razão em amostragem estratificada simples
 
-No capítulo 6 foi tratado o caso de utilização de estimador de razão para estimar o total populacional ($Y$) a partir de uma amostra aleatória simples sem reposição de tamanho $n$. No caso de uma amostra estratificada, há dois estimadores de razão usuais para estimar o total populacional (Y): 
+No capítulo 6 foi tratado o caso de utilização de estimador de razão para estimar o total populacional, $Y$, a partir de uma amostra aleatória simples sem reposição de tamanho $n$. No caso de uma amostra estratificada, há dois estimadores de razão usuais para estimar o total populacional (Y): 
 
 - estimador de razão combinada; e
 
@@ -328,7 +328,7 @@ Considere então, o problema de estimar o total $Y$ a partir de uma amostra alea
 
 ### Estimador de razão combinada
 
-Suponha que seja também conhecido, de alguma fonte externa a amostra, o total populacional $(X)$ para a variável $x$. 
+Suponha que seja também conhecido, de alguma fonte externa a amostra, o total populacional, $X$, para a variável $x$. 
 
 O *estimador de razão combinada* $\widehat Y_{RC}$ para estimar o total populacional $Y$ é definido por:
 
@@ -338,11 +338,13 @@ $$
 
 É sabido que os estimadores de razão são viciados exceto se a população for de um tipo muito especial em termos da relação entre $x$ e $y$. Apesar disso, tem-se afirmado que em muitos casos o estimador de razão é preferível ao estimador natural (simples) por que dá melhor precisão. Entretanto, esta afirmação só é verdadeira quando se consegue tornar desprezível o vício do estimador de razão,
 
-De acordo com @Cochran1977, é usual considerar o vício desprezível quando $CV(\widehat X_{AES})=CV(\overline x_{AES})\leq 0,10$. 
+De acordo com @Cochran1977, é usual considerar o vício desprezível quando: 
 
-Há que notar a equivalência de fixar um coeficiente de variação de 10% para $\overline x_{AES}$e de admitir um erro máximo de 20% na estimação de $\overline X$ com 95% de confiança. 
+$$CV(\widehat X_{AES})=CV(\overline x_{AES})\leq 0,10$$
 
-Não se dispõe de uma expressão exata para a variância do estimador de razão combinada. Porém, se a amostra é de tamanho suficientemente grande para tornar o vício desprezível, pode-se obter uma expressão aproximada para a variância $\widehat Y_{RC}$ dada por @Cochran1977, p. 166: 
+Há que se notar a equivalência de fixar um coeficiente de variação de 10% para $\overline x_{AES}$ e de admitir um erro máximo de 20% na estimação de $\overline X$ com 95% de confiança. 
+
+Não se dispõe de uma expressão exata para a variância do estimador de razão combinada. Porém, se a amostra é de tamanho suficientemente grande para tornar o vício desprezível, pode-se obter uma expressão aproximada para a variância $\widehat Y_{RC}$ pela expressão apresentada por @Cochran1977, página 166: 
 
 $$
 V_{AES}(\widehat Y_{RC}) \doteq \displaystyle\sum_{h=1}^{H}\frac{N_h^2(1 - f_h)}{n_h} \left(S_h^2(y) + R^2S_h^2(x) - 2RS_h(x,y)\right) (\#eq:eqest13)
@@ -352,7 +354,7 @@ onde:
 
 $\displaystyle f_h = \frac{n_h}{N_h}$, $\displaystyle R =\frac{Y}{X}$ e
 
-$S_h(x,y) = \displaystyle\frac{1}{N_h - 1}\displaystyle\sum_{i=1}^{N_h}(x_{hi} - \overline X_h)(y_{hi} - \overline Y_h)$ é a covariância populacional do estrato $h$ das variáveis $x$ e $y$. 
+$S_h(x,y) = \displaystyle\frac{1}{N_h - 1}\displaystyle\sum_{i=1}^{N_h}(x_{hi} - \overline X_h)(y_{hi} - \overline Y_h)$ é a covariância populacional no estrato $h$ das variáveis $x$ e $y$. 
 
 Um estimador de $V(\widehat Y_{RC})$ é dado por: 
 
@@ -365,7 +367,7 @@ $\widehat R_{AES} = \frac{\overline y_{AES}}{\overline x_{AES}}$
 
 $s_h^2(y)$, $s_h^2(x)$ e $s_h(x,y)$ são estimadores não viciados de $S_h^2(y)$, $S_h^2(x)$ e $S_h(x,y)$, respectivamente.
 
-$s_h(x,y) = \frac{1}{n_h-1}\displaystyle\sum_{i \in a_h}(x_{hi} - \overline x_h)(y_{hi} - \overline y_h)$.
+$s_h(x,y) = \frac{1}{n_h-1}\displaystyle\sum_{i \in s_h}(x_{hi} - \overline x_h)(y_{hi} - \overline y_h)$.
 
 O estimador de razão combinada para estimar a média $\overline Y$ é dado por: 
 
@@ -397,7 +399,7 @@ $$
 
 sendo $\displaystyle\widehat R_h = \frac{\overline y_h}{\overline x_h} = \frac{y_h}{x_h}$.
 
-Note-se que é necessário conhecer os totais por estrato $X_h$ da variável auxiliar $x$. 
+Note-se que é necessário conhecer os totais da variável auxiliar $x$ para cada estrato, $X_h$, $h=1, 2,\;..., H$. 
 
 A principal diferença do estimador de razão separada para o estimador de razão combinada está no nível em que se faz o uso da estimação por razão: no estimador de razão separada são feitas razões em cada um dos estratos, enquanto no estimador de razão combinada uma única razão é feita para o estimador de total. 
 
@@ -408,7 +410,7 @@ Se os $n_h$ forem suficientemente grandes, pode-se admitir que o vício de $\wid
 De acordo com @Cochran1977, no uso do estimador de razão separada, há que verificar se: 
 
 $$
-\sqrt H\, CV_{AES}(\overline x_h) \leq 0,30 \,\, \,\forall h
+\sqrt H\, CV_{AES}(\overline x_h) \leq 0,30 ,\,\,\,\,\forall h
 $$
 
 Supondo os $n_h$ suficientemente grandes, a variância $\widehat Y_{RS}$ é aproximada por: 
@@ -480,8 +482,9 @@ As situações que indicam a necessidade de alocação desproporcional (igual, d
 
 Uma amostra ‘representativa’ deveria ‘imitar’ ou se parecer bastante com a população de onde foi extraída.
 
-As unidades populacionais são distribuídas nos estratos segundo as proporções: $W_h=N_h/N,\,\,h=1,\dots,H$, com $\displaystyle\sum_{h=1}^{H}W_h=1$.
+As unidades populacionais são distribuídas nos estratos segundo as proporções: 
 
+$$W_h=N_h/N,\,\,h=1,\dots,H, \;\text{com}\; \displaystyle\sum_{h=1}^{H}W_h=1$$
 As proporções amostrais nos estratos são definidas como:
 $\lambda_h=n_h/n,\,\,h=1,\dots,H$, com $\displaystyle\sum_{h=1}^{H}\lambda_h=1$.
 
@@ -496,7 +499,7 @@ Um plano AES com $\displaystyle\frac{n_h}{n}=\frac{N_h}{N}$ é chamado de amostr
 Sob alocação proporcional, a *média amostral simples* é o estimador não viciado da média populacional, pois se $n_h=nW_h$, então:
 
 $$
-\overline y_{AES} = \displaystyle \sum_{h=1}^{H}W_h\overline y_h = \sum_{h=1}^{H}W_h\frac{1}{n_h}\sum_{i \in a_h}y_{hi} = \frac{1}{n}\sum_{h=1}^{H}\sum_{i \in a_h}y_{hi} = \overline y(\#eq:eqest24)
+\overline y_{AES} = \displaystyle \sum_{h=1}^{H}W_h\overline y_h = \sum_{h=1}^{H}W_h\frac{1}{n_h}\sum_{i \in s_h}y_{hi} = \frac{1}{n}\sum_{h=1}^{H}\sum_{i \in s_h}y_{hi} = \overline y(\#eq:eqest24)
 $$ 
 
 A variância de $\overline y_{AES}$ sob alocação proporcional simplifica para: 
@@ -515,7 +518,7 @@ $$
 
 Esta expressão tem a mesma forma que a correspondente ao caso de AAS, com $S_y^2$ substituído por $S_D^2$ .
 
-Como a variância dentro é geralmente menor que a variância total $\left(S_D^2<S_y^2\right)$, fica evidenciado que estratificação com alocação proporcional geralmente reduz a variância do estimador quando comparada com AAS de igual tamanho.
+Como a variância dentro é menor que a variância total $\left(S_D^2<S_y^2\right)$, fica evidenciado que estratificação com alocação proporcional geralmente reduz a variância do estimador quando comparada com AAS de igual tamanho.
 
 ### Alocação Ótima
 
@@ -683,30 +686,190 @@ Na Figura \@ref(fig:precisaovsestratos) temos o gráfico dos ganhos de precisão
 
 ## Exercícios
 
-**(#exr:exeest1)** Mostre que a média amostral global $\overline y=\displaystyle\frac{1}{n}\displaystyle\sum_{h=1}^{H}\sum_{i \in a_h}y_{hi}$ pode ser escrita como $\overline y=\displaystyle\sum_{h=1}^{H}\frac{n_h}{n}\overline y_h\ne \sum_{h=1}^{H}\frac{N_h}{N}\overline y_h=\overline y_{AES}$, a menos que $\displaystyle\frac{n_h}{n}=\frac{N_h}{N}, \,\, \forall h=1,\dots,H$ ou seja, a menos que se adote amostragem estratificada simples proporcional ou equiponderada.
+**(#exr:exeest1)** Mostre que a média amostral global $\overline y=\displaystyle\frac{1}{n}\displaystyle\sum_{h=1}^{H}\sum_{i \in s_h}y_{hi}$ pode ser escrita como $\overline y=\displaystyle\sum_{h=1}^{H}\frac{n_h}{n}\overline y_h\ne \sum_{h=1}^{H}\frac{N_h}{N}\overline y_h=\overline y_{AES}$, a menos que $\displaystyle\frac{n_h}{n}=\frac{N_h}{N}, \,\, \forall h=1,\dots,H$ ou seja, a menos que se adote amostragem estratificada simples proporcional ou equiponderada.
 
 **(#exr:exeest2)** Quais são as probabilidades de inclusão de primeira e segunda ordem para unidades na população sob AES? Que valores estas probabilidades assumem em caso de um plano AES proporcional ou equiponderada?
 
+**(#exr:exeest3)** Seja uma população fictícia, de tamanho $N=6$, onde são conhecidos os valores para uma variável $y$, sendo $Y=\{2, 4, 9, 2, 10, 11\}$.
 
-**Referências não incluídas no book.bib**
+a)  Selecione todas as possíveis amostra de tamanho $n=4$ usando AAS;
+b)  Calcule as estimativas da média populacional para cada uma das amostras AAS possíveis;
+c)  Calcule a variância da estimativa da média populacional com AAS;
+d)  Selecione todas as amostras possíveis de tamanho $n=4$ usando AES, estratificando a população em dois estratos formados pelas unidades onde $y_i<5$ e $y_i\ge 5$, com alocação proporcional;
+e)  Calcule as estimativas da média populacional para cada uma das amostras AES possíveis;
+f)  Calcule a variância da estimativa da média populacional com AES;
+g)  Compare e comente os resultados encontrados.
 
-Baillargeon, S. & Rivest, L. P. (2011). A General Algorithm for Univariate Stratification. Proceedings of the International Statistical Institute, Dublin.
+**(#exr:exeest4)** Em uma determinada localidade formada por 500 domicílios deseja-se fazer um estudo sobre o hábito de fumar entre as pessoas maiores de 16 anos. A população foi estratificada em 2 estratos: domicílios com renda alta (estrato 1), onde foram classificados 200 domicílios; e domicílios com renda mais (estrato 2), onde foram classificados os outros 300 domicílios. É conhecido que o número de pessoas com mais de 16 anos no estrato 1 é 520 e no estrato 2 é 1230. De cada um dos estratos foi selecionada e pesquisada uma amostra aleatória simples de 5 domicílios, apresentando os resultados mostrados na Tabela \@ref(tab:tabestr5):
+ 
+<center>
+<table>
+<caption>(#tab:tabestr5)Dados observados na amostra, por estrato</caption>
+</table>
+----------
+                                     Estrato 1          Estrato 2 
+------------------------------ ------------------- -------------------
+**Domicílios na amostra**       **1  2  3  4  5**   **1  2  3  4  5**
 
-Brito, J. A. M.; Maculan, N.; Lila, M. F. e Montenegro, F. T. (2010). An exact algorithm for the stratification problem with proportional allocation. Optimization Letters, v. 4, pp. 185 – 195.
+Moradores com mais de 16 anos   4  3  2  1  2       5  6  4  4  3
 
-Dalenius T. & Hodges Jr., Joseph L. (1959). Minimum Variance Stratification. Journal of the American Statistical Association, Vol. 54, No. 285, pp. 88-101.
+Fumantes com mais de 16 anos    1  1  0  1  1       3  3  1  2  2 
+----------
+</center>
 
-Ekman, G. (1959). An Approximation Useful in Univariate Stratification. The Annals of Mathematical Statistics v. 30, p. 219–229.
+Estimar o total de fumantes e o intervalo de 95% de confiança, entre as pessoas maiores de 16 anos na localidade, utilizando:
+      
+a) O estimador simples da amostragem estratificada;
+b) O estimador de razão combinada; e
+c) O estimador de razão separada;
+d) Comente os resultados.
+  
+**(#exr:exeest5)** Um pesquisador pretende realizar uma pesquisa por amostragem para estimar a produção de soja numa determinada região. Ele tem acesso a uma lista das fazendas produtoras de soja localizadas na região, compilada por ocasião do último censo agropecuário, realizado menos de 1 ano atrás. Usando essa lista, que contém a informação sobre área plantada com soja na ocasião do censo em cada fazenda, o pesquisador dividiu as fazendas da população em dois grupos: fazendas grandes (área plantada com soja maior que 50 hectares) e fazendas pequenas (todas as demais). A Tabela \@ref(tab:tabestr6) contém as informações compiladas pelo pesquisador usando a lista.
 
-Glasser, G.J. (1962) On the complete coverage of large units in a statistical study. International Statistical Review, 30, 28-32.
+<center>
+<table>
+<caption>(#tab:tabestr6)Informações da estratificação das fazendas de soja</caption>
+</table>
+----------
+Grupo        $N_h$  $\overline Y_h$  $S^2_h$
+---------- ------- ---------------- -------- 
+Pequenas      2400               10      100    
+                                   
+Grandes        100               80     1600   
+----------
+</center>
 
-Gunning, P. & Horgan, J.M. (2004). A new algorithm for the construction of stratum boundaries. Survey Methodology, 30, No. 2, 159-166.
+Determine a alocação de uma amostra de 200 fazendas usando:
 
-Hedlin, D. (2000). A procedure for stratification based on an extended Ekman rule. Journal of Official Statistics, 16, 15-29.
+a)  A alocação Proporcional;
+b)  A alocação de Neyman;
+c)  A alocação Ótima, supondo que o custo de coleta de uma unidade entre as grandes fazendas é metade do custo da coleta de uma unidade entre as pequenas;
+d)  Amostragem Estratificada por Corte.
+  
+**(#exr:exeest6)** Para estimar o total de uma variável de interesse $y$, uma população foi estratificada em quatro estratos. Algumas informações sobre a variável $y$ e sua distribuição nos estratos, obtidas de um censo recente, estão disponíveis na Tabela \@ref(tab:tabestr7).
 
-Hidiroglou, M. A. (1986). The construction of a self-representing stratum of large units in survey design. The American Statistician, 40, n. 1, 27-31.
+<center>
+<table>
+<caption>(#tab:tabestr7)Informações cansitárias sobre a variável de interesse</caption>
+</table>
+----------
+ Estrato   $N_h$   $\overline Y_h$  $S^2_h(y)$
+--------- ------ ----------------- -----------
+    1         44             17,18       18,48
 
-Lavallée, P. & Hidiroglou, M. A. (1988). On the stratification of skewed populations. Survey Methodology, 14, 33-43.
+    2        168             20,14       24,55
 
-Rivest, L. P. (2002). A generalization of the Lavallée-Hidiroglou algorithm for stratification in business surveys. Survey Methodology 28, 191-198. 
+    3         56             27,59       34,60
 
+    4         16             38,56      122,93
+----------
+</center>
+
+Uma amostra estratificada simples de tamanho 40 será usada para pesquisar essa população visando estimar o total da variável de interesse $y$.
+
+a)  Determine a alocação proporcional da amostra nos estratos.
+b)  Determine a alocação de Neyman da amostra nos estratos.
+c)  Compare a eficiencia da AES, com as alocações utilizadas nos itens anteriores, em relação a uma AAS de mesmo tamanho
+
+**(#exr:exeest7)** As 2120 lojas de uma certa localidade foram estratificadas pelo número de empregados (única variável relativa ao tamanho da empresa encontrada no cadastro) numa pesquisa para estimar o faturamento total. A Tabela \@ref(tab:tabestr8) contém as informações da variável número de empregados, $x$, utilizadas no planejamento da amostra e os resultados sobre o faturamento das lojas, $y$, obtidos da coleta dos dados na amostra .
+
+<center>
+<table>
+<caption>(#tab:tabestr8)Estratificação das lojas e resultados da amostra</caption>
+</table>
+---------- 
+ Limites dos estratos     $N_h$   $Y_h(x)$    $S^2_h(x)$  $\overline y_h(y)$        $s^2_h(y)$
+---------------------- -------- ----------- ------------ -------------------  ----------------
+      5-14                1100       9020         8,30                   3              2,53 
+
+     15-49                 500      13500       102,08                  17             66,59
+
+     50-99                 250      17750       207,00                  52            411,28
+
+    100-199                130      17329       840,10                 170           1953,64
+
+    200-499                120      36600      7500,00                 350          16770,25
+
+   500 e mais               20      14280     20805,00                7000        3062500,00
+
+  **Totais**           **2120**  **108479**    
+----------
+</center>
+
+  a) Dimensione, utilizando os dados referentes a $x$, a amostra necessária para estimar o numero total de empregados com um erro máximo admissível de 2% e com um nível de confiança de 95%, supondo alocação de Neyman.
+  b) Suponha que a amostra alocada no item anterior tenha sido efetivamente selecionada fornecendo os resultados apresentados para $y$. Com estas informações estime o faturamento total, $Y$, e o coeficiente de variação desta estimativa.
+       
+**(#exr:exeest8)** (@Thompson2012) A Tabela \@ref(tab:tabestr9) mostra os resultados observados numa amostra estratificada:
+
+<center>
+<table>
+<caption>(#tab:tabestr9)Resultados observados na amostra</caption>
+</table>
+---------- 
+ Estrato   $N_h$  $n_h$  $\overline  $y_h$  $s^2_h$
+--------- ------ ------ ------------------ --------
+ 1            50     50          20             700
+ 
+ 2           100     50          10            2800
+ 
+ 3           300     50          30             600
+----------
+</center>
+
+a)  Qual o tipo de estratificação utilizado?
+b)  Estime a média populacional;
+c)  Construa o intervalo de 95% de confiança para a média populacional.
+
+**(#exr:exeest9)** (Adaptado de @Scheaffer2011) Uma empresa deseja estimar o total de faltas ao trabalho, num determinado mês, entre todos os funcionários. Como técnicos, administrativos e trabalhadores sem formação específica tem taxas distintas de faltas, esses grupos devem ser tratados como estratos. A Tabela \@ref(tab:tabestr10) dá as informações populacionais, para cada um dos estratos, sobre o total de tabalhadores e a variância do número de faltas.
+
+<center>
+<table>
+<caption>(#tab:tabestr10)Tamanho e variância por estrato</caption>
+</table>
+---------- 
+Trabalhadores      $N_h$  $S^2_h$
+---------------- ------- -------- 
+Técnicos              92       25
+
+Administrativos       27        9
+
+Sem formação         132       36
+----------
+</center>
+
+a)  Supondo $n=30$, determine a alocação de Neyman da amostra estratificada simples;
+b)  Usando os dados da Tabela \@ref(tab:tabestr11), estime o número total de faltas e estime um limite superior para o erro de estimativa, com 95% de confiança;
+c)  Qual seria a estimativa do total e o limite superior para o erro de estimativa, com 95% de confiança, se essa mesma amostra tivesse sido selecionada por uma AAS, sem considerar a estratificação;
+d)  Compare os resultados e comente-os.
+
+<center>
+<table>
+<caption>(#tab:tabestr11)Falta no mês para cada trabalhador selecionado</caption>
+</table>
+---------- 
+Trabalhadores    Faltas
+---------------- ------------
+Técnicos         2, 0, 3, 1, 0, 3, 8, 5, 1, 3
+
+Administrativos  1, 3
+
+Sem formação     4, 0, 2, 2, 3, 6, 8, 4, 0, 1, 1, 0, 0, 7, 4, 2, 0, 0
+----------
+</center>
+
+**(#exr:exeest10)** (Adaptado de @Scheaffer2011) Uma empresa tem suas divisões localizadas em três continentes distintos: América, Europa e Ásia. Deseja-se realizar uma pesquisa sobre um de seus produtos através de uma amostra de clientes a serem entrevistados por telefone a partir da divisão localizada na América. O custo das ligações é diferente para cada uma das divisões. A Tabela \@ref(tab:tabestr12) tem as informações do custo, em dólares, de cada ligação/entrevista para cada uma das divisões, além da variância das taxas de satisfação e o número total de clients em cada estrato. Calcule o tamanho total da amostra a ser selecionada e a alocação apropriada para essa amostra, sabendo que se deseja que a variância da estimativa da média populacional seja $V_{AES}(\overline y_{AES})\le 0,1$.
+
+<center>
+<table>
+<caption>(#tab:tabestr12)Informações populacionais dos clientes</caption>
+</table>
+---------- 
+Estrato    $N_h$  $S^2_h$  $c_h$
+-------- ------- -------- ------ 
+América      112     2,25      9       
+
+Europa        68     3,24     25  
+
+Ásia          39     3,24     36     
+----------
+</center>

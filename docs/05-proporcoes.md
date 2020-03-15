@@ -192,21 +192,20 @@ A Tabela \@ref(tab:tabprop1) reúne os resultados principais da estimação de c
 
 <center>
 <table>
-<caption>(#tab:tabprop1)Estimadores de contagens e proporções sob *AASC*</caption>
+<caption>(#tab:tabprop1)Parâmetros e respectivos estimadores sob AASC</caption>
 </table>
-
 ----------
-Parâmetro                                               Estimador ENV sob AASC                                                            
-------------------------------------------------------- -----------------------------------------------------------------------------------
-$\displaystyle N_A = \sum_{i \in U} y_i$                $\displaystyle\widehat N_A= N\times n_A/n = N\times \widehat p$                            
-                                                                                                                                        
-$\displaystyle p = N_A /N$                              $\displaystyle\widehat{p}=\displaystyle n_A / n$                                  
-                                                                                                                                        
-$\displaystyle\sigma^2_y = p (1-p)$                     $\displaystyle s^2_y=\displaystyle\frac{n}{n-1}\widehat p (1-\widehat p)$           
-                                                                                                                                        
-$\displaystyle V_{AASC} (\widehat p) ={p(1-p)}/{n}$     $\displaystyle\widehat V_{AASC}(\widehat{p})=\widehat{p} (1-\widehat{p})/(n-1)$   
+Parâmetro                                              Estimador não viciado                                                            
+------------------------------------------------------ ----------------------------------------------------------------------------------
+$\displaystyle N_A = \sum_{i \in U} y_i$               $\displaystyle\widehat N_A= N\times n_A/n = N\times \widehat p$
 
-$\displaystyle V_{AASC}(\widehat N_A)=N^2{p(1-p)}/{n}$  $\displaystyle\widehat V_{AASC}(\widehat N_A)=N^2\widehat{p}(1-\widehat{p})/(n-1)$
+$\displaystyle p = N_A /N$                             $\displaystyle\widehat{p}=\displaystyle n_A / n$
+
+$\displaystyle\sigma^2_y = p (1-p)$                    $\displaystyle s^2_y=\displaystyle\frac{n}{n-1}\widehat p (1-\widehat p)$
+
+$\displaystyle V_{AASC} (\widehat p) ={p(1-p)}/{n}$    $\displaystyle\widehat V_{AASC}(\widehat{p})=\widehat{p} (1-\widehat{p})/(n-1)$
+
+$\displaystyle V_{AASC}(\widehat N_A)=N^2{p(1-p)}/{n}$ $\displaystyle\widehat V_{AASC}(\widehat N_A)=N^2\widehat{p}(1-\widehat{p})/(n-1)$
 ----------
 </center>
 
@@ -249,26 +248,24 @@ $$
 
 A Tabela \@ref(tab:tabprop2) reúne os resultados principais da estimação de contagens e proporções sob *AAS*.
 
-
 <center>
 
 <table>
-<caption>(#tab:tabprop2)Estimadores de contagens e proporções sob *AAS*</caption>
+<caption>(#tab:tabprop2)Parâmetros e respectivos estimadores sob AAS</caption>
 </table>
 
 ----------
-Parâmetro                                                                             Estimador ENV sob AAS  
+Parâmetro                                                                             Estimador não viciado 
 ------------------------------------------------------------------------------------- --------------------------------------------------------------------------------------------------------------------------
-$\displaystyle N_A=\sum_{i \in U} y_i$                                                $\displaystyle\widehat N_A = N \times n_A / n = N \times\widehat p$                                                               
-                                                                                                                                                                                                              
-$\displaystyle p = N_A/N$                                                             $\displaystyle\widehat{p} = n_A/n$                                                                                        
-                                                                                                                                                                                                              
-$\displaystyle S^2_y =\frac{N}{N-1}p(1-p)$                                            $\displaystyle s^2_y =\displaystyle\frac{n}{n-1} \widehat p (1 - \widehat p)$                                             
-                                                                                                                                                                                                              
-$\displaystyle V_{AAS}(\widehat N_A)= N^2\left(\frac1 n-\frac1 N\right)S^2_y$         $\displaystyle\widehat V_{AAS}(\widehat N_A)=N^2\left(\frac 1 n-\frac {1}{N}\right)\frac{n\widehat p (1-\widehat p)}{n-1}$  
-                                                                                                                                                                                                              
-$\displaystyle V_{AAS}(\widehat p)=\displaystyle\left(\frac1 n-\frac1 N\right)S^2_y$  $\displaystyle\widehat V_{AAS}(\widehat p)=\left(\frac 1 n-\frac{1}{N}\right)\frac{n\widehat p(1-\widehat p)} {n-1}$       
+$\displaystyle N_A=\sum_{i \in U} y_i$                                                $\displaystyle\widehat N_A = N \times n_A / n = N \times\widehat p$
 
+$\displaystyle p = N_A/N$                                                             $\displaystyle\widehat{p} = n_A/n$
+
+$\displaystyle S^2_y =\frac{N}{N-1}p(1-p)$                                            $\displaystyle s^2_y =\displaystyle\frac{n}{n-1} \widehat p (1 - \widehat p)$
+
+$\displaystyle V_{AAS}(\widehat N_A)= N^2\left(\frac1 n-\frac1 N\right)S^2_y$         $\displaystyle\widehat V_{AAS}(\widehat N_A)=N^2\left(\frac 1 n-\frac {1}{N}\right)\frac{n\widehat p (1-\widehat p)}{n-1}$
+
+$\displaystyle V_{AAS}(\widehat p)=\displaystyle\left(\frac1 n-\frac1 N\right)S^2_y$  $\displaystyle\widehat V_{AAS}(\widehat p)=\left(\frac 1 n-\frac{1}{N}\right)\frac{n\widehat p(1-\widehat p)} {n-1}$
 ----------
 </center>
  
@@ -590,12 +587,10 @@ Tanto nos casos de seleção com ou sem reposição pode-se considerar que as ap
 
 @Cochran1977 mostra uma tabela, reproduzida na Tabela \@ref(tab:tabprop3), com alguns valores mínimos do total de unidades observadas na amostra, $n_A$, onde a aproximação Normal pode ser utilizada.
 
-
 <center>
 <table>
 <caption>(#tab:tabprop3)Valores mínimos de $n_A$ para uso da aproximação Normal</caption>
 </table>
-
 ----------
  $p$           $n_A$         $n$     
 ------------  ------ -----------
@@ -1110,12 +1105,10 @@ Nesses casos, há interesse de estimar a proporção de unidades em cada uma das
 
 **(#exm:exmprop5)** Seja uma escola com 1000 alunos distribuídos entre as 9 etapas do ensino fundamental como na Tabela  \@ref(tab:tabprop4):
 
-
 <center>
 <table>
 <caption>(#tab:tabprop4)Distribuição dos alunos por etapa de ensino</caption>
 </table>
-
 ----------
 Etapa de ensino   Alunos    Proporção
 ---------------- --------- ----------

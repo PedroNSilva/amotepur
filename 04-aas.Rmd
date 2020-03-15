@@ -135,7 +135,7 @@ Prossiga com a seleção de uma unidade por sorteio, sempre excluindo de cada no
 
 Tal algoritmo fornecia a regra para *seleção manual* com uso de *tabelas de números aleatórios* antes do aparecimento e uso de computadores para seleção de amostras. A aplicação deste algoritmo em computador é bastante ineficiente, devido à necessidade de percorrer várias vezes uma lista que pode ser bem grande: a das unidades ainda não selecionadas. Para enfrentar esta dificuldade, foram propostos diversos algoritmos mais eficientes na literatura. Apresentaremos aqui apenas dois, ambos baseados em processamento sequencial de listas, que se destacam por sua simplicidade.
 
-### Algoritmo de Hàjek para selecionar AAS 
+### Algoritmo de Hàjek para selecionar AAS {#Hajek}
 
 Este algoritmo foi proposto por @Hajek1960 e consiste nos seguintes passos: 
 

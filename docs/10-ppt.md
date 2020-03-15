@@ -113,27 +113,26 @@ Em planos amostrais equi-ponderados, isto é, em que as probabilidades de inclus
 
 A Tabela \@ref(tab:tabppt1) apresenta um resumo da estimação de parâmetros média e total sob PPT. 
 
-
-<table>
-<caption>(#tab:tabppt1)Estimadores dos parâmetros média e total sob PPT</caption>
-</table>
 <center>
------------------------------------------------------------------ ------------------------------------
-**Parâmetro**                                                     **Estimador PPT**
+<table>
+<caption>(#tab:tabppt1)Parâmetros e respectivos estimadores sob PPT</caption>
+</table>
+----------
+Parâmetro                                                   Estimador
+----------------------------------------------------------- ------------------------------------------------------------------------------------------------------------------------------------------------------             
+$Y=\displaystyle\sum_{i\in U}y_i$                           $\widehat Y_{HT}=\displaystyle\sum_{i\in s}d_i y_i$
 
-$Y = \displaystyle \sum_{i\in U} y_i$                             $\widehat Y_{HT} = \displaystyle \sum_{i \in s} d_i y_i$                                                  
-
-$\overline{Y} = {Y}/{N} = \displaystyle \sum_{i\in U} y_i / N$    $\overline y_{HT} = \widehat Y_{HT} / N = \displaystyle \sum_{i \in s} d_i y_i / N = \sum_{i \in s} w_i^{HT} y_i$
-                                                                  $\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,$  $\overline y_R = \frac{\sum_{i \in s} d_i y_i} {\sum_{i \in s} d_i} = \displaystyle\sum_{i \in s} w_i^R y_i$
+$\overline{Y}={Y}/{N}=\displaystyle\sum_{i\in U}y_i/N$      $\overline y_{HT}=\widehat Y_{HT}/N=\displaystyle \sum_{i\in s}d_i y_i/N=\sum_{i\in s}w_i^{HT}y_i$
+                                                            $\overline y_R=\frac{\sum_{i\in s}d_i y_i}{\sum_{i\in s}d_i}=\displaystyle\sum_{i\in s}w_i^R y_i$
     
-$V_{PPT}(\widehat Y_{HT})$                                        $\widehat V_{PPT}(\widehat Y_{HT}) = \displaystyle \sum_{i \in s} \sum_{j \in s} \frac{(\pi_{ij}-\pi_i\pi_j)}{\pi_{ij}} \left(\frac{y_i}{\pi_i}\frac{y_j}{\pi_j}\right)$                                    
+$V_{PPT}(\widehat Y_{HT})$                                  $\widehat V_{PPT}(\widehat Y_{HT})=\displaystyle\sum_{i\in s}\sum_{j\in s}\frac{(\pi_{ij}-\pi_i\pi_j)}{\pi_{ij}}\left(\frac{y_i}{\pi_i}\frac{y_j}{\pi_j}\right)$                                    
 
-$V_{PPT}(\overline y_{HT}) = V_{PPT}(\widehat Y_{HT}) / {N^2}$    $\widehat V_{PPT}(\overline y_{HT}) = \displaystyle \widehat V_{PPT}(\widehat Y_{HT}) / {N^2}$
+$V_{PPT}(\overline y_{HT})=V_{PPT}(\widehat Y_{HT})/{N^2}$  $\widehat V_{PPT}(\overline y_{HT})=\displaystyle\widehat V_{PPT}(\widehat Y_{HT})/{N^2}$
 
-$V_{PPT}(\overline y_R)$                                          $\widehat V_{PPT}(\overline y_R) = \frac{1}{N^2} \displaystyle \sum_{i \in s}\sum_{j \in s} \frac{(\pi_{ij}-\pi_i\pi_j)}{\pi_{ij}} \left(\frac{y_i - \overline y_R}{\pi_i}\right) \left(\frac{y_j - \overline y_R}{\pi_j}\right)$   
+$V_{PPT}(\overline y_R)$                                    $\widehat V_{PPT}(\overline y_R)=\frac{1}{N^2}\displaystyle\sum_{i\in s}\sum_{j\in s}\frac{(\pi_{ij}-\pi_i\pi_j)}{\pi_{ij}}\left(\frac{y_i-\overline y_R}{\pi_i} \right)\left(\frac{y_j-\overline y_R}{\pi_j}\right)$   
                                                      
-$V_{SYG}(\widehat Y_{HT})$                                        $\widehat V_{SYG}(\widehat Y_{HT}) = \displaystyle \sum_{i \in s} \sum_{j>i} \left( \frac{\pi_i \pi_j - \pi_{ij}}{\pi_{ij}} \right) \left( \frac{y_i}{\pi_i} - \frac{y_j}{\pi_j} \right)^2$
-------------------------- 
+$V_{SYG}(\widehat Y_{HT})$                                  $\widehat V_{SYG}(\widehat Y_{HT})=\displaystyle\sum_{i\in s}\sum_{j>i}\left(\frac{\pi_i\pi_j-\pi_{ij}}{\pi_{ij}}\right)\left(\frac{y_i}{\pi_i}-\frac{y_j} { \pi_j}\right)^2$
+----------
 </center>
 
 
@@ -161,63 +160,26 @@ Amostragem PPT Com Reposição é um método muito simples de implementar, mas q
 
 **(#exm:exmppt1)** Considere a população de $N=6$ Fazendas, com as respectivas áreas apresentadas na Tabela \@ref(tab:tabppt2). Este exemplo mostra como extrair uma amostra de $n=3$ fazendas usando PPT com reposição, tomando a variável Área como medida de tamanho, usando o *método dos totais cumulativos*.
 
-
-<table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
-<caption>(\#tab:tabppt2)Informações das áreas de uma população de $N=6$ fazendas </caption>
- <thead>
-  <tr>
-   <th style="text-align:center;"> **Fazenda** </th>
-   <th style="text-align:right;"> **Área** </th>
-   <th style="text-align:right;"> **Tamanho Acumulado** </th>
-   <th style="text-align:right;"> **Limite inferior do intervalo** </th>
-   <th style="text-align:right;"> **Limite superior do intervalo** </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:center;"> 1 </td>
-   <td style="text-align:right;"> 50 </td>
-   <td style="text-align:right;"> 50 </td>
-   <td style="text-align:right;"> 0 </td>
-   <td style="text-align:right;"> 50 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 2 </td>
-   <td style="text-align:right;"> 1.000 </td>
-   <td style="text-align:right;"> 1.000 </td>
-   <td style="text-align:right;"> 51 </td>
-   <td style="text-align:right;"> 1.050 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 3 </td>
-   <td style="text-align:right;"> 125 </td>
-   <td style="text-align:right;"> 1.175 </td>
-   <td style="text-align:right;"> 1.051 </td>
-   <td style="text-align:right;"> 1.175 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 4 </td>
-   <td style="text-align:right;"> 300 </td>
-   <td style="text-align:right;"> 1.475 </td>
-   <td style="text-align:right;"> 1.176 </td>
-   <td style="text-align:right;"> 1.475 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 5 </td>
-   <td style="text-align:right;"> 500 </td>
-   <td style="text-align:right;"> 1.975 </td>
-   <td style="text-align:right;"> 1.476 </td>
-   <td style="text-align:right;"> 1.975 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 6 </td>
-   <td style="text-align:right;"> 25 </td>
-   <td style="text-align:right;"> 2.000 </td>
-   <td style="text-align:right;"> 1.976 </td>
-   <td style="text-align:right;"> 2.000 </td>
-  </tr>
-</tbody>
+<center>
+<table>
+<caption>(#tab:tabppt2)Informações das áreas de uma população de $N=6$ fazendas</caption>
 </table>
+----------
+ Fazenda    Área  Tamanho Acumulado   Limite inferior do intervalo   Limite superior do intervalo
+--------- ------ ------------------ ------------------------------ ------------------------------
+   1          50    50                            0	                               50
+   
+   2       1.000   1.050	                       51	                            1.050
+   
+   3         125   1.175	                    1.051	                            1.175
+   
+   4         300   1.475	                    1.176	                            1.475
+   
+   5         500   1.975	                    1.476	                            1.975
+   
+   6          25   2.000	                    1.976	                            2.000
+----------
+</center>
 
 Caso os 3 números aleatórios sorteados de forma independente e com distribuição Uniforme entre 0 e 2000 fossem 654, 1230 e 1555, então as fazendas selecionadas seriam as de números 2, 4 e 5. Caso os 3 números aleatórios entre 0 e 2000 fossem 122, 754 e 1980, então as fazendas 2 e 6 seriam as selecionadas, com a fazenda 2 sendo selecionada duas vezes.
 
@@ -427,6 +389,112 @@ $$
 
 **(#exr:exrppt1)** Verifique que o estimador de $HT$ da média não é invariante sob transformações de locação. Isto é, se tomarmos $z_i=y_i+A$, então $\overline z_{HT}\ne\overline y_{HT}+A$ 
 
+**(#exr:exrppt2)** Uma amostra foi selecionada usando o método PPT com reposição. As informações dessa amostra aparecem na Tabela \@ref(tab:tabppt3).
+  
+<center>
+<table>
+<caption>(#tab:tabppt3)Informações obtidas na amostra selecionada</caption>
+</table>
+----------
+ Unidade    $p_i$   $y_i$   $\pi _i$
+--------- ------- ------- ----------
+  6         0,02     45    
+ 
+  8         0,01     20     0,0297 
+ 
+ 14         0,03     60     0,0873 
+----------
+</center>
+
+a) Calcule o valor de $\pi_i$ que está faltando; 
+b) Estime o total populacional da variável de interesse, $y$, usando o estimador de Horvitz-Thompson;
+b) Estime a variância da estimativa calculada em b. usando o estimador HT e o estimador alternativo apresentado;
+c) Compare e comente os resultados obtidos.
+  
+**(#exr:exrppt3)** No arquivo fazendas_dat.rds são listadas 338 fazendas, com informações sobre a receita e a despesa de cada uma.  Suponha que não são conhecidas as informações sobre as despesas e que se deseja selecionar uma amostra de 20 fazendas para estimar a despesa média da população de fazendas.
+
+a) Selecione uma AAS de 20 fazendas e construa um IC<sub>95%</sub> para a despesa média das fazendas;
+b) Selecione uma amostra PPT com reposição de 20 fazendas, considerando a variável receita como tamanho, e construa um IC<sub>95%</sub> para a despesa média das fazendas;
+c) Compare os resultados com a despesa média verdadeira das 338 fazendas e teça seus comentários.
+
+**(#exr:exrppt4)** (@Thompson2012) Uma determinada região tem 320 lagos que somados cobrem uma área de 80km<sup>2</sup>. Num estudo sobre poluição das águas, foi selecionada uma amostra de lagos, seguindo o procedimento abaixo: 
+
+  * Um retângulo de comprimento C e largura L foi desenhado sobre um mapa da região; 
+  * Pares de números aleatórios uniformes entre 0 e 1 foram gerados. O primeiro número de cada par foi multiplicado por C e o segundo por L, dando coordenadas dentro da região em estudo. 
+  * Se a coordenada “caia” sobre um lago no mapa, este era selecionado para a amostra; 
+  * O procedimento foi repetido até que 4 pontos “caíssem” sobre algum lago; 
+  * O primeiro lago da amostra foi selecionado 2 vezes.
+
+Nos lagos selecionados foi medido o nível de poluição. Os resultados estão na Tabela \@ref(tab:tabppt4):
+
+<center>
+<table>
+<caption>(#tab:tabppt4)Informações obtidas para os lagos selecionados</caption>
+</table>
+-----------             
+ Lago          Poluição   Tamanho do lago 
+        (partes/milhão)  (km<sup>2</sup>)
+------ ---------------- -----------------
+ 1          2                        1,2 
+ 
+ 1          2                        1,2 
+ 
+ 2          5                        0,2 
+ 
+ 3         10                        0,5
+-----------
+</center>
+a. Qual o tipo de amostragem utilizada? 
+b. Calcule uma estimativa não viciada para a média de poluição dos lagos da região; 
+c. Estime a variância do estimador utilizado.
+  
+**(#exr:exrppt5)** Sejam U = {U<sub>1</sub>, U<sub>2</sub>, ...,U<sub>N</sub>} uma população e y = {y<sub>1</sub>, y<sub>2</sub>, ...,y<sub>N</sub>} um vetor populacional de interesse. Uma amostra com probabilidades desiguais com reposição de tamanho n foi selecionada de U para estimar o total $Y = \sum_{i \in U} y_i$, sendo y<sub>s</sub> = {y<sub>1</sub>, y<sub>2</sub>, ...,y<sub>n</sub>} o vetor amostral obtido, e {p<sub>1</sub>, p<sub>2</sub>, ...,p<sub>N</sub>} o conjunto das probabilidades de seleção das unidades populacionais num dado sorteio, tais que $\sum_{i \in U} p_i=1$. Antes de efetivar a observação da amostra, y<sub>1</sub>, y<sub>2</sub>, ...,y<sub>n</sub> são variáveis aleatórias independentes e identicamente distribuídas - IID.
+
+a)  Descreva a distribuição de probabilidades comum dos y<sub>i</sub> e calcule a esperança e a variância dessa distribuição.
+b)  Obtenha um estimador não viciado para o total Y com base na amostra e prove que esse estimador é mesmo não viciado, usando a distribuição obtida em a..
+
+       
+**(#exr:exrppt6)** Considere a população de empresas descrita na Tabela \@ref(tab:tabppt5). Utilizando o R, resolva as questões.
+
+a)  Selecione uma amostra aleatória simples sem reposição de 3 empresas;
+b)  Use a amostra selecionada em a. para estimar a Receita média das empresas na população e o correspondente CV;
+c)  Selecione uma amostra com probabilidades proporcionais ao Pessoal Ocupado, com reposição, de 3 empresas;
+d)  Use a amostra selecionada em c. para estimar a Receita média das empresas na população e o correspondente CV;
+e)  Compare os resultados das duas amostras com os valores verdadeiros e comente esses resultados.
+  
+<center>
+<table>
+<caption>(#tab:tabppt5)Dados populacionais das empresas</caption>
+</table>
+----------
+ Empresa   Pessoal Ocupado  Receita
+--------- ---------------- --------
+     1            250          8000
+
+     2            350         12000
+
+     3            175          6000
+
+     4            310         10000
+
+     5            160          5000
+
+     6            350         18000
+
+     7            375         18000
+
+     8            150          4000
+
+     9            275          9000
+
+    10            240          8000
+----------
+</center>
+       
+**(#exr:exrppt7)** Seja o arquivo de dados MunicBR_dat.rds. Selecione uma amostra de 10 municípios com PPT, utilizando como medida de tamanho a variável população (Pop).
+
+a)  Estime o total da população para o Brasil;
+b)  Compare com o valor verdadeiro e comente esse resultado surprendente. Por que isso ocorre?
 
 ## Sobras do texto
 

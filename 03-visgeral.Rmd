@@ -660,7 +660,7 @@ $$
 
 Este estimador foi proposto por @Horvitz1952 e está definido para qualquer variável de pesquisa $y$ e para qualquer *plano amostral probabilístico*, isto é, plano em que $\pi_i > 0 \, \, \, \forall \, \, i \in U$. É para permitir desfrutar dessa vantagem de sempre dispor de ao menos um estimador não viciado para totais que esta é uma das condições necessárias para a *amostragem probabilística* de populações finitas. Note também que o estimador faz uso das probabilidades de inclusão implicadas pelo plano amostral $p(s)$ adotado, mas depende deste apenas através das probabilidades de inclusão de primeira ordem das unidades selecionadas para a amostra, uma condição geralmente simples de satisfazer na prática da pesquisa.
 
-### Propriedades do estimador de Horvitz-Thompson (#propHT)
+### Propriedades do estimador de Horvitz-Thompson {#propHT}
 
 O *estimador de Horvitz-Thompson* é *não viciado* para estimar o total, ou seja, $E_p(\widehat Y_{HT}) = Y$.
 

@@ -4,13 +4,13 @@
 
 Nesta seção introduzimos algumas definições e notação necessárias para a apresentação da teoria da amostragem ao longo do texto.
 
-Chama-se *população* (daqui por diante, esta é a designação da *população de pesquisa* que será objeto do levantamento de dados) qualquer conjunto contendo um número finito $N$ de unidades, delimitada por compartilharem algumas características em comum. As unidades deste conjunto são denominadas *unidades da população*. Representamos nosso cadastro dessa população por um conjunto de $N$ rótulos distintos denotado $U=\{1,2,\dots,i,\dots,N\}$, sendo $N$ o *tamanho da população* e $i$ o rótulo para uma unidade genérica da população. Cada unidade da população fica devidamente identificada por seu rótulo no conjunto $U$.
+Chama-se *população* (daqui por diante, esta é a designação da *população de pesquisa* que será objeto do levantamento de dados) qualquer conjunto contendo um número finito $N$ de unidades, delimitada por compartilharem algumas características em comum. As unidades deste conjunto são denominadas *unidades da população*. Representamos nosso cadastro dessa população por um conjunto de $N$ rótulos distintos denotado $U=\{1,\;2,\;...,\;i,\;...,\;N\}$, sendo $N$ o *tamanho da população* e $i$ o rótulo para uma unidade genérica da população. Cada unidade da população fica devidamente identificada por seu rótulo no conjunto $U$.
 
-São exemplos comuns de populações sobre as quais se realizam pesquisas: domicílios e moradores de certa localidade; indústrias instaladas num certo país; fazendas situadas num certo estado; alunos matriculados na $3^a$ série do ensino médio da rede escolar estadual em 2017, etc. 
+São exemplos comuns de populações sobre as quais se realizam pesquisas: domicílios e moradores de certa localidade; indústrias instaladas num certo país; fazendas situadas num certo estado; alunos matriculados na 3<sup>a</sup> série do ensino médio da rede escolar estadual em 2017, etc. 
 
 No capítulo anterior já enfatizamos a importância de uma definição clara e precisa da *população de pesquisa*. No entanto, ao estudar *Amostragem*, o maior interesse está voltado para o problema de estimar ou inferir certas quantidades ou parâmetros de diversas características (variáveis) numéricas que podem ser medidas ou observadas para cada unidade da população. No caso de características ou variáveis categóricas, podem ser criadas variáveis numéricas indicadoras das categorias de resposta, tomando valor igual a *um* se a unidade é classificada na categoria em questão, e valor igual a *zero* caso contrário. Desta forma, toda a teoria de amostragem se resume à estimação de parâmetros ou quantidades descritivas de variáveis numéricas que poderiam, em tese, ser medidas para todas as unidades da população de pesquisa. 
 
-De fato, cada característica numérica ou variável de interesse dá origem a um *vetor populacional*, que é o conjunto de valores da variável correspondentes às unidades da população. Por exemplo, se $y$ é a variável de pesquisa (de interesse) e $y_i$ é o valor dessa variável $y$ para a unidade $i$, então $Y_U = \{y_1,y_2,\dots,y_i,\dots,y_N\}$ é o *vetor populacional* gerado pela variável $y$.
+De fato, cada característica numérica ou variável de interesse dá origem a um *vetor populacional*, que é o conjunto de valores da variável correspondentes às unidades da população. Por exemplo, se $y$ é a variável de pesquisa (de interesse) e $y_i$ é o valor dessa variável $y$ para a unidade $i$, então $Y_U = \{y_1,\;y_2,\;...,\;y_i,\;..., \;y_N\}$ é o *vetor populacional* gerado pela variável $y$.
 
 Pelo exposto, fica claro que a observação de várias variáveis sobre uma mesma população gera diversos vetores populacionais, cada um correspondendo a uma das variáveis observadas. 
 
@@ -215,32 +215,18 @@ Podemos então usar os critérios sugeridos para escolha de estimadores para det
 
 Para ajudar a consolidar as ideias já apresentadas até aqui, fazemos agora uso de um exemplo muito simples, mas através do qual podemos ilustrar como operar com os conceitos e definições já introduzidos.
 
-**(#exm:filh)** Considere os dados da Tabela \@ref(tab:tabvis1) de uma população fictícia com $(N=4)$ mulheres (unidades populacionais), de quem foi indagado o número de filhos tidos nascidos vivos (a nossa variável $y$).
+**(#exm:filh)** Considere os dados da Tabela \@ref(tab:tabvis1) de uma população fictícia com $(N=4)$ mulheres (unidades populacionais), de quem foi indagado o número de filhos tidos nascidos vivos (a variável $y$).
 
-<table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
-<caption>(\#tab:tabvis1)Valor da variável $y$ por unidade da população de mulheres</caption>
- <thead>
-  <tr>
-   <th style="text-align:left;"> Rótulo da unidade $(i)$ </th>
-   <th style="text-align:center;"> 1 </th>
-   <th style="text-align:center;"> 2 </th>
-   <th style="text-align:center;"> 3 </th>
-   <th style="text-align:center;"> 4 </th>
-   <th style="text-align:center;"> Total </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:left;"> Valor da variável $(y_i)$ </td>
-   <td style="text-align:center;"> 0 </td>
-   <td style="text-align:center;"> 0 </td>
-   <td style="text-align:center;"> 2 </td>
-   <td style="text-align:center;"> 1 </td>
-   <td style="text-align:center;"> 3 </td>
-  </tr>
-</tbody>
+<center>
+<table>
+<caption>(#tab:tabvis1)Valor da variável $y$ por unidade da população de mulheres</caption>
 </table>
-
+----------
+Rótulo da unidade $(i)$     1   2   3   4   Total
+-------------------------- --- --- --- --- -------
+Valor da variável $(y_i)$   0   0   2   1     3
+----------
+</center>
 
 Existem $\binom{4}{2} = 6$ amostras possíveis de duas unidades distintas dessa população, isto é, de tamanho $n=2$. O conjunto de todas as amostras possíveis é dado por: $S = \{(1;2); (1;3); (1;4); (2;3); (2;4); (3;4)\}$. 
 
@@ -252,93 +238,42 @@ $p_1(s) = 1/6 \,\,\,\forall s \in S$.
 
 A Tabela \@ref(tab:tabvis2) apresenta o conjunto de todas as amostras possíveis, os rótulos das unidades incluídas em cada amostra, os valores de $y$ para as unidades incluídas na amostra, a soma amostral e as probabilidades de seleção de cada amostra. As colunas 1, 2 e 5 dessa tabela correspondem à apresentação detalhada do *plano amostral* $p_1$ tal como definido acima, agora representado na forma de uma tabela.
 
-<table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
-<caption>(\#tab:tabvis2)Informações de cada amostra possível sob plano amostral $p_1$</caption>
- <thead>
-  <tr>
-   <th style="text-align:center;"> **Amostra** </th>
-   <th style="text-align:center;"> **Unidades na Amostra $s$** </th>
-   <th style="text-align:center;"> **Valores na Amostra $s$** </th>
-   <th style="text-align:center;"> **Soma Amostral $(t)$** </th>
-   <th style="text-align:center;"> **Probabilidades $p_1(s)$** </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:center;"> 1 </td>
-   <td style="text-align:center;"> {1;2} </td>
-   <td style="text-align:center;"> {0;0} </td>
-   <td style="text-align:center;"> 0 </td>
-   <td style="text-align:center;"> 1/6 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 2 </td>
-   <td style="text-align:center;"> {1;3} </td>
-   <td style="text-align:center;"> {0;2} </td>
-   <td style="text-align:center;"> 2 </td>
-   <td style="text-align:center;"> 1/6 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 3 </td>
-   <td style="text-align:center;"> {1;4} </td>
-   <td style="text-align:center;"> {0;1} </td>
-   <td style="text-align:center;"> 1 </td>
-   <td style="text-align:center;"> 1/6 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 4 </td>
-   <td style="text-align:center;"> {2;3} </td>
-   <td style="text-align:center;"> {0;2} </td>
-   <td style="text-align:center;"> 2 </td>
-   <td style="text-align:center;"> 1/6 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 5 </td>
-   <td style="text-align:center;"> {2;4} </td>
-   <td style="text-align:center;"> {0;1} </td>
-   <td style="text-align:center;"> 1 </td>
-   <td style="text-align:center;"> 1/6 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 6 </td>
-   <td style="text-align:center;"> {3;4} </td>
-   <td style="text-align:center;"> {2;1} </td>
-   <td style="text-align:center;"> 3 </td>
-   <td style="text-align:center;"> 1/6 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> Total </td>
-   <td style="text-align:center;"> _ </td>
-   <td style="text-align:center;"> _ </td>
-   <td style="text-align:center;"> _ </td>
-   <td style="text-align:center;"> 1 </td>
-  </tr>
-</tbody>
+<center>
+<table>
+<caption>(#tab:tabvis2)Informações de cada amostra possível sob plano amostral $p_1$</caption>
 </table>
+----------
+ Amostra   Unidades na Amostra $s$    Valores na Amostra $s$    Soma Amostral $(t)$    Probabilidades $p_1(s)$  
+--------- -------------------------- ------------------------- ---------------------- --------------------------
+ 1	            {1;2}                        {0;0}	                 0	                       1/6
+ 
+ 2              {1;3}                        {0;2}                   2                         1/6
+ 
+ 3              {1;4}                        {0;1}                   1                         1/6
+ 
+ 4              {2;3}                        {0;2}                   2                         1/6
+ 
+ 5              {2;4}                        {0;1}                   1                         1/6
+ 
+ 6              {3;4}                        {2;1}                   3                         1/6
+ 
+ Total            _                            _                     _                          1
+----------
+</center>
   
 A distribuição de probabilidades da estatística *Soma Amostral*, apresentada na Tabela \@ref(tab:tabvis3), pode ser calculada a partir das informações na Tabela \@ref(tab:tabvis2), e é dada por:
 
-<table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
-<caption>(\#tab:tabvis3)Probabilidade sob $p_1$ para cada valor de $t$</caption>
- <thead>
-  <tr>
-   <th style="text-align:left;"> Valores possíveis de $t$ </th>
-   <th style="text-align:center;"> 0 </th>
-   <th style="text-align:center;"> 1 </th>
-   <th style="text-align:center;"> 2 </th>
-   <th style="text-align:center;"> 3 </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:left;"> Com probabilidade $p_1(s)$ </td>
-   <td style="text-align:center;"> 1/6 </td>
-   <td style="text-align:center;"> 2/6 </td>
-   <td style="text-align:center;"> 2/6 </td>
-   <td style="text-align:center;"> 1/6 </td>
-  </tr>
-</tbody>
+<center>
+<table>
+<caption>(#tab:tabvis3)Probabilidade sob $p_1$ para cada valor de $t$</caption>
 </table>
+----------
+Valores possíveis de $t$       0     1     2     3
+---------------------------- ----- ----- ----- -----
+Com probabilidade $p_1(s)$    1/6   2/6   2/6   1/6
+----------
+</Center>
+
 O valor esperado de $t$ é:
 
 $$
@@ -355,27 +290,17 @@ Considere então o novo estimador do total populacional dado por: $\widehat{Y} =
 
 A Tabela \@ref(tab:tabvis4) apresenta os valores possíveis e a distribuição de probabilidades do novo estimador $\widehat Y_w = 2 \times t$.
 
-<table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
-<caption>(\#tab:tabvis4)Probabilidade sob $p_1$ para cada valor de 2 x $t$</caption>
- <thead>
-  <tr>
-   <th style="text-align:left;"> Valores possíveis de 2 x $t$ </th>
-   <th style="text-align:center;"> 0 </th>
-   <th style="text-align:center;"> 2 </th>
-   <th style="text-align:center;"> 4 </th>
-   <th style="text-align:center;"> 6 </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:left;"> Com probabilidade $p_1(s)$ </td>
-   <td style="text-align:center;"> 1/6 </td>
-   <td style="text-align:center;"> 2/6 </td>
-   <td style="text-align:center;"> 2/6 </td>
-   <td style="text-align:center;"> 1/6 </td>
-  </tr>
-</tbody>
+<center>
+<table>
+<caption>(#tab:tabvis4)Probabilidade sob $p_1$ para cada valor de $2 	imes t$</caption>
 </table>
+----------
+Valores possíveis de $2 \times t$     0     2     4     6
+----------------------------------- ----- ----- ----- ----- 
+Com probabilidade $p_1(s)$           1/6   2/6   2/6   1/6
+----------
+</center>
+
 Verifica-se então que o valor esperado de $\widehat Y_w = 2 \times t$ é:
 
 $$
@@ -406,23 +331,22 @@ Na grande maioria das situações de interesse prático no campo das pesquisas p
 
 O primeiro problema é que o número total de amostras possíveis cresce muito rapidamente com $N$ e com $n$. Por exemplo, o número de amostras sem reposição de tamanho $n$ de uma população com $N$ unidades é  $\binom{N}{n}$. A Tabela \@ref(tab:tabvis5) mostra como cresce o número de amostras no conjunto $S$ para valores selecionados de $N$ e $n$. Note como o tamanho desse conjunto é gigantesco mesmo com tamanhos de população e amostra bem modestos (1.000 e 20), por exemplo. 
 
+<center>
 <table>
 <caption>(#tab:tabvis5)Tamanhos do espaço amostral $S$ para valores selecionados de $N$ e $n$</caption>
 </table>
-<center>
 ---------
-    $N$     $n$           $\binom{N}{n}$      
-------- ------- ------------------------ ----
-   4         2                      6 
+   $N$     $n$           $\binom{N}{n}$      
+------ ------- ------------------------
+     4       2                       6 
   
-   10        4                    210
+    10       4                     210
   
-  100       10         17310309456440 
+   100      10      17.310.309.456.440 
  
-1.000       20    3.39482811302458e+41
+ 1.000      20    3,39482811302458e+41
 
-10.000     100   6.52084692454763e+241
-
+1.0000     100   6,52084692454763e+241
 ---------
 </center>
 
@@ -444,10 +368,10 @@ $$
 
 Essa propriedade é demonstrada de maneira formal na próxima seção. Mas antes disso, vamos verificar sua aplicação com os dados do (#exm:filh). Continuando a discussão desse exemplo com a população de $(N=4)$ mulheres de quem foi indagado o número de filhos tidos nascidos vivos ($y$), tem-se, na Tabela \@ref(tab:tabvis6), o valor da variável $y$ e  a probabilidade de inclusão ${\pi}_i$ de cada unidade da população de mulheres.   
 
+<center>
 <table>
 <caption>(#tab:tabvis6)Valor da variável $y$ e probabilidade de inclusão para cada unidade da população</caption>
 </table>
-<center>
 ---------
 Rótulo da unidade $(i)$               1          2          3          4        Total
 ----------------------------------- ---------- ---------  --------- ---------- --------
@@ -468,71 +392,30 @@ $$
 e já se mostrou que este estimador é não viciado para $Y$.
 
 
-**(#exm:filhp2)** Considere a mesma população fictícia do exemplo anterior. Considere agora o plano amostral $p_2$, que retira amostras de tamanho $n=2$- dessa população com as probabilidades indicadas na Tabela \@ref(tab:tabvis7). 
+**(#exm:filhp2)** Considere a mesma população fictícia do exemplo anterior. Considere agora o plano amostral $p_2$, que retira amostras de tamanho $n=2$ dessa população com as probabilidades indicadas na Tabela \@ref(tab:tabvis7). 
 
+<center>
 <table>
-<caption>(\#tab:tabvis7)Informações de cada amostra possível sob plano amostral $p_2$</caption>
- <thead>
-  <tr>
-   <th style="text-align:center;"> **Amostra** </th>
-   <th style="text-align:center;"> **Unidades na Amostra $s$** </th>
-   <th style="text-align:center;"> **Valores na Amostra $s$** </th>
-   <th style="text-align:center;"> **Soma Amostral $(t)$** </th>
-   <th style="text-align:center;"> **Probabilidades $p_2(s)$** </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:center;"> 1 </td>
-   <td style="text-align:center;"> {1;2} </td>
-   <td style="text-align:center;"> {0;0} </td>
-   <td style="text-align:center;"> 0 </td>
-   <td style="text-align:center;"> 0,00 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 2 </td>
-   <td style="text-align:center;"> {1;3} </td>
-   <td style="text-align:center;"> {0;2} </td>
-   <td style="text-align:center;"> 2 </td>
-   <td style="text-align:center;"> 0,20 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 3 </td>
-   <td style="text-align:center;"> {1;4} </td>
-   <td style="text-align:center;"> {0;1} </td>
-   <td style="text-align:center;"> 1 </td>
-   <td style="text-align:center;"> 0,15 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 4 </td>
-   <td style="text-align:center;"> {2;3} </td>
-   <td style="text-align:center;"> {0;2} </td>
-   <td style="text-align:center;"> 2 </td>
-   <td style="text-align:center;"> 0,20 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 5 </td>
-   <td style="text-align:center;"> {2;4} </td>
-   <td style="text-align:center;"> {0;1} </td>
-   <td style="text-align:center;"> 1 </td>
-   <td style="text-align:center;"> 0,15 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 6 </td>
-   <td style="text-align:center;"> {3;4} </td>
-   <td style="text-align:center;"> {2;1} </td>
-   <td style="text-align:center;"> 3 </td>
-   <td style="text-align:center;"> 0,30 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> Total </td>
-   <td style="text-align:center;"> _ </td>
-   <td style="text-align:center;"> _ </td>
-   <td style="text-align:center;"> _ </td>
-   <td style="text-align:center;"> 1,00 </td>
-  </tr>
-</tbody>
+<caption>(#tab:tabvis7)Informações de cada amostra possível sob plano amostral $p_2$</caption>
 </table>
+----------
+ Amostra   Unidades na Amostra $s$    Valores na Amostra $s$    Soma Amostral $(t)$    Probabilidades $p_1(s)$  
+--------- -------------------------- ------------------------- ---------------------- --------------------------
+ 1	            {1;2}                        {0;0}	                 0	                       0,00
+ 
+ 2              {1;3}                        {0;2}                   2                         0,20
+ 
+ 3              {1;4}                        {0;1}                   1                         0,15
+ 
+ 4              {2;3}                        {0;2}                   2                         0,20
+ 
+ 5              {2;4}                        {0;1}                   1                         0,15
+ 
+ 6              {3;4}                        {2;1}                   3                         0,30
+ 
+ Total            _                            _                     _                         1,00
+----------
+</center>
 
 Vamos agora usar as informações acima para:
 
@@ -542,27 +425,17 @@ Vamos agora usar as informações acima para:
 
 A distribuição da soma amostral $t$ sob o plano $p_2$ é apresentada na Tabela \@ref(tab:tabvis8). 
 
-<table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
-<caption>(\#tab:tabvis8)Probabilidade sob $p_2$ para cada valor de $t$</caption>
- <thead>
-  <tr>
-   <th style="text-align:left;"> Valores possíveis de $t$ </th>
-   <th style="text-align:center;"> 0 </th>
-   <th style="text-align:center;"> 1 </th>
-   <th style="text-align:center;"> 2 </th>
-   <th style="text-align:center;"> 3 </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:left;"> Com probabilidade $p_2(s)$ </td>
-   <td style="text-align:center;"> 0,0 </td>
-   <td style="text-align:center;"> 0,3 </td>
-   <td style="text-align:center;"> 0,4 </td>
-   <td style="text-align:center;"> 0,3 </td>
-  </tr>
-</tbody>
+<center
+<table>
+<caption>(#tab:tabvis8)Probabilidade sob $p_2$ para cada valor de $t$</caption>
 </table>
+----------
+Valores possíveis de $t$      0     1     2     3
+--------------------------- ----- ----- ----- -----
+Com probabilidade $p_2(s)$   0,0   0,3   0,4   0,3
+----------
+</center>
+
 O valor esperado de $t$ sob o plano amostral $p_2$ é:
 
 $$
@@ -572,86 +445,43 @@ $$
 Para obter um estimador não viciado, devemos calcular pesos adequados para as unidades amostrais. 
 Estes requerem calcular as probabilidades de inclusão na amostra. A seguir, são apresentadas na Tabela \@ref(tab:tabvis9) as probabilidades de inclusão de cada uma das unidades da população, e também os pesos amostrais correspondentes sob o plano $p_2$.
 
+<center>
 <table>
 <caption>(#tab:tabvis9)Probabilidade de inclusão e peso amostral de cada unidade sob o plano amostral $p_2$</caption>
 </table>
-<center>
 ---------
-Rótulo da unidade $(i)$                 1          2            3          4        
-------------------------------------- ---------- ----------- ---------- -------- 
-Probabilidade de inclusão $({\pi}_i)$ 7/20=0,35   7/20=0,35   7/10=0,70 3/5=0,60  
+Rótulo da unidade $(i)$                       1          2            3          4        
+-------------------------------------- ------------ ------------ ----------- ----------- 
+Probabilidade de inclusão $({\pi}_i)$   7/20=0,35    7/20=0,35    7/10=0,70   3/5=0,60  
 
-Peso $(w_i)$                          20/7=2,857 20/7=2,857  10/7=1,429 5/3=1,667
+Peso $(w_i)$                            20/7=2,857   20/7=2,857   10/7=1,429  5/3=1,667
 ---------
 </center>
 
 Usando o estimador do total com os pesos adequados $\widehat Y_w$, obtém-se os valores das estimativas para cada amostra possível na coluna cinco da Tabela \@ref(tab:tabvis10). 
 
-
-<table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
-<caption>(\#tab:tabvis10)Obtenção de estimativa sob plano amostral $p_2$ para cada amostra possível</caption>
- <thead>
-  <tr>
-   <th style="text-align:center;"> **Amostra** </th>
-   <th style="text-align:center;"> **Valores na Amostra $s$** </th>
-   <th style="text-align:center;"> **Total Amostral ponderado** </th>
-   <th style="text-align:center;"> **Probabilidades $p_2(s)$** </th>
-   <th style="text-align:center;"> **Total x probabilidade** </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:center;"> 1 </td>
-   <td style="text-align:center;"> {0;0} </td>
-   <td style="text-align:center;"> 0 </td>
-   <td style="text-align:center;"> 0,00 </td>
-   <td style="text-align:center;"> 0 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 2 </td>
-   <td style="text-align:center;"> {0;2} </td>
-   <td style="text-align:center;"> 2x(10/7) </td>
-   <td style="text-align:center;"> 0,20 </td>
-   <td style="text-align:center;"> 4/7 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 3 </td>
-   <td style="text-align:center;"> {0;1} </td>
-   <td style="text-align:center;"> 1x(5/3) </td>
-   <td style="text-align:center;"> 0,15 </td>
-   <td style="text-align:center;"> 1/4 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 4 </td>
-   <td style="text-align:center;"> {0;2} </td>
-   <td style="text-align:center;"> 2x(10/7) </td>
-   <td style="text-align:center;"> 0,20 </td>
-   <td style="text-align:center;"> 4/7 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 5 </td>
-   <td style="text-align:center;"> {0;1} </td>
-   <td style="text-align:center;"> 1x(5/3) </td>
-   <td style="text-align:center;"> 0,15 </td>
-   <td style="text-align:center;"> 1/4 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 6 </td>
-   <td style="text-align:center;"> {2;1} </td>
-   <td style="text-align:center;"> 2x(10/7)+1x(5/3) </td>
-   <td style="text-align:center;"> 0,30 </td>
-   <td style="text-align:center;"> 6/7+1/2 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> Total </td>
-   <td style="text-align:center;"> _ </td>
-   <td style="text-align:center;">  </td>
-   <td style="text-align:center;"> 1,00 </td>
-   <td style="text-align:center;"> 3 </td>
-  </tr>
-</tbody>
+<center>
+<table>
+<caption>(#tab:tabvis10)Obtenção de estimativa sob plano amostral $p_2$ para cada amostra possível</caption>
 </table>
-
+----------
+ Amostra   Valores na Amostra $s$   Total Amostral ponderado   Probabilidades $p_2(s)$   Total x probabilidade
+--------- ------------------------ -------------------------- ------------------------- -----------------------
+    1            {0;0}	               0	                               0,00	                      0
+    
+    2            {0;2}	               2x(10/7)                          0,20                      4/7
+    
+    3            {0;1}                 1x(5/3)                           0,15                      1/4
+    
+    4            {0;2}                 2x(10/7)                          0,20                      4/7
+    
+    5            {0;1}                 1x(5/3)                           0,15                      1/4
+    
+    6            {2;1}                 2x(10/7)+1x(5/3)                  0,30                    6/7+1/2
+    
+  Total            	-                 -                                 1,00                       3
+----------
+</center>
 **Notas**
 
 1. O estimador $\widehat Y_w$ obtido usando os pesos iguais a $1 / \pi_i$ tem valor esperado (ver total da última coluna da Tabela \@ref(tab:tabvis10)) igual ao total populacional $Y$. Logo, o estimador assim obtido é *não viciado* também sob o plano amostral $p_2$.
@@ -675,10 +505,10 @@ Com probabilidade $p(s)$ sob $p_1(s)$    1/6  2/6   2/6  1/6
 
 **Estratégia 2:** Seleção de amostras com probabilidades desiguais, e estimador de total ponderado ($\widehat Y_w$), conforme especificado na Tabela \@ref(tab:tabvis12). 
 
+<center>
 <table>
 <caption>(#tab:tabvis12)Probabilidade de seleção sob $p_2(s)$ para cada valor do estimador ponderado</caption>
 </table>
-<center>
 ---------
 Valores possíveis de $\widehat Y_w$    5/3   20/7   20/7+5/3      
 ------------------------------------- ----- ------ ---------- 
@@ -688,78 +518,29 @@ Com probabilidade $p(s)$ sob $p_2(s)$  0,30  0,40   0,30
 
 A melhor estratégia é escolhida medindo o *afastamento esperado* entre os valores possíveis do estimador e o valor do total populacional desconhecido ($Y$).  Para isso, como em ambos os casos o estimador é não viciado, usamos a *variância do estimador*. A Tabela \@ref(tab:tabvis13) indica como pode ser calculada a variância de cada um dos estimadores sob as duas opções de plano amostral ($p_1$ e $p_2$).
 
-
+<center>
 <table>
-<caption>(\#tab:tabvis13)Obtenção da variância dos estimadores sob os planos amostrais $p_1$ e $p_2$</caption>
- <thead>
-  <tr>
-   <th style="text-align:center;"> **Amostra** </th>
-   <th style="text-align:center;"> **Valores na Amostra $s$** </th>
-   <th style="text-align:center;"> **Estimativa sob $p_2$** </th>
-   <th style="text-align:center;"> **Probabilidade sob $p_2$** </th>
-   <th style="text-align:center;"> **Estimativa sob $p_1$** </th>
-   <th style="text-align:center;"> **Probabilidade sob $p_1$** </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:center;"> 1 </td>
-   <td style="text-align:center;"> {0;0} </td>
-   <td style="text-align:center;"> 0 </td>
-   <td style="text-align:center;"> 0,00 </td>
-   <td style="text-align:center;"> 0 </td>
-   <td style="text-align:center;"> 1/6 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 2 </td>
-   <td style="text-align:center;"> {0;2} </td>
-   <td style="text-align:center;"> 2x(10/7) </td>
-   <td style="text-align:center;"> 0,20 </td>
-   <td style="text-align:center;"> 4 </td>
-   <td style="text-align:center;"> 1/6 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 3 </td>
-   <td style="text-align:center;"> {0;1} </td>
-   <td style="text-align:center;"> 1x(5/3) </td>
-   <td style="text-align:center;"> 0,15 </td>
-   <td style="text-align:center;"> 2 </td>
-   <td style="text-align:center;"> 1/6 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 4 </td>
-   <td style="text-align:center;"> {0;2} </td>
-   <td style="text-align:center;"> 2x(10/7) </td>
-   <td style="text-align:center;"> 0,20 </td>
-   <td style="text-align:center;"> 4 </td>
-   <td style="text-align:center;"> 1/6 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 5 </td>
-   <td style="text-align:center;"> {0;1} </td>
-   <td style="text-align:center;"> 1x(5/3) </td>
-   <td style="text-align:center;"> 0,15 </td>
-   <td style="text-align:center;"> 2 </td>
-   <td style="text-align:center;"> 1/6 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 6 </td>
-   <td style="text-align:center;"> {2;1} </td>
-   <td style="text-align:center;"> 2x(10/7)+1x(5/3) </td>
-   <td style="text-align:center;"> 0,30 </td>
-   <td style="text-align:center;"> 6 </td>
-   <td style="text-align:center;"> 1/6 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> Variância </td>
-   <td style="text-align:center;"> _ </td>
-   <td style="text-align:center;"> 1,24 </td>
-   <td style="text-align:center;"> _ </td>
-   <td style="text-align:center;"> 3,67 </td>
-   <td style="text-align:center;"> _ </td>
-  </tr>
-</tbody>
+<caption>(#tab:tabvis13)Obtenção da variância dos estimadores sob os planos amostrais $p_1$ e $p_2$</caption>
 </table>
+----------
+ Amostra     Valores na Amostra $s$   Estimativa sob $p_2$   Probabilidade sob $p_2$   Estimativa sob $p_1$   Probabilidade sob $p_1$    
+----------- ------------------------ ---------------------- ------------------------- ---------------------- --------------------------
+   1	            {0;0}	                   0	                0,00	                        0                    1/6
+   
+   2	            {0;2}	                   2x(10/7)	          0,20                          4                    1/6
+   
+   3              {0;1}	                   1x(5/3)            0,15                          2	                   1/6
+   
+   4              {0;2}	                   2x(10/7)           0,20                          4                    1/6
+   
+   5              {0;1}	                   1x(5/3)            0,15                          2                    1/6
+   
+   6              {2;1}                   2x(10/7)+1x(5/3)    0,30                          6                    1/6
+   
+ Variância          -                        1,24              -   	                       3,67	                  -
+----------
+</center>
+
 
 **Conclusão**
 
@@ -772,7 +553,7 @@ O plano amostral $p_2$ fornece o *estimador não viciado com menor variância* e
 
 Nesta seção, seguimos de perto a notação e a forma de apresentar os resultados encontrada no excelente livro de @Sarndal1992. Outra referência importante é o livro de @Fuller2009.
 
-Como já foi dito, trabalhar com a distribuição $p(s)$ é complicado. Isto ocorre porque o número total $\binom{N}{n}$ de amostras possíveis no conjunto $S$ cresce muito rapidamente com $N$ e com $n$. A saída encontrada é trabalhar com distribuições das variáveis aleatórias indicadoras $\delta_1$, $\delta_2$,... ,$\delta_N$ definidas tal que:
+Como já foi dito, trabalhar com a distribuição $p(s)$ é complicado. Isto ocorre porque o número total, $\binom{N}{n}$, de amostras possíveis no conjunto $S$ cresce muito rapidamente com $N$ e com $n$. A saída encontrada é trabalhar com distribuições das variáveis aleatórias indicadoras $\delta_1$, $\delta_2$,... ,$\delta_N$ definidas tal que:
 
 $$
 \delta_i = I(i \in s) = \left\{\begin{array}{ll} 1 & i \in s \\ 0 & i \notin s \end{array} \right.\,\,\, \forall\,\, i \in U\,\,(\#eq:eqvis25)
@@ -782,31 +563,26 @@ A variável $\delta_i$ é indicadora do evento 'inclusão da unidade $i$ na amos
 
 **(#exm:filh)(Continuação)** Para $N=4$ e $n=2$, as seis amostras possíveis podem ser representadas pelas indicadoras conforme apresentado na Tabela \@ref(tab:tabvis14).
 
+<center>
 <table>
-<caption>(\#tab:tabvis14)Representação de cada amostra possível pelas indicadoras</caption>
-<tbody>
-  <tr>
-
-  </tr>
-</tbody>
+<caption>(#tab:tabvis14)Representação de cada amostra possível pelas variáveis indicadoras</caption>
 </table>
-------------------------------------------------------------------------------
- **Amostra**    **Unidades na**      $\delta_1$   $\delta_2$   $\delta_3$   $\delta_4$ 
-                **Amostra $s$** 
-------------- -------------------- ------------ ------------ ------------ ------------
-1                   {1;2}                1          1            0           0
+----------
+ Amostra   Unidades na Amostra $s$   $\delta_1$   $\delta_2$   $\delta_3$   $\delta_4$ 
+--------- ------------------------- ------------ ------------ ------------ ------------
+ 1                   {1;2}                1          1            0           0
    
-2                   {1;3}                1          0            1           0
+ 2                   {1;3}                1          0            1           0
    
-3                   {1;4}                1          0            0           1
+ 3                   {1;4}                1          0            0           1
    
-4                   {2;3}                0          1            1           0  
+ 4                   {2;3}                0          1            1           0  
     
-5                   {2;4}                0          1            0           1
+ 5                   {2;4}                0          1            0           1
     
-6                   {3;4}                0          0            1           1
----------------------------------------------------------------------------------------
-
+ 6                   {3;4}                0          0            1           1
+----------
+</center>
 Cada amostra fica univocamente determinada pelas variáveis indicadoras $\delta_1$, $\delta_2$,... ,$\delta_N$ correspondentes. As variáveis indicadoras dependem da amostra $s$, apesar de não termos indicado isto explicitamente em nossa notação.
 
 As probabilidades de inclusão na amostra, denotadas $\pi_i$, podem ser vistas como:
@@ -884,7 +660,7 @@ $$
 
 Este estimador foi proposto por @Horvitz1952 e está definido para qualquer variável de pesquisa $y$ e para qualquer *plano amostral probabilístico*, isto é, plano em que $\pi_i > 0 \, \, \, \forall \, \, i \in U$. É para permitir desfrutar dessa vantagem de sempre dispor de ao menos um estimador não viciado para totais que esta é uma das condições necessárias para a *amostragem probabilística* de populações finitas. Note também que o estimador faz uso das probabilidades de inclusão implicadas pelo plano amostral $p(s)$ adotado, mas depende deste apenas através das probabilidades de inclusão de primeira ordem das unidades selecionadas para a amostra, uma condição geralmente simples de satisfazer na prática da pesquisa.
 
-### Propriedades do estimador de Horvitz-Thompson (#propHT)
+### Propriedades do estimador de Horvitz-Thompson {#propHT}
 
 O *estimador de Horvitz-Thompson* é *não viciado* para estimar o total, ou seja, $E_p(\widehat Y_{HT}) = Y$.
 
@@ -959,61 +735,29 @@ O estimador $\widehat V_{SYG}(\widehat Y_{HT})$ foi motivado a partir da forma d
 
 **(#exr:exevisger1)** Considere a população com $N=6$ domicílios listada com os respectivos valores de variáveis de interesse na Tabela \@ref(tab:tabvis15).
 
-<table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
-<caption>(\#tab:tabvis15)Valores de variáveis de interesse para cada domicílio da população</caption>
- <thead>
-  <tr>
-   <th style="text-align:center;"> **Domicílio** </th>
-   <th style="text-align:right;"> **Renda (R$)** </th>
-   <th style="text-align:right;"> **Número de Moradores** </th>
-   <th style="text-align:right;"> **Número de Trabalhadores** </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:center;"> 1 </td>
-   <td style="text-align:right;"> 800 </td>
-   <td style="text-align:right;"> 2 </td>
-   <td style="text-align:right;"> 2 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 2 </td>
-   <td style="text-align:right;"> 4.200 </td>
-   <td style="text-align:right;"> 4 </td>
-   <td style="text-align:right;"> 3 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 3 </td>
-   <td style="text-align:right;"> 1.600 </td>
-   <td style="text-align:right;"> 2 </td>
-   <td style="text-align:right;"> 1 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 4 </td>
-   <td style="text-align:right;"> 500 </td>
-   <td style="text-align:right;"> 2 </td>
-   <td style="text-align:right;"> 1 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 5 </td>
-   <td style="text-align:right;"> 900 </td>
-   <td style="text-align:right;"> 4 </td>
-   <td style="text-align:right;"> 2 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> 6 </td>
-   <td style="text-align:right;"> 2.000 </td>
-   <td style="text-align:right;"> 1 </td>
-   <td style="text-align:right;"> 1 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> Total </td>
-   <td style="text-align:right;"> 10.000 </td>
-   <td style="text-align:right;"> 15 </td>
-   <td style="text-align:right;"> 10 </td>
-  </tr>
-</tbody>
+<center>
+<table>
+<caption>(#tab:tabvis15)Valores de variáveis de interesse para cada domicílio da população</caption>
 </table>
+----------
+ Domicílio    Renda (R$)   Número de Moradores   Número de Trabalhadores
+----------- ------------ --------------------- -------------------------
+    1	          800	             2	                       2
+    
+    2	        4.200	             4                         3
+    
+    3	        1.600	             2                         1
+    
+    4	          500	             2                         1
+    
+    5	          900	             4                         2
+    
+    6	        2.000              1                         1
+    
+   Total	   10.000             15                        10
+----------
+</center>
+
 Tratar das seguintes questões:
 
 1.	Para cada variável de interesse (Renda, Número de Moradores e Número de Trabalhadores), calcule os seguintes parâmetros populacionais:
@@ -1036,7 +780,7 @@ Tratar das seguintes questões:
 
     d.	O valor esperado e a variância para o estimador Horvitz-Thompson do total populacional para a variável Renda.
 
-4.	Considere agora que o conjunto $S$ é formado somente pelas amostras (1;2), (2;3), (2;4), (2;5) e (2;6), tendo cada uma delas probabilidade 1/5 de ser a amostra selecionada (Plano B). Repita a) a d) do item 3 para este novo plano amostral.
+4.	Considere agora que o conjunto $S$ é formado somente pelas amostras (1;2), (2;3), (2;4), (2;5) e (2;6), tendo cada uma delas probabilidade 1/5 de ser a amostra selecionada (Plano B). Repita os itens a. a d. do item 3 para este novo plano amostral.
 
 5.	Faça gráficos dos valores possíveis do estimador de total sob os dois planos amostrais para comparar as respectivas distribuições.
 

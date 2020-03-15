@@ -4,7 +4,7 @@ Neste capítulo apresentamos dois métodos de amostragem de unidades elementares
 
 ## Amostragem Binomial ou de Bernoulli (AB) {#binom}
 
-A Amostragem Binomial ou de Bernoulli (AB) oferece outra alternativa (pouco usada) à AAS, para selecionar unidades com *equiprobabilidade*. Trata-se de método de amostragem que também dispensa existência de cadastro prévio para seleção da amostra, podendo a amostra ser selecionada ao mesmo tempo que o cadastro vai sendo construído, como na amostragem sistemática simples.
+A Amostragem Binomial ou de Bernoulli (AB) oferece outra alternativa (pouco usada) à AAS, para selecionar diretamente unidades com *equiprobabilidade*. Trata-se de método de amostragem que também dispensa existência de cadastro prévio para seleção da amostra, podendo a amostra ser selecionada ao mesmo tempo que o cadastro vai sendo construído, como na amostragem sistemática simples.
 
 ### Método de seleção da amostra
 
@@ -24,7 +24,7 @@ $\pi_{ij} = P(i,j \in s) = P(A_i \le \pi \,\, \textrm{e} \,\, A_j \le \pi) = P(A
 
 Uma dificuldade associada com Amostragem Binomial ou de Bernoulli é que, antes de ser feita a seleção da amostra, o *tamanho efetivo da amostra* obtida é uma variável aleatória. Isso pode causar dificuldades para quem está planejando a pesquisa. 
 
-Para verificar isso, note que $n = \sum_{i \in U} I(A_i \le \pi)$. Consequentemente,  $n \, \textrm{~ Binomial} (N;\pi)$. Logo: $E(n) = N \times \pi$  e $V(n) = N \times \pi \times(1-\pi)$. 
+Para verificar isso, note que $n = \sum_{i \in U} I(A_i \le \pi)$. Consequentemente,  $n \, \textrm{~ Binomial} (N;\pi)$. Logo: $E_{AB}(n) = N \times \pi$  e $V_{AB}(n) = N \times \pi \times(1-\pi)$. 
 
 ### Estimação de totais sob Amostragem Binomial ou de Bernoulli 
 
@@ -37,28 +37,28 @@ $$
 A variância desse estimador do total é dada por:
 
 $$
-V_{AB}(\widehat Y_{AB}) = \left( \frac{1}{\pi} \right)^2 V \left( \sum_{i \in U} \delta_i y_i \right) = \left( \frac{1}{\pi} \right)^2 \sum_{i \in U} V(\delta_i)y_i^2 = \\ = \left(\frac{1}{\pi}\right)^2 \pi (1-\pi) \sum_{i \in U} y_i^2 = \left(\frac{1}{\pi}-1\right)\sum_{i \in U}y_i^2\,\,(\#eq:eqbin2)
+V_{AB}(\widehat Y_{AB}) = \left( \frac{1}{\pi} \right)^2 V_{AB} \left( \sum_{i \in U} \delta_i y_i \right) = \left( \frac{1}{\pi} \right)^2 \sum_{i \in U} V_{AB}(\delta_i) y_i^2 = \\ = \left(\frac{1}{\pi}\right)^2 \pi (1-\pi) \sum_{i \in U} y_i^2 = \left(\frac{1}{\pi}-1\right)\sum_{i \in U}y_i^2\,\,(\#eq:eqbin2)
 $$
 
-Um estimador não viciado da variância do estimador de total é dado por:
+Um estimador não viciado da variância do estimador HT de total é dado por:
 
 $$
 \widehat V_{AB}(\widehat Y_{AB}) = \frac{1}{\pi}\left(\frac{1}{\pi}-1\right)\sum_{i \in s}y_i^2\,\,(\#eq:eqbin3)
 $$ 
 
-Devido à variabilidade do tamanho efetivo da amostra, o estimador HT do total é pouco eficiente. Um estimador alternativo para o total, definido sempre que $n>0$, é o estimador tipo razão dado por:
+Devido à variabilidade do tamanho efetivo da amostra, o estimador HT do total é pouco eficiente. Um estimador alternativo para o total, definido sempre que $n > 0$, é o estimador tipo razão dado por:
 
 $$
 \widehat Y_{AB}^R = \frac{N\pi}{n}\widehat Y_{AB} = N\frac{1}{n}\sum_{i \in s}y_i = N\overline y\,\,(\#eq:eqbin4)
 $$ 
 
-Conforme @Sarndal1992 (p. 65), uma aproximação da variância do estimador alternativo de total é dada por:
+Conforme @Sarndal1992 (p. 65), uma aproximação da variância desse estimador de razão do total é dada por:
 
 $$
 V_{AB}(\widehat Y_{AB}^R) \doteq N^2 \left(\frac{1}{N \pi}-\frac{1}{N}\right)S_y^2\,\,(\#eq:eqbin5)
 $$  
 
-Esta variância é portanto aproximadamente igual à de uma AAS de tamanho igual a $N\pi$, que seria também o tamanho esperado da amostra sob AB. Ainda conforme @Sarndal1992 (p. 63), a variância do estimador simples do total pode ser reescrita como:
+Esta variância é portanto aproximadamente igual à de uma AAS de tamanho igual a $N \pi$, que seria também o tamanho esperado da amostra sob AB. Ainda conforme @Sarndal1992 (p. 63), a variância do estimador simples do total pode ser reescrita como:
 
 $$
 V_{AB}(\widehat Y_{AB}) = N^2\left(\frac{1}{N\pi} - \frac{1}{N}\right)S_y^2 \left[1 - \frac{1}{N} + \frac{1}{CV_y^2}\right]\,\,(\#eq:eqbin6)
@@ -71,6 +71,17 @@ $$
 $$ 
 
 Essa expressão mostra que o estimador alternativo será tanto mais eficiente que o estimador HT quanto menor for o CV da variável de interesse $y$. Isso faz sentido, porque a variância do estimador HT depende da variabilidade do tamanho efetivo da amostra, e esse componente domina a variância total quando o CV da variável de interesse $y$ diminui.
+
+Um estimador consistente da variância do estimador de razão do total é dado por:
+
+$$
+\widehat V_{AB} \left( {\widehat Y} _{AB} ^R \right) \doteq N^2 \times \left( \frac{1}{N \pi} - \frac{1}{N} \right) s_y^2 \,\, (\#eq:eqbin13)
+$$  
+
+onde 
+$$
+s_y^2 = \frac {1}{n-1} \sum_{i \in s} (y_i - \overline y)^2 
+$$
 
 ### Estimação de médias sob Amostragem Binomial 
 
@@ -92,10 +103,10 @@ $$
 \widehat V_{AB} \left({\overline {y}} _{AB} \right) = \frac{1}{N^2 \, \pi} \left(\frac{1}{\pi}-1\right)\sum_{i \in s}y_i^2\,\,(\#eq:eqbin10)
 $$ 
 
-Assim como no caso do estimador de total, devido à variabilidade do tamanho efetivo da amostra, o estimador HT da média é pouco eficiente. Um estimador alternativo para a média, definido sempre que $n>0$, é o estimador tipo razão dado por:
+Assim como no caso do estimador de total, devido à variabilidade do tamanho efetivo da amostra, o estimador HT da média é pouco eficiente. Um estimador alternativo para a média, definido sempre que $n > 0$, é o estimador tipo razão dado por:
 
 $$
-{\overline {y}} _{AB} ^R = \frac{N \pi}{n} {\overline {y}} _{AB} = \frac{1}{n} \sum_{i \in s} y_i \,\, (\#eq:eqbin11)
+{\overline {y}} _{AB} ^R = \frac{N \pi}{n} {\overline {y}} _{AB} = \frac{1}{n} \sum_{i \in s} y_i = \overline y \,\, (\#eq:eqbin11)
 $$ 
 
 Uma aproximação da variância do estimador alternativo da média é dada por:
@@ -104,154 +115,125 @@ $$
 V_{AB} \left( {\overline {y}} _{AB} ^R \right) \doteq \left( \frac{1}{N \pi} - \frac{1}{N} \right) S_y^2 \,\, (\#eq:eqbin12)
 $$  
 
-Esta variância é portanto aproximadamente igual à do estimador de média sob uma AAS de tamanho igual a $N\pi$, que seria também o tamanho esperado da amostra sob AB. As análises feitas na seção anterior sobre a eficiência relativa dos estimadores de total são válidas também para os estimadores da média.
+Esta variância é portanto aproximadamente igual à do estimador de média sob uma AAS de tamanho igual a $N \pi$, que seria também o tamanho esperado da amostra sob AB. As análises feitas na seção anterior sobre a eficiência relativa dos estimadores de total são válidas também para os estimadores da média.
 
+Um estimador consistente da variância do estimador alternativo da média é dado por:
+
+$$
+\widehat V_{AB} \left( {\overline {y}} _{AB} ^R \right) \doteq \left( \frac{1}{N \pi} - \frac{1}{N} \right) s_y^2 \,\, (\#eq:eqbin13)
+$$  
 
 ### Exemplos de aplicação da Amostragem Binomial ou de Bernoulli 
 
 Um exemplo clássico ocorre na inspeção alfandegária praticada na saída de passageiros chegando de vôos internacionais. Quando cada passageiro aperta o botão para saber se sua bagagem será ou não inspecionada pela Receita Federal, está em ação um processo de Amostragem Binomial. Não sabemos o valor da fração amostral estabelecida pela Receita Federal, mas este é o único parâmetro necessário para especificar completamente o processo de amostragem em questão. 
 
-A Amostragem Sistemática também seria viável nesse caso, mas poderia ser mais facilmente burlada por pessoas interessadas em não ter sua bagagem inspecionada, caso fossem capazes de detectar qual é o valor do pulo $K$ sendo praticado. O emprego de Amostragem Binomial impede essa prática, ao tornar imprevisível o resultado de cada sorteio que define se o passageiro terá ou não sua bagagem inspecionada.
+A Amostragem Sistemática também seria viável nesse caso, mas poderia ser mais facilmente burlada por pessoas interessadas em não ter sua bagagem inspecionada, caso fossem capazes de detectar qual é o valor do pulo $K$ sendo praticado. O emprego de Amostragem Binomial impede essa prática, ao tornar imprevisível o resultado de cada sorteio que define se o passageiro terá ou não sua bagagem inspecionada. Esta 'proteção' se aplica tanto a comportamentos inadequados dos passageiros alvo da inspeção quanto de agentes encarregados da inspeção, já que nenhum dos dois poderia predizer o resultado do sorteio que define se a bagagem de um passageiro deve ou não ser inspecionada.
 
-Aplicações de Amostragem Binomial para populações em fluxo são convenientes, pois dispensam lista ou cadastro prévios. Deve-se evitar seu uso sempre que $P(n=0)$ for ‘grande’.
+Aplicações de Amostragem Binomial para populações em fluxo são convenientes, pois dispensam lista ou cadastro prévios. Como desvantagem, deve-se evitar seu uso sempre que $P(n=0)$ for ‘grande’, pois no caso em que o tamanho efetivo da amostra for nulo é impossível fazer inferência sobre quaisquer parâmetros populacionais de interesse.
 
-XXX Até aqui
 
 ## Amostragem Inversa {#inversa}
 
-Na amostragem probabilística usualmente são selecionadas $n$ unidades, que deverão compor a amostra, de uma população ou cadastro de seleção composto de $N$ unidades populacionais, $n<N$.
+Na prática da pesquisa usando métodos de amostragem probabilística, é usual buscar a seleção de um número fixo, pré-especificado $n (< N)$ de unidades da população $U$ para compor a amostra $s$. As unidades selecionadas para a amostra são então identificadas e abordadas, para obter as medidas das variáveis de interesse utilizando-se os instrumentos especificados para a pesquisa em questão. No caso de pesquisas socioeconômicas, frequentemente são utilizados questionários para serem respondidos por algum representante da unidade selecionada, que pode ser um domicílio, um estabelecimento industrial, uma escola, etc. Em casos como um processo de controle de qualidade por amostragem podem ser utilizados instrumentos de medida para conferência das dimensões de peças fabricadas em série ou mesmo a realização de ensaios para testar alguma condição desejável. Muitas vezes tais ensaios podem ser destrutivos e, portanto, este é um exemplo clássico onde a utilização de amostragem se impõe pela impossibilidade de testar todas as peças fabricadas.
 
-Essas unidades selecionadas para a amostra serão identificadas e as variáveis de interesse serão medidas utilizando-se a ferramenta adequada de acordo com as característicasda pesquisa em questão. No caso de pesquisas do tipo socioeconômicas, frequentemente são utilizados questionários que a ser respondidos por algum representante da unidade selecionada, que pode ser um domicílio, um estabelecimento industrial, uma escola, etc. Em casos como um processo de controle de qualidade por amostragem poderão ser utilizados instrumentos de medida para conferência das dimensões de uma peça que está sendo fabricada em série ou mesmo a realização de um ensaio específico para testar alguma característica desejável. Muitas vezes esses ensaios podem ser destrutivos e, portanto, este é um exemplo clássico onde a utilização de uma amostra se impõe pela impossibilidade de se testar todas as peças que estiverem sendo fabricadas.
+Um dos problemas que podem ocorrer numa investigação por amostragem é a impossibilidade de se entrevistar ou medir todas as $n$ unidades selecionadas para a amostra $s$. Isso pode ocorrer por vários motivos, tais como a dificuldade de localizar a unidade no campo, a mudança das características da unidade tornando a mesma inelegível para a pesquisa (por exemplo, um endereço onde havia um domicílio selecionado que no momento da pesquisa passou a ser um estabelecimento comercial), a seleção de um domicílio de uso ocasional (por exemplo, uma casa de veraneio), a ausência da pessoa que deveria ser o respondente, ou mesmo devido à simples recusa do informante em responder total ou parcialmente a pesquisa. Todas essas situações implicam em uma redução no tamanho efetivo da amostra e aumento da imprecisão das estimativas geradas.
 
-Um dos problemas que podem ocorrer numa investigação por amostragem é a impossibilidade de se entrevistar ou medir todas as $n$ unidades selecionadas para a amostra. Isso pode ocorrer por vários motivos como a dificuldade de se localizar a unidade no campo; a mudança das características da unidade excluindo a mesma do escopo da pesquisa, como, por exemplo, um endereço onde havia um domicílio selecionado que no momento da pesquisa passou a ser uma unidade comercial; a seleção de um domicílio de uso ocasional, como uma casa de veraneio; ausência da pessoa que deveria ser o informante; a simples recusa do informante responder total ou parcialmente a pesquisa. Todas essas questões implicam em uma redução no tamanho da amostra e aumento da imprecisão das estimativas geradas.
+Muitas das causas que levam à redução da amostra efetiva talvez possam ser prevenidas e evitadas por uma atualização tempestiva do cadastro de seleção. Entretanto, a realidade da população é dinâmica, e as mudanças que podem ocorrer na mesma estão fora do controle do amostrista, podendo ser difíceis de captar na preparação do cadastro de seleção. 
 
-Muitas das causas que levam a essa redução da amostra talvez possam ser prevenidas e evitadas por uma atualização mais criteriosa na preparação do cadastro de seleção da amostra, porém é sabido que um cadastro é um ente dinâmico e as mudanças que podem ocorrer no mesmo estão fora do controle do amostrista. Alterações podem ocorrer no momento da realização da pesquisa.
+Entre as estratégias disponíveis para tentar contornar esse tipo de problema está o superdimensionamento da amostra. Isto consiste em selecionar um tamanho de amostra $m = n+K$ onde $K$ representa uma estimativa da perda esperada de unidades da amostra inicialmente selecionada pelo conjunto das causas potenciais de perda de unidades selecionadas. Em pesquisas que são repetidas no tempo ou pesquisas com características semelhantes a outras já realizadas num passado não muito distante, pode-se ter boas estimativas das perdas esperadas de unidades amostrais. Tais estimativas podem ser usadas para orientar o (super)dimensionamento de uma amostra para que esta, mesmo sofrendo perdas na coleta, possa levar à obtenção de uma amostra de tamanho efetivo próximo do tamanho inicialmente desejado $n$, de modo que seja possível estimar os parâmetros de interesse com o nível de precisão desejado. Se as perdas forem menores do que o esperado, as estimativas poderão ser até mais precisas, o que é até positivo do ponto de vista estatístico, embora ao custo de ter coletado uma amostra de tamanho efetivo maior do que o necessário. Uma desvantagem do superdimensionamento é que ele pode ser insuficiente para levar ao tamanho de amostra efetivo desejado, de vez que as perdas da pesquisa podem ser maiores do que inicialmente estimado. O risco está no fato de que o tamanho efetivo da amostra é uma variável aleatória, cuja distribuição não está sob controle do amostrista.
 
-Existem estratégias para tentar contornar esse problema como, por exemplo, o superdimensionamento da amostra. Principalmente em pesquisas que são repetidas no tempo ou pesquisas com características semelhantes a outras já realizadas, pode-se ter uma estimativa das taxas de perda de unidades amostrais que podem ser úteis para orientar o  dimensionamento de uma amostra robusta o suficiente para que, mesmo sofrendo perdas na coleta, possa estimar os parâmetros de interesse com um nível adequado de precisão. Se as perdas forem menores do que o esperado, as estimativas poderão ser até mais precisas o que é até positivo do ponto de vista estatístico.
+Outro problema desse tipo de abordagem é quando se está pesquisando tipos de unidades de ocorrência rara na população (por exemplo, pessoas portadoras de uma doença tal como glaucoma), e no cadastro disponível para a seleção da amostra não existe nenhuma informação desse tipo sobre as pessoas da população de pesquisa. Outros exemplos desse tipo de pesquisa incluem estudos sobre indivíduos de uma faixa etária restrita (idosos acima de 80 anos), estudos sobre empresas que desenvolvem atividade econômica restrita, estabelecimentos agrícolas produtores de um produto específico, etc. Nestes casos pode-se realizar uma etapa prévia de atualização cadastral, comumente chamada de *varredura* ou *screening*, para identificar na população aquelas unidades que pertencem ao grupo de interesse da pesquisa. Esse processo, porém, pode ser muito caro, inviabilizando sua utilização. 
 
-Outro problema desse tipo de abordagem é quando se está pesquisando eventos de ocorrência rara na população e no cadastro disponível para a seleção da amostra não existe nenhuma indicação sobre essa ocorência nas unidades populacionais. São exemplos desse tipo de pesquisa os estudos sobre determinadas doenças; problemas que podem atingir somente indivíduos de determinado sexo e/ou numa faixa etária restrita; atividades econômicas restritas a um número pequeno de estabelecimentos, etc. Nestes casos pode-se realizar uma etapa prévia de atualização cadastral, comunmente chamada de ***screening*** ou **varredura**, procurando identificar na população aquelas unidades que tem, pelo menos idicativos, das características desejadas. Esse processo, porém, pode ser muito caro inviabilizando sua realização. Em pesquisas que utilizam amostragem de conglomerados o custo dessa opreação pode ser reduzido pela atualização apenas nos conglomerados selecionados para a amostra. Um exemplo desse caso pode ser visto na Pesquisa Nacional por Amostra de Domicílios Contínua - PNAD Contínua do IBGE, em que são atualizados antes da coleta apenas os setores cencitários selecionados como Unidades Primárias de Amostragem - UPA, [@IBGE2014].
+As estratégias exemplificadas acima são úteis para tentar minimizar as perdas de unidades amostrais, mas não eliminam o problema da redução no tamanho efetivo da amostra. Uma outra estratégia para tentar garantir que o número de unidades amostrais coletadas seja efetivamente igual ao valor de $n$ desejado é a chamada *Amostragem Inversa*.
 
-As estratégias exemplificadas acima são úteis para tentar minimizar as perdas de unidades amostrais, mas não eliminam o problema da redução no tamanho final da amostra.
+## Amostragem Inversa Simples (AIS)
 
-Uma outra forma de se tentar garantir que o número de unidades amostrais coletadas seja efetivamente igual ao valor de $n$ desejado é a chamada Amostragem Inversa.
+A *Amostragem Inversa Simples* é um procedimento sequencial de amostragem proposto por [@Haldane1945] como forma de enfrentar o problema de amostragem para estimar parâmetros relativos a eventos raros. Em termos gerais, consiste em pesquisar $m \ge n$ unidades da população até encontrar $n$ que tenham as caracterísitcas desejadas ou que forneçam as informações de interesse. Mesmo assim podem ocorrer casos em que a busca se estenda por toda a população (ou estrato ou conglomerado onde se faça uma subamostragem) sem que se encontre as $n$ unidades de interesse. Nesse caso extremo, o procedimento é interrompido quando $m=N$, mesmo que $m < n$.
 
-## Amostragem Inversa
+### Método de seleção da amostra inversa simples (AIS)
 
-A *Amostragem Inversa* foi proposta por [@Haldane1945] como uma forma de enfrentar o problema de amostragem para estimar parâmetros relativos a eventos raros. Em termos gerais, consiste em pesquisar $n$ unidades da população até encontrar $m$ que contenham as caracterísitcas desejadas. Mesmo assim podem ocorrer casos em que a busca se estenda por toda a população (ou estrato ou conglomerado onde se faça uma subamostragem) sem que se encontre as $m$ unidades de interesse.
+A implementação mais simples de AIS pode ser feita usando o *Algoritmo de Hàjek* (ver @Hajek1960) para selecionar AAS, tal como descrito na seção \@ref(Hajek). Este algoritmo se baseia na ideia de obter uma *permutação aleatória* dos rótulos das unidades da população $U$, denotada por $\Pi(U) = \{i_1, i_2, ..., i_N\}$, onde cada um dos rótulos originais tem a mesma probabilidade que qualquer outro de ocupar a 1a. posição, ou a 2a. posição, e assim por diante.
 
-Suponha que $p$ seja a proporção de unidades da população que posuam determinada característica e $q=1-p$ a proproção das unidades que não possuam a mesma caracterrística. Se forem obaservadas $n$ unidades da população, selecionadas através de um sorteio aleatório, de maneira que nas $n-1$ primeiras unidades observadas forem encontradas $m-1$ unidades com a característica desejada e na observação $n$ a unidade tenha a característica, perfazendo o total de $m$ unidades com essa característica, pode-se definir um estimador não viciado para a proporção $p$ [@Cochran1977] como:
-\begin{equation}
-\displaystyle \widehat p = \frac {m-1}{n-1}(\#eq:eqinv1)
-\end{equation}
-A variância do estimador da proporção pode ser aproximada por:
-\begin{equation}
-\displaystyle \widehat V(\widehat p) = \frac {m(n-m)}{n^2(n-1)}(\#eq:eqinv2)
-\end{equation}
+Então a AIS pode ser implementada modificando-se o Passo 3 do algoritmo original da seguinte maneira.
 
-O esquema de amostragem inversa pode ser usado no caso geral, onde não se deseja estimar a proporção das unidades que tenha determinada característica mas investigar uma amostra das unidades da população que pertençam a uma determinada população alvo. Por exemplo, pode-se estar interessado em aplicar um questionário às mulheres com idade de 15 até 49 anos, porém não há disponibilidade de um cadastro de tais mulheres, mas apenas do cadastro dos domicílios da área da pesquisa, não havendo indicação de quais deles tem mulheres na faixa etária desejada.
+*Passo 3:* Para selecionar uma AIS de tamanho $n$, comece abordando a unidade $i_1$ conforme identificada na permutação $\Pi(U)$. Caso esta unidade participe da pesquisa fornecendo uma entrevista ou conjunto de medidas completo, tal como desejado, adicione 1 unidade ao tamanho efetivo da amostra. Caso a unidade não participe da pesquisa ou não forneça um conjunto mínimo de medidas desejadas, aborde a próxima unidade ($i_2$) buscando obter os dados de interesse ou confirmar a elegibilidade. Prossiga neste processo até que a amostra efetiva tenha $n$ unidades com entrevista completa ou com as características que você está buscando encontrar. 
 
-Uma possíbilidade é selecionar sequencialmente os domicílios, com um esquema de seleção aleatória, e aplicar os questionários quando existirem mulheres na faixa etária de interesse e apenas registrar algumas variáveis de controle caso não existam mulheres na faixa de interesse no domicílio selecionado. Assim após visitar $n$ domicílios serão obtidos os questionários relativos aos $m$ domicílios com mulheres de 15 a 49 anos.
+O processo descrito acima implica que o número de unidades selecionadas para a pesquisa ($m$) será igual ou maior que o número de unidades na amostra efetiva ($n$). É importante frisar que a amostra efetiva de $n$ unidades obtida ao final do processo continua sendo uma AAS da população de unidades elegíveis. Caso a AIS seja usada para enfrentar problema de não resposta (quando todas as unidades da população são elegíveis), a hipótese subjacente necessária para tratar a amostra efetiva disponível como uma AAS da população $U$ é que a não resposta é completamente ao acaso. 
 
-### Amostragem Inversa Simples
+Outra consideração importante a fazer é que os esforços feitos para obtenção dos dados de cada unidade selecionada devem sempre seguir o mesmo protocolo especificado para a coleta. Variações do protocolo ou do esforço de coleta para cada unidade selecionada podem implicar em não resposta diferencial e implicar em viés de seleção na amostra obtida.
 
-Seja uma população, composta de $N$ unidades, onde se deseja investigar uma amostra dentre as unidades que fazem parte de uma determinada subpopulação, ou seja, de um subconjunto das unidades populacionais que possuam uma determinada particularidade.
+### Amostragem Inversa Simples para varredura por amostragem
 
-Essa população pode ser descrita como a união de dois subconjuntos, onde um deles será composto de $M=pN$ unidades com a particularidade que interessa e outro de $N-M=(1-p)N$ unidades que não possuam tal particularidade, onde $N$ é total de unidades, conhecido, da população e $p$ é a proporção, desconhecida, de unidades no primeiro subconjunto. 
+Seja $U$ uma população composta de $N$ unidades para a qual se deseja investigar uma amostra dentre as unidades que fazem parte de uma determinada subpopulação $A \subset U$, ou seja, de um subconjunto das unidades populacionais que possuam uma determinada característica. Nesse caso, a população pode ser descrita como a união de dois subconjuntos, onde um deles será composto das $N_A$ unidades com a característica que interessa, e outro de $N - N_A$ unidades que não possuam tal característica. Considera-se que o tamanho da subpopulação $N_A$ é desconhecido antes da realização da pesquisa. 
 
-Pode-se definir tais subpopulações como:
+As subpopulações de interesse nesse caso satisfazem:
 
-\begin{equation}
-\displaystyle C \cup \overline C = U,\quad C \cap \overline C = \emptyset \quad \text{e} \quad C\neq \emptyset,
-\end{equation}
+$$
+A \cup \overline A = U,\quad A \cap \overline A = \emptyset \quad \text{e} \quad A\neq \emptyset,
+$$
 
-onde $C$ é a subpopulação formada pelas unidades com a particularidade de interesse e $\overline C$ a subpopulação complementar.
+onde $\overline A$ é a subpopulação complementar.
 
-Um exemplo prático seria o de selecionar uma amostra de domicílios numa localidade para aplicar um questionário a ser respondido apenas por mulheres na faixa etária de 15 até 45 anos. Neste caso poder-se-ia ter acesso a um cadastro de todos os domicílios da localidade, porém sem a indicação de quais desses domicílios têm moradoras na faixa etária de interesse. Os domicílios com mulheres de 15 até 45 anos formariam a subpopulação $C$ e os demais domicílios seriam a subpopulação $\overline C$.
+Um exemplo prático seria o de selecionar uma amostra de domicílios numa localidade para aplicar um questionário a ser respondido apenas pelos domicílios que têm acesso à internet. Neste caso poder-se-ia ter acesso a um cadastro de todos os domicílios da localidade, porém sem a indicação de quais desses domicílios têm acesso à internet. Estes formariam a subpopulação $A$ e os demais domicílios seriam a subpopulação $\overline A$.
 
-No caso de uma Amostra Inversa Simples - AIS sem reposição serão selecionadas através de um mecanismo de AAS, uma amostra de de $n$ unidades até que $m$ dessas unidades sejam originárias da subpopulação $C$. Dessa maneira, o tamanho da amostra $n$ será uma variável aleatória hipergeométrica negativa, com distribuição de probabilidades dada por:
+Aplicando AIS para amostrar domicílios com acesso à internet na população $U$, será necessário abordar $m$ domicílios, até que $n$ deles sejam domicílios com acesso à internet. Dessa maneira, o tamanho total da amostra $m$ é uma variável aleatória com distribuição *Hipergeométrica Negativa*, cuja função de probabilidades é dada por:
 
-\begin{equation}\displaystyle
-P(n=k)= \frac{M-m+1}{N-k+1}\frac {\binom{M}{m-1}\binom{N-M}{k-m}}{\binom N{k-1}}(\#eq:eqinv3)
-\end{equation}
+$$
+P(m=k)= \frac{N_A-n+1}{N-k+1} \frac {\binom{N_A}{n-1}\binom{N-N_A}{k-n}} {\binom N{k-1}} (\#eq:eqinv3)
+$$
+para $k=n, n+1, ..., N_A$. Uma hipótese necessária para obter essa distribuição de probabilidades é que $n < N_A$.
 
-com valor esperado e variância dados por:
+O tamanho total da amostra $m$ mede o esforço de abordagem de unidades selecionadas. O tamanho da amostra efetiva $n$ mede o tamanho do esforço adicional para obtenção das entrevistas. Ambos são relevantes para a estimação dos custos da pesquisa. Como $n$ é pré-fixado, resta saber alguma coisa mais sobre $m$. O valor esperado e variância desta quantidade aleatória são dados por:
 
-\begin{equation}\displaystyle
-E(n)= \frac{(N+1)m}{M+1}(\#eq:eqinv4)
-\end{equation}
+$$
+E_{AIS} (m)= \frac{(N+1)n}{N_A+1}(\#eq:eqinv4)
+$$
 
 e
 
-\begin{equation}\displaystyle
-V(n)= \frac{(N+1)(M-m+1)(N-M)}{(M+1)^2 (M+2)}(\#eq:eqinv5)
-\end{equation}
+$$
+V_{AIS} (m) = \frac{(N+1)(N_A-n+1)(N-N_A)}{(N_A+1)^2 (N_A+2)}(\#eq:eqinv5)
+$$
 
-onde $\displaystyle 1 \le m \le M$ e $\displaystyle m \le k \le N$
+Embora um dos parâmetros da distribuição ($N_A$) seja desconhecido, as expressões acima podem ser usadas para fazer cálculos com distintos valores que permitirão ter um intervalo de variação esperado para $m$, e em consequência, para o custo esperado da etapa de abordagem das unidades selecionadas. O fato de que o esforço de abordagem da pesquisa tem tamanho variável (antes de implementar a pesquisa) é provavelmente a principal desvantagem prática da AIS. Por outro lado, o fato de que AIS vai permitir alcançar o tamanho da amostra efetiva desejado é uma vantagem grande em comparação com planos amostrais como AAS, em que o tamanho total da amostra é fixado, mas o tamanho da amostra efetiva é variável.
 
-#### Estimativa da média e total na AIS
+#### Estimação da média e total na AIS
 
 Existem várias propostas para se estimar a média (ou total) populacional utilizando a amostragem inversa simples, como o estimador de Horvitz-Thompson apresentado pelos autores em [@Horvitz1952] ou o estimador proposto por Des Raj [@Raj1956], ambos descritos em [@Jordao2012]. Aqui será apresentado o estimador proposto por [@Murthy1957], que é dado por:
 
-\begin{equation}
-{\widehat Y}_M = \sum_{i=1}^v y_i \frac {P(s | i)} {P(s)} (\#eq:eqinv6)
-\end{equation}
+$$
+{\widehat Y}_M = \sum_{i \in s} y_i \frac {P(s | i)} {P(s)} (\#eq:eqinv6)
+$$
 
-onde $v$ é o número de unidades distintas na amostra, que no caso de amostragem sem reposição será igual a $n$, $P(s|i)$ é a probabilidade condicional de selecionar a amostra $s$ dado que a unidade $i$ foi selecionada e $P(s)$ é a probabilidade de seleção da amostra $s$ .
+onde $P(s|i)$ é a probabilidade condicional de selecionar a amostra $s$ dado que a unidade $i$ foi selecionada e $P(s)$ é a probabilidade de seleção da amostra $s$.
 
 Para estimar a média populacional, basta dividir o estimador do total pelo tamanho, $N$, da população, ou seja:
 
-\begin{equation}
- {\overline y}_M = \frac 1 N \sum_{i=1}^v y_i \frac {P(s | i)} {P(s)} (\#eq:eqinv7)
-\end{equation}
+$$
+ {\overline y}_M = \frac 1 N \sum_{i \in s} y_i \frac {P(s | i)} {P(s)} (\#eq:eqinv7)
+$$
 
-No caso da amostragem inversa podemos reescrever os estimadores acima da forma sugerida por [@SalehiSeber2001].
+No caso da AIS podemos reescrever os estimadores acima da forma sugerida por [@SalehiSeber2001]. Lembre que $\delta_i$ é a variável indicadora que assume o valor $1$ se a unidade $i$ da população foi selecionada para a amostra e o valor $0$ caso contrário. No caso da AIS, sabe-se que a última unidade selecionada obrigatoriamente pertence ao subconjunto $A$ da população, como definido acima. Portanto as demais unidades da amostra podem ser alocadas de $(n-1)!$ maneiras, de forma que a amostra $s$ pode ser obtida de $m(n-1)!$ configurações distintas. Para o conjunto das unidades pertencentes à subpopulação $A$ o evento $\{\delta_i=1\}$ pode ocorrer de $(m−1)(n−2)!$ maneiras, enquanto que para as unidades pertencentes à subpopulação $\overline A$ esse mesmo evento pode ocorrer de $m(n-2)!$ formas. Sabe-se, ainda, que a seleção das unidades da amostra é feita com equiprobabilidade. Portanto: 
 
-Seja a função indicadora $I_i$ que assume o valor $1$ se a unidade $i$ da população foi selecionada para a amostra e $0$ caso contrário. No caso da amostragem inversa sabe-se que a última unidade selecionada obrigatoria mente pertence ao subconjunto $C$ da população, como definido acima. Portanto as demais unidades da amostra podem ser alocadas de $(n-1)!$ maneiras, de forma que a amostra $s$ pode ser obtida de $m(n-1)!$ configurações distintas. Para o conjunto das unidades pertencentes à subpopulação $C$ o evento $\{I_i=1,s\}$ pode ocorres de $(m−1)(n−2)!$ maneiras, enquanto que para as unidades pertencentes à subpopulação $\overline C$ esse mesmo evento pode ocorrer de $m(n-2)!$ formas. Sabe-se, ainda, que a seleção das unidades da amostra é feita com equiprobabilidade, onde $P(i)= 1/N$, para $i=1, 2,...,N$. Portanto: 
-
-\begin{equation}
- \frac {P(s | i)} {P(s)}= 
- \begin {cases}  \left[{N(m-1)}\right]/\left[{(n-1)m}\right] & \quad \text{se } i \in C \\\\
- N/(n-1) & \quad \text{se } i \in \overline C 
- \end {cases}(\#eq:eqinv8)
-\end{equation}
+$$
+ \frac {P(s | i)} {P(s)} = 
+ \begin {cases}  \left[{N(m-1)}\right]/\left[{(n-1)m}\right] & \quad \text{se } i \in A \\\\
+ N/(n-1) & \quad \text{se } i \in \overline A 
+ \end {cases} \,\, (\#eq:eqinv8)
+$$
 
 Dessa maneira pode-se escrever a equação \@ref(eq:eqinv6) como:
 
-\begin{equation}
-{\widehat Y}_M = \frac N {n-1}\left( \sum_{i \in C} \frac{m-1} m y_i + \sum_{i \in \overline C} y_i \right)(\#eq:eqinv9)
-\end{equation}
+$$
+{\widehat Y}_M = \frac N {n-1}\left( \frac{m-1} m\sum_{i \in A}  y_i + \sum_{i \in \overline A} y_i \right) (\#eq:eqinv9)
+$$
 
 Para obter o estimador da média basta dividir a expressão acima por $N$:
 
-\begin{equation}
-{\overline y}_M = \frac 1 {n-1}\left( \sum_{i \in C} \frac{m-1} m y_i + \sum_{i \in \overline C} y_i \right)(\#eq:eqinv10)
-\end{equation}
+$$
+{\overline y}_M = \frac 1 {n-1}\left( \frac{m-1} m\sum_{i \in A} y_i + \sum_{i \in \overline A} y_i \right) \,\, (\#eq:eqinv10)
+$$
 
-### Amostragem inversa com probabilidades desiguais com reposição
+[@Vasconcellos2005] descreve uma aplicação de amostragem inversa simples na etapa de seleção de domicílios dentro dos setores selecionados, numa pesquisa domiciliar empregando amostragem conglomerada. Essa pesquisa talvez represente a primeira aplicação de amostragem inversa numa pesquisa domiciliar nacional realizada no Brasil.
 
-Suponha que uma população finita consiste em $N$ unidades com valores de interesse associados $y_1,...,y_N$. A probabilidade de seleção inicial da $i-ésima$ unidade é denotada por $z_i$. O parâmetro a ser estimado é o total da população, dado por $Y=\sum_{i=1}^{N} y_i$. Suponha, como já foi visto anteriormente, que a população é formada por duas subpopulações onde $C$ é a subpopulação formada pelas unidades com uma particularidade de interesse e $\overline C$ a subpopulação complementar. Em amostragem inversa de probabilidades desiguais, selecionamos unidades, uma de cada vez, com probabilidades desiguais com reposição até que tenhamos obtido um dado número $m$ de unidades da classe $C$ na amostra. O tamanho da amostra, $n$,  é uma variável aleatória. 
-
-A amostra final $s$ pode ser dividida em duas partes: uma parte é o conjunto $S_C$ das $m$ unidades da amostra vindas da classe $C$ e $S_{\overline C}$ é o conjunto das $n-m$ unidades da amostra vindas de $_\overline C$. Sejam k e g os números de unidades distintas em $S_C$ e $S_\overline C$, e que são indexados por $i=1,...,k$ e $i=k+1,..., v$  respectivamente. Seja  é o número de vezes que a unidade i aparece na amostra. Com uma amostra ordenada, $S^*$, a probabilidade de obter essa amostra ordenada é $P(S^*)=\prod_{i=1}^v (z_i)^{r_i}$, onde a última unidade amostrada pertence ao conjunto $S_C$.No caso de uma amostra não-ordenada,$s$, com a última unidade amostrada pertencente a $S_C$, após alocar a i-ésima unidade de $k$ unidades amostradas em $S_C$, o resto das unidades amostradas podem ser ordenadas em  $\binom {n-1}{r_1, r_i-1,...,v}$ maneiras. Portanto, a amostra $s$ pode ser construída em $\sum_{i=1}^k\binom {n-1}{r_1, r_i-1,...,v}$ maneiras. A probabilidade de obter uma particular amostra $s$ é $P(s)=\sum_{i=1}^k\binom {n-1}{r_1, r_i-1,...,v} \prod_{i=1}^v (z_i)^{r_i}.$
-
-Assim, um estimador não viciado para o total populacional, Y, pode ser obtido por:
-\begin{equation}
-\widehat Y = {\hat p}{\overline y}_C + {(1-\hat p)}{\overline y}_\overline C 
-\end{equation}
-com sua variância estimada por:
-\begin{equation}
-\widehat V(\widehat Y)=({\overline y}_C – {\overline y}_{\overline C})^2 \widehat V(\hat p)\frac {{\hat \sigma}^2_C} {m} \left [ (m-1) \widehat V(\hat p)-\hat p^* {\hat p}^2 \right ] +\frac {{\hat \sigma}^2_{\overline C}(n-m-1)} {(n-1)(n-2)} 
-\end{equation}
-
-onde,
-$\hat p$ é dado pela equação \@ref(eq:eqinv1), $\displaystyle \overline y_C=\frac 1 m \sum_{i\in s_C} \frac {y_i}{z_i}\quad$  e  $\displaystyle\quad\overline y_\overline C=\frac 1 {n-m} \sum_{i\in s_\overline C} \frac {y_i}{z_i}$
-
-Os resultados acima podem ser demonstrados utilizando o estimador do total populacional, $Y$, definido por [@Murthy1957].
-
-[@Tille2016] desenvolve a teoria de amostra inversa com probabilidades desiguais a partir de um problema sugerido por uma pesquisa do Statístics Canada, onde é selecionada uma amostra de empresas (ou unidades locais) em estratos representados por regiões econômicas e em cada uma destas empresas deve ser selecionada uma amostra das ocupações que fazem parte de uma lista de ocupações para as quais se deseja obter informações.
-Não se conhece *à priori* a lista de ocupações de cada empresa e, portanto, deve-se lançar mão da amostragem inversa selecionando as ocupações dentro de cada empresa, pertencentes à lista de ocupações de interesse, até se obter $m$ ocupações distintas. Essas ocupações podem ser selecionadas com probabilidades proporcionais a sua participação (ou prevalência) na lista de ocupações interesse.
-
-
-
-
-
-
+[@Tille2016] descreve a aplicação de amostragem inversa a um problema sugerido por uma pesquisa do Statístics Canada, onde é selecionada uma amostra de empresas (ou unidades locais) em estratos representados por regiões econômicas, e em cada uma destas empresas deve ser selecionada uma amostra das ocupações que fazem parte de uma lista de ocupações para as quais se deseja obter informações. Não se conhece a priori a lista de ocupações existentes em cada empresa e, portanto, pode-se lançar mão da amostragem inversa selecionando as ocupações dentro de cada empresa, e identificando as ocupações pertencentes à lista de ocupações de interesse, até se obter informações sobre $m$ ocupações distintas. 
