@@ -203,7 +203,7 @@ $$
 \widehat{Y}_c^R = N_c \overline {y}_c = N_c /n_c \sum_{i\in s} y_{ic} \,\, (\#eq:eqdom21)
 $$
 
-A variância condicional deste estimador, considerando fixado o tamanho da amostra no domínio $d$, é dada por:
+A variância condicional deste estimador, considerando fixado o tamanho da amostra no domínio $c$, é dada por:
 
 $$
 V_{AAS} \left(\widehat {Y}_c^R | \, n_c>0 \right) = N_c^2 \left( \frac 1 {n_c} - \frac {1} {N_c} \right) S_c^2 \,\, (\#eq:eqdom22)
@@ -215,7 +215,7 @@ $$
 \widehat V_{AAS} \left( \widehat{Y}_c^R | \, n_c>0 \right) = N_c^2 \left( \frac 1 {n_c} - \frac {1} {N_c} \right) s_c^2 \,\, (\#eq:eqdom23)
 $$
 
-A Tabela \@ref(tab:tabdom1) apresenta um resumo da estimação de parâmetros proporção, média e total do domínio $d$ sob AAS. 
+A Tabela \@ref(tab:tabdom1) apresenta um resumo da estimação de parâmetros proporção, média e total do domínio $c$ sob AAS. 
 <center>
 ```{r, results="asis", echo=FALSE}
 cat("<table>",paste0("<caption>", "(#tab:tabdom1)", "Parâmetros e respectivos estimadores de domínio sob AAS", "</caption>"),"</table>", sep ="\n")
@@ -386,11 +386,11 @@ $$
 
 onde $\gamma_c^2 = S_c^2 / \overline{Y}_c^2$ é a variância relativa da característica $y$ no domínio $c$.  
  
-Isto mostra que conhecer o valor de $N_d$ sempre melhora a eficiência do estimador de total do domínio $d$, e que a melhoria é maior quando $p_d$ é pequena. Essa expressão também torna evidente que, para domínios raros na população, isto é, aqueles com valores bem pequenos de $p_d$, o estimador do total do domínio $d$ para $N_d$ desconhecido é bem pouco preciso, devendo talvez indicar a necessidade de uso de plano amostral que favoreça a estimação de $Y_d$ com melhor precisão que uma AAS.  
+Isto mostra que conhecer o valor de $N_c$ sempre melhora a eficiência do estimador de total do domínio $c$, e que a melhoria é maior quando $p_c$ é pequena. Essa expressão também torna evidente que, para domínios raros na população, isto é, aqueles com valores bem pequenos de $p_c$, o estimador do total do domínio $c$ para $N_c$ desconhecido é bem pouco preciso, devendo talvez indicar a necessidade de uso de plano amostral que favoreça a estimação de $Y_c$ com melhor precisão que uma AAS.  
 
 ## Estimação de proporções dentro do domínio
 
-Em algumas situações práticas, o parâmetro de interesse é a proporção de unidades do domínio $d$ que possuem um atributo ou característica $A$. Por exemplo, quando se deseja estimar a proporção de mulheres de 10 anos ou mais que já tiveram pelo menos um filho, ou quando se procura estimar a proporção de homens de 18 anos ou mais que prestaram o serviço militar. Em casos como os acima citados, o problema é estimar proporções dos domínios da população: mulheres de 10 anos ou mais; e homens com 18 anos ou mais.
+Em algumas situações práticas, o parâmetro de interesse é a proporção de unidades do domínio $c$ que possuem um atributo ou característica $A$. Por exemplo, quando se deseja estimar a proporção de mulheres de 10 anos ou mais que já tiveram pelo menos um filho, ou quando se procura estimar a proporção de homens de 18 anos ou mais que prestaram o serviço militar. Em casos como os acima citados, o problema é estimar proporções dos domínios da população: mulheres de 10 anos ou mais; e homens com 18 anos ou mais.
  
 Nesses casos, a variável de pesquisa $y$ seria dada por:
 
@@ -451,7 +451,7 @@ Onde $\frac 1  {2n_c}$ é a correção de continuidade. Essa correção é, prat
 a) Que proporção da força de trabalho está desempregada?
 b) Qual o intervalo com 90% de confiança para essa proporção populacional? 
 
-**(#exr:exrdom2)** Um economista deseja estimar o gasto médio com alimentação das famílias com crianças em uma determinada localidade conhecida como uma área onde residem famílias pobres. Está disponível uma listagem com os endereços da 250 famílias que habitam a localidade, porém é impossível identificar nesse cadastro as famílias com crianças. Foi selecionada e pesquisada uma AAS de 50 famílias. Destas, 42 famílias têm pelo menos uma criança. Foi apurado que o total do gasto semanal com alimentos dessas 42 famílias foi de 1720 dolares e que a soma dos quadrados dos gastos dessas mesmas famílias foi de 72000.
+**(#exr:exrdom2)** Um economista deseja estimar o gasto médio com alimentação das famílias com crianças em uma determinada localidade conhecida como uma área onde residem famílias pobres. Está disponível uma listagem com os endereços da 250 famílias que habitam a localidade, porém é impossível identificar nesse cadastro as famílias com crianças. Foi selecionada e pesquisada uma AAS de 50 famílias. Destas, 42 famílias têm pelo menos uma criança. Foi apurado que o total do gasto semanal com alimentos dessas 42 famílias foi de 1720 dólares e que a soma dos quadrados dos gastos dessas mesmas famílias foi de 72000.
 
 a)  Estime a média semanal dos gastos com alimentação das famílias com criança da localidade.
 b)  Construa um intervalo de 95% de confiança para a média estimada.
