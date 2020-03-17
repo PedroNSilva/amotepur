@@ -120,7 +120,7 @@ Esta variância é, portanto, aproximadamente igual à do estimador de média so
 Um estimador consistente da variância do estimador alternativo da média é dado por:
 
 $$
-\widehat V_{AB} \left( {\overline {y}} _{AB} ^R \right) \doteq \left( \frac{1}{N \pi} - \frac{1}{N} \right) s_y^2 \,\, (\#eq:eqbin13)
+\widehat V_{AB} \left( {\overline {y}} _{AB} ^R \right) = \left( \frac{1}{N \pi} - \frac{1}{N} \right) s_y^2 \,\, (\#eq:eqbin13)
 $$  
 
 ### Exemplos de aplicação da Amostragem Binomial

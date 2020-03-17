@@ -12,7 +12,7 @@ Seja $U = \{ 1, 2, ..., N\}$ a população de pesquisa. Considere o caso em que 
 
 Por enquanto, vamos supor que é possível selecionar amostras de acordo com um plano amostral tal que: $\pi_i \propto x_i\,\,\forall \,\, i=1,\dots, N$. Mais tarde, apresentaremos diversos métodos para implementar essa ideia.
 
-Lembrando a teoria já apresentada no capítulo \@ref(visger), sabemos que o estimador de Horvitz-Thompson ($HT$) para estimar o total populacional 
+Lembrando a teoria já apresentada no capítulo \@ref(visger), sabemos que o estimador HT para estimar o total populacional 
 
 $Y = \displaystyle \sum_{i \in U} y_i$ 
 
@@ -23,7 +23,7 @@ $$
 $$
 onde cada unidade da amostra tem um peso amostral igual ao inverso da respectiva probabilidade de inclusão, dado por $d_i = 1 / \pi_i \, \forall \, i \in U$.
 
-O estimador $HT$ do total é não viciado, isto é: $E(\widehat Y_{HT}) = Y$ e sua variância na forma de Horvitz-Thompson é dada por:
+O estimador HT do total é não viciado, isto é: $E(\widehat Y_{HT}) = Y$ e sua variância na forma de Horvitz-Thompson é dada por:
 
 $$
 \begin{align} V_{HT} \left( \widehat Y_{HT} \right) & = \displaystyle \sum_{i \in U} \sum_{j \in U} \left( \frac{\pi_{ij}}{\pi_i \pi_j} -1 \right) {y_i} {y_j} \\ &= \displaystyle \sum_{i \in U} \sum_{j \in U} \left( \frac{d_i d_j}{d_{ij}} - 1 \right) {y_i} {y_j} \end{align} \,\, (\#eq:eqppt2)
@@ -31,13 +31,13 @@ $$
 
 onde $d_{ij} = 1 / \pi_{ij} \, \forall \, i,j \in U$. 
 
-Um estimador não viciado da variância do estimador $HT$ é dado por: 
+Um estimador não viciado da variância do estimador HT é dado por: 
 
 $$
 \widehat V_{HT} \left( \widehat Y_{HT} \right) = \displaystyle \sum_{i \in s} \sum_{j \in s} \left( {d_i d_j} - {d_{ij}} \right) {y_i} {y_j} \,\,(\#eq:eqppt3)
 $$
 
-Uma expressão alternativa para a variância do estimador $HT$, válida para planos amostrais de tamanhos fixos, é a chamada forma SYG (Sen-Yates-Grundy) da variância, dada por:
+Uma expressão alternativa para a variância do estimador HT, válida para planos amostrais de tamanhos fixos, é a chamada forma SYG (Sen-Yates-Grundy) da variância, dada por:
 
 $$
 V_{SYG} \left( \widehat Y_{HT} \right) = \displaystyle \sum_{i \in U} \sum_{j>i} (\pi_i \pi_j - \pi_{ij}) \left( \frac{y_i}{\pi_i} - \frac{y_j}{\pi_j} \right)^2 \,\, (\#eq:eqppt4)
@@ -247,7 +247,7 @@ $$
 \widehat V_{PO} \left( \widehat Y_{PO} \right) = \displaystyle \sum_{i \in s} (1 - \pi_i) \left( \frac{y_i}{\pi_i} \right)^2 = \displaystyle \sum_{i \in s} \frac{(1 - \pi_i)}{\pi_i^2} y_i^2 \,\, (\#eq:eqppt17) 
 $$
 
-Como ocorre na *Amostragem Binominal*, devido ao tamanho efetivo da amostra ser variável, também é possível usar um estimador de total tipo razão sob *Amostragem de Poisson*. Tal estimador é mais eficiente do que o estimador $HT$. Este estimador tipo razão é dado por:
+Como ocorre na *Amostragem Binominal*, devido ao tamanho efetivo da amostra ser variável, também é possível usar um estimador de total tipo razão sob *Amostragem de Poisson*. Tal estimador é mais eficiente do que o estimador HT. Este estimador tipo razão é dado por:
 
 $$
 \widehat Y_{PO}^R = \frac{N}{\widehat N} \sum_{i \in s} d_i {y_i} = N \frac{\sum_{i \in s} d_i {y_i}}{\sum_{i \in s} d_i } \,\,(\#eq:eqppt15)
@@ -387,7 +387,7 @@ $$
 
 ## Exercícios
 
-**(#exr:exrppt1)** Verifique que o estimador de $HT$ da média não é invariante sob transformações de locação. Isto é, se tomarmos $z_i=y_i+A$, então $\overline z_{HT}\ne\overline y_{HT}+A$ 
+**(#exr:exrppt1)** Verifique que o estimador de HT da média não é invariante sob transformações de locação. Isto é, se tomarmos $z_i=y_i+A$, então $\overline z_{HT}\ne\overline y_{HT}+A$ 
 
 **(#exr:exrppt2)** Uma amostra foi selecionada usando o método PPT com reposição. As informações dessa amostra aparecem na Tabela \@ref(tab:tabppt3).
   

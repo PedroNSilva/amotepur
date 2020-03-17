@@ -700,7 +700,7 @@ $\pi_i$ é a probabilidade de inclusão da UPA $i$;
 
 $s_i$ é a amostra de unidades selecionadas dentro da UPA $i$;
 
-$\widehat Y_i = \displaystyle \sum_{j \in s_i} \frac{y_{ij}}{\pi_{j|i}}$ é um estimador $HT$ do total $Y_i$ da UPA $i$;
+$\widehat Y_i = \displaystyle \sum_{j \in s_i} \frac{y_{ij}}{\pi_{j|i}}$ é um estimador HT do total $Y_i$ da UPA $i$;
 
 $\pi_{j|i} = P(j \in s_i|i \in a)$ é a probabilidade de inclusão da unidade $j$ dado que a UPA $i$ está na amostra $a$;
 

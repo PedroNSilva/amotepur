@@ -652,7 +652,7 @@ $w_i = {\pi_i}^{-1} = {1}/{\pi_i} = d_i \,\,\,\forall\,\, i \in U$.
  
 Os pesos amostrais $d_i$ são chamados de *pesos básicos* do plano amostral. Doravante usamos a notação $d_i$ para os pesos básicos, pois mais adiante vamos introduzir outros pesos amostrais. A notação $w_i$ é reservada para designar pesos genéricos que podem ser aplicados para a obtenção de estimadores (viciados ou não).
 
-Com os pesos básicos $d_i$, o estimador não viciado de total fica dado pelo conhecido *estimador de Horvitz-Thompson* ou *estimador $HT$*:
+Com os pesos básicos $d_i$, o estimador não viciado de total fica dado pelo conhecido *estimador de Horvitz-Thompson* ou *estimador HT*:
 
 $$
 \widehat Y_{HT} = \displaystyle \sum_{i \in s} {d_i}{y_i} = \sum_{i \in s} {\pi_i}^{-1} y_i = \displaystyle \sum_{i \in s} {y_i}/{\pi_i}  \,\,(\#eq:eqvis27)
@@ -691,7 +691,7 @@ $$
 
 **Estimador da variância do estimador de total**
 
-Um estimador não viciado da variância do estimador $HT$ do total é dado por:
+Um estimador não viciado da variância do estimador HT do total é dado por:
 
 $$
 \widehat V_{HT} (\widehat Y_{HT}) = \displaystyle \sum_{i \in s} \sum_{j \in s} \left( {d_i d_j} - {d_{ij}} \right) {y_i} {y_j}\,\,(\#eq:eqvis28)
@@ -699,7 +699,7 @@ $$
 
 Este estimador da variância foi obtido usando o princípio dos estimadores tipo Horvitz-Thompson do total, mas agora, como se tratava de estimar uma soma dupla na população, os pesos das parcelas nessa soma dependem das probabilidades de inclusão de segunda ordem, isto é, das probabilidades de inclusão dos pares de unidades. Para que este estimador seja viável, o plano amostral empregado tem que satisfazer a condição adicional de que as probabilidades de inclusão $\pi_{ij}$ sejam estritamente positivas $\forall i \ne j \in U$.
 
-**Forma alternativa para a variância do estimador $HT$ do total**
+**Forma alternativa para a variância do estimador HT do total**
 
 Para planos amostrais de tamanho pré-fixado, pode-se demonstrar que uma forma equivalente da variância do estimador de Horvitz-Thompson do total populacional é dada pela expressão de Sen-Yates-Grundy a seguir - ver @Yates1953 e @Sen1953.
 
@@ -713,23 +713,23 @@ Uma análise dessa expressão de variância nos dá uma indicação de quando em
 
 Entretanto, veremos no capítulo \@ref(ppt) que esta ideia pode ser usada de forma aproximada fazendo as probabilidades de inclusão proporcionais a uma medida de tamanho cujos valores estejam disponíveis para todas as unidades da população $U$. Sempre que a medida de tamanho for positivamente correlacionada com a(s) variável(is) de interesse $y$, veremos que é possível tirar proveito da informação de tamanho para aplicar métodos de amostragem que levam a estimadores mais eficientes do total que no caso de planos amostrais com equiprobabilidade para amostras de tamanhos iguais.
 
-**Estimador alternativo da variância do estimador $HT$ do total**
+**Estimador alternativo da variância do estimador HT do total**
 
 $$
 \begin{align} \widehat V_{SYG}(\widehat Y_{HT}) &= \displaystyle \sum_{i \in s} \sum_{j>i} \left( \frac{\pi_i \pi_j - \pi_{ij}}{\pi_{ij}} \right) \left( \frac{y_i}{\pi_i} - \frac{y_j}{\pi_j} \right)^2 \\ &= \displaystyle \sum_{i \in s} \sum_{j>i} (d_{ij}/d_i d_j - 1) \left( d_i{y_i} - d_j{y_j} \right)^2\end{align} \,\,(\#eq:eqvis30)
 $$
 
-O estimador $\widehat V_{SYG}(\widehat Y_{HT})$ foi motivado a partir da forma de Sen-Yates-Grundy para a variância do estimador $HT$ do total. Tal estimador não coincide com o estimador de variância derivado a partir da expressão de Horvitz-Thompson apresentada anteriormente.
+O estimador $\widehat V_{SYG}(\widehat Y_{HT})$ foi motivado a partir da forma de Sen-Yates-Grundy para a variância do estimador HT do total. Tal estimador não coincide com o estimador de variância derivado a partir da expressão de Horvitz-Thompson apresentada anteriormente.
 
 **Comentários finais**
 
-1. Com amostras probabilísticas, é sempre possível estimar sem vício um total populacional usando uma soma amostral $\pi$-ponderada, isto é, o estimador $HT$ do total.
+1. Com amostras probabilísticas, é sempre possível estimar sem vício um total populacional usando uma soma amostral $\pi$-ponderada, isto é, o estimador HT do total.
 
 2. Há expressões de variância disponíveis para permitir avaliar a qualidade do estimador de total sob distintas situações (população, variável) para qualquer plano amostral probabilístico.
 
 3. A estimação de muitos outros parâmetros populacionais, tais como médias, proporções, razões, etc. usa em grande medida os resultados aqui apresentados para a estimação de totais. Isto ficará mais claro nos capítulos seguintes.
 
-4. Pode-se derivar estimadores não viciados do total populacional, e da variância do estimador $HT$ de total para distintos planos amostrais como casos especiais da teoria geral aqui apresentada. Isto será conveniente, em particular, para a estimação de variâncias, cujas expressões gerais dependem de somas duplas que podem se tornar inconvenientes de calcular quando os tamanhos de amostra são grandes. As expressões apresentadas para cada um dos planos amostrais específicos são úteis porque permitem simplificar os cálculos da estimação de variâncias.
+4. Pode-se derivar estimadores não viciados do total populacional, e da variância do estimador HT de total para distintos planos amostrais como casos especiais da teoria geral aqui apresentada. Isto será conveniente, em particular, para a estimação de variâncias, cujas expressões gerais dependem de somas duplas que podem se tornar inconvenientes de calcular quando os tamanhos de amostra são grandes. As expressões apresentadas para cada um dos planos amostrais específicos são úteis porque permitem simplificar os cálculos da estimação de variâncias.
 
 ## Exercícios 
 
