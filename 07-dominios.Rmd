@@ -395,7 +395,7 @@ Em algumas situações práticas, o parâmetro de interesse é a proporção de 
 Nesses casos, a variável de pesquisa $y$ seria dada por:
 
 $$
- y_i = I(i \in A) = \left\{\begin{array}{ll} 1 & \textrm{se} \,\,\,\,i \textrm{ possui o atributo A},\,\,\\ 0 & \textrm{caso contrário.}\end{array}\right.\,\,\, 
+ y_i = I(i \in A) = \left\{\begin{array}{ll} 1 & \textrm{se} \,\,\,\,i \textrm{ possui o atributo A}\,\,\\ 0 & \textrm{caso contrário}\end{array}\right.\,\,\, 
 $$
 
 Na população como um todo, a proporção de unidades com atributo $A$ é definida como $p = N_A / N$, e a estimação desta proporção foi tratada no capítulo \@ref(proporc). Considere a notação a seguir.
