@@ -1,0 +1,167 @@
+# Tabelas {#tab}
+
+Tabela 2.1: Exemplos de definições de populações de pesquisa 
+
+Tabela 3.1: Valor da variável $y$ por unidade da população de mulheres 
+
+Tabela 3.2: Informações de cada amostra possível sob plano amostral $p_1$
+
+Tabela 3.3: Probabilidade sob $p_1$ para cada valor de $t$
+
+Tabela 3.4: Probabilidade sob $p_1$ para cada valor de $2t$ 
+
+Tabela 3.5: Tamanhos do espaço amostral $S$ para valores selecionados de $N$ e $n$
+
+Tabela 3.6: Valor da variável $y$ e probabilidade de inclusão para cada unidade da população 
+
+Tabela 3.7: Informações de cada amostra possível sob plano amostral $p_2$
+
+Tabela 3.8: Probabilidade sob $p_2$ para cada valor de $t$
+
+Tabela 3.9: Probabilidade de inclusão e peso amostral de cada unidade sob o plano amostral  $p_2$
+
+Tabela 3.10: Obtenção de estimativa sob plano amostral $p_2$ para cada amostra possível 
+
+Tabela 3.11: Probabilidade de seleção sob $p_1(s)$ para cada valor do estimador ponderado
+
+Tabela 3.12: Probabilidade de seleção sob $p_2(s)$ para cada valor do estimador ponderado
+
+Tabela 3.13: Obtenção da variância dos estimadores sob os planos amostrais $p_1$ e $p_2$
+
+Tabela 3.14: Representação de cada amostra possível pelas variáveis indicadoras
+
+Tabela 3.15: Valores de variáveis de interesse para cada domicílio da população
+
+Tabela 4.1: Valores das variáveis aleatórias e probabilidades por unidade populacional 
+
+Tabela 4.2: Parâmetros e respectivos estimadores sob AASC 
+
+Tabela 4.3: Número pseudoaleatório associado a cada unidade da população 
+
+Tabela 4.4: Número pseudoaleatório ordenado associado ao rótulo permutado de cada unidade 
+
+Tabela 4.5: Parâmetros e respectivos estimadores sob AAS 
+
+Tabela 4.6: Estatísticas obtidas a partir da amostra 
+
+Tabela 4.7: Gastos apurados nas obras da amostra 
+
+Tabela 4.8: Salários pagos pelas empresas da amostra 
+
+Tabela 4.9: Frequências das respostas obtidas na amostra 
+
+Tabela 5.1: Parâmetros e respectivos estimadores sob AASC 
+
+Tabela 5.2: Parâmetros e respectivos estimadores sob AAS 
+
+Tabela 5.3: Valores mínimos de $n_A$ para uso da aproximação Normal
+
+Tabela 5.4: Distribuição dos alunos por etapa de ensino 
+
+Tabela 5.5: Resultados obtidos na amostra de domicílios 
+
+Tabela 6.1: Densidade demográfica por Unidade da Federação, média das razões e razão das médias para o Brasil 
+
+Tabela 6.2: Parâmetros e estimadores para uma razão sob AAS 
+
+Tabela 6.3: Informações coletadas na amostra de domicílios 
+
+Tabela 6.4: Peso e quantidade de açúcar, ambos em libras, nas laranjas da amostra 
+Tabela 6.5: Contagem das árvores mortas na amostra, por aerofotogrametria ($x_i$) e localmente ($y_i$)
+
+Tabela 6.6: Quantias declaradas ($x_i$) e contadas ($y_i$) pelos alunos da amostra
+
+Tabela 6.7: Diâmetro e idade das árvores da amostra 
+
+Tabela 6.8: População hipotética de $N=9$ unidades
+
+Tabela 6.9: Notas de Cálculo 1 e Cálculo 2 para os alunos da amostra 
+
+Tabela 7.1: Parâmetros e respectivos estimadores de domínio sob AAS 
+
+Tabela 7.2: Distância, em quilômetros, percorrida para chegar ao trabalho pelos 24 entrevistados 
+
+Tabela 7.3: Resumo das informações amostrais para as 100 escolas da amostra
+
+Tabela 7.4: Distribuição de frequências do número de dentes cariados por criança 
+
+Tabela 7.5: Quantidade de aves na amostra por espécie 
+
+Tabela 8.1: Unidades que compõe as possíveis $K$ amostras sistemáticas com partida aleatória no intervalo $[1,   2,   ...,   K]$
+
+Tabela 8.2: Dados das amostras sistemáticas possíveis, numa população com $N=19$ e intervalo de seleção $K=4$
+
+Tabela 8.3: Parâmetros e estimadores sob AS 
+
+Tabela 8.4: Composição dos domicílios da rua 
+
+Tabela 8.5: Número de sementes germinadas por canteiro 
+
+Tabela 8.6: Quantidade de alimento, em onças, por lata na AS 
+
+Tabela 8.7: Valores da variável $y$ para a população
+
+Tabela 10.1: Parâmetros e respectivos estimadores sob PPT 
+
+Tabela 10.2: Informações das áreas de uma população de $N=6$ fazendas
+
+Tabela 10.3: Informações obtidas na amostra selecionada 
+
+Tabela 10.4: Informações obtidas para os lagos selecionados 
+
+Tabela 10.5: Dados populacionais das empresas
+
+Tabela 11.1: Tamanho do estrato e dados populacionais da variável $y$ por estrato
+
+Tabela 11.2: Tamanho amostral e dados amostrais da variável $y$ por estrato
+
+Tabela 11.3: Parâmetros e respectivos estimadores sob AES 
+
+Tabela 11.4: Valores de $EPA$ para valores variados de $H$ e de correlação
+
+Tabela 11.5: Dados observados na amostra, por estrato
+
+Tabela 11.6: Informações da estratificação das fazendas de soja 
+
+Tabela 11.7: Informações cansitárias sobre a variável de interesse 
+
+Tabela 11.8: Estratificação das lojas e resultados da amostra 
+
+Tabela 11.9: Resultados observados na amostra 
+
+Tabela 11.10: Tamanho e variância por estrato 
+
+Tabela 11.11: Falta no mês para cada trabalhador selecionado 
+
+Tabela 11.12: Informações populacionais dos clientes 
+
+Tabela 12.1: Ilustrações de possíveis conglomerados
+
+Tabela 12.2: Notação dos tamanhos da população e amostra na AC1 por conjunto de unidades 
+
+Tabela 12.3: Descrição de parâmetros populacionais no conglomerado e em toda população 
+
+Tabela 12.4: Descrição das informações amostrais na ACS 
+
+Tabela 12.5: Parâmetros e respectivos estimadores sob ACS (ACERTAR no texto)
+
+Tabela 12.6: Efeitos de plano amostral sob ACS por tamanho do conglomerado e do coeficiente de correlação intraclasse 
+
+Tabela 12.7: Parâmetros e respectivos estimadores sob os Planos 1, 2 e 3 de AC2
+(ACERTAR no texto)
+
+Tabela 13.1: Comparação dos estimadores HT e de calibração
+
+Tabela 13.2: Estimativas de total de fazendas de cana-de-açúcar e dos erros padrão e coeficientes de variação (CV) usando os estimadores HT e de regressão (GREG) para variáveis selecionadas
+
+Tabela 13.3: Estimativas de total de fazendas de cana-de-açúcar e dos erros padrão e coeficientes de variação (CV) usando os estimadores HT e pós-estratificação (PS-Região) para variáveis selecionadas
+
+Tabela 13.4: Funções de distância para estimação de calibração propostas em Deville e Särndal (1992)
+
+Tabela 13.5: Funções de calibração propostas em Deville e Särndal (1992)
+
+Tabela 13.6: Identificação dos grupos sub-representados e super-representados na pesquisa de força de trabalho do Reino Unido
+
+Tabela 13.7: Estimativas do rendimento médio domiciliar por esquema de ponderação da pesquisa domiciliar da Holanda 1977/1978 
+
+

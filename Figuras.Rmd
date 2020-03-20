@@ -1,0 +1,47 @@
+# Figuras {#fig}
+
+Figura 2.1: Modelo Genérico do Processo de Produção Estatística, adaptado 
+
+Figura 2.2: O cadastro de setores do IBGE - Copacabana - RJ 
+
+Figura 2.3: Informações do CNEFE para um setor de Copacabana - RJ 
+
+Figura 2.4: Ilustração de dados do CNEFE 
+
+Figura 2.5: Ilustração da regra de associação um para um 
+
+Figura 2.6: Ilustração da regra de associação um para vários
+
+Figura 2.7: Ilustração da regra de associação vários para um 
+
+Figura 2.8: Ilustração da regra de associação vários para um 
+
+Figura 2.9: Ilustração de regras de associação - hierarquia para vários níveis
+
+Figura 4.1: Mapa esquemático da reserva com o número de animais encontrados nos lotes selecionados
+
+Figura 5.1: Aproximação Normal da distribuição do estimador de ***p*** no caso de *AASC*
+
+Figura 5.2: Aproximação Normal da distribuição do estimador de ***p*** no caso de *AAS*
+
+Figura 5.3: Variação de $p(1-p)$ em função dos valores de $p$ 
+
+Figura 11.1: Soluções sobre escolha de número de estratos 
+
+Figura 11.2: Ganhos de precisão versus número de estratos 
+
+Figura 12.1: Ilustração da hierarquia com vários níveis (vários para um) 
+
+Figura 12.2: Ilustração de unidades elementares “naturalmente” agrupadas 
+
+Figura 12.3: Ilustração da seleção de amostragem conglomerada em um estágio 
+
+Figura 12.4: Ilustração da seleção de amostragem conglomerada em 2 estágios 
+
+Figura 13.1: Residuos para o modelo de regressão da população para os estimadores de HT (esquerda) e de calibração (direita) 
+
+Figura 13.2: Regressão linear para a população de fazendas de cana-de-açúcar 
+
+Figura 13.3: $EQM$ do estimador de regressão versus número de variáveis $x$
+
+
