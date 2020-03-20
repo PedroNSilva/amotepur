@@ -34,7 +34,7 @@ $$
 
 Uma *proporção populacional* $p$ é simplesmente a média populacional de uma variável $y$ do tipo indicadora, que toma apenas os valores um ou zero para cada unidade. O total de uma variável desse tipo representa a contagem de unidades na população possuidoras do atributo de interesse, e a média é exatamente essa contagem dividida pelo tamanho da população.
 
-Um caso especial de proporção populacional de interesse ocorre com a definição da *função de distribuição cumulativa empírica populacional* (*FDCEP*), dada por:
+Um caso especial de proporção populacional de interesse ocorre com a definição da *função de distribuição cumulativa empírica populacional* - *FDCEP*, dada por:
 
 $$
 F_y(a) = \displaystyle \frac{1}{N} \sum_{i\in U} I(y_i \le a) \,\, (\#eq:eqvis3)
@@ -165,13 +165,13 @@ $$
 V_p(\widehat{\theta}) = \displaystyle \sum_{s \in S} [\widehat{\theta}(s) - E_p(\widehat{\theta})]^2 p(s)\,\,(\#eq:eqvis16)
 $$
 
-Quando um estimador é *não viciado*, sua *variância* mede a dispersão da distribuição do estimador em torno do alvo de inferência $\theta$. Duas medidas alternativas dessa dispersão que dependem da variância são o *desvio padrão* ou *DP* do estimador (também designado *erro padrão*), dado por:
+Quando um estimador é *não viciado*, sua *variância* mede a dispersão da distribuição do estimador em torno do alvo de inferência $\theta$. Duas medidas alternativas dessa dispersão que dependem da variância são o *desvio padrão* - *DP* do estimador (também designado *erro padrão*), dado por:
 
 $$
 DP_p(\widehat{\theta}) = [V_p(\widehat{\theta})]^{1/2}\,\,(\#eq:eqvis17)
 $$
 
-e o *coeficiente de variação* ou *CV* do estimador, dado por:
+e o *coeficiente de variação* - *CV* do estimador, dado por:
 
 $$
 CV_p(\widehat{\theta}) = \displaystyle\frac{DP_p(\widehat{\theta})}{\theta}\,\,(\#eq:eqvis18)
@@ -179,13 +179,13 @@ $$
 
 O *desvio padrão* mede a dispersão da distribuição do estimador em unidade de medida igual à usada na mensuração da variável de interesse, e o *CV* expressa essa medida em termos relativos, o que pode facilitar a interpretação e a comparação em cenários onde as unidades de medida de diferentes parâmetros podem ser distintas, mas exista interesse em comparar a dispersão de estimadores desses parâmetros. 
 
-Quando um estimador $\widehat{\theta}$ é *viciado*, uma medida mais adequada da dispersão da distribuição do estimador em torno do alvo de inferência $\theta$ é o *erro quadrático médio* ou *EQM* dado por:
+Quando um estimador $\widehat{\theta}$ é *viciado*, uma medida mais adequada da dispersão da distribuição do estimador em torno do alvo de inferência $\theta$ é o *erro quadrático médio* - *EQM* dado por:
 
 $$
 EQM_p(\widehat{\theta}) = \displaystyle \sum_{s\in S} [\widehat{\theta}(s) - \theta]^2 p(s)\,\,(\#eq:eqvis19)
 $$
 
-Versões análogas do desvio padrão e do coeficiente de variação adequadas ao caso de estimadores viciados são o *erro médio* ou *EM* e o *erro relativo médio* ou *ERM* definidos, respectivamente, como:
+Versões análogas do desvio padrão e do coeficiente de variação adequadas ao caso de estimadores viciados são o *erro médio* - *EM* e o *erro relativo médio* - *ERM* definidos, respectivamente, como:
 
 $$
 EM_p(\widehat{\theta}) = [EQM_p(\widehat{\theta})]^{1/2}\,\,(\#eq:eqvis20)
@@ -292,10 +292,10 @@ A Tabela \@ref(tab:tabvis4) apresenta os valores possíveis e a distribuição d
 
 <center>
 ```{r,results="asis",echo=FALSE}
-cat("<table>",paste0("<caption>", "(#tab:tabvis4)","Probabilidade sob $p_1$ para cada valor de $2 \times t$", "</caption>"),"</table>", sep ="\n")
+cat("<table>",paste0("<caption>", "(#tab:tabvis4)","Probabilidade sob $p_1$ para cada valor de $2t$", "</caption>"),"</table>", sep ="\n")
 ```
 ----------
-Valores possíveis de $2 \times t$     0     2     4     6
+Valores possíveis de $2t$             0     2     4     6
 ----------------------------------- ----- ----- ----- ----- 
 Com probabilidade $p_1(s)$           1/6   2/6   2/6   1/6
 ----------
@@ -399,7 +399,7 @@ e já se mostrou que este estimador é não viciado para $Y$.
 cat("<table>",paste0("<caption>", "(#tab:tabvis7)", "Informações de cada amostra possível sob plano amostral $p_2$", "</caption>"),"</table>", sep ="\n")
 ```
 ----------
- Amostra   Unidades na Amostra $s$    Valores na Amostra $s$    Soma Amostral $(t)$    Probabilidades $p_1(s)$  
+ Amostra   Unidades na Amostra $s$    Valores na Amostra $s$    Soma Amostral $(t)$    Probabilidades $p_2(s)$  
 --------- -------------------------- ------------------------- ---------------------- --------------------------
  1	            {1;2}                        {0;0}	                 0	                       0,00
  
@@ -425,7 +425,7 @@ Vamos agora usar as informações acima para:
 
 A distribuição da soma amostral $t$ sob o plano $p_2$ é apresentada na Tabela \@ref(tab:tabvis8). 
 
-<center
+<center>
 ```{r, results="asis", echo=FALSE}
 cat("<table>",paste0("<caption>", "(#tab:tabvis8)", "Probabilidade sob $p_2$ para cada valor de $t$", "</caption>"),"</table>", sep ="\n")
 ```
