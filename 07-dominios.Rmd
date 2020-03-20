@@ -11,7 +11,7 @@ Neste capítulo, apresentamos as ideias centrais de como fazer *estimação para
 A primeira destas é simplesmente uma variável indicadora de pertinência ao domínio de interesse: seja $c_i$ a variável indicadora do domínio $c$, isto é: 
 
 $$
-c_i = I(i \in U_c) = \left\{\begin{array}{ll} 1 & \textrm{se} \,\,\,\,i \textrm{ pertence ao domínio ou classe}\,\, c\\ 0 & \textrm{caso contrário}\end{array}\right.\,\,\, 
+c_i = I(i \in U_c) = \left\{\begin{array}{ll} 1, & \textrm{se} \,\,i \textrm{ pertence ao domínio ou classe}\,\, c\\ 0, & \textrm{caso contrário}\end{array}\right.\,\,\, 
 $$
 onde $U_c \subset U$ denota a parte da população $U$ que forma o domínio $c$.
 
@@ -20,7 +20,7 @@ Denotamos por $N_c = \sum_{i\in U} c_i$ o tamanho do domínio $c$.
 A segunda variável derivada é formada simplesmente pelo produto de duas outras variáveis de pesquisa: $y_i$ e $c_i$, a saber:
 
 $$
-y_{ic} = y_i c_i = \left \{\begin{array}{ll} y_i & \textrm{se}\,\, i\in U_c\\ 0 & \textrm{caso contrário}\end{array}\right.\,\,\,
+y_{ic} = y_i c_i = \left \{\begin{array}{ll} y_i, & \textrm{se}\,\, i\in U_c\\ 0 ,& \textrm{caso contrário}\end{array}\right.\,\,\,
 $$
 
 onde $y$ é a variável de estudo cujos parâmetros se quer estimar para o domínio de interesse.
@@ -395,7 +395,7 @@ Em algumas situações práticas, o parâmetro de interesse é a proporção de 
 Nesses casos, a variável de pesquisa $y$ seria dada por:
 
 $$
- y_i = I(i \in A) = \left\{\begin{array}{ll} 1 & \textrm{se} \,\,\,\,i \textrm{ possui o atributo A}\,\,\\ 0 & \textrm{caso contrário}\end{array}\right.\,\,\, 
+ y_i = I(i \in A) = \left\{\begin{array}{ll} 1, & \textrm{se} \,\,i \textrm{ possui o atributo A}\,\,\\ 0, & \textrm{caso contrário}\end{array}\right.\,\,\, 
 $$
 
 Na população como um todo, a proporção de unidades com atributo $A$ é definida como $p = N_A / N$, e a estimação desta proporção foi tratada no capítulo \@ref(proporc). Considere a notação a seguir.
@@ -451,7 +451,7 @@ Onde $\frac 1  {2n_c}$ é a correção de continuidade. Essa correção é, prat
 a) Que proporção da força de trabalho está desempregada?
 b) Qual o intervalo com 90% de confiança para essa proporção populacional? 
 
-**(#exr:exrdom2)** Um economista deseja estimar o gasto médio com alimentação das famílias com crianças em uma determinada localidade conhecida como uma área onde residem famílias pobres. Está disponível uma listagem com os endereços da 250 famílias que habitam a localidade, porém é impossível identificar nesse cadastro as famílias com crianças. Foi selecionada e pesquisada uma AAS de 50 famílias. Destas, 42 famílias têm pelo menos uma criança. Foi apurado que o total do gasto semanal com alimentos dessas 42 famílias foi de 1720 dólares e que a soma dos quadrados dos gastos dessas mesmas famílias foi de 72000.
+**(#exr:exrdom2)** Um economista deseja estimar o gasto médio com alimentação das famílias com crianças em uma determinada localidade conhecida como uma área onde residem famílias pobres. Está disponível uma listagem com os endereços da 250 famílias que habitam a localidade, porém é impossível identificar nesse cadastro as famílias com crianças. Foi selecionada e pesquisada uma AAS de 50 famílias. Destas, 42 famílias têm pelo menos uma criança. Foi apurado que o total do gasto semanal com alimentos dessas 42 famílias foi de 1.720 dólares e que a soma dos quadrados dos gastos dessas mesmas famílias foi de 72.000.
 
 a)  Estime a média semanal dos gastos com alimentação das famílias com criança da localidade.
 b)  Construa um intervalo de 95% de confiança para a média estimada.
@@ -511,9 +511,9 @@ cat("<table>",paste0("<caption>", "(#tab:tabdom3)", "Resumo das informações am
 ----------
 Tipo       $n$  $\sum  y_i$  $\sum x_i$  $\sum y_i^2$  $\sum x_i^2$  $\sum y_ix_i$
 -------- ----- ------------ ----------- ------------- ------------- --------------
-Pública     54        31281        2024      29881219       1110901        1729349
+Pública     54      31.281      2.024    29.881.219      1.110.901   1.729.349
 
-Privada     46        13707        1075       6366785         33119         431041
+Privada     46      13.707      1.075     6.366.785       33.119       431.041
 
 ----------
 </center>
@@ -545,8 +545,8 @@ d)  Repita o item c. utilizando as informações obtidas pelos dois dentistas.
 **(#exr:exrdom8)** Utilizando o arquivo dos municípios brasileiros, MunicBR_dat.rds, selecione uma AAS de 300 municípios. Utilizando as informações contidas nessa amostra:
 
 a)  Estime a área total de cada uma das 5 regiões brasileiras (N, NE, SE, S e CO) e calcule a estimativa do *CV* para cada caso.
-a)  Estime a proporção de municípios brasileiros com população menor que 10000 habitantes e respectivo erro padrão.
-c)  Estime a população total, para o Brasil, dos municípios com menos de 10000 habitantes e de um intervalo de 95% de confiança.
+a)  Estime a proporção de municípios brasileiros com população menor que 10.000 habitantes e respectivo erro padrão.
+c)  Estime a população total, para o Brasil, dos municípios com menos de 10.000 habitantes e de um intervalo de 95% de confiança.
 
 **(#exr:exrdom9)** Selecione uma amostra de 30 fazendas do arquivo fazendas_dat.rds e estime os seguintes parâmetros populacionais e respectivos erros padrão:
 
@@ -554,7 +554,7 @@ a) Razão entre Despesa e Receita para os estabelecimentos com área menor que 1
 b) Razão entre Despesa e Receita para os estabelecimentos com área igual ou maior que 100.
 c) As razões podem ser consideradas iguais ao nível de significância $\alpha=5\%$?
 
-**(#exr:exrdom10)** Uma granja tem um plantel de 10000 aves de 5 espécies diferentes. Foi selecionada uma AAS de 100 aves. A Tabela \@ref(tab:tabdom5) apresenta as contagens dos animais da amostra.
+**(#exr:exrdom10)** Uma granja tem um plantel de 10.000 aves de 5 espécies diferentes. Foi selecionada uma AAS de 100 aves. A Tabela \@ref(tab:tabdom5) apresenta as contagens dos animais da amostra.
 <center>
 ```{r, results="asis", echo=FALSE}
 cat("<table>",paste0("<caption>", "(#tab:tabdom5)", "Quantidade de aves na amostra por espécie", "</caption>"),"</table>", sep ="\n")
