@@ -731,6 +731,83 @@ O estimador $\widehat V_{SYG}(\widehat Y_{HT})$ foi motivado a partir da forma d
 
 4. Pode-se derivar estimadores não viciados do total populacional, e da variância do estimador HT de total para distintos planos amostrais como casos especiais da teoria geral aqui apresentada. Isto será conveniente, em particular, para a estimação de variâncias, cujas expressões gerais dependem de somas duplas que podem se tornar inconvenientes de calcular quando os tamanhos de amostra são grandes. As expressões apresentadas para cada um dos planos amostrais específicos são úteis porque permitem simplificar os cálculos da estimação de variâncias.
 
+### Estimação da média populacional
+
+Quando o tamanho da população $N$ é conhecido, o estimador “natural” da média populacional baseado no estimador HT do total é:
+
+$$
+\overline y_{HT} = \widehat Y_{HT} / N = \frac{1}{N} \displaystyle \sum_{i \in s} d_i y_i = \sum_{i \in s} w_i^{HT} y_i \,\, (\#eq:eqvis31)
+$$
+onde $w_i^{HT}= d_i/N$.
+
+As expressões de variância e seu estimador não viciado seguem diretamente das anteriores mediante divisão por $N^2$, levando a:
+
+$$
+\begin{align} V_{HT} \left( \overline y_{HT} \right) & = \frac{1}{N^2} \displaystyle \sum_{i \in U} \sum_{j \in U} \left( \frac{\pi_{ij}}{\pi_i \pi_j} -1 \right) {y_i} {y_j} \\ &= \frac{1}{N^2} \displaystyle \sum_{i \in U} \sum_{j \in U} \left( \frac{d_i d_j}{d_{ij}} - 1 \right) {y_i} {y_j} \end{align} \,\, (\#eq:eqvis32)
+$$
+e
+
+$$
+\widehat V_{HT} \left( \overline y_{HT} \right) = \frac{1}{N^2} \displaystyle \sum_{i \in s} \sum_{j \in s} \left( {d_i d_j} - {d_{ij}} \right) {y_i} {y_j} \,\,(\#eq:eqvis33)
+$$
+
+Expressões na forma Sen-Yates-Grundy podem ser obtidas de forma análoga.
+
+Mesmo quando o tamanho $N$ da população for conhecido, ele pode ser estimado usando o estimador HT do total de uma variável de contagem tomando valor igual a 1 para todas as unidades da população, levando ao estimador:
+
+$$ 
+\widehat N_{HT} = \displaystyle \sum_{i \in s} d_i
+$$
+
+Usando esse estimador do tamanho da população no denominador, um estimador tipo razão para a média populacional é dado por:
+
+$$
+\overline y_R = \widehat Y_{HT} / \widehat N_{HT} = \frac {\sum_{i \in s} d_i y_i} {\sum_{i \in s}d_i} = \sum_{i \in s} w_i^R y_i \,\, (\#eq:eqvis34)
+$$
+
+onde $d_i^R = d_i / \displaystyle\sum_{j \in s} d_j$.
+
+A variância desse estimador de média pode ser aproximada por:
+
+$$
+V_{PPT} (\overline y_R) \doteq \frac{1}{N^2} \sum_{i \in U} \sum_{j \in U} (\pi_{ij} - \pi_i\pi_j) \left( \frac {y_i - \overline Y} {\pi_i} \right) \left( \frac{y_j - \overline Y} {\pi_j} \right) \,\, (\#eq:eqvis35) 
+$$
+
+Um estimador aproximadamente não viciado para essa variância é dado por: 
+
+$$
+\widehat V_{PPT} (\overline y_R) = \frac{1}{\widehat N_{HT} ^2} \sum_{i \in s} \sum_{j \in s} \frac {(\pi_{ij} - \pi_i\pi_j)} {\pi_{ij}} \left( \frac{y_i - \overline y_R} {\pi_i} \right) \left( \frac{y_j - \overline y_R} {\pi_j} \right) \,\, (\#eq:eqvis36) 
+$$
+
+Cabe registrar que para alguns planos amostrais, os dois estimadores são equivalentes, isto é, $\overline y_R=\overline y_{HT}$ porque $w_i^R=w_i^{HT}$. Porém, quando diferem, o *estimador de razão da média* é geralmente mais eficiente que o estimador HT. Uma outra propriedade atraente do estimador tipo razão da média é que ele é invariante sob transformações de locação, isto é, se tomarmos $z_i = y_i + A$, então $\overline z_R = \overline y_R + A$. Esta propriedade não se verifica para o estimador HT.
+
+Em planos amostrais equi-ponderados, isto é, em que as probabilidades de inclusão $\pi_i$ são todas iguais, os pesos $w_i$ para estimação de médias ficam todos iguais a $1/n$ para ambos os estimadores (HT e de Razão). Esta é uma vantagem de planos deste tipo, pois a tarefa de estimação fica simplificada.
+
+A Tabela \@ref(tab:tabppt1) apresenta um resumo da estimação de parâmetros média e total sob PPT. 
+
+<center>
+```{r, results="asis", echo=FALSE}
+cat("<table>",paste0("<caption>", "(#tab:tabppt1)", "Parâmetros e respectivos estimadores sob PPT", "</caption>"),"</table>", sep ="\n")
+```
+----------
+Parâmetro                                                   Estimador
+----------------------------------------------------------- ------------------------------------------------------------------------------------------------------------------------------------------------------             
+$Y=\displaystyle\sum_{i\in U}y_i$                           $\widehat Y_{HT}=\displaystyle\sum_{i\in s}d_i y_i$
+
+$\overline{Y}={Y}/{N}=\displaystyle\sum_{i\in U}y_i/N$      $\overline y_{HT}=\widehat Y_{HT}/N=\displaystyle \sum_{i\in s}d_i y_i/N=\sum_{i\in s}w_i^{HT}y_i$
+                                                            $\overline y_R=\frac{\sum_{i\in s}d_i y_i}{\sum_{i\in s}d_i}=\displaystyle\sum_{i\in s}w_i^R y_i$
+    
+$V_{PPT}(\widehat Y_{HT})$                                  $\widehat V_{PPT}(\widehat Y_{HT})=\displaystyle\sum_{i\in s}\sum_{j\in s}\frac{(\pi_{ij}-\pi_i\pi_j)}{\pi_{ij}}\left(\frac{y_i}{\pi_i}\frac{y_j}{\pi_j}\right)$                                    
+
+$V_{PPT}(\overline y_{HT})=V_{PPT}(\widehat Y_{HT})/{N^2}$  $\widehat V_{PPT}(\overline y_{HT})=\displaystyle\widehat V_{PPT}(\widehat Y_{HT})/{N^2}$
+
+$V_{PPT}(\overline y_R)$                                    $\widehat V_{PPT}(\overline y_R)=\frac{1}{N^2}\displaystyle\sum_{i\in s}\sum_{j\in s}\frac{(\pi_{ij}-\pi_i\pi_j)}{\pi_{ij}}\left(\frac{y_i-\overline y_R}{\pi_i} \right)\left(\frac{y_j-\overline y_R}{\pi_j}\right)$   
+                                                     
+$V_{SYG}(\widehat Y_{HT})$                                  $\widehat V_{SYG}(\widehat Y_{HT})=\displaystyle\sum_{i\in s}\sum_{j>i}\left(\frac{\pi_i\pi_j-\pi_{ij}}{\pi_{ij}}\right)\left(\frac{y_i}{\pi_i}-\frac{y_j} { \pi_j}\right)^2$
+----------
+</center>
+
+
 ## Exercícios 
 
 **(#exr:exevisger1)** Considere a população com $N=6$ domicílios listada com os respectivos valores de variáveis de interesse na Tabela \@ref(tab:tabvis15).

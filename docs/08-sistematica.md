@@ -247,7 +247,7 @@ $$\pi_{ij}=\left\{\begin{array}{ll} 1/K & \,\,\textrm{se }i \ne j \,\in s_r,\,\,
 
 Note que ao escolher $r,\, 1\le r\le K$, selecionamos a amostra inteira. Sejam as variáveis indicadoras associadas às amostras possíveis $s_r$: 
 $$
- I(r)=\left\{\begin{array}{ll} 1 &\textrm{se a amostra é}\,s_r\,,\ \textrm {para}\,1\le r\le K.\\ 0 & \textrm{caso contrário}.\end{array}\right.\,\,\,
+ I(r)=\left\{\begin{array}{ll} 1 &\textrm{se a amostra é}\,s_r\,,\ \textrm {para}\,1\le r\le K \\ 0 & \textrm{caso contrário} \end{array}\right.\,\,\,
  $$ 
 
 Então o valor esperado de $I(r)$ é

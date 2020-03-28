@@ -34,7 +34,7 @@ $$
 
 Uma *proporção populacional* $p$ é simplesmente a média populacional de uma variável $y$ do tipo indicadora, que toma apenas os valores um ou zero para cada unidade. O total de uma variável desse tipo representa a contagem de unidades na população possuidoras do atributo de interesse, e a média é exatamente essa contagem dividida pelo tamanho da população.
 
-Um caso especial de proporção populacional de interesse ocorre com a definição da *função de distribuição cumulativa empírica populacional* (*FDCEP*), dada por:
+Um caso especial de proporção populacional de interesse ocorre com a definição da *função de distribuição cumulativa empírica populacional* - *FDCEP*, dada por:
 
 $$
 F_y(a) = \displaystyle \frac{1}{N} \sum_{i\in U} I(y_i \le a) \,\, (\#eq:eqvis3)
@@ -165,13 +165,13 @@ $$
 V_p(\widehat{\theta}) = \displaystyle \sum_{s \in S} [\widehat{\theta}(s) - E_p(\widehat{\theta})]^2 p(s)\,\,(\#eq:eqvis16)
 $$
 
-Quando um estimador é *não viciado*, sua *variância* mede a dispersão da distribuição do estimador em torno do alvo de inferência $\theta$. Duas medidas alternativas dessa dispersão que dependem da variância são o *desvio padrão* ou *DP* do estimador (também designado *erro padrão*), dado por:
+Quando um estimador é *não viciado*, sua *variância* mede a dispersão da distribuição do estimador em torno do alvo de inferência $\theta$. Duas medidas alternativas dessa dispersão que dependem da variância são o *desvio padrão* - *DP* do estimador (também designado *erro padrão*), dado por:
 
 $$
 DP_p(\widehat{\theta}) = [V_p(\widehat{\theta})]^{1/2}\,\,(\#eq:eqvis17)
 $$
 
-e o *coeficiente de variação* ou *CV* do estimador, dado por:
+e o *coeficiente de variação* - *CV* do estimador, dado por:
 
 $$
 CV_p(\widehat{\theta}) = \displaystyle\frac{DP_p(\widehat{\theta})}{\theta}\,\,(\#eq:eqvis18)
@@ -179,13 +179,13 @@ $$
 
 O *desvio padrão* mede a dispersão da distribuição do estimador em unidade de medida igual à usada na mensuração da variável de interesse, e o *CV* expressa essa medida em termos relativos, o que pode facilitar a interpretação e a comparação em cenários onde as unidades de medida de diferentes parâmetros podem ser distintas, mas exista interesse em comparar a dispersão de estimadores desses parâmetros. 
 
-Quando um estimador $\widehat{\theta}$ é *viciado*, uma medida mais adequada da dispersão da distribuição do estimador em torno do alvo de inferência $\theta$ é o *erro quadrático médio* ou *EQM* dado por:
+Quando um estimador $\widehat{\theta}$ é *viciado*, uma medida mais adequada da dispersão da distribuição do estimador em torno do alvo de inferência $\theta$ é o *erro quadrático médio* - *EQM* dado por:
 
 $$
 EQM_p(\widehat{\theta}) = \displaystyle \sum_{s\in S} [\widehat{\theta}(s) - \theta]^2 p(s)\,\,(\#eq:eqvis19)
 $$
 
-Versões análogas do desvio padrão e do coeficiente de variação adequadas ao caso de estimadores viciados são o *erro médio* ou *EM* e o *erro relativo médio* ou *ERM* definidos, respectivamente, como:
+Versões análogas do desvio padrão e do coeficiente de variação adequadas ao caso de estimadores viciados são o *erro médio* - *EM* e o *erro relativo médio* - *ERM* definidos, respectivamente, como:
 
 $$
 EM_p(\widehat{\theta}) = [EQM_p(\widehat{\theta})]^{1/2}\,\,(\#eq:eqvis20)
@@ -292,10 +292,10 @@ A Tabela \@ref(tab:tabvis4) apresenta os valores possíveis e a distribuição d
 
 <center>
 <table>
-<caption>(#tab:tabvis4)Probabilidade sob $p_1$ para cada valor de $2 	imes t$</caption>
+<caption>(#tab:tabvis4)Probabilidade sob $p_1$ para cada valor de $2t$</caption>
 </table>
 ----------
-Valores possíveis de $2 \times t$     0     2     4     6
+Valores possíveis de $2t$             0     2     4     6
 ----------------------------------- ----- ----- ----- ----- 
 Com probabilidade $p_1(s)$           1/6   2/6   2/6   1/6
 ----------
@@ -399,7 +399,7 @@ e já se mostrou que este estimador é não viciado para $Y$.
 <caption>(#tab:tabvis7)Informações de cada amostra possível sob plano amostral $p_2$</caption>
 </table>
 ----------
- Amostra   Unidades na Amostra $s$    Valores na Amostra $s$    Soma Amostral $(t)$    Probabilidades $p_1(s)$  
+ Amostra   Unidades na Amostra $s$    Valores na Amostra $s$    Soma Amostral $(t)$    Probabilidades $p_2(s)$  
 --------- -------------------------- ------------------------- ---------------------- --------------------------
  1	            {1;2}                        {0;0}	                 0	                       0,00
  
@@ -425,7 +425,7 @@ Vamos agora usar as informações acima para:
 
 A distribuição da soma amostral $t$ sob o plano $p_2$ é apresentada na Tabela \@ref(tab:tabvis8). 
 
-<center
+<center>
 <table>
 <caption>(#tab:tabvis8)Probabilidade sob $p_2$ para cada valor de $t$</caption>
 </table>
@@ -652,7 +652,7 @@ $w_i = {\pi_i}^{-1} = {1}/{\pi_i} = d_i \,\,\,\forall\,\, i \in U$.
  
 Os pesos amostrais $d_i$ são chamados de *pesos básicos* do plano amostral. Doravante usamos a notação $d_i$ para os pesos básicos, pois mais adiante vamos introduzir outros pesos amostrais. A notação $w_i$ é reservada para designar pesos genéricos que podem ser aplicados para a obtenção de estimadores (viciados ou não).
 
-Com os pesos básicos $d_i$, o estimador não viciado de total fica dado pelo conhecido *estimador de Horvitz-Thompson* ou *estimador $HT$*:
+Com os pesos básicos $d_i$, o estimador não viciado de total fica dado pelo conhecido *estimador de Horvitz-Thompson* ou *estimador HT*:
 
 $$
 \widehat Y_{HT} = \displaystyle \sum_{i \in s} {d_i}{y_i} = \sum_{i \in s} {\pi_i}^{-1} y_i = \displaystyle \sum_{i \in s} {y_i}/{\pi_i}  \,\,(\#eq:eqvis27)
@@ -691,7 +691,7 @@ $$
 
 **Estimador da variância do estimador de total**
 
-Um estimador não viciado da variância do estimador $HT$ do total é dado por:
+Um estimador não viciado da variância do estimador HT do total é dado por:
 
 $$
 \widehat V_{HT} (\widehat Y_{HT}) = \displaystyle \sum_{i \in s} \sum_{j \in s} \left( {d_i d_j} - {d_{ij}} \right) {y_i} {y_j}\,\,(\#eq:eqvis28)
@@ -699,7 +699,7 @@ $$
 
 Este estimador da variância foi obtido usando o princípio dos estimadores tipo Horvitz-Thompson do total, mas agora, como se tratava de estimar uma soma dupla na população, os pesos das parcelas nessa soma dependem das probabilidades de inclusão de segunda ordem, isto é, das probabilidades de inclusão dos pares de unidades. Para que este estimador seja viável, o plano amostral empregado tem que satisfazer a condição adicional de que as probabilidades de inclusão $\pi_{ij}$ sejam estritamente positivas $\forall i \ne j \in U$.
 
-**Forma alternativa para a variância do estimador $HT$ do total**
+**Forma alternativa para a variância do estimador HT do total**
 
 Para planos amostrais de tamanho pré-fixado, pode-se demonstrar que uma forma equivalente da variância do estimador de Horvitz-Thompson do total populacional é dada pela expressão de Sen-Yates-Grundy a seguir - ver @Yates1953 e @Sen1953.
 
@@ -713,23 +713,100 @@ Uma análise dessa expressão de variância nos dá uma indicação de quando em
 
 Entretanto, veremos no capítulo \@ref(ppt) que esta ideia pode ser usada de forma aproximada fazendo as probabilidades de inclusão proporcionais a uma medida de tamanho cujos valores estejam disponíveis para todas as unidades da população $U$. Sempre que a medida de tamanho for positivamente correlacionada com a(s) variável(is) de interesse $y$, veremos que é possível tirar proveito da informação de tamanho para aplicar métodos de amostragem que levam a estimadores mais eficientes do total que no caso de planos amostrais com equiprobabilidade para amostras de tamanhos iguais.
 
-**Estimador alternativo da variância do estimador $HT$ do total**
+**Estimador alternativo da variância do estimador HT do total**
 
 $$
 \begin{align} \widehat V_{SYG}(\widehat Y_{HT}) &= \displaystyle \sum_{i \in s} \sum_{j>i} \left( \frac{\pi_i \pi_j - \pi_{ij}}{\pi_{ij}} \right) \left( \frac{y_i}{\pi_i} - \frac{y_j}{\pi_j} \right)^2 \\ &= \displaystyle \sum_{i \in s} \sum_{j>i} (d_{ij}/d_i d_j - 1) \left( d_i{y_i} - d_j{y_j} \right)^2\end{align} \,\,(\#eq:eqvis30)
 $$
 
-O estimador $\widehat V_{SYG}(\widehat Y_{HT})$ foi motivado a partir da forma de Sen-Yates-Grundy para a variância do estimador $HT$ do total. Tal estimador não coincide com o estimador de variância derivado a partir da expressão de Horvitz-Thompson apresentada anteriormente.
+O estimador $\widehat V_{SYG}(\widehat Y_{HT})$ foi motivado a partir da forma de Sen-Yates-Grundy para a variância do estimador HT do total. Tal estimador não coincide com o estimador de variância derivado a partir da expressão de Horvitz-Thompson apresentada anteriormente.
 
 **Comentários finais**
 
-1. Com amostras probabilísticas, é sempre possível estimar sem vício um total populacional usando uma soma amostral $\pi$-ponderada, isto é, o estimador $HT$ do total.
+1. Com amostras probabilísticas, é sempre possível estimar sem vício um total populacional usando uma soma amostral $\pi$-ponderada, isto é, o estimador HT do total.
 
 2. Há expressões de variância disponíveis para permitir avaliar a qualidade do estimador de total sob distintas situações (população, variável) para qualquer plano amostral probabilístico.
 
 3. A estimação de muitos outros parâmetros populacionais, tais como médias, proporções, razões, etc. usa em grande medida os resultados aqui apresentados para a estimação de totais. Isto ficará mais claro nos capítulos seguintes.
 
-4. Pode-se derivar estimadores não viciados do total populacional, e da variância do estimador $HT$ de total para distintos planos amostrais como casos especiais da teoria geral aqui apresentada. Isto será conveniente, em particular, para a estimação de variâncias, cujas expressões gerais dependem de somas duplas que podem se tornar inconvenientes de calcular quando os tamanhos de amostra são grandes. As expressões apresentadas para cada um dos planos amostrais específicos são úteis porque permitem simplificar os cálculos da estimação de variâncias.
+4. Pode-se derivar estimadores não viciados do total populacional, e da variância do estimador HT de total para distintos planos amostrais como casos especiais da teoria geral aqui apresentada. Isto será conveniente, em particular, para a estimação de variâncias, cujas expressões gerais dependem de somas duplas que podem se tornar inconvenientes de calcular quando os tamanhos de amostra são grandes. As expressões apresentadas para cada um dos planos amostrais específicos são úteis porque permitem simplificar os cálculos da estimação de variâncias.
+
+### Estimação da média populacional
+
+Quando o tamanho da população $N$ é conhecido, o estimador “natural” da média populacional baseado no estimador HT do total é:
+
+$$
+\overline y_{HT} = \widehat Y_{HT} / N = \frac{1}{N} \displaystyle \sum_{i \in s} d_i y_i = \sum_{i \in s} w_i^{HT} y_i \,\, (\#eq:eqvis31)
+$$
+onde $w_i^{HT}= d_i/N$.
+
+As expressões de variância e seu estimador não viciado seguem diretamente das anteriores mediante divisão por $N^2$, levando a:
+
+$$
+\begin{align} V_{HT} \left( \overline y_{HT} \right) & = \frac{1}{N^2} \displaystyle \sum_{i \in U} \sum_{j \in U} \left( \frac{\pi_{ij}}{\pi_i \pi_j} -1 \right) {y_i} {y_j} \\ &= \frac{1}{N^2} \displaystyle \sum_{i \in U} \sum_{j \in U} \left( \frac{d_i d_j}{d_{ij}} - 1 \right) {y_i} {y_j} \end{align} \,\, (\#eq:eqvis32)
+$$
+e
+
+$$
+\widehat V_{HT} \left( \overline y_{HT} \right) = \frac{1}{N^2} \displaystyle \sum_{i \in s} \sum_{j \in s} \left( {d_i d_j} - {d_{ij}} \right) {y_i} {y_j} \,\,(\#eq:eqvis33)
+$$
+
+Expressões na forma Sen-Yates-Grundy podem ser obtidas de forma análoga.
+
+Mesmo quando o tamanho $N$ da população for conhecido, ele pode ser estimado usando o estimador HT do total de uma variável de contagem tomando valor igual a 1 para todas as unidades da população, levando ao estimador:
+
+$$ 
+\widehat N_{HT} = \displaystyle \sum_{i \in s} d_i
+$$
+
+Usando esse estimador do tamanho da população no denominador, um estimador tipo razão para a média populacional é dado por:
+
+$$
+\overline y_R = \widehat Y_{HT} / \widehat N_{HT} = \frac {\sum_{i \in s} d_i y_i} {\sum_{i \in s}d_i} = \sum_{i \in s} w_i^R y_i \,\, (\#eq:eqvis34)
+$$
+
+onde $d_i^R = d_i / \displaystyle\sum_{j \in s} d_j$.
+
+A variância desse estimador de média pode ser aproximada por:
+
+$$
+V_{PPT} (\overline y_R) \doteq \frac{1}{N^2} \sum_{i \in U} \sum_{j \in U} (\pi_{ij} - \pi_i\pi_j) \left( \frac {y_i - \overline Y} {\pi_i} \right) \left( \frac{y_j - \overline Y} {\pi_j} \right) \,\, (\#eq:eqvis35) 
+$$
+
+Um estimador aproximadamente não viciado para essa variância é dado por: 
+
+$$
+\widehat V_{PPT} (\overline y_R) = \frac{1}{\widehat N_{HT} ^2} \sum_{i \in s} \sum_{j \in s} \frac {(\pi_{ij} - \pi_i\pi_j)} {\pi_{ij}} \left( \frac{y_i - \overline y_R} {\pi_i} \right) \left( \frac{y_j - \overline y_R} {\pi_j} \right) \,\, (\#eq:eqvis36) 
+$$
+
+Cabe registrar que para alguns planos amostrais, os dois estimadores são equivalentes, isto é, $\overline y_R=\overline y_{HT}$ porque $w_i^R=w_i^{HT}$. Porém, quando diferem, o *estimador de razão da média* é geralmente mais eficiente que o estimador HT. Uma outra propriedade atraente do estimador tipo razão da média é que ele é invariante sob transformações de locação, isto é, se tomarmos $z_i = y_i + A$, então $\overline z_R = \overline y_R + A$. Esta propriedade não se verifica para o estimador HT.
+
+Em planos amostrais equi-ponderados, isto é, em que as probabilidades de inclusão $\pi_i$ são todas iguais, os pesos $w_i$ para estimação de médias ficam todos iguais a $1/n$ para ambos os estimadores (HT e de Razão). Esta é uma vantagem de planos deste tipo, pois a tarefa de estimação fica simplificada.
+
+A Tabela \@ref(tab:tabppt1) apresenta um resumo da estimação de parâmetros média e total sob PPT. 
+
+<center>
+<table>
+<caption>(#tab:tabppt1)Parâmetros e respectivos estimadores sob PPT</caption>
+</table>
+----------
+Parâmetro                                                   Estimador
+----------------------------------------------------------- ------------------------------------------------------------------------------------------------------------------------------------------------------             
+$Y=\displaystyle\sum_{i\in U}y_i$                           $\widehat Y_{HT}=\displaystyle\sum_{i\in s}d_i y_i$
+
+$\overline{Y}={Y}/{N}=\displaystyle\sum_{i\in U}y_i/N$      $\overline y_{HT}=\widehat Y_{HT}/N=\displaystyle \sum_{i\in s}d_i y_i/N=\sum_{i\in s}w_i^{HT}y_i$
+                                                            $\overline y_R=\frac{\sum_{i\in s}d_i y_i}{\sum_{i\in s}d_i}=\displaystyle\sum_{i\in s}w_i^R y_i$
+    
+$V_{PPT}(\widehat Y_{HT})$                                  $\widehat V_{PPT}(\widehat Y_{HT})=\displaystyle\sum_{i\in s}\sum_{j\in s}\frac{(\pi_{ij}-\pi_i\pi_j)}{\pi_{ij}}\left(\frac{y_i}{\pi_i}\frac{y_j}{\pi_j}\right)$                                    
+
+$V_{PPT}(\overline y_{HT})=V_{PPT}(\widehat Y_{HT})/{N^2}$  $\widehat V_{PPT}(\overline y_{HT})=\displaystyle\widehat V_{PPT}(\widehat Y_{HT})/{N^2}$
+
+$V_{PPT}(\overline y_R)$                                    $\widehat V_{PPT}(\overline y_R)=\frac{1}{N^2}\displaystyle\sum_{i\in s}\sum_{j\in s}\frac{(\pi_{ij}-\pi_i\pi_j)}{\pi_{ij}}\left(\frac{y_i-\overline y_R}{\pi_i} \right)\left(\frac{y_j-\overline y_R}{\pi_j}\right)$   
+                                                     
+$V_{SYG}(\widehat Y_{HT})$                                  $\widehat V_{SYG}(\widehat Y_{HT})=\displaystyle\sum_{i\in s}\sum_{j>i}\left(\frac{\pi_i\pi_j-\pi_{ij}}{\pi_{ij}}\right)\left(\frac{y_i}{\pi_i}-\frac{y_j} { \pi_j}\right)^2$
+----------
+</center>
+
 
 ## Exercícios 
 

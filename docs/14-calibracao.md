@@ -29,7 +29,7 @@ $$
 {\bf T}_y = \sum_{k \in U}{\bf y}_k\,\,(\#eq:eqcal1)
 $$
 
-Um estimador 'padrão' para este total é o estimador $HT$ (@Horvitz1952) definido por:
+Um estimador 'padrão' para este total é o estimador HT (@Horvitz1952) definido por:
 
 $$
 {\bf\widehat T}_y = \sum_{k \in s}d_k{\bf y}_k\,\,(\#eq:eqcal2)
@@ -43,11 +43,11 @@ Quando os *totais populacionais* das variáveis auxiliares ${\bf T}_x$ são *con
 
 Trata-se do uso de informações auxiliares na etapa de estimação da pesquisa.
 
-O estimador $HT$ para o total das variáveis auxiliares dado por ${\bf \widehat T}_x = \sum_{k \in s}d_k{\bf x}_k$ vai diferir do total populacional conhecido ${\bf T}_x=\sum_{k \in U}{\bf x}_k$. Esta diferença é o chamado *erro de calibração*.
+O estimador HT para o total das variáveis auxiliares dado por ${\bf \widehat T}_x = \sum_{k \in s}d_k{\bf x}_k$ vai diferir do total populacional conhecido ${\bf T}_x=\sum_{k \in U}{\bf x}_k$. Esta diferença é o chamado *erro de calibração*.
 
 Na *estimação de calibração* a ideia básica é que as estimativas amostrais do total populacional das variáveis auxiliares podem ser *calibradas* para igualarem o total populacional conhecido ${\bf T}_x$, de tal forma que o *erro de calibração* seja eliminado. 
 
-Isto pode ser feito, modificando os pesos amostrais $d_k$ usados no estimador Horvitz-Thompson ($HT$) para ‘expandir’ a amostra, usando um *estimador calibrado* tal que os *novos pesos* ($w_k$) permitam reproduzir exatamente os totais populacionais conhecidos, definido por: 
+Isto pode ser feito, modificando os pesos amostrais $d_k$ usados no estimador HT para ‘expandir’ a amostra, usando um *estimador calibrado* tal que os *novos pesos* ($w_k$) permitam reproduzir exatamente os totais populacionais conhecidos, definido por: 
 
 $$
 {\bf \widehat T}_x^C = \sum_{k \in s}w_k{\bf x}_k = {\bf T}_x\,\,(\#eq:eqcal3)
@@ -71,7 +71,7 @@ Neste capítulo, nos concentramos nos estimadores de *calibração para total* d
 
 Outras formas de restrições de calibração podem ser consideradas, como calibração para momentos de ordem mais alta ou até mesmo para a função de distribuição de população finita das variáveis auxiliares - veja a discussão na seção 10 em @Chambers1997. Entretanto, essas outras formas de estimadores de calibração não devem ser consideradas aqui e, por simplicidade, seguiremos a denominação simples predominante dos estimadores definidos por \@ref(eq:eqcal5) com pesos que satisfazem a Equação \@ref(eq:eqcal4) como *estimadores de calibração*.
 
-Um grande número de conjuntos de pesos $\{w_k, k \in s\},$ pode satisfazer as restrições de calibração. Uma maneira de selecionar aqueles que levam a conjuntos de pesos 'razoáveis' a serem usados para estimar totais para as variáveis $y$ é pensar nos pesos de calibração $w_k$ como modificações nos pesos do desenho $d_k$ que *não diferem muito* dos pesos originais. Isso se justifica porque o uso dos pesos originais de desenho $d_k$ dado pelo estimador $HT$ assegura propriedades desejáveis, como *estimação não viciada e consistente* do total (no sentido de que à medida que o tamanho da amostra aumenta, o estimador converge em probabilidade em direção ao alvo correto ${\bf T}_y$).
+Um grande número de conjuntos de pesos $\{w_k, k \in s\},$ pode satisfazer as restrições de calibração. Uma maneira de selecionar aqueles que levam a conjuntos de pesos 'razoáveis' a serem usados para estimar totais para as variáveis $y$ é pensar nos pesos de calibração $w_k$ como modificações nos pesos do desenho $d_k$ que *não diferem muito* dos pesos originais. Isso se justifica porque o uso dos pesos originais de desenho $d_k$ dado pelo estimador HT assegura propriedades desejáveis, como *estimação não viciada e consistente* do total (no sentido de que à medida que o tamanho da amostra aumenta, o estimador converge em probabilidade em direção ao alvo correto ${\bf T}_y$).
 
 ## Estimadores de regressão como estimadores de calibração {#estreg}
  
@@ -103,7 +103,7 @@ $$
 g_k = 1 + ({\bf T}_x -{\bf \widehat T}_x)'\left(\sum_{i \in s} d_iq_i{\bf x}_i{\bf x}_i'\right)^{-1}q_k{\bf x}_k\,\,(\#eq:eqcal9)
 $$
 
-Os pesos dados por \@ref(eq:eqcal8) e \@ref(eq:eqcal9) são exatamente os obtidos quando se emprega um *estimador de regressão generalizado (GREG - 'Generalized Regression')* motivado pelo seguinte *modelo de superpopulação*:
+Os pesos dados por \@ref(eq:eqcal8) e \@ref(eq:eqcal9) são exatamente os obtidos quando se emprega um *estimador de regressão generalizado ('Generalized Regression' - GREG)* motivado pelo seguinte *modelo de superpopulação*:
 
 $$
 M\begin{cases}y_{kj} = {\bf x'}_k{\bf B}_j + E_{kj}\\
@@ -118,7 +118,7 @@ $$
 
 e $E_{kj}$ como sendo o resíduo do modelo de regressão da população para a variável de pesquisa $y_j$.
 
-Sob o modelo definido em \@ref(eq:eqcal10), o *estimador GREG* para o total da variável $y_j$, de acordo com @Sarndal1992, p. 234, pode ser escrito como:
+Sob o modelo definido em \@ref(eq:eqcal10), o *estimador GREG* para o total da variável $y_j$, de acordo com @Sarndal1992, página 234, pode ser escrito como:
 
 $$
 \widehat T_{y_j}^C = \sum_{k \in s}w_k y_{kj} = \sum_{k \in s}d_k g_k y_{kj} = \widehat T_{y_j} + \left({\bf T}_x - {\bf \widehat T}_x\right)'{\bf\widehat  B}_j\,\,(\#eq:eqcal12)
@@ -164,14 +164,14 @@ $$
 E({\bf\widehat T}_{y}^C - {\bf T}_y) = E \left[\sum_{k \in s}(w_k - d_k){\bf y}_k\right]\,\,(\#eq:eqcal14)
 $$
 
-A Tabela \@ref(tab:tabcalib1) apresenta uma comparação dos estimadores $HT$ e de calibração. 
+A Tabela \@ref(tab:tabcalib1) apresenta uma comparação dos estimadores HT e de calibração. 
 
 <table>
-<caption>(#tab:tabcalib1)Comparação dos estimadores $HT$ e de calibração.</caption>
+<caption>(#tab:tabcalib1)Comparação dos estimadores HT e de calibração</caption>
 </table>
 <center>
 ---------
-Descrição        Estimador $\textbf{HT}$                                 Estimador de Calibração 
+Descrição        Estimador HT                                            Estimador de Calibração 
 ------------ --- ------------------------------------------------------  ----------------------------------------------------------------
 Pesos            $\{d_k, k\in s\}$                                       $\{w_k, k\in s\}$
 
@@ -190,12 +190,12 @@ $$
 V_p\left(\displaystyle\sum_{k \in s}w_k E_{kj}\right) < V_p\left(\displaystyle\sum_{k \in s}d_k y_{kj}\right)\,\,(\#eq:eqcal15)
 $$
 
-Podemos então observar que o estimador de regressão (calibração) deverá ter um bom desempenho em termos de precisão quando a variância dos resíduos do modelo de regressão definido pela Equação \@ref(eq:eqcal10) for pequena em comparação com a da variável $y$ original. Este será o caso quando a relação linear for uma boa aproximação para a regressão de $y$ em $x$ e as variáveis $x$ no estimador de regressão tiverem bom poder preditivo para $y$. Os dois gráficos da Figura \@ref(fig:figcalib1) ilustram essa ideia. Neste exemplo, os resíduos do estimador de regressão para o modelo $y = Bx$ têm variância menor do que a variável $y$ original (modelo $y = B$), levando ao estimador de regressão com menor variância aproximada do que a variância do estimador de $HT$ para amostras do mesmo tamanho.
+Podemos então observar que o estimador de regressão (calibração) deverá ter um bom desempenho em termos de precisão quando a variância dos resíduos do modelo de regressão definido pela Equação \@ref(eq:eqcal10) for pequena em comparação com a da variável $y$ original. Este será o caso quando a relação linear for uma boa aproximação para a regressão de $y$ em $x$ e as variáveis $x$ no estimador de regressão tiverem bom poder preditivo para $y$. Os dois gráficos da Figura \@ref(fig:figcalib1) ilustram essa ideia. Neste exemplo, os resíduos do estimador de regressão para o modelo $y = Bx$ têm variância menor do que a variável $y$ original (modelo $y = B$), levando ao estimador de regressão com menor variância aproximada do que a variância do estimador de HT para amostras do mesmo tamanho.
 
 <center>
 <div class="figure">
-<img src="Figuras/Figcalib1.PNG" alt="Residuos para o modelo de regressão da população para os estimadores de $HT$ (esquerda) e de calibração (direita)" width="281" />
-<p class="caption">(\#fig:figcalib1)Residuos para o modelo de regressão da população para os estimadores de $HT$ (esquerda) e de calibração (direita)</p>
+<img src="Figuras/Figcalib1.PNG" alt="Residuos para o modelo de regressão da população para os estimadores de HT (esquerda) e de calibração (direita)" width="281" />
+<p class="caption">(\#fig:figcalib1)Residuos para o modelo de regressão da população para os estimadores de HT (esquerda) e de calibração (direita)</p>
 </div>
 </center>
 
@@ -208,18 +208,18 @@ Podemos então observar que o estimador de regressão (calibração) deverá ter
 </div>
 </center>
 
-Usando uma amostra aleatória simples com $n=50$ fazendas, e considerando a *Área* como variável auxiliar, estimamos os totais populacionais de fazendas de cana-de-açúcar por dois métodos: pelo estimador $HT$ e pelo estimador de regressão (GREG). A Tabela \@ref(tab:tabcalib2) apresenta as estimativas de totais, bem como as dos respectivos erros padrão e coeficientes de variação (CV). 
+Usando uma amostra aleatória simples com $n=50$ fazendas, e considerando a *Área* como variável auxiliar, estimamos os totais populacionais de fazendas de cana-de-açúcar por dois métodos: pelo estimador HT e pelo estimador de regressão (GREG). A Tabela \@ref(tab:tabcalib2) apresenta as estimativas de totais, bem como as dos respectivos erros padrão e coeficientes de variação (CV). 
 
 
 
-Table: (\#tab:tabcalib2)Estimativas de total de fazendas de cana-de-açúcar e dos erros padrão e coeficientes de variação (CV) usando os estimadores $HT$ e de regressão (GREG) para variáveis selecionadas
+Table: (\#tab:tabcalib2)Estimativas de total de fazendas de cana-de-açúcar e dos erros padrão e coeficientes de variação (CV) usando os estimadores HT e de regressão (GREG) para variáveis selecionadas
 
-Variável      Total  $HT$   Total GREG   Erro Padrão $HT$   Erro Padrão GREG   CV $HT$   CV GREG
------------  ------------  -----------  -----------------  -----------------  --------  --------
-Área               18.015       20.364              1.699                  0      9,43      0,00
-Quantidade      1.236.046    1.375.931            111.997             55.658      9,06      4,05
-Receita        29.957.792   33.915.479          3.123.624          1.439.641     10,43      4,24
-Despesa        18.480.035   20.785.241          1.835.615            866.154      9,93      4,17
+Variável        Total HT   Total GREG   Erro Padrão HT   Erro Padrão GREG   CV HT   CV GREG
+-----------  -----------  -----------  ---------------  -----------------  ------  --------
+Área              18.015       20.364            1.699                  0    9,43      0,00
+Quantidade     1.236.046    1.375.931          111.997             55.658    9,06      4,05
+Receita       29.957.792   33.915.479        3.123.624          1.439.641   10,43      4,24
+Despesa       18.480.035   20.785.241        1.835.615            866.154    9,93      4,17
 
 Os resultados mostram a superioridade do estimador de regressão quanto à redução do erro padrão (ou CV).
 
@@ -233,20 +233,20 @@ Comandos Relevantes do R
 
 > Totais.GREG = svytotal(design=fazendas.calib1, ~AREA + QUANT + RECEITA + DESPESA)
 
-**(#exm:exmcalib2)** Usando a mesma amostra aleatória simples com n=50 fazendas, e considerando *Região* como variável auxiliar, estimamos os totais populacionais de fazendas de cana-de-açúcar usando agora os estimadores $HT$ e de pós-estratificação (PS-Região). A Tabela \@ref(tab:tabcalib3) apresenta as estimativas de total e dos respectivos erros padrão e coeficientes de variação (CV). 
+**(#exm:exmcalib2)** Usando a mesma amostra aleatória simples com n=50 fazendas, e considerando *Região* como variável auxiliar, estimamos os totais populacionais de fazendas de cana-de-açúcar usando agora os estimadores HT e de pós-estratificação (PS-Região). A Tabela \@ref(tab:tabcalib3) apresenta as estimativas de total e dos respectivos erros padrão e coeficientes de variação (CV). 
 
 
 
-Table: (\#tab:tabcalib3)Estimativas de total de fazendas de cana-de-açúcar e dos erros padrão e coeficientes de variação (CV) usando os estimadores $HT$ e pós-estratificação (PS-Região) para variáveis selecionadas
+Table: (\#tab:tabcalib3)Estimativas de total de fazendas de cana-de-açúcar e dos erros padrão e coeficientes de variação (CV) usando os estimadores HT e pós-estratificação (PS-Região) para variáveis selecionadas
 
-Variável      Total  $HT$   Total PS-Região   Erro Padrão $HT$   Erro Padrão PS-Região   CV $HT$   CV PS-Região
------------  ------------  ----------------  -----------------  ----------------------  --------  -------------
-Área               18.015            18.059              1.699                   1.501      9,43           8,31
-Quantidade      1.236.046         1.234.739            111.997                 104.861      9,06           8,49
-Receita        29.957.792        29.719.944          3.123.624               2.788.930     10,43           9,38
-Despesa        18.480.035        18.690.411          1.835.615               1.715.898      9,93           9,18
+Variável       Total  HT   Total PS-Região   Erro Padrão HT   Erro Padrão PS-Região   CV HT   CV PS-Região
+-----------  -----------  ----------------  ---------------  ----------------------  ------  -------------
+Área              18.015            18.059            1.699                   1.501    9,43           8,31
+Quantidade     1.236.046         1.234.739          111.997                 104.861    9,06           8,49
+Receita       29.957.792        29.719.944        3.123.624               2.788.930   10,43           9,38
+Despesa       18.480.035        18.690.411        1.835.615               1.715.898    9,93           9,18
 
-Os resultados mostram pequena redução do CV quando comparado com estimador $HT$. Portanto, a variável auxiliar *Área* leva a estimativas mais precisas.
+Os resultados mostram pequena redução do CV quando comparado com estimador HT. Portanto, a variável auxiliar *Área* leva a estimativas mais precisas.
 
 ## Propriedades dos estimadores para grandes amostras
 
@@ -256,19 +256,19 @@ $$
 \text{Vício}\left(\widehat T_{y_j}^C\right) = E\left[\sum_{k \in s}(w_k - d_k)y_{kj}\right]\longrightarrow 0, \,\,\text{quando}\,\,n\rightarrow\infty\,\,(\#eq:eqcal16)
 $$
 
-e têm variância assintótica do estimador aproximada (ver @Sarndal1992, p. 235) dada por: 
+e têm variância assintótica do estimador aproximada (ver @Sarndal1992, página 235) dada por: 
 
 $$
 {VA}_p\left(\widehat T_{y_j}^C\right) = \sum_{k \in U}\sum_{i \in U}(\pi_{ki} - \pi_k\pi_i)\left(d_kE_{kj}\right)\left(d_iE_{ij}\right)\,\,(\#eq:eqcal17)
 $$
 
-Se o vício é desprezível, podemos comparar essa variância aproximada com a do estimador $HT$ padrão, dada por:
+Se o vício é desprezível, podemos comparar essa variância aproximada com a do estimador HT padrão, dada por:
 
 $$
 V_p\left(\widehat T_{y_j}\right) = \sum_{k \in U}\sum_{i \in U}(\pi_{ki} - \pi_k\pi_i)\left(d_k y_{kj}\right)\left(d_i y_{ij}\right)\,\,(\#eq:eqcal18)
 $$
 
-Os estimadores de calibração são também mais *eficientes*  que o estimador $HT$ se:
+Os estimadores de calibração são também mais *eficientes*  que o estimador HT se:
 
 $$
 {VA}_p\left(\widehat T_{y_j}^C\right) < V_p\left(\widehat T_{y_j}\right) \,\,(\#eq:eqcal19)
@@ -276,13 +276,13 @@ $$
 
 Dois estimadores de variância relativamente diretos estão disponíveis para uso com o estimador de regressão. 
 
-@Sarndal1992, p. 235, recomenda usar o estimador da *variância* do estimador de calibração:
+@Sarndal1992, página 235, recomenda usar o estimador da *variância* do estimador de calibração:
 
 $$
 \widehat V_p\left(\widehat T_{y_j}^C\right) = \sum_{k \in s}\sum_{i \in s}(1 - \pi_{k}\pi_i/\pi_{ki})\left(d_kg_ke_{kj}\right)\left(d_ig_ie_{ij}\right)\,\,(\#eq:eqcal20)
 $$
 
-A expressão acima é similar à do estimador da variância do estimador $HT$, porém: emprega os *resíduos* $e_{kj}= y_{kj}-\bf{x}'_k\widehat B_j$ em lugar dos valores da variável $y_j$; e também emprega os *pesos ajustados* $d_kg_k=w_k$ como multiplicadores dos resíduos.
+A expressão acima é similar à do estimador da variância do estimador HT, porém: emprega os *resíduos* $e_{kj}= y_{kj}-\bf{x}'_k\widehat B_j$ em lugar dos valores da variável $y_j$; e também emprega os *pesos ajustados* $d_kg_k=w_k$ como multiplicadores dos resíduos.
  
 Um estimador de variância ainda mais simples que não requer os pesos-$g$ é dado por: 
 
@@ -290,7 +290,7 @@ $$
 \tilde V_p\left(\widehat T_{y_j}^C\right) = \sum_{k \in s}\sum_{i \in s}(1 - \pi_{k}\pi_i/\pi_{ki})\left(d_ke_{kj}\right)\left(d_ie_{ij}\right)\,\,(\#eq:eqcal21)
 $$
 
-Ambos os estimadores de variância são de primeira ordem assintoticamente não viciados de desenho para a variância aproximada do estimador de regressão, mas \@ref(eq:eqcal20) também é aproximadamente não viciado para o modelo @Sarndal1989. 
+Ambos os estimadores de variância são de primeira ordem assintoticamente não viciados de desenho para a variância aproximada do estimador de regressão, mas o estimador da Equaçao \@ref(eq:eqcal20) também é aproximadamente não viciado para o modelo @Sarndal1989. 
 
 Sob *Amostragem Aleatória Simples* tem-se:
 
@@ -304,7 +304,7 @@ $$
 \widehat V_{AAS}\left(\widehat T_{y_j}^C\right) = N^2\left(\frac{1}{n} - \frac{1}{N}\right)\frac{1}{n-1}\sum_{k \in s}\left(d_kg_ke_{kj}\right)^2\,\,(\#eq:eqcal23)
 $$
 
-@Silva1996 mostrou que o estimador em \@ref(eq:eqcal23) tem vício de ordem menor que $n-2$ para estimar a variância correspondente. Enquanto o vício de \@ref(eq:eqcal21) é da ordem ($n-2$). Por isso o estimador da Equação \@ref(eq:eqcal20) deve ser preferido ao da \@ref(eq:eqcal21). @Holmes2000 apoiam esta visão com base nos resultados de um estudo empírico realizado para comparar estimadores de variância alternativa para a pesquisa de força de trabalho do Reino Unido (UK Labour Force Survey / UK-LFS).
+@Silva1996 mostrou que o estimador em \@ref(eq:eqcal23) tem vício de ordem menor que $n-2$ para estimar a variância correspondente. Enquanto o vício de \@ref(eq:eqcal21) é da ordem ($n-2$). Por isso o estimador da Equação \@ref(eq:eqcal20) deve ser preferido ao da \@ref(eq:eqcal21). @Holmes2000 apoiam esta visão com base nos resultados de um estudo empírico realizado para comparar estimadores de variância alternativa para a pesquisa de força de trabalho do Reino Unido (UK Labour Force Survey - UK-LFS).
 
 
 ## Alguns problemas práticos com calibração
@@ -327,7 +327,7 @@ A última questão nesta lista (erros de medida e seus efeitos na calibração),
 
 ### Tamanhos Pequenos de Amostra
 
-O problema com os estimadores de calibração quando os tamanhos das amostras são pequenos vem do fato de que seu vício pode se tornar importante, em relação à sua variância. É bem conhecido, por exemplo, que os estimadores de razão são tendenciosos e que o vício é da ordem $(n-1)$ (ver @Cochran1977, p. 160-162). O estimador de razão é um caso especial do estimador de calibração quando o vetor $\bf x$ inclui uma única variável contínua $x$, nenhum termo de intercepto é incluído, e as constantes $q_k$ são ajustadas para $q_k = 1 / x_k$ (assumindo que $x_k> 0\,\, \forall k$). Recomenda-se que os estimadores de razão sejam usados somente para amostras de tamanhos grandes o suficiente para que o vício seja desprezível. @Sarndal1992, p. 251, sugerem que amostras de tamanho 20 ou mais devem ser suficientes para que isso aconteça. @Cochran1977, p. 162, sugere que o coeficiente de variação do estimador de $HT$ do total da variável $x$, $CV(\widehat T_x$), deve ser menor que 0,1 (10%) para que o vício do estimador de razão possa ser ignorado ou considerado pequeno em comparação com o seu erro padrão.
+O problema com os estimadores de calibração quando os tamanhos das amostras são pequenos vem do fato de que seu vício pode se tornar importante, em relação à sua variância. É bem conhecido, por exemplo, que os estimadores de razão são tendenciosos e que o vício é da ordem $(n-1)$ (ver @Cochran1977, páginas 160-162). O estimador de razão é um caso especial do estimador de calibração quando o vetor $\bf x$ inclui uma única variável contínua $x$, nenhum termo de intercepto é incluído, e as constantes $q_k$ são ajustadas para $q_k = 1 / x_k$ (assumindo que $x_k> 0\,\, \forall k$). Recomenda-se que os estimadores de razão sejam usados somente para amostras de tamanhos grandes o suficiente para que o vício seja desprezível. @Sarndal1992, página 251, sugerem que amostras de tamanho 20 ou mais devem ser suficientes para que isso aconteça. @Cochran1977, página 162, sugere que o coeficiente de variação do estimador de HT do total da variável $x$, $CV(\widehat T_x$), deve ser menor que 0,1 (10%) para que o vício do estimador de razão possa ser ignorado ou considerado pequeno em comparação com o seu erro padrão.
 
 Apesar dessas conhecidas 'regras práticas' ou limitações que devem impedir que os estimadores de razão sejam usados com amostras muito pequenas, software moderno torna fácil estimar a razão e outros estimadores de calibração para amostras de qualquer tamanho, muitas vezes sem qualquer aviso de que tamanhos de amostra podem ser insuficientes para garantir a utilização segura. Isso deixa espaço para aplicações em que nem mesmo precauções mínimas sejam tomadas, como essa de verificar se o tamanho da amostra é adequado. Nos casos em que os tamanhos das amostras são muito pequenos, as estimativas de calibração podem estar sujeitas não apenas à grande variação (como esperado devido ao pequeno tamanho da amostra), mas também a um vício perceptível. Os usuários de estimadores de calibração são encorajados a evitar a aplicação da técnica quando os tamanhos das amostras são muito pequenos. Até o momento, não foram desenvolvidas regras simples de segurança em relação ao tamanho mínimo das amostras para a família geral de estimadores de calibração. No entanto, pode-se pelo menos sugerir que as mesmas regras aplicáveis à estimativa de razão simples devem ser satisfeitas antes de aplicar alguma outra forma de estimativa de calibração.
 
@@ -355,7 +355,7 @@ $$
 LI\le g_k \le LS\,\,\forall k \in s, \text{com}\,\, 0<LI<1<LS\,\,(\#eq:eqcal26)
 $$
 
-Esta é a abordagem adotada no desenvolvimento do *GES (Generalized Estimation System)* pelo Statistics Canada (ver @Estevao1995). 
+Esta é a abordagem adotada no desenvolvimento do *Generalized Estimation System - GES* pelo Statistics Canada (ver @Estevao1995). 
 
 Este problema corresponde à minimização de uma função quadrática \@ref(eq:eqcal24) sob restrições de limite linear \@ref(eq:eqcal25) e (não linear) \@ref(eq:eqcal26). A solução do problema é obtida por *métodos não lineares de otimização*. 
 
@@ -363,7 +363,7 @@ O sistema *GES* tenta resolver esse problema usando um algoritmo eficiente, mas 
 
 O sistema *GES* inclui, além da determinação dos pesos de calibração, estimação de totais, médias e razões, global e para domínios, juntamente com suas correspondentes variâncias para desenhos de amostragem estratificada ou de conglomeração com um único estágio. 
 
-Os estatísticos que procuram uma ferramenta computacional para implementar a calibração devem dar a devida consideração a este pacote. Uma desvantagem é a sua dependência do software estatístico *SAS (Statistical Analysis System)*, o que torna esta uma opção razoavelmente cara. Se o SAS já estiver disponível, o licenciamento de GES pelo Statistics Canada não é proibitivo para a maioria das agências de estatística, e custaria muito menos do que o desenvolvimento de um software equivalente.
+Os estatísticos que procuram uma ferramenta computacional para implementar a calibração devem dar a devida consideração a este pacote. Uma desvantagem é a sua dependência do software estatístico *Statistical Analysis System - SAS*, o que torna esta uma opção razoavelmente cara. Se o SAS já estiver disponível, o licenciamento de GES pelo Statistics Canada não é proibitivo para a maioria das agências de estatística, e custaria muito menos do que o desenvolvimento de um software equivalente.
 
 Outra implementação da abordagem acima está disponível no *BASCULA*, que é um sistema desenvolvido pelo Statistics Netherlands (veja @Nieuwenbroek2002). A principal diferença entre o GES e o BASCULA é o algoritmo usado para calcular os pesos de calibração. 
 
@@ -466,7 +466,7 @@ Observe que a função de calibração 7 corresponde à função número 1 da Ta
 
 Um algoritmo para calcular os pesos de calibração proposto por @Deville1992 pode ser especificado com a seguinte sequência de etapas: 
 
-*Passo 1:* Calcule os erros de calibração para o estimador de $HT$ para as variáveis auxiliares consideradas: ${\bf T}_x - {\bf \widehat T}_x$. 
+*Passo 1:* Calcule os erros de calibração para o estimador de HT para as variáveis auxiliares consideradas: ${\bf T}_x - {\bf \widehat T}_x$. 
 
 *Passo 2:* Para a função de calibração $F(·)$ escolhida, resolva as Equações \@ref(eq:eqcal29) requeridas para determinar o *multiplicador de Lagrange* ${\bf  λ}$.
 
@@ -516,7 +516,7 @@ Os pesos de calibração e estimadores correspondentes obtidos como resultado de
 
 •	Os *totais são calibrados* para as variáveis auxiliares: ${\bf T}_x - {\bf \widehat T}_x$
 
-•	*Integração*: os estimadores de pós-estratificação, razão, GREG e 'raking' (como os usados para ponderar pessoas no UK-LFS) são todos casos particulares de estimadores de calibração. 
+•	*Integração*: os estimadores de pós-estratificação, razão, GREG e 'raking' (como os usados para ponderar pessoas na UK-LFS) são todos casos particulares de estimadores de calibração. 
 
 @Deville1992 demonstraram que membros dessa classe de estimadores de calibração possuem propriedades assintóticas idênticas àquelas dos estimadores GREG baseados no mesmo conjunto de variáveis auxiliares. 
 
@@ -526,7 +526,7 @@ O estimador de calibração resultante do algoritmo *não é mais eficiente* que
 
 Os estimadores de calibração deste tipo foram implementados na Macro *CALMAR* em SAS do INSEE (ver @Sautory2003). Este programa executa apenas o cálculo de peso, mas uma variante denominada CALJACK foi desenvolvida no Statistics Canada (ver @Bernier1994) que inclui a estimativa de variância de Jackknife para totais, médias, razões e diferenças destes. O CALMAR também requer o SAS, mas uma implementação mais recente (mas limitada) do método está disponível: a Macro *g-CALIB-S*, desenvolvida na Statistics Belgium, é executada no SPSS @Vanderhoeft2000. As funções *calibrate, postStratify* e *rake* do pacote *survey* do sistema $R$ (ver @Lumley2010) também têm o método implementado.
 
-A estimação por calibração como agora estendida fornece as ferramentas para tentar *resolver o problema de pesos negativos*, o que pode ser evitado escolhendo as funções de calibração 2 a 7 na Tabela \#tab:tabcalib5. Também dá algum *controle sobre o problema de pesos extremos ou pesos menores que 1*, o que pode ser evitado escolhendo as funções de calibração 6 ou 7, usando $LI=1/\min \{d_k,\,\,k \in s\}$ e especificando algum $LS$ adequado. 
+A estimação por calibração como agora estendida fornece as ferramentas para tentar *resolver o problema de pesos negativos*, o que pode ser evitado escolhendo as funções de calibração 2 a 7 na Tabela \@ref(tab:tabcalib5). Também dá algum *controle sobre o problema de pesos extremos ou pesos menores que 1*, o que pode ser evitado escolhendo as funções de calibração 6 ou 7, usando $LI=1/\min \{d_k,\,\,k \in s\}$ e especificando algum $LS$ adequado. 
 
 No entanto, vários dos problemas discutidos anteriormente permanecem sem solução.
 
@@ -538,7 +538,7 @@ Outra fonte de dificuldades para o uso de estimadores de regressão (ou calibra�
 
 O problema muitas vezes é agravado pelo fato de que o número de variáveis de pesquisa também pode ser grande. Neste caso, embora o cálculo dos pesos de calibração seja realizado apenas uma vez (os pesos não dependem das variáveis $y$), a adequação dos modelos subjacentes que fornecem as condições para que os estimadores de calibração tenham um bom desempenho (no sentido de fornecer resíduos com pequena variação) deve ser verificada. Em alguns casos, essa tarefa pode se tornar grande demais para ser viável dentro de cronogramas apertados de produção que as pesquisas típicas devem adotar. Por esse motivo, os usuários são alertados contra a tentativa de executar a calibragem em níveis detalhados demais no sentido de envolver muitos grupos de modelos. Quanto mais grupos de modelos forem considerados para a calibração, mais recursos deverão ser dedicados à validação do modelo e análise das estimativas de calibração resultantes.
 
-Essa discussão se assemelha à comparação de estimadores de razão separada e combinada. Estimadores de razão separada são estimadores de calibração onde a calibração é realizada para os totais conhecidos no nível do estrato (grupo modelo). Os estimadores de razão combinada envolvem a calibração apenas no nível agregado (para a amostra como um todo ou para alguns grupos mais amplos formados a partir de conjuntos de estratos agrupados). @Cochran1977, p. 167, argumenta que 'o uso de uma estimativa de razão separada em cada estrato provavelmente será mais preciso se a amostra em cada estrato for grande o suficiente para que a fórmula aproximada para a variância do estimador de razão separada seja válida, e o vício cumulativo que pode afetar o estimador de razão separada é insignificante. Com apenas uma pequena amostra em cada estrato, o estimador de razão combinada deve ser recomendado, a menos que exista uma boa evidência empírica em contrário.' Sugerimos que esse conselho também seja aplicado a estimadores de calibração em geral.
+Essa discussão se assemelha à comparação de estimadores de razão separada e combinada. Estimadores de razão separada são estimadores de calibração onde a calibração é realizada para os totais conhecidos no nível do estrato (grupo modelo). Os estimadores de razão combinada envolvem a calibração apenas no nível agregado (para a amostra como um todo ou para alguns grupos mais amplos formados a partir de conjuntos de estratos agrupados). @Cochran1977, página 167, argumenta que 'o uso de uma estimativa de razão separada em cada estrato provavelmente será mais preciso se a amostra em cada estrato for grande o suficiente para que a fórmula aproximada para a variância do estimador de razão separada seja válida, e o vício cumulativo que pode afetar o estimador de razão separada é insignificante. Com apenas uma pequena amostra em cada estrato, o estimador de razão combinada deve ser recomendado, a menos que exista uma boa evidência empírica em contrário.' Sugerimos que esse conselho também seja aplicado a estimadores de calibração em geral.
 
 ### Grande número de variáveis auxiliares {#gvaraux}
 
@@ -552,9 +552,9 @@ Uma solução alternativa usando *inversa generalizada* de matrizes foi implemen
 
 @Bankier1989 e @Bankier1992 também propuseram o descarte de variáveis auxiliares *quase linearmente dependentes* para controlar a variação de peso, mantendo a função de distância padrão do tipo 1. Essa solução leva à perda de calibração de variáveis $x$ descartadas, bem como não permite controlar sobre quais variáveis $x$ teriam calibração.
 
-Um problema adicional encontrado quando um número muito grande de variáveis auxiliares são consideradas na calibração é o aumento potencial do erro quadrático médio (MSE) do estimador de calibração resultante. 
+Um problema adicional encontrado quando um número muito grande de variáveis auxiliares são consideradas na calibração é o aumento potencial do erro quadrático médio - EQM do estimador de calibração resultante. 
 
-@Silva1996, cap. 4, e @Silva1997 mostraram que, às vezes, um grande número de variáveis auxiliares pode realmente reduzir a eficiência do estimador de calibração (regressão) para tamanhos de amostra pequenos a moderados. Por exemplo, em amostragem aleatória simples sem reposição (AAS) e assumindo o modelo definido em \@ref(eq:eqcal10) com $q_k = 1$ para cada $k$, @Silva1996, p. 45, mostrou que: 
+@Silva1996, capítulo 4, e @Silva1997 mostraram que, às vezes, um grande número de variáveis auxiliares pode realmente reduzir a eficiência do estimador de calibração (regressão) para tamanhos de amostra pequenos a moderados. Por exemplo, em amostragem aleatória simples sem reposição (AAS) e assumindo o modelo definido em \@ref(eq:eqcal10) com $q_k = 1$ para cada $k$, @Silva1996, página 45, mostrou que: 
 
 $$
 EQM_{AAS+M}(\widehat T_{y_j}^C/N) = \left(\frac{1}{n} - \frac{1}{N}\right)\sigma_j^2\left(1 + \frac{Z}{n}\right) + O\left(n^{-5/2}\right) \,\,(\#eq:eqcal37)
@@ -621,11 +621,11 @@ Até agora, discutimos a estimativa de calibração sob a hipótese de observaç
 
 Quando a não resposta é ‘*ignorável*’ ou ‘*completamente ao acaso*’, o seu efeito sobre estimadores é *aumentar a variância* devido à redução do tamanho da amostra. Neste caso, a *compensação da não resposta* costuma ser feita por ajustamentos simples dos pesos usados para estimação. Porém, na prática, não resposta nunca é ‘completamente ao acaso’. 
 
-Uma importante nova questão trazida pela não resposta é a do vício. Os *estimadores de $HT$ usuais* (ponderado pelo inverso de $\pi$) *serão viciados* a menos que a não resposta seja completamente aleatória, e mesmo nesta situação improvável, a estimativa dos totais requer pelo menos algum ajuste simples para compensar a perda de unidades da amostra devido a não resposta.
+Uma importante nova questão trazida pela não resposta é a do vício. Os *estimadores de HT usuais* (ponderado pelo inverso de $\pi$) *serão viciados* a menos que a não resposta seja completamente aleatória, e mesmo nesta situação improvável, a estimativa dos totais requer pelo menos algum ajuste simples para compensar a perda de unidades da amostra devido a não resposta.
 
 A calibração é uma abordagem útil para tentar *reduzir o vício* causado pela não resposta. @Lundstrom1997 e @Lundstrom1999 até sugerem a 'calibração como um método padrão para o tratamento da não resposta'. Os estimadores de calibração são aproximadamente não viciados se houver resposta completa, para qualquer escolha fixa de variáveis auxiliares. Sob a não resposta, no entanto, os estimadores de calibração podem ser viciados, mesmo em grandes amostras.
 
-Novo critério para avaliar eficiência do estimador é necessário quando o *vício* do estimador $HT$ *não é ignorável* quando ocorre não resposta. A ideia básica é considerar:
+Novo critério para avaliar eficiência do estimador é necessário quando o *vício* do estimador HT *não é ignorável* quando ocorre não resposta. A ideia básica é considerar:
 
 $$
 EQM\left(\widehat T_{y_j}^C\right) = V\left(\widehat T_{y_j}^C\right) + B^2\left(\widehat T_{y_j}^C\right)\,\,(\#eq:eqcal41)
@@ -649,9 +649,9 @@ A *redução de vício* pretendida por calibração somente será alcançada, no
 
 Alternativamente, o vício se anula quando ${\bf {c}}'{\bf {x}}_k=1/r_k\,\, \forall\, k \in U$,  sendo ${\bf {c}}$ um vetor de constantes.
 
-Isto sugere que a escolha das variáveis $x$ a serem consideradas para a calibração deve levar em conta os prováveis efeitos da não resposta e, em particular, deve-se incorporar todas as variáveis $x$ para as quais dados populacionais auxiliares estão disponíveis e que contêm informações sobre as probabilidades desconhecidas de responder à pesquisa. Sob um modelo simplificado onde $\delta_k$ denota a probabilidade de que uma unidade responderá à pesquisa, dado que ela é selecionada na amostra, e a resposta é independente para unidades distintas, uma condição para o estimador de calibração ser aproximadamente não viciado sob a amostragem conjunta e distribuição de resposta é que $\delta_k^{-1}=1+q_k{\bf x}_k{\bf  λ}$, para todo $k$ e algum vetor de constantes ${\bf  λ}$ (ver @Lundstrom1997, p. 46). No entanto, como os pesos de calibração $w_k$ são sempre da forma $w_k=d_kF(q_k{\bf x}_k{\bf  λ})$ (ver Equação \@ref(eq:eqcal36)). É fácil ver que a calibração levará a estimativas aproximadamente não viciadas quando $w_k=d_k\delta_k^{-1}$, uma condição que depende tanto da escolha das variáveis $x$ quanto da forma da função de distância (ou calibração) usada para obter os pesos de calibração.
+Isto sugere que a escolha das variáveis $x$ a serem consideradas para a calibração deve levar em conta os prováveis efeitos da não resposta e, em particular, deve-se incorporar todas as variáveis $x$ para as quais dados populacionais auxiliares estão disponíveis e que contêm informações sobre as probabilidades desconhecidas de responder à pesquisa. Sob um modelo simplificado onde $\delta_k$ denota a probabilidade de que uma unidade responderá à pesquisa, dado que ela é selecionada na amostra, e a resposta é independente para unidades distintas, uma condição para o estimador de calibração ser aproximadamente não viciado sob a amostragem conjunta e distribuição de resposta é que $\delta_k^{-1}=1+q_k{\bf x}_k{\bf  λ}$, para todo $k$ e algum vetor de constantes ${\bf  λ}$ (ver @Lundstrom1997, página 46). No entanto, como os pesos de calibração $w_k$ são sempre da forma $w_k=d_kF(q_k{\bf x}_k{\bf  λ})$ (ver Equação \@ref(eq:eqcal36)). É fácil ver que a calibração levará a estimativas aproximadamente não viciadas quando $w_k=d_k\delta_k^{-1}$, uma condição que depende tanto da escolha das variáveis $x$ quanto da forma da função de distância (ou calibração) usada para obter os pesos de calibração.
 
-**(#exm:exmcalib2)** Um exemplo em que esta questão pode ser bem ilustrada vem da ponderação realizada para a pesquisa de força de trabalho do Reino Unido (UK Labour Force Survey / UK-LFS) (ver @ONS2001, seção 9). A não resposta foi da ordem de 22% na primavera de 1998, sendo 16% de recusas e 6% de 'falhas de contacto'. Há evidência de *não resposta diferencial detectada* usando estudo de ligação com dados do Censo de 1991 (@ONS2001). A tabela \@ref(tab:tabcalib6) ilustra grupos sub-representados e super-representados na UK-LFS. 
+**(#exm:exmcalib2)** Um exemplo em que esta questão pode ser bem ilustrada vem da ponderação realizada para a pesquisa de força de trabalho do Reino Unido (UK-LFS) (ver @ONS2001, seção 9). A não resposta foi da ordem de 22% na primavera de 1998, sendo 16% de recusas e 6% de 'falhas de contacto'. Há evidência de *não resposta diferencial detectada* usando estudo de ligação com dados do Censo de 1991 (@ONS2001). A tabela \@ref(tab:tabcalib6) ilustra grupos sub-representados e super-representados na UK-LFS. 
 
 <table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <caption>(\#tab:tabcalib6)Identificação dos grupos sub-representados e super-representados na pesquisa de força de trabalho do Reino Unido</caption>
@@ -701,9 +701,9 @@ A não resposta diferencial na UK-LFS depende de características como: composi�
 
 Nesta pesquisa, a ponderação leva em conta a *região de residência* (17 Regiões ou 454 Autoridades Locais), a *idade* (11 faixas etárias para jovens e 17 faixas de 5 anos) e o *sexo* dos indivíduos amostrados. Estas são variáveis para as quais há informações disponíveis de qualidade aceitável para os totais populacionais. 
 
-O número de variáveis $x$ usadas para a calibração é razoavelmente grande (1.002) e a função de distância escolhida é do tipo 2 na Tabela \#tab:tabcalib4, correspondendo aos pesos obtidos pelo 'raking ratio estimator'. No entanto, um estudo sobre a incidência de não resposta nesta pesquisa mostrou que a não resposta não é completamente aleatória, conforme indicado na tabela da página 43 do UK-LFS User Guide (@ONS2001). 
+O número de variáveis $x$ usadas para a calibração é razoavelmente grande (1.002) e a função de distância escolhida é do tipo 2 na Tabela \@ref(tab:tabcalib4), correspondendo aos pesos obtidos pelo 'raking ratio estimator'. No entanto, um estudo sobre a incidência de não resposta nesta pesquisa mostrou que a não resposta não é completamente aleatória, conforme indicado na tabela da página 43 do UK-LFS User Guide (@ONS2001). 
 
-Claramente, então, pode-se ver que a calibração apenas na idade, sexo e região, como é atualmente o caso, não pode esperar eliminar todo o vício devido à não resposta. Não é o número de variáveis $x$ que importa, mas sim as variáveis $x$ corretas! Claro que isso é mais fácil falar do que fazer, e no caso do UK-LFS, claramente há dificuldades. Por exemplo, se a não resposta for dependente da situação ocupacional, pode-se tentar testar e calibrar informações externas fornecidas por fontes baseadas em registros, como a 'claimant count'. Para muitas das outras variáveis, no entanto, informações confiáveis de população auxiliar podem estar indisponíveis, difíceis ou custosas de serem obtidas.
+Claramente, então, pode-se ver que a calibração apenas na idade, sexo e região, como é atualmente o caso, não pode esperar eliminar todo o vício devido à não resposta. Não é o número de variáveis $x$ que importa, mas sim as variáveis $x$ corretas! Claro que isso é mais fácil falar do que fazer, e no caso da UK-LFS, claramente há dificuldades. Por exemplo, se a não resposta for dependente da situação ocupacional, pode-se tentar testar e calibrar informações externas fornecidas por fontes baseadas em registros, como a 'claimant count'. Para muitas das outras variáveis, no entanto, informações confiáveis de população auxiliar podem estar indisponíveis, difíceis ou custosas de serem obtidas.
 
 A mensagem aqui é que não é suficiente calibrar 'tudo o que está disponível' para estar livre de vícios. Ainda mais, @Gambino1999 sugere que, em alguns casos, a calibração pode até piorar, e argumenta que 'é bem sabido que, em muitas pesquisas, os jovens do sexo masculino tendem a não ser entrevistados proporcionalmente. Como as estimativas demográficas por idade-sexo são normalmente usadas na calibração, o efeito é aumentar os pesos dos jovens do sexo masculino que respondem à pesquisa. Se, para algumas variáveis de interesse, os jovens do sexo masculino que tendem a se tornar respondentes diferem substancialmente dos jovens do sexo masculino que tendem a não responder ..., então o efeito da calibração é dar mais peso a um componente não representativo da amostra'. Suponhamos que soubéssemos que os jovens do sexo masculino que mais tarde seriam não investigados são aqueles que moram sozinhos, e aqueles que são mais propensos a responder são aqueles que vivem com os pais ou a família. Portanto, a ponderação deve ter como objetivo aumentar os pesos daqueles no primeiro grupo (jovens do sexo masculino vivendo sozinhos), mas não daqueles do segundo grupo (vivendo com a família). A informação crucial que precisaríamos fazer seria o total da população por idade e sexo e composição do domicílio (domicílios de uma única pessoa versus outros domicílios). Se esta informação não estiver disponível, ainda há algum recurso limitado a ser usado. A ponderação pode ser realizada ao nível do domicílio e não ao nível individual. Portanto, os jovens do sexo masculino que moram sozinhos teriam pesos que dependem do tipo de domicílio em que vivem, mas essa não seria a correção de vício que estaríamos almejando, apenas o melhor substituto dada a disponibilidade dos dados.
 
@@ -939,14 +939,14 @@ $$
 
 Num cenário ideal este indicador terá valor nulo, quando a calibração for bem sucedida em eliminar os erros de calibração para todas as variáveis auxiliares. Mas isto pode não ocorrer se algumas das variáveis $x$ forem descartadas durante o processo de determinação dos pesos de calibração ou se algumas das abordagens que não levam à calibração exata forem adotadas. 
 
-Um segundo indicador que pode ajudar a avaliar o potencial de vício do estimador de calibração é a média dos coeficientes de variação dos estimadores $HT$ para totais das variáveis auxiliares $x$, a saber:
+Um segundo indicador que pode ajudar a avaliar o potencial de vício do estimador de calibração é a média dos coeficientes de variação dos estimadores HT para totais das variáveis auxiliares $x$, a saber:
 
 $$
 IQ2 = 100 \times \frac{1}{Z}\sum_{j=1}^{Z}\left[{\widehat V}_p\left({\widehat T}_{x_j}\right)\right]^{1/2}/{\widehat T}_{x_j} \,\,(\#eq:eqcal45)
 $$
 
 onde:
-${\widehat V}_p\left({\widehat T}_{x_j}\right)$ é uma estimativa da variância do estimador $HT$ para o total da $j$-ésima variável auxiliar, obtida por: 
+${\widehat V}_p\left({\widehat T}_{x_j}\right)$ é uma estimativa da variância do estimador HT para o total da $j$-ésima variável auxiliar, obtida por: 
 
 $$
 {\widehat V}_p\left({\widehat T}_{x_j}\right) = \sum_{k \in s}\sum_{i \in s}\left(1 - \pi_k\pi_i/\pi_{ki}\right)\left(d_kx_{kj}\right)\left(d_ix_{ij}\right)\,\,(\#eq:eqcal46)
@@ -982,9 +982,9 @@ $$
 IQ6 = \frac{1}{n-Z}\sum_{k \in s}\left(w_k - d_k\right)^2\big/q_kd_k= \frac{1}{n-Z}\sum_{k \in s}d_k(g_k - 1)^2/q_k\,\,(\#eq:eqcal50)
 $$
 
-Observe que normalizamos essa distância dividindo a função de distância de calibração pelo tamanho da amostra, para facilitar a comparação entre amostras de tamanhos diferentes. Outra possibilidade seria dividir pelo tamanho da amostra menos o número de variáveis $x$ consideradas, o que permitiria conjuntos de variáveis auxiliares de tamanhos diferentes. Sugerimos que a função de distância qui-quadrado seja usada mesmo quando a função de distância que foi minimizada para obter os pesos de calibração é uma das outras funções na Tabela \#tab:tabcalib4.
+Observe que normalizamos essa distância dividindo a função de distância de calibração pelo tamanho da amostra, para facilitar a comparação entre amostras de tamanhos diferentes. Outra possibilidade seria dividir pelo tamanho da amostra menos o número de variáveis $x$ consideradas, o que permitiria conjuntos de variáveis auxiliares de tamanhos diferentes. Sugerimos que a função de distância qui-quadrado seja usada mesmo quando a função de distância que foi minimizada para obter os pesos de calibração é uma das outras funções na Tabela \@ref(tab:tabcalib4).
 
-Também é de interesse avaliar a *eficiência média* obtida em comparação com o estimador $HT$ para algum conjunto de variáveis de pesquisa. Isso pode ser feito comparando a eficiência média de um conjunto especificado de variáveis $y$, dadas por:
+Também é de interesse avaliar a *eficiência média* obtida em comparação com o estimador HT para algum conjunto de variáveis de pesquisa. Isso pode ser feito comparando a eficiência média de um conjunto especificado de variáveis $y$, dadas por:
 
 $$
 IQ7 = 100 \times \frac{1}{J}\sum_{j=1}^{J}{\widehat V}_g\left({\widehat T}_{y_j}^C\right)/{\widehat V}_p\left({\widehat T}_{y_j}\right)\,\,(\#eq:eqcal51)
@@ -1055,4 +1055,4 @@ Embora esse valor seja reconhecido, incentivamos os usuários a criticar o resul
 
 A calibração não deve ser usada para 'disfarçar' resultados de pesquisas com viés, nos quais a cobertura e o vício de não resposta são 'cobertos' por meio de calibração simples para os totais de população conhecidos. Os usuários da técnica devem, acima de tudo, procurar ser transparentes sobre a aplicação da metodologia e da avaliação de seu sucesso, a fim de proporcionar aos usuários dos resultados da pesquisa a possibilidade de exercer uma avaliação crítica da adequação à finalidade do resultado das estatísticas produzidas com estimadores de calibração.
 
-Finalmente, encorajaríamos os produtores de dados que optassem por adotar a estimação de calibração em pesquisas onde os arquivos de microdados seriam liberados, para fornecer aos usuários as informações necessárias para que eles fizessem o uso adequado dos dados, no sentido de serem capazes de calcular as estimativas da variância corretamente. Isso é muito mais desafiador do que quando os estimadores $HT$ usuais são usados, diante do fato que as informações sobre o conjunto completo de variáveis $x$ usadas para calibração também devem ser liberadas juntamente com os pesos $d$ originais e os pesos $w$ finais para cada registro da pesquisa. Uma investigação cuidadosa ainda é necessária sobre a melhor forma de atingir esse objetivo sem sacrificar as restrições necessárias para a proteção da confidencialidade.
+Finalmente, encorajaríamos os produtores de dados que optassem por adotar a estimação de calibração em pesquisas onde os arquivos de microdados seriam liberados, para fornecer aos usuários as informações necessárias para que eles fizessem o uso adequado dos dados, no sentido de serem capazes de calcular as estimativas da variância corretamente. Isso é muito mais desafiador do que quando os estimadores HT usuais são usados, diante do fato que as informações sobre o conjunto completo de variáveis $x$ usadas para calibração também devem ser liberadas juntamente com os pesos $d$ originais e os pesos $w$ finais para cada registro da pesquisa. Uma investigação cuidadosa ainda é necessária sobre a melhor forma de atingir esse objetivo sem sacrificar as restrições necessárias para a proteção da confidencialidade.

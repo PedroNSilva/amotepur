@@ -133,7 +133,7 @@ Na=480
 Nas duas seções seguintes tratamos do problema da estimação desses parâmetros populacionais a partir dos dados de amostras aleatórias simples retiradas da população de interesse com e sem reposição, respectivamente.
 
 
-## Estimação sob Amostragem Aleatória Simples com reposição - *AASC*
+## Estimação sob Amostragem Aleatória Simples Com Reposição - *AASC*
 
 Seja $s$ uma *AASC* de tamanho $n$ selecionada de uma população composta de $N$ unidades, onde se observa uma variável indicadora $y$ como definida na seção anterior. Pode-se obter estimadores para os parâmetros populacionais de $y$ adaptando os estimadores gerais de total e média apresentados no capítulo anterior.
 
@@ -210,7 +210,7 @@ $\displaystyle V_{AASC}(\widehat N_A)=N^2{p(1-p)}/{n}$ $\displaystyle\widehat V_
 </center>
 
 
-## Estimação sob Amostragem Aleatória Simples sem reposição - *AAS*
+## Estimação sob Amostragem Aleatória Simples Sem Reposição - *AAS*
 
 No caso de uma amostra $s$ obtida por seleção do tipo *AAS*, as expressões da soma amostral $t_y$, da proporção amostral $\widehat p$ e da variância amostral $s^2_y$ têm a mesma forma já apresentada acima para amostras obtidas por *AASC*. Em consequência, também são idênticos os estimadores para o total populacional $N_A$ e a proporção populacional $p$. Entretanto, uma diferença é que no caso da *AAS* a variância amostral $s^2_y$ é um estimador não viciado para $S^2_y$ e não para $\sigma^2_y$. Também são diferentes as expressões para as variâncias dos estimadores amostrais e seus correspondentes estimadores não viciados.
 
@@ -564,7 +564,7 @@ $$
 \frac {\widehat p - p} {\sqrt {V_{p(s)}(\widehat p)}} \approx N(0,1)(\#eq:eqpro28) 
 $$
 
-A Figura \@ref(fig:figprop1) mostra o histograma construído a partir dos valores estimados da proporção $p$ de unidades com uma determinada caracterísitca de interesse, a partir de $1000$ amostras aleatórias simples de tamanho $n=100$, selecionadas com reposição, de uma população de tamanho $N=5000$, onde exatamente metade das unidades tem a caracterísitica de interesse ($p=1/2$). Para construir O histograma, os $1000$ valores de $\widehat p$ foram normalizados utilizando-se a equação \@ref(eq:eqpro28). Finalmente o histograma foi sobreposto pelo gráfico da distribuição $N(0,1)$, mostrando que esta se assemelha à distribuição do estimador $\widehat p$.
+A Figura \@ref(fig:figprop1) mostra o histograma construído a partir dos valores estimados da proporção $p$ de unidades com uma determinada característica de interesse, a partir de $1.000$ amostras aleatórias simples de tamanho $n=100$, selecionadas com reposição, de uma população de tamanho $N=5.000$, onde exatamente metade das unidades tem a característica de interesse ($p=1/2$). Para construir O histograma, os $1.000$ valores de $\widehat p$ foram normalizados utilizando-se a equação \@ref(eq:eqpro28). Finalmente o histograma foi sobreposto pelo gráfico da distribuição $N(0,1)$, mostrando que esta se assemelha à distribuição do estimador $\widehat p$.
 <center>
 <div class="figure">
 <img src="05-proporcoes_files/figure-html/figprop1-1.png" alt="Aproximação Normal da distribuição do estimador de ***p*** no caso de *AASC*" width="672" />
@@ -604,7 +604,7 @@ Tanto nos casos de seleção com ou sem reposição pode-se considerar que as ap
                              
  0,10         60     600       
                              
- 0,05         70     1400      
+ 0,05         70     1.400      
                              
  $\doteq 0$   80     $\infty$  
 
@@ -921,12 +921,12 @@ No caso da estimação de proporções o valor de $p(1-p)$ é limitado variando 
 Como o valor máximo de $S_y^2\doteq \sigma _y^2=p(1-p)$, que é a maior variabilidade da variável de interesse, é atingido quando $p=0,5$, caso não exista nenhuma informação sobre o a proporção a ser estimada, uma maneira de determinar um tamanho de amostra conservador é supor exatamente que $p=0,5$. Assim pode-se simplificar a fórmula de cálculo de $n$ para uma *AASC*: 
 
 $$ 
-n \ge \frac {z^2_{\alpha /2}}{4d^2}(\#eq:eqpro39) 
+n \ge \frac {z^2_{\alpha /2}}{4D^2}(\#eq:eqpro39) 
 $$
 No caso de uma *AAS* basta fazer:
 
 $$
-n_0 = \frac {z^2_{\alpha /2}}{4d^2} \:\:\:\:\text{e}\:\:\:\:n \ge \frac {n_0}{1+n_0/N}(\#eq:eqpro40) 
+n_0 = \frac {z^2_{\alpha /2}}{4D^2} \:\:\:\:\text{e}\:\:\:\:n \ge \frac {n_0}{1+n_0/N}(\#eq:eqpro40) 
 $$
 
 Geralmente os resultados das fórmulas para cálculo do tamanho da amostra não são valores inteiros. Em todos esses casos o valor de $n$ calculado deverá ser arredondado para o valor inteiro imediatamente superior, preservando assim a precisão desejada.
@@ -950,7 +950,7 @@ $$n\ge\frac {Np(1-p)}{ND^2 /{z^2_{\alpha /2}} + p(1-p)}$$
 options(scipen=8)
 # Item b
 # Especifica margem de erro
-(d <- 0.01)
+(D <- 0.01)
 ```
 
 ```
@@ -996,7 +996,7 @@ options(scipen=8)
 
 ```r
 # Calculando o tamanho da amostra, arredondando o valor de n para cima
-(n <- ceiling(N * p * q/(N*d^2/z2alfa^2 +  p * q)))
+(n <- ceiling(N * p * q/(N*D^2/z2alfa^2 +  p * q)))
 ```
 
 ```
@@ -1026,7 +1026,7 @@ options(scipen=8)
 
 ```r
 # Calculando o tamanho da amostra, arredondando o valor de n para cima
-(n <- ceiling(N * p * q/(N*d^2/z2alfa^2 +  p * q)))
+(n <- ceiling(N * p * q/(N*D^2/z2alfa^2 +  p * q)))
 ```
 
 ```
@@ -1052,20 +1052,20 @@ options(scipen=8)
 
 ```r
 # Calculando o tamanho da amostra,arredondando o valor de n para cima
-(n <- ceiling(N * p * q/(N*d^2/z2alfa^2 +  p * q)))
+(n <- ceiling(N * p * q/(N*D^2/z2alfa^2 +  p * q)))
 ```
 
 ```
 ## [1] 6358
 ```
 
-No caso de não existir nenhuma indicação sobre o valor de $p$, como no item $b$ do exemplo, deve-se tomar $n=7275$, supondo $p=0,5$. Já no item $c$, deve-se optar pelo maior tamanho de amostra necessário para suprir as exigências de precisão. Neste caso, como a informação é que $p$ deve estar no intervalo $[0,10 - 0,30]$ deve-se selecionar uma amostra de $n=6358$ domicílios. 
+No caso de não existir nenhuma indicação sobre o valor de $p$, como no item $b$ do exemplo, deve-se tomar $n=7.275$, supondo $p=0,5$. Já no item $c$, deve-se optar pelo maior tamanho de amostra necessário para suprir as exigências de precisão. Neste caso, como a informação é que $p$ deve estar no intervalo $[0,10 - 0,30]$ deve-se selecionar uma amostra de $n=6.358$ domicílios. 
 
-Sugere-se que o leitor refaça o exercício com uma margem de erro diferente, $d=0,03$ por exemplo, e observe o que acontece com os valores de $n$ calculados.
+Sugere-se que o leitor refaça o exercício com uma margem de erro diferente, $D=0,03$ por exemplo, e observe o que acontece com os valores de $n$ calculados.
 
 ### Cálculo do $n$ utilizando outras formas de representar o erro amostral
 
-As fómulas apresentadas para o cálculo do tamanho da amostra utilizaram a margem de erro $d$ como parâmetro de entrada, porém o erro amostral pode ser representado de outras maneiras. Pode-se defini-lo como o *coeficiente de variação*, como a *variância* ou como o *erro relativo* do estimador a ser calculado.
+As fómulas apresentadas para o cálculo do tamanho da amostra utilizaram a margem de erro $D$ como parâmetro de entrada, porém o erro amostral pode ser representado de outras maneiras. Pode-se defini-lo como o *coeficiente de variação*, como a *variância* ou como o *erro relativo* do estimador a ser calculado.
 
 Para calcular um tamanho de amostra de maneira que o coeficiente de variação máximo esperado para o estimador $\widehat p$ seja um valor fixado $c$, pode-se utilizar a fórmula:
 
@@ -1103,7 +1103,7 @@ Até o momento foi tratado o caso em que temos uma variável indicadora com duas
 
 Nesses casos, há interesse de estimar a proporção de unidades em cada uma das possíveis categorias e respectiva precisão.
 
-**(#exm:exmprop5)** Seja uma escola com 1000 alunos distribuídos entre as 9 etapas do ensino fundamental como na Tabela  \@ref(tab:tabprop4):
+**(#exm:exmprop5)** Seja uma escola com 1.000 alunos distribuídos entre as 9 etapas do ensino fundamental como na Tabela  \@ref(tab:tabprop4):
 
 <center>
 <table>
@@ -1130,7 +1130,7 @@ Etapa de ensino   Alunos    Proporção
                               
  9° ano          111       0,111    
                               
- **Total**       **1000**  **1,000**
+ **Total**      **1.000**  **1,000**
  
 ----------
 </center>
@@ -1191,13 +1191,13 @@ Vale notar que em \@ref(eq:eqpro48) tanto o numerador como o denominador do esti
 **(#exr:exrprop2)** Numa grande cidade, deseja-se estimar a proporção de habitantes que são favoráveis à instalação de uma usina térmica para geração de eletricidade numa área próxima a uma reserva biológica.
 
   a) Qual deve ser o tamanho de uma amostra aleatória para estimar essa proporção com uma margem de erro de 0,03, com um nível de confiança de 95%?
-  b) E se o mesmo problema fosse em uma pequena comunidade de $N=2000$ habitantes, qual deveria ser o tamanho da amostra, com o mesmo nível de precisão?
+  b) E se o mesmo problema fosse em uma pequena comunidade de $N=2.000$ habitantes, qual deveria ser o tamanho da amostra, com o mesmo nível de precisão?
   
 **(#exr:exrprop3)** Supondo que o valor da variância populacional, $S^2$, de uma determinada variável de interesse, $y$, é o mesmo nos três casos a seguir, qual dos planos amostrais apresentados abaixo tem maior precisão para estimar uma proporção populacional? Por que?
 
-  a) *AAS* de tamanho 400 de uma população de 4000;
+  a) *AAS* de tamanho 400 de uma população de 4.000;
   b) *AAS* de tamanho 30 de uma população de 300;
-  c) *AAS* de tamanho 3000 de uma população de 300000000.
+  c) *AAS* de tamanho 3.000 de uma população de 300.000.000.
   
 **(#exr:exrprop4)** Foi selecionada uma AAS de 30 unidades de uma população composta por 100 unidades. Uma variável de interesse, $y$, foi observada e os valores são: 8, 5, 2, 6, 6, 3, 8, 6, 10, 7, 15, 9, 15, 3, 5, 6, 7, 10, 14, 3, 4, 17, 10, 6, 14, 12, 7, 8, 12, 9.
 
@@ -1226,7 +1226,7 @@ Para cada um dos tamanhos de amostra considerados:
 
 **Nota:** Nesta questão, identifique a notação usada para representar os dados fornecidos e justifique as hipóteses e aproximações eventualmente efetuadas.
 
-**(#exr:exrprop8)** Uma amostra aleatória simples sem reposição de 290 domicílios foi selecionada em certa cidade que possui 14828 domicílios. Em cada domicílio da amostra investigou-se a condição da família que o habitava, se proprietária ou locatária, e também a existência ou não de pelos menos um quarto tipo suíte (com banheiro). Os resultados obtidos são mostrados na Tabela \@ref(tab:tabprop5).
+**(#exr:exrprop8)** Uma amostra aleatória simples sem reposição de 290 domicílios foi selecionada em certa cidade que possui 14.828 domicílios. Em cada domicílio da amostra investigou-se a condição da família que o habitava, se proprietária ou locatária, e também a existência ou não de pelos menos um quarto tipo suíte (com banheiro). Os resultados obtidos são mostrados na Tabela \@ref(tab:tabprop5).
 
 <center>
 <table>

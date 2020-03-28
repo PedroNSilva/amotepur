@@ -11,7 +11,7 @@ Neste capítulo, apresentamos as ideias centrais de como fazer *estimação para
 A primeira destas é simplesmente uma variável indicadora de pertinência ao domínio de interesse: seja $c_i$ a variável indicadora do domínio $c$, isto é: 
 
 $$
-c_i = I(i \in U_c) = \left\{\begin{array}{ll} 1 & \textrm{se} \,\,\,\,i \textrm{ pertence ao domínio ou classe}\,\, c\\ 0 & \textrm{caso contrário}\end{array}\right.\,\,\, 
+c_i = I(i \in U_c) = \left\{\begin{array}{ll} 1, & \textrm{se} \,\,i \textrm{ pertence ao domínio ou classe}\,\, c\\ 0, & \textrm{caso contrário}\end{array}\right.\,\,\, 
 $$
 onde $U_c \subset U$ denota a parte da população $U$ que forma o domínio $c$.
 
@@ -20,7 +20,7 @@ Denotamos por $N_c = \sum_{i\in U} c_i$ o tamanho do domínio $c$.
 A segunda variável derivada é formada simplesmente pelo produto de duas outras variáveis de pesquisa: $y_i$ e $c_i$, a saber:
 
 $$
-y_{ic} = y_i c_i = \left \{\begin{array}{ll} y_i & \textrm{se}\,\, i\in U_c\\ 0 & \textrm{caso contrário}\end{array}\right.\,\,\,
+y_{ic} = y_i c_i = \left \{\begin{array}{ll} y_i, & \textrm{se}\,\, i\in U_c\\ 0 ,& \textrm{caso contrário}\end{array}\right.\,\,\,
 $$
 
 onde $y$ é a variável de estudo cujos parâmetros se quer estimar para o domínio de interesse.
@@ -203,7 +203,7 @@ $$
 \widehat{Y}_c^R = N_c \overline {y}_c = N_c /n_c \sum_{i\in s} y_{ic} \,\, (\#eq:eqdom21)
 $$
 
-A variância condicional deste estimador, considerando fixado o tamanho da amostra no domínio $d$, é dada por:
+A variância condicional deste estimador, considerando fixado o tamanho da amostra no domínio $c$, é dada por:
 
 $$
 V_{AAS} \left(\widehat {Y}_c^R | \, n_c>0 \right) = N_c^2 \left( \frac 1 {n_c} - \frac {1} {N_c} \right) S_c^2 \,\, (\#eq:eqdom22)
@@ -215,7 +215,7 @@ $$
 \widehat V_{AAS} \left( \widehat{Y}_c^R | \, n_c>0 \right) = N_c^2 \left( \frac 1 {n_c} - \frac {1} {N_c} \right) s_c^2 \,\, (\#eq:eqdom23)
 $$
 
-A Tabela \@ref(tab:tabdom1) apresenta um resumo da estimação de parâmetros proporção, média e total do domínio $d$ sob AAS. 
+A Tabela \@ref(tab:tabdom1) apresenta um resumo da estimação de parâmetros proporção, média e total do domínio $c$ sob AAS. 
 <center>
 <table>
 <caption>(#tab:tabdom1)Parâmetros e respectivos estimadores de domínio sob AAS</caption>
@@ -575,16 +575,16 @@ $$
 
 onde $\gamma_c^2 = S_c^2 / \overline{Y}_c^2$ é a variância relativa da característica $y$ no domínio $c$.  
  
-Isto mostra que conhecer o valor de $N_d$ sempre melhora a eficiência do estimador de total do domínio $d$, e que a melhoria é maior quando $p_d$ é pequena. Essa expressão também torna evidente que, para domínios raros na população, isto é, aqueles com valores bem pequenos de $p_d$, o estimador do total do domínio $d$ para $N_d$ desconhecido é bem pouco preciso, devendo talvez indicar a necessidade de uso de plano amostral que favoreça a estimação de $Y_d$ com melhor precisão que uma AAS.  
+Isto mostra que conhecer o valor de $N_c$ sempre melhora a eficiência do estimador de total do domínio $c$, e que a melhoria é maior quando $p_c$ é pequena. Essa expressão também torna evidente que, para domínios raros na população, isto é, aqueles com valores bem pequenos de $p_c$, o estimador do total do domínio $c$ para $N_c$ desconhecido é bem pouco preciso, devendo talvez indicar a necessidade de uso de plano amostral que favoreça a estimação de $Y_c$ com melhor precisão que uma AAS.  
 
 ## Estimação de proporções dentro do domínio
 
-Em algumas situações práticas, o parâmetro de interesse é a proporção de unidades do domínio $d$ que possuem um atributo ou característica $A$. Por exemplo, quando se deseja estimar a proporção de mulheres de 10 anos ou mais que já tiveram pelo menos um filho, ou quando se procura estimar a proporção de homens de 18 anos ou mais que prestaram o serviço militar. Em casos como os acima citados, o problema é estimar proporções dos domínios da população: mulheres de 10 anos ou mais; e homens com 18 anos ou mais.
+Em algumas situações práticas, o parâmetro de interesse é a proporção de unidades do domínio $c$ que possuem um atributo ou característica $A$. Por exemplo, quando se deseja estimar a proporção de mulheres de 10 anos ou mais que já tiveram pelo menos um filho, ou quando se procura estimar a proporção de homens de 18 anos ou mais que prestaram o serviço militar. Em casos como os acima citados, o problema é estimar proporções dos domínios da população: mulheres de 10 anos ou mais; e homens com 18 anos ou mais.
  
 Nesses casos, a variável de pesquisa $y$ seria dada por:
 
 $$
- y_i = I(i \in A) = \left\{\begin{array}{ll} 1 & \textrm{se} \,\,\,\,i \textrm{ possui o atributo A},\,\,\\ 0 & \textrm{caso contrário.}\end{array}\right.\,\,\, 
+ y_i = I(i \in A) = \left\{\begin{array}{ll} 1, & \textrm{se} \,\,i \textrm{ possui o atributo A}\,\,\\ 0, & \textrm{caso contrário}\end{array}\right.\,\,\, 
 $$
 
 Na população como um todo, a proporção de unidades com atributo $A$ é definida como $p = N_A / N$, e a estimação desta proporção foi tratada no capítulo \@ref(proporc). Considere a notação a seguir.
@@ -640,7 +640,7 @@ Onde $\frac 1  {2n_c}$ é a correção de continuidade. Essa correção é, prat
 a) Que proporção da força de trabalho está desempregada?
 b) Qual o intervalo com 90% de confiança para essa proporção populacional? 
 
-**(#exr:exrdom2)** Um economista deseja estimar o gasto médio com alimentação das famílias com crianças em uma determinada localidade conhecida como uma área onde residem famílias pobres. Está disponível uma listagem com os endereços da 250 famílias que habitam a localidade, porém é impossível identificar nesse cadastro as famílias com crianças. Foi selecionada e pesquisada uma AAS de 50 famílias. Destas, 42 famílias têm pelo menos uma criança. Foi apurado que o total do gasto semanal com alimentos dessas 42 famílias foi de 1720 dolares e que a soma dos quadrados dos gastos dessas mesmas famílias foi de 72000.
+**(#exr:exrdom2)** Um economista deseja estimar o gasto médio com alimentação das famílias com crianças em uma determinada localidade conhecida como uma área onde residem famílias pobres. Está disponível uma listagem com os endereços da 250 famílias que habitam a localidade, porém é impossível identificar nesse cadastro as famílias com crianças. Foi selecionada e pesquisada uma AAS de 50 famílias. Destas, 42 famílias têm pelo menos uma criança. Foi apurado que o total do gasto semanal com alimentos dessas 42 famílias foi de 1.720 dólares e que a soma dos quadrados dos gastos dessas mesmas famílias foi de 72.000.
 
 a)  Estime a média semanal dos gastos com alimentação das famílias com criança da localidade.
 b)  Construa um intervalo de 95% de confiança para a média estimada.
@@ -700,9 +700,9 @@ d)  Construa um intervalo de 95% de confiança para o total estimado.
 ----------
 Tipo       $n$  $\sum  y_i$  $\sum x_i$  $\sum y_i^2$  $\sum x_i^2$  $\sum y_ix_i$
 -------- ----- ------------ ----------- ------------- ------------- --------------
-Pública     54        31281        2024      29881219       1110901        1729349
+Pública     54      31.281      2.024    29.881.219      1.110.901   1.729.349
 
-Privada     46        13707        1075       6366785         33119         431041
+Privada     46      13.707      1.075     6.366.785       33.119       431.041
 
 ----------
 </center>
@@ -734,8 +734,8 @@ d)  Repita o item c. utilizando as informações obtidas pelos dois dentistas.
 **(#exr:exrdom8)** Utilizando o arquivo dos municípios brasileiros, MunicBR_dat.rds, selecione uma AAS de 300 municípios. Utilizando as informações contidas nessa amostra:
 
 a)  Estime a área total de cada uma das 5 regiões brasileiras (N, NE, SE, S e CO) e calcule a estimativa do *CV* para cada caso.
-a)  Estime a proporção de municípios brasileiros com população menor que 10000 habitantes e respectivo erro padrão.
-c)  Estime a população total, para o Brasil, dos municípios com menos de 10000 habitantes e de um intervalo de 95% de confiança.
+a)  Estime a proporção de municípios brasileiros com população menor que 10.000 habitantes e respectivo erro padrão.
+c)  Estime a população total, para o Brasil, dos municípios com menos de 10.000 habitantes e de um intervalo de 95% de confiança.
 
 **(#exr:exrdom9)** Selecione uma amostra de 30 fazendas do arquivo fazendas_dat.rds e estime os seguintes parâmetros populacionais e respectivos erros padrão:
 
@@ -743,7 +743,7 @@ a) Razão entre Despesa e Receita para os estabelecimentos com área menor que 1
 b) Razão entre Despesa e Receita para os estabelecimentos com área igual ou maior que 100.
 c) As razões podem ser consideradas iguais ao nível de significância $\alpha=5\%$?
 
-**(#exr:exrdom10)** Uma granja tem um plantel de 10000 aves de 5 espécies diferentes. Foi selecionada uma AAS de 100 aves. A Tabela \@ref(tab:tabdom5) apresenta as contagens dos animais da amostra.
+**(#exr:exrdom10)** Uma granja tem um plantel de 10.000 aves de 5 espécies diferentes. Foi selecionada uma AAS de 100 aves. A Tabela \@ref(tab:tabdom5) apresenta as contagens dos animais da amostra.
 <center>
 <table>
 <caption>(#tab:tabdom5)Quantidade de aves na amostra por espécie</caption>

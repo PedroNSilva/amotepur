@@ -173,7 +173,7 @@ Quando o parâmetro de interesse é uma função de totais populacionais $\theta
  \widehat{\theta} = f(\widehat{Y_1}, \widehat{Y_2}, ..., \widehat{Y_K}) (\#eq:eqraz5)
 \end{equation}
 
-onde $\widehat{Y_k}$ é o estimador $HT$ do total populacional da variável de pesquisa $y_k$, para $k=1,...,K$.
+onde $\widehat{Y_k}$ é o estimador HT do total populacional da variável de pesquisa $y_k$, para $k=1,...,K$.
 
 Para o caso de *funções lineares*, o estimador resultante será dado por:
 
