@@ -4,7 +4,7 @@ Neste capítulo apresentamos dois métodos de amostragem de unidades elementares
 
 ## Amostragem Binomial ou de Bernoulli - AB {#binom}
 
-A *Amostragem Binomial ou de Bernoulli* (AB) oferece outra alternativa (pouco usada) à AAS, para selecionar diretamente unidades com *equiprobabilidade*. Trata-se de método de amostragem que também dispensa existência de cadastro prévio para seleção da amostra, podendo a amostra ser selecionada ao mesmo tempo que o cadastro vai sendo construído, como na amostragem sistemática simples.
+A *Amostragem Binomial ou de Bernoulli* - AB oferece outra alternativa (pouco usada) à AAS, para selecionar diretamente unidades com *equiprobabilidade*. Trata-se de método de amostragem que também dispensa existência de cadastro prévio para seleção da amostra, podendo a amostra ser selecionada ao mesmo tempo que o cadastro vai sendo construído, como na amostragem sistemática simples.
 
 ### Método de seleção da amostra
 
@@ -53,19 +53,19 @@ $$
 \widehat Y_{AB}^R = \frac{N\pi}{n}\widehat Y_{AB} = N\frac{1}{n}\sum_{i \in s}y_i = N\overline y\,\,(\#eq:eqbin4)
 $$ 
 
-Conforme @Sarndal1992 (p. 65), uma aproximação da variância desse estimador de razão do total é dada por:
+Conforme @Sarndal1992, página 65, uma aproximação da variância desse estimador de razão do total é dada por:
 
 $$
 V_{AB}(\widehat Y_{AB}^R) \doteq N^2 \left(\frac{1}{N \pi}-\frac{1}{N}\right)S_y^2\,\,(\#eq:eqbin5)
 $$  
 
-Esta variância é, portanto, aproximadamente igual à de uma AAS de tamanho igual a $N \pi$, que seria também o tamanho esperado da amostra sob AB. Ainda conforme @Sarndal1992 (p. 63), a variância do estimador simples do total pode ser reescrita como:
+Esta variância é, portanto, aproximadamente igual à de uma AAS de tamanho igual a $N \pi$, que seria também o tamanho esperado da amostra sob AB. Ainda conforme @Sarndal1992, página 63, a variância do estimador simples do total pode ser reescrita como:
 
 $$
 V_{AB}(\widehat Y_{AB}) = N^2\left(\frac{1}{N\pi} - \frac{1}{N}\right)S_y^2 \left[1 - \frac{1}{N} + \frac{1}{CV_y^2}\right]\,\,(\#eq:eqbin6)
 $$   
 
-Logo, de acordo com @Sarndal1992 (p. 65), a eficiência relativa do estimador alternativo é dada por:
+Logo, de acordo com @Sarndal1992, página 65, a eficiência relativa do estimador alternativo é dada por:
 
 $$
 \frac{V_{AB}(\widehat Y_{AB})}{V_{AB}(\widehat Y_{AB}^R)} \doteq \left[1-\frac{1}{N}+\frac{1}{CV_y^2}\right] \doteq \left[1+\frac{1}{CV_y^2}\right]\,\,(\#eq:eqbin7)
@@ -129,21 +129,22 @@ A Tabela \@ref(tab:tabbin1) resume os resultados para estimação sob amostragem
 ```{r,results="asis",echo=FALSE}
 cat("<table>",paste0("<caption>", "(#tab:tabbin1)","Parâmetros e respectivos estimadores sob AB", "</caption>"),"</table>", sep ="\n")
 ```
+
+<center>
 ----------
 Parâmetro                                                                                                        Estimador                                                          
 ---------------------------------------------------------------------------------------------------------------- ----------------------------------------------------------------------------------
 $\displaystyle Y=\sum_{i\in U}y_i$                                                                               $\displaystyle\widehat Y_{AB} = \frac{1}{\pi} \sum_{i \in s} y_i$
-
                                                                                                                  $\displaystyle\widehat Y_{AB}^R = \frac{N\pi}{n}\widehat Y_{AB} = N\frac{1}{n}\sum_{i \in s}y_i = N\overline y$
+
+$\displaystyle \overline Y=\frac1N\sum_{i\in U}y_i$                                                              $\displaystyle\overline y_{AB} = \frac{1}{N\pi} \sum_{i \in s} y_i$
+                                                                                                                 $\,\,\,\,\,\,\,\,\,\,\,$ $\displaystyle\overline y_{AB}^R = \frac{N\pi}{n}\overline y_{AB} = \frac{1}{n}\sum_{i \in s}y_i = \overline y$
+                                                                               
 
 $\displaystyle V_{AB}(\widehat Y_{AB}) = \left(\frac{1}{\pi}-1\right)\sum_{i \in U}y_i^2$                        $\displaystyle\widehat V_{AB}(\widehat Y_{AB})=\frac{1}{\pi}\left(\frac{1} {\pi}-1\right)\sum_{i \in s}y_i^2$
 
 $\displaystyle V_{AB}(\widehat Y_{AB}^R) \doteq N^2\left(\frac{1}{N \pi}-\frac{1}{N}\right)S_y^2$                $\displaystyle\widehat V_{AB} \left({\widehat Y} _{AB}^R\right)=N^2\left(\frac{1}{N\pi}-\frac{1}{N} \right) s_y^2$ 
 
-$\displaystyle \overline Y=\frac1N\sum_{i\in U}y_i$                                                              $\displaystyle\overline y_{AB} = \frac{1}{N\pi} \sum_{i \in s} y_i$
-
-                                                                                                                 $\displaystyle\overline y_{AB}^R = \frac{N\pi}{n}\overline y_{AB} = \frac{1}{n}\sum_{i \in s}y_i = \overline y$
-                                                                                                    
 $\displaystyle V_{AB}\left({\overline y}_{AB}\right)=\frac1{N^2}\left(\frac{1}{\pi}-1\right)\sum_{i\in U}y_i^2$  $\displaystyle\widehat V_{AB}\left({\overline{y}}_{AB}\right)=\frac{1}{N^2\,\pi}\left(\frac{1} {\pi}-1\right)\sum_{i \in s}y_i^2$ 
 
 $\displaystyle V_{AB}\left({\overline y}_{AB}^R\right)\doteq\left(\frac{1}{N\pi}-\frac1N\right)S_y^2$            $\displaystyle\widehat V_{AB}\left({\overline y}_{AB}^R\right)=\left(\frac{1}{N\pi}-\frac{1}{N} \right)s_y^2$
@@ -176,7 +177,7 @@ Outro problema desse tipo de abordagem ocorre quando se está pesquisando tipos 
 
 As estratégias exemplificadas acima são úteis para tentar minimizar as perdas de unidades amostrais, mas não eliminam o problema da redução no tamanho efetivo da amostra. Uma outra estratégia para tentar garantir que o número de unidades amostrais coletadas seja efetivamente igual ao valor de $n$ desejado é a chamada *Amostragem Inversa*. Nesta seção abordaremos somente o caso mais simples desse tipo de procedimento, que emprega probabilidades iguais de seleção das unidades populacionais. @Tille2016 aborda os casos mais gerais de *Amostragem Inversa* com probabilidades desiguais.
 
-A *Amostragem Inversa Simples* é um procedimento sequencial de amostragem proposto por @Haldane1945 como forma de enfrentar o problema de amostragem para estimar parâmetros relativos a eventos raros. Em termos gerais, consiste em pesquisar $m \ge n$ unidades da população até encontrar $n$ que tenham as caracterísitcas desejadas ou que forneçam as informações de interesse. Mesmo assim podem ocorrer casos em que a busca se estenda por toda a população (ou estrato ou conglomerado onde se faça uma subamostragem) sem que se encontre as $n$ unidades de interesse. Nesse caso extremo, o procedimento é interrompido quando $m=N$, mesmo que $m < n$.
+A *Amostragem Inversa Simples* é um procedimento sequencial de amostragem proposto por @Haldane1945 como forma de enfrentar o problema de amostragem para estimar parâmetros relativos a eventos raros. Em termos gerais, consiste em pesquisar $m \ge n$ unidades da população até encontrar $n$ que tenham as características desejadas ou que forneçam as informações de interesse. Mesmo assim podem ocorrer casos em que a busca se estenda por toda a população (ou estrato ou conglomerado onde se faça uma subamostragem) sem que se encontre as $n$ unidades de interesse. Nesse caso extremo, o procedimento é interrompido quando $m=N$, mesmo que $m < n$.
 
 ### Método de seleção da amostra inversa simples
 
@@ -252,7 +253,7 @@ De acordo com as definições apresentadas anteriormente, a população $U$ é d
 $$
 \displaystyle \pi_k =
 \begin{cases} 
-\frac n{N_A}, & \quad \text { se a unidade } k \in A\\\\
+\frac n{N_A}, & \quad \text { se a unidade } k \in A\\\\ 
 \frac n{N_A+1}, &\quad \text{ se a unidade } k \in \overline A
 (\#eq:eqinv6)
 \end{cases}
@@ -271,36 +272,36 @@ $$
 O estimador HT para o total populacional utilizando as probabilidades calculadas acima é dado por:
 
 $$
-{\widehat Y}_{HT_{AIS}}=\frac1n  \left (N_A \sum_{k \in A} y_k +  (N_A + 1) \sum_{k∈\overline A} y_k \right)(\#eq:eqinv8)
+{\widehat Y}_{HT/{AIS}}=\frac1n  \left (N_A \sum_{k \in A} y_k +  (N_A + 1) \sum_{k∈\overline A} y_k \right)(\#eq:eqinv8)
 $$
 A variância do estimador HT para o total na AIS pode ser calculada por:
 
 $$
-V_{AIS} ({\widehat Y}_{HT_{AIS}}) = N_A^2 \left(\frac{N_A – n}{N_A – 1}\right)\frac{\sigma_A^2}n+ \\+\frac{(N_A - r + 1) (N – N_A)}{ (N_A + 2) n}\left[(N + 1){{\overline y}}_{\overline A} ^2+ (N_A + 1) \sigma_{\overline A}^2 \right](\#eq:eqinv9)
+\begin{align} V_{AIS} ({\widehat Y}_{HT/{AIS}})& = N_A^2 \left(\frac{N_A – n}{N_A – 1}\right)\frac{\sigma_A^2}n+ \\ &+\frac{(N_A - r + 1) (N – N_A)}{ (N_A + 2) n}\left[(N + 1){{\overline y}}_{\overline A} ^2+ (N_A + 1) \sigma_{\overline A}^2 \right]\end{align}(\#eq:eqinv9)
 $$
 onde: $$\displaystyle {\overline y}_A=\frac1{N_A}\sum_{k\in A}y_k\text{, }\;\;{\overline y}_{\overline A}=\frac1{N-N_A}\sum_{k\in \overline A}y_k\text{,}\\ \sigma_A^2=\frac 1{N_A}\sum_{k\in A}(y_k-{\overline y}_A)^2\;\;\text{ e }\;\;\sigma_{\overline A}^2=\frac 1{N-N_A}\sum_{k\in {\overline A}}(y_k-{\overline y}_{\overline A})^2$$
 
 A varância do estimador do total pode ser estimada fazendo:
 
 $$
-{\widehat V}_{AIS}({\widehat Y}_{HT_{AIS}})=N_A^2\left(1-\frac n{N_A}\right)\frac {s_A^2}n+\\+\frac{(N_A+1)(N_A-n+1)}{{n(n+1)}}\left[\sum_{k\in\overline A}y^2_k+\frac1n\left(\sum_{k\in\overline A}y_k\right)^2\right](\#eq:eqinv10)
+\begin{align}{\widehat V}_{AIS}({\widehat Y}_{HT/{AIS}})&=N_A^2\left(1-\frac n{N_A}\right)\frac {s_A^2}n+\\&+\frac{(N_A+1)(N_A-n+1)}{{n(n+1)}}\left[\sum_{k\in\overline A}y^2_k+\frac1n\left(\sum_{k\in\overline A}y_k\right)^2\right]\end{align}(\#eq:eqinv10)
 $$
 Os estimadores da média populacional, a variância do estimador da média e o estimador desta variância serão obtidos dividindo as respectivas expressões para o total populacional por $N^2$, como se segue.
 
 A média da população será obtida por:
 
 $$
- {\overline y}_{HT_{AIS}}=\frac1{Nn}  \left (N_A \sum_{k \in A} y_k +  (N_A + 1) \sum_{k∈\overline A} y_k \right)(\#eq:eqinv11
+ {\overline y}_{HT/{AIS}}=\frac1{Nn}  \left (N_A \sum_{k \in A} y_k +  (N_A + 1) \sum_{k∈\overline A} y_k \right)(\#eq:eqinv11
 $$
 Sua variância será calculada pela expressão:
 
 $$
-V_{AIS} ({\overline y}_{HT_{AIS}})=\left(\frac{N_A}N\right)^2\left(\frac{N_A–n}{N_A–1}\right)\frac{\sigma_A^2}n+\\+\frac{(N_A-r+1)(N–N_A)}{N^2(N_A+2)n}\left[(N+1){{\overline y}}_{\overline A}^2+(N_A+1) \sigma_{\overline A}^2 \right](\#eq:eqinv12)
+\begin{align}V_{AIS} ({\overline y}_{HT/{AIS}})& =\left(\frac{N_A}N\right)^2\left(\frac{N_A–n}{N_A–1}\right)\frac{\sigma_A^2}n+\\&+\frac{(N_A-r+1)(N–N_A)}{N^2(N_A+2)n}\left[(N+1){{\overline y}}_{\overline A}^2+(N_A+1) \sigma_{\overline A}^2 \right]\end{align}(\#eq:eqinv12)
 $$
 Um estimador para a variância do estimador da média é dado pela expressão:
 
 $$
-{\widehat V}_{AIS}({\overline y}_{HT_{AIS}})=\left(\frac{N_A}N\right)^2\left(1-\frac n{N_A}\right)\frac {s_A^2}n+\\+\frac{(N_A+1)(N_A-n+1)}{{N^2n(n+1)}}\left[\sum_{k\in\overline A}y^2_k+\frac1n\left(\sum_{k\in\overline A}y_k\right)^2\right](\#eq:eqinv13)
+\begin{align}{\widehat V}_{AIS}({\overline y}_{HT/{AIS}})& =\left(\frac{N_A}N\right)^2\left(1-\frac n{N_A}\right)\frac {s_A^2}n+\\&+\frac{(N_A+1)(N_A-n+1)}{{N^2n(n+1)}}\left[\sum_{k\in\overline A}y^2_k+\frac1n\left(\sum_{k\in\overline A}y_k\right)^2\right]\end{align}(\#eq:eqinv13)
 $$
 
 
@@ -353,7 +354,7 @@ $$
 Dessa maneira pode-se reescrever o estimador do total populacional, apresentado na expressão \@ref(eq:eqinv14), como:
 
 $$
-{\widehat Y}_{M_{AIS}} = \frac N {n-1}\left( \frac{m-1} m\sum_{i \in A}  y_i + \sum_{i \in \overline A} y_i \right) (\#eq:eqinv20)
+{\widehat Y}_{M/{AIS}} = \frac N {n-1}\left( \frac{m-1} m\sum_{i \in A}  y_i + \sum_{i \in \overline A} y_i \right) (\#eq:eqinv20)
 $$
 Cuja variância pode ser obtida obtida através da expressão \@ref(eq:eqinv15).
 
@@ -368,18 +369,18 @@ $$
 Substituindo na expressão \@ref(eq:eqinv16), a expressão do estimador da variância pode ser escrita como:
 
 $$
-\widehat V(\widehat Y_{M_{AIS}})=\frac N{(m-1)^2(m-2)}\left[\frac{n(n-2)(N-m+1)-N(m-2)}{n^2}\\\sum_{i=1}^n\sum_{j<i}^n (y_i-y_j)^2+(N-m+1)\left(\frac{n-1}{n}\sum_{i=1}^n\sum_{j=n+1}^m (y_i-y_j)^2+\sum_{i=n+1}^m\sum_{j>i}^m (y_i-y_j)^2\right)\right](\#eq:eqinv21)
+\widehat V(\widehat Y_{M/{AIS}})=\frac N{(m-1)^2(m-2)}\left[\frac{n(n-2)(N-m+1)-N(m-2)}{n^2}\\\sum_{i=1}^n\sum_{j<i}^n (y_i-y_j)^2+(N-m+1)\left(\frac{n-1}{n}\sum_{i=1}^n\sum_{j=n+1}^m (y_i-y_j)^2+\sum_{i=n+1}^m\sum_{j>i}^m (y_i-y_j)^2\right)\right](\#eq:eqinv21)
 $$
 
 Para obter o estimador da média populacional basta dividir a expressão do estimador do total por $N$:
 
 $$
-{\overline y}_{AIS_M} = \frac 1 {n-1}\left( \frac{m-1} m\sum_{i \in A} y_i + \sum_{i \in \overline A} y_i \right) \,\, (\#eq:eqinv22)
+{\overline y}_{M/{AIS}} = \frac 1 {n-1}\left( \frac{m-1} m\sum_{i \in A} y_i + \sum_{i \in \overline A} y_i \right) \,\, (\#eq:eqinv22)
 $$
 O Estimador da variância do estimador da médiaé dado pela expressão:
 
 $$
-\widehat V(\overline y_{M_{AIS}})=\frac 1{N(m-1)^2(m-2)}\left[\frac{n(n-2)(N-m+1)-N(m-2)}{n^2}\\\sum_{i=1}^n\sum_{j<i}^n (y_i-y_j)^2+(N-m+1)\left( \frac{n-1}{n}\sum_{i=1}^n\sum_{j=n+1}^m (y_i-y_j)^2+\sum_{i=n+1}^m\sum_{j>i}^m (y_i-y_j)^2\right)\right](\#eq:eqinv23)
+\widehat V(\overline y_{M/{AIS}})=\frac 1{N(m-1)^2(m-2)}\left[\frac{n(n-2)(N-m+1)-N(m-2)}{n^2}\\\sum_{i=1}^n\sum_{j<i}^n (y_i-y_j)^2+(N-m+1)\left( \frac{n-1}{n}\sum_{i=1}^n\sum_{j=n+1}^m (y_i-y_j)^2+\sum_{i=n+1}^m\sum_{j>i}^m (y_i-y_j)^2\right)\right](\#eq:eqinv23)
 $$
 
 ### Exemplos de aplicação da amostragem inversa
