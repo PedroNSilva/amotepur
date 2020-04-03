@@ -245,14 +245,14 @@ Onde $\pi_k$ e $\pi_l$ são as probabilidades de inclusão das unidades $k$ e $l
  
 Para chegar às expressões para a média e variância de seu estimador, basta dividir as expressões apresentadas para o total, por $N$ e $N^2$ respectivamente.
  
-Para as expressões adaptadas para o caso da amostragem sistemática simples, deve-se calcular os valores das probabilidades de inclusão, de primeira e segunda ordem, para esse desenho amostral. Essas probabilidades são apresentadas por @Mohammad2012, e uma demonstração detalhada está no apêndice A desse mesmo artigo.
+Para as expressões adaptadas para o caso da amostragem sistemática simples, deve-se calcular os valores das probabilidades de inclusão, de primeira e segunda ordem, para esse desenho amostral. Essas probabilidades são apresentadas por @Mohammadi2012, e uma demonstração detalhada está no apêndice A desse mesmo artigo.
 
 De acordo com as definições apresentadas anteriormente, a população $U$ é dividida em duas subpopulações $A$ e $\overline A$ de tamanhos $N_A$ e $N-N_A$, de onde foi retinada uma amostra de $m$ unidades com $n<m$ pertencentes à subpopulação $A$. Assim pode-se definir:
 
 $$
 \displaystyle \pi_k =
 \begin{cases} 
-\frac n{N_A}, & \quad \text { se a unidade } k \in A\\ 
+\frac n{N_A}, & \quad \text { se a unidade } k \in A\\\\
 \frac n{N_A+1}, &\quad \text{ se a unidade } k \in \overline A
 (\#eq:eqinv6)
 \end{cases}
