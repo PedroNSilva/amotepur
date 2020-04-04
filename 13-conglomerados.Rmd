@@ -185,7 +185,7 @@ d) Conglomerados = carros cruzando pedágio; e unidades elementares = passageiro
 
 e) UPAs = empresas industriais; e unidades elementares = unidades locais. 
 
-**(#exm:exmcon3)** Plano amostral da Pesquisa Mensal de Emprego (PME) na Região Metropolitana de São Paulo realizada pelo IBGE [^1]
+**(#exm:exmcon3)** Plano amostral da Pesquisa Mensal de Emprego - PME na Região Metropolitana de São Paulo realizada pelo IBGE [^1]
 
 [^1]:A PME foi encerrada em março de 2016, com a divulgação dos resultados referentes ao mês de fevereiro de 2016, tendo sido substituída, com metodologia atualizada, pela Pesquisa Nacional por Amostra de Domicílios Contínua - PNAD Contínua, que abrange todo o País. Detalhes sobre a PME podem ser vistos em https://www.ibge.gov.br/estatisticas/sociais/trabalho/9180-pesquisa-mensal-de-emprego.html?=&t=o-que-e. 
 
@@ -245,7 +245,7 @@ Média populacional por unidade                                       $\overline
 </center>
 
 
-### Amostragem conglomerada simples em um estágio (ACS)
+### Amostragem conglomerada simples em um estágio - ACS
 
 O esquema de seleção de uma amostra conglomerada simples consiste nos seguintes passos: 
 
@@ -613,7 +613,7 @@ Observe que com o aumento do tamanho do conglomerado, como aumenta a perda de pr
 
 A ocorrência de variabilidade nos tamanhos dos conglomerados causa acentuda perda de precisão nos estimadores naturais com amostragem de conglomerados em um estágio. 
 
-A amostragem conglomerada com probabilidade proporcional ao tamanho (PPT) em um estágio (AC1PPT) se caracteriza por: 
+A amostragem conglomerada com probabilidade proporcional ao tamanho em um estágio - AC1PPT se caracteriza por: 
 
 1. Ser útil para controlar os efeitos da variação nos tamanhos dos conglomerados.
 
@@ -1033,13 +1033,13 @@ Vale registrar que se  a fração de primeiro estágio cresce e, como em geral o
 *Passo 1*: Determine o tamanho amostral requerido para estimar a média populacional $\overline Y$ por uma AAS com a margem de erro aceitável $d$ especificada de comum acordo com o cliente:
 
 $$ 
-n_{AAS} = \frac{Nz_{\alpha/2}^2S_y^2}{Nd^2+z_{\alpha/2}^2S_y^2}\,\,(\#eq:eqcong46) 
+n_{AAS} = \frac{Nz_{\alpha/2}^2S_y^2}{ND^2+z_{\alpha/2}^2S_y^2}\,\,(\#eq:eqcong46) 
 $$
 
 Note que $n_{AAS}$ é solução da seguinte equação:
 
 $$
-V_{AAS}(\overline y) = \left(\frac{1}{n}-\frac{1}{N}\right)S_y^2 = \left(\frac{d}{z_{\alpha/2}}\right)^2\,\,(\#eq:eqcong47) 
+V_{AAS}(\overline y) = \left(\frac{1}{n}-\frac{1}{N}\right)S_y^2 = \left(\frac{D}{z_{\alpha/2}}\right)^2\,\,(\#eq:eqcong47) 
 $$
 
 *Passo 2*: Note que: 
@@ -1048,7 +1048,7 @@ $$
 EPA(AC2PPT;\,\overline y_W) = \displaystyle\frac{V_{AC2PPT}(\overline y_W)}{V_{AAS}(\overline y)} \doteq 1 + (\overline n - 1) \rho\,\,(\#eq:eqcong48) 
 $$
 
-(Ver por exemplo Nascimento Silva & Moura (1986), p. 31).
+(Ver por exemplo Silva & Moura (1986), página 31).
 
 Logo, segue-se que
 
@@ -1078,19 +1078,19 @@ $$
 Mas queremos com o plano AC2PPT obter a mesma margem de erro admissível $d$, logo segue que:
 
 $$
-V_{AC2PPT}(\overline y_W) = \left(\frac{d}{z_{\alpha/2}}\right)^2 \,\,(\#eq:eqcong51)
+V_{AC2PPT}(\overline y_W) = \left(\frac{D}{z_{\alpha/2}}\right)^2 \,\,(\#eq:eqcong51)
 $$
 
 Levando a equação \@ref(eq:eqcong51) na equação \@ref(eq:eqcong50), segue-se que:
 
 $$
-n = N S_y^2 \Big/\left(S_y^2 + \displaystyle\frac{Nd^2}{z_{\alpha/2}^2EPA(AC2PPT;\,\overline y_W)}\,\right)
+n = N S_y^2 \Big/\left(S_y^2 + \displaystyle\frac{ND^2}{z_{\alpha/2}^2EPA(AC2PPT;\,\overline y_W)}\,\right)
 $$
 
 Que leva à seguinte solução:
 
 $$
-n_{AC2PPT} = \displaystyle\frac{EPA(AC2PPT;\,\overline y_W)Nz_{\alpha/2}^2S_y^2}{Nd^2 + EPA(AC2PPT;\,\overline y_W)z_{\alpha/2}^2S_y^2}\,\,\,\Longrightarrow
+n_{AC2PPT} = \displaystyle\frac{EPA(AC2PPT;\,\overline y_W)Nz_{\alpha/2}^2S_y^2}{ND^2 + EPA(AC2PPT;\,\overline y_W)z_{\alpha/2}^2S_y^2}\,\,\,\Longrightarrow
 $$
 
 $$ 
@@ -1206,7 +1206,7 @@ cat("<table>",paste0("<caption>", "(#tab:tabcong11)", "Número de domicílios e 
 
 a) Estime a proporção de domicílios alugados na localidade, utilizando o estimador natural, e construa um $IC_{95\%}$ para essa proporção;
 b) Repita o item a. utilizando o estimador de razão, tendo como variável auxiliar o tamanho dos conglomerados;
-c) Qual dos dois estimadores você escolheria? Por que?
+c) Qual dos dois estimadores você escolheria? Por quê?
 
 **(#exr:execong4)** É dada uma população com $N$ unidades distribuídas em $M$ conglomerados de tamanhos desiguais. Deseja-se selecionar uma amostra de $m$ conglomerados para estimar o total de uma determinda característica. Quais as medidas que devem ser tomadas na definição do desenho amostral para controlar a variação do tamanho dos conglomerados:
 
@@ -1259,7 +1259,7 @@ $C_9$                50      3
 
 $C_{10}$            100      5
 
-Total              1025     45
+Total              1.025     45
 ----------
 </center>
 
@@ -1289,7 +1289,7 @@ cat("<table>",paste0("<caption>", "(#tab:tabcong13)", "Valores observados para a
 a) Estime a proporção, na cadeia de supermercados, de lojas que não atendem aos critérios de higiene, levando em conta que os tamanhos dos conglomerados são diferentes; 
 b) Estime a margem de erro com nível de significância de 5% e dê o intervalo de confiança correspondente.
 
-**(#exr:execong9)** Uma população é composta de 100 conglomerados, cada um deles composto de 5 unidades elementares. Deseja-se selecionar uma amostra de 50 unidades dessa população. São conhecidos os seguintes parâmetros populacionais: $S^d_2=100$ e $S^e_2=1500$.
+**(#exr:execong9)** Uma população é composta de 100 conglomerados, cada um deles composto de 5 unidades elementares. Deseja-se selecionar uma amostra de 50 unidades dessa população. São conhecidos os seguintes parâmetros populacionais: $S^d_2=100$ e $S^e_2=1.500$.
 
 a) Calcule a variância do estimador do total para o caso de uma AAS de 50 unidades elementares;
 b) Calcule a variância do estimador do total caso seja utilizada uma Ac1 que resulte em 50 unidades elementares;
