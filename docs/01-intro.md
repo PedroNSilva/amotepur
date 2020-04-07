@@ -18,7 +18,7 @@ c) **orientações de como usar os dados e estatísticas para apoiar a tomada de
 
 É nesse contexto que se coloca nossa motivação para escrever um livro sobre *Amostragem*, a parte da Estatística que lida com os métodos para extrair amostras de populações, e para obter estimativas de parâmetros relevantes dessas populações a partir das amostras observadas.
 
-Nossa experiência no Instituto Brasileiro de Geografia e Estatística (IBGE) e com assessoria para o planejamento e realização de pesquisas por amostragem nos convenceu da importância da *Amostragem* para a obtenção, a custo justo, de dados atuais, relevantes e confiáveis. Nossa experiência como docentes de cursos de Amostragem na Escola Nacional de Ciências Estatísticas (ENCE) e também em outras instituições nos mostrou que há espaço para um novo texto nessa área, que adote uma abordagem mais moderna para ensinar. Nesse livro adotamos uma abordagem que faz uso da ampla disponibilidade de dados públicos e de software aberto e livre para mostrar como fazer para implementar os vários métodos de amostragem e de estimação cobertos no texto. O uso extensivo de exemplos ancorados na prática de pesquisas feitas no Brasil também é um dos diferenciais que nosso livro tem.
+Nossa experiência no Instituto Brasileiro de Geografia e Estatística - IBGE e com assessoria para o planejamento e realização de pesquisas por amostragem nos convenceu da importância da *Amostragem* para a obtenção, a custo justo, de dados atuais, relevantes e confiáveis. Nossa experiência como docentes de cursos de Amostragem na Escola Nacional de Ciências Estatísticas - ENCE e também em outras instituições nos mostrou que há espaço para um novo texto nessa área, que adote uma abordagem mais moderna para ensinar. Nesse livro adotamos uma abordagem que faz uso da ampla disponibilidade de dados públicos e de software aberto e livre para mostrar como fazer para implementar os vários métodos de amostragem e de estimação cobertos no texto. O uso extensivo de exemplos ancorados na prática de pesquisas feitas no Brasil também é um dos diferenciais que nosso livro tem.
 
 Uma questão de fundo é a da relevância da *Amostragem* como área de ensino e pesquisa na Estatística. Por um lado, o advento dos chamados *big data* ou *dados orgânicos*, na definição de @Groves2011, parece representar séria ameaça à cultura e prática das pesquisas por amostragem. Isto se dá porque agora é possível encontrar situações em que dados *universais*, *frequentes* e *de baixo custo* poderiam ser usados para responder perguntas sobre as populações de interesse, sem o necessário recurso ao uso da *Amostragem* para sua obtenção. Por outro lado, há evidências de que, sozinhos, dados orgânicos nunca serão suficientes para responder a todas as perguntas de interesse. Os motivos podem ser um ou mais dos seguintes:
 
@@ -52,7 +52,7 @@ Este livro está organizado em quatorze capítulos, incluindo esta introdução.
 
 3) **Visão Geral da Amostragem e Estimação **
 
-4) **Amostragem Aleatória Simples (AAS) ** 
+4) **Amostragem Aleatória Simples - AAS ** 
 
 5) **Estimação de Proporções ** 
 
@@ -60,11 +60,11 @@ Este livro está organizado em quatorze capítulos, incluindo esta introdução.
 
 7) **Estimação para Domínios de Estudo **
 
-8) **Amostragem Sistemática Simples (AS) **
+8) **Amostragem Sistemática Simples - AS **
 
 9) **Outros Métodos de Amostragem com Equiprobabilidade **
 
-10) **Amostragem com Probabilidades Desiguais **
+10) **Amostragem com Probabilidades Proporcionais ao Tamanho - PPT **
 
 11) **Amostragem Estratificada **
 

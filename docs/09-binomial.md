@@ -2,9 +2,9 @@
 
 Neste capítulo apresentamos dois métodos de amostragem de unidades elementares com equiprobabilidade que são menos usados, mas também podem ser úteis em muitas situações de interesse. O primeiro deles é a *Amostragem Binomial ou de Bernoulli*, e o segundo é a *Amostragem Inversa Simples*.
 
-## Amostragem Binomial ou de Bernoulli (AB) {#binom}
+## Amostragem Binomial ou de Bernoulli - AB {#binom}
 
-A *Amostragem Binomial ou de Bernoulli* (AB) oferece outra alternativa (pouco usada) à AAS, para selecionar diretamente unidades com *equiprobabilidade*. Trata-se de método de amostragem que também dispensa existência de cadastro prévio para seleção da amostra, podendo a amostra ser selecionada ao mesmo tempo que o cadastro vai sendo construído, como na amostragem sistemática simples.
+A *Amostragem Binomial ou de Bernoulli* - AB oferece outra alternativa (pouco usada) à AAS, para selecionar diretamente unidades com *equiprobabilidade*. Trata-se de método de amostragem que também dispensa existência de cadastro prévio para seleção da amostra, podendo a amostra ser selecionada ao mesmo tempo que o cadastro vai sendo construído, como na amostragem sistemática simples.
 
 ### Método de seleção da amostra
 
@@ -20,11 +20,11 @@ $\pi_i = P(i \in s) = P(A_i \le \pi) = P(U[0;1] \le \pi) = \pi$
 
 As probabilidades de inclusão de segunda ordem são:
 
-$\pi_{ij} = P(i,j \in s) = P(A_i \le \pi \,\, \textrm{e} \,\, A_j \le \pi) = P(A_i \le \pi) \times P(A_j \le \pi) = \pi^2 \,\,\,\, \forall \,\, i \neq j \in U$
+$\pi_{ij} = P(i,j \in s) = P(A_i \le \pi \,\, \textrm{e} \,\, A_j \le \pi) = P(A_i \le \pi)  P(A_j \le \pi) = \pi^2 \,\,\,\, \forall \,\, i \neq j \in U$
 
 Uma dificuldade associada com Amostragem Binomial é que, antes de ser feita a seleção da amostra, o *tamanho efetivo da amostra* obtida é uma variável aleatória. Isso pode causar dificuldades para quem está planejando a pesquisa. 
 
-Para verificar isso, note que $n = \sum_{i \in U} I(A_i \le \pi)$. Consequentemente,  $n \, \textrm{~ Binomial} (N;\pi)$. Logo: $E_{AB}(n) = N \times \pi$  e $V_{AB}(n) = N \times \pi \times(1-\pi)$. 
+Para verificar isso, note que $n = \sum_{i \in U} I(A_i \le \pi)$. Consequentemente,  $n \, \textrm{~ Binomial} (N;\pi)$. Logo: $E_{AB}(n) = N  \pi$  e $V_{AB}(n) = N  \pi (1-\pi)$. 
 
 ### Estimação de totais sob Amostragem Binomial 
 
@@ -37,8 +37,9 @@ $$
 A variância desse estimador do total é dada por:
 
 $$
-V_{AB}(\widehat Y_{AB}) = \left( \frac{1}{\pi} \right)^2 V_{AB} \left( \sum_{i \in U} \delta_i y_i \right) = \left( \frac{1}{\pi} \right)^2 \sum_{i \in U} V_{AB}(\delta_i) y_i^2 = \\ = \left(\frac{1}{\pi}\right)^2 \pi (1-\pi) \sum_{i \in U} y_i^2 = \left(\frac{1}{\pi}-1\right)\sum_{i \in U}y_i^2\,\,(\#eq:eqbin2)
+V_{AB}(\widehat Y_{AB}) =\left( \frac{1}{\pi} \right)^2 V_{AB} \left( \sum_{i \in s} y_i \right) = \left( \frac{1}{\pi} \right)^2 V_{AB} \left( \sum_{i \in U} \delta_i y_i \right) = \\= \left( \frac{1}{\pi} \right)^2 \sum_{i \in U} V_{AB}(\delta_i) y_i^2 = \left(\frac{1}{\pi}\right)^2 \pi (1-\pi) \sum_{i \in U} y_i^2 = \left(\frac{1}{\pi}-1\right)\sum_{i \in U}y_i^2\,\,(\#eq:eqbin2)
 $$
+onde δi é a variável indicadora que assume o valor 1 se a unidade i da população foi selecionada para a amostra e o valor 0 caso contrário.
 
 Um estimador não viciado da variância do estimador HT de total é dado por:
 
@@ -52,19 +53,19 @@ $$
 \widehat Y_{AB}^R = \frac{N\pi}{n}\widehat Y_{AB} = N\frac{1}{n}\sum_{i \in s}y_i = N\overline y\,\,(\#eq:eqbin4)
 $$ 
 
-Conforme @Sarndal1992 (p. 65), uma aproximação da variância desse estimador de razão do total é dada por:
+Conforme @Sarndal1992, página 65, uma aproximação da variância desse estimador de razão do total é dada por:
 
 $$
 V_{AB}(\widehat Y_{AB}^R) \doteq N^2 \left(\frac{1}{N \pi}-\frac{1}{N}\right)S_y^2\,\,(\#eq:eqbin5)
 $$  
 
-Esta variância é, portanto, aproximadamente igual à de uma AAS de tamanho igual a $N \pi$, que seria também o tamanho esperado da amostra sob AB. Ainda conforme @Sarndal1992 (p. 63), a variância do estimador simples do total pode ser reescrita como:
+Esta variância é, portanto, aproximadamente igual à de uma AAS de tamanho igual a $N \pi$, que seria também o tamanho esperado da amostra sob AB. Ainda conforme @Sarndal1992, página 63, a variância do estimador simples do total pode ser reescrita como:
 
 $$
 V_{AB}(\widehat Y_{AB}) = N^2\left(\frac{1}{N\pi} - \frac{1}{N}\right)S_y^2 \left[1 - \frac{1}{N} + \frac{1}{CV_y^2}\right]\,\,(\#eq:eqbin6)
 $$   
 
-Logo, de acordo com @Sarndal1992 (p. 65), a eficiência relativa do estimador alternativo é dada por:
+Logo, de acordo com @Sarndal1992, página 65, a eficiência relativa do estimador alternativo é dada por:
 
 $$
 \frac{V_{AB}(\widehat Y_{AB})}{V_{AB}(\widehat Y_{AB}^R)} \doteq \left[1-\frac{1}{N}+\frac{1}{CV_y^2}\right] \doteq \left[1+\frac{1}{CV_y^2}\right]\,\,(\#eq:eqbin7)
@@ -75,7 +76,7 @@ Essa expressão mostra que o estimador alternativo será tanto mais eficiente qu
 Um estimador consistente da variância do estimador de razão do total é dado por:
 
 $$
-\widehat V_{AB} \left( {\widehat Y} _{AB} ^R \right) \doteq N^2 \times \left( \frac{1}{N \pi} - \frac{1}{N} \right) s_y^2 \,\, (\#eq:eqbin13)
+\widehat V_{AB} \left( {\widehat Y} _{AB} ^R \right) = N^2  \left( \frac{1}{N \pi} - \frac{1}{N} \right) s_y^2 \,\, (\#eq:eqbin8)
 $$  
 
 onde 
@@ -88,31 +89,31 @@ $$
 O estimador HT (não viciado) da média $\overline{Y}$ é dado por: 
 
 $$
-{\overline {y}} _{AB} = \frac{1}{N \pi} \sum_{i \in s}y_i\,\,(\#eq:eqbin8)
+{\overline {y}} _{AB} = \frac{1}{N \pi} \sum_{i \in s}y_i\,\,(\#eq:eqbin9)
 $$
 
 A variância do estimador HT da média é dada por:
 
 $$
-V_{AB} \left({\overline {y}} _{AB} \right) =  \frac{1}{N^2} \left(\frac{1}{\pi}-1\right)\sum_{i \in U}y_i^2\,\,(\#eq:eqbin9)
+V_{AB} \left({\overline {y}} _{AB} \right) =  \frac{1}{N^2} \left(\frac{1}{\pi}-1\right)\sum_{i \in U}y_i^2\,\,(\#eq:eqbin10)
 $$
 
 Um estimador não viciado da variância do estimador HT da média é dado por:
 
 $$
-\widehat V_{AB} \left({\overline {y}} _{AB} \right) = \frac{1}{N^2 \, \pi} \left(\frac{1}{\pi}-1\right)\sum_{i \in s}y_i^2\,\,(\#eq:eqbin10)
+\widehat V_{AB} \left({\overline {y}} _{AB} \right) = \frac{1}{N^2 \, \pi} \left(\frac{1}{\pi}-1\right)\sum_{i \in s}y_i^2\,\,(\#eq:eqbin11)
 $$ 
 
 Assim como no caso do estimador de total, devido à variabilidade do tamanho efetivo da amostra, o estimador HT da média é pouco eficiente. Um estimador alternativo para a média, definido sempre que $n > 0$, é o estimador tipo razão dado por:
 
 $$
-{\overline {y}} _{AB} ^R = \frac{N \pi}{n} {\overline {y}} _{AB} = \frac{1}{n} \sum_{i \in s} y_i = \overline y \,\, (\#eq:eqbin11)
+{\overline {y}} _{AB} ^R = \frac{N \pi}{n} {\overline {y}} _{AB} = \frac{1}{n} \sum_{i \in s} y_i = \overline y \,\, (\#eq:eqbin12)
 $$ 
 
 Uma aproximação da variância do estimador alternativo da média é dada por:
 
 $$
-V_{AB} \left( {\overline {y}} _{AB} ^R \right) \doteq \left( \frac{1}{N \pi} - \frac{1}{N} \right) S_y^2 \,\, (\#eq:eqbin12)
+V_{AB} \left( {\overline {y}} _{AB} ^R \right) \doteq \left( \frac{1}{N \pi} - \frac{1}{N} \right) S_y^2 \,\, (\#eq:eqbin13)
 $$  
 
 Esta variância é, portanto, aproximadamente igual à do estimador de média sob uma AAS de tamanho igual a $N \pi$, que seria também o tamanho esperado da amostra sob AB. As análises feitas na subseção anterior sobre a eficiência relativa dos estimadores de total são válidas também para os estimadores da média.
@@ -120,8 +121,35 @@ Esta variância é, portanto, aproximadamente igual à do estimador de média so
 Um estimador consistente da variância do estimador alternativo da média é dado por:
 
 $$
-\widehat V_{AB} \left( {\overline {y}} _{AB} ^R \right) = \left( \frac{1}{N \pi} - \frac{1}{N} \right) s_y^2 \,\, (\#eq:eqbin13)
+\widehat V_{AB} \left( {\overline {y}} _{AB} ^R \right) = \left( \frac{1}{N \pi} - \frac{1}{N} \right) s_y^2 \,\, (\#eq:eqbin14)
 $$  
+A Tabela \@ref(tab:tabbin1) resume os resultados para estimação sob amostragem binomial ou Bernoulli
+
+<center>
+<table>
+<caption>(#tab:tabbin1)Parâmetros e respectivos estimadores sob AB</caption>
+</table>
+
+<center>
+----------
+Parâmetro                                                                                                        Estimador                                                          
+---------------------------------------------------------------------------------------------------------------- ----------------------------------------------------------------------------------
+$\displaystyle Y=\sum_{i\in U}y_i$                                                                               $\displaystyle\widehat Y_{AB} = \frac{1}{\pi} \sum_{i \in s} y_i$
+                                                                                                                 $\displaystyle\widehat Y_{AB}^R = \frac{N\pi}{n}\widehat Y_{AB} = N\frac{1}{n}\sum_{i \in s}y_i = N\overline y$
+
+$\displaystyle \overline Y=\frac1N\sum_{i\in U}y_i$                                                              $\displaystyle\overline y_{AB} = \frac{1}{N\pi} \sum_{i \in s} y_i$
+                                                                                                                 $\,\,\,\,\,\,\,\,\,\,\,$ $\displaystyle\overline y_{AB}^R = \frac{N\pi}{n}\overline y_{AB} = \frac{1}{n}\sum_{i \in s}y_i = \overline y$
+                                                                               
+
+$\displaystyle V_{AB}(\widehat Y_{AB}) = \left(\frac{1}{\pi}-1\right)\sum_{i \in U}y_i^2$                        $\displaystyle\widehat V_{AB}(\widehat Y_{AB})=\frac{1}{\pi}\left(\frac{1} {\pi}-1\right)\sum_{i \in s}y_i^2$
+
+$\displaystyle V_{AB}(\widehat Y_{AB}^R) \doteq N^2\left(\frac{1}{N \pi}-\frac{1}{N}\right)S_y^2$                $\displaystyle\widehat V_{AB} \left({\widehat Y} _{AB}^R\right)=N^2\left(\frac{1}{N\pi}-\frac{1}{N} \right) s_y^2$ 
+
+$\displaystyle V_{AB}\left({\overline y}_{AB}\right)=\frac1{N^2}\left(\frac{1}{\pi}-1\right)\sum_{i\in U}y_i^2$  $\displaystyle\widehat V_{AB}\left({\overline{y}}_{AB}\right)=\frac{1}{N^2\,\pi}\left(\frac{1} {\pi}-1\right)\sum_{i \in s}y_i^2$ 
+
+$\displaystyle V_{AB}\left({\overline y}_{AB}^R\right)\doteq\left(\frac{1}{N\pi}-\frac1N\right)S_y^2$            $\displaystyle\widehat V_{AB}\left({\overline y}_{AB}^R\right)=\left(\frac{1}{N\pi}-\frac{1}{N} \right)s_y^2$
+----------
+</center>
 
 ### Exemplos de aplicação da Amostragem Binomial
 
@@ -132,9 +160,9 @@ A Amostragem Sistemática também seria viável nesse caso, mas poderia ser mais
 Aplicações de Amostragem Binomial para populações em fluxo são convenientes, pois dispensam lista ou cadastro prévios. Como desvantagem, deve-se evitar seu uso sempre que $P(n=0)$ for ‘grande’, pois no caso em que o tamanho efetivo da amostra for nulo é impossível fazer inferência sobre quaisquer parâmetros populacionais de interesse.
 
 
-## Amostragem Inversa Simples (AIS) {#inversa}
+## Amostragem Inversa Simples - AIS {#inversa}
 
-Na prática da pesquisa usando métodos de amostragem probabilística, é usual buscar a seleção de um número fixo, pré-especificado $n (< N)$ de unidades da população $U$ para compor a amostra $s$. As unidades selecionadas para a amostra são então identificadas e abordadas para tentar obter as medidas das variáveis de interesse utilizando-se os instrumentos especificados para a pesquisa em questão. No caso de pesquisas socioeconômicas, frequentemente são utilizados questionários para serem respondidos por algum representante da unidade selecionada, que pode ser uma pessoa, um domicílio, um estabelecimento industrial, uma escola, etc. Em casos como um processo de controle de qualidade por amostragem podem ser utilizados instrumentos de medida para conferência das dimensões de peças fabricadas em série ou mesmo a realização de ensaios para testar alguma condição desejável. Muitas vezes tais ensaios podem ser destrutivos e, portanto, este é um exemplo clássico onde a utilização de amostragem se impõe pela impossibilidade de testar todas as peças fabricadas.
+Na prática da pesquisa usando métodos de amostragem probabilística, é usual buscar a seleção de um número fixo, pré-especificado $n < N$ de unidades da população $U$ para compor a amostra $s$. As unidades selecionadas para a amostra são então identificadas e abordadas para tentar obter as medidas das variáveis de interesse utilizando-se os instrumentos especificados para a pesquisa em questão. No caso de pesquisas socioeconômicas, frequentemente são utilizados questionários para serem respondidos por algum representante da unidade selecionada, que pode ser uma pessoa, um domicílio, um estabelecimento industrial, uma escola, etc. Em casos como um processo de controle de qualidade por amostragem podem ser utilizados instrumentos de medida para conferência das dimensões de peças fabricadas em série ou mesmo a realização de ensaios para testar alguma condição desejável. Muitas vezes tais ensaios podem ser destrutivos e, portanto, este é um exemplo clássico onde a utilização de amostragem se impõe pela impossibilidade de testar todas as peças fabricadas.
 
 Um dos problemas que podem ocorrer numa investigação por amostragem é a impossibilidade de se entrevistar ou medir todas as $n$ unidades selecionadas para a amostra $s$. Isso pode ocorrer por vários motivos, tais como a dificuldade de localizar a unidade no campo, a mudança das características da unidade tornando a mesma inelegível para a pesquisa (por exemplo, um endereço onde havia um domicílio selecionado que no momento da pesquisa passou a ser um estabelecimento comercial), a seleção de um domicílio de uso ocasional (por exemplo, uma casa de veraneio), a ausência da pessoa que deveria ser o respondente, ou mesmo devido à simples recusa do informante em responder total ou parcialmente a pesquisa. Todas essas situações implicam em redução no tamanho efetivo da amostra e em aumento da imprecisão das estimativas geradas.
 
@@ -147,11 +175,11 @@ Se as perdas forem menores do que o esperado, as estimativas poderão ser até m
 
 Outro problema desse tipo de abordagem ocorre quando se está pesquisando tipos de unidades que são raras na população (por exemplo, pessoas portadoras de uma doença tal como glaucoma), e no cadastro disponível para a seleção da amostra não existe nenhuma informação desse tipo sobre as pessoas da população de pesquisa. Outros exemplos desse tipo de pesquisa incluem estudos sobre indivíduos de uma faixa etária restrita (idosos acima de 80 anos), estudos sobre empresas que desenvolvem atividade econômica restrita, estabelecimentos agrícolas produtores de um produto específico, etc. Nestes casos pode-se realizar uma etapa prévia de atualização cadastral, comumente chamada de *varredura* ou *screening*, para identificar na população aquelas unidades que pertencem ao grupo de interesse da pesquisa. Esse processo, porém, pode ser muito caro, inviabilizando sua utilização. 
 
-As estratégias exemplificadas acima são úteis para tentar minimizar as perdas de unidades amostrais, mas não eliminam o problema da redução no tamanho efetivo da amostra. Uma outra estratégia para tentar garantir que o número de unidades amostrais coletadas seja efetivamente igual ao valor de $n$ desejado é a chamada *Amostragem Inversa*. Nesta seção abordaremos somente o caso mais simples desse tipo de procedimento, que emprega probabilidades iguais de seleção das unidades populacionais. [@Tille2016] aborda os casos mais gerais de *Amostragem Inversa* com probabilidades desiguais.
+As estratégias exemplificadas acima são úteis para tentar minimizar as perdas de unidades amostrais, mas não eliminam o problema da redução no tamanho efetivo da amostra. Uma outra estratégia para tentar garantir que o número de unidades amostrais coletadas seja efetivamente igual ao valor de $n$ desejado é a chamada *Amostragem Inversa*. Nesta seção abordaremos somente o caso mais simples desse tipo de procedimento, que emprega probabilidades iguais de seleção das unidades populacionais. @Tille2016 aborda os casos mais gerais de *Amostragem Inversa* com probabilidades desiguais.
 
-A *Amostragem Inversa Simples* é um procedimento sequencial de amostragem proposto por [@Haldane1945] como forma de enfrentar o problema de amostragem para estimar parâmetros relativos a eventos raros. Em termos gerais, consiste em pesquisar $m \ge n$ unidades da população até encontrar $n$ que tenham as caracterísitcas desejadas ou que forneçam as informações de interesse. Mesmo assim podem ocorrer casos em que a busca se estenda por toda a população (ou estrato ou conglomerado onde se faça uma subamostragem) sem que se encontre as $n$ unidades de interesse. Nesse caso extremo, o procedimento é interrompido quando $m=N$, mesmo que $m < n$.
+A *Amostragem Inversa Simples* é um procedimento sequencial de amostragem proposto por @Haldane1945 como forma de enfrentar o problema de amostragem para estimar parâmetros relativos a eventos raros. Em termos gerais, consiste em pesquisar $m \ge n$ unidades da população até encontrar $n$ que tenham as características desejadas ou que forneçam as informações de interesse. Mesmo assim podem ocorrer casos em que a busca se estenda por toda a população (ou estrato ou conglomerado onde se faça uma subamostragem) sem que se encontre as $n$ unidades de interesse. Nesse caso extremo, o procedimento é interrompido quando $m=N$, mesmo que $m < n$.
 
-### Método de seleção da amostra inversa simples (AIS)
+### Método de seleção da amostra inversa simples
 
 A implementação mais simples de AIS pode ser feita usando o *Algoritmo de Hàjek* (ver @Hajek1960) para selecionar AAS, tal como descrito na seção \@ref(Hajek). Este algoritmo se baseia na ideia de obter uma *permutação aleatória* dos rótulos das unidades da população $U$, denotada por $\Pi(U) = \{i_1, i_2, ..., i_N\}$, onde cada um dos rótulos originais tem a mesma probabilidade que qualquer outro de ocupar a 1a. posição, ou a 2a. posição, e assim por diante.
 
@@ -200,44 +228,166 @@ Embora um dos parâmetros da distribuição ($N_A$) seja desconhecido, as expres
 
 #### Estimação da média e total na AIS
 
-Existem várias propostas para estimar a média (ou total) populacional utilizando a amostragem inversa simples, como o estimador de Horvitz-Thompson [@Horvitz1952] ou o estimador proposto por Des Raj [@Raj1956], ambos descritos em [@Jordao2012]. Aqui será apresentado o estimador proposto por [@Murthy1957], que é dado por:
+Existem várias propostas para estimar a média (ou total) populacional utilizando a amostragem inversa simples, como o estimador de Horvitz-Thompson (ver @Horvitz1952), o estimador proposto por @SalehiSeber2001, baseado no estimador de @Murthy1957, ou o estimador proposto por Des Raj @Raj1956, descrito em @Jordao2012. Aqui serão apresentados os dois primeiros.
+
+##### Estimador de Horvitz-Thompson
+
+A forma geral do estimador HT, para estimar um total populacional, é dada por:
 
 $$
-{\widehat Y}_M = \sum_{i \in s} \frac {P(s | i)} {P(s)}  y_i \,\,\, (\#eq:eqinv6)
+{\widehat Y}_{HT}= \sum_{k \in s}\frac{ y_k}{\pi_k}
+$$
+A variância desse estimador é escrita como:
+
+$$
+V({\widehat Y}_{HT}) = \sum_{k=1}^N \sum_{l=1}^N (π_{kl}-π_k π_l)\frac{y_k y_l}{π_k π_l}
+ $$
+Onde $\pi_k$ e $\pi_l$ são as probabilidades de inclusão das unidades $k$ e $l$, respectivamente, na amostra e $\pi_{kl}$ é a probabilidade de inclusão conjunta do par $(k,l)$ na mesma amostra.
+ 
+Para chegar às expressões para a média e variância de seu estimador, basta dividir as expressões apresentadas para o total, por $N$ e $N^2$ respectivamente.
+ 
+Para as expressões adaptadas para o caso da amostragem sistemática simples, deve-se calcular os valores das probabilidades de inclusão, de primeira e segunda ordem, para esse desenho amostral. Essas probabilidades são apresentadas por @Mohammadi2012, e uma demonstração detalhada está no apêndice A desse mesmo artigo.
+
+De acordo com as definições apresentadas anteriormente, a população $U$ é dividida em duas subpopulações $A$ e $\overline A$ de tamanhos $N_A$ e $N-N_A$, de onde foi retinada uma amostra de $m$ unidades com $n<m$ pertencentes à subpopulação $A$. Assim pode-se definir:
+
+$$
+\displaystyle \pi_k =
+\begin{cases} 
+\frac n{N_A}, & \quad \text { se a unidade } k \in A\\\\ 
+\frac n{N_A+1}, &\quad \text{ se a unidade } k \in \overline A
+(\#eq:eqinv6)
+\end{cases}
+$$
+As probabilidades de inclusão conjunta das unidades $k$ e $l$ na amostra sõa dadas por:
+
+$$
+\displaystyle \pi_{kl} =
+\begin{cases} 
+\frac {n(n-1)}{N_A(N_A-1)}, & \quad\text{ se as unidades } (k,l) \in A\\ 
+\frac {n(n+1)}{(N_A+1)(N_A+2)}, & \quad\text{ se as unidades } (k,l) \in \overline A\\
+\frac {n^2}{N_A(N_A+1)}, & \quad\text{ se a unidade } k\in A \text{ e } l\in \overline A
+(\#eq:eqinv7)
+\end{cases}
+$$
+O estimador HT para o total populacional utilizando as probabilidades calculadas acima é dado por:
+
+$$
+{\widehat Y}_{HT/{AIS}}=\frac1n  \left (N_A \sum_{k \in A} y_k +  (N_A + 1) \sum_{k∈\overline A} y_k \right)(\#eq:eqinv8)
+$$
+A variância do estimador HT para o total na AIS pode ser calculada por:
+
+$$
+\begin{align} V_{AIS} ({\widehat Y}_{HT/{AIS}})& = N_A^2 \left(\frac{N_A – n}{N_A – 1}\right)\frac{\sigma_A^2}n+ \\ &+\frac{(N_A - r + 1) (N – N_A)}{ (N_A + 2) n}\left[(N + 1){{\overline y}}_{\overline A} ^2+ (N_A + 1) \sigma_{\overline A}^2 \right]\end{align}(\#eq:eqinv9)
+$$
+onde: $$\displaystyle {\overline y}_A=\frac1{N_A}\sum_{k\in A}y_k\text{, }\;\;{\overline y}_{\overline A}=\frac1{N-N_A}\sum_{k\in \overline A}y_k\text{,}\\ \sigma_A^2=\frac 1{N_A}\sum_{k\in A}(y_k-{\overline y}_A)^2\;\;\text{ e }\;\;\sigma_{\overline A}^2=\frac 1{N-N_A}\sum_{k\in {\overline A}}(y_k-{\overline y}_{\overline A})^2$$
+
+A varância do estimador do total pode ser estimada fazendo:
+
+$$
+\begin{align}{\widehat V}_{AIS}({\widehat Y}_{HT/{AIS}})&=N_A^2\left(1-\frac n{N_A}\right)\frac {s_A^2}n+\\&+\frac{(N_A+1)(N_A-n+1)}{{n(n+1)}}\left[\sum_{k\in\overline A}y^2_k+\frac1n\left(\sum_{k\in\overline A}y_k\right)^2\right]\end{align}(\#eq:eqinv10)
+$$
+Os estimadores da média populacional, a variância do estimador da média e o estimador desta variância serão obtidos dividindo as respectivas expressões para o total populacional por $N^2$, como se segue.
+
+A média da população será obtida por:
+
+$$
+ {\overline y}_{HT/{AIS}}=\frac1{Nn}  \left (N_A \sum_{k \in A} y_k +  (N_A + 1) \sum_{k∈\overline A} y_k \right)(\#eq:eqinv11
+$$
+Sua variância será calculada pela expressão:
+
+$$
+\begin{align}V_{AIS} ({\overline y}_{HT/{AIS}})& =\left(\frac{N_A}N\right)^2\left(\frac{N_A–n}{N_A–1}\right)\frac{\sigma_A^2}n+\\&+\frac{(N_A-r+1)(N–N_A)}{N^2(N_A+2)n}\left[(N+1){{\overline y}}_{\overline A}^2+(N_A+1) \sigma_{\overline A}^2 \right]\end{align}(\#eq:eqinv12)
+$$
+Um estimador para a variância do estimador da média é dado pela expressão:
+
+$$
+\begin{align}{\widehat V}_{AIS}({\overline y}_{HT/{AIS}})& =\left(\frac{N_A}N\right)^2\left(1-\frac n{N_A}\right)\frac {s_A^2}n+\\&+\frac{(N_A+1)(N_A-n+1)}{{N^2n(n+1)}}\left[\sum_{k\in\overline A}y^2_k+\frac1n\left(\sum_{k\in\overline A}y_k\right)^2\right]\end{align}(\#eq:eqinv13)
+$$
+
+
+ 
+##### Estimador do total e da média baseados no estimador de Murthy
+
+A forma geral do estimador para o total populacional proposto por @Murthy1957 é dada por:
+
+$$
+{\widehat Y}_M = \sum_{i \in s} \frac {P(s | i)} {P(s)}  y_i \,\,\, (\#eq:eqinv14)
 $$
 
 onde $P(s|i)$ é a probabilidade condicional de selecionar a amostra $s$ dado que a unidade $i$ foi selecionada e $P(s)$ é a probabilidade de seleção da amostra $s$.
 
-Para estimar a média populacional, basta dividir o estimador do total pelo tamanho, $N$, da população, ou seja:
+A variância desse estimador pode ser calculada com:
 
 $$
- {\overline y}_M = \frac 1 N \sum_{i \in s} \frac {P(s | i)} {P(s)} y_i \,\,\,(\#eq:eqinv7)
+V({\widehat Y}_M)=\sum_{i\in U}\sum_{(j<i)\in U}\left(1-\sum_{s\ni i,j}\frac{P(s|i)P(s|j)}{P(s)}\right)\left(\frac{y_i}{p_i}-\frac{y_j}{p_j}\right)^2p_ip_j(\#eq:eqinv15)
 $$
 
-No caso da AIS podemos reescrever os estimadores acima da forma sugerida por [@SalehiSeber2001]. Lembre que $\delta_i$ é a variável indicadora que assume o valor $1$ se a unidade $i$ da população foi selecionada para a amostra e o valor $0$ caso contrário. No caso da AIS, sabe-se que a última unidade selecionada obrigatoriamente pertence ao subconjunto $A$ da população, como definido acima. Portanto as demais unidades da amostra podem ser alocadas de $(n-1)!$ maneiras, de forma que a amostra $s$ pode ser obtida de $m(n-1)!$ configurações distintas. Para o conjunto das unidades pertencentes à subpopulação $A$ o evento $\{\delta_i=1\}$ pode ocorrer de $(m−1)(n−2)!$ maneiras, enquanto que para as unidades pertencentes à subpopulação $\overline A$ esse mesmo evento pode ocorrer de $m(n-2)!$ formas. Sabe-se, ainda, que a seleção das unidades da amostra é feita com equiprobabilidade. Portanto: 
+Um estimador não viciado para essa variância é:
 
 $$
- \frac {P(s | i)} {P(s)} = 
- \begin {cases}  \left[{N(m-1)}\right]/\left[{(n-1)m}\right] & \quad \text{se } i \in A \\\\
- N/(n-1) & \quad \text{se } i \in \overline A 
- \end {cases} \,\, (\#eq:eqinv8)
+\widehat {V}({\widehat Y}_M)=\sum_{i\in U}\sum_{(j<i)\in U}\left(\frac{P(s|i,j)}{P(s)}-\sum_{s\ni i,j}\frac{P(s|i)P(s|j)}{P^2(s)}\right)\left(\frac{y_i}{p_i}-\frac{y_j}{p_j}\right)^2p_ip_j(\#eq:eqinv16)
 $$
 
-Dessa maneira pode-se reescrever o estimador apresentado na expressão \@ref(eq:eqinv6) como:
+onde $P(s|i,j)$ é a probabilidade condicional de selecionar $S$ dado que as unidades $i$ e $j$ foram selecionadas, em qualquer ordem.
+
+Para a média populacional, basta dividir o estimador do total pelo tamanho, $N$, da população, e a variância com seu estimador por $N^2$, ou seja:
 
 $$
-{\widehat Y}_M = \frac N {n-1}\left( \frac{m-1} m\sum_{i \in A}  y_i + \sum_{i \in \overline A} y_i \right) (\#eq:eqinv9)
+ {\overline y}_M = \frac 1 N \sum_{i \in s} \frac {P(s | i)} {P(s)} y_i \,\,\,(\#eq:eqinv17)
+$$
+$$
+V({\overline y}_M)=\frac1{N^2}\sum_{i\in U}\sum_{(j<i)\in U}\left(1-\sum_{s\ni i,j}\frac{P(s|i)P(s|j)}{P(s)}\right)\left(\frac{y_i}{p_i}-\frac{y_j}{p_j}\right)^2p_ip_j(\#eq:eqinv18)
+$$
+$$
+\widehat {V}({\overline{y}}_M)=\frac1{N^2}\sum_{i\in U}\sum_{(j<i)\in U}\left(\frac{P(s|i,j)}{P(s)}-\sum_{s\ni i,j}\frac{P(s|i)P(s|j)}{P^2(s)}\right)\left(\frac{y_i}{p_i}-\frac{y_j}{p_j}\right)^2p_ip_j(\#eq:eqinv19)
 $$
 
-Para obter o estimador da média basta dividir a expressão acima por $N$:
+No caso da AIS podemos reescrever os estimadores acima da forma sugerida por @SalehiSeber2001. Seja uma variável indicadora $\delta_i$, que assume o valor $1$ se a unidade $i$ da população foi selecionada para a amostra e o valor $0$ caso contrário. No caso da AIS, sabe-se que a última unidade selecionada obrigatoriamente pertence ao subconjunto $A$ da população, como definido acima. Portanto as demais unidades da amostra podem ser alocadas de $(n-1)!$ maneiras, de forma que a amostra $s$ pode ser obtida de $m(n-1)!$ configurações distintas. Para o conjunto das unidades pertencentes à subpopulação $A$ o evento $\{\delta_i=1\}$ pode ocorrer de $(m−1)(n−2)!$ maneiras, enquanto que para as unidades pertencentes à subpopulação $\overline A$ esse mesmo evento pode ocorrer de $m(n-2)!$ formas. Sabe-se, ainda, que a seleção das unidades da amostra é feita com equiprobabilidade. Portanto: 
 
 $$
-{\overline y}_M = \frac 1 {n-1}\left( \frac{m-1} m\sum_{i \in A} y_i + \sum_{i \in \overline A} y_i \right) \,\, (\#eq:eqinv10)
+ \displaystyle\frac {P(s | i)} {P(s)} = 
+ \begin {cases}  \frac{N(m-1)}{(n-1)m}, & \quad \text{se } i \in A \\\\
+ \frac N{n-1}, & \quad \text{se } i \in \overline A 
+ \end {cases} \,\, 
 $$
 
-[@Vasconcellos2005] descreve uma aplicação de amostragem inversa simples na etapa de seleção de domicílios dentro dos setores selecionados, numa pesquisa domiciliar empregando amostragem conglomerada. Essa pesquisa talvez represente a primeira aplicação de amostragem inversa numa pesquisa domiciliar nacional realizada no Brasil.
+Dessa maneira pode-se reescrever o estimador do total populacional, apresentado na expressão \@ref(eq:eqinv14), como:
 
-[@Tille2016] descreve a aplicação de amostragem inversa a um problema sugerido por uma pesquisa do Statístics Canada, onde é selecionada uma amostra de empresas (ou unidades locais) em estratos representados por regiões econômicas, e em cada uma destas empresas deve ser selecionada uma amostra das ocupações que fazem parte de uma lista de ocupações para as quais se deseja obter informações. Não se conhece a priori a lista de ocupações existentes em cada empresa e, portanto, pode-se lançar mão da amostragem inversa selecionando as ocupações dentro de cada empresa, e identificando as ocupações pertencentes à lista de ocupações de interesse, até se obter informações sobre $m$ ocupações distintas.
+$$
+{\widehat Y}_{M/{AIS}} = \frac N {n-1}\left( \frac{m-1} m\sum_{i \in A}  y_i + \sum_{i \in \overline A} y_i \right) (\#eq:eqinv20)
+$$
+Cuja variância pode ser obtida obtida através da expressão \@ref(eq:eqinv15).
+
+Para obter uma expressão para o estimador da variância, seja $n>2$ e:
+
+$$
+\frac{P(s|i,j)}{P(s)}=\begin{cases}\frac{N(N-1)(n-2)}{(m-1)(m-2)n}, & \quad \text{se } i,\;j \in A \\ \\
+\frac{N(N-1)(n-1)}{(m-2)(m-1)n)}, &\quad\text{se }i\in A \text{ e } j\in\overline A\\ \\
+\frac{N(N-1)}{(m-1)(m-2)}, &\quad\text{se } i,\;j\in\overline A
+\end{cases}
+$$
+Substituindo na expressão \@ref(eq:eqinv16), a expressão do estimador da variância pode ser escrita como:
+
+$$
+\widehat V(\widehat Y_{M/{AIS}})=\frac N{(m-1)^2(m-2)}\left[\frac{n(n-2)(N-m+1)-N(m-2)}{n^2}\\\sum_{i=1}^n\sum_{j<i}^n (y_i-y_j)^2+(N-m+1)\left(\frac{n-1}{n}\sum_{i=1}^n\sum_{j=n+1}^m (y_i-y_j)^2+\sum_{i=n+1}^m\sum_{j>i}^m (y_i-y_j)^2\right)\right](\#eq:eqinv21)
+$$
+
+Para obter o estimador da média populacional basta dividir a expressão do estimador do total por $N$:
+
+$$
+{\overline y}_{M/{AIS}} = \frac 1 {n-1}\left( \frac{m-1} m\sum_{i \in A} y_i + \sum_{i \in \overline A} y_i \right) \,\, (\#eq:eqinv22)
+$$
+O Estimador da variância do estimador da médiaé dado pela expressão:
+
+$$
+\widehat V(\overline y_{M/{AIS}})=\frac 1{N(m-1)^2(m-2)}\left[\frac{n(n-2)(N-m+1)-N(m-2)}{n^2}\\\sum_{i=1}^n\sum_{j<i}^n (y_i-y_j)^2+(N-m+1)\left( \frac{n-1}{n}\sum_{i=1}^n\sum_{j=n+1}^m (y_i-y_j)^2+\sum_{i=n+1}^m\sum_{j>i}^m (y_i-y_j)^2\right)\right](\#eq:eqinv23)
+$$
+
+### Exemplos de aplicação da amostragem inversa
+
+@Vasconcellos2005 descreve uma aplicação de amostragem inversa simples na etapa de seleção de domicílios dentro dos setores selecionados, numa pesquisa domiciliar empregando amostragem conglomerada. Essa pesquisa talvez represente a primeira aplicação de amostragem inversa numa pesquisa domiciliar nacional realizada no Brasil.
+
+@Tille2016 descreve a aplicação de amostragem inversa a um problema sugerido por uma pesquisa do Statístics Canada, onde é selecionada uma amostra de empresas (ou unidades locais) em estratos representados por regiões econômicas, e em cada uma destas empresas deve ser selecionada uma amostra das ocupações que fazem parte de uma lista de ocupações para as quais se deseja obter informações. Não se conhece a priori a lista de ocupações existentes em cada empresa e, portanto, pode-se lançar mão da amostragem inversa selecionando as ocupações dentro de cada empresa, e identificando as ocupações pertencentes à lista de ocupações de interesse, até se obter informações sobre $m$ ocupações distintas.
 
 O procedimento de AIS pode ser confundido por alguns com um protocolo de *substituição* de unidades selecionadas para a amostra inicial. Esta confusão é indevida. Protocolos baseados em *substituição* de unidades têm em comum a prática de considerar na inferência apenas as unidades da amostra disponível, sem levar em conta o tamanho do esforço feito para conseguir a amostra efetiva. Em muitos casos, sequer são mantidos registros do esforço de coleta efetuado para obtenção de cada entrevista. Além disso, geralmente são implementados dando liberdade a entrevistadores para decidir quando substituir uma unidade selecionada, e como fazer a substituição. Tais características tornam protocolos de substituição abordagem de risco e que não recomendamos. 
 

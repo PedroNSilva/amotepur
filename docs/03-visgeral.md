@@ -55,13 +55,13 @@ $$
 S^2_y=\displaystyle\frac{1}{N-1}\sum_{i\in U}({y_i-\overline{Y}})^2=\frac{1}{N-1}\left[\sum_{i\in U}{y_i}^2-N\overline{Y}^2\right]\,\,(\#eq:eqvis5)
 $$
 
-O *desvio padrão populacional* da variável $y$ é dado por: 
+O *desvio padrão - DP populacional* da variável $y$ é dado por: 
 
 $$
 DP_y = S_y = \sqrt{S^2_y} \,\,(\#eq:eqvis6)
 $$
 
-O *coeficiente de variação populacional* da variável $y$ é dado por: 
+O *coeficiente de variação - CV populacional* da variável $y$ é dado por: 
 
 $$
 CV_y = \displaystyle \frac{DP_y}{\overline Y} = \frac {S_y} {\overline Y} \,\,(\#eq:eqvis7)
@@ -381,7 +381,7 @@ Probabilidade de inclusão ${\pi}_i$ 3/6=1/2    3/6=1/2    3/6=1/2   3/6=1/2    
 ---------
 </center>
 
-Usando a propriedade recém apresentada, os pesos amostrais no (#exm:filh) seriam dados por $w_i = \displaystyle {1}/{\pi_i} = \frac{1}{1/2} = 2\,$ para qualquer uma das unidades da população que fossem selecionadas para uma das amostras de tamanho $n=2$.
+Usando a propriedade recém apresentada, os pesos amostrais no (#exm:filh) seriam dados por $w_i = {1}/{\pi_i} = \frac{1}{1/2} = 2\,$ para qualquer uma das unidades da população que fossem selecionadas para uma das amostras de tamanho $n=2$.
 
 O estimador ponderado do total nesse caso seria dado por: 
 
@@ -516,11 +516,11 @@ Com probabilidade $p(s)$ sob $p_2(s)$  0,30  0,40   0,30
 ---------
 </center>
 
-A melhor estratégia é escolhida medindo o *afastamento esperado* entre os valores possíveis do estimador e o valor do total populacional desconhecido ($Y$).  Para isso, como em ambos os casos o estimador é não viciado, usamos a *variância do estimador*. A Tabela \@ref(tab:tabvis13) indica como pode ser calculada a variância de cada um dos estimadores sob as duas opções de plano amostral ($p_1$ e $p_2$).
+A melhor estratégia é escolhida medindo o *afastamento esperado* entre os valores possíveis do estimador e o valor do total populacional desconhecido ($Y$).  Para isso, como em ambos os casos o estimador é não viciado, usamos a *variância do estimador*. A Tabela \@ref(tab:tabvis13) indica como pode ser calculada a variância de cada um dos estimadores sob as duas opções de plano amostral ($p_2$ e $p_1$).
 
 <center>
 <table>
-<caption>(#tab:tabvis13)Obtenção da variância dos estimadores sob os planos amostrais $p_1$ e $p_2$</caption>
+<caption>(#tab:tabvis13)Obtenção da variância dos estimadores sob os planos amostrais $p_2$ e $p_1$</caption>
 </table>
 ----------
  Amostra     Valores na Amostra $s$   Estimativa sob $p_2$   Probabilidade sob $p_2$   Estimativa sob $p_1$   Probabilidade sob $p_1$    
@@ -694,7 +694,7 @@ $$
 Um estimador não viciado da variância do estimador HT do total é dado por:
 
 $$
-\widehat V_{HT} (\widehat Y_{HT}) = \displaystyle \sum_{i \in s} \sum_{j \in s} \left( {d_i d_j} - {d_{ij}} \right) {y_i} {y_j}\,\,(\#eq:eqvis28)
+\begin{align} \widehat V_{HT} (\widehat Y_{HT}) & = \displaystyle\sum_{i\in s}\sum_{j\in s}\frac{(\pi_{ij}-\pi_i\pi_j)}{\pi_{ij}}\left(\frac{y_i}{\pi_i}\frac{y_j}{\pi_j}\right)\\ & = \displaystyle \sum_{i \in s} \sum_{j \in s} \left( {d_i d_j} - {d_{ij}} \right) {y_i} {y_j}\end{align}  \,\,(\#eq:eqvis28)
 $$
 
 Este estimador da variância foi obtido usando o princípio dos estimadores tipo Horvitz-Thompson do total, mas agora, como se tratava de estimar uma soma dupla na população, os pesos das parcelas nessa soma dependem das probabilidades de inclusão de segunda ordem, isto é, das probabilidades de inclusão dos pares de unidades. Para que este estimador seja viável, o plano amostral empregado tem que satisfazer a condição adicional de que as probabilidades de inclusão $\pi_{ij}$ sejam estritamente positivas $\forall i \ne j \in U$.
@@ -709,7 +709,7 @@ $$
 
 Note a troca do sinal da diferença de probabilidades de inclusão em relação à expressão anterior. 
 
-Uma análise dessa expressão de variância nos dá uma indicação de quando empregar probabilidades de inclusão distintas pode ser vantajoso. A variância do estimador de total seria nula caso $\frac{y_i}{\pi_i} = \frac{y_j}{\pi_j} \forall \, i \ne j \in U$. Isto só seria possível quando $\pi_i \propto y_i \,\, \forall \, i \in U$, isto é, quando as probabilidades de inclusão fossem exatamente proporcionais aos valores da variável de interesse. Na prática, é impossível aplicar essa ideia já que os valores da variável de interesse são desconhecidos antes da seleção da amostra.
+Uma análise dessa expressão de variância nos dá uma indicação de quando empregar probabilidades de inclusão distintas pode ser vantajoso. A variância do estimador de total seria nula caso $\frac{y_i}{\pi_i} = \frac{y_j}{\pi_j}\,\, \forall \, i \ne j \in U$. Isto só seria possível quando $\pi_i \propto y_i \,\, \forall \, i \in U$, isto é, quando as probabilidades de inclusão fossem exatamente proporcionais aos valores da variável de interesse. Na prática, é impossível aplicar essa ideia já que os valores da variável de interesse são desconhecidos antes da seleção da amostra.
 
 Entretanto, veremos no capítulo \@ref(ppt) que esta ideia pode ser usada de forma aproximada fazendo as probabilidades de inclusão proporcionais a uma medida de tamanho cujos valores estejam disponíveis para todas as unidades da população $U$. Sempre que a medida de tamanho for positivamente correlacionada com a(s) variável(is) de interesse $y$, veremos que é possível tirar proveito da informação de tamanho para aplicar métodos de amostragem que levam a estimadores mais eficientes do total que no caso de planos amostrais com equiprobabilidade para amostras de tamanhos iguais.
 
@@ -729,7 +729,7 @@ O estimador $\widehat V_{SYG}(\widehat Y_{HT})$ foi motivado a partir da forma d
 
 3. A estimação de muitos outros parâmetros populacionais, tais como médias, proporções, razões, etc. usa em grande medida os resultados aqui apresentados para a estimação de totais. Isto ficará mais claro nos capítulos seguintes.
 
-4. Pode-se derivar estimadores não viciados do total populacional, e da variância do estimador HT de total para distintos planos amostrais como casos especiais da teoria geral aqui apresentada. Isto será conveniente, em particular, para a estimação de variâncias, cujas expressões gerais dependem de somas duplas que podem se tornar inconvenientes de calcular quando os tamanhos de amostra são grandes. As expressões apresentadas para cada um dos planos amostrais específicos são úteis porque permitem simplificar os cálculos da estimação de variâncias.
+4. Pode-se derivar estimadores não viciados do total populacional e da variância do estimador HT de total para distintos planos amostrais como casos especiais da teoria geral aqui apresentada. Isto será conveniente, em particular, para a estimação de variâncias, cujas expressões gerais dependem de somas duplas que podem se tornar inconvenientes de calcular quando os tamanhos de amostra são grandes. As expressões apresentadas para cada um dos planos amostrais específicos são úteis porque permitem simplificar os cálculos da estimação de variâncias.
 
 ### Estimação da média populacional
 
@@ -753,7 +753,7 @@ $$
 
 Expressões na forma Sen-Yates-Grundy podem ser obtidas de forma análoga.
 
-Mesmo quando o tamanho $N$ da população for conhecido, ele pode ser estimado usando o estimador HT do total de uma variável de contagem tomando valor igual a 1 para todas as unidades da população, levando ao estimador:
+Mesmo quando o tamanho $N$ da população não for conhecido, ele pode ser estimado usando o estimador HT do total de uma variável de contagem tomando valor igual a 1 para todas as unidades da população, levando ao estimador:
 
 $$ 
 \widehat N_{HT} = \displaystyle \sum_{i \in s} d_i
@@ -765,43 +765,43 @@ $$
 \overline y_R = \widehat Y_{HT} / \widehat N_{HT} = \frac {\sum_{i \in s} d_i y_i} {\sum_{i \in s}d_i} = \sum_{i \in s} w_i^R y_i \,\, (\#eq:eqvis34)
 $$
 
-onde $d_i^R = d_i / \displaystyle\sum_{j \in s} d_j$.
+onde $w_i^R = d_i / \displaystyle\sum_{j \in s} d_j$.
 
 A variância desse estimador de média pode ser aproximada por:
 
 $$
-V_{PPT} (\overline y_R) \doteq \frac{1}{N^2} \sum_{i \in U} \sum_{j \in U} (\pi_{ij} - \pi_i\pi_j) \left( \frac {y_i - \overline Y} {\pi_i} \right) \left( \frac{y_j - \overline Y} {\pi_j} \right) \,\, (\#eq:eqvis35) 
+V_{HT} (\overline y_R) \doteq \frac{1}{N^2} \sum_{i \in U} \sum_{j \in U} (\pi_{ij} - \pi_i\pi_j) \left( \frac {y_i - \overline Y} {\pi_i} \right) \left( \frac{y_j - \overline Y} {\pi_j} \right) \,\, (\#eq:eqvis35) 
 $$
 
 Um estimador aproximadamente não viciado para essa variância é dado por: 
 
 $$
-\widehat V_{PPT} (\overline y_R) = \frac{1}{\widehat N_{HT} ^2} \sum_{i \in s} \sum_{j \in s} \frac {(\pi_{ij} - \pi_i\pi_j)} {\pi_{ij}} \left( \frac{y_i - \overline y_R} {\pi_i} \right) \left( \frac{y_j - \overline y_R} {\pi_j} \right) \,\, (\#eq:eqvis36) 
+\widehat V_{HT} (\overline y_R) = \frac{1}{\widehat{N}_{HT}^2} \sum_{i \in s} \sum_{j \in s} \frac {(\pi_{ij} - \pi_i\pi_j)} {\pi_{ij}} \left( \frac{y_i - \overline y_R} {\pi_i} \right) \left( \frac{y_j - \overline y_R} {\pi_j} \right) \,\, (\#eq:eqvis36) 
 $$
 
 Cabe registrar que para alguns planos amostrais, os dois estimadores são equivalentes, isto é, $\overline y_R=\overline y_{HT}$ porque $w_i^R=w_i^{HT}$. Porém, quando diferem, o *estimador de razão da média* é geralmente mais eficiente que o estimador HT. Uma outra propriedade atraente do estimador tipo razão da média é que ele é invariante sob transformações de locação, isto é, se tomarmos $z_i = y_i + A$, então $\overline z_R = \overline y_R + A$. Esta propriedade não se verifica para o estimador HT.
 
 Em planos amostrais equi-ponderados, isto é, em que as probabilidades de inclusão $\pi_i$ são todas iguais, os pesos $w_i$ para estimação de médias ficam todos iguais a $1/n$ para ambos os estimadores (HT e de Razão). Esta é uma vantagem de planos deste tipo, pois a tarefa de estimação fica simplificada.
 
-A Tabela \@ref(tab:tabppt1) apresenta um resumo da estimação de parâmetros média e total sob PPT. 
+A Tabela \@ref(tab:tabvis15) apresenta um resumo de parâmetros e respectivos estimadores HT para o total e a média. 
 
 <center>
 <table>
-<caption>(#tab:tabppt1)Parâmetros e respectivos estimadores sob PPT</caption>
+<caption>(#tab:tabvis15)Parâmetros e respectivos estimadores HT</caption>
 </table>
 ----------
 Parâmetro                                                   Estimador
 ----------------------------------------------------------- ------------------------------------------------------------------------------------------------------------------------------------------------------             
-$Y=\displaystyle\sum_{i\in U}y_i$                           $\widehat Y_{HT}=\displaystyle\sum_{i\in s}d_i y_i$
+$Y=\displaystyle\sum_{i\in U}y_i$                           $\widehat Y_{HT}=\displaystyle\sum_{i\in s}d_i y_i=\displaystyle \sum_{i \in s} {y_i}/{\pi_i}$
 
 $\overline{Y}={Y}/{N}=\displaystyle\sum_{i\in U}y_i/N$      $\overline y_{HT}=\widehat Y_{HT}/N=\displaystyle \sum_{i\in s}d_i y_i/N=\sum_{i\in s}w_i^{HT}y_i$
-                                                            $\overline y_R=\frac{\sum_{i\in s}d_i y_i}{\sum_{i\in s}d_i}=\displaystyle\sum_{i\in s}w_i^R y_i$
+                                                            $\overline y_R=\displaystyle \frac{\sum_{i\in s}d_i y_i}{\sum_{i\in s}d_i}=\displaystyle\sum_{i\in s}w_i^R y_i$
     
-$V_{PPT}(\widehat Y_{HT})$                                  $\widehat V_{PPT}(\widehat Y_{HT})=\displaystyle\sum_{i\in s}\sum_{j\in s}\frac{(\pi_{ij}-\pi_i\pi_j)}{\pi_{ij}}\left(\frac{y_i}{\pi_i}\frac{y_j}{\pi_j}\right)$                                    
+$V_{HT}(\widehat Y_{HT})$                                   $\widehat V_{HT}(\widehat Y_{HT})=\displaystyle\sum_{i\in s}\sum_{j\in s}\frac{(\pi_{ij}-\pi_i\pi_j)}{\pi_{ij}}\left(\frac{y_i}{\pi_i}\frac{y_j}{\pi_j}\right)$                                    
 
-$V_{PPT}(\overline y_{HT})=V_{PPT}(\widehat Y_{HT})/{N^2}$  $\widehat V_{PPT}(\overline y_{HT})=\displaystyle\widehat V_{PPT}(\widehat Y_{HT})/{N^2}$
+$V_{HT}(\overline y_{HT})=V_{HT}(\widehat Y_{HT})/{N^2}$    $\widehat V_{HT}(\overline y_{HT})=\displaystyle\widehat V_{HT}(\widehat Y_{HT})/{N^2}$
 
-$V_{PPT}(\overline y_R)$                                    $\widehat V_{PPT}(\overline y_R)=\frac{1}{N^2}\displaystyle\sum_{i\in s}\sum_{j\in s}\frac{(\pi_{ij}-\pi_i\pi_j)}{\pi_{ij}}\left(\frac{y_i-\overline y_R}{\pi_i} \right)\left(\frac{y_j-\overline y_R}{\pi_j}\right)$   
+$V_{HT}(\overline y_R)$                                     $\displaystyle\widehat V_{HT}(\overline y_R)=\frac{1}{\widehat{N}_{HT}^2}\displaystyle\sum_{i\in s}\sum_{j\in s}\frac{(\pi_{ij}-\pi_i\pi_j)}{\pi_{ij}}\left(\frac{y_i-\overline y_R}{\pi_i} \right)\left(\frac{y_j-\overline y_R}{\pi_j}\right)$   
                                                      
 $V_{SYG}(\widehat Y_{HT})$                                  $\widehat V_{SYG}(\widehat Y_{HT})=\displaystyle\sum_{i\in s}\sum_{j>i}\left(\frac{\pi_i\pi_j-\pi_{ij}}{\pi_{ij}}\right)\left(\frac{y_i}{\pi_i}-\frac{y_j} { \pi_j}\right)^2$
 ----------
@@ -810,11 +810,11 @@ $V_{SYG}(\widehat Y_{HT})$                                  $\widehat V_{SYG}(\w
 
 ## Exercícios 
 
-**(#exr:exevisger1)** Considere a população com $N=6$ domicílios listada com os respectivos valores de variáveis de interesse na Tabela \@ref(tab:tabvis15).
+**(#exr:exevisger1)** Considere a população com $N=6$ domicílios listada com os respectivos valores de variáveis de interesse na Tabela \@ref(tab:tabvis16).
 
 <center>
 <table>
-<caption>(#tab:tabvis15)Valores de variáveis de interesse para cada domicílio da população</caption>
+<caption>(#tab:tabvis16)Valores de variáveis de interesse para cada domicílio da população</caption>
 </table>
 ----------
  Domicílio    Renda (R$)   Número de Moradores   Número de Trabalhadores
