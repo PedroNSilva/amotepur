@@ -26,11 +26,13 @@ Tabela 3.11: Probabilidade de seleção sob $p_1(s)$ para cada valor do estimado
 
 Tabela 3.12: Probabilidade de seleção sob $p_2(s)$ para cada valor do estimador ponderado
 
-Tabela 3.13: Obtenção da variância dos estimadores sob os planos amostrais $p_1$ e $p_2$
+Tabela 3.13: Obtenção da variância dos estimadores sob os planos amostrais $p_2$ e $p_1$
 
 Tabela 3.14: Representação de cada amostra possível pelas variáveis indicadoras
 
-Tabela 3.15: Valores de variáveis de interesse para cada domicílio da população
+Tabela 3.15: Parâmetros e respectivos estimadores HT
+
+Tabela 3.16: Valores de variáveis de interesse para cada domicílio da população
 
 Tabela 4.1: Valores das variáveis aleatórias e probabilidades por unidade populacional 
 
@@ -101,9 +103,11 @@ Tabela 8.6: Quantidade de alimento, em onças, por lata na AS
 
 Tabela 8.7: Valores da variável $y$ para a população
 
-Tabela 10.1: Parâmetros e respectivos estimadores sob PPT 
+Tabela 9.1: Parâmetros e respectivos estimadores sob AB 
 
-Tabela 10.2: Informações das áreas de uma população de $N=6$ fazendas
+Tabela 10.1: Informações das áreas de uma população de $N=6$ fazendas
+
+Tabela 10.2: Parâmetros e respectivos estimadores sob PPT 
 
 Tabela 10.3: Informações obtidas na amostra selecionada 
 
@@ -143,12 +147,23 @@ Tabela 12.3: Descrição de parâmetros populacionais no conglomerado e em toda 
 
 Tabela 12.4: Descrição das informações amostrais na ACS 
 
-Tabela 12.5: Parâmetros e respectivos estimadores sob ACS (ACERTAR no texto)
+Tabela 12.5: Parâmetros e respectivos estimadores sob ACS 
 
 Tabela 12.6: Efeitos de plano amostral sob ACS por tamanho do conglomerado e do coeficiente de correlação intraclasse 
 
 Tabela 12.7: Parâmetros e respectivos estimadores sob os Planos 1, 2 e 3 de AC2
-(ACERTAR no texto)
+
+Tabela 12.8: Resultados obtidos para a amostra 
+
+Tabela 12.9: Valores populacionais 
+
+Tabela 12.10: Conglomerados e respectivas unidades formadoras 
+
+Tabela 12.11: Número de domicílios e domicílios alugados na amostra de 20 quarteirões 
+
+Tabela 12.12: Valores observados para os conglomerados da amostra 
+
+Tabela 12.13: Valores observados para a amostra 
 
 Tabela 13.1: Comparação dos estimadores HT e de calibração
 

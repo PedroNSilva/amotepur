@@ -68,7 +68,7 @@ COV - Covariância
 
 CV - Coeficiente de Variação
 
-D - Margem de Erro máxima admissível 
+D - Margem de Erro máxima admissível ou Precisão desejada
 
 DP - Desvio Padrão
 
@@ -77,6 +77,8 @@ E - Valor Esperado
 ECINF - Pesquisa de Economia Informal Urbana 
 
 EFR - Ensino Fundamental Regular 
+
+EIER - Employment Insurance Economic Regions (Canadá)
 
 EM - Erro médio 
 
@@ -87,6 +89,8 @@ ENV - Estimador Não Viciado
 EPA - Efeito de Plano Amostral
 
 EQM -  Erro Quadrático Médio 
+
+ER - Economic Region (Canadá)
 
 ERM - Erro Relativo Médio  
 
@@ -99,6 +103,8 @@ GES - Generalized Estimation System
 GSBPM - Generic Statistical Business Process Model 
 
 GREG - Generalized Regression
+
+HH - Hansen-Hurwitz 
 
 HT - Horvitz-Thompson
 
@@ -148,7 +154,7 @@ PMS - Pesquisa Mensal dos Serviços
 
 PNAD - Pesquisa Nacional por Amostra de Domicílios
 
-PNADC ou PNAD Contínua - Pesquisa Nacional por Amostra de Domicílios Contínua 
+PNAD Contínua - Pesquisa Nacional por Amostra de Domicílios Contínua 
 
 PO - Amostragem PPT de Poisson
 
@@ -166,7 +172,11 @@ RC - Razão Combinada
 
 RS - Razão Separada
 
+SAEB - Sistema de Avaliação da Educação Básica 
+
 SAS - Statistical Analysis System
+
+SIS - Amostragem sistemática com PPT 
 
 SYG - Sen-Yates-Grundy 
 
