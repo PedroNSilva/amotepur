@@ -36,40 +36,42 @@ cat("<table>",paste0("<caption>","(#tab:tabrazao1)","Densidade demográfica por 
 ```
 
 --------- 
-Unidade da Federação           Densidade demográfica Unidade da Federação           Densidade demográfica
-                                        ($Hab/km^2$)                                         ($Hab/km^2$)
------------------------------ ---------------------- ----------------------------- ----------------------  
-Rondônia                                     6,6      Sergipe                                  94,4
+                           Densidade                                         Densidade
+Unidade da                demográfica            Unidade da                 demográfica
+Federação                  $Hab/km^2$            Federação                  $Hab/km^2$
+------------------------ ------------- --------- ------------------------- -------------  
+Rondônia                    6,6                  Sergipe                       94,4
 
-Acre                                         4,5      Bahia                                    24,8
+Acre                        4,5                  Bahia                         24,8
 
-Amazonas                                     2,2      Minas Gerais                             33,4
+Amazonas                    2,2                  Minas Gerais                  33,4
 
-Roraima                                      2,0      Espírito Santo                           76,3
+Roraima                     2,0                  Espírito Santo                76,3
+ 
+Pará                        6,1                  Rio de Janeiro               365,2
 
-Pará                                         6,1      Rio de Janeiro                          365,2
+Amapá                       4,7                  São Paulo                    166,3 
 
-Amapá                                        4,7      São Paulo                               166,3 
+Tocantins                   5,0                  Paraná                        52,4
 
-Tocantins                                    5,0      Paraná                                   52,4
+Maranhão                   19,8                  Santa Catarina                65,3
 
-Maranhão                                    19,8      Santa Catarina                           65,3
+Piauí                      12,4                  Rio Grande do Sul             39,8
 
-Piauí                                       12,4      Rio Grande do Sul                        39,8
+Ceará                      56,8                  Mato Grosso do Sul             6,9
 
-Ceará                                       56,8      Mato Grosso do Sul                        6,9
+Rio Grande do Norte        60,0                  Mato Grosso                    3,4
 
-Rio Grande do Norte                         60,0      Mato Grosso                               3,4
+Paraíba                    66,7                  Goiás                         17,7
 
-Paraíba                                     66,7      Goiás                                    17,7
-
-Pernambuco                                  89,6      Distrito Federal                        444,1
+Pernambuco                 89,6                  Distrito Federal             444,1
         
-Alagoas                                    112,3 
-
-**Brasil(Média de razões)**                 68,1      **Brasil(Razão de médias)**              22,4
----------
-</center>   Fonte: IBGE, Censo Demográfico 2010.
+Alagoas                   112,3 
+ 
+**$\text{Brasil}^1$**     **68,1**               **$\text{Brasil}^2$**       **22,4**
+--------- 
+</center> $^1$Média de razões, $^2$Razão de médias    
+ Fonte: IBGE, Censo Demográfico 2010.
 
 Os dados apurados nas últimas duas linhas da Tabela \@ref(tab:tabrazao1) ilustram bem a importância de identificar corretamente que parâmetro se deseja estimar. No exemplo aqui considerado, a densidade demográfica apurada no nível do País como um todo é 22,4 $Hab/km^2$, enquando a média das densidades demográficas calculadas por unidades da federação é de 68,1 $Hab/km^2$, mais que três vezes maior. Portanto, ao enfrentar uma situação em que o parâmetro de interesse pode ser caracterizado como uma das duas situações, cabe ao responsável por planejar a pesquisa esclarecer junto aos demandantes da mesma qual dos dois conceitos melhor descreve a quantidade de interesse. Isto permitirá selecionar adequadamente o estimador que deve ser empregado com os dados da amostra a ser coletada.
 
