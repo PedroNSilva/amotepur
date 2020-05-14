@@ -130,7 +130,6 @@ A Tabela \@ref(tab:tabbin1) resume os resultados para estimação sob amostragem
 cat("<table>",paste0("<caption>", "(#tab:tabbin1)","Parâmetros e respectivos estimadores sob AB", "</caption>"),"</table>", sep ="\n")
 ```
 
-<center>
 ----------
 Parâmetro                                                                                                        Estimador                                                          
 ---------------------------------------------------------------------------------------------------------------- ----------------------------------------------------------------------------------
@@ -311,41 +310,41 @@ $$
 A forma geral do estimador para o total populacional proposto por @Murthy1957 é dada por:
 
 $$
-{\widehat Y}_M = \sum_{i \in s} \frac {P(s | i)} {P(s)}  y_i \,\,\, (\#eq:eqinv14)
+{\widehat Y}_M = \sum_{i \in s} \frac {P(s \mid i)} {P(s)}  y_i \,\,\, (\#eq:eqinv14)
 $$
 
-onde $P(s|i)$ é a probabilidade condicional de selecionar a amostra $s$ dado que a unidade $i$ foi selecionada e $P(s)$ é a probabilidade de seleção da amostra $s$.
+onde $P(s\mid i)$ é a probabilidade condicional de selecionar a amostra $s$ dado que a unidade $i$ foi selecionada e $P(s)$ é a probabilidade de seleção da amostra $s$.
 
 A variância desse estimador pode ser calculada com:
 
 $$
-V({\widehat Y}_M)=\sum_{i\in U}\sum_{(j<i)\in U}\left(1-\sum_{s\ni i,j}\frac{P(s|i)P(s|j)}{P(s)}\right)\left(\frac{y_i}{p_i}-\frac{y_j}{p_j}\right)^2p_ip_j(\#eq:eqinv15)
+V({\widehat Y}_M)=\sum_{i\in U}\sum_{(j<i)\in U}\left(1-\sum_{s\ni i,j}\frac{P(s\mid i)P(s\mid j)}{P(s)}\right)\left(\frac{y_i}{p_i}-\frac{y_j}{p_j}\right)^2 p_ip_j (\#eq:eqinv15)
 $$
 
 Um estimador não viciado para essa variância é:
 
 $$
-\widehat {V}({\widehat Y}_M)=\sum_{i\in U}\sum_{(j<i)\in U}\left(\frac{P(s|i,j)}{P(s)}-\sum_{s\ni i,j}\frac{P(s|i)P(s|j)}{P^2(s)}\right)\left(\frac{y_i}{p_i}-\frac{y_j}{p_j}\right)^2p_ip_j(\#eq:eqinv16)
+\widehat {V}({\widehat Y}_M)=\sum_{i\in U}\sum_{(j<i)\in U}\left(\frac{P(s\mid i,j)}{P(s)}-\sum_{s\ni i,j}\frac{P(s\mid i)P(s\mid j)}{P^2(s)}\right)\left(\frac{y_i}{p_i}-\frac{y_j}{p_j}\right)^2p_ip_j(\#eq:eqinv16)
 $$
 
-onde $P(s|i,j)$ é a probabilidade condicional de selecionar $S$ dado que as unidades $i$ e $j$ foram selecionadas, em qualquer ordem.
+onde $P(s\mid i,j)$ é a probabilidade condicional de selecionar $S$ dado que as unidades $i$ e $j$ foram selecionadas, em qualquer ordem.
 
 Para a média populacional, basta dividir o estimador do total pelo tamanho, $N$, da população, e a variância com seu estimador por $N^2$, ou seja:
 
 $$
- {\overline y}_M = \frac 1 N \sum_{i \in s} \frac {P(s | i)} {P(s)} y_i \,\,\,(\#eq:eqinv17)
+ {\overline y}_M = \frac 1 N \sum_{i \in s} \frac {P(s \mid i)} {P(s)} y_i \,\,\,(\#eq:eqinv17)
 $$
 $$
-V({\overline y}_M)=\frac1{N^2}\sum_{i\in U}\sum_{(j<i)\in U}\left(1-\sum_{s\ni i,j}\frac{P(s|i)P(s|j)}{P(s)}\right)\left(\frac{y_i}{p_i}-\frac{y_j}{p_j}\right)^2p_ip_j(\#eq:eqinv18)
+V({\overline y}_M)=\frac1{N^2}\sum_{i\in U}\sum_{(j<i)\in U}\left(1-\sum_{s\ni i,j}\frac{P(s\mid i)P(s\mid j)}{P(s)}\right)\left(\frac{y_i}{p_i}-\frac{y_j}{p_j}\right)^2p_ip_j(\#eq:eqinv18)
 $$
 $$
-\widehat {V}({\overline{y}}_M)=\frac1{N^2}\sum_{i\in U}\sum_{(j<i)\in U}\left(\frac{P(s|i,j)}{P(s)}-\sum_{s\ni i,j}\frac{P(s|i)P(s|j)}{P^2(s)}\right)\left(\frac{y_i}{p_i}-\frac{y_j}{p_j}\right)^2p_ip_j(\#eq:eqinv19)
+\widehat {V}({\overline{y}}_M)=\frac1{N^2}\sum_{i\in U}\sum_{(j<i)\in U}\left(\frac{P(s\mid i,j)}{P(s)}-\sum_{s\ni i,j}\frac{P(s\mid i)P(s\mid j)}{P^2(s)}\right)\left(\frac{y_i}{p_i}-\frac{y_j}{p_j}\right)^2p_ip_j(\#eq:eqinv19)
 $$
 
 No caso da AIS podemos reescrever os estimadores acima da forma sugerida por @SalehiSeber2001. Seja uma variável indicadora $\delta_i$, que assume o valor $1$ se a unidade $i$ da população foi selecionada para a amostra e o valor $0$ caso contrário. No caso da AIS, sabe-se que a última unidade selecionada obrigatoriamente pertence ao subconjunto $A$ da população, como definido acima. Portanto as demais unidades da amostra podem ser alocadas de $(n-1)!$ maneiras, de forma que a amostra $s$ pode ser obtida de $m(n-1)!$ configurações distintas. Para o conjunto das unidades pertencentes à subpopulação $A$ o evento $\{\delta_i=1\}$ pode ocorrer de $(m−1)(n−2)!$ maneiras, enquanto que para as unidades pertencentes à subpopulação $\overline A$ esse mesmo evento pode ocorrer de $m(n-2)!$ formas. Sabe-se, ainda, que a seleção das unidades da amostra é feita com equiprobabilidade. Portanto: 
 
 $$
- \displaystyle\frac {P(s | i)} {P(s)} = 
+ \displaystyle\frac {P(s \mid i)} {P(s)} = 
  \begin {cases}  \frac{N(m-1)}{(n-1)m}, & \quad \text{se } i \in A \\\\
  \frac N{n-1}, & \quad \text{se } i \in \overline A 
  \end {cases} \,\, 
@@ -361,7 +360,7 @@ Cuja variância pode ser obtida obtida através da expressão \@ref(eq:eqinv15).
 Para obter uma expressão para o estimador da variância, seja $n>2$ e:
 
 $$
-\frac{P(s|i,j)}{P(s)}=\begin{cases}\frac{N(N-1)(n-2)}{(m-1)(m-2)n}, & \quad \text{se } i,\;j \in A \\ \\
+\frac{P(s\mid i,j)}{P(s)}=\begin{cases}\frac{N(N-1)(n-2)}{(m-1)(m-2)n}, & \quad \text{se } i,\;j \in A \\ \\
 \frac{N(N-1)(n-1)}{(m-2)(m-1)n)}, &\quad\text{se }i\in A \text{ e } j\in\overline A\\ \\
 \frac{N(N-1)}{(m-1)(m-2)}, &\quad\text{se } i,\;j\in\overline A
 \end{cases}
@@ -369,7 +368,7 @@ $$
 Substituindo na expressão \@ref(eq:eqinv16), a expressão do estimador da variância pode ser escrita como:
 
 $$
-\widehat V(\widehat Y_{M/{AIS}})=\frac N{(m-1)^2(m-2)}\left[\frac{n(n-2)(N-m+1)-N(m-2)}{n^2}\\\sum_{i=1}^n\sum_{j<i}^n (y_i-y_j)^2+(N-m+1)\left(\frac{n-1}{n}\sum_{i=1}^n\sum_{j=n+1}^m (y_i-y_j)^2+\sum_{i=n+1}^m\sum_{j>i}^m (y_i-y_j)^2\right)\right](\#eq:eqinv21)
+\begin{align} \widehat V(\widehat Y_{M/AIS})=\frac N{(m-1)^2(m-2)}\left[\frac{n(n-2)(N-m+1)-N(m-2)}{n^2}\\\sum_{i=1}^n\sum_{j<i}^n (y_i-y_j)^2 +(N-m+1)\left(\frac{n-1}{n}\sum_{i=1}^n\sum_{j=n+1}^m (y_i-y_j)^2+\sum_{i=n+1}^m\sum_{j>i}^m (y_i-y_j)^2\right)\right] \end{align}(\#eq:eqinv21)
 $$
 
 Para obter o estimador da média populacional basta dividir a expressão do estimador do total por $N$:
@@ -377,11 +376,12 @@ Para obter o estimador da média populacional basta dividir a expressão do esti
 $$
 {\overline y}_{M/{AIS}} = \frac 1 {n-1}\left( \frac{m-1} m\sum_{i \in A} y_i + \sum_{i \in \overline A} y_i \right) \,\, (\#eq:eqinv22)
 $$
-O Estimador da variância do estimador da médiaé dado pela expressão:
+O Estimador da variância do estimador da média é dado pela expressão:
 
 $$
-\widehat V(\overline y_{M/{AIS}})=\frac 1{N(m-1)^2(m-2)}\left[\frac{n(n-2)(N-m+1)-N(m-2)}{n^2}\\\sum_{i=1}^n\sum_{j<i}^n (y_i-y_j)^2+(N-m+1)\left( \frac{n-1}{n}\sum_{i=1}^n\sum_{j=n+1}^m (y_i-y_j)^2+\sum_{i=n+1}^m\sum_{j>i}^m (y_i-y_j)^2\right)\right](\#eq:eqinv23)
+\begin{align}\widehat V(\overline y_{M/{AIS}})=\frac 1{N(m-1)^2(m-2)}\left[\frac{n(n-2)(N-m+1)-N(m-2)}{n^2}\\\sum_{i=1}^n\sum_{j<i}^n (y_i-y_j)^2+(N-m+1)\left( \frac{n-1}{n}\sum_{i=1}^n\sum_{j=n+1}^m (y_i-y_j)^2+\sum_{i=n+1}^m\sum_{j>i}^m (y_i-y_j)^2\right)\right]\end{align}(\#eq:eqinv23)
 $$
+
 
 ### Exemplos de aplicação da amostragem inversa
 
@@ -393,3 +393,84 @@ O procedimento de AIS pode ser confundido por alguns com um protocolo de *substi
 
 A AIS, ao contrário, é guiada por procedimentos estritos de amostragem probabilística, e se bem implementada, contribui para reduzir possíveis vieses de seleção da amostra. Além disso, requer a manutenção do controle dos esforços de coleta, permitindo mapear rigorosamente onde ocorreu a eventual não resposta ou perda de unidades selecionadas, e também mantendo registros do esforço de coleta que permitem incorporar na estimação dados sobre o tamanho desse esforço.
 
+## Exercícios
+
+**(#exr:exerbin1)** Suponha que você deseja selecionar uma amostra de Bernoulli de uma população para estimar o total de uma variável de interesse, $y$,  com um $CV$ de 10% para o estimador utilizado. Sabe-se que o total de $y$ num censo anterior é de aproximadamente 1,81E6 e a soma dos quadrados dos valores de $y$ é 1,69E11. Calcule o tamanho esperado da amostra para:
+
+a)  Estimar o total utilizando o estimador não viciado de Horvitz-Thompson;    
+b)  Estimar o total utilizando o estimador alternativo.    
+c)  E se a amostra selecionada for uma AAS?
+
+**(#exr:exerbin2)** Uma amostra de Bernoulli, com $\pi = 0,1$, foi selecionada de uma população para estimar os totais de duas variáveis de interesse, $y$ e $x$. A Tabela \@ref(tab:tabbin2) mostra os resultados das observações da amostra.
+
+<center>
+```{r, results="asis", echo=FALSE}
+cat("<table>",paste0("<caption>", "(#tab:tabbin2)", "Valores observados na amostra", "</caption>"),"</table>", sep ="\n")
+```  
+----------
+ Variável   Total amostral  Soma dos quadrados
+---------- --------------- -------------------
+y                    564              15790
+
+x                   4178             878452
+----------
+</center>
+
+a)  Estime os totais populacionais
+b)  Estime as variâncias dos estimadores
+c)  Estime os coeficientes de variação dos estimadores
+d)  Comente os resultados
+
+**(#exr:exerbin3)** Seja a população de $N=30$ unidades populacionais, cujos valores da variável de interesse, $y$, são apresentados na Tabela \@ref(tab:tabbin3).
+
+<center>
+```{r, results="asis", echo=FALSE}
+cat("<table>",paste0("<caption>", "(#tab:tabbin3)", "População a ser amostrada", "</caption>"),"</table>", sep ="\n")
+```  
+----------
+   i            I    II   III    IV     V
+----------- ----- ----- ----- ----- -----
+ **1**       30    63    29    76    54
+
+ **2**       95    24    24    76    55
+
+ **3**       53    39    62    53    73
+
+ **4**       63    38    25    52    37
+
+ **5**       58    79    99    55    96
+
+ **6**       29    36    84    52    79
+
+ **Total**   328   279   323   364   394
+----------
+</center>
+
+Caso não fossem conhecidos os valores da variável representada na tabela, qual seria a melhor alternativa para estimar o total populacional?    
+(Em cada caso calcule a variância do estimador do total populacional para justificar sua resposta.)
+
+a)  Uma amostra sistemática com $k=5$?
+b)  Uma AAS de tamanho $n=6$?
+c)  Uma amostra de Bernoulli com $\pi=0,2$?
+  
+**(#exr:exerbin4)** Acesse <https://www.ibge.gov.br/estatisticas/sociais/populacao/9662-censo-demografico-2010.html?=&t=downloads>, que é uma área de _**Downloads**_ do *site* do IBGE. Busque na área referente ao Censo 2010 e, em *resultados*, o arquivo *total_populacao_minas_gerais.zip*. Esse arquivo é uma planilha contendo os resultados para os totais populacionais de cada um dos municípios de Minas Gerais. Selecione uma amostra Binomial dos municípios, com $\pi=0,10$, e calcule:
+
+a)  A estimativa do total populacional para Minas Gerais em 2010, baseada na amostra selecionada;
+b)  Construa o $ic_{95\%}$ para a estimativa;
+c)  Repita os itens a. e b., supondo que a amostra foi selecionada utilizando AAS;
+d)  Compare os resultados com o valor verdadeiro do total populacional de Minas Gerais no Censo 2010;
+e)  Comente  os resultados.
+
+**(#exr:exerbin5)** Uma lista com 10875 denúncias, contra uma determinada entidade, foi enviada a um analista para que fossem avaliadas. Sabendo que nem todas as denúcias seriam procedentes, o analista resolveu selecionar uma amostra dos processos para estimar o total das denúncias procedentes, seguindo os seguintes passos:
+
+  * Para cada denúncia foi gerado um número aleatório com distribuição $U(0,1)$;
+  * A lista foi ordenada em ordem crescente dos aleatórios gerados;
+  * Foram incluídas na amostra as denúncias em que o aleatório correspondente foi menor que 0,01.
+  
+Verifique quais das afirmações seguintes são verdadeiras ou falsas, justificando sua resposta em cada caso:
+
+a)  O analista utilizou uma AAS;
+b)  O método utilizado é de equiprobabilidade para toda a população;
+c)  Sabendo que na amostra foram observadas 85 denúncias procedentes, a estimativa do total de procedentes na população é 8500;
+d)  Uma estimativa não viciada para a variância da estimativa do total é 840;
+e)  O tamanho da amostra é fixo, com $n = 108$.
