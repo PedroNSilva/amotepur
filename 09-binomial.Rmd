@@ -37,7 +37,7 @@ $$
 A variância desse estimador do total é dada por:
 
 $$
-V_{AB}(\widehat Y_{AB}) =\left( \frac{1}{\pi} \right)^2 V_{AB} \left( \sum_{i \in s} y_i \right) = \left( \frac{1}{\pi} \right)^2 V_{AB} \left( \sum_{i \in U} \delta_i y_i \right) = \\= \left( \frac{1}{\pi} \right)^2 \sum_{i \in U} V_{AB}(\delta_i) y_i^2 = \left(\frac{1}{\pi}\right)^2 \pi (1-\pi) \sum_{i \in U} y_i^2 = \left(\frac{1}{\pi}-1\right)\sum_{i \in U}y_i^2\,\,(\#eq:eqbin2)
+\begin{align} V_{AB}(\widehat Y_{AB})& =\left( \frac{1}{\pi} \right)^2 V_{AB} \left( \sum_{i \in s} y_i \right) = \left( \frac{1}{\pi} \right)^2 V_{AB} \left( \sum_{i \in U} \delta_i y_i \right) \\&= \left( \frac{1}{\pi} \right)^2 \sum_{i \in U} V_{AB}(\delta_i) y_i^2 = \left(\frac{1}{\pi}\right)^2 \pi (1-\pi) \sum_{i \in U} y_i^2 = \left(\frac{1}{\pi}-1\right)\sum_{i \in U}y_i^2\end{align}\,(\#eq:eqbin2)
 $$
 onde δi é a variável indicadora que assume o valor 1 se a unidade i da população foi selecionada para a amostra e o valor 0 caso contrário.
 
@@ -410,9 +410,9 @@ cat("<table>",paste0("<caption>", "(#tab:tabbin2)", "Valores observados na amost
 ----------
  Variável   Total amostral  Soma dos quadrados
 ---------- --------------- -------------------
-y                    564              15790
+y                    564              15.790
 
-x                   4178             878452
+x                  4.178             878.452
 ----------
 </center>
 
@@ -456,12 +456,12 @@ c)  Uma amostra de Bernoulli com $\pi=0,2$?
 **(#exr:exerbin4)** Acesse <https://www.ibge.gov.br/estatisticas/sociais/populacao/9662-censo-demografico-2010.html?=&t=downloads>, que é uma área de _**Downloads**_ do *site* do IBGE. Busque na área referente ao Censo 2010 e, em *resultados*, o arquivo *total_populacao_minas_gerais.zip*. Esse arquivo é uma planilha contendo os resultados para os totais populacionais de cada um dos municípios de Minas Gerais. Selecione uma amostra Binomial dos municípios, com $\pi=0,10$, e calcule:
 
 a)  A estimativa do total populacional para Minas Gerais em 2010, baseada na amostra selecionada;
-b)  Construa o $ic_{95\%}$ para a estimativa;
+b)  Construa o $IC_{95\%}$ para a estimativa;
 c)  Repita os itens a. e b., supondo que a amostra foi selecionada utilizando AAS;
 d)  Compare os resultados com o valor verdadeiro do total populacional de Minas Gerais no Censo 2010;
 e)  Comente  os resultados.
 
-**(#exr:exerbin5)** Uma lista com 10875 denúncias, contra uma determinada entidade, foi enviada a um analista para que fossem avaliadas. Sabendo que nem todas as denúcias seriam procedentes, o analista resolveu selecionar uma amostra dos processos para estimar o total das denúncias procedentes, seguindo os seguintes passos:
+**(#exr:exerbin5)** Uma lista com 10.875 denúncias, contra uma determinada entidade, foi enviada a um analista para que fossem avaliadas. Sabendo que nem todas as denúcias seriam procedentes, o analista resolveu selecionar uma amostra dos processos para estimar o total das denúncias procedentes, seguindo os seguintes passos:
 
   * Para cada denúncia foi gerado um número aleatório com distribuição $U(0,1)$;
   * A lista foi ordenada em ordem crescente dos aleatórios gerados;
@@ -471,6 +471,6 @@ Verifique quais das afirmações seguintes são verdadeiras ou falsas, justifica
 
 a)  O analista utilizou uma AAS;
 b)  O método utilizado é de equiprobabilidade para toda a população;
-c)  Sabendo que na amostra foram observadas 85 denúncias procedentes, a estimativa do total de procedentes na população é 8500;
+c)  Sabendo que na amostra foram observadas 85 denúncias procedentes, a estimativa do total de procedentes na população é 8.500;
 d)  Uma estimativa não viciada para a variância da estimativa do total é 840;
 e)  O tamanho da amostra é fixo, com $n = 108$.
