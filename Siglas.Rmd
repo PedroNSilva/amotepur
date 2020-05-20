@@ -26,6 +26,14 @@ AEC - Amostragem Estratificada por Corte
 
 AES - Amostragem Estratificada Simples
 
+AESP - Amostragem Estratificada Simples Proporcional 
+
+AESPo - Amostragem Estratificada Simples com alocação Potência
+
+AESN - Amostragem Estratificada Simples com alocação de Neyman 
+
+AESO - Amostragem Estratificada Simples com alocação Ótima 
+
 AIS - Amostragem Inversa Simples 
 
 AP - Amostragem PPT de Pareto 
