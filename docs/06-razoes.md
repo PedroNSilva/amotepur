@@ -36,42 +36,44 @@ Um cuidado importante aqui é compreender o significado do parâmetro de interes
 </table>
 
 --------- 
-Unidade da Federação           Densidade demográfica Unidade da Federação           Densidade demográfica
-                                        ($Hab/km^2$)                                         ($Hab/km^2$)
------------------------------ ---------------------- ----------------------------- ----------------------  
-Rondônia                                     6,6      Sergipe                                  94,4
+                                Densidade                                                  Densidade
+Unidade da                    demográfica           Unidade da                        demográfica
+Federação                  Hab/$\bf km^2$           Federação                         Hab/$\bf km^2$
+------------------------ ---------------- --------- ----------------------- -------------  
+Rondônia                    6,6                     Sergipe                            94,4
 
-Acre                                         4,5      Bahia                                    24,8
+Acre                        4,5                     Bahia                              24,8
 
-Amazonas                                     2,2      Minas Gerais                             33,4
+Amazonas                    2,2                     Minas Gerais                       33,4
 
-Roraima                                      2,0      Espírito Santo                           76,3
+Roraima                     2,0                     Espírito Santo                     76,3
+ 
+Pará                        6,1                     Rio de Janeiro                    365,2
 
-Pará                                         6,1      Rio de Janeiro                          365,2
+Amapá                       4,7                     São Paulo                         166,3 
 
-Amapá                                        4,7      São Paulo                               166,3 
+Tocantins                   5,0                     Paraná                            52,4
 
-Tocantins                                    5,0      Paraná                                   52,4
+Maranhão                   19,8                     Santa Catarina                    65,3
 
-Maranhão                                    19,8      Santa Catarina                           65,3
+Piauí                      12,4                     Rio Grande do Sul                39,8
 
-Piauí                                       12,4      Rio Grande do Sul                        39,8
+Ceará                      56,8                     Mato Grosso do Sul                6,9
 
-Ceará                                       56,8      Mato Grosso do Sul                        6,9
+Rio Grande do Norte        60,0                     Mato Grosso                       3,4
 
-Rio Grande do Norte                         60,0      Mato Grosso                               3,4
+Paraíba                    66,7                     Goiás                             17,7
 
-Paraíba                                     66,7      Goiás                                    17,7
-
-Pernambuco                                  89,6      Distrito Federal                        444,1
+Pernambuco                 89,6                     Distrito Federal                 444,1
         
-Alagoas                                    112,3 
+Alagoas                   112,3 
+ 
+${\bf\text{Brasil}}^1$    **68,1**                  ${\bf\text{Brasil}}^2$        **22,4**
+--------- 
+</center> $^1$Média de razões, $^2$Razão de médias    
+ Fonte: IBGE, Censo Demográfico 2010.
 
-**Brasil(Média de razões)**                 68,1      **Brasil(Razão de médias)**              22,4
----------
-</center>   Fonte: IBGE, Censo Demográfico 2010.
-
-Os dados apurados nas últimas duas linhas da Tabela \@ref(tab:tabrazao1) ilustram bem a importância de identificar corretamente que parâmetro se deseja estimar. No exemplo aqui considerado, a densidade demográfica apurada no nível do País como um todo é 22,4 $Hab/km^2$, enquando a média das densidades demográficas calculadas por unidades da federação é de 68,1 $Hab/km^2$, mais que três vezes maior. Portanto, ao enfrentar uma situação em que o parâmetro de interesse pode ser caracterizado como uma das duas situações, cabe ao responsável por planejar a pesquisa esclarecer junto aos demandantes da mesma qual dos dois conceitos melhor descreve a quantidade de interesse. Isto permitirá selecionar adequadamente o estimador que deve ser empregado com os dados da amostra a ser coletada.
+Os dados apurados nas últimas duas linhas da Tabela \@ref(tab:tabrazao1) ilustram bem a importância de identificar corretamente que parâmetro se deseja estimar. No exemplo aqui considerado, a densidade demográfica apurada no nível do País como um todo é 22,4 Hab/$km^2$, enquando a média das densidades demográficas calculadas por unidades da federação é de 68,1 Hab/$km^2$, mais que três vezes maior. Portanto, ao enfrentar uma situação em que o parâmetro de interesse pode ser caracterizado como uma das duas situações, cabe ao responsável por planejar a pesquisa esclarecer junto aos demandantes da mesma qual dos dois conceitos melhor descreve a quantidade de interesse. Isto permitirá selecionar adequadamente o estimador que deve ser empregado com os dados da amostra a ser coletada.
 
 ## Outras funções de totais
 
@@ -281,9 +283,9 @@ Esta expressão fornece um caminho para estabelecer um limite superior para o va
 Assim, quando o tamanho da amostra for grande o suficiente para tornar o CV do estimador do total $\widehat{X}$ no denominador da razão $\widehat{R}$ pequeno (digamos, menor que 0,1 ou 10%), então o vício do estimador da razão será pequeno quando comparado com o desvio padrão desse estimador. Vícios desse tipo são geralmente desprezados na prática, a menos que se tenha amostra *muito pequena*.
 
 
-## Erro Quadrático Médio (EQM) de $\widehat{R}$
+## Erro Quadrático Médio - EQM de $\widehat{R}$
 
-Como $\widehat{R}$ tem um pequeno vício técnico, a avaliação de sua precisão deve ser feita considerando seu *Erro Quadrático Médio (EQM)*. Entretanto, sempre que a amostra for grande o suficiente (o que pode ser avaliado calculando o coeficiente de variação da estimativa de total do denominador da razão), o EQM poderá ser bem aproximado pela variância, como indicado:
+Como $\widehat{R}$ tem um pequeno vício técnico, a avaliação de sua precisão deve ser feita considerando seu *Erro Quadrático Médio - EQM*. Entretanto, sempre que a amostra for grande o suficiente (o que pode ser avaliado calculando o coeficiente de variação da estimativa de total do denominador da razão), o EQM poderá ser bem aproximado pela variância, como indicado:
 
 \begin{eqnarray}
  EQM_p(\widehat{R}) & = & V_p(\widehat{R}) + \left[ B_p( \widehat{R} ) \right]^2 & \doteq & V_p(\widehat{R}) (\#eq:eqraz15)
@@ -342,7 +344,7 @@ A Tabela \@ref(tab:tabrazao2) apresenta um resumo da estimação de parâmetros 
 ---------
 Parâmetro                                                                                                                                                    Estimador                     
 ------------------------------------------------------------------------------------------------------------------------------------------------------------ ---------------------------------------------------------------------------------------------------------------
-$R =\frac{Y}{X}=\frac{\overline{Y}}{\overline{X}}$                                                                                                            $\widehat{R}= \frac{\sum_{i\in s} y_i} {\sum_{i\in s} x_i} = \frac{\overline{y}} {\overline{x}}$
+$R =\displaystyle\frac{Y}{X}=\frac{\overline{Y}}{\overline{X}}$                                                                                                            $\widehat{R}= \displaystyle\frac{\sum_{i\in s} y_i} {\sum_{i\in s} x_i} = \frac{\overline{y}} {\overline{x}}$
                                                                                                           
 $V_{AAS}(\widehat{R})\doteq\frac{1}{\overline{X}^2}\left(\frac{1}{n}-\frac{1}{N}\right)\frac{1}{N-1}\displaystyle\sum_{i\in U}\left(y_i-R x_i\right)^2$         $\widehat{V}_{AAS}(\widehat{R})=\frac{1}{\overline{x}^2}\left(\frac{1}{n}-\frac{1}{N}\right)\frac{1}{n-1}\displaystyle\sum_{i\in s}\left(y_i-\widehat{R}x_i\right)^2$  
 
@@ -367,7 +369,7 @@ Considere a população de municípios brasileiros fornecida no arquivo MunicBR_
 
     b.	Compare com os correspondentes parâmetros populacionais.
     
-3.	Calcule o tamanho da amostra que seria necessário para a estimar densidade demográfica média por $km^2$ no Brasil com erro máximo de 10 $Hab/km^2/$ com nível de confiança de 95%.
+3.	Calcule o tamanho da amostra que seria necessário para a estimar densidade demográfica média por $km^2$ no Brasil com erro máximo de 10 Hab/$km^2$ com nível de confiança de 95%.
 
 4.	Selecione uma amostra do tamanho calculado em 3 e estime o parâmetro e sua margem de erro, considerando coeficiente de confiança de 95%.
 
@@ -384,7 +386,7 @@ library(tidyverse)
 ```
 
 ```
-## -- Attaching packages -------------------------------------------------------------------------------------------- tidyverse 1.2.1 --
+## -- Attaching packages ---------------------------------------------------------------------------------------- tidyverse 1.2.1 --
 ```
 
 ```
@@ -395,7 +397,7 @@ library(tidyverse)
 ```
 
 ```
-## -- Conflicts ----------------------------------------------------------------------------------------------- tidyverse_conflicts() --
+## -- Conflicts ------------------------------------------------------------------------------------------- tidyverse_conflicts() --
 ## x dplyr::filter() masks stats::filter()
 ## x dplyr::lag()    masks stats::lag()
 ```
@@ -552,7 +554,7 @@ munic_amo <- cbind(munic_amo, r_chapeu)
 **(#exr:exerazao2)** Para estimar o total de despesas com gastos sociais das prefeituras de uma região que abrange 281 municípios, foi selecionada uma amostra aleatória simples sem reposição de 50 municípios. Sabe-se que a população total da região é de 6.818 (em milhares de pessoas). 
 São dadas as seguintes informações provenientes da amostra:
 
-$$\sum_{i=1}^{50} y_i = 128.080; \quad \sum_{i=1}^{50} x_i =1.067; \quad s^2_y=6.244.516; \quad s^2_x=454,51;\quad s_{xy}=45.399$$
+$\quad\displaystyle\sum_{i=1}^{50} y_i$ = 128.080; $\quad \displaystyle\sum_{i=1}^{50} x_i$ = 1.067; $\quad s^2_y$ = 6.244.516; $\quad s^2_x$ = 454,51; $\quad s_{xy}$ = 45.399
 
 Obs.: os valores de $x$ e $y$ são dados em milhares.
 
@@ -562,7 +564,7 @@ a) Estimador simples.
 b) Estimador de razão, utilizando como variável auxiliar a população (característica $x$).
 c) Compare e comente os resultados.
 
-**(#exr:exerazao3)** Numa cidade com 75.000 habitantes,  uma amostra aleatória simples de $n=4$ domicílios foi selecionada dos $25.000$ domicílios da cidade para estimar o custo médio de alimentação por domicílio em uma semana. A Tabela \@ref(tab:tabrazao3) mostra os resultados obtidos na amostra.
+**(#exr:exerazao3)** Numa cidade com 75.000 habitantes,  uma amostra aleatória simples de $n=4$ domicílios foi selecionada dos 25.000 domicílios da cidade para estimar o custo médio de alimentação por domicílio em uma semana. A Tabela \@ref(tab:tabrazao3) mostra os resultados obtidos na amostra.
 
 <center>
 <table>
@@ -589,7 +591,7 @@ Considerando que $(N − n)/ N \dot= 1$:
   d) Estime a despesa média por domicílio usando o segundo estimador e estime a variância do estimador.
   e) Baseado nos resultados, qual estimador é preferível nesta situação? Por que?
 
-**(#exr:exerazao4)** Num estudo para estimar a quantidade total de açúcar contida num carregamento de laranjas, uma AAS de $n=10$ laranjas foi selecionada. Cada uma das laranjas foi pesada, retirado o suco e pesada a quantidade de açúcar no suco. A Tabela \@ref(tab:tabrazao4) dá os resultados para as $10$ laranjas da amostra. O caminhão foi pesado carregado com as laranjas e, depois, vazio levando a conclusão que o peso total da carga de laranjas era de 1800 libras. Estime o total de açúcar contido em todas as laranjas e dê um intervalo de $95\%$ de confiança para esse total.
+**(#exr:exerazao4)** Num estudo para estimar a quantidade total de açúcar contida num carregamento de laranjas, uma AAS de $n=10$ laranjas foi selecionada. Cada uma das laranjas foi pesada, retirado o suco e pesada a quantidade de açúcar no suco. A Tabela \@ref(tab:tabrazao4) dá os resultados para as 10 laranjas da amostra. O caminhão foi pesado carregado com as laranjas e, depois, vazio levando a conclusão que o peso total da carga de laranjas era de 1.800 libras. Estime o total de açúcar contido em todas as laranjas e dê um intervalo de 95% de confiança para esse total.
 
 <center>
 <table>
@@ -620,7 +622,7 @@ Considerando que $(N − n)/ N \dot= 1$:
 ----------
 </center>
 
-**(#exr:exerazao5)**  Uma reserva florestal foi dividida em 200 áreas de mesmo tamanho. Através de aerofotogrametria foram contadas as árvores mortas de todas as áreas chegando-se a um total de 15600 árvores. Foi selecionada uma amostra aleatória de 10 áreas onde foram contadas localmente as árvores mortas. Os resultados aparecem na Tabela \@ref(tab:tabrazao5).
+**(#exr:exerazao5)**  Uma reserva florestal foi dividida em 200 áreas de mesmo tamanho. Através de aerofotogrametria foram contadas as árvores mortas de todas as áreas chegando-se a um total de 15.600 árvores. Foi selecionada uma amostra aleatória de 10 áreas onde foram contadas localmente as árvores mortas. Os resultados aparecem na Tabela \@ref(tab:tabrazao5).
 
 <center>
 <table>
@@ -643,8 +645,8 @@ c)  Recalcule as estimativas sem utilizar a informação auxiliar e compare os r
 
 a)  Usando funções do R, gere a população $U$ com os valores de $Y_i$ e $X_i$, como descrito acima.
 b)  Calcule os parâmetros populacionais $\overline Y,\,\,\overline X,\,\,S^2_y,\,\,S ^2_x$.
-c)  Selecione $200$ *AAS* de tamanho $n=20$ da população gerada.
-d)  Para cada amostra estime $\overline Y$ e o respectivo intevalo de $95\%$ de confiança, usando o estimador natural da *AAS* e o estimador de razão.
+c)  Selecione 200 *AAS* de tamanho $n=20$ da população gerada.
+d)  Para cada amostra estime $\overline Y$ e o respectivo intevalo de 95% de confiança, usando o estimador natural da *AAS* e o estimador de razão.
 e)  Verifique, para cada tipo de estimador, quantos intervalos não contém o valor verdadeiro da média populacional de $y$. O resultado é razoável?
 f)  Calcule o vício médio empírico das estimativas, utilizando 
 $$\widehat{\overline B}=\frac 1 {200} \sum|\overline y_i -\overline Y|\,\,\,\text{e} \,\,\,\widehat{\overline B}_R=\frac 1 {200} \sum|\overline y_{Ri} -\overline Y|$$
@@ -668,7 +670,7 @@ a)  Estime o total do dinheiro dos 50 alunos do grupo e a variância da estimati
 b)  Refaça as estimativas sem utilizar as informações da variável auxiliar.
 c)  Comente os resultados.
 
-**(#exr:exerazao8)**  Deseja-se estimar a idade média das árvores de um bosque. Determinar a idade diretamente é bastante custoso. Sabe-se, entretanto, que há uma correlação entre a idade e o diâmetro do tronco da árvore. Foi selecionada uma *AAS* de 20 árvores e para estas foi determinada a idade de cada uma. Foram medidos os diâmetros de todas as $1.132$ árvores do bosque e calculado o diâmetro médio em $10,3$ polegadas. 
+**(#exr:exerazao8)**  Deseja-se estimar a idade média das árvores de um bosque. Determinar a idade diretamente é bastante custoso. Sabe-se, entretanto, que há uma correlação entre a idade e o diâmetro do tronco da árvore. Foi selecionada uma *AAS* de 20 árvores e para estas foi determinada a idade de cada uma. Foram medidos os diâmetros de todas as 1.132 árvores do bosque e calculado o diâmetro médio em 10,3 polegadas. 
 
 A Tabela \@ref(tab:tabrazao7) apresenta os dados para a amostra selecionada.
 
@@ -701,8 +703,8 @@ A Tabela \@ref(tab:tabrazao7) apresenta os dados para a amostra selecionada.
 -----------
 </center>
 
-a)  Estime a idade média das árvores do bosque usando o estimador não viciado e dê um intervalo de $95\%$ de confiança.
-b)  Estime a idade média das árvores do bosque usando o estimador de razão e dê um intervalo de $95\%$ de confiança.
+a)  Estime a idade média das árvores do bosque usando o estimador não viciado e dê um intervalo de 95% de confiança.
+b)  Estime a idade média das árvores do bosque usando o estimador de razão e dê um intervalo de 95% de confiança.
 c)  Qual das estimativas você prefere e por quê?
 d)  Utilizando a amostra já disponível como se fosse uma pesquisa piloto, verifique se o tamanho de amostra utilizado seria suficiente para considerar o vício do estimador de razão como desprezível em termos práticos.
 
@@ -774,6 +776,6 @@ e) Calcule o vício do estimador de razão para a média e compare com o resulta
 ----------
 </center>
 
-a)  Estime a média das notas de Cálculo 2 utilizando o estimador natural da AAS e construa um $ic_{95\%}$; 
-b)  Estime a média das notas de Cálculo 2 utilizando o estimador de razão e construa um $ic_{95\%}$; 
+a)  Estime a média das notas de Cálculo 2 utilizando o estimador natural da AAS e construa um $IC_{95\%}$; 
+b)  Estime a média das notas de Cálculo 2 utilizando o estimador de razão e construa um $IC_{95\%}$; 
 c)  Faça um gráfico comparando os intervalos de confiança e comente os resultados.
