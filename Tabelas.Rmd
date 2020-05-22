@@ -105,6 +105,10 @@ Tabela 8.7: Valores da variável $y$ para a população
 
 Tabela 9.1: Parâmetros e respectivos estimadores sob AB 
 
+Tabela 9.2: Valores observados na amostra
+
+Tabela 9.3: População a ser amostrada 
+
 Tabela 10.1: Informações das áreas de uma população de $N=6$ fazendas
 
 Tabela 10.2: Parâmetros e respectivos estimadores sob PPT 
