@@ -236,7 +236,7 @@ Valor da variável de pesquisa para unidade $j$ do conglomerado $i$   $y_{ij}$
 
 Total no conglomerado $i$                                            $Y_i = \displaystyle \sum_{j \in C_i} y_{ij}$
 
-Média no conglomerado $i$                                            $\overline Y_i = {Y_i}/{N_i} = \displaystyle \frac 1 N_i \sum_{j \in C_i} y_{ij}$
+Média no conglomerado $i$                                            $\overline {Y_i} = {Y_i}/{N_i} = \displaystyle \frac 1 N_i \sum_{j \in C_i} y_{ij}$
 
 Total populacional                                                   $Y = \displaystyle \sum_{i=1}^{M} Y_i = \sum_{i \in C} Y_i$
 
@@ -272,7 +272,7 @@ Valor da variável de pesquisa para unidade $j$ do conglomerado selecionado $i$ 
 
 Total no conglomerado $i$ da amostra $i \in a = \{{ i_1, \dots, i_m} \}$                $Y_i = \displaystyle \sum_{j \in C_i} y_{ij}$
 
-Média no conglomerado $i$ da amostra $i \in a = \{{ i_1, \dots, i_m} \}$                $\overline Y_i = {Y_i}/{N_i}$
+Média no conglomerado $i$ da amostra $i \in a = \{{ i_1, \dots, i_m} \}$                $\overline {Y_i} = {Y_i}/{N_i}$
 
 Total amostral                                                                   $t = \displaystyle \sum_{i \in a} Y_i$
 
@@ -326,7 +326,7 @@ Note que este estimador requer que o tamanho total da população $(N)$ seja con
 A variância aproximada do estimador tipo razão do total é dada por:
 
 $$
-\displaystyle V_{AC1S} \left( \widehat Y_R \right) \doteq M^2 \left( \frac 1 m - \frac 1 M \right) \frac {1} {M-1} \displaystyle \sum_{i \in C} N_i^2 \left( \overline Y_i - \overline Y \right)^2 \,\, (\#eq:eqcong5)
+\displaystyle V_{AC1S} \left( \widehat Y_R \right) \doteq M^2 \left( \frac 1 m - \frac 1 M \right) \frac {1} {M-1} \displaystyle \sum_{i \in C} N_i^2 \left( \overline {Y_i} - \overline Y \right)^2 \,\, (\#eq:eqcong5)
 $$ 
 
 Esta aproximação requer que o número de conglomerados na amostra $(m)$ seja grande.
@@ -334,7 +334,7 @@ Esta aproximação requer que o número de conglomerados na amostra $(m)$ seja g
 O estimador da variância do estimador tipo razão do total pode ser obtido por: 
 
 $$
-\displaystyle \widehat V_{AC1S} \left( \widehat Y_R \right) = M^2 \left( \frac 1 m - \frac 1 M \right) \frac {1} {m-1} \displaystyle \sum_{i \in a} N_i^2 \left( \overline Y_i - \overline y \right)^2 \,\,(\#eq:eqcong6)
+\displaystyle \widehat V_{AC1S} \left( \widehat Y_R \right) = M^2 \left( \frac 1 m - \frac 1 M \right) \frac {1} {m-1} \displaystyle \sum_{i \in a} N_i^2 \left( \overline {Y_i} - \overline y \right)^2 \,\,(\#eq:eqcong6)
 $$
 
 Comparando os estimadores natural e tipo razão para o total populacional, sob o plano amostral de AC1S, tem-se:  
@@ -358,7 +358,7 @@ $$
 5. O estimador tipo razão, $\widehat Y_R$, pode ser muito mais preciso que $\widehat Y_{AC1S}$ em certos casos, pois se:
 
  $$
- \overline Y_i \doteq \overline Y \,\, \forall i
+ \overline {Y_i} \doteq \overline Y \,\, \forall i
  $$  
  então: 
  $$
@@ -368,12 +368,12 @@ $$
  enquanto que: 
  
  $$
- V_{AC1S} \left( \widehat Y_{AC1S} \right) \propto \displaystyle \sum_{i \in C} \left( Y_i - \overline Y_C \right)^2 = \displaystyle \sum_{i \in C} \left( N_i \overline Y_i - \overline N \overline Y \right)^2 \doteq \overline Y^2 \displaystyle \sum_{i \in C} \left( N_i - \overline N \right)^2
+ V_{AC1S} \left( \widehat Y_{AC1S} \right) \propto \displaystyle \sum_{i \in C} \left( Y_i - \overline Y_C \right)^2 = \displaystyle \sum_{i \in C} \left( N_i \overline {Y_i} - \overline N \overline Y \right)^2 \doteq \overline Y^2 \displaystyle \sum_{i \in C} \left( N_i - \overline N \right)^2
  $$
 
 Isto é, a variância do estimador natural incorpora parcela devida à variação dos tamanhos dos conglomerados e, portanto, a ocorrência de variabilidade nos tamanhos dos conglomerados causa acentuada perda de precisão nesse estimador sob amostragem conglomerada em um estágio simples. Essa perda será maior quando maior for a variabilidade dos tamanhos dos conglomerados. 
 
-Na prática, as médias $\overline Y_i$ são menos variáveis entre conglomerados que os totais $Y_i$, e portanto: 
+Na prática, as médias $\overline {Y_i}$ são menos variáveis entre conglomerados que os totais $Y_i$, e portanto: 
 
 $$
 V_{AC1S} \left( \widehat Y_R \right) < V_{AC1S} \left( \widehat Y_{AC1S} \right)
@@ -383,7 +383,7 @@ Os ganhos de precisão do estimador tipo razão podem ser grandes quando:
 
 * for grande a variação dos tamanhos $N_i$;
 
-* for pequena a variação entre as médias $\overline Y_i$ dos conglomerados.
+* for pequena a variação entre as médias $\overline {Y_i}$ dos conglomerados.
 
 Na prática, a formação de conglomerados com tamanhos iguais para controlar a variação de tamanho na variância do estimador, e também na variação do tamanho final da amostra nem sempre é possível, sendo a ocorrência de conglomerados com tamahos iguais pouco comum. 
 
@@ -434,7 +434,7 @@ onde $\displaystyle \overline n = \frac {1} {m} \displaystyle \sum_{i \in a} N_i
 A variância aproximada do estimador de razão da média é dado por: 
 
 $$
-\displaystyle V_{AC1S} \left( \overline y_R \right) \doteq \frac {1} {\overline N^2} \left( \frac 1 m - \frac 1 M \right) \frac {1} {M-1} \displaystyle \sum_{i \in C} N_i^2 \left( \overline Y_i - \overline Y \right)^2 \,\, (\#eq:eqcong11)
+\displaystyle V_{AC1S} \left( \overline y_R \right) \doteq \frac {1} {\overline N^2} \left( \frac 1 m - \frac 1 M \right) \frac {1} {M-1} \displaystyle \sum_{i \in C} N_i^2 \left( \overline {Y_i} - \overline Y \right)^2 \,\, (\#eq:eqcong11)
 $$
 
 Esta aproximação é válida somente para amostras grandes, isto é, com $m$ grande.
@@ -470,10 +470,10 @@ $\scriptstyle Y=N\overline Y=\sum_{i \in C} Y_i$                                
 
 $\scriptstyle V_{AC1S}\left(\overline y_N\right) = \frac {1} {\overline N^2} \left( \frac 1 m - \frac 1 M \right) S_e^2$                                                                   $\scriptstyle\widehat V_{AC1S} \left(\overline y_N\right)=\frac{1} {\overline N^2}\left(\frac1m-\frac1M\right)s_e^2$
 
-$\scriptstyle V_{AC1S}\left(\overline y_R\right)\doteq\frac{1}{\overline N^2}\left(\frac{1}{m}-\frac{1}{M}\right)\frac{1}{M-1}\sum_{i\in C}N_i^2\left(\overline Y_i-\overline Y\right)^2$  $\scriptstyle\widehat V_{AC1S} \left(\overline y_R \right) = \frac {1} {\overline n^2} \left( \frac 1 m - \frac 1 M \right) \frac {1} {m-1} \scriptstyle \sum_{i \in a} N_i^2 \left( \overline {Y_i} - \overline y \right)^2$                                                   
+$\scriptstyle V_{AC1S}\left(\overline y_R\right)\doteq\frac{1}{\overline N^2}\left(\frac{1}{m}-\frac{1}{M}\right)\frac{1}{M-1}\sum_{i\in C}N_i^2\left(\overline {Y_i}-\overline Y\right)^2$  $\scriptstyle\widehat V_{AC1S} \left(\overline y_R \right) = \frac {1} {{\overline n}^2} \left( \frac 1 m - \frac 1 M \right) \frac {1} {m-1} \scriptstyle \sum_{i \in a} N_i^2 \left( \overline {Y_i} - \overline y \right)^2$                                                   
 $\scriptstyle V_{AC1S} \left( \widehat Y_{AC1S} \right) = M^2 \left( \frac 1 m - \frac 1 M \right) S_e^2$                                                                                  $\scriptstyle \widehat V_{AC1S} \left( \widehat Y_{AC1S} \right) = M^2 \left( \frac 1 m - \frac 1 M \right) s_e^2$
 
-$\scriptstyle V_{AC1S}\left(\widehat Y_R\right)\doteq M^2\left(\frac1m-\frac1M\right)\frac{1}{M-1}\sum_{i\in C}N_i^2(\overline Y_i-\overline Y)^2$                                         $\scriptstyle\widehat V_{AC1S} \left(\widehat Y_R \right) = M^2 \left( \frac 1 m - \frac 1 M \right) \frac {1} {m-1}\sum_{i \in a} N_i^2 (\overline Y_i - \overline y)^2$
+$\scriptstyle V_{AC1S}\left(\widehat Y_R\right)\doteq M^2\left(\frac1m-\frac1M\right)\frac{1}{M-1}\sum_{i\in C}N_i^2(\overline {Y_i}-\overline Y)^2$                                         $\scriptstyle\widehat V_{AC1S} \left(\widehat Y_R \right) = M^2 \left( \frac 1 m - \frac 1 M \right) \frac {1} {m-1}\sum_{i \in a} N_i^2 (\overline {Y_i} - \overline y)^2$
 
 ---------
 </center>
@@ -548,11 +548,11 @@ $$
 é o coeficiente de correlação intraconglomerado ou intraclasse, e $S_d^2$ é a medida da variância *dentro* dos conglomerados, dada por: 
 
 $$
-\displaystyle S_d^2 = \frac {1} {M} \displaystyle \sum_{i \in C} \frac {1} {\overline N - 1} \sum_{j \in C_i} \left (y_{ij} - \overline Y_i \right)^2 = \frac {1} {M} \sum_{i \in C} S_i^2
+\displaystyle S_d^2 = \frac {1} {M} \displaystyle \sum_{i \in C} \frac {1} {\overline N - 1} \sum_{j \in C_i} \left (y_{ij} - \overline {Y_i} \right)^2 = \frac {1} {M} \sum_{i \in C} S_i^2
 $$ 
 com  
 $$
-\displaystyle S_i^2 = \frac {1} {\overline N - 1} \sum_{j \in C_i} \left( y_{ij} - \overline Y_i \right)^2
+\displaystyle S_i^2 = \frac {1} {\overline N - 1} \sum_{j \in C_i} \left( y_{ij} - \overline {Y_i} \right)^2
 $$ 
 
 $S_y^2$ é a variância *total*, dada por: 
@@ -719,7 +719,7 @@ As principais razões para adotar amostragem conglomerada em dois estágios são
 
 2) Constatou-se que a perda de precisão da AC1S em relação à AAS para amostras de mesmo tamanho é tanto maior quanto maior for o tamanho do conglomerado. A adoção de AC2 vem reduzir a influência do tamanho dos conglomerados na eficiência da amostragem conglomerada, permitindo ao amostrista controlar melhor a precisão do estimador resultante, ao manejar o número de unidades que são selecionadas em cada conglomerado. Na AC1 isso não está sob controle do amostrista, pois uma vez selecionado um conglomerado, todas as suas unidades devem ser pesquisadas.
 
-3) Se a variância dentro dos conglomerados for pequena, as médias por conglomerados $\overline Y_i$ podem ser bem estimadas por amostragem.
+3) Se a variância dentro dos conglomerados for pequena, as médias por conglomerados $\overline {Y_i}$ podem ser bem estimadas por amostragem.
 
 4) *Amostragem em dois estágios* é mais complexa, porém *mais flexível*. 
 
@@ -867,7 +867,7 @@ $$
 estima a média por conglomerado $\overline Y_C$; e
 
 $$
-\widehat S_i^2 = \displaystyle \frac {1} {n_i-1} \sum_{j \in s_i} \left( y_{ij} - \overline y_i \right)^2
+\widehat S_i^2 = \displaystyle \frac {1} {n_i-1} \sum_{j \in s_i} \left( y_{ij} - \overline {Y_i} \right)^2
 $$ 
 estima a variância dentro da UPA $i$.
 
