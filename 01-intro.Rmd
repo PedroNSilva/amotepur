@@ -68,7 +68,7 @@ Este livro está organizado em quatorze capítulos, incluindo esta introdução.
 
 11) **Amostragem Estratificada **
 
-12) **Amostragem de Conglomerados em Um ou Mais Estágios **
+12) **Amostragem Conglomerada **
 
 13) **Estimadores de Calibração **
 
