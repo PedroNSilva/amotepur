@@ -466,7 +466,7 @@ Parâmetro                                                                      
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ --------------------------------------
 $\scriptstyle\overline Y={Y}/{N}=\frac 1 N \sum_{i\in C} Y_i$                                                                                                                              $\scriptstyle\overline y_N= \frac{\widehat Y}{N}=\frac{M}{N}\frac{1} {m}\sum_{i\in a}Y_i =\overline y_C/\overline N$                                                                                                   $\scriptstyle\overline y_R= \frac{\widehat Y_R}{N}= \frac{1}{n}\sum_{i\in a} Y_i=\overline y_C/\overline n=\overline y$
 
-$\scriptstyle Y=N\overline Y=\sum_{i \in C} Y_i$                                                                                                                                           $\scriptstyle\widehat Y_{ACS}= \frac{M}{m}\sum_{i\in a}Y_i=M\overline y_C=\sum_{i\in a}\sum_{j\in C_i}d_{ij}y_{ij}$                                                                                                       $\scriptstyle\widehat Y_R = \frac {N} {n}\sum_{i \in a} Y_i = N \overline y=\sum_{i \in a} \sum_{j\in C_i} w_{ij}^R y_{ij}$
+$\scriptstyle Y=N\overline Y=\sum_{i \in C} Y_i$                                                                                                                                           $\scriptstyle\widehat Y_{AC1S}= \frac{M}{m}\sum_{i\in a}Y_i=M\overline y_C=\sum_{i\in a}\sum_{j\in C_i}d_{ij}y_{ij}$                                                                                                       $\scriptstyle\widehat Y_R = \frac {N} {n}\sum_{i \in a} Y_i = N \overline y=\sum_{i \in a} \sum_{j\in C_i} w_{ij}^R y_{ij}$
 
 $\scriptstyle V_{AC1S}\left(\overline y_N\right) = \frac {1} {\overline N^2} \left( \frac 1 m - \frac 1 M \right) S_e^2$                                                                   $\scriptstyle\widehat V_{AC1S} \left(\overline y_N\right)=\frac{1} {\overline N^2}\left(\frac1m-\frac1M\right)s_e^2$
 
@@ -919,9 +919,9 @@ $$
 V_{AC2PPTC} \left( \widehat Y_{AC2PPTC} \right) & = & V_1 \left[ E_2 \left( \widehat Y_{AC2PPTC} \right) \right] + E_1 \left[ V_2 \left( \widehat Y_{AC2PPTC} \right) \right] \\
 & = & V_1 \left[ E_2 \left( \displaystyle \frac {1} {m} \sum_{i \in a} \frac {\widehat Y_i} {p_i} \right) \right] + E_1 \left[ V_2 \left( \frac {1} {m} \sum_{i \in a} \frac {\widehat Y_i} {p_i} \right) \right] \\
 & = & V_1 \left[ \frac {1} {m} \displaystyle \sum_{i \in a} \frac {E_2 \left( \widehat Y_i \right)} {p_i} \right] + E_1 \left[ \frac {1} {m^2} \sum_{i \in a} \frac {V_2 \left( \widehat Y_i \right)} {p_i^2} \right] \\
-& = & V_1 \left[ \frac {1} {m} \displaystyle \sum_{i \in a} \frac {Y_i} {p_i} \right] + E_1 \left[ \frac {1} {m^2} \sum_{i \in a} \frac {1} {p_i^2} N_i^2 \left( \frac {1} {n_i} - \frac {1} {N_i} \right) S_i^2 \right] \\
-& = & \frac{1} {m} \displaystyle \sum_{i \in U} \left( \frac {Y_i} {p_i} - Y \right)^2 p_i + \frac {1} {m} \sum_{i \in U} \frac {1} {p_i} N_i^2 \left( \frac {1} {n_i} - \frac {1} {N_i} \right) S_i^2 \,\, (\#eq:eqcong41) 
-\end{eqnarray}
+& = & V_1 \left[ \frac {1} {m} \displaystyle \sum_{i \in a} \frac {Y_i} {p_i} \right] + E_1 \left[ \frac {1} {m^2} \sum_{i \in a} \frac{N_i^2}{p_i} \left( \frac {1} {n_i} - \frac {1} {N_i} \right) S_i^2 \right] \\
+& = & \frac{1} {m} \displaystyle \sum_{i \in U} \left( \frac {Y_i} {p_i} - Y \right)^2 p_i + \frac {1} {m} \sum_{i \in U} \frac{N_i^2}{p_i} \left( \frac {1} {n_i} - \frac {1} {N_i} \right) S_i^2 \,\,  
+\end{eqnarray}(\#eq:eqcong41)
 $$
 
 Um estimador não viciado da variância de $\widehat Y_{AC2PPTC}$, de acordo com @Cochran1977, Equação (11.35), é dado por: 
@@ -947,11 +947,11 @@ $$
 V_{AC2PPTPS} \left( \widehat Y_{AC2PPTPS} \right) & = & V_1 \left[ E_2 \left( \widehat Y_{AC2PPTPS} \right) \right] + E_1 \left[ V_2 \left( \widehat Y_{AC2PPTPS} \right) \right] \\ 
 & = & V_1 \left[ E_2 \left( \displaystyle \sum_{i \in a} \frac{\widehat Y_i} {mp_i} \right) \right] + E_1 \left[ V_2 \left( \sum_{i \in a} \frac {\widehat Y_i} {mp_i} \right) \right] \\
 & = & V_1 \left[ \displaystyle \sum_{i \in a} \frac{E_2 \left(\widehat Y_i \right)} {mp_i} \right] + E_1 \left[ \sum_{i \in a} \frac{V_2 \left( \widehat Y_i \right)} {{m^2}p_i^2} \right] \\
-& = & V_1 \left[ \displaystyle \sum_{i \in a} \frac {Y_i} {mp_i} \right] + E_1 \left[ \sum_{i \in a} \frac {1} {{m^2}p_i^2} N_i^2 \left( \frac {1} {n_i} - \frac {1} {N_i} \right) S_i^2 \right] \\
+& = & V_1 \left[ \displaystyle \sum_{i \in a} \frac {Y_i} {mp_i} \right] + E_1 \left[ \sum_{i \in a} \frac {N_i^2} {{m^2}p_i^2}  \left( \frac {1} {n_i} - \frac {1} {N_i} \right) S_i^2 \right] \\
 & = & \frac {1} {m} \frac {M} {M-1} \displaystyle \sum_{i \in C} \left( \frac {Y_i} {p_i} - Y \right)^2 (1 - m p_i) p_i \\ 
-& & + \sum_{i \in C} \frac {1} {m p_i} N_i^2 \left( \frac {1} {n_i} - \frac {1} {N_i} \right) S_i^2 
-\,\, (\#eq:eqcong44) 
-\end{eqnarray}
+& & + \sum_{i \in C} \frac {N_i^2}{m p_i} \left( \frac {1} {n_i} - \frac {1} {N_i} \right) S_i^2 
+\,\,  
+\end{eqnarray}(\#eq:eqcong44)
 $$ 
 
 A Tabela \@ref(tab:tabcong7) apresenta um resumo da estimação do parâmetro do total da variável $y$ sob os Planos AC2AAS, AC2PPTC e AC2PPTPS. 
@@ -959,23 +959,58 @@ A Tabela \@ref(tab:tabcong7) apresenta um resumo da estimação do parâmetro do
 ```{r, results="asis", echo=FALSE}
 cat("<table>", paste0("<caption>", "(#tab:tabcong7)", "Parâmetros e respectivos estimadores sob os Planos AC2AAS, AC2PPTC e AC2PPTPS", "</caption>"),"</table>", sep ="\n")
 ```
+**PROPOSTA 1**
+<center>
+
+---------
+Parâmetro                                                                                                                                                                                                                     Estimador                  
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- --------------------------------------------------------------
+$\scriptstyle Y=\sum_{i \in C} Y_i$                                                                                                                                                                                                 $\scriptstyle\widehat Y_{AC2AAS}=\frac{M}{m}\sum_{i\in a}\widehat Y_i \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,$
+                                                                                                                                                                                                                                    $\scriptstyle\widehat Y_{AC2PPTC}=\frac{1}{m}\sum_{i\in a}f_i\frac {\widehat Y_i}{p_i} \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,$
+                                                                                                                                                                                                                                    $\scriptstyle\widehat Y_{AC2PPTPS}=\frac{1}{m}\sum_{i\in a}\frac{\widehat Y_i}{p_i} \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,$
+                                                         
+$\scriptstyle V_{AC2AAS}\left(\widehat Y_{AC2AAS}\right)=M^2\left(\frac1m-\frac1M\right)\frac1{M-1}\sum_{i\in C}\left(Y_i-\overline Y_C\right)^2+\frac{M}m \sum_{i\in C}N_i^2\left(\frac1{n_i}-\frac1{N_i}\right)S_i^2$                $\scriptstyle\widehat V_{AC2AAS}\left(\widehat Y_{AC2AAS}\right)=M^2\left(\frac{1}{m}-\frac{1}{M}\right)\frac{1}{m-1}\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,$                                                                                                                                                                          $\scriptstyle\sum_{i\in a}\left(\widehat Y_i- \overline y_C\right)^2+\frac{M}{m}\sum_{i\in a}N_i^2\left(\frac{1}{n_i}-\frac{1}{N_i}\right)\widehat S_i^2$ 
+                                                                                       
+$\scriptstyle V_{AC2PPTC}\left(\widehat Y_{AC2PPTC}\right)=\frac{1}{m}\sum_{i\in U}\left(\frac{Y_i}{p_i}-Y\right)^2p_i+\frac{1}{m}\sum_{i\in U}\frac{1}{p_i} N_i^2\left(\frac{1}{n_i}-\frac{1}{N_i}\right)S_i^2$                       $\scriptstyle\widehat V_{AC2PPTC}\left(\widehat Y_{AC2PPTC}\right)=\frac{\sum_{i\in a}\left(\frac{\widehat Y_i}{p_i}-\widehat Y_{AC2PPTC}\right)^2}{m(m-1)}$
+
+$\scriptstyle V_{AC2PPTPS}\left(\widehat Y_{AC2PPTPS}\right)=\frac{1}{m}\frac{M}{M-1}\sum_{i\in C}\left(\frac{Y_i}{p_i}-Y\right)^2(1-m p_i)p_i+\sum_{i\in C}\frac{N_i^2}{mp_i}\left(\frac{1}{n_i}-\frac{1}{N_i}\right)S_i^2$                                                                                                                                                                  $\scriptstyle\widehat V_{AC2PPTPS}\left(\widehat Y_{AC2PPTPS}\right)=\frac{1}{m}\frac{M}{M-1}\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,$                                                                                                                                                                                           $\scriptstyle\sum_{i\in a}\left(\frac{\widehat Y_i}{p_i}-\widehat Y_{AC2PPTPS}\right)^2(1-mp_i)p_i\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,$                                                                                                                                                                                                                                                                                                                                                                $\scriptstyle +\sum_{i\in a}\frac{N_i^2}{m p_i}\left(\frac{1}{n_i}-\frac{1}{N_i}\right)\widehat S_i^2$ 
+---------
+</center>
+**PROPOSTA 2**
+<center>
+---------
+Parâmetro                                                      Estimador                  
+-------------------------------------------------------------- ------------------------------------------------------------------
+$\scriptstyle Y=\sum_{i \in C} Y_i$                            $\scriptstyle\widehat Y_{AC2AAS}=\frac{M}{m}\sum_{i\in a} \widehat Y_i \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\, \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,$ 
+                                                               $\scriptstyle\widehat Y_{AC2PPTC}=\frac{1}{m}\sum_{i\in a}f_i\frac{\widehat Y_i}{p_i} \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\, \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,$                    
+                                                               $\scriptstyle\widehat Y_{AC2PPTPS}=\frac{1}{m}\sum_{i\in a}\frac{\widehat Y_i}{p_i} \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,$         
+
+$\scriptstyle V_{AC2AAS}\left(\widehat Y_{AC2AAS}\right)$      $\scriptstyle\widehat V_{AC2AAS}\left(\widehat Y_{AC2AAS}\right)=M^2\left(\frac{1}{m}-\frac{1}{M}\right)\frac{1}{m-1}\sum_{i\in a}\left(\widehat Y_i- \overline y_C\right)^2+\frac{M}{m}\sum_{i\in a}N_i^2\left(\frac{1}{n_i}-\frac{1}{N_i}\right)\widehat S_i^2$ 
+                                                                                       
+                                                                                       
+$\scriptstyle V_{AC2PPTC} \left( \widehat Y_{AC2PPTC} \right)$ $\scriptstyle\widehat V_{AC2PPTC}\left(\widehat Y_{AC2PPTC}\right)=\frac{1}{m(m-1)}\sum_{i\in a}\left(\frac{\widehat Y_i}{p_i}-\widehat Y_{AC2PPTC} \right)^2$
+
+$\scriptstyle V_{AC2PPTPS}\left(\widehat Y_{AC2PPTPS}\right)$  $\scriptstyle\widehat V_{AC2PPTPS}\left(\widehat Y_{AC2PPTPS}\right)=\frac{1}{m}\frac{M}{M-1}\sum_{i\in a}\left(\frac{\widehat Y_i}{p_i}-\widehat Y_{AC2PPTPS}\right)^2(1-mp_i)p_i+\sum_{i\in a}\frac{N_i^2}{m p_i}\left(\frac{1}{n_i}-\frac{1}{N_i}\right)\widehat S_i^2$ 
+---------
+</center>
+**PROPOSTA 3**
 <center>
 
 ---------
 Parâmetro                                                         Estimador                  
 ----------------------------------------------------------------- ------------------------------------------------------------------
-$Y$                                                                 $\widehat Y_{AC2AAS} = \displaystyle \frac {M} {m} \sum_{i \in a} \widehat Y_i$                                                                                                              $\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,$ 
-                                                                    $\widehat Y_{AC2PPTC} = \displaystyle \frac {1} {m} \displaystyle \sum_{i \in a} f_i \frac {\widehat Y_i} {p_i}$                                                                                                                                            $\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,$ 
-                                                                    $\widehat Y_{AC2PPTPS} = \displaystyle \frac {1} {m} \displaystyle \sum_{i \in a} \frac {\widehat Y_i} {p_i}$         
+$Y$                                                                 $\widehat Y_{AC2AAS} = \displaystyle \frac {M} {m} \sum_{i \in a} \widehat Y_i\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\, \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,$
+                                                                    $\widehat Y_{AC2PPTC} = \displaystyle \frac {1} {m} \displaystyle \sum_{i \in a} f_i \frac {\widehat Y_i} {p_i}\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,$
+                                                                    $\widehat Y_{AC2PPTPS} = \displaystyle \frac {1} {m} \displaystyle \sum_{i \in a} \frac {\widehat Y_i} {p_i}\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,$
 
-$V_{AC2AAS} \left( \widehat Y_{AC2AAS} \right)$                     $\widehat V_{AC2AAS} \left( \widehat Y_{AC2AAS} \right) = M^2 \left( \displaystyle \frac {1} {m} - \frac {1} {M} \right)  \displaystyle \frac {1} {m-1} \displaystyle \sum_{i \in a} \left( \widehat Y_i - \overline y_C \right)^2$ 
-                                                                                    $\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,+ \displaystyle\ frac{M} {m} \displaystyle \sum_{i \in a} N_i^2 \left( \frac {1} {n_i} - \frac {1} {N_i} \right) \widehat S_i^2$ 
+$V_{AC2AAS} \left( \widehat Y_{AC2AAS} \right)$                     $\widehat V_{AC2AAS} \left( \widehat Y_{AC2AAS} \right) = M^2 \left( \displaystyle \frac {1} {m} - \frac {1} {M} \right)\displaystyle \frac {1} {m-1} \displaystyle \sum_{i \in a} \left( \widehat Y_i - \overline y_C \right)^2$ 
+                                                                                    $\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,+ \displaystyle \frac{M} {m} \displaystyle \sum_{i \in a} N_i^2 \left( \frac {1} {n_i} - \frac {1} {N_i} \right) \widehat S_i^2$ 
                                                                                        
                                                                                        
-$V_{AC2PPTC} \left( \widehat Y_{AC2PPTC} \right)$                    $\widehat V_{AC2PPTC} \left( \widehat Y_{AC2PPTC} \right) = \displaystyle \frac {1} {m(m-1)} \displaystyle \sum_{i \in a} \left( \frac {\widehat Y_i} {p_i} - \widehat Y_{AC2PPTC} \right)^2$
+$V_{AC2PPTC} \left( \widehat Y_{AC2PPTC} \right)$                   $\widehat V_{AC2PPTC} \left( \widehat Y_{AC2PPTC} \right) = \displaystyle \frac {1} {m(m-1)} \displaystyle \sum_{i \in a} \left( \frac {\widehat Y_i} {p_i} - \widehat Y_{AC2PPTC} \right)^2$
 
-$V_{AC2PPTPS} \left( \widehat Y_{AC2PPTPS} \right)$                  $\widehat V_{AC2PPTPS} \left( \widehat Y_{AC2PPTPS} \right) = \displaystyle \frac {1} {m} \frac {M} {M-1} \displaystyle \sum_{i \in a} \left( \frac {\widehat Y_i} {p_i} - \widehat Y_{AC2PPTPS} \right)^2 (1 - m p_i) p_i$ 
-                                                                                  $\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\, + \displaystyle \sum_{i \in a} \frac {1} {m p_i} N_i^2 \left( \frac {1} {n_i} - \frac {1} {N_i} \right) \widehat S_i^2$ 
+$V_{AC2PPTPS} \left( \widehat Y_{AC2PPTPS} \right)$                 $\widehat V_{AC2PPTPS} \left( \widehat Y_{AC2PPTPS} \right) = \displaystyle \frac {1} {m} \frac {M} {M-1} \displaystyle \sum_{i \in a} \left( \frac {\widehat Y_i} {p_i} - \widehat Y_{AC2PPTPS} \right)^2$ 
+                                                                                  $\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\, (1 - m p_i) p_i+ \displaystyle \sum_{i \in a} \frac {N_i^2} {m p_i}  \left( \frac {1} {n_i} - \frac {1} {N_i} \right) \widehat S_i^2$ 
 ---------
 </center>
 
@@ -1079,11 +1114,11 @@ $$
 Daí segue-se que:
 
 $$
-\frac {1} {n S_y^2 = \frac {1} {N} S_y^2 + \displaystyle \frac {V_{AC2PPTC} (\overline y_W)} {EPA(AC2PPTC \, ; \, \overline y_W)} \,\, \Longrightarrow 
+\frac {1} {n} S_y^2 = \frac {1} {N} S_y^2 + \displaystyle \frac {V_{AC2PPTC} (\overline y_W)} {EPA(AC2PPTC \, ; \, \overline y_W)} \,\, \Longrightarrow 
 $$
 
 $$
-n = S_y^2 \Big/ \left( \frac {1} {N} S_y^2 + \displaystyle \frac {V_{AC2PPTC} (\overline y_W)} {EPA(AC2PPTC \, ; \, \overline y_W)} \, \right) \,\,\,\ Longrightarrow 
+n = S_y^2 \Big/ \left( \frac {1} {N} S_y^2 + \displaystyle \frac {V_{AC2PPTC} (\overline y_W)} {EPA(AC2PPTC \, ; \, \overline y_W)} \, \right) \,\,\,\Longrightarrow 
 $$
 $$ 
 n = N S_y^2 \Big/ \left( S_y^2 + N \displaystyle \frac {V_{AC2PPTC} (\overline y_W)} {EPA(AC2PPTC \, ; \, \overline y_W)} \, \right) \,\,\,(\#eq:eqcong50)
