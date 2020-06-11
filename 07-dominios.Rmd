@@ -54,7 +54,7 @@ Note que $\overline{Y_c}$ é um caso especial de *Razão de Médias* das variáv
 A *variância* da variável $y$ no domínio $c$ dada por: 
 
 $$
- S_c^2 = \sum_{i \in U} c_i (y_i - \overline{Y}_c)^2 / (N_c - 1) (\#eq:eqdom4)
+ S_c^2 = \sum_{i \in U} c_i (y_i - \overline{Y_c})^2 / (N_c - 1) (\#eq:eqdom4)
 $$
  
 Muitos outros parâmetros podem ser definidos para domínios, mas não é comum que os livros de Amostragem dediquem espaço ao tratamento de outros casos que não os considerados aqui. Isto se dá porque os casos de parâmetros que podem ser escritos como funções de totais populacionais são facilmente resolvidos empregando-se as ideias de estimação discutidas na seção \@ref(estoft).
@@ -107,7 +107,7 @@ $$
 \widehat V_{AAS} (\widehat{Y}_c)  = N^2 \left(\frac{1}{n} - \frac 1 N \right) \frac{1}{n-1} \displaystyle \sum_{i \in s} \left( y_{ic} - \frac{t_c}{n} \right)^2 (\#eq:eqdom10)
 $$
 
-A média no domínio $\overline{Y}_c$ pode ser estimada usando:
+A média no domínio $\overline{Y_c}$ pode ser estimada usando:
 
 $$
 \overline{y}_c = \frac {\widehat Y_c} {\widehat N_c} = \frac {(N/n)\sum_{i\in s} y_{ic}} {(N/n)\sum_{i\in s}c_i}  = \sum_{i\in s}y_{ic}/n_c (\#eq:eqdom11)
@@ -118,7 +118,7 @@ Note que o estimador da média do domínio $c$ é uma razão de totais estimados
 Para obter sua variância, podemos recorrer aos resultados para estimação de razões disponíveis no capítulo \@ref(razao), resultando em:
 
 $$
-V_{AAS}(\overline{y}_c) \doteq \frac{1} {p_c^2} \left( \frac 1 n - \frac{1}{N} \right) \frac{1}{N-1} \displaystyle \sum_{i \in U} \left( y_{ic} -\overline{Y}_c c_i \right)^2 \\ \quad\quad\quad\quad\quad\quad\quad\quad\quad= \frac{1}{p_c^2} \left( \frac 1 n - \frac{1}{N} \right) \frac{1}{N-1} \displaystyle \sum_{i \in U} c_i \left( y_i - \overline{Y}_c \right)^2   (\#eq:eqdom12)
+V_{AAS}(\overline{y}_c) \doteq \frac{1} {p_c^2} \left( \frac 1 n - \frac{1}{N} \right) \frac{1}{N-1} \displaystyle \sum_{i \in U} \left( y_{ic} -\overline{Y_c}\, c_i \right)^2 \\ \quad\quad\quad\quad\quad\quad\quad\quad\quad= \frac{1}{p_c^2} \left( \frac 1 n - \frac{1}{N} \right) \frac{1}{N-1} \displaystyle \sum_{i \in U} c_i \left( y_i - \overline{Y_c} \right)^2   (\#eq:eqdom12)
 $$
 
 O estimador de variância correspondente é dado por:
@@ -141,7 +141,7 @@ $$
 $$
  
 $$
-\left( \overline{y}_c - \overline{Y}_c \right) / \sqrt{\widehat V_{AAS}(\overline{y}_c)} \approx N(0;1) \,\,\textrm{para} \,\,n_c\,\,\textrm{grande.}
+\left( \overline{y}_c - \overline{Y_c} \right) / \sqrt{\widehat V_{AAS}(\overline{y}_c)} \approx N(0;1) \,\,\textrm{para} \,\,n_c\,\,\textrm{grande.}
 $$
 Desse modo, as respectivas expressões dos intervalos de confiança de nível (1-$\alpha$)% para a estimação de total e média do domínio $c$ sob AAS passam a ser: 
 
@@ -225,10 +225,10 @@ Parâmetro do Domínio $c$                              Estimador do Domínio $c
 ----------------------------------------------------  ---------------------------------------------------------------------------------------------------------------------------------------------------------
  $p_c=\sum_{i\in U}c_i/N= N_c/N$                       $\widehat{p}_c=n_c/n, \quad N_c \,\,\text{desconhecido}$ 
       
- $\overline{Y}_c=Y_c/N_c$                                        
+ $\overline{Y_c}=Y_c/N_c$                                        
                                                        $\overline{y}_c=\widehat{Y}_c/\widehat{N}_c=\displaystyle\sum_{i\in s}y_{ic}/n_c,\quad N_c \,\,\text{desconhecido}$
 
-$Y_c=N_c\overline{Y}_c$                                $\widehat{Y}_c=N/n\displaystyle\sum_{i\in s} y_{ic},\quad N_c\,\,\text{desconhecido}$
+$Y_c=N_c\overline{Y_c}$                                $\widehat{Y}_c=N/n\displaystyle\sum_{i\in s} y_{ic},\quad N_c\,\,\text{desconhecido}$
                                                        $\widehat{Y}_c^R=N_c\overline{y}_c,\quad N_c\,\,\text{conhecido}$  
                                                   
 $V_{AAS}(\widehat p_c)$                                $\widehat V_{AAS}(\widehat p_c)=\displaystyle\left(\frac 1 n-\frac 1 N\right)\frac n {n-1}\widehat p_c(1-\widehat p_c)$
