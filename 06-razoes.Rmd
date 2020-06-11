@@ -101,7 +101,7 @@ Um exemplo simples de função linear é a *diferença* entre dois totais popula
  D = \sum_{i\in U} y_{2i} - \sum_{i\in U} y_{1i} = Y_2 - Y_1
 \end{equation}
 
-Nesse caso, temos uma situação envolvendo $K=2$ totais populacionais, com $a_1 = 1$ e $a_2 = -1$. 
+Nesse caso, temos uma situação envolvendo $K=$ 2 totais populacionais, com $a_1 =$ 1 e $a_2 =$ -1. 
 
 Outro exemplo de parâmetro que pode ser escrito como função de totais é o caso da *função de distribuição cumulativa* num ponto, dada por:
 
@@ -109,7 +109,7 @@ Outro exemplo de parâmetro que pode ser escrito como função de totais é o ca
  F_y(a) = \displaystyle \frac{1}{N} \sum_{i\in U} I(y_i \le a) \quad
 \end{equation}
 
-Nesse caso, a situação envolve apenas dois totais populacionais ($K=2$), sendo a primeira definida como $y_{1i} \equiv I(y_i \le a)$ e a segunda $y_{2i} \equiv 1$, e a função definida como $f(Y_1, Y_2) = Y_1 / Y_2$.
+Nesse caso, a situação envolve apenas dois totais populacionais ($K=$ 2), sendo a primeira definida como $y_{1i} \equiv I(y_i \le a)$ e a segunda $y_{2i} \equiv 1$, e a função definida como $f(Y_1, Y_2) = Y_1 / Y_2$.
 
 A *variância* de uma variável de pesquisa $y$, dada por
 
@@ -117,7 +117,7 @@ A *variância* de uma variável de pesquisa $y$, dada por
  S^2_y = \frac{1}{N-1} \left[ \sum_{i\in U} {y_i}^2 - N \overline{Y}^2 \right] = \frac{1}{N-1} \left[ \sum_{i\in U} {y_i}^2 -  {Y}^2/N \right]
 \end{equation}
 
-também pode ser vista como uma função envolvendo três totais populacionais $(K=3)$, sendo o primeiro definido como total da variável $y_{1i} \equiv y_i^2$, a segunda $y_{2i} \equiv y_i$, e a terceira como $y_{3i} \equiv 1$. A função que retorna a variância $S^2_y$ é definida como 
+também pode ser vista como uma função envolvendo três totais populacionais ($K=$ 3), sendo o primeiro definido como total da variável $y_{1i} \equiv y_i^2$, a segunda $y_{2i} \equiv y_i$, e a terceira como $y_{3i} \equiv 1$. A função que retorna a variância $S^2_y$ é definida como 
 $f(Y_1, Y_2, Y_3) = \frac {1} {Y_3 - 1} \left[ Y_1 - (Y_2^2/Y_3) \right]$.
 
 De maneira similar, a *covariância* e a *correlação* das variáveis $y$ e $z$ podem ser definidas como:
@@ -129,10 +129,10 @@ S_{y , z} = \displaystyle \frac{1}{N-1} \sum_{i\in U} \left({y_{i} - \overline{Y
 e
 
 \begin{equation}
-{\rho}_{y , z} = \frac{S_{y , z}} {S_{y} S_{z}}.
+{\rho}_{y , z} = \frac{S_{y , z}} {S_{y} S_{z}}
 \end{equation}
 
-A covariância pode ser vista como uma função envolvendo quatro totais populacionais $(K=4)$, sendo o primeiro definido como o total $Y_1$ da variável $y_{1i} \equiv y$, o segundo o total $Y_2$ da variável $y_{2i} \equiv z$, o terceiro o total da variável definida como $y_{3i} \equiv y_{i} z_{i}$ e o quarto o total da variável definida como $y_{4i} \equiv 1$. Por simplicidade, a função que define a correlação foi definida em função da covariância e dos desvios-padrão das duas variáveis de interesse, mas também poderia ser escrita como função de totais como já ilustrado nos demais casos.
+A covariância pode ser vista como uma função envolvendo quatro totais populacionais ($K=$ 4), sendo o primeiro definido como o total $Y_1$ da variável $y_{1i} \equiv y$, o segundo o total $Y_2$ da variável $y_{2i} \equiv z$, o terceiro o total da variável definida como $y_{3i} \equiv y_{i} z_{i}$ e o quarto o total da variável definida como $y_{4i} \equiv 1$. Por simplicidade, a função que define a correlação foi definida em função da covariância e dos desvios-padrão das duas variáveis de interesse, mas também poderia ser escrita como função de totais como já ilustrado nos demais casos.
 
 O ponto importante a destacar nesta seção é o fato de que muitos parâmetros de interesse podem ser vistos como funções de totais populacionais, e com isso, podem também ser estimados aplicando as funções que definem os parâmetros a estimadores dos totais correspondentes. Isto corresponde essencialmente a uma espécie de *método dos momentos* para estimar parâmetros populacionais, onde cada total populacional desconhecido é substituído na expressão do parâmetro por um estimador amostral não viciado do total correspondente.
 
@@ -172,15 +172,15 @@ $$
 Quando o parâmetro de interesse é uma função de totais populacionais $\theta = f(Y_1, Y_2, ..., Y_K)$, o método mais simples para estimar esse parâmetro é aplicar a mesma função a estimadores não viciados dos totais, isto é, usar o estimador:
 
 \begin{equation}
- \widehat{\theta} = f(\widehat{Y_1}, \widehat{Y_2}, ..., \widehat{Y_K}) (\#eq:eqraz5)
+\widehat{\theta} = f(\widehat{Y}_1, \widehat{Y}_2, ..., \widehat{Y}_K) (\#eq:eqraz5)
 \end{equation}
 
-onde $\widehat{Y_k}$ é o estimador HT do total populacional da variável de pesquisa $y_k$, para $k=1,...,K$.
+onde $\widehat{Y}_k$ é o estimador HT do total populacional da variável de pesquisa $y_k$, para $k=1,...,K$.
 
 Para o caso de *funções lineares*, o estimador resultante será dado por:
 
 \begin{equation}
- \widehat{\theta} = \sum_{k=1}^K a_k \, \widehat{Y_k} (\#eq:eqraz6)
+ \widehat{\theta} = \sum_{k=1}^K a_k \, \widehat{Y}_k (\#eq:eqraz6)
 \end{equation}
 
 e será um estimador não viciado do parâmetro $\theta$. 
@@ -189,15 +189,15 @@ Neste caso, a variância do estimador também é relativamente simples de obter,
 
 \begin{eqnarray}
 V_p \left( \widehat{\theta} \right) & = & 
-\sum_{k=1}^K \sum_{j = 1}^K a_k \, a_j Cov_p \left( \widehat{Y_k} ,  \widehat{Y_j} \right) \\
- &=& \sum_{k=1}^K a^2_k \, V_p \left( \widehat{Y_k} \right) +  \sum_{k=1}^K \sum_{j \ne k = 1}^K a_k \, a_j Cov_p \left( \widehat{Y_k} ,  \widehat{Y_j} \right) (\#eq:eqraz7)
+\sum_{k=1}^K \sum_{j = 1}^K a_k \, a_j COV_p \left( \widehat{Y}_k ,  \widehat{Y}_j \right) \\
+ &=& \sum_{k=1}^K a^2_k \, V_p \left( \widehat{Y}_k \right) +  \sum_{k=1}^K \sum_{j \ne k = 1}^K a_k \, a_j COV_p \left( \widehat{Y}_k ,  \widehat{Y}_j \right) (\#eq:eqraz7)
 \end{eqnarray}
 
 e um estimador dessa variância pode ser facilmente construído usando
 
 \begin{eqnarray}
-\widehat{V}_p \left( \widehat{\theta} \right) & = & \sum_{k=1}^K \sum_{j = 1}^K a_k \, a_j \widehat{Cov}_p \left( \widehat{Y_k} ,  \widehat{Y_j} \right) \\
-& = & \sum_{k=1}^K a^2_k \, \widehat{V}_p \left( \widehat{Y_k} \right) +  \sum_{k=1}^K \sum_{j \ne k = 1}^K a_k \, a_j \widehat{Cov}_p \left( \widehat{Y_k} ,  \widehat{Y_j} \right) (\#eq:eqraz8)
+\widehat{V}_p \left( \widehat{\theta} \right) & = & \sum_{k=1}^K \sum_{j = 1}^K a_k \, a_j \widehat{COV}_p \left( \widehat{Y}_k ,  \widehat{Y}_j \right) \\
+& = & \sum_{k=1}^K a^2_k \, \widehat{V}_p \left( \widehat{Y}_k \right) +  \sum_{k=1}^K \sum_{j \ne k = 1}^K a_k \, a_j \widehat{COV}_p \left( \widehat{Y}_k ,  \widehat{Y}_j \right) (\#eq:eqraz8)
 \end{eqnarray}
 
 Um resultado bastante útil é mostrado a seguir. Quando $\theta = \sum_{k=1}^K a_k \, Y_k$, então sua variância pode ser escrita como:
@@ -253,7 +253,7 @@ onde $z_i =\displaystyle\sum_{k=1}^K \frac{\partial {f(Y_1, Y_2, ..., Y_K)}} {\p
 Para analisar o vício do estimador da razão, note que:
 
 \begin{eqnarray}
-Cov_p \left( \widehat{R} , \widehat{X} \right) & = & E_p \left( \widehat{R} \times \widehat{X} \right) - E_p \left( \widehat{R} \right) \times E_p \left( \widehat{X} \right) \\
+COV_p \left( \widehat{R} , \widehat{X} \right) & = & E_p \left( \widehat{R} \times \widehat{X} \right) - E_p \left( \widehat{R} \right) \times E_p \left( \widehat{X} \right) \\
  & = &  E_p \left( \frac{ \widehat{Y} } { \widehat{X} } \times \widehat{X} \right) - E_p \left( \widehat{R} \right) \times E_p \left( \widehat{X} \right) \\
  & = &  E_p \left( \widehat{Y} \right) - E_p \left( \widehat{R} \right) \times E_p \left( \widehat{X} \right) \\ 
  & = & Y - E_p \left( \widehat{R} \right) \times X
@@ -262,21 +262,21 @@ Cov_p \left( \widehat{R} , \widehat{X} \right) & = & E_p \left( \widehat{R} \tim
 Segue-se então que:
 
 \begin{eqnarray}
-E_p \left( \widehat{R} \right) & = & \frac{Y}{X} - \frac{1}{X} \times Cov_p \left( \widehat{R} , \widehat{X} \right) \\
- & = & R - \frac{1}{X} \times Cov_p \left( \widehat{R} , \widehat{X} \right)
+E_p \left( \widehat{R} \right) & = & \frac{Y}{X} - \frac{1}{X} \times COV_p \left( \widehat{R} , \widehat{X} \right) \\
+ & = & R - \frac{1}{X} \times COV_p \left( \widehat{R} , \widehat{X} \right)
 \end{eqnarray}
 
 Chamando agora de $B_p( \widehat{R} ) = E_p \left( \widehat{R} \right) - R$, o vício do estimador $\widehat{R}$, mostrou-se que este pode ser obtido como:
 
 \begin{equation}
-B_p( \widehat{R} ) = - \frac{1}{X} \times Cov_p \left( \widehat{R} , \widehat{X} \right) (\#eq:eqraz13)
+B_p( \widehat{R} ) = - \frac{1}{X} \times COV_p \left( \widehat{R} , \widehat{X} \right) (\#eq:eqraz13)
 \end{equation}
 
-Esta expressão fornece um caminho para estabelecer um limite superior para o valor absoluto do vício dividido pelo desvio padrão do estimador da razão. Notando que $Cov_p \left( \widehat{R} , \widehat{X} \right) = Corr_p \left( \widehat{R} , \widehat{X} \right) \times DP_p(\widehat{R}) \times DP_p(\widehat{X})$, segue-se que:
+Esta expressão fornece um caminho para estabelecer um limite superior para o valor absoluto do vício dividido pelo desvio padrão do estimador da razão. Notando que $COV_p \left( \widehat{R} , \widehat{X} \right) = CORR_p \left( \widehat{R} , \widehat{X} \right) \times DP_p(\widehat{R}) \times DP_p(\widehat{X})$, segue-se que:
 
 \begin{eqnarray}
- \left| \frac {B_p( \widehat{R} )}{DP_p(\widehat{R})} \right| & = & \frac{1}{X} \times \left| \frac{Corr_p \left( \widehat{R} , \widehat{X} \right) \times DP_p(\widehat{R}) \times DP_p(\widehat{X})} {DP_p(\widehat{R})} \right| \\ 
- & = & \left| Corr_p \left( \widehat{R} , \widehat{X} \right) \right| \times \frac {DP_p(\widehat{X})}{X} \\
+ \left| \frac {B_p( \widehat{R} )}{DP_p(\widehat{R})} \right| & = & \frac{1}{X} \times \left| \frac{CORR_p \left( \widehat{R} , \widehat{X} \right) \times DP_p(\widehat{R}) \times DP_p(\widehat{X})} {DP_p(\widehat{R})} \right| \\ 
+ & = & \left| CORR_p \left( \widehat{R} , \widehat{X} \right) \right| \times \frac {DP_p(\widehat{X})}{X} \\
  & \le & CV_p(\widehat{X}) (\#eq:eqraz14)
 \end{eqnarray}
  
@@ -308,7 +308,7 @@ e
 
 levando a
 \begin{equation}
-z_i = \frac {1}{X} y_i - \frac {Y}{X^2} x_i = \frac {1}{X} \left( y_i - R x_i \right).
+z_i = \frac {1}{X} y_i - \frac {Y}{X^2} x_i = \frac {1}{X} \left( y_i - R x_i \right)
 \end{equation}
 
 Sendo assim, a variância aproximada do estimador $\widehat{R}$ pode ser obtida calculando a variância do estimador de total da variável linearizada $z_i$:
@@ -357,7 +357,7 @@ $V_{AAS}(\widehat{R})\doteq\frac{1}{\overline{X}^2}\left(\frac{1}{n}-\frac{1}{N}
 
 Considere a população de municípios brasileiros fornecida no arquivo MunicBR_dat.
 
-1.	Selecione uma AAS de $n = 200$ municípios, e use esta amostra para estimar os seguintes parâmetros populacionais:
+1.	Selecione uma AAS de $n =$ 200 municípios, e use esta amostra para estimar os seguintes parâmetros populacionais:
 
     a. Densidade demográfica média por $km^2$ no Brasil;
 
@@ -453,7 +453,7 @@ munic_amo <- cbind(munic_amo, r_chapeu)
 **(#exr:exerazao2)** Para estimar o total de despesas com gastos sociais das prefeituras de uma região que abrange 281 municípios, foi selecionada uma amostra aleatória simples sem reposição de 50 municípios. Sabe-se que a população total da região é de 6.818 (em milhares de pessoas). 
 São dadas as seguintes informações provenientes da amostra:
 
-$\quad\displaystyle\sum_{i=1}^{50} y_i$ = 128.080; $\quad \displaystyle\sum_{i=1}^{50} x_i$ = 1.067; $\quad s^2_y$ = 6.244.516; $\quad s^2_x$ = 454,51; $\quad s_{xy}$ = 45.399
+$\quad\displaystyle\sum_{i=1}^{50} y_i=$ 128.080; $\quad \displaystyle\sum_{i=1}^{50} x_i=$ 1.067; $\quad s^2_y=$ 6.244.516; $\quad s^2_x=$ 454,51; $\quad s_{xy}=$ 45.399
 
 Obs.: os valores de $x$ e $y$ são dados em milhares.
 
@@ -488,9 +488,9 @@ Considerando que $(N − n)/ N \dot= 1$:
   b) Descreva dois tipos de estimadores para estimar a despesa média por domicílio para a alimentação por uma semana na cidade. Sumarize algumas propriedades de cada estimador.
   c) Estime a despesa média por domicílio usando o primeiro estimador e estime a variância do estimador.
   d) Estime a despesa média por domicílio usando o segundo estimador e estime a variância do estimador.
-  e) Baseado nos resultados, qual estimador é preferível nesta situação? Por que?
+  e) Baseado nos resultados, qual estimador é preferível nesta situação? Por quê?
 
-**(#exr:exerazao4)** Num estudo para estimar a quantidade total de açúcar contida num carregamento de laranjas, uma AAS de $n=10$ laranjas foi selecionada. Cada uma das laranjas foi pesada, retirado o suco e pesada a quantidade de açúcar no suco. A Tabela \@ref(tab:tabrazao4) dá os resultados para as 10 laranjas da amostra. O caminhão foi pesado carregado com as laranjas e, depois, vazio levando a conclusão que o peso total da carga de laranjas era de 1.800 libras. Estime o total de açúcar contido em todas as laranjas e dê um intervalo de 95% de confiança para esse total.
+**(#exr:exerazao4)** Num estudo para estimar a quantidade total de açúcar contida num carregamento de laranjas, uma AAS de $n=$ 10 laranjas foi selecionada. Cada uma das laranjas foi pesada, retirado o suco e pesada a quantidade de açúcar no suco. A Tabela \@ref(tab:tabrazao4) dá os resultados para as 10 laranjas da amostra. O caminhão foi pesado carregado com as laranjas e, depois, vazio levando a conclusão que o peso total da carga de laranjas era de 1.800 libras. Estime o total de açúcar contido em todas as laranjas e dê um intervalo de 95% de confiança para esse total.
 
 <center>
 ```{r, results="asis", echo=FALSE}
@@ -540,18 +540,18 @@ a)  Supondo que a amostra é *AAS*, estime o número total de árvores mortas na
 b)  Estime o vício do número de árvores mortas.
 c)  Recalcule as estimativas sem utilizar a informação auxiliar e compare os resultados.
 
-**(#exr:exerazao6)**  Considere uma população $U$ com $N = 100$ unidades. Para cada uma das unidades $U_i$, considere o par $(Y_i,X_i)$, onde $Y_i$ tem distribuição $U(50,100)$ e $x_i = 3y_i+e_i$, com $e_i \sim N(0,16)$, $i=1,\:2,\:\dots,\:100$.
+**(#exr:exerazao6)**  Considere uma população $U$ com $N =$ 100 unidades. Para cada uma das unidades $U_i$, considere o par $(Y_i,X_i)$, onde $Y_i$ tem distribuição $U(50,100)$ e $x_i = 3y_i+e_i$, com $e_i \approx N(0,16)$, $i=1,\:2,\:\dots,\:100$.
 
 a)  Usando funções do R, gere a população $U$ com os valores de $Y_i$ e $X_i$, como descrito acima.
 b)  Calcule os parâmetros populacionais $\overline Y,\,\,\overline X,\,\,S^2_y,\,\,S ^2_x$.
-c)  Selecione 200 *AAS* de tamanho $n=20$ da população gerada.
+c)  Selecione 200 *AAS* de tamanho $n=$ 20 da população gerada.
 d)  Para cada amostra estime $\overline Y$ e o respectivo intevalo de 95% de confiança, usando o estimador natural da *AAS* e o estimador de razão.
 e)  Verifique, para cada tipo de estimador, quantos intervalos não contém o valor verdadeiro da média populacional de $y$. O resultado é razoável?
 f)  Calcule o vício médio empírico das estimativas, utilizando 
 $$\widehat{\overline B}=\frac 1 {200} \sum|\overline y_i -\overline Y|\,\,\,\text{e} \,\,\,\widehat{\overline B}_R=\frac 1 {200} \sum|\overline y_{Ri} -\overline Y|$$
 g)  Compare e comente os resultados. 
 
-**(#exr:exerazao7)**  Foi solicitado a um grupo de 50 alunos de uma escola que cada um declarasse quanto dinheiro tinha no bolso $(x_i)$, sem contar. A média dos valores declarados por todos os alunos foi de $\overline X=R\$4,93$. Em seguida foram selecionados, aleatoriamente e sem reposição, 10 desses alunos que foram solicitados a contar quanto dinheiro cada um tinha no bolso $(y_i)$. A Tabela \@ref(tab:tabrazao6) mostra os dois valores para cada aluno da amostra.
+**(#exr:exerazao7)**  Foi solicitado a um grupo de 50 alunos de uma escola que cada um declarasse quanto dinheiro tinha no bolso $(x_i)$, sem contar. A média dos valores declarados por todos os alunos foi de $\overline X=$ R$4,93. Em seguida foram selecionados, aleatoriamente e sem reposição, 10 desses alunos que foram solicitados a contar quanto dinheiro cada um tinha no bolso $(y_i)$. A Tabela \@ref(tab:tabrazao6) mostra os dois valores para cada aluno da amostra.
 
 <center>
 ```{r, results="asis", echo=FALSE}
@@ -613,7 +613,7 @@ A Tabela \@ref(tab:tabrazao8) contém os dados dessa população de pesquisa.
 
 <center>
 ```{r, results="asis", echo=FALSE}
-cat("<table>",paste0("<caption>", "(#tab:tabrazao8)", "População hipotética de $N=9$ unidades", "</caption>"),"</table>", sep ="\n")
+cat("<table>",paste0("<caption>", "(#tab:tabrazao8)", "População hipotética de $N=$ 9 unidades", "</caption>"),"</table>", sep ="\n")
 ```
 ----------
  $U_i$	 $X_i$	$Y_i$
@@ -644,7 +644,7 @@ c) Construa os histogramas para as duas distribuições e comente os resultados.
 d) Calcule a média e a variância para as duas distribuições e as compare.
 e) Calcule o vício do estimador de razão para a média e compare com o resultado obtido pela fórmula aproximada do vício.
 
-**(#exr:exerazao10)**  As notas da primeira prova de Cálculo 1 de 486 alunos de uma faculdade são conhecidas e sua média é $\overline X=52$. Esses alunos foram submetidos à primeira prova de Cálculo 2 e, para ter uma prévia do rendimento dos alunos, foi selecionada uma AAS dessas provas. As notas dos alunos da amostra estão na Tabela  \@ref(tab:tabrazao9): 
+**(#exr:exerazao10)**  As notas da primeira prova de Cálculo 1 de 486 alunos de uma faculdade são conhecidas e sua média é $\overline X=$ 52. Esses alunos foram submetidos à primeira prova de Cálculo 2 e, para ter uma prévia do rendimento dos alunos, foi selecionada uma AAS dessas provas. As notas dos alunos da amostra estão na Tabela  \@ref(tab:tabrazao9): 
 
 <center>
 ```{r, results="asis", echo=FALSE}
