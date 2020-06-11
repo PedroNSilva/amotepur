@@ -37,9 +37,10 @@ Moradores em favelas do Rio	      Características de pessoas	   Morador        
 ----------
 </center>
 
-Conforme ilustrado na Figura \@ref(fig:hierar) temos regras de associação com a hieraquia com vários níveis (vários para um), considerando o cadastro de setores, os domicílios como nível 1 e a população de moradores.  
+Conforme ilustrado na Figura \@ref(fig:hierar1) temos regras de associação com a hieraquia com vários níveis (vários para um), considerando o cadastro de setores, os domicílios como nível 1 e a população de moradores.  
 <center>
-```{r, hierar, echo=FALSE, fig.cap="Ilustração da hierarquia com vários níveis (vários para um)"}
+
+```{r,hierar1,echo=F,fig.cap="Ilustração da hierarquia com vários níveis (vários para um)",out.width = '100%'}
 knitr::include_graphics("Figuras/hierarquia.png") 
 ```
 </center>
@@ -55,7 +56,7 @@ Para reduzir custos é muito frequente o uso de amostragem conglomerada, onde os
 
 A utilização de amostragem de áreas se dá quando não existe um cadastro de boa qualidade disponível e/ou quando a população for muito dispersa e o fator custo de deslocamento for preponderante. Neste caso, a necessidade de uma lista atualizada das unidades para as quais se requer a informação é restrita às áreas (*conglomerados*) que forem selecionadas para a amostra. Portanto, a grande vantagem da amostragem conglomerada é a sua conveniência operacional vinculada a possíveis reduções de custo. 
 
-Num levantamento de ima população humana, por exemplo, é operacionalmente mais conveniente pesquisar todas as pessoas numa amostra de domicílios do que selecionar o mesmo número de pessoas espalhadas por toda a população. Também é mais conveniente pesquisar todos os domicílios numa amostra de áreas (por exemplo, setores censitários) do que selecionar aleatoriamente uma amostra do mesmo número de domicílios numa lista de todos os domicílios da região de interesse da pesquisa. Por um lado, tal lista nem sempre está disponível, e por outro, seu preparo tornaria a pesquisa bem mais cara. 
+Num levantamento de uma população humana, por exemplo, é operacionalmente mais conveniente pesquisar todas as pessoas numa amostra de domicílios do que selecionar o mesmo número de pessoas espalhadas por toda a população. Também é mais conveniente pesquisar todos os domicílios numa amostra de áreas (por exemplo, setores censitários) do que selecionar aleatoriamente uma amostra do mesmo número de domicílios numa lista de todos os domicílios da região de interesse da pesquisa. Por um lado, tal lista nem sempre está disponível, e por outro, seu preparo tornaria a pesquisa bem mais cara. 
 
 Suponha que uma AAS de $n$ = 400 domicílios deva ser selecionada de uma população de $N$ = 10.000 domicílios de uma cidade. Como não dispomos de uma lista atualizada com todos os domicílios, optamos por uma amostra de domicílios localizados dentro de uma amostra de quarteirões. Isto pode ser feito dividindo a área da cidade em quarteirões e selecionando 1/25 dos quarteirões. A probabilidade de selecionar um domicílio na cidade é a probabilidade de selecionar um quarteirão, ou seja, 1/25 = 400/10.000. Neste caso, o tamanho da amostra de domicílios será uma variável aleatória que depende dos quarteirões selecionados para a amostra, sendo o seu valor esperado igual ao $n$ desejado.
 
@@ -184,7 +185,7 @@ d) Conglomerados = veículos cruzando um posto de pedágio; e unidades elementar
 
 e) UPAs = empresas industriais; e unidades elementares = unidades locais. 
 
-**(#exm:exmcon3)** Plano amostral da Pesquisa Mensal de Emprego - PME - na Região Metropolitana de São Paulo realizada pelo IBGE
+**(#exm:exmcon3)** Plano amostral da *Pesquisa Mensal de Emprego - PME* - na Região Metropolitana de São Paulo realizada pelo IBGE
 
 O plano amostral empregado na PME da RM de São Paulo era amostragem conglomerada em dois estágios, onde os setores censitários da Região Metroplitana de São Paulo eram as UPAs, e os domícilios particulares eram as USAs. Em cada domicílio selecionado para a pesquisa, as unidades elementares eram os moradores. Todos os moradores dos domicílios selecionados eram pesquisados, sendo que somente os que tinham 10 anos ou mais de idade preenchiam a parte referente às características de ocupação e rendimento. O plano é dito em dois estágios porque não havia sorteio de moradores dentro dos domicílios selecionados.
 
@@ -192,6 +193,15 @@ A amostra era de cerca de 430 setores por mês, com média de aproximadamente 18
 
 A PME foi encerrada em março de 2016, com a divulgação dos resultados referentes ao mês de fevereiro de 2016, tendo sido substituída, com metodologia atualizada, pela Pesquisa Nacional por Amostra de Domicílios Contínua - PNAD Contínua, que abrange todo o País. Detalhes sobre a PME podem ser vistos em <https://www.ibge.gov.br/estatisticas/sociais/trabalho/9180-pesquisa-mensal-de-emprego.html?=&t=o-que-e>.
 
+**(#exm:exmcon4)** Amostra da *Pesquisa Nacional de Saúde do Escolar - PeNSE*
+
+Outra pesquisa, por amostra conglomerada, realizada pelo IBGE, em conjunto com o Ministério da Saúde, é a PeNSE que busca estudar aspectos como "a maior exposição a fatores de risco para a saúde, como uso de tabaco, consumo de álcool, alimentação inadequada e sedentarismo" em uma amostra de adolescentes que frequentam aulas em escolas públicas e privadas no território nacianal. Trata-se de um plano amostral complexo que envolve estratificação, conglomeração, seleção de amostras com probabilidades desiguais, que pode ser visto com mais detalhes em @IBGE2016b. Em relação à amostragem conglomerada, são utilizados três estágios de seleção em cada um dos estratos definidos:
+
+  - **Estágio 1** UPAs - Municípios em cada um dos estratos;
+  - **Estágio 2** USAs - Escolas com turmas de alunos nas etapas de ensino de interesse em cada município selecionado;
+  - **Estágio 3** UTAs - Turmas de alunos nas etapas de ensino de interesse em cada escola selecionada.
+  
+Seria possível implementar um quarto estágio selecionando apenas uma parte dos alunos de cada turma selecionada para responderem ao questionário da pesquisa, porém por facilidades operacionais foi decidido pela inclusão de todos os alunos na amostra final.
 
 A amostragem conglomerada em um ou mais estágios deve ser adotada sempre que: 
 
@@ -460,7 +470,7 @@ A Tabela \@ref(tab:tabcong5) apresenta um resumo da estimação de parâmetros m
 ```{r, results="asis", echo=FALSE}
 cat("<table>",paste0("<caption>", "(#tab:tabcong5)", "Parâmetros e respectivos estimadores sob AC1S", "</caption>"),"</table>", sep ="\n")
 ```
-
+**PROPOSTA 1**
 <center>
 ---------
 Parâmetro                                                                                                                                           Estimador                             
@@ -480,6 +490,27 @@ $V_{AC1S}\left(\widehat Y_{AC1S/R}\right)$                                      
 
 ---------
 </center>
+
+**PROPOSTA 2**
+<center>
+---------
+Parâmetro                                                                                                                                                                             Estimador                             
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- ------------------------------------------
+$\scriptstyle\overline Y = Y / N =\frac{1}{N}\sum_{i\in C} Y_i$                                                                                                                       $\scriptstyle \overline y_{AC1S/HT} = \frac {\widehat Y_{AC1S/HT}}{N} = \frac {M} {N} \frac {1} {m}\sum_{i \in a} Y_i = \overline y_C / \overline N \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,$                                                                                                                                                                                                                    $\scriptstyle\overline y_{AC1S/R}= \frac{\widehat Y_{AC1S/R}} {N}=\frac{1}{n} \sum_{i\in a}Y_i=\overline y_C/\overline n=\overline y$
+
+$\scriptstyle Y = N \overline Y= \sum_{i\in C} Y_i$                                                                                                                                   $\scriptstyle \widehat Y_{AC1S/HT} = \frac {M}{m}\sum_{i \in a} Y_i = M \overline y_C =\sum_{i \in a} \sum_{j \in C_i} d_{ij} y_{ij}\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,$ 
+                                                                                                                                                                                      $\scriptstyle\widehat Y_{AC1S/R} = \frac {N} {n}\sum_{i \in a} Y_i = N \overline y = \sum_{i \in a} \sum_{j\in C_i} w_{ij}^R y_{ij}$
+
+$\scriptstyle V_{AC1S}\left(\overline y_{AC1S/HT}\right)=\frac{M^2}{N^2}\left(\frac1m-\frac1M\right)S_e^2=\frac1{\overline N^2}\left(\frac1m-\frac1M\right)S_e^2$                     $\scriptstyle\widehat V_{AC1S} \left( \overline y_{AC1S/HT} \right) = \frac {1} {\overline N^2} \left( \frac 1 m - \frac 1 M \right) s_e^2$
+
+$\scriptstyle V_{AC1S}\left(\overline y_{AC1S/R}\right)\doteq\frac1{\overline N^2}\left(\frac1m-\frac1M\right)\frac1{M-1}\sum_{i\in C}N_i^2\left(\overline{Y_i}-\overline Y\right)^2$ $\scriptstyle\widehat V_{AC1S} \left(\overline y_{AC1S/R}\right)=\frac{1}{\overline n^2}\left(\frac1 m -\frac 1 M\right)\frac{1}{m-1}\sum_{i\in a}N_i^2\left(\overline {Y_i} -\overline y\right)^2$                                                   
+
+$\scriptstyle V_{AC1S}\left(\widehat Y_{AC1S/HT} \right)= M^2 \frac {1-f} {m} S_e^2$                                                                                                  $\scriptstyle \widehat V_{AC1S} \left( \widehat Y_{AC1S/HT}\right)= M^2 \left( \frac 1 m - \frac 1 M \right) s_e^2$
+
+$\scriptstyle V_{AC1S}\left(\widehat Y_{AC1S/R}\right)\doteq M^2\left(\frac1m-\frac1M\right)\frac{1}{M-1}\sum_{i\in C}N_i^2\left(\overline{Y_i}-\overline Y\right)^2$                 $\scriptstyle\widehat V_{AC1S}\left(\widehat Y_{AC1S/R}\right) = M^2\left(\frac1m-\frac1M \right)\frac {1} {m-1}\sum_{i\in a} N_i^2(\overline {Y_i}-\overline y)^2$
+---------
+</center>
+
 
 
 Aqui não foi tratado explicitamente do problema da estimação de proporções. Porém lembrando que proporção é equivalente à média de uma variável do tipo indicadora, que só pode assumir valores 0 (não possui a característica de interesse) ou 1 (possui a característica de interesse), e recorrendo ao exposto no Capítulo \@ref(proporc) é fácil derivar as expressões para estimar proporções e avaliar a precisão das estimativas a partir das expressões para estimação de média fornecidas aqui. 
@@ -516,7 +547,7 @@ $$
 EPA(AC1S/HT;\,AAS) = \frac {V_{AC1S} (\overline y_{AC1S/HT})} {V_{AAS} (\overline y)} \,\, (\#eq:eqcong14) 
 $$
 
-O EPA mede o quanto a variância do estimador é maior (ou menor) por usar AC1S em lugar de AAS.
+O EPA mede o quanto a variância do estimador é maior (ou menor) por usar ACS em lugar de AAS.
 
 - $EPA < 1 \Rightarrow$ *ganho de precisão*, devido ao uso de amostragem conglomerada; 
 - $EPA = 1 \Rightarrow$ *mesma precisão*, não há diferença de precisão, pode-se optar pelo plano operacionalmente mais vantajoso; e 
@@ -974,6 +1005,8 @@ A Tabela \@ref(tab:tabcong7) apresenta um resumo da estimação do parâmetro do
 ```{r, results="asis", echo=FALSE}
 cat("<table>", paste0("<caption>", "(#tab:tabcong7)", "Parâmetros e respectivos estimadores sob os Planos AC2AAS, AC2PPTC e AC2PPTPS", "</caption>"),"</table>", sep ="\n")
 ```
+
+**Proposta 1**
 <center>
 
 ---------
@@ -993,6 +1026,44 @@ $V_{AC2PPTPS} \left( \widehat Y_{AC2PPTPS} \right)$                  $\widehat V
                                                                                   $\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\times (1 -m p_i)p_i + \displaystyle \sum_{i \in a} \frac {1} {m p_i} N_i^2 \left( \frac {1} {n_i} - \frac {1} {N_i} \right) \widehat S_i^2$ 
 ---------
 </center>
+
+**Proposta 2**
+
+<center>
+
+---------
+Parâmetro                                                         Estimador                  
+----------------------------------------------------------------- ------------------------------------------------------------------
+$\scriptstyle Y=\sum_{i=1}^{M} Y_i = \sum_{i \in C} Y_i$          $\scriptstyle\widehat Y_{AC2AAS} =\frac {M} {m} \sum_{i \in a} \widehat Y_i \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\, \,\,\,\,\,\,\,\,\, \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,$ 
+                                                                  $\scriptstyle\widehat Y_{AC2PPTC} =\frac {1} {m} \sum_{i \in a} f_i \frac {\widehat Y_i} {p_i} \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\, \,\, \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,$ 
+                                                                  $\scriptstyle\widehat Y_{AC2PPTPS} =  \frac {1} {m}\sum_{i \in a} \frac {\widehat Y_i} {p_i} \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\, \, \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,$          
+
+$\scriptstyle V_{AC2AAS} \left( \widehat Y_{AC2AAS} \right)$      $\scriptstyle\widehat V_{AC2AAS} \left(\widehat Y_{AC2AAS}\right)=\scriptstyle M^2 \left( \frac {1} {m} - \frac {1} {M} \right)  \frac {1} {m-1} \scriptstyle\sum_{i \in a} \left( \widehat Y_i - \overline y_C \right)^2+\frac{M} {m}\sum_{i \in a} N_i^2 \left( \frac {1} {n_i} - \frac {1} {N_i} \right) \widehat S_i^2$ 
+                                                                                       
+$\scriptstyle V_{AC2PPTC} \left( \widehat Y_{AC2PPTC} \right)$                    $\scriptstyle\widehat V_{AC2PPTC} \left(\widehat Y_{AC2PPTC} \right) = \scriptstyle\frac {1} {m(m-1)} \sum_{i \in a} \left( \frac {\widehat Y_i} {p_i} - \widehat Y_{AC2PPTC} \right)^2$
+
+$\scriptstyle V_{AC2PPTPS} \left( \widehat Y_{AC2PPTPS} \right)$                  $\scriptstyle\widehat V_{AC2PPTPS} \left( \widehat Y_{AC2PPTPS} \right) = \scriptstyle\frac {1} {m}\frac {M}{M-1}\sum_{i\in a}\left(\frac{\widehat Y_i}{p_i}-\widehat Y_{AC2PPTPS} \right)^2(1 -m p_i)p_i + \sum_{i \in a} \frac {1} {m p_i} N_i^2 \left( \frac {1} {n_i} - \frac {1} {N_i} \right) \widehat S_i^2$ 
+---------
+</center>
+
+**Proposta 3**
+
+<center>
+
+---------
+Parâmetro                                                                                                                                                                                                                                                                                                                         Estimador                                      
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- ------------------------------------------------------------------
+$\scriptstyle Y=\sum_{i=1}^{M} Y_i = \sum_{i \in C} Y_i$                                                                                                                                                                                                                                                                          $\scriptstyle\widehat Y_{AC2AAS} =\frac {M} {m} \sum_{i \in a} \widehat Y_i \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,$ 
+                                                                                                                                                                                                                                                                                                                                  $\scriptstyle\widehat Y_{AC2PPTC} =\frac {1} {m} \sum_{i \in a} f_i \frac {\widehat Y_i} {p_i} \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,$ 
+                                                                                                                                                                                                                                                                                                                                  $\scriptstyle\widehat Y_{AC2PPTPS} =  \frac {1} {m}\sum_{i \in a} \frac {\widehat Y_i} {p_i} \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,$          
+
+$\scriptstyle V_{AC2AAS}\left(\widehat Y_{AC2AAS}\right)=\scriptstyle M^2\left(\frac{1}{m}-\frac{1}{M}\right)\frac{1}{M-1}\sum_{i\in C}\left(Y_i-\overline{Y_C}\right)^2+\\\scriptstyle \;\;\;\;\;\;\;\;\;\;\;\;\;\;\; \;\;\;\;\;\;\;+\frac{M}{m}\sum_{i\in C}N_i^2 \left( \frac{1}{n_i}-\frac {1}{N_i}\right) S_i^2$             $\scriptstyle\widehat V_{AC2AAS}\left(\widehat Y_{AC2AAS}\right)=\scriptstyle M^2\left(\frac{1}{m}- frac{1}{M} \right)\frac{1}{m-1}\scriptstyle\sum_{i\in a}\left(\widehat Y_i-\overline y_C\right)^2+\\\scriptstyle\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\; +\frac{M}{m}\sum_{i in a}N_i^2\left(\frac{1}{n_i}-\frac{1}{N_i}\right) \widehat S_i^2$ 
+                                                                                       
+$\scriptstyle V_{AC2PPTC}\left(\widehat Y_{AC2PPTC}\right)=\frac{1}{m}\sum_{i\in U}\left(\frac {Y_i}{p_i}-Y\right)^2p_i+\\\scriptstyle\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;+\frac{1}{m}\sum_{i\in U}\frac{1}{p_i}N_i^2\left(\frac{1}{n_i}-\frac{1}{N_i}\right)S_i^2$                                                                                                                                                                                                                                                                      $\scriptstyle\widehat V_{AC2PPTC} \left(\widehat Y_{AC2PPTC} \right) = \scriptstyle\frac {1} {m(m-1)} \sum_{i \in a} \left( \frac {\widehat Y_i} {p_i} - \widehat Y_{AC2PPTC} \right)^2$               
+$\scriptstyle V_{AC2PPTPS}\left(\widehat Y_{AC2PPTPS}\right)=\frac{1}{m}\frac{M}{M-1}\sum_{i\in C}\left(\frac{Y_i}{p_i}-Y\right)^2\times\\\scriptstyle\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\; \;\;\;\times(1-mp_i)p_i+\sum_{i\in C}\frac{1}{m p_i}N_i^2\left(\frac{1}{n_i}-\frac{1}{N_i}\right) S_i^2$                                               $\scriptstyle\widehat V_{AC2PPTPS} \left( \widehat Y_{AC2PPTPS} \right) = \scriptstyle\frac {1} {m}\frac {M}{M-1}\sum_{i\in a}\left(\frac{\widehat Y_i}{p_i}-\widehat Y_{AC2PPTPS} \right)^2\times\\\scriptstyle\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\times(1 -m p_i)p_i+ \sum_{i \in a} \frac {1} {m p_i} N_i^2 \left( \frac {1} {n_i} - \frac {1} {N_i} \right) \widehat S_i^2$ 
+---------
+</center>
+
 
 ## Ideias básicas na escolha de unidades compostas 
 
