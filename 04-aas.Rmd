@@ -673,38 +673,13 @@ e)  Construa $IC_{95\%}$ para a média populacional.
 f)  Compare, e comente, os resultados estimados na amostra com os valores verdadeiros da população.
 g)  A média populacional pertence ao intervalo de confiança construído? O que isso significa?
 
-**(#exr:exeaas10)**  Um biólogo deseja estimar o total populacional de determinado animal numa reserva florestal. Para isso ele dividiu a floresta em lotes de tamanhos aproximadamente iguais e selecionou uma amostra desses lotes, contando os animais encontrados. A Figura \@ref(fig:figAAS) mostra, esquematicamente, o mapa da reserva com a divisão feita. A amostra é formada pelos lotes onde aparecem os números de animais encontrados, que foram selecionados usando um processo de AAS. 
+**(#exr:exeaas10)**  Um biólogo deseja estimar o total populacional de determinado animal numa reserva florestal. Para isso ele dividiu a floresta em lotes de tamanhos aproximadamente iguais e selecionou uma amostra desses lotes, contando os animais encontrados. A Figura \@ref(fig:figAAS1) mostra, esquematicamente, o mapa da reserva com a divisão feita. A amostra é formada pelos lotes onde aparecem os números de animais encontrados, que foram selecionados usando um processo de AAS. 
 
-</center>
 <center>
-\begin{array}{|r|r|r|r|r|r|r|r|r|r|r|}
-\hline
-\text{}&1&2&3&4&5&6&7&8&9&10\\
-\hline
-\text{a}&\text{}&\text{}&\text{}&\text{}&\text{}&\text{}&\text{}&\text{}&\text{}&\text{}\\
-\hline
-\text{b}&\text{5}&\text{}&\text{}&\text{}&\text{}&\text{}&\text{}&\text{}&\text{}&\text{}\\
-\hline
-\text{c}&\text{}&\text{9}&\text{}&\text{}&\text{}&\text{}&\text{}&\text{}&\text{}&\text{}\\
-\hline
-\text{d}&\text{}&\text{}&\text{}&\text{}&\text{}&\text{}&\text{1}&\text{}&\text{}&\text{4}\\
-\hline
-\text{e}&\text{}&\text{}&\text{}&\text{}&\text{}&\text{12}&\text{}&\text{}&\text{}&\text{}\\
-\hline
-\text{f}&\text{}&\text{}&\text{}&\text{}&\text{}&\text{}&\text{}&\text{}&\text{}&\text{}\\
-\hline
-\text{g}&\text{}&\text{}&\text{}&\text{}&\text{}&\text{}&\text{}&\text{}&\text{7}&\text{}\\
-\hline
-\text{h}&\text{}&\text{}&\text{11}&\text{}&\text{}&\text{}&\text{}&\text{}&\text{10}&\text{}\\
-\hline
-\text{i}&\text{}&\text{}&\text{}&\text{}&\text{}&\text{}&\text{}&\text{}&\text{}&\text{}\\
-\hline
-\text{j}&\text{}&\text{}&\text{}&\text{12}&\text{}&\text{}&\text{}&\text{}&\text{4}&\text{}\\
-\hline
-\end{array}
-Figura \@ref(fig:figAAS): Mapa esquemático da reserva com o número de animais encontrados nos lotes selecionados
+```{r,figAAS1,echo=F,fig.cap="Mapa esquemático da reserva com o número de animais encontrados nos lotes selecionados",out.width = '60%'}
+knitr::include_graphics("Figuras/Fig41.png") 
+```
 </center>
-
 
   a) Faça uma tabela com os dados amostrais. 
   b) Use a amostra para estimar o número de animais da espécie em estudo na reserva. 
