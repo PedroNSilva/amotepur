@@ -310,7 +310,7 @@ onde $d_{ij} = M/m$ são os pesos individuais básicos sob AC1S.
 A variância do estimador natural do total populacional é dada por: 
 
 $$
-\displaystyle V_{AC1S} \left( \widehat Y_{AC1S/HT} \right) = M^2 \frac {1-f} {m} S_e^2 \,\,(\#eq:eqcong2)
+\displaystyle V_{AC1S} \left( \widehat Y_{AC1S/HT} \right) = M^2 \frac {1-f} {m} S_e^2=M^2 \left(\frac1m-\frac1M\right)S_e^2 (\#eq:eqcong2)
 $$ 
 
 onde $f = m/M$ e $\displaystyle S_e^2 = \frac {1} {M-1} \displaystyle \sum_{i \in C} \left(Y_i - \overline {Y_C} \right)^2$ é a *variância entre* os totais dos conglomerados.
@@ -415,7 +415,7 @@ c) usar estimadores tipo razão, com a variável auxiliar sendo o tamanho do con
 
 ### Estimação da média sob AC1S
 
-O estimador de Horvitz-Thompson da média por unidade $\overline Y$ sob plano amostral da AC1S é dado por: 
+O estimador de Horvitz-Thompson da média por unidade, $\overline Y$, sob plano amostral da AC1S é dado por: 
 
 $$
 \displaystyle \overline y_{AC1S/HT} = \frac {\widehat Y_{AC1S/HT}} {N} = \frac {M} {N} \frac {1} {m} \displaystyle \sum_{i\in a} Y_i = \overline y_C / \overline N \,\, (\#eq:eqcong7)
@@ -505,7 +505,7 @@ $\scriptstyle V_{AC1S}\left(\overline y_{AC1S/HT}\right)=\frac{M^2}{N^2}\left(\f
 
 $\scriptstyle V_{AC1S}\left(\overline y_{AC1S/R}\right)\doteq\frac1{\overline N^2}\left(\frac1m-\frac1M\right)\frac1{M-1}\sum_{i\in C}N_i^2\left(\overline{Y_i}-\overline Y\right)^2$ $\scriptstyle\widehat V_{AC1S} \left(\overline y_{AC1S/R}\right)=\frac{1}{\overline n^2}\left(\frac1 m -\frac 1 M\right)\frac{1}{m-1}\sum_{i\in a}N_i^2\left(\overline {Y_i} -\overline y\right)^2$                                                   
 
-$\scriptstyle V_{AC1S}\left(\widehat Y_{AC1S/HT} \right)= M^2 \frac {1-f} {m} S_e^2$                                                                                                  $\scriptstyle \widehat V_{AC1S} \left( \widehat Y_{AC1S/HT}\right)= M^2 \left( \frac 1 m - \frac 1 M \right) s_e^2$
+$\scriptstyle V_{AC1S}\left(\widehat Y_{AC1S/HT}\right)=M^2\frac{1-f}{m}S_e^2=M^2\left(\frac1m-\frac1M\right)S_e^2$                                                                   $\scriptstyle \widehat V_{AC1S} \left( \widehat Y_{AC1S/HT}\right)= M^2 \left( \frac 1 m - \frac 1 M \right) s_e^2$
 
 $\scriptstyle V_{AC1S}\left(\widehat Y_{AC1S/R}\right)\doteq M^2\left(\frac1m-\frac1M\right)\frac{1}{M-1}\sum_{i\in C}N_i^2\left(\overline{Y_i}-\overline Y\right)^2$                 $\scriptstyle\widehat V_{AC1S}\left(\widehat Y_{AC1S/R}\right) = M^2\left(\frac1m-\frac1M \right)\frac {1} {m-1}\sum_{i\in a} N_i^2(\overline {Y_i}-\overline y)^2$
 ---------
@@ -547,7 +547,7 @@ $$
 EPA(AC1S/HT;\,AAS) = \frac {V_{AC1S} (\overline y_{AC1S/HT})} {V_{AAS} (\overline y)} \,\, (\#eq:eqcong14) 
 $$
 
-O EPA mede o quanto a variância do estimador é maior (ou menor) por usar ACS em lugar de AAS.
+O EPA mede o quanto a variância do estimador é maior (ou menor) por usar, neste caso, AC1S em lugar de AAS.
 
 - $EPA < 1 \Rightarrow$ *ganho de precisão*, devido ao uso de amostragem conglomerada; 
 - $EPA = 1 \Rightarrow$ *mesma precisão*, não há diferença de precisão, pode-se optar pelo plano operacionalmente mais vantajoso; e 
@@ -1129,16 +1129,16 @@ Vale registrar que se a fração amostral do primeiro estágio cresce, como em g
 
 ## Determinando tamanhos de amostra com AC2PPTC
 
-*Passo 1*: Determine o tamanho amostral requerido para estimar a média populacional $\overline Y$ por uma AAS com a margem de erro aceitável $d$ especificada de comum acordo com o cliente:
+*Passo 1*: Determine o tamanho amostral requerido para estimar a média populacional $\overline Y$ por uma AAS com a margem de erro aceitável $D$ especificada de comum acordo com o cliente:
 
 $$ 
-n_{AAS} = \frac {N z_{\alpha/2}^2 S_y^2} {N d^2 + z_{\alpha/2}^2 S_y^2} \,\,(\#eq:eqcong47) 
+n_{AAS} = \frac {N z_{\alpha/2}^2 S_y^2} {N D^2 + z_{\alpha/2}^2 S_y^2} \,\,(\#eq:eqcong47) 
 $$
 
 Note que $n_{AAS}$ é solução da seguinte expressão:
 
 $$
-V_{AAS} (\overline y) = \left( \frac {1} {n} - \frac {1} {N} \right) S_y^2 = \left( \frac {d} {z_{\alpha/2}} \right)^2 \,\,(\#eq:eqcong48) 
+V_{AAS} (\overline y) = \left( \frac {1} {n} - \frac {1} {N} \right) S_y^2 = \left( \frac {D} {z_{\alpha/2}} \right)^2 \,\,(\#eq:eqcong48) 
 $$
 
 *Passo 2*: Note que, de acordo com @Silva1990, página 31, se o número de unidades a serem investigadas no segundo estágio é constante para qualquer conglomerado ($n_i=\overline n,\,\forall\, i$), tem-se: 
@@ -1149,44 +1149,49 @@ $$
 Logo, segue-se que:
 
 $$ 
-V_{AAS} (\overline y) = V_{AC2PPTC} (\overline y_{AC2PPTC}) \big/ EPA(AC2PPTC; \, AAS)
+V_{AAS} (\overline y) = \frac{V_{AC2PPTC}(\overline y_{AC2PPTC})}{EPA(AC2PPTC; \, AAS)}
 $$
 
-Então podemos escrever:
+Então pode-se escrever:
 
 $$ 
-\displaystyle \frac {V_{AC2PPTC} (\overline y_{AC2PPTC})} {EPA(AC2PPTC; \, AAS)} = \left( \frac {1} {n} - \frac {1} {N} \right) S_y^2 \,\, (\#eq:eqcong50) 
+\displaystyle \frac {V_{AC2PPTC} (\overline y_{AC2PPTC})} {EPA(AC2PPTC; \, AAS)} = \left( \frac {1} {n} - \frac {1} {N} \right) S_y^2=\frac1n{S^2_y}-\frac1N{S^2_y}\,\, (\#eq:eqcong50) 
 $$
 
 Daí segue-se que:
 
 $$
-\frac {1} {n S_y^2} = \frac {1} {N} S_y^2 + \displaystyle \frac {V_{AC2PPTC} (\overline y_{AC2PPTC})} {EPA(AC2PPTC; \, AAS)} \,\, \Longrightarrow 
+\frac 1 n S_y^2 = \displaystyle \frac {V_{AC2PPTC} (\overline y_{AC2PPTC})} {EPA(AC2PPTC; \, AAS)} +\frac {1} {N} S_y^2 \,\,\Longrightarrow 
 $$
 
 $$
-n = S_y^2 \Big/ \left( \frac {1} {N} S_y^2 + \displaystyle \frac {V_{AC2PPTC} (\overline y_{AC2PPTC})} {EPA(AC2PPTC; \, AAS)} \, \right) \,\,\, \Longrightarrow 
-$$
-$$ 
-n = N S_y^2 \Big/ \left( S_y^2 + N \displaystyle \frac {V_{AC2PPTC} (\overline y_{AC2PPTC})} {EPA(AC2PPTC; \, AAS)} \, \right) \,\,\,(\#eq:eqcong51)
+\frac 1 n  =  \displaystyle \frac {V_{AC2PPTC} (\overline y_{AC2PPTC})} { S_y^2EPA(AC2PPTC; \, AAS)} +\frac {1} {N} \,\,\Longrightarrow
 $$
 
-Mas queremos com o Plano AC2PPTC obter a mesma margem de erro admissível $d$, logo segue que:
+$$
+n = \frac{ NS_y^2EPA(AC2PPTC; \, AAS)}{NV_{AC2PPTC} (\overline y_{AC2PPTC})+S_y^2EPA(AC2PPTC; \, AAS)}(\#eq:eqcong51)
+$$
+
+Mas deseja-se com o Plano AC2PPTC obter a mesma margem de erro admissível $D$ da AAS, logo segue que:
 
 $$
-V_{AC2PPTC} (\overline y_{AC2PPTC}) = \left( \frac {d} {z_{\alpha/2}} \right)^2 \,\, (\#eq:eqcong52)
+V_{AC2PPTC} (\overline y_{AC2PPTC}) = \left( \frac {D} {z_{\alpha/2}} \right)^2 \,\, (\#eq:eqcong52)
 $$
 
 Levando a Expressão \@ref(eq:eqcong52) na Expressão \@ref(eq:eqcong51), segue-se que:
 
 $$
-n = N S_y^2 \Big/ \left( S_y^2 + \displaystyle \frac {N d^2} {z_{\alpha/2}^2 EPA(AC2PPTC; \, AAS)} \, \right)
+n_{AC2PPTC} = \frac{NS_y^2EPA(AC2PPTC; \, AAS)} {N\left(\frac D{z_{\alpha/2}}\right)^2+S_y^2EPA(AC2PPTC; \, AAS)}
 $$
 
 Que leva à seguinte solução:
 
 $$
-n_{AC2PPTC} = \displaystyle \frac {EPA(AC2PPTC; \, AAS) N z_{\alpha/2}^2 S_y^2} {N d^2 + EPA(AC2PPTC; \, AAS) z_{\alpha/2}^2 S_y^2} \,\,\, \Longrightarrow
+n_{AC2PPTC} = \displaystyle \frac {EPA(AC2PPTC; \, AAS) N z_{\alpha/2}^2 S_y^2} {N D^2 + EPA(AC2PPTC; \, AAS) z_{\alpha/2}^2 S_y^2}\Longrightarrow 
+$$
+
+$$
+n_{AC2PPTC}\doteq \displaystyle \frac { N z_{\alpha/2}^2 S_y^2} {N D^2 + z_{\alpha/2}^2 S_y^2}EPA(AC2PPTC; \, AAS)
 $$
 
 $$ 
@@ -1198,6 +1203,8 @@ Ou alternativamente:
 $$
 n_{AC2PPTC} \doteq n_{AAS} \,\, [1 + (\overline n - 1) \rho] \,\,(\#eq:eqcong54)
 $$
+
+A relação mostrada na Expressão \@ref(eq:eqcong53) pode ser utilizada como referência para determinação do tamanho desejado de amostra para outros planos que utilizem amostragem conglomerada.
 
 ## Exercícios
 
@@ -1214,7 +1221,7 @@ Pessoas com o atributo   2   3   1   2   1
 ----------
 </center>
   
-Estime a eficiência da amostragem conglomerada em relação à de uma amostra aleatória simples de igual tamanho.
+Estime a eficiência da amostragem conglomerada em relação à de uma amostra aleatória simples de igual tamanho, para estimar a proporção.
 
 **(#exr:execong2)** Seja uma população de $N$ = 20 unidades, cujos valores associados a certa característica $y$ são relacionados a seguir Tabela \@ref(tab:tabcong9):
 
@@ -1300,9 +1307,9 @@ cat("<table>", paste0("<caption>", "(#tab:tabcong11)", "Número de domicílios e
 ----------
 </center>
 
-a) Estime a proporção de domicílios alugados na localidade, utilizando o estimador natural, e construa um $IC_{95\%}$ para essa proporção;
+a) Estime a proporção de domicílios alugados na localidade, utilizando o estimador natural, e construa um $IC_{95\%}$ para essa proporção.
 
-b) Repita o item a) utilizando o estimador tipo razão, tendo como variável auxiliar o tamanho dos conglomerados;
+b) Repita o item a) utilizando o estimador tipo razão, tendo como variável auxiliar o tamanho dos conglomerados.
 
 c) Qual dos dois estimadores você escolheria? Por quê?
 
@@ -1318,11 +1325,13 @@ b) Determine o tamanho de amostra de quarteirões necessário para estimar o tot
 
 **(#exr:execong6)** Compare as 2 amostras seguintes, cada uma delas baseada em 3.600 unidades elementares selecionadas de uma população com 1.800.000 unidades.
   
-1) Uma amostra aleatória simples de 3.600 unidades elementares resultando em $\overline y$ = 513 e $\widehat V_{AAS} (\overline y)$ = 10,89;
+1) Uma amostra aleatória simples de 3.600 unidades elementares resultando em $\overline y$ = 513 e $\widehat V_{AAS} (\overline y)$ = 10,89.
 
 2) Uma amostra aleatória de 180 conglomerados selecionados dentre 90.000 conglomerados, com cada conglomerado contendo $N$ = 20 unidades elementares, com $\overline y_{AC1S/HT}$ = 524 e $\widehat{V}_{AC1S} (\overline y_{AC1S/HT})$ = 102,01.
   
-Note que a variância estimada para estimar a média da característica $y$ para a segunda amostra é quase 10 vezes maior que a da primeira amostra. Isto indica que: (complete com (V) se a afirmativa for verdadeira e (F) se for falsa, justificando a escolha para cada item.)
+Note que a variância estimada para estimar a média da característica $y$ para a segunda amostra é quase 10 vezes maior que a da primeira amostra. 
+
+Em cada uma das afirmativas abaixo, complete com (V) se a afirmativa for verdadeira e (F) se for falsa, justificando sua escolha em cada caSO.
 
 a) (  ) O coeficiente de correlação intraclasse dos 90.000 conglomerados é maior que zero.
 
@@ -1389,24 +1398,24 @@ cat("<table>",paste0("<caption>", "(#tab:tabcong13)", "Valores observados para a
 ----------
 </center>
 
-a) Estime a proporção, na cadeia de supermercados, de lojas que não atendem aos critérios de higiene, levando em conta que os tamanhos dos conglomerados são diferentes; 
+a) Estime a proporção, na cadeia de supermercados, de lojas que não atendem aos critérios de higiene, levando em conta que os tamanhos dos conglomerados são diferentes.
 
 b) Estime a margem de erro com nível de confiança de 95% e dê o intervalo de confiança correspondente.
 
 **(#exr:execong9)** Uma população é composta de 100 conglomerados, cada um deles composto de 5 unidades elementares. Deseja-se selecionar uma amostra de 50 unidades dessa população. São conhecidos os seguintes parâmetros populacionais: $S^2_d$ = 100 e $S^2_e$ = 1.500.
 
-a) Calcule a variância do estimador do total para o caso de uma AAS de 50 unidades elementares;
+a) Calcule a variância do estimador do total para o caso de uma AAS de 50 unidades elementares.
 
-b) Calcule a variância do estimador do total caso seja utilizada uma AC1S que resulte em 50 unidades elementares;
+b) Calcule a variância do estimador do total caso seja utilizada uma AC1S que resulte em 50 unidades elementares.
 
-c) Calcule a variância do estimador do total caso seja utilizada uma AC2AAS com fração amostral no segundo estágio igual a 2/5 em cada uma das UPAs selecionadas, de modo que se tenha uma amostra com 50 unidades elementares;
+c) Calcule a variância do estimador do total caso seja utilizada uma AC2AAS com fração amostral no segundo estágio igual a 2/5 em cada uma das UPAs selecionadas, de modo que se tenha uma amostra com 50 unidades elementares.
 
-d) Qual dos três planos amostrais seria mais indicado? Justifique sua resposta;
+d) Qual dos três planos amostrais seria mais indicado? Justifique sua resposta.
 
 e) Calcule o coeficiente de correlação intraclasse e comente se o resultado é coerente com o item d).
 
 **(#exr:execong10)** Uma fábrica produz placas eletrônicas que possuem 12 microchips cada uma. Uma amostra de 10 placas é selecionada aleatoriamente para o controle de qualidade, de um determinado lode de placas fabricadas, e verifica-se o número de microchips defeituosos em cada uma: 2, 0, 1, 3, 2, 0, 0, 1, 3 e 4.
 
-a) Supondo que o número total de placas é desconhecido, mas *“grande”*, estime o total de microchips defeituosos na população e o erro padrão dessa estimativa;
+a) Supondo que o número total de placas é desconhecido, mas *“grande”*, estime o total de microchips defeituosos na população e o erro padrão dessa estimativa.
 
 b) Supondo que o número total de placas é 50, estime o total de microchips defeituosos na população e seu erro padrão.
