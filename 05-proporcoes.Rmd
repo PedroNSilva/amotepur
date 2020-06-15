@@ -826,13 +826,13 @@ Vale notar que em \@ref(eq:eqpro48) tanto o numerador como o denominador do esti
   d) Estime a proporção de unidades onde $y$ é menor que 10;
   e) Construa um intervalo de 95% de confiança para a proporção de unidades onde $y$ é menor que 10.
   
-**(#exr:exrprop5)** Considere a população de $N=338$ fazendas produtoras de cana de açúcar fornecida no arquivo *fazendas.dat*. Selecione uma AAS de $n=50$ fazendas, e use esta amostra para obter a estimativa pontual, o erro padrão, o CV e o intervalo de confiança de 95%, para cada um dos seguintes parâmetros populacionais:
+**(#exr:exrprop5)** Considere a população de $N=338$ fazendas produtoras de cana de açúcar fornecida no arquivo *fazendas_dat.rds*. Selecione uma AAS de $n=50$ fazendas, e use esta amostra para obter a estimativa pontual, o erro padrão, o CV e o intervalo de confiança de 95%, para cada um dos seguintes parâmetros populacionais:
 
   a)  Proporção de fazendas na região $1$;
-  b)  Proporção de fazendas com $AREA$ maior que $100$; 
-  c)  Proporção de fazendas com produtividade $(QUANT/AREA)$ maior que $67$.
+  b)  Proporção de fazendas com Area maior que $100$; 
+  c)  Proporção de fazendas com produtividade (Quant/Area) maior que $67$.
 
-**(#exr:exrprop6)** Para o mesmo arquivo de fazendas do exercício \@ref(exr:exrprop5) considere um plano *AAS* e tamanhos amostrais $n$ variando no conjunto $\{5; 10; 20; 50; 100; 150 \}$. Imagine que há interesse em estimar dois parâmetros: proporção $p_1$ de fazendas com $AREA$ maior que $100$; proporção $p_2$ de fazendas com produtividade $(QUANT/AREA)$ maior que $67$. 
+**(#exr:exrprop6)** Para o mesmo arquivo de fazendas do exercício \@ref(exr:exrprop5) considere um plano *AAS* e tamanhos amostrais $n$ variando no conjunto $\{5; 10; 20; 50; 100; 150 \}$. Imagine que há interesse em estimar dois parâmetros: proporção $p_1$ de fazendas com Area maior que $100$; proporção $p_2$ de fazendas com produtividade (Quant/Area) maior que $67$. 
 
 Para cada um dos tamanhos de amostra considerados: 
 
