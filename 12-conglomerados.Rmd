@@ -58,7 +58,7 @@ A utilização de amostragem de áreas se dá quando não existe um cadastro de 
 
 Num levantamento de uma população humana, por exemplo, é operacionalmente mais conveniente pesquisar todas as pessoas numa amostra de domicílios do que selecionar o mesmo número de pessoas espalhadas por toda a população. Também é mais conveniente pesquisar todos os domicílios numa amostra de áreas (por exemplo, setores censitários) do que selecionar aleatoriamente uma amostra do mesmo número de domicílios numa lista de todos os domicílios da região de interesse da pesquisa. Por um lado, tal lista nem sempre está disponível, e por outro, seu preparo tornaria a pesquisa bem mais cara. 
 
-Suponha que uma AAS de $n$ = 400 domicílios deva ser selecionada de uma população de $N$ = 10.000 domicílios de uma cidade. Como não dispomos de uma lista atualizada com todos os domicílios, optamos por uma amostra de domicílios localizados dentro de uma amostra de quarteirões. Isto pode ser feito dividindo a área da cidade em quarteirões e selecionando 1/25 dos quarteirões. A probabilidade de selecionar um domicílio na cidade é a probabilidade de selecionar um quarteirão, ou seja, 1/25 = 400/10.000. Neste caso, o tamanho da amostra de domicílios será uma variável aleatória que depende dos quarteirões selecionados para a amostra, sendo o seu valor esperado igual ao $n$ desejado.
+Suponha que uma AAS de $n=$ 400 domicílios deva ser selecionada de uma população de $N=$ 10.000 domicílios de uma cidade. Como não dispomos de uma lista atualizada com todos os domicílios, optamos por uma amostra de domicílios localizados dentro de uma amostra de quarteirões. Isto pode ser feito dividindo a área da cidade em quarteirões e selecionando 1/25 dos quarteirões. A probabilidade de selecionar um domicílio na cidade é a probabilidade de selecionar um quarteirão, ou seja, 1/25 $=$ 400/10.000. Neste caso, o tamanho da amostra de domicílios será uma variável aleatória que depende dos quarteirões selecionados para a amostra, sendo o seu valor esperado igual ao $n$ desejado.
 
 Nesse exemplo, as unidades amostrais são os quarteirões da cidade, que poderiam ser listados para formar o cadastro de seleção. A seleção da amostra de quarteirões determina a seleção dos domicílios que estão localizados nos quarteirões. Se todos os domicílios de cada quarteirão são pesquisados, então a amostra seria conglomerada em um estágio.
 
@@ -66,7 +66,7 @@ Mesmo que a lista de todos os domicílios estivesse disponível, reduções do c
 
 Se comparamos uma amostra conglomerada com uma amostra de unidades elementares do mesmo número de unidades elementares, em geral na amostra conglomerada espera-se que:
 
-- o custo por unidade elementar seja mais baixo, devido ao mais baixo custo de listagem, de localização das unidades ou de ambos;
+- o custo por unidade elementar seja mais baixo, devido ao mais baixo custo de listagem, de localização das unidades ou de ambos; e
 
 - a variância de estimativas amostrais seja maior, dependendo do grau de homogeneidade das unidades agrupadas em conglomerados. 
 
@@ -92,6 +92,7 @@ Observe que, de um ponto de vista matemático, a definição da particição da 
 Outra diferença importante se dá no processo da formação dos grupos. Para alcançar eficiência quando estamos definindo grupos para servirem como estratos, o ideal é que estes sejam internamente homogêneos, cada um formado por unidades parecidas entre si. Já quando vamos usar os grupos como unidades de amostragem (conglomerados), então idealmente devem ser internamente heterogêneos, cada um formado por unidades que representem o melhor possível a diversidade da população. Em termos de variabilidade, uma boa estratificação é aquela onde a variância *dentro* dos estratos é pequena e a variância *entre* os estratos é grande, enquanto que na amostragem conglomerada busca-se o contrário, com a variância *dentro* dos conglomerados *grande* e a variância *entre* eles pequena. 
 
 **(#exm:exmcon0)** Os setores censitários da Base Operacional Geográfica do IBGE
+
 Um exemplo que ilustra bem a diferenciação do papel que estruturas de grupos de unidades populacionais podem ter no planejamento amostral é dado pelos setores censitários da Base Operacional Geográfica do IBGE. Estes setores são formados por áreas delimitadas no mapa do território brasileiro, e podem ser vistos como grupos de domicílios e seus moradores. Na maioria das pesquisas amostrais do IBGE, tais como a PNAD Contínua - veja por exemplo @Freitas2014 - ou a POF - veja mais informações no link -  <https://www.ibge.gov.br/estatisticas/sociais/rendimento-despesa-e-consumo/9050-pesquisa-de-orcamentos-familiares.html?=&t=conceitos-e-metodos> - os setores censitários são usados como conglomerados para seleção da amostra de domicílios e pessoas que serão alvo da pesquisa. 
 
 Essa mesma estrutura de grupos serve como estratos no caso da seleção de domicílios do Censo Demográfico que vão responder ao questionário mais longo, denominado de questionário da amostra. Nessa operação, em cada setor censitário, uma amostra de domicílios é selecionada dentro de cada um dos setores censitários, dando a eles então este papel de estratos, e não de conglomerados - veja @IBGE2016 para mais detalhes. 
@@ -106,7 +107,7 @@ $$
 
 Portanto, a amostragem do tipo AC1 é caracterizada pelos seguintes aspectos: 
 
-- As unidades populacionais são reunidas em *grupos* denominados *conglomerados*; 
+- As unidades populacionais são reunidas em *grupos* denominados *conglomerados*. 
 
 - Uma amostra de unidades é obtida selecionando uma *amostra de conglomerados* e *incluindo na amostra todas as unidades* pertencentes aos conglomerados selecionados.
 
@@ -131,23 +132,23 @@ Na ilustração foram selecionados, utilizando um dos métodos de seleção vist
 
 ## Amostragem conglomerada em vários estágios 
 
-A *amostragem conglomerada em vários estágios*, é caracterizada por unidades populacionais arranjadas em grupos conforme uma hierarquia, com seleção de grupos nos vários níveis da hierarquia até chegar às unidades elementares (de referência) da pesquisa que serão investigadas.
+A *amostragem conglomerada em vários estágios* é caracterizada por unidades populacionais arranjadas em grupos conforme uma hierarquia, com seleção de grupos nos vários níveis da hierarquia até chegar às unidades elementares (de referência) da pesquisa que serão investigadas.
 
 Na amostragem conglomerada em três estágios, por exemplo, adota-se a seguinte terminologia, onde cada estágio da amostragem considera um tipo de unidade: Unidades Primárias de Amostragem - UPAs; Unidades Secundárias de Amostragem - USAs; e unidades elementares. 
 
 Tal estratégia consiste no arranjo da população em UPAs, as quais são divididas em USAs, que contém as unidades elementares, formando os 3 estágios sucessivos.
 
-Para selecionar uma amostra de unidades elementares que serão investigadas, deve-se proceder da seguinta forma:
+Para selecionar uma amostra de unidades elementares que serão investigadas, deve-se proceder da seguinte forma:
 
-- **Estágio 1** selecionar uma amostra de UPAs;
-- **Estágio 2** selecionar uma amostra de USAs em cada uma das UPAs selecionadas no primeiro estágio; e
-- **Estágio 3** selecionar uma amostra de unidades elementares em cada uma das USAs selecionadas no segundo estágio, que irão compor a amostra, $s$, de unidades elementares a serem investigadas. 
+- **Estágio 1**: selecionar uma amostra de UPAs.
+- **Estágio 2**: selecionar uma amostra de USAs em cada uma das UPAs selecionadas no primeiro estágio.
+- **Estágio 3**: selecionar uma amostra de unidades elementares em cada uma das USAs selecionadas no segundo estágio, que irão compor a amostra, $s$, de unidades elementares a serem investigadas. 
 
 **(#exm:exmcon1)** Considere o caso em que é preciso selecionar uma amostra de domicílios para uma pesquisa numa determinada região. Não há uma listagem atualizada e disponível dos domicílios existentes na região, mas é possível obter a lista dos municípios que a formam, e o IBGE disponibiliza um cadastro dos setores censitários existentes em cada um desses municípios. É possivel, então, selecionar uma amostra conglomerada em 3 estágios de domicílios mediante as seguintes etapas:
 
-- **Estágio 1** selecionar uma amostra de municípios, que neste caso serão as UPAs;
-- **Estágio 2** selecionar uma amostra de setores censitários - USAs - em cada um dos municípios selecionados no primeiro estágio; e
-- **Estágio 3** selecionar uma amostra de domicílios em cada um dos setores selecionados. 
+- **Estágio 1**: selecionar uma amostra de municípios, que neste caso serão as UPAs.
+- **Estágio 2**: selecionar uma amostra de setores censitários - USAs - em cada um dos municípios selecionados no primeiro estágio.
+- **Estágio 3**: selecionar uma amostra de domicílios em cada um dos setores selecionados. 
 
 A amostra de domicílios a serem investigados na região será formada pela união das amostras de domicílios selecionadas em cada um dos setores selecionados. Provavelmente será necessário fazer uma atualização da lista dos domicílios para cada um dos setores selecionados no segundo estágio antes de selecionar os domicílios, porém essa atualização só será necessária para os setores selecionados, e não para todos os setores da região, como seria necessário se a amostra fosse selecionada diretamente na região sem considerar os estágios referentes aos municípios e setores.
 
@@ -175,13 +176,13 @@ Populações humanas em geral são organizadas segundo uma hierarquia definida p
 
 **(#exm:exmcon2)** Como outros exemplos de estruturas com hierarquia, considere:
 
-a) Conglomerados = áreas num mapa; e unidades elementares = estabelecimentos agropecuários;
+a) Conglomerados = áreas num mapa; e unidades elementares = estabelecimentos agropecuários.
 
-b) UPAs = hospitais; USAs = enfermarias; e unidades elementares = pacientes;
+b) UPAs = hospitais; USAs = enfermarias; e unidades elementares = pacientes.
 
-c) UPAs = escolas; USAs = turmas; e unidades elementares = crianças/estudantes;
+c) UPAs = escolas; USAs = turmas; e unidades elementares = crianças/estudantes.
 
-d) Conglomerados = veículos cruzando um posto de pedágio; e unidades elementares = passageiros nos veículos;
+d) Conglomerados = veículos cruzando um posto de pedágio; e unidades elementares = passageiros nos veículos.
 
 e) UPAs = empresas industriais; e unidades elementares = unidades locais. 
 
@@ -195,21 +196,21 @@ A PME foi encerrada em março de 2016, com a divulgação dos resultados referen
 
 **(#exm:exmcon4)** Amostra da *Pesquisa Nacional de Saúde do Escolar - PeNSE*
 
-Outra pesquisa, por amostra conglomerada, realizada pelo IBGE, em conjunto com o Ministério da Saúde, é a PeNSE que busca estudar aspectos como "a maior exposição a fatores de risco para a saúde, como uso de tabaco, consumo de álcool, alimentação inadequada e sedentarismo" em uma amostra de adolescentes que frequentam aulas em escolas públicas e privadas no território nacianal. Trata-se de um plano amostral complexo que envolve estratificação, conglomeração, seleção de amostras com probabilidades desiguais, que pode ser visto com mais detalhes em @IBGE2016b. Em relação à amostragem conglomerada, são utilizados três estágios de seleção em cada um dos estratos definidos:
+Outra pesquisa, por amostra conglomerada, realizada pelo IBGE, em conjunto com o Ministério da Saúde, é a PeNSE que busca estudar aspectos como "a maior exposição a fatores de risco para a saúde, como uso de tabaco, consumo de álcool, alimentação inadequada e sedentarismo" em uma amostra de adolescentes que frequentam aulas em escolas públicas e privadas no território nacional. Trata-se de um plano amostral complexo que envolve estratificação, conglomeração, seleção de amostras com probabilidades desiguais, que pode ser visto com mais detalhes em @IBGE2016b. Em relação à amostragem conglomerada, são utilizados três estágios de seleção em cada um dos estratos definidos:
 
-  - **Estágio 1** UPAs - Municípios em cada um dos estratos;
-  - **Estágio 2** USAs - Escolas com turmas de alunos nas etapas de ensino de interesse em cada município selecionado;
-  - **Estágio 3** UTAs - Turmas de alunos nas etapas de ensino de interesse em cada escola selecionada.
+  - **Estágio 1**: UPAs - Municípios em cada um dos estratos.
+  - **Estágio 2**: USAs - Escolas com turmas de alunos nas etapas de ensino de interesse em cada município selecionado.
+  - **Estágio 3**: UTAs - Turmas de alunos nas etapas de ensino de interesse em cada escola selecionada.
   
-Seria possível implementar um quarto estágio selecionando apenas uma parte dos alunos de cada turma selecionada para responderem ao questionário da pesquisa, porém por facilidades operacionais foi decidido pela inclusão de todos os alunos na amostra final.
+Seria possível implementar um quarto estágio selecionando apenas uma parte dos alunos de cada turma selecionada para responderem ao questionário da pesquisa, porém por facilidades operacionais foi decidido pela inclusão de todos os alunos, de cada turma selecionada, na amostra final.
 
 A amostragem conglomerada em um ou mais estágios deve ser adotada sempre que: 
 
-1. *Não existe cadastro* de unidades elementares, mas existe (ou se pode construir) um cadastro de UPAs, e sendo necessário, cadastros de USAs, etc.;
+1. *Não existe cadastro* de unidades elementares, mas existe (ou se pode construir) um cadastro de UPAs, e sendo necessário, cadastros de USAs, etc.
 
-2. *Concentrar a coleta* de dados em umas poucas localidades ou grupos de unidades reduz o custo de deslocamento entre unidades elementares;
+2. *Concentrar a coleta* de dados em umas poucas localidades ou grupos de unidades reduz o custo de deslocamento entre unidades elementares.
 
-3. O *acesso* às unidades elementares pode depender de pontos de passagem controlados nalgum nível da hierarquia;
+3. O *acesso* às unidades elementares pode depender de pontos de passagem controlados nalgum nível da hierarquia.
 
 4. A maior capacidade de supervisão do trabalho em grupos de unidades puder resultar em melhor qualidade dos dados a serem coletados.
 
@@ -261,7 +262,7 @@ Média populacional por unidade                                       $\overline
 
 O método de seleção de uma amostra conglomerada em um estágio simples consiste nos seguintes passos: 
 
-1. Selecione uma amostra $a$ de $m$ conglomerados dentre os $M$ existentes na população de UPAs $C$ por AAS.
+1. Selecione uma amostra $a$ de $m$ conglomerados dentre os $M$ existentes na população $C$ de UPAs por AAS.
 
 2. Pesquise cada uma das unidades elementares presentes nos conglomerados selecionados da amostra $a$.
 
@@ -276,7 +277,7 @@ cat("<table>",paste0("<caption>", "(#tab:tabcong4)", "Descrição das informaç�
 ---------
 Descrição                                                                       Valores amostrais                              
 ------------------------------------------------------------------------------- -------------------------------------------------
-Valor da variável de pesquisa para unidade $j$ do conglomerado selecionado $i$   $y_{ij} \,\,\,\, \forall j=1, \dots, N_i$, \
+Valor da variável de pesquisa para unidade $j$ do conglomerado selecionado $i$   $y_{ij} \,\,\,\, \forall\, j=1, \dots, N_i$, \
                                                                                               $i \in a = \{{ i_1,\dots,i_m \}}$
                                                                                  
 
@@ -323,13 +324,13 @@ $$
 
 onde $s_e^2 = \displaystyle \frac {1} {m-1} \displaystyle \sum_{i \in a} \left(Y_i - \overline y_C \right)^2$.
 
-Quando todos os conglomerados têm tamanhos iguais, isto é, $N_i = \overline N \, \, \forall i \in C$, o estimador natural é a única opção de estimador simples para o total. Quando os tamanhos dos conglomerados variam, este estimador pode ser pouco eficiente. Nesse caso, um estimador que ajuda a reduzir o efeito da variação dos tamanhos dos conglomerados na precisão é um estimador tipo razão baseado no tamanho dos conglomerados. Este estimador é dado por: 
+Quando todos os conglomerados têm tamanhos iguais, isto é, $N_i = \overline N \, \, \forall\, i \in C$, o estimador natural é a única opção de estimador simples para o total. Quando os tamanhos dos conglomerados variam, este estimador pode ser pouco eficiente. Nesse caso, um estimador que ajuda a reduzir o efeito da variação dos tamanhos dos conglomerados na precisão é um estimador tipo razão baseado no tamanho dos conglomerados. Este estimador é dado por: 
 
 $$
 \displaystyle \widehat Y_{AC1S/R} = \frac {N} {n} \displaystyle \sum_{i \in a} Y_i = N \overline y = \displaystyle \sum_{i \in a} \sum_{j \in C_i} w_{ij}^R y_{ij} \,\, (\#eq:eqcong4)
 $$
 
-onde $w_{ij}^R = N/n$ são pesos amostrais ajustados ou ‘calibrados’, no sentido de que seu uso aplicado a uma variável de contagem ($y_{ij}=1 \, \forall\, i,j$) levaria a obter uma estimativa para o tamanho da população igual ao tamanho total $N$.
+onde $w_{ij}^R = N/n$ são pesos amostrais ajustados ou ‘calibrados’, no sentido de que seu uso aplicado a uma variável de contagem ($y_{ij}=1, \, \,\forall\, i,j$) levaria a obter uma estimativa para o tamanho da população igual ao tamanho total $N$.
 
 Note que este estimador requer que o tamanho total da população $(N)$ seja conhecido. Portanto, em muitas situações este estimador não é viável.
 
@@ -391,9 +392,9 @@ $$
 
 Os ganhos de precisão do estimador tipo razão podem ser grandes quando:
 
-* for grande a variação dos tamanhos $N_i$;
+* For grande a variação dos tamanhos $N_i$.
 
-* for pequena a variação entre as médias $\overline {Y_i}$ dos conglomerados.
+* For pequena a variação entre as médias $\overline {Y_i}$ dos conglomerados.
 
 Na prática, a formação de conglomerados com tamanhos iguais para controlar a variação de tamanho na variância do estimador, e também na variação do tamanho final da amostra nem sempre é possível, sendo a ocorrência de conglomerados com tamahos iguais pouco comum. 
 
@@ -401,11 +402,11 @@ Assim, ao invés de tentar construir artificialmente conglomerados de tamanhos i
 
 Os métodos usuais para reduzir o efeito da variabilidade dos tamanhos dos conglomerados são: 
 
-a) selecionar os conglomerados com probabilidades proporcionais ao tamanho; 
+a) Selecionar os conglomerados com probabilidades proporcionais ao tamanho. 
 
-b) estratificar os conglomerados, utilizando o tamanho como variável de estratificação;  
+b) Estratificar os conglomerados, utilizando o tamanho como variável de estratificação.  
 
-c) usar estimadores tipo razão, com a variável auxiliar sendo o tamanho do conglomerado. 
+c) Usar estimadores tipo razão, com a variável auxiliar sendo o tamanho do conglomerado. 
 
 **Recomendações**
 
@@ -549,11 +550,11 @@ $$
 
 O EPA mede o quanto a variância do estimador é maior (ou menor) por usar, neste caso, AC1S em lugar de AAS.
 
-- $EPA < 1 \Rightarrow$ *ganho de precisão*, devido ao uso de amostragem conglomerada; 
-- $EPA = 1 \Rightarrow$ *mesma precisão*, não há diferença de precisão, pode-se optar pelo plano operacionalmente mais vantajoso; e 
+- $EPA < 1 \Rightarrow$ *ganho de precisão*, devido ao uso de amostragem conglomerada. 
+- $EPA = 1 \Rightarrow$ *mesma precisão*, não há diferença de precisão, pode-se optar pelo plano operacionalmente mais vantajoso.
 - $EPA > 1 \Rightarrow$ *perda de precisão*, devido ao uso de amostragem conglomerada.
 
-Um valor de $EPA=5$, por exemplo, indicaria que a variância sob amostragem conglomerada seria cinco vezes maior que a variância de uma AAS de igual tamanho total.
+Um valor de $EPA=$ 5, por exemplo, indicaria que a variância sob amostragem conglomerada seria cinco vezes maior que a variância de uma AAS de igual tamanho total.
 
 **(#exm:exmcon5)** Efeito do plano amostral ao estimar a média populacional por unidade elementar, através do estimador tipo razão com AC1S em relação ao uso da AAS.
 
@@ -635,7 +636,7 @@ $$
 \displaystyle V_{AC1S} (\overline y_{AC1S/R}) = EPA(AC1S/R;\,AAS)\, V_{AAS} (\overline y) \doteq \overline N \frac {S_y^2} {m \overline N} = \frac{S_y^2}{m}
 $$
  
-Nesse caso a precisão da amostra conglomerada de tamanho total igual a $m \overline N$ é equivalente apenas àquela obtida com uma amostra aleatória simples de tamanho $m$!!! 
+Nesse caso, a precisão da amostra conglomerada de tamanho total igual a $m \overline N$ é equivalente apenas àquela obtida com uma amostra aleatória simples de tamanho $m$!!! 
 
 A Tabela \@ref(tab:tabcong6) apresenta efeitos de plano amostral sob AC1S de acordo com valores selecionados dos tamanhos dos conglomerados e do coeficiente de correlação intraclasse. 
 
@@ -644,29 +645,30 @@ cat("<table>",paste0("<caption>", "(#tab:tabcong6)", "Efeitos de plano amostral 
 ```
 <center>
 ---------
- Tamanho do conglomerado  $\rho=0,01$  $\rho=0,05$  $\rho=0,1$  $\rho=0,2$  $\rho=0,3$  $\rho=0,5$  
------------------------- ------------ ------------ ----------- ----------- ----------- ----------- -                                                                                 
-     2                      1            1             1            1            1            2   
+ Tamanho    $\rho=0,01$   $\rho=0,05$   $\rho=0,1$   $\rho=0,2$   $\rho=0,3$   $\rho=0,5$  
+--------- ------------- ------------- ------------ ------------ ------------ ------------ -                                                                                
+     2               1           1            1           1           1           2   
 
-     5                      1            1             1            2            2            3
+     5               1           1            1           2           2           3
                                                                                  
-     11                     1            2             2            3            4            6
+     11              1           2            2           3           4           6
      
-     21                     1            2             3            5            7            11
+     21              1           2            3           5           7          11
      
-     31                     1            3             4            7            10           16
+     31              1           3            4           7          10          16
      
-     51                     2            4             6            11           16           26
+     51              2           4            6          11          16          26
      
-     101                    2            6             11           21           31           51
+     101             2           6           11          21          31          51
      
-     201                    3            11            21           41           61           101
+     201             3          11           21          41          61         101
      
-     301                    4            16            31           61           91           151
+     301             4          16           31          61          91         151
      
-     501                    6            26            51           101          151          251
+     501             6          26           51         101         151         251
 ---------
 </center>
+
 
 Observe que quando aumenta o tamanho do conglomerado, aumenta a perda de precisão da AC1S em relação à AAS. Note também que à medida que aumenta o coeficiente de correlação intraclasse diminui a eficiência da AC1S em comparação com a AAS.  
 
@@ -677,9 +679,9 @@ A ocorrência de variabilidade nos tamanhos dos conglomerados causa acentuda per
 
 A amostragem conglomerada em um estágio com probabilidade proporcional ao tamanho - AC1PPT se caracteriza por: 
 
-1. Ser útil para controlar os efeitos da variação nos tamanhos dos conglomerados;
+1. Ser útil para controlar os efeitos da variação nos tamanhos dos conglomerados.
 
-2. Poder ser adotada na etapa de seleção da amostra, enquanto que estimadores tipo razão somente podem ser considerados na etapa de estimação;
+2. Poder ser adotada na etapa de seleção da amostra, enquanto que estimadores tipo razão somente podem ser considerados na etapa de estimação.
 
 3. Selecionar conglomerados com probabilidades proporcionais ao seu tamanho (número de unidades subordinadas ou outra medida de tamanho). 
 
@@ -740,15 +742,15 @@ f) $\widehat Y_{AC1PPTC}$ possui propriedades exatas (não viciado, variância, 
 
 O plano de amostragem conglomerada em dois estágios se caracteriza pela seleção de uma amostra de conglomerados com subamostragem, assim definida: 
 
-*Estágio 1*: Selecione amostra $a$ de $m$ UPAs (conglomerados).
+- **Estágio 1**: selecione amostra $a$ de $m$ UPAs (conglomerados).
 
-*Estágio 2*: Para cada UPA $C_i$ da amostra de primeiro estágio, selecione amostra $s_i$ de $n_i$ unidades secundárias das $N_i$ unidades existentes nessa UPA.
+- **Estágio 2**: para cada UPA $C_i$ da amostra de primeiro estágio, selecione amostra $s_i$ de $n_i$ unidades secundárias das $N_i$ unidades existentes nessa UPA.
 
 A amostra completa de unidades selecionadas é dada por: $s = s_{i_1}\cup s_{i_2} \cup \dots \cup s_{i_m}= \bigcup_{k=1}^{m} s_{i_k}$
 
 O tamanho total da amostra é $n = \displaystyle \sum_{i \in a} n_i$.
 
-As principais razões para adotar amostragem conglomerada em dois estágios são as seguintes. 
+As principais razões para adotar amostragem conglomerada em dois estágios são as seguintes:
 
 1) Geralmente não é prático pesquisar todas as unidades nos conglomerados selecionados: *conglomerados* muito *grandes*, *carga de trabalho variável* por entrevistador, etc.
 
@@ -799,12 +801,14 @@ $d_{ij} = \pi_{ij}^{-1} = \pi_i^{-1} \pi_{j|i}^{-1}$ é o peso associado à unid
 A variância de $\widehat Y_{AC2/HT}$ sob AC2 é dada por: 
 
 $$
-\begin{eqnarray}
+\begin{eqnarray}\hspace{-1.0cm}
 V_{AC2} \left( \widehat Y_{AC2/HT} \right) & = & V_1 \left[E_2 \left( \displaystyle \sum_{i \in a} \frac {\widehat Y_i} {\pi_i} \right) \right] + E_1 \left[ V_2 \left(\sum_{i \in a} \frac {\widehat Y_i} {\pi_i} \right) \right] \\ & = & V_1 \left[ \displaystyle \sum_{i \in U} \delta_i E_2 \left( \widehat Y_i \right) \big/ \pi_i \right] + E_1 \left[ \sum_{i \in U} \delta_i V_2 \left( {\widehat Y_i} \right) \big/ {\pi_i}^2 \right] \\ & = & V_1 \left( \displaystyle \sum_{i \in a} {Y_i} \big/ \pi_i \right) + \sum_{i \in U} V_2 \left( \widehat Y_i \right) \big/ \pi_i \\
-& = & V_{UPA} + V_{USA} \,\, (\#eq:eqcong28) 
+& = & V_{UPA} + V_{USA} (\#eq:eqcong28) 
 \end{eqnarray}
 $$
-$V_{UPA}$ é a componente de variância de $\widehat Y_{AC2/HT}$ proveniente da amostragem de UPAs (estágio 1), isto é, variância caso amostragem conglomerada em um estágio fosse usada (sem fazer subamostragem);
+
+onde:
+$V_{UPA}$ é a componente de variância de $\widehat Y_{AC2/HT}$ proveniente da amostragem de UPAs (estágio 1), isto é, variância caso amostragem conglomerada em um estágio fosse usada (sem fazer subamostragem); e
 
 $V_{USA}$ é a componente de variância de $\widehat Y_{AC2/HT}$ proveniente da amostragem de USAs (amostragem no estágio 2).
 
@@ -832,9 +836,9 @@ Este estimador de razão da média pode ser calculado mesmo quando $N$ for desco
 
 Trataremos agora do plano amostral AC2 com AAS nos 2 estágios de seleção, ou seja:   
 
-*Estágio 1*: Selecione amostra de $m$ UPAs usando AAS.
+- **Estágio 1**: selecione amostra de $m$ UPAs usando AAS.
 
-*Estágio 2*: Para cada UPA $i$ da amostra de primeiro estágio, selecione $n_i$ unidades secundárias das $N_i$ unidades existentes usando AAS.
+- **Estágio 2**: para cada UPA $i$ da amostra de primeiro estágio, selecione $n_i$ unidades secundárias das $N_i$ unidades existentes usando AAS.
 
 Para esse plano, a probabilidade de inclusão da unidade $j$ da UPA $i$ é dada por:
 
@@ -842,7 +846,7 @@ $$
 \pi_{ij} = P(i \in a \, , \, j \in s) = P(i \in a) P(j \in s \, | \, i\in a) = \frac {m} {M} \frac {n_i} {N_i} \,\, (\#eq:eqcong32) 
 $$
 
-Planos amostrais são mais simples quando as probabilidades de inclusão são constantes, isto é, para quaisquer $\pi_{ij} = n / N \,\, \forall i$ e $j$. Nestas condições, o plano amostral é dito *equiponderado* ou *autoponderado*.
+Planos amostrais são mais simples quando as probabilidades de inclusão são constantes, isto é, para quaisquer $\pi_{ij} = n / N \,\, \forall\, i$ e $j$. Nestas condições, o plano amostral é dito *equiponderado* ou *autoponderado*.
 
 Com o plano amostral AC2AAS, isto pode ser conseguido tomando $n_i \propto N_i$.
 
@@ -870,41 +874,36 @@ S_i^2 = \displaystyle \frac {1} {N_i - 1} \sum_{j \in C_i} \left( y_{ij} - \over
 $$ 
 a variância dentro da UPA $i$.
 
-Note que: 
+Note que:
 
 i) Se $m = M$ então, a 1ª componente da variância é nula, ou seja: 
 
 $$
 V_{AC2AAS} \left( \widehat Y_{AC2AAS} \right) = \sum_{i \in C} N_i^2 \left( \frac {1} {n_i} - \frac {1} {N_i} \right) S_i^2 = V_{AES} \left( \widehat Y_{AES} \right)
 $$ 
-e este plano equivaleria ao de uma amostra estratificada, em que os conglomerados se tornaram estratos! 
+$\hspace{0.4cm}$ e este plano equivaleria ao de uma amostra estratificada, em que os conglomerados se tornaram estratos! 
 
-ii) Se $n_i = N_i \,\, \forall i = 1, 2, \dots, n)$ então, a 2ª componente da variância é nula, ou seja:
+ii) Se $n_i = N_i \,\, (\forall\, i = 1, 2, \dots, n)$ então, a 2ª componente da variância é nula, ou seja:
 
 $$
 V_{AC2AAS} \left( \widehat Y_{AC2AAS} \right) = \displaystyle M^2 \left( \frac {1} {m} - \frac {1} {M} \right) \frac {1} {M-1} \sum_{i \in C} \left( Y_i - \overline {Y_C} \right)^2 = V_{AC1S} \left( \widehat Y \right) 
 $$ 
 
-e este plano amostral equivaleria ao de uma amostra de conglomerados em um estágio simples.
+$\hspace{0.4cm}$ e este plano amostral equivaleria ao de uma amostra de conglomerados em um estágio simples.
 
 De acordo com @Cochran1977, Expressão (11.24), um estimador não viciado da variância do estimador HT do total sob o Plano AC2AAS é dado por: 
 
 $$
-\begin{eqnarray}
-\widehat V_{AC2AAS} \left( \widehat Y_{AC2AAS} \right) & = & \displaystyle M^2 \left( \frac {1} {m} - \frac {1} {M} \right) \frac {1} {m-1} \sum_{i \in a} \left( \widehat Y_i - \overline y_C \right)^2 \\& & + \frac {M} {m} \sum_{i \in a} N_i^2 \left( \frac {1} {n_i} - \frac {1} {N_i} \right) \widehat S_i^2 \,\, (\#eq:eqcong35) 
+\begin{eqnarray}\hspace{-2.0cm}
+\widehat V_{AC2AAS} \left( \widehat Y_{AC2AAS} \right) & = & \displaystyle M^2 \left( \frac {1} {m} - \frac {1} {M} \right) \frac {1} {m-1} \sum_{i \in a} \left( \widehat Y_i - \overline y_C \right)^2 +\\& & + \frac {M} {m} \sum_{i \in a} N_i^2 \left( \frac {1} {n_i} - \frac {1} {N_i} \right) \widehat S_i^2 \\ \hfill (\#eq:eqcong35) 
 \end{eqnarray} 
 $$
 
 onde: 
-$$
-\overline y_C = \displaystyle \frac {1} {m} \sum_{i \in a} \widehat Y_i
-$$ 
-estima a média por conglomerado $\overline {Y_C}$; e
 
-$$
-\widehat S_i^2 = \displaystyle \frac {1} {n_i-1} \sum_{j \in s_i} \left( y_{ij} - \overline {Y_i} \right)^2
-$$ 
-estima a variância dentro da UPA $i$.
+$\overline y_C = \displaystyle \frac {1} {m} \sum_{i \in a} \widehat Y_i$ estima a média por conglomerado $\overline {Y_C}$; e
+
+$\widehat S_i^2 = \displaystyle \frac {1} {n_i-1} \sum_{j \in s_i} \left( y_{ij} - \overline {Y_i} \right)^2$ estima a variância dentro da UPA $i$.
 
 Um estimador não viciado da média por unidade sob o Plano AC2AAS é dado por:
 
@@ -928,15 +927,16 @@ $$
 
 Trataremos agora do plano amostral AC2 com seleção PPT com reposição no primeiro estágio e seleção por AAS no segundo estágio.
 
-*Estágio 1*: Selecione amostra de $m$ UPAs com reposição, usando probabilidades proporcionais a uma medida de tamanho $x_i$;
+- **Estágio 1**: selecione amostra de $m$ UPAs com reposição, usando probabilidades proporcionais a uma medida de tamanho $x_i$;
 
-*Estágio 2*: Para cada UPA $i$ da amostra de primeiro estágio, selecione $n_i$ unidades secundárias das $N_i$ unidades existentes usando AAS. 
+- **Estágio 2**: para cada UPA $i$ da amostra de primeiro estágio, selecione $n_i$ unidades secundárias das $N_i$ unidades existentes usando AAS. 
 
 Para o plano amostral AC2PPTC, a probabilidade de inclusão da unidade $j$ da UPA $i$ é dada por:
 
-$$ 
-\pi_{ij} = P(i \in a \, , \, j \in s) = P(i \in a) P(j \in s \,| \,i \in a) = \left[ 1 - \left(1 - p_i \right)^m \right] \frac {n_i} {N_i} \,\, (\#eq:eqcong39) 
+$$ \hspace{-1.0cm}
+\pi_{ij}=P(i\in a, j\in s)=P(i\in a) P(j\in s\,| \,i\in a)=\left[1 - \left(1 - p_i\right)^m \right] \frac {n_i} {N_i} (\#eq:eqcong39) 
 $$
+
 onde $p_i = \displaystyle\frac {x_i} {X}$ é a probabilidade de seleção da UPA $i$ num único sorteio.
 
 De acordo com @Cochran1977, Expressão (11.31), um  estimador não viciado do total sob o Plano AC2PPTC é dado por: 
@@ -949,20 +949,21 @@ onde $f_i$ é a frequência com que a UPA $i$ foi selecionada na amostra $a$.
 
 A variância de $\widehat Y_{AC2PPTC}$, conforme @Cochran1977, Expressão (11.33), é dada por: 
 
-$$ 
-\begin{eqnarray}
+
+$$
+\begin{eqnarray}\hspace{-2.0cm}
 V_{AC2PPTC} \left( \widehat Y_{AC2PPTC} \right) & = & V_1 \left[ E_2 \left( \widehat Y_{AC2PPTC} \right) \right] + E_1 \left[ V_2 \left( \widehat Y_{AC2PPTC} \right) \right] \\
 & = & V_1 \left[ E_2 \left( \displaystyle \frac {1} {m} \sum_{i \in a} \frac {\widehat Y_i} {p_i} \right) \right] + E_1 \left[ V_2 \left( \frac {1} {m} \sum_{i \in a} \frac {\widehat Y_i} {p_i} \right) \right] \\
 & = & V_1 \left[ \frac {1} {m} \displaystyle \sum_{i \in a} \frac {E_2 \left( \widehat Y_i \right)} {p_i} \right] + E_1 \left[ \frac {1} {m^2} \sum_{i \in a} \frac {V_2 \left( \widehat Y_i \right)} {p_i^2} \right] \\
 & = & V_1 \left[ \frac {1} {m} \displaystyle \sum_{i \in a} \frac {Y_i} {p_i} \right] + E_1 \left[ \frac {1} {m^2} \sum_{i \in a} \frac {1} {p_i^2} N_i^2 \left( \frac {1} {n_i} - \frac {1} {N_i} \right) S_i^2 \right] \\
-& = & \frac{1} {m} \displaystyle \sum_{i \in U} \left( \frac {Y_i} {p_i} - Y \right)^2 p_i + \frac {1} {m} \sum_{i \in U} \frac {1} {p_i} N_i^2 \left( \frac {1} {n_i} - \frac {1} {N_i} \right) S_i^2 \,\, (\#eq:eqcong41) 
+& = & \frac{1} {m} \displaystyle \sum_{i \in U} \left( \frac {Y_i} {p_i} - Y \right)^2 p_i + \frac {1} {m} \sum_{i \in U} \frac {1} {p_i} N_i^2 \left( \frac {1} {n_i} - \frac {1} {N_i} \right) S_i^2 (\#eq:eqcong41) 
 \end{eqnarray}
 $$
 
 Um estimador não viciado da variância de $\widehat Y_{AC2PPTC}$, de acordo com @Cochran1977, Expressão (11.35), é dado por: 
  
 $$
-\widehat V_{AC2PPTC} \left( \widehat Y_{AC2PPTC} \right) = \frac {1} {m(m-1)} \displaystyle \sum_{i \in a} f_i \left( \frac {\widehat Y_i} {p_i} - \widehat Y_{AC2PPTC} \right)^2 \,\, (\#eq:eqcong42) 
+\hspace{-0.5cm}\widehat V_{AC2PPTC} \left( \widehat Y_{AC2PPTC} \right) = \frac {1} {m(m-1)} \displaystyle \sum_{i \in a} f_i \left( \frac {\widehat Y_i} {p_i} - \widehat Y_{AC2PPTC} \right)^2 (\#eq:eqcong42) 
 $$
 
 ### Plano amostral AC2PPTPS – AC2 com PPT Poisson Sequencial no estágio 1 e AAS no estágio 2
@@ -978,24 +979,24 @@ $$
 A variância de $\widehat Y_{AC2PPTPS}$ é dada por: 
 
 $$
-\begin{eqnarray}
+\begin{eqnarray}\hspace{-1.8cm}
 V_{AC2PPTPS} \left( \widehat Y_{AC2PPTPS} \right) & = & V_1 \left[ E_2 \left( \widehat Y_{AC2PPTPS} \right) \right] + E_1 \left[ V_2 \left( \widehat Y_{AC2PPTPS} \right) \right] \\ 
 & = & V_1 \left[ E_2 \left( \displaystyle \sum_{i \in a} \frac{\widehat Y_i} {mp_i} \right) \right] + E_1 \left[ V_2 \left( \sum_{i \in a} \frac {\widehat Y_i} {mp_i} \right) \right] \\
 & = & V_1 \left[ \displaystyle \sum_{i \in a} \frac{E_2 \left(\widehat Y_i \right)} {mp_i} \right] + E_1 \left[ \sum_{i \in a} \frac{V_2 \left( \widehat Y_i \right)} {{m^2}p_i^2} \right] \\
 & = & V_1 \left[ \displaystyle \sum_{i \in a} \frac {Y_i} {mp_i} \right] + E_1 \left[ \sum_{i \in a} \frac {1} {{m^2}p_i^2} N_i^2 \left( \frac {1} {n_i} - \frac {1} {N_i} \right) S_i^2 \right] \\
-& = & \frac {1} {m} \frac {M} {M-1} \displaystyle \sum_{i \in C} \left( \frac {Y_i} {p_i} - Y \right)^2 (1 - m p_i) p_i \\ 
-& & + \sum_{i \in C} \frac {1} {m p_i} N_i^2 \left( \frac {1} {n_i} - \frac {1} {N_i} \right) S_i^2 
-\,\, (\#eq:eqcong44) 
+& = & \frac {1} {m} \frac {M} {M-1} \displaystyle \sum_{i \in C} \left( \frac {Y_i} {p_i} - Y \right)^2 (1 - m p_i) p_i +\\ 
+& & + \sum_{i \in C} \frac {1} {m p_i} N_i^2 \left( \frac {1} {n_i} - \frac {1} {N_i} \right) S_i^2 \\
+\hfill(\#eq:eqcong44) 
 \end{eqnarray}
 $$ 
 
-Um estimador da variância de $\widehat Y_{AC2PPTS}$ é dado por: 
+Um estimador da variância de $\widehat Y_{AC2PPTPS}$ é dado por: 
 
 $$
-\begin{eqnarray}
-\widehat V_{AC2PPTPS} \left( \widehat Y_{AC2PPTPS} \right) & = &  \frac {1} {m} \frac {M} {M-1} \displaystyle \sum_{i \in a} \left( \frac {\widehat Y_i} {p_i} - \widehat Y_{AC2PPTPS} \right)^2 (1 - m p_i) p_i \\ 
+\begin{eqnarray}\hspace{-2.2cm}
+\widehat V_{AC2PPTPS} \left( \widehat Y_{AC2PPTPS} \right) & = &  \frac {1} {m} \frac {M} {M-1} \displaystyle \sum_{i \in a} \left( \frac {\widehat Y_i} {p_i} - \widehat Y_{AC2PPTPS} \right)^2 (1 - m p_i) p_i+ \\ 
 & & + \displaystyle \sum_{i \in a} \frac {1} {m p_i} N_i^2 \left( \frac {1} {n_i} - \frac {1} {N_i} \right) \widehat S_i^2
-\,\, (\#eq:eqcong45) 
+\\ \hfill  (\#eq:eqcong45) 
 \end{eqnarray}
 $$ 
 
@@ -1071,21 +1072,21 @@ A seguir são apresentadas algumas ideias básicas a serem adotadas na escolha d
 
 Definição das unidades e do plano amostral no caso de pesquisas domiciliares:
 
-a) Usar unidades claramente definidas: mapeamento preciso, para evitar omissões e dupla contagem;
+a) Usar unidades claramente definidas: mapeamento preciso, para evitar omissões e dupla contagem.
 
-b) Boa cobertura para evitar omissão de unidades;
+b) Boa cobertura para evitar omissão de unidades.
 
-c) Procedimentos precisos para operações de listagem ou cadastramento de unidades, se necessário;
+c) Procedimentos precisos para operações de listagem ou cadastramento de unidades, se necessário.
 
-d) Plano amostral deve ser simples de implementar;
+d) Plano amostral deve ser simples de implementar.
 
 e) Preferir cadastros ou listas disponíveis em computador.
 
 Em termos de medidas de tamanho e informação auxiliar: 
 
-f) Medidas de tamanho devem ser tão precisas quanto possível;
+f) Medidas de tamanho devem ser tão precisas quanto possível.
 
-g) Informações auxiliares são necessárias para estratificar UPAs, para usar na estimação, etc.;
+g) Informações auxiliares são necessárias para estratificar UPAs, para usar na estimação, etc.
 
 h) UPAs menores geralmente apresentam menores custos de listagem e de deslocamento entre unidades; porém UPAs menores são mais homogêneas e podem aumentar a variância.
 
@@ -1121,9 +1122,9 @@ $$
 
 Da Expressão \@ref(eq:eqcong46) segue-se de imediato que:
 
-i) se $\rho > 0 \Rightarrow [1 + (\overline n - 1) \rho] << [1 + (\overline N - 1) \rho]$, que é o efeito de conglomeração na AC1AAS. Logo, do ponto de vista de melhoria da precisão das estimativas, seria interessante manter $\overline n$ pequeno, o que implicaria em ter mais UPAs na amostra, mas com subamostras menores em cada UPA. 
+i) Se $\rho > 0 \Rightarrow [1 + (\overline n - 1) \rho] << [1 + (\overline N - 1) \rho]$, que é o efeito de conglomeração na AC1S. Logo, do ponto de vista de melhoria da precisão das estimativas, seria interessante manter $\overline n$ pequeno, o que implicaria em ter mais UPAs na amostra, mas com subamostras menores em cada UPA. 
 
-ii) se $\rho < 0 \Rightarrow [1 + (\overline n - 1) \rho] > [1 + (\overline N - 1) \rho]$. Logo, nesse caso a melhor alternativa seria fazer $\overline n = \overline N$, isto é fazer AC1, selecionando menos UPAs. Vale destacar que são muito raras situações como essa na prática. 
+ii) Se $\rho < 0 \Rightarrow [1 + (\overline n - 1) \rho] > [1 + (\overline N - 1) \rho]$. Logo, nesse caso a melhor alternativa seria fazer $\overline n = \overline N$, isto é fazer AC1, selecionando menos UPAs. Vale destacar que são muito raras situações como essa na prática. 
 
 Vale registrar que se a fração amostral do primeiro estágio cresce, como em geral o custo de adicionar uma unidade primária é maior que o de adicionar uma unidade secundária, então o fator custo não deve ser ignorado na determinação dos tamanhos da amostra dos diferentes estágios.  
 
@@ -1143,8 +1144,8 @@ $$
 
 *Passo 2*: Note que, de acordo com @Silva1990, página 31, se o número de unidades a serem investigadas no segundo estágio é constante para qualquer conglomerado ($n_i=\overline n,\,\forall\, i$), tem-se: 
 
-$$
-EPA(AC2PPTC; \, AAS) = \displaystyle \frac {V_{AC2PPTC} (\overline y_{AC2PPTC})} {V_{AAS} (\overline y)} \doteq 1 + (\overline n - 1) \rho \,\, (\#eq:eqcong49) 
+$$\hspace{-1.0cm}
+EPA(AC2PPTC; \, AAS) = \displaystyle \frac {V_{AC2PPTC} (\overline y_{AC2PPTC})} {V_{AAS} (\overline y)} \doteq 1 + (\overline n - 1) \rho (\#eq:eqcong49) 
 $$
 Logo, segue-se que:
 
@@ -1208,7 +1209,7 @@ A relação mostrada na Expressão \@ref(eq:eqcong53) pode ser utilizada como re
 
 ## Exercícios
 
-**(#exr:execong1)** Considere uma população de $M$ = 100 conglomerados de mesmo tamanho $\overline N$, cada um formado por 4 pessoas, em que a proporção de pessoas com um determinado atributo é $p$ = 0,5. Em uma amostra de 5 conglomerados tipo AC1S foram obtidos os resultados da Tabela \@ref(tab:tabcong8):
+**(#exr:execong1)** Considere uma população de $M=$ 100 conglomerados de mesmo tamanho $\overline N$, cada um formado por 4 pessoas, em que a proporção de pessoas com um determinado atributo é $p=$ 0,5. Em uma amostra de 5 conglomerados tipo AC1S foram obtidos os resultados da Tabela \@ref(tab:tabcong8):
 
 <center>
 ```{r, results="asis", echo=FALSE}
@@ -1223,14 +1224,14 @@ Pessoas com o atributo   2   3   1   2   1
   
 Estime a eficiência da amostragem conglomerada em relação à de uma amostra aleatória simples de igual tamanho, para estimar a proporção.
 
-**(#exr:execong2)** Seja uma população de $N$ = 20 unidades, cujos valores associados a certa característica $y$ são relacionados a seguir Tabela \@ref(tab:tabcong9):
+**(#exr:execong2)** Seja uma população de $N=$ 20 unidades, cujos valores associados a certa característica $y$ são relacionados a seguir Tabela \@ref(tab:tabcong9):
 
 <center>
 ```{r, results="asis", echo=FALSE}
 cat("<table>", paste0("<caption>", "(#tab:tabcong9)", "Valores populacionais", "</caption>"),"</table>", sep ="\n")
 ```
 ----------
- $U_i$   $y_i$               $U_i$   $y_i$
+$U_i$    $y_i$                $U_i$    $y_i$
 ------- ------- ------------ ------- -------  
  1       60                    11      94
  
@@ -1275,41 +1276,41 @@ cat("<table>", paste0("<caption>", "(#tab:tabcong10)", "Conglomerados e respecti
 
 Calcule o coeficiente de correlação intraclasse, $\rho$. Com base no resultado, comente sobre a eficiência da amostragem conglomerada AC1S em comparação com uma AAS com tamanho total igual a 5 unidades.
 
-**(#exr:execong3)** A Tabela \@ref(tab:tabcong11) contém os dados de uma amostra de $m$ = 20 quarteirões selecionados aleatoriamente e sem reposição, entre os 270 quarteirões de uma localidade que tem, no total, 6.786 domicílios. A unidade de investigação da pesquisa foi o domicílio.
+**(#exr:execong3)** A Tabela \@ref(tab:tabcong11) contém os dados de uma amostra de $m=$ 20 quarteirões selecionados aleatoriamente e sem reposição, entre os 270 quarteirões de uma localidade que tem, no total, 6.786 domicílios. A unidade de investigação da pesquisa foi o domicílio.
   
 <center>
 ```{r, results="asis", echo=FALSE}
 cat("<table>", paste0("<caption>", "(#tab:tabcong11)", "Número de domicílios e domicílios alugados na amostra de 20 quarteirões", "</caption>"),"</table>", sep ="\n")
 ```
 ----------
- Quarteirão    Total de    Domicílios             Quarteirão    Total de    Domicílios
-              domicílios    alugados                           domicílios    alugados
------------- ------------ ------------ --------- ------------ ------------ ------------
- 1	               5 	         3	             	   11	             29	          17 
+ Quarteirão    Número  Domicílios        Quarteirão    Número  Domicílios
+              de dom.    alugados                     de dom.    alugados
+------------ -------- ----------- ----- ------------ -------- -----------
+ 1	                5 	        3	     	       11	    29	           17 
 						
- 2	               9 	         5 	             	   12	             31	          14 
+ 2	                9 	        5           	 12	    31	           14 
 						
- 3 	              18 	         5 	             	   13	              5	           0
+ 3 	               18 	        5      	       13	     5	            0
 						
- 4 	              68 	        52 	             	   14	              2            0 
+ 4 	               68 	       52      	       14	     2              0 
 						
- 5 	              32 	        21 	             	   15	              4            2
+ 5 	               32 	       21      	       15	     4              2
 						
- 6 	              48 	        34 	             	   16	            102           54
+ 6 	               48 	       34      	       16 	  102            54
 						
- 7 	              11 	         3 	             	   17	             20           11
+ 7 	               11 	        3      	       17	     20            11
 						
- 8 	               1 	         0 	             	   18	             15           11 
+ 8 	                1 	        0      	       18	     15            11 
+						  
+ 9 	                1 	        0      	       19	      1             0 
 						
- 9 	               1 	         0 	             	   19	              1            0 
-						
- 10	               4 	         0 	             	   20	             29           23
+ 10	                4 	        0      	       20      29            23
 ----------
 </center>
 
 a) Estime a proporção de domicílios alugados na localidade, utilizando o estimador natural, e construa um $IC_{95\%}$ para essa proporção.
 
-b) Repita o item a) utilizando o estimador tipo razão, tendo como variável auxiliar o tamanho dos conglomerados.
+b) Repita o item a, utilizando o estimador tipo razão, tendo como variável auxiliar o tamanho dos conglomerados.
 
 c) Qual dos dois estimadores você escolheria? Por quê?
 
@@ -1325,17 +1326,17 @@ b) Determine o tamanho de amostra de quarteirões necessário para estimar o tot
 
 **(#exr:execong6)** Compare as 2 amostras seguintes, cada uma delas baseada em 3.600 unidades elementares selecionadas de uma população com 1.800.000 unidades.
   
-1) Uma amostra aleatória simples de 3.600 unidades elementares resultando em $\overline y$ = 513 e $\widehat V_{AAS} (\overline y)$ = 10,89.
+1) Uma amostra aleatória simples de 3.600 unidades elementares resultando em $\overline y=$ 513 e $\widehat V_{AAS} (\overline y)=$ 10,89.
 
-2) Uma amostra aleatória de 180 conglomerados selecionados dentre 90.000 conglomerados, com cada conglomerado contendo $N$ = 20 unidades elementares, com $\overline y_{AC1S/HT}$ = 524 e $\widehat{V}_{AC1S} (\overline y_{AC1S/HT})$ = 102,01.
+2) Uma amostra aleatória de 180 conglomerados selecionados dentre 90.000 conglomerados, com cada conglomerado contendo $N=$ 20 unidades elementares, com $\overline y_{AC1S/HT}=$ 524 e $\widehat{V}_{AC1S} (\overline y_{AC1S/HT})=$ 102,01.
   
 Note que a variância estimada para estimar a média da característica $y$ para a segunda amostra é quase 10 vezes maior que a da primeira amostra. 
 
-Em cada uma das afirmativas abaixo, complete com (V) se a afirmativa for verdadeira e (F) se for falsa, justificando sua escolha em cada caSO.
+Em cada uma das afirmativas abaixo, complete com (V) se a afirmativa for verdadeira e (F) se for falsa, justificando sua escolha em cada caso.
 
 a) (  ) O coeficiente de correlação intraclasse dos 90.000 conglomerados é maior que zero.
 
-b) (  ) Todos os elementos dentro de cada conglomerado são iguais ($y_{ij} = y_{ik}, \quad \forall \; j \; \text{e} \; k$). 
+b) (  ) Todos os elementos dentro de cada conglomerado são iguais ($y_{ij} = y_{ik}, \, \forall \, j /, \text{e} \, k$). 
 
 c) (  ) A estimativa da variância da segunda amostra pode ser reduzida, para atingir o valor da variância estimada com a primeira amostra, aumentando em menos de 1.000 o número de conglomerados na segunda amostra.
 
@@ -1402,7 +1403,7 @@ a) Estime a proporção, na cadeia de supermercados, de lojas que não atendem a
 
 b) Estime a margem de erro com nível de confiança de 95% e dê o intervalo de confiança correspondente.
 
-**(#exr:execong9)** Uma população é composta de 100 conglomerados, cada um deles composto de 5 unidades elementares. Deseja-se selecionar uma amostra de 50 unidades dessa população. São conhecidos os seguintes parâmetros populacionais: $S^2_d$ = 100 e $S^2_e$ = 1.500.
+**(#exr:execong9)** Uma população é composta de 100 conglomerados, cada um deles composto de 5 unidades elementares. Deseja-se selecionar uma amostra de 50 unidades dessa população. São conhecidos os seguintes parâmetros populacionais: $S^2_d=$ 100 e $S^2_e=$ 1.500.
 
 a) Calcule a variância do estimador do total para o caso de uma AAS de 50 unidades elementares.
 
@@ -1412,9 +1413,9 @@ c) Calcule a variância do estimador do total caso seja utilizada uma AC2AAS com
 
 d) Qual dos três planos amostrais seria mais indicado? Justifique sua resposta.
 
-e) Calcule o coeficiente de correlação intraclasse e comente se o resultado é coerente com o item d).
+e) Calcule o coeficiente de correlação intraclasse e comente se o resultado é coerente com o item d.
 
-**(#exr:execong10)** Uma fábrica produz placas eletrônicas que possuem 12 microchips cada uma. Uma amostra de 10 placas é selecionada aleatoriamente para o controle de qualidade, de um determinado lode de placas fabricadas, e verifica-se o número de microchips defeituosos em cada uma: 2, 0, 1, 3, 2, 0, 0, 1, 3 e 4.
+**(#exr:execong10)** Uma fábrica produz placas eletrônicas que possuem 12 microchips cada uma. Uma amostra de 10 placas é selecionada aleatoriamente para o controle de qualidade, de um determinado lote de placas fabricadas, e verifica-se o número de microchips defeituosos em cada uma: 2, 0, 1, 3, 2, 0, 0, 1, 3 e 4.
 
 a) Supondo que o número total de placas é desconhecido, mas *“grande”*, estime o total de microchips defeituosos na população e o erro padrão dessa estimativa.
 
