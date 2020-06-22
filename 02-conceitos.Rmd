@@ -151,13 +151,13 @@ Uma rica fonte de informações sobre as definições conceituais de uma vasta c
 
 Pesquisas por amostragem dependem criticamente da qualidade da amostra selecionada para coleta ou obtenção dos dados. Para cumprir bem seu papel na pesquisa, são características desejáveis da amostra: 
 
-a) **permitir generalizar estimativas dela derivadas para o conjunto da população de pesquisa;**
+a) **Permitir generalizar estimativas dela derivadas para o conjunto da população de pesquisa.**
 
-b) **'imparcialidade';**
+b) **'Imparcialidade'.**
 
-c) **fornecer estimativas com o menor erro amostral possível, dados os recursos disponíveis (financeiros, tempo, pessoal e outros) e considerando as restrições operacionais; **e
+c) **Fornecer estimativas com o menor erro amostral possível, dados os recursos disponíveis (financeiros, tempo, pessoal e outros) e considerando as restrições operacionais.**
 
-d) **assegurar a capacidade de medir a precisão das estimativas dela provenientes.**
+d) **Assegurar a capacidade de medir a precisão das estimativas dela provenientes.**
 
 A base para o processo de amostragem e de inferência que consideramos neste livro não é dada por um modelo que se utiliza para representar distribuições geradoras dos valores da população, mas sim por um *modelo de aleatorização* que decorre da imposição de um método imparcial (ao acaso, por sorteio) de escolha das unidades da amostra. Este modelo depende de três condições simples de satisfazer, em grande número de aplicações: 
 
@@ -217,7 +217,7 @@ Na etapa de planejamento da amostra, questões tais como a definição do tamanh
 
 Os métodos a serem usados para a coleta das informações dependem de muitos fatores, e devem ser decididos tendo em mente os custos envolvidos, os tipos de unidades informantes, a precisão desejada das medidas e observações, bem como as condições particulares para execução da pesquisa em questão. Tais métodos são geralmente especificados durante a fase de planejamento da pesquisa, pois os métodos de coleta de dados influenciarão fortemente na elaboração do questionário da pesquisa e também podem afetar as opções disponíveis para o planejamento da amostra.
 
-Há diferentes métodos de coleta, que podem ou não ser apoiados por computador e podem ou não necessitar da participação de entrevistadores ou observadores. Os principais métodos de coleta são: CAPI (*Computer-Assisted Personal Interviewing*), CASI - *Computer-Assisted Self Interviewing*, CATI - *Computer-Assisted Telephone Interviewing*, MASI - *Mail Assisted Self Interviewing*, PAPI - *Paper-and-Pencil Interviewing* e métodos de observação direta, em que não ocorre uma entrevista. Um exemplo de aplicação deste último método ocorre na coleta de dados de preços em pontos de venda, onde o responsável pela coleta de dados faz isso diretamente e não requer contato com uma unidade informante para a obtenção das informações de interesse. Em tempos mais recentes, também começaram a tornar-se disponíveis opções tais como `web-scraping`, que consiste na utilização de métodos automatizados de acesso a páginas da internet e de extração de dados ou informações dessas páginas, sem intervenção humana no processo.
+Há diferentes métodos de coleta, que podem ou não ser apoiados por computador e podem ou não necessitar da participação de entrevistadores ou observadores. Os principais métodos de coleta são: CAPI (*Computer-Assisted Personal Interviewing*), CASI - *Computer-Assisted Self Interviewing*, CATI - *Computer-Assisted Telephone Interviewing*, MASI - *Mail Assisted Self Interviewing*, PAPI - *Paper-and-Pencil Interviewing* e métodos de observação direta, em que não ocorre uma entrevista. Um exemplo de aplicação deste último método ocorre na coleta de dados de preços em pontos de venda, onde o responsável pela coleta de dados faz isso diretamente e não requer contato com uma unidade informante para a obtenção das informações de interesse. Em tempos mais recentes, também começaram a tornar-se disponíveis opções tais como ´web-scraping´, que consiste na utilização de métodos automatizados de acesso a páginas da internet e de extração de dados ou informações dessas páginas, sem intervenção humana no processo.
 
 ### Elaboração dos instrumentos de coleta e dos sistemas  
 
@@ -481,8 +481,8 @@ Tratar das seguintes questões:
 
 2)	Discuta as vantagens e desvantagens de utilizar cada um dos cadastros disponíveis para o pesquisador. 
 
-3)	Caso o pesquisador opte pelo uso do cadastro listado em a, que cuidados deveria adotar para mitigar ou eliminar possíveis erros de cobertura?
+3)	Caso o pesquisador opte pelo uso do cadastro listado no item a, que cuidados deveria adotar para mitigar ou eliminar possíveis erros de cobertura?
 
-4)	Caso o pesquisador opte pelo uso do cadastro listado em b, que procedimento(s) precisa adotar para assegurar a cobertura da população de interesse?
+4)	Caso o pesquisador opte pelo uso do cadastro listado no item b, que procedimento(s) precisa adotar para assegurar a cobertura da população de interesse?
 
-5)	Se você fosse o pesquisador, como usaria um ou mais dos cadastros citados? Como?
+5)	Se você fosse o pesquisador, como usaria um ou mais dos cadastros citados?
