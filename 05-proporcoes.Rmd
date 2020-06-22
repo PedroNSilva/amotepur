@@ -47,11 +47,11 @@ Uma *proporção* pode assumir valores variando entre $0$, quando nenhuma unidad
 
 Como $y$ só pode receber valores $0$ ou $1$, a expressão da sua *variância* populacional pode ser simplificada:
 
-$$
+$$ \hspace{-1.0cm}
 S^2_y = \displaystyle \frac {1}{N-1} \left( \sum_{i \in U} y^2_i - N \overline{Y}^2 \right) = \frac{1}{N-1} \left(Np-Np^2 \right) = \frac{N}{N-1} p \left(1-p\right) (\#eq:eqpro4)
 $$ 
 
-A *variância* populacional de $y$ pode também ser definida como $\sigma^2_y = p (1-p)$. Tanto $S^2_y$ como $\sigma^2_y$ representam a dispersão da distribuição dos valores de $y$ na população. Para populações com um grande número de unidades ($N \displaystyle \rightarrow \infty,$), é fácil verificar que as duas quantidades são praticamente iguais, pois pode-se considerar $S^2_y \displaystyle \doteq p(1-p) = \sigma^2_y$.
+A *variância* populacional de $y$ pode também ser definida como $\sigma^2_y = p (1-p)$. Tanto $S^2_y$ como $\sigma^2_y$ representam a dispersão da distribuição dos valores de $y$ na população. Para populações com um grande número de unidades ($N \displaystyle \rightarrow \infty$), é fácil verificar que as duas quantidades são praticamente iguais, pois pode-se considerar $S^2_y \displaystyle \doteq p(1-p) = \sigma^2_y$.
 
 Outra medida importante para avaliar a dispersão de uma variável é o seu *Coeficiente de Variação* ou *CV*, definido como a razão entre o *Desvio Padrão* de $y$ e sua média:
 
@@ -249,8 +249,8 @@ $\displaystyle V_{AAS}(\widehat p)=\displaystyle\left(\frac1 n-\frac1 N\right)S^
 
 Na *AASC* as unidades amostrais são selecionadas com igual probabilidade e com reposição a cada sorteio. Então as variáveis aleatórias $Y_k$ que correspondem aos valores observados na amostra a cada sorteio $k$,  $k=1, \dots, n$, são independentes e identicamente distribuídas com probabilidades definidas por:
 
-$$
-\displaystyle P(Y_k = 1) = P(y_{i_k} \text{ ter o atributo de interesse}) = \frac {N_A} {N} = p \\ P(Y_k = 0) = P(y_{i_k} \text{ não ter o atributo de interesse}) = 1 - \frac {N_A} {N} = 1-p \,\, (\#eq:eqpro19) 
+$$ \hspace{-1.0cm}
+\begin{align} \displaystyle P(Y_k = 1) = P(y_{i_k} \text{ ter o atributo de interesse}) = \frac {N_A} {N} = p \\ P(Y_k = 0) = P(y_{i_k} \text{ não ter o atributo de interesse}) = 1 - \frac {N_A} {N} = 1-p \end{align}\,\, (\#eq:eqpro19) 
 $$
 
 Dessa maneira fica configurada uma distribuição de **_Bernoulli$(p)$_** para cada uma dessas variáveis:
@@ -274,9 +274,8 @@ $$
 
 Outro resultado importante é que nesse caso se pode obter a distribuição de probabilidades exata de $\widehat p$, pois:
 
-$$
-\displaystyle
-P \left(\widehat p = \frac v n \right) = P(n_A = v) = \binom{n} {v} p^v (1-p)^{n-v} ,\quad \forall\, v=0, 1, 2, ..., n  (\#eq:eqpro22) 
+$$ \hspace{-0,4cm}
+\displaystyle P \left(\widehat p = \frac v n \right) = P(n_A = v) = \binom{n} {v} p^v (1-p)^{n-v} ,\quad \forall\, v=0, 1, 2, ..., n  (\#eq:eqpro22) 
 $$
 
 
@@ -471,7 +470,7 @@ cat("<table>",paste0("<caption>", "(#tab:tabprop3)","Valores mínimos de $n_A$ p
 ```
 ----------
  $p$           $n_A$         $n$     
-------------  ------ -----------
+------------  ------ ----------- -
  0,50         15     30        
                              
  0,40         20     50        
@@ -586,9 +585,16 @@ D \le z_{\alpha/2}\sqrt { \frac{p(1-p)}{n}} \implies n \ge \frac{z^2_{\alpha/2}{
 $$
 Para a seleção sem reposição, o tamanho da amostra é calculado como:
 
+$$ \hspace{-2,0cm}
+D \le z_{\alpha/2}\sqrt{\left(\frac {N-n}{N-1}\right)\frac{p(1-p)}n} \implies  n \ge \frac{z^2_{\alpha/2}p(1-p)} {D^2 \frac {N-1}N + \frac 1 N {z^2_{\alpha /2}p(1-p)}} 
 $$
-D \le z_{\alpha/2}\sqrt{\left(\frac {N-n}{N-1}\right)\frac{p(1-p)}n} \implies \\ n \ge \frac{z^2_{\alpha/2}p(1-p)} {D^2 \frac {N-1}N + \frac 1 N {z^2_{\alpha /2}p(1-p)}}\doteq \frac{z^2_{\alpha/2}p(1-p)} {D^2 + \frac 1 N {z^2_{\alpha /2}p(1-p)}} = \frac {Np(1-p)}{ND^2 /{z^2_{\alpha /2}} + p(1-p)} (\#eq:eqpro36) 
+Considerando $\displaystyle\frac{N-1}{N}\doteq 1$, tem-se que: 
+
+$$ \hspace{-2,0cm}
+D \le z_{\alpha/2}\sqrt{\left(\frac {N-n}{N-1}\right)\frac{p(1-p)}n} \implies  n \ge  \frac {Np(1-p)}{ND^2 /{z^2_{\alpha /2}} + p(1-p)} (\#eq:eqpro36) 
 $$
+
+
 Uma maneira prática de calcular o tamanho da amostra para uma *AAS* em dois passos é calcular primeiro: 
 
 $$
@@ -730,27 +736,27 @@ Nesses casos, há interesse de estimar a proporção de unidades em cada uma das
 cat("<table>",paste0("<caption>", "(#tab:tabprop4)","Distribuição dos alunos por etapa de ensino", "</caption>"),"</table>", sep ="\n")
 ```
 ----------
-Etapa de ensino   Alunos    Proporção
----------------- --------- ----------
- 1° ano          110       0,110    
+Etapa de ensino   Alunos       Proporção
+---------------- -----------  -------------
+ 1° ano           110           0,110    
                               
- 2° ano          108       0,108    
+ 2° ano           108           0,108    
                               
- 3° ano          110       0,110    
+ 3° ano           110           0,110    
                               
- 4° ano          115       0,115    
+ 4° ano           115           0,115    
                               
- 5° ano          104       0,104    
+ 5° ano           104           0,104    
                               
- 6° ano          119       0,119    
+ 6° ano           119           0,119    
                               
- 7° ano          116       0,116    
+ 7° ano           116           0,116    
                               
- 8° ano          107       0,107    
+ 8° ano           107           0,107    
                               
- 9° ano          111       0,111    
+ 9° ano           111           0,111    
                               
- **Total**      **1.000**  **1,000**
+ **Total**       **1.000**     **1,000**
  
 ----------
 </center>
@@ -829,7 +835,7 @@ Vale notar que em \@ref(eq:eqpro48) tanto o numerador como o denominador do esti
   
 **(#exr:exrprop5)** Considere a população de $N=$ 338 fazendas produtoras de cana-de-açúcar fornecida no arquivo *fazendas.dat.rds*. Selecione uma AAS de $n=$ 50 fazendas, e use esta amostra para obter a estimativa pontual, o erro padrão, o CV e o intervalo de confiança de 95%, para cada um dos seguintes parâmetros populacionais:
 
-  a)  Proporção de fazendas na região $1$.
+  a)  Proporção de fazendas na região 1.
   b)  Proporção de fazendas com Area maior que 100; 
   c)  Proporção de fazendas com produtividade (Quant/Area) maior que 67.
   
