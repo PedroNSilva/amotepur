@@ -56,7 +56,7 @@ $$
 E(Z_k) = E \left( N  Y_k \right) = \displaystyle \sum_{i \in U} (N  y_i)  \frac{1}{N} = Y
 $$
 
-É também fácil mostrar que a variância de $Z_k \, \, \forall \, \, k = 1, 2, ..., n$ é dada por:
+É também fácil mostrar que a variância de $Z_k, \, \, \forall \, \, k = 1, 2, ..., n$ é dada por:
 
 $$
 V_{AASC} (Z_k) = V_{AASC} \left( N  Y_k \right) = \displaystyle \sum_{i \in U} ({N  y_i - Y})^2  \frac{1}{N} = N^2  \sigma_y^2
@@ -115,7 +115,7 @@ AASC é ineficiente em comparação com a amostragem aleatória simples *sem rep
 
 ## Amostragem Aleatória Simples Sem Reposição 
 
-A *Amostragem Aleatória Simples Sem Reposição* - abreviada por *AAS* é um plano amostral similar à *AASC*, sendo que neste caso cada unidade da população pode aparecer na amostra no máximo uma única vez, isto é, não pode haver repetição de unidades na amostra. Na verdade, *AAS* é qualquer procedimento de seleção que garanta que *todas* as amostras de tamanho $n$ da população de tamanho $N$ têm a *mesma probabilidade* de serem escolhidas. Como existem $\binom{N}{n} = \frac{N!}{n!(N-n)!}$ amostras distintas em $S$, então $p(s) = 1/\binom{N}{n}$ $\forall\, s\in S$, onde $s$ é qualquer subconjunto de $n$ inteiros distintos entre os inteiros de 1 a $N$.
+A *Amostragem Aleatória Simples Sem Reposição* - abreviada por *AAS* é um plano amostral similar à *AASC*, sendo que neste caso cada unidade da população pode aparecer na amostra no máximo uma única vez, isto é, não pode haver repetição de unidades na amostra. Na verdade, *AAS* é qualquer procedimento de seleção que garanta que *todas* as amostras de tamanho $n$ da população de tamanho $N$ têm a *mesma probabilidade* de serem escolhidas. Como existem $\binom{N}{n} = \frac{N!}{n!(N-n)!}$ amostras distintas em $S$, então $p(s) = 1/\binom{N}{n},$ $\forall\, s\in S$, onde $s$ é qualquer subconjunto de $n$ inteiros distintos entre os inteiros de 1 a $N$.
 
 Na *AAS* duas determinações da amostra são consideradas iguais quando constituídas das mesmas unidades da população, não importando a ordem de seleção dessas unidades. 
 
@@ -243,7 +243,7 @@ s
 ```
 ### Probabilidades de inclusão sob AAS
 
-Como já indicado no capítulo \@ref(visger), tratar com as distribuições de aleatorização $p(s)$ sob AAS pode ser complicado do ponto de vista prático. @Sarndal1992, página 29, mencionam que numa população com $N =$ 1.000 unidades, o conjunto $S$ de amostras AAS possíveis de tamanho $n=$ 40 tem dimensão $\binom{N}{n} = \binom{1.000}{40} = 5,6 \times 10^{71}$. Se a população tivesse $N =$ 5.000 e a amostra tamanho $n =$ 200, a dimensão de $S$ cresceria para $\binom{5.000}{200} = 1,4 \times 10^{363}$. Portanto, a enumeração de todas as amostras possíveis seria tarefa complicada, mesmo com computadores poderosos. 
+Como já indicado no capítulo \@ref(visger), tratar com as distribuições de aleatorização $p(s)$ sob AAS pode ser complicado do ponto de vista prático. @Sarndal1992, página 29, mencionam que numa população com $N =$ 1.000 unidades, o conjunto $S$ de amostras AAS possíveis de tamanho $n=$ 40 tem dimensão $\binom{N}{n} = \binom{1.000}{40} =$ 5,6 $\times$ 10<sup>71</sup>. Se a população tivesse $N =$ 5.000 e a amostra tamanho $n =$ 200, a dimensão de $S$ cresceria para $\binom{5.000}{200} =$ 1,4 $\times$ 10<sup>363</sup>. Portanto, a enumeração de todas as amostras possíveis seria tarefa complicada, mesmo com computadores poderosos. 
 
 Note que os tamanhos de população e amostra acima são modestos do ponto de vista de aplicações práticas.
 Foi para eliminar essa dificuldade que introduzimos resumos simples derivados da distribuição $p(s)$. Tais resumos serão suficientes para a obtenção de propriedades de estimadores tais como valor esperado e variância, na maioria das situações de interesse prático. Esses resumos são as *probabilidades de inclusão* de unidades ou de pares de unidades na amostra.
@@ -660,18 +660,17 @@ a) Qual o peso amostral de cada unidade da amostra?
 b) Usando o peso amostral, estime o total populacional de $y$.
 c) Construa um intervalo de 95% de confiança para o total populacional. 
 
-**(#exr:exraas9)**  Seja a população formada pelos 450 municípios da Região Norte que aparecem no arquivo MunicBR_dat.rds. Calcule os seguintes parâmetros populacionais da variável de interesse população (Pop):
+**(#exr:exraas9)**  Seja a população formada pelos 450 municípios da Região Norte que aparecem no arquivo MunicBR_dat.rds. 
 
-a)  Média populacional.
-b)  Variância populacional.
+Calcule os seguintes parâmetros populacionais da variável de interesse população (Pop): média populacional e variância populacional.
   
 Supondo desconhecidos os valores da população dos municípios, selecione uma AAS de tamanho $n=$ 40 e estime os seguintes parâmetros populacionais:
 
-c)  Estime a média populacional.
-d)  Estime a variância populacional e a variância do estimador da média populacional.
-e)  Construa $IC_{95\%}$ para a média populacional.
-f)  Compare, e comente, os resultados estimados na amostra com os valores verdadeiros da população.
-g)  A média populacional pertence ao intervalo de confiança construído? O que isso significa?
+a)  Estime a média populacional.
+b)  Estime a variância populacional e a variância do estimador da média populacional.
+c)  Construa $IC_{95\%}$ para a média populacional.
+d)  Compare, e comente, os resultados estimados na amostra com os valores verdadeiros da população.
+e)  A média populacional pertence ao intervalo de confiança construído? O que isso significa?
 
 **(#exr:exraas10)**  Um biólogo deseja estimar o total populacional de determinado animal numa reserva florestal. Para isso ele dividiu a floresta em lotes de tamanhos aproximadamente iguais e selecionou uma amostra desses lotes, contando os animais encontrados. A Figura \@ref(fig:figAAS1) mostra, esquematicamente, o mapa da reserva com a divisão feita. A amostra é formada pelos lotes onde aparecem os números de animais encontrados, que foram selecionados usando um processo de AAS. 
 
