@@ -457,7 +457,7 @@ $$
 
 3. Para planos amostrais mais complexos, é mais difícil resolver equações do tipo acima para determinar tamanhos amostrais, e sua alocação em estratos e conglomerados. Entretanto, a ideia de *Efeito do Plano Amostral* - EPA vai ser útil neste contexto. Veja discussão no capítulo \@ref(cong).
 
-**(#exm:exmaas2)** Considere a população formada pelos municípios brasileiros, conforme consta do arquivo ‘MunicBR_dat.rds’. Tendo esta população em mente, imagine que seria usada para seleção de uma amostra AAS de $n=$ 200 municípios. Imagine que tal amostra seria usada para estimar a *média populacional* da variável *área* dos municípios. 
+**(#exm:exmaas2)** Considere a população formada pelos municípios brasileiros, conforme consta do arquivo 'MunicBR_dat.rds'. Tendo esta população em mente, imagine que seria usada para seleção de uma amostra AAS de $n=$ 200 municípios. Imagine que tal amostra seria usada para estimar a *média populacional* da variável *área* dos municípios. 
 
 1.	Com esta perspectiva, use os *dados populacionais* para:
   
@@ -545,7 +545,7 @@ munic_amo <- getdata(MunicBR_dat, srswor(n, N))
 
 **(#exr:exraas1)** Mostre que o estimador $\widehat{Y}_{AASC}$ para o total não é um estimador tipo Horvitz-Thompson. 
   
-**(#exr:exraas2)** Considere a população de 338 fazendas produtoras de cana-de-açúcar fornecida no arquivo ´fazendas_dat.rds´. Esse arquivo contém os dados de algumas variáveis econômicas medidas para cada uma das fazendas dessa população, tais como área plantada com cana-de-açúcar (Area), quantidade colhida de cana (Quant), receita (Receita) e despesa com a produção de cana (Despesa), e algumas variáveis de contexto sobre as fazendas, tais como região de localização (Regiao) e classe de tamanho da fazenda (Classe). 
+**(#exr:exraas2)** Considere a população de 338 fazendas produtoras de cana-de-açúcar fornecida no arquivo 'fazendas_dat.rds'. Esse arquivo contém os dados de algumas variáveis econômicas medidas para cada uma das fazendas dessa população, tais como área plantada com cana-de-açúcar (Area), quantidade colhida de cana (Quant), receita (Receita) e despesa com a produção de cana (Despesa), e algumas variáveis de contexto sobre as fazendas, tais como região de localização (Regiao) e classe de tamanho da fazenda (Classe). 
 
 Imagine que há interesse em pesquisar por amostragem essa população de fazendas, visando estimar medidas descritivas da população, tais como os totais das variáveis Quant, Receita e Despesa. O objetivo do exercício é usar os dados fornecidos para estudar o comportamento esperado de um plano amostral. Considere a ideia de selecionar uma amostra de $n=$ 50 fazendas da população usando AAS.
 
@@ -660,7 +660,7 @@ a) Qual o peso amostral de cada unidade da amostra?
 b) Usando o peso amostral, estime o total populacional de $y$.
 c) Construa um intervalo de 95% de confiança para o total populacional. 
 
-**(#exr:exraas9)**  Seja a população formada pelos 450 municípios da Região Norte que aparecem no arquivo ´MunicBR_dat.rds´. 
+**(#exr:exraas9)**  Seja a população formada pelos 450 municípios da Região Norte que aparecem no arquivo 'MunicBR_dat.rds'. 
 
 Calcule os seguintes parâmetros populacionais da variável de interesse população (Pop): média populacional e variância populacional.
   
