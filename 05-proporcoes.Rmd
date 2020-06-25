@@ -169,7 +169,7 @@ A Tabela \@ref(tab:tabprop1) reúne os resultados principais da estimação de c
 cat("<table>",paste0("<caption>", "(#tab:tabprop1)","Parâmetros e respectivos estimadores sob AASC", "</caption>"),"</table>", sep ="\n")
 ```
 ----------
-Parâmetro                                              Estimador não viciado                                                            
+Parâmetro                                              Estimador                                                            
 ------------------------------------------------------ ----------------------------------------------------------------------------------
 $\displaystyle N_A = \sum_{i \in U} y_i$               $\displaystyle\widehat N_A= N\times n_A/n = N\times \widehat p$
 
@@ -230,7 +230,7 @@ cat("<table>",paste0("<caption>", "(#tab:tabprop2)","Parâmetros e respectivos e
 ```
 
 ----------
-Parâmetro                                                                             Estimador não viciado 
+Parâmetro                                                                             Estimador 
 ------------------------------------------------------------------------------------- --------------------------------------------------------------------------------------------------------------------------
 $\displaystyle N_A=\sum_{i \in U} y_i$                                                $\displaystyle\widehat N_A = N \times n_A / n = N \times\widehat p$
 
@@ -833,7 +833,7 @@ Vale notar que em \@ref(eq:eqpro48) tanto o numerador como o denominador do esti
   d) Estime a proporção de unidades onde $y$ é menor que 10.
   e) Construa um intervalo de 95% de confiança para a proporção de unidades onde $y$ é menor que 10.
   
-**(#exr:exrprop5)** Considere a população de $N=$ 338 fazendas produtoras de cana-de-açúcar fornecida no arquivo *fazendas.dat.rds*. Selecione uma AAS de $n=$ 50 fazendas, e use esta amostra para obter a estimativa pontual, o erro padrão, o CV e o intervalo de confiança de 95%, para cada um dos seguintes parâmetros populacionais:
+**(#exr:exrprop5)** Considere a população de $N=$ 338 fazendas produtoras de cana-de-açúcar fornecida no arquivo `fazendas_dat.rds´. Selecione uma AAS de $n=$ 50 fazendas, e use esta amostra para obter a estimativa pontual, o erro padrão, o CV e o intervalo de confiança de 95%, para cada um dos seguintes parâmetros populacionais:
 
   a)  Proporção de fazendas na região 1.
   b)  Proporção de fazendas com Area maior que 100; 
