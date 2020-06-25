@@ -10,13 +10,13 @@ R = \frac{\sum_{i\in U}y_i}{\sum_{i\in U}x_i} = \frac{Y}{X}=\frac{\overline{Y}}{
  
 Alguns exemplos de razões de interesse incluem:
 
-- a razão entre o total dos gastos com transporte e o total da renda das famílias;
+- A razão entre o total dos gastos com transporte e o total da renda das famílias.
 
-- a produtividade da lavoura de certo produto, definida como a razão entre o total da quantidade colhida do produto pelo total da área plantada com esse produto;
+- A produtividade da lavoura de certo produto, definida como a razão entre o total da quantidade colhida do produto pelo total da área plantada com esse produto.
 
-- o salário médio dos trabalhadores da indústria, definido como a razão entre o total dos salários dos trabalhadores da indústria e o número total de trabalhadores da indústria; e
+- O salário médio dos trabalhadores da indústria, definido como a razão entre o total dos salários dos trabalhadores da indústria e o número total de trabalhadores da indústria.
 
-- a densidade de pessoas por dormitório em domicílios particulares, definida como a razão entre o número de pessoas residentes em domicílios particulares e o número total de dormitórios em domicílios particulares.
+- A densidade de pessoas por dormitório em domicílios particulares, definida como a razão entre o número de pessoas residentes em domicílios particulares e o número total de dormitórios em domicílios particulares.
 
 No caso da razão entre o total dos gastos com transporte ($y$) e o total da renda das famílias ($x$), a razão fica definida como:
 
@@ -28,52 +28,51 @@ No caso da razão entre o total dos gastos com transporte ($y$) e o total da ren
 
 Um cuidado importante aqui é compreender o significado do parâmetro de interesse. A razão de totais $R$ não é a média $\left(\overline{R} = \sum_{i\in U}{r_i}/{N} \right)$ das *razões por unidade* $\left(r_i=y_i/x_i\right)$. Neste capítulo estamos interessados na razão de totais (ou médias), e não na média de razões. A média de razões $\left(\overline{R} \right)$ pode ser estimada usando os estimadores habituais de médias populacionais discutidos no capítulo \@ref(visger), aplicados à variável $r$ definida aqui.
 
-**(#exm:exmrazao1)** Considere as densidades de habitantes por área (em $km^2$) das unidades da federação brasileiras apresentadas na Tabela \@ref(tab:tabrazao1), conforme o Censo 2010. Neste exemplo, vemos como uma discrepância grande pode ocorrer entre as duas quantidades (a razão de médias e a médias das razões), quando os valores de $r_i$  são muito dispersos.
+**(#exm:exmrazao1)** Considere as densidades de habitantes por área (em km<sup>2</sup>) das unidades da federação brasileiras apresentadas na Tabela \@ref(tab:tabrazao1), conforme o Censo 2010. Neste exemplo, vemos como uma discrepância grande pode ocorrer entre as duas quantidades (a razão de médias e a médias das razões), quando os valores de $r_i$  são muito dispersos.
 
 <center>
 ```{r, results="asis", echo=FALSE}
 cat("<table>",paste0("<caption>","(#tab:tabrazao1)","Densidade demográfica por Unidade da Federação, média das razões e razão das médias para o Brasil","</caption>"),"</table>", sep ="\n")
 ```
-
 --------- 
-                                Densidade                                                  Densidade
-Unidade da                    demográfica           Unidade da                        demográfica
-Federação                  Hab/$\bf km^2$           Federação                         Hab/$\bf km^2$
------------------------- ---------------- --------- ----------------------- -------------  
-Rondônia                    6,6                     Sergipe                            94,4
+                                Densidade                                            Densidade
+Unidade da                    demográfica              Unidade da                    demográfica
+Federação                  Hab/km<sup>2</sup>          Federação                    Hab/km<sup>2</sup>
+----------------------- ----------------     --------- ---------------------- -------------  
+Rondônia                    6,6                        Sergipe                      94,4
 
-Acre                        4,5                     Bahia                              24,8
+Acre                        4,5                        Bahia                        24,8
 
-Amazonas                    2,2                     Minas Gerais                       33,4
+Amazonas                    2,2                        Minas Gerais                 33,4
 
-Roraima                     2,0                     Espírito Santo                     76,3
+Roraima                     2,0                        Espírito Santo               76,3
  
-Pará                        6,1                     Rio de Janeiro                    365,2
+Pará                        6,1                        Rio de Janeiro              365,2
 
-Amapá                       4,7                     São Paulo                         166,3 
+Amapá                       4,7                        São Paulo                   166,3 
 
-Tocantins                   5,0                     Paraná                            52,4
+Tocantins                   5,0                        Paraná                       52,4
 
-Maranhão                   19,8                     Santa Catarina                    65,3
+Maranhão                   19,8                        Santa Catarina               65,3
 
-Piauí                      12,4                     Rio Grande do Sul                39,8
+Piauí                      12,4                        Rio Grande do Sul            39,8
 
-Ceará                      56,8                     Mato Grosso do Sul                6,9
+Ceará                      56,8                        Mato Grosso do Sul            6,9
 
-Rio Grande do Norte        60,0                     Mato Grosso                       3,4
+Rio Grande do Norte        60,0                        Mato Grosso                   3,4
 
-Paraíba                    66,7                     Goiás                             17,7
+Paraíba                    66,7                        Goiás                        17,7
 
-Pernambuco                 89,6                     Distrito Federal                 444,1
+Pernambuco                 89,6                        Distrito Federal            444,1
         
 Alagoas                   112,3 
  
-${\bf\text{Brasil}}^1$    **68,1**                  ${\bf\text{Brasil}}^2$        **22,4**
+${\bf\text{Brasil}}^1$    **68,1**                     ${\bf\text{Brasil}}^2$      **22,4**
 --------- 
 </center> $^1$Média de razões, $^2$Razão de médias    
  Fonte: IBGE, Censo Demográfico 2010.
 
-Os dados apurados nas últimas duas linhas da Tabela \@ref(tab:tabrazao1) ilustram bem a importância de identificar corretamente que parâmetro se deseja estimar. No exemplo aqui considerado, a densidade demográfica apurada no nível do País como um todo é 22,4 Hab/$km^2$, enquando a média das densidades demográficas calculadas por unidades da federação é de 68,1 Hab/$km^2$, mais que três vezes maior. Portanto, ao enfrentar uma situação em que o parâmetro de interesse pode ser caracterizado como uma das duas situações, cabe ao responsável por planejar a pesquisa esclarecer junto aos demandantes da mesma qual dos dois conceitos melhor descreve a quantidade de interesse. Isto permitirá selecionar adequadamente o estimador que deve ser empregado com os dados da amostra a ser coletada.
+Os dados apurados nas últimas duas linhas da Tabela \@ref(tab:tabrazao1) ilustram bem a importância de identificar corretamente que parâmetro se deseja estimar. No exemplo aqui considerado, a densidade demográfica apurada no nível do País como um todo é 22,4 Hab/km<sup>2</sup>, enquando a média das densidades demográficas calculadas por unidades da federação é de 68,1 Hab/km<sup>2</sup>, mais que três vezes maior. Portanto, ao enfrentar uma situação em que o parâmetro de interesse pode ser caracterizado como uma das duas situações, cabe ao responsável por planejar a pesquisa esclarecer junto aos demandantes da mesma qual dos dois conceitos melhor descreve a quantidade de interesse. Isto permitirá selecionar adequadamente o estimador que deve ser empregado com os dados da amostra a ser coletada.
 
 ## Outras funções de totais
 
@@ -109,7 +108,7 @@ Outro exemplo de parâmetro que pode ser escrito como função de totais é o ca
  F_y(a) = \displaystyle \frac{1}{N} \sum_{i\in U} I(y_i \le a) \quad
 \end{equation}
 
-Nesse caso, a situação envolve apenas dois totais populacionais ($K=$ 2), sendo a primeira definida como $y_{1i} \equiv I(y_i \le a)$ e a segunda $y_{2i} \equiv 1$, e a função definida como $f(Y_1, Y_2) = Y_1 / Y_2$.
+Nesse caso, a situação envolve apenas dois totais populacionais ($K=$ 2), sendo a primeira definida como $y_{1i} \equiv I(y_i \le a)$ e a segunda $y_{2i} \equiv$ 1, e a função definida como $f(Y_1, Y_2) = Y_1 / Y_2$.
 
 A *variância* de uma variável de pesquisa $y$, dada por
 
@@ -117,7 +116,7 @@ A *variância* de uma variável de pesquisa $y$, dada por
  S^2_y = \frac{1}{N-1} \left[ \sum_{i\in U} {y_i}^2 - N \overline{Y}^2 \right] = \frac{1}{N-1} \left[ \sum_{i\in U} {y_i}^2 -  {Y}^2/N \right]
 \end{equation}
 
-também pode ser vista como uma função envolvendo três totais populacionais ($K=$ 3), sendo o primeiro definido como total da variável $y_{1i} \equiv y_i^2$, a segunda $y_{2i} \equiv y_i$, e a terceira como $y_{3i} \equiv 1$. A função que retorna a variância $S^2_y$ é definida como 
+também pode ser vista como uma função envolvendo três totais populacionais ($K=$ 3), sendo o primeiro definido como total da variável $y_{1i} \equiv y_i^2$, a segunda $y_{2i} \equiv y_i$ e a terceira como $y_{3i} \equiv$ 1. A função que retorna a variância $S^2_y$ é definida como 
 $f(Y_1, Y_2, Y_3) = \frac {1} {Y_3 - 1} \left[ Y_1 - (Y_2^2/Y_3) \right]$.
 
 De maneira similar, a *covariância* e a *correlação* das variáveis $y$ e $z$ podem ser definidas como:
@@ -132,7 +131,7 @@ e
 {\rho}_{y , z} = \frac{S_{y , z}} {S_{y} S_{z}}
 \end{equation}
 
-A covariância pode ser vista como uma função envolvendo quatro totais populacionais ($K=$ 4), sendo o primeiro definido como o total $Y_1$ da variável $y_{1i} \equiv y$, o segundo o total $Y_2$ da variável $y_{2i} \equiv z$, o terceiro o total da variável definida como $y_{3i} \equiv y_{i} z_{i}$ e o quarto o total da variável definida como $y_{4i} \equiv 1$. Por simplicidade, a função que define a correlação foi definida em função da covariância e dos desvios-padrão das duas variáveis de interesse, mas também poderia ser escrita como função de totais como já ilustrado nos demais casos.
+A covariância pode ser vista como uma função envolvendo quatro totais populacionais ($K=$ 4), sendo o primeiro definido como o total $Y_1$ da variável $y_{1i} \equiv y$, o segundo o total $Y_2$ da variável $y_{2i} \equiv z$, o terceiro o total da variável definida como $y_{3i} \equiv y_{i} z_{i}$ e o quarto o total da variável definida como $y_{4i} \equiv$ 1. Por simplicidade, a função que define a correlação foi definida em função da covariância e dos desvios-padrão das duas variáveis de interesse, mas também poderia ser escrita como função de totais como já ilustrado nos demais casos.
 
 O ponto importante a destacar nesta seção é o fato de que muitos parâmetros de interesse podem ser vistos como funções de totais populacionais, e com isso, podem também ser estimados aplicando as funções que definem os parâmetros a estimadores dos totais correspondentes. Isto corresponde essencialmente a uma espécie de *método dos momentos* para estimar parâmetros populacionais, onde cada total populacional desconhecido é substituído na expressão do parâmetro por um estimador amostral não viciado do total correspondente.
 
@@ -190,14 +189,14 @@ Neste caso, a variância do estimador também é relativamente simples de obter,
 \begin{eqnarray}
 V_p \left( \widehat{\theta} \right) & = & 
 \sum_{k=1}^K \sum_{j = 1}^K a_k \, a_j COV_p \left( \widehat{Y}_k ,  \widehat{Y}_j \right) \\
- &=& \sum_{k=1}^K a^2_k \, V_p \left( \widehat{Y}_k \right) +  \sum_{k=1}^K \sum_{j \ne k = 1}^K a_k \, a_j COV_p \left( \widehat{Y}_k ,  \widehat{Y}_j \right) (\#eq:eqraz7)
+ &=& \sum_{k=1}^K a^2_k \, V_p \left( \widehat{Y}_k \right) +  \sum_{k=1}^K \sum_{j \ne k = 1}^K a_k \, a_j COV_p \left( \widehat{Y}_k ,  \widehat{Y}_j \right) \\ \hfill(\#eq:eqraz7)
 \end{eqnarray}
 
-e um estimador dessa variância pode ser facilmente construído usando
+e um estimador dessa variância pode ser facilmente construído usando:
 
 \begin{eqnarray}
 \widehat{V}_p \left( \widehat{\theta} \right) & = & \sum_{k=1}^K \sum_{j = 1}^K a_k \, a_j \widehat{COV}_p \left( \widehat{Y}_k ,  \widehat{Y}_j \right) \\
-& = & \sum_{k=1}^K a^2_k \, \widehat{V}_p \left( \widehat{Y}_k \right) +  \sum_{k=1}^K \sum_{j \ne k = 1}^K a_k \, a_j \widehat{COV}_p \left( \widehat{Y}_k ,  \widehat{Y}_j \right) (\#eq:eqraz8)
+& = & \sum_{k=1}^K a^2_k \, \widehat{V}_p \left( \widehat{Y}_k \right) +  \sum_{k=1}^K \sum_{j \ne k = 1}^K a_k \, a_j \widehat{COV}_p \left( \widehat{Y}_k ,  \widehat{Y}_j \right) \\ \hfill(\#eq:eqraz8)
 \end{eqnarray}
 
 Um resultado bastante útil é mostrado a seguir. Quando $\theta = \sum_{k=1}^K a_k \, Y_k$, então sua variância pode ser escrita como:
@@ -209,7 +208,7 @@ V_p \left( \widehat{\theta} \right) & = & E_p \left( \widehat{\theta} -\theta \r
 & = & E_p \left[ \sum_{i \in s} \pi_i^{-1} \left( \sum_{k=1}^K a_k y_{ki} \right) - \sum_{i \in U} \left( \sum_{k=1}^K a_k y_{ki} \right) \right]^2 \\
 & = & E_p \left( \sum_{i \in s} \pi_i^{-1} z_i - \sum_{i \in U} z_i \right)^2 \\
 & = & E_p \left( \widehat{Z}_{HT} - Z \right)^2 \\
-& = & V_p \left( \widehat{Z}_{HT} \right) (\#eq:eqraz9)
+& = & V_p \left( \widehat{Z}_{HT} \right)\\ \hfill (\#eq:eqraz9)
 \end{eqnarray}
 
 onde $z_i = \sum _{k=1} ^K a_k y_{ki}$.
@@ -225,13 +224,13 @@ Este resultado tem utilidade também quando $\theta$ é uma função não linear
 \begin{eqnarray}
  \widehat{\theta} & = & f(\widehat{Y}_1, \widehat{Y}_2, ..., \widehat{Y}_K) \\
  & = & f(Y_1, Y_2, ..., Y_K) + \sum_{k=1}^K \left[ \frac {\partial {f(Y_1, Y_2, ..., Y_K)}}   {\partial{Y_k}} \right] \left( \widehat{Y}_k - Y_k \right) + \\
- & \, & \sum_{q=2}^\inf \frac {1} {q!} \sum_{k=1}^K \left[ \frac {\partial ^q {f(Y_1, Y_2, ..., Y_K)}} {\partial {Y^q_k}} \right] \left( \widehat{Y}_k - Y_k \right)^q \\
- & \doteq & f(Y_1, Y_2, ..., Y_K) + \sum_{k=1}^K \left[ \frac {\partial {f(Y_1, Y_2, ..., Y_K)}}   {\partial{Y_k}} \right] \left( \widehat{Y}_k - Y_k \right) (\#eq:eqraz11)
+ & \, & +\sum_{q=2}^\inf \frac {1} {q!} \sum_{k=1}^K \left[ \frac {\partial ^q {f(Y_1, Y_2, ..., Y_K)}} {\partial {Y^q_k}} \right] \left( \widehat{Y}_k - Y_k \right)^q \\
+ & \doteq & f(Y_1, Y_2, ..., Y_K) + \sum_{k=1}^K \left[ \frac {\partial {f(Y_1, Y_2, ..., Y_K)}}   {\partial{Y_k}} \right] \left( \widehat{Y}_k - Y_k \right)\\ \hfill (\#eq:eqraz11)
 \end{eqnarray}
 
 onde a aproximação da última linha advém da exclusão de todos os termos de ordem igual ou superior a 2.
 
-É comum chamar de $\widehat{\theta}_L$ a quantidade
+É comum chamar de $\widehat{\theta}_L$ a quantidade:
 
 \begin{eqnarray}
  \widehat{\theta}_L & = & f(Y_1, Y_2, ..., Y_K) + \sum_{k=1}^K \left[ \frac {\partial {f(Y_1, Y_2, ..., Y_K)}} {\partial{Y_k}} \right] \left( \widehat{Y}_k - Y_k \right) \\
@@ -272,12 +271,11 @@ Chamando agora de $B_p( \widehat{R} ) = E_p \left( \widehat{R} \right) - R$, o v
 B_p( \widehat{R} ) = - \frac{1}{X} \times COV_p \left( \widehat{R} , \widehat{X} \right) (\#eq:eqraz13)
 \end{equation}
 
-Esta expressão fornece um caminho para estabelecer um limite superior para o valor absoluto do vício dividido pelo desvio padrão do estimador da razão. Notando que $COV_p \left( \widehat{R} , \widehat{X} \right) = CORR_p \left( \widehat{R} , \widehat{X} \right) \times DP_p(\widehat{R}) \times DP_p(\widehat{X})$, segue-se que:
+Esta expressão fornece um caminho para estabelecer um limite superior para o valor absoluto do vício dividido pelo desvio padrão do estimador da razão. Notando que: $COV_p \left( \widehat{R} , \widehat{X} \right) = CORR_p \left( \widehat{R} , \widehat{X} \right) \times DP_p(\widehat{R}) \times DP_p(\widehat{X})$, segue-se que:
 
 \begin{eqnarray}
  \left| \frac {B_p( \widehat{R} )}{DP_p(\widehat{R})} \right| & = & \frac{1}{X} \times \left| \frac{CORR_p \left( \widehat{R} , \widehat{X} \right) \times DP_p(\widehat{R}) \times DP_p(\widehat{X})} {DP_p(\widehat{R})} \right| \\ 
- & = & \left| CORR_p \left( \widehat{R} , \widehat{X} \right) \right| \times \frac {DP_p(\widehat{X})}{X} \\
- & \le & CV_p(\widehat{X}) (\#eq:eqraz14)
+ & = & \left| CORR_p \left( \widehat{R} , \widehat{X} \right) \right| \times \frac {DP_p(\widehat{X})}{X} \le CV_p(\widehat{X}) \\ \hfill(\#eq:eqraz14)
 \end{eqnarray}
  
 Assim, quando o tamanho da amostra for grande o suficiente para tornar o CV do estimador do total $\widehat{X}$ no denominador da razão $\widehat{R}$ pequeno (digamos, menor que 0,1 ou 10%), então o vício do estimador da razão será pequeno quando comparado com o desvio padrão desse estimador. Vícios desse tipo são geralmente desprezados na prática, a menos que se tenha amostra *muito pequena*.
@@ -293,7 +291,7 @@ Como $\widehat{R}$ tem um pequeno vício técnico, a avaliação de sua precisã
 
 já que o termo $\left[ B_p( \widehat{R} ) \right]^2$ fica menor que 1% da variância $V_p(\widehat{R})$ sempre que $CV_p(\widehat{X}) \le 0,1$.
 
-Usando ainda o resultado da seção \@ref(estoft) quanto à linearização de estimadores que podem ser escritos como funções não lineares de totais, segue-se que podemos aproximar a variância do estimador $\widehat{R}$ pela variância do estimador linearizado, onde a razão depende dos totais populacionais de duas variàveis ($K=2$), sendo o primeira definida como $y_{1i} \equiv y_i$ e a segunda $y_{2i} \equiv x_i$, com a função definida como $f(Y_1, Y_2) = Y_1 / Y_2$. 
+Usando ainda o resultado da seção \@ref(estoft) quanto à linearização de estimadores que podem ser escritos como funções não lineares de totais, segue-se que podemos aproximar a variância do estimador $\widehat{R}$ pela variância do estimador linearizado, onde a razão depende dos totais populacionais de duas variáveis ($K=$ 2), sendo o primeira definida como $y_{1i} \equiv y_i$ e a segunda $y_{2i} \equiv x_i$, com a função definida como $f(Y_1, Y_2) = Y_1 / Y_2$. 
 
 Nesse caso, a variável linearizada $z_i$ pode ser obtida notando que:
 
@@ -306,7 +304,7 @@ e
 \frac {\partial {f(Y_1, Y_2)}} {\partial{Y_2}} = \frac {-Y_1}{Y^2_2} = \frac {-Y}{X^2}
 \end{equation}
 
-levando a
+levando a:
 \begin{equation}
 z_i = \frac {1}{X} y_i - \frac {Y}{X^2} x_i = \frac {1}{X} \left( y_i - R x_i \right)
 \end{equation}
@@ -342,34 +340,33 @@ A Tabela \@ref(tab:tabrazao2) apresenta um resumo da estimação de parâmetros 
 cat("<table>",paste0("<caption>", "(#tab:tabrazao2)", "Parâmetros e estimadores para uma razão sob AAS", "</caption>"),"</table>", sep ="\n")
 ```
 ---------
-Parâmetro                                                                                                                                                    Estimador                     
------------------------------------------------------------------------------------------------------------------------------------------------------------- ---------------------------------------------------------------------------------------------------------------
-$R =\displaystyle\frac{Y}{X}=\frac{\overline{Y}}{\overline{X}}$                                                                                                            $\widehat{R}= \displaystyle\frac{\sum_{i\in s} y_i} {\sum_{i\in s} x_i} = \frac{\overline{y}} {\overline{x}}$
+Parâmetro                                                        Estimador                     
+---------------------------------------------------------------- --------------------------------------------
+$R =\displaystyle\frac{Y}{X}=\frac{\overline{Y}}{\overline{X}}$  $\widehat{R}=\displaystyle\frac{\sum_{i\in s} y_i} {\sum_{i\in s} x_i} = \frac{\overline{y}} {\overline{x}}$
                                                                                                           
-$V_{AAS}(\widehat{R})\doteq\frac{1}{\overline{X}^2}\left(\frac{1}{n}-\frac{1}{N}\right)\frac{1}{N-1}\displaystyle\sum_{i\in U}\left(y_i-R x_i\right)^2$         $\widehat{V}_{AAS}(\widehat{R})=\frac{1}{\overline{x}^2}\left(\frac{1}{n}-\frac{1}{N}\right)\frac{1}{n-1}\displaystyle\sum_{i\in s}\left(y_i-\widehat{R}x_i\right)^2$  
+$V_{AAS}(\widehat{R})$                                           $\widehat{V}_{AAS}(\widehat{R}) =\displaystyle\frac{1}{\overline{x}^2}\left(\frac{1}{n}-\frac{1}{N}\right)\frac{1}{n-1}\displaystyle\sum_{i\in s}\left(y_i-\widehat{R}x_i\right)^2$  
 
 ------------
 </center>
 
 
-
 **(#exm:exmrazao2)** Estimando Razões e Médias de Razões
 
-Considere a população de municípios brasileiros fornecida no arquivo MunicBR_dat.
+Considere a população de municípios brasileiros fornecida no arquivo 'MunicBR_dat.rds'.
 
 1.	Selecione uma AAS de $n =$ 200 municípios, e use esta amostra para estimar os seguintes parâmetros populacionais:
 
-    a. Densidade demográfica média por $km^2$ no Brasil;
+    a. Densidade demográfica média por km<sup>2</sup> no Brasil.
 
-    b. Média da variável densidade demográfica por $km^2$ por município.
+    b. Média da variável densidade demográfica por km<sup>2</sup> por município.
 
 2.	Para cada uma das estimativas acima:
 
-    a.	Estime o erro padrão e o coeficiente de variação; 
+    a.	Estime o erro padrão e o coeficiente de variação. 
 
     b.	Compare com os correspondentes parâmetros populacionais.
     
-3.	Calcule o tamanho da amostra que seria necessário para a estimar densidade demográfica média por $km^2$ no Brasil com erro máximo de 10 Hab/$km^2$ com nível de confiança de 95%.
+3.	Calcule o tamanho da amostra que seria necessário para a estimar densidade demográfica média por km<sup>2</sup> no Brasil com erro máximo de 10 Hab/km<sup>2</sup> com nível de confiança de 95%.
 
 4.	Selecione uma amostra do tamanho calculado em 3 e estime o parâmetro e sua margem de erro, considerando coeficiente de confiança de 95%.
 
@@ -540,7 +537,7 @@ a)  Supondo que a amostra é *AAS*, estime o número total de árvores mortas na
 b)  Estime o vício do número de árvores mortas.
 c)  Recalcule as estimativas sem utilizar a informação auxiliar e compare os resultados.
 
-**(#exr:exerazao6)**  Considere uma população $U$ com $N =$ 100 unidades. Para cada uma das unidades $U_i$, considere o par $(Y_i,X_i)$, onde $Y_i$ tem distribuição $U(50,100)$ e $x_i = 3y_i+e_i$, com $e_i \approx N(0,16)$, $i=1,\:2,\:\dots,\:100$.
+**(#exr:exerazao6)**  Considere uma população $U$ com $N =$ 100 unidades. Para cada uma das unidades $U_i$, considere o par $(Y_i,X_i)$, onde $Y_i$ tem distribuição $U(50;100)$ e $x_i = 3y_i+e_i$, com $e_i \approx N(0;16)$, $i=$ 1, 2, ..., 100.
 
 a)  Usando funções do R, gere a população $U$ com os valores de $Y_i$ e $X_i$, como descrito acima.
 b)  Calcule os parâmetros populacionais $\overline Y,\,\,\overline X,\,\,S^2_y,\,\,S ^2_x$.
@@ -578,27 +575,27 @@ A Tabela \@ref(tab:tabrazao7) apresenta os dados para a amostra selecionada.
 cat("<table>",paste0("<caption>", "(#tab:tabrazao7)", "Diâmetro e idade das árvores da amostra", "</caption>"),"</table>", sep ="\n")
 ```
 ----------
- Árvore	  Diâmetro	Idade  Árvore   Diâmetro  Idade
--------- --------- ------ -------- --------- ------
- 1          12,0    125     11	         5,7	   61
+ Árvore	  Diâmetro	Idade       Árvore   Diâmetro  Idade
+-------- --------- ------ ---- -------- --------- ------
+ 1          12,0    125         11	          5,7	   61
  
- 2          11,4    119     12           8,0     80
+ 2          11,4    119         12           8,0     80
  
- 3           7,9     83     13          10,3    114
+ 3           7,9     83         13          10,3    114
  
- 4           9.0     85     14          12,0    147
+ 4           9.0     85         14          12,0    147
  
- 5          10,5     99     15           9,2    122
+ 5          10,5     99         15           9,2    122
  
- 6           7,9    117     16           8,5    106
+ 6           7,9    117         16           8,5    106
    
- 7           7,3     69     17           7,0     82
+ 7           7,3     69         17           7,0     82
  
- 8          10,2    133     18          10,7     88
+ 8          10,2    133         18          10,7     88
  
- 9          11,7    154     19           9,3     97
+ 9          11,7    154         19           9,3     97
  
- 10         11,3    168     20           8,2     99
+ 10         11,3    168         20           8,2     99
 -----------
 </center>
 
