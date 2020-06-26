@@ -4,7 +4,7 @@
 
 Grande parte das pesquisas amostrais produz e divulga estimativas para certos subgrupos ou classes nos quais a população pode ser dividida. Tais *classes*, aqui denominados *domínios* de estudo, *subpopulações* ou *pequenas áreas*, são quaisquer *subconjuntos da população* $U$ para os quais desejamos obter ou produzir estimativas separadas a partir da amostra selecionada e observada dessa população. 
 
-Por exemplo, pesquisas domiciliares costumam apresentar estimativas para grupos tais como: homens de 40 anos ou mais, mulheres em idade reprodutiva (15 a 49 anos), crianças e adolescentes, etc. Pesquisas de empresas costumam apresentar estimativas por faixas de tamanho das empresas (por exemplo, definido como o número de pessoas ocupadas nas empresas) ou classes de atividade econômica exercida. Em pesquisas agropecuárias, costuma-se apresentar estimativas por faixas de área total dos estabelecimentos (em hectares), ou segundo ocorrência de produção de certos produtos (por exemplo, para estabelecimentos com produção de café). Em todas estas, também é comum a apresentação de estimativas por regiões, unidades da federação ou outras particições geográficas de interesse. Cada um dos subgrupos assim definidos configura um *domínio* de interesse.
+Por exemplo, pesquisas domiciliares costumam apresentar estimativas para grupos tais como: homens de 40 anos ou mais, mulheres em idade reprodutiva (15 a 49 anos), crianças e adolescentes etc. Pesquisas de empresas costumam apresentar estimativas por faixas de tamanho das empresas (por exemplo, definido como o número de pessoas ocupadas nas empresas) ou classes de atividade econômica exercida. Em pesquisas agropecuárias, costuma-se apresentar estimativas por faixas de área total dos estabelecimentos (em hectares), ou segundo ocorrência de produção de certos produtos (por exemplo, para estabelecimentos com produção de café). Em todas estas, também é comum a apresentação de estimativas por regiões, unidades da federação ou outras particições geográficas de interesse. Cada um dos subgrupos assim definidos configura um *domínio* de interesse.
 
 Neste capítulo, apresentamos as ideias centrais de como fazer *estimação para domínios*. Apresentamos com detalhes o caso da estimação sob *Amostragem Aleatória Simples*, mas as ideias sobre como proceder com outros planos amostrais são as mesmas. A principal estratégia para estimar parâmetros em domínios de interesse é definir duas variáveis derivadas que podem ser calculadas para as unidades da amostra selecionada. 
 
@@ -63,7 +63,7 @@ Muitos outros parâmetros podem ser definidos para domínios, mas não é comum 
 
 Esta seção mostra como fazer para estimar os parâmetros populacionais para o domínio $c$ considerados na seção \@ref(domin2), com base numa amostra aleatória simples sem reposição de tamanho $n$ extraída da população $U$. Embora a discussão seja restrita aqui ao caso de amostras aleatórias simples, o processo de adaptação de estimadores para parâmetros de domínios aqui mostrado pode ser facilmente seguido para o caso de outros planos amostrais. Tudo se baseia na ideia de criação das variáveis derivadas apresentada na seção \@ref(domin1). 
 
-*Passo 1:* Selecionar uma AAS de tamanho $n$ da população $U$ de tamanho $N$ e observar ($y_i$) para todo $i \in s$.
+*Passo 1:* Selecionar uma AAS de tamanho $n$ da população $U$ de tamanho $N$ e observar $y_i$ para todo $i \in s$.
 
 *Passo 2:* Construir as variáveis derivadas $c_i = I(i \in U_c)$ e $y_{ic} = y_i c_i$.
 
@@ -113,12 +113,13 @@ $$
 \overline{y}_c = \frac {\widehat Y_c} {\widehat N_c} = \frac {(N/n)\sum_{i\in s} y_{ic}} {(N/n)\sum_{i\in s}c_i}  = \sum_{i\in s}y_{ic}/n_c (\#eq:eqdom11)
 $$
 
-Note que o estimador da média do domínio $c$ é uma razão de totais estimados, e que $n_c$ é uma *variável aleatória*, aparecendo no denominador da expressão do estimador da média no domínio.
+Note que o estimador da média no domínio $c$ é uma razão de totais estimados, e que $n_c$ é uma *variável aleatória*, aparecendo no denominador da expressão do estimador da média no domínio.
 
 Para obter sua variância, podemos recorrer aos resultados para estimação de razões disponíveis no capítulo \@ref(razao), resultando em:
 
 $$
-V_{AAS}(\overline{y}_c) \doteq \frac{1} {p_c^2} \left( \frac 1 n - \frac{1}{N} \right) \frac{1}{N-1} \displaystyle \sum_{i \in U} \left( y_{ic} -\overline{Y_c}\, c_i \right)^2 \\ \quad\quad\quad\quad\quad\quad\quad\quad\quad= \frac{1}{p_c^2} \left( \frac 1 n - \frac{1}{N} \right) \frac{1}{N-1} \displaystyle \sum_{i \in U} c_i \left( y_i - \overline{Y_c} \right)^2   (\#eq:eqdom12)
+\begin{align}
+V_{AAS}(\overline{y}_c) &\doteq \frac{1} {p_c^2} \left( \frac 1 n - \frac{1}{N} \right) \frac{1}{N-1} \displaystyle \sum_{i \in U} \left( y_{ic} -\overline{Y_c}\, c_i \right)^2 \\& = \frac{1}{p_c^2} \left( \frac 1 n - \frac{1}{N} \right) \frac{1}{N-1} \displaystyle \sum_{i \in U} c_i \left( y_i - \overline{Y_c} \right)^2\end{align} (\#eq:eqdom12)
 $$
 
 O estimador de variância correspondente é dado por:
@@ -143,7 +144,7 @@ $$
 $$
 \left( \overline{y}_c - \overline{Y_c} \right) / \sqrt{\widehat V_{AAS}(\overline{y}_c)} \approx N(0;1) \,\,\textrm{para} \,\,n_c\,\,\textrm{grande.}
 $$
-Desse modo, as respectivas expressões dos intervalos de confiança de nível (1-$\alpha$)% para a estimação de total e média do domínio $c$ sob AAS passam a ser: 
+Desse modo, as respectivas expressões dos intervalos de confiança de nível (1-$\alpha$)% para a estimação de total e média no domínio $c$ sob AAS passam a ser: 
 
 $$ 
 IC_{AAS} (p_c ; 1-\alpha) = \left[ \widehat{p}_c \mp z_{\alpha / 2} \widehat {V}_{AAS} ( \widehat{p}_c ) \right] (\#eq:eqdom14) 
@@ -177,7 +178,7 @@ onde $s_c^2 = \sum_{i \in s} c_i (y_i - \overline{y}_c)^2 / (n_c-1)$  é um esti
 
 Quando $N_c$ é desconhecido, $\widehat V_{AAS}(\overline{y}_c |\,n_c>0)$  não é calculável. 
 
-@Cochran1977, página 35, sugere substituir a fração amostral no domínio $n_c/N_c$ pela fração amostral esperada no domínio, dada por $n/N$, o que implica em:
+@Cochran1977, página 35, sugere substituir a fração amostral no domínio, $n_c/N_c$, pela fração amostral esperada no domínio, dada por $n/N$, o que implica em:
  
 $$
  \widehat V_{AAS}^* (\overline{y}_c | \, n_c>0) = \left(1-\frac{n}{N} \right) \frac {s_c^2} {n_c} (\#eq:eqdom19)
@@ -187,9 +188,9 @@ $$
 
 Em algumas situações de pesquisa, é possível supor conhecido o *tamanho do domínio* $N_c$, a partir de dados de uma fonte secundária confiável. Nesses casos, temos as seguintes consequências:
 
-*a)* Não é necessário estimar a proporção de unidades no domínio $p_c$;
+a) Não é necessário estimar a proporção de unidades no domínio $p_c$.
 
-*b)* Fica disponível um estimador alternativo para o total populacional $Y_c$ que pode ser mais preciso que o estimador tipo Horvitz-Thompson descrito na Expressão \@ref(eq:eqdom8). 
+b) Fica disponível um estimador alternativo para o total populacional $Y_c$ que pode ser mais preciso que o estimador tipo Horvitz-Thompson descrito na Expressão \@ref(eq:eqdom8). 
 
 Para obter o estimador alternativo, note que: 
 
@@ -215,21 +216,22 @@ $$
 \widehat V_{AAS} \left( \widehat{Y}_c^R | \, n_c>0 \right) = N_c^2 \left( \frac 1 {n_c} - \frac {1} {N_c} \right) s_c^2 \,\, (\#eq:eqdom23)
 $$
 
-A Tabela \@ref(tab:tabdom1) apresenta um resumo da estimação de parâmetros proporção, média e total do domínio $c$ sob AAS. 
+A Tabela \@ref(tab:tabdom1) apresenta um resumo da estimação de parâmetros proporção, média e total no domínio $c$ sob AAS. 
+
 <center>
 ```{r, results="asis", echo=FALSE}
-cat("<table>",paste0("<caption>", "(#tab:tabdom1)", "Parâmetros e respectivos estimadores de domínio sob AAS", "</caption>"),"</table>", sep ="\n")
+cat("<table>",paste0("<caption>", "(#tab:tabdom1)", "Parâmetros e respectivos estimadores no domínio $c$ sob AAS", "</caption>"),"</table>", sep ="\n")
 ```
 ----------
-Parâmetro do Domínio $c$                              Estimador do Domínio $c$ sob AAS
-----------------------------------------------------  ---------------------------------------------------------------------------------------------------------------------------------------------------------
- $p_c=\sum_{i\in U}c_i/N= N_c/N$                       $\widehat{p}_c=n_c/n, \quad N_c \,\,\text{desconhecido}$ 
+Parâmetro                                              Estimador 
+------------------------------------------------------ ------------------------------------------------------------------
+ $p_c=\displaystyle\sum_{i\in U}c_i/N= N_c/N$          $\widehat{p}_c=n_c/n, \,\, N_c \,\,\text{desconhecido}$ 
       
  $\overline{Y_c}=Y_c/N_c$                                        
-                                                       $\overline{y}_c=\widehat{Y}_c/\widehat{N}_c=\displaystyle\sum_{i\in s}y_{ic}/n_c,\quad N_c \,\,\text{desconhecido}$
+                                                       $\overline{y}_c=\widehat{Y}_c/\widehat{N}_c=\displaystyle\sum_{i\in s}y_{ic}/n_c,\,\, N_c \,\,\text{desconhecido}$
 
-$Y_c=N_c\overline{Y_c}$                                $\widehat{Y}_c=N/n\displaystyle\sum_{i\in s} y_{ic},\quad N_c\,\,\text{desconhecido}$
-                                                       $\widehat{Y}_c^R=N_c\overline{y}_c,\quad N_c\,\,\text{conhecido}$  
+$Y_c=N_c\overline{Y_c}$                                $\widehat{Y}_c=N/n\displaystyle\sum_{i\in s} y_{ic},\,\, N_c\,\,\text{desconhecido}$
+                                                       $\widehat{Y}_c^R=N_c\overline{y}_c,\,\, N_c\,\,\text{conhecido}$  
                                                   
 $V_{AAS}(\widehat p_c)$                                $\widehat V_{AAS}(\widehat p_c)=\displaystyle\left(\frac 1 n-\frac 1 N\right)\frac n {n-1}\widehat p_c(1-\widehat p_c)$
 
@@ -237,9 +239,9 @@ $V_{AAS}(\overline{y}_c)$                              $\widehat V_{AAS}(\overli
 
 
 $V_{AAS}(\overline{y}_c\mid{n_c>0},\,\text{fixo})$     $\widehat V_{AAS}(\overline{y}_c\mid n_c>0)=\displaystyle\left(\frac 1 {n_c}-\frac{1}{N_c}\right)s_c^2$   
-                                                       $\widehat V_{AAS}^*(\overline{y}_c\mid n_c>0)=\displaystyle\left(1-\frac{n}{N}\right)\frac{s_c^2}{n_c},\quad N_c\,\,\text{desconhecido}$
+                                                       $\widehat V_{AAS}^*(\overline{y}_c\mid n_c>0)=\displaystyle\left(1-\frac{n}{N}\right)\frac{s_c^2}{n_c},\,N_c\,\text{desconhecido}$
  
-$V_{AAS}(\widehat{Y}_c)$                               $\widehat{V}_{AAS}(\widehat{Y}_c)=N^2\displaystyle\left(\frac{1}{n}-\frac{1}{N}\right)\frac{1}{N-1}\displaystyle\sum_{i\in s}                                    \left(y_{id}-\frac{t_c}{n}\right)^2$ 
+$V_{AAS}(\widehat{Y}_c)$                               $\widehat{V}_{AAS}(\widehat{Y}_c)=N^2\displaystyle\left(\frac{1}{n}-\frac{1}{N}\right)\frac{1}{N-1}\sum_{i\in s}                                    \left(y_{id}-\frac{t_c}{n}\right)^2$ 
    
     
 $V_{AAS}\left(\widehat{Y}_c^R\mid{n_c>0}\right)$       $\widehat V_{AAS}\left(\widehat{Y}_c^R\mid n_c>0 \right)= \displaystyle N_c^2\left(1-\frac{n_c}{N_c}\right)\frac{s_c^2}{n_c}$
@@ -247,10 +249,9 @@ $V_{AAS}\left(\widehat{Y}_c^R\mid{n_c>0}\right)$       $\widehat V_{AAS}\left(\w
 -----------
 </center>
 
+**(#exm:exmdom1)** Estimando totais e médias nos domínios
 
-**(#exm:exmdom1)** Estimando totais e médias por domínios
-
-Considere os dados da população de municípios brasileiros fornecidos no arquivo ‘MunicBR_dat.rds’.
+Considere os dados da população de municípios brasileiros fornecidos no arquivo 'MunicBR_dat.rds'.
 
 1. Selecione uma AAS de $n=$ 250 municípios, e use esta amostra para estimar os seguintes parâmetros populacionais:
 
@@ -258,9 +259,9 @@ Considere os dados da população de municípios brasileiros fornecidos no arqui
 
     b.	População total por região do Brasil, e correspondentes margens de erro relativo ao nível de confiança de 95%; suponha *desconhecidos* os tamanhos dos domínios;
 
-    c.	Média da densidade habitacional por $km^2$ por município para municípios com população igual ou superior a 100 mil habitantes, e correspondente margem de erro ao nível de confiança de 95%. Nesse caso, considere que o tamanho do domínio é *desconhecido*.
+    c.	Média da densidade habitacional por km<sup>2</sup> por município para municípios com população igual ou superior a 100 mil habitantes, e correspondente margem de erro ao nível de confiança de 95%. Nesse caso, considere que o tamanho do domínio é *desconhecido*.
 
-2. Usando os dados populacionais, calcule os valores dos parâmetros estimados em a. e c. e compare com suas estimativas amostrais. Comente.
+2. Usando os dados populacionais, calcule os valores dos parâmetros estimados nos itens a e c e compare com suas estimativas amostrais. Comente.
 
 
 Solução do (#exm:exmdom1) usando R
@@ -375,8 +376,7 @@ munic_amo <- cbind(munic_amo, r_chapeu)
     summarise(densidade_media_pop = mean(Densidade)))
 options(warn=0)
 ```
-
-## Comparação da eficiência dos estimadores de total do domínio
+## Comparação da eficiência dos estimadores de total no domínio
 
 Foram propostos dois estimadores para o total populacional $Y_c$, sendo um deles viável apenas quando o *tamanho do domínio* é conhecido. Nesse caso, é importante saber se o estimador tipo razão é preferível ao estimador tipo Horvitz-Thompson em termos de eficiência. Comparando as respectivas variâncias, de acordo com @Cochran1977, página 38, tem-se que a eficiência relativa do estimador tipo razão é dada por:
 
@@ -386,11 +386,11 @@ $$
 
 onde $\gamma_c^2 = S_c^2 / \overline{Y_c}^2$ é a variância relativa da característica $y$ no domínio $c$.  
  
-Isto mostra que conhecer o valor de $N_c$ sempre melhora a eficiência do estimador de total do domínio $c$, e que a melhoria é maior quando $p_c$ é pequena. Essa expressão também torna evidente que, para domínios raros na população, isto é, aqueles com valores bem pequenos de $p_c$, o estimador do total do domínio $c$ para $N_c$ desconhecido é bem pouco preciso, devendo talvez indicar a necessidade de uso de plano amostral que favoreça a estimação de $Y_c$ com melhor precisão que uma AAS.  
+Isto mostra que conhecer o valor de $N_c$ sempre melhora a eficiência do estimador de total no domínio $c$, e que a melhoria é maior quando $p_c$ é pequena. Essa expressão também torna evidente que, para domínios raros na população, isto é, aqueles com valores bem pequenos de $p_c$, o estimador do total no domínio $c$ para $N_c$ desconhecido é bem pouco preciso, devendo talvez indicar a necessidade de uso de plano amostral que favoreça a estimação de $Y_c$ com melhor precisão que uma AAS.  
 
 ## Estimação de proporções dentro do domínio
 
-Em algumas situações práticas, o parâmetro de interesse é a proporção de unidades do domínio $c$ que possuem um atributo ou característica $A$. Por exemplo, quando se deseja estimar a proporção de mulheres de 10 anos ou mais que já tiveram pelo menos um filho, ou quando se procura estimar a proporção de homens de 18 anos ou mais que prestaram o serviço militar. Em casos como os acima citados, o problema é estimar proporções dos domínios da população: mulheres de 10 anos ou mais; e homens com 18 anos ou mais.
+Em algumas situações práticas, o parâmetro de interesse é a proporção de unidades no domínio $c$ que possuem um atributo ou característica $A$. Por exemplo, quando se deseja estimar a proporção de mulheres de 10 anos ou mais que já tiveram pelo menos um filho, ou quando se procura estimar a proporção de homens de 18 anos ou mais que prestaram o serviço militar. Em casos como os acima citados, o problema é estimar proporções nos domínios da população: mulheres de 10 anos ou mais; e homens com 18 anos ou mais.
  
 Nesses casos, a variável de pesquisa $y$ seria dada por:
 
@@ -416,7 +416,7 @@ Sob AAS, o estimador simples para $p_{cA}$ pode ser obtido a partir do estimador
 $$
 \widehat {p}_{cA} = \sum_{i\in s}y_{id}/n_c = \frac {n_{cA}} {n_c} \,\, (\#eq:eqdom26)
 $$
-onde $n_{cA}$ denota o número de unidades na amostra do domínio $c$ que também possuem o atributo $A$. 
+onde $n_{cA}$ denota o número de unidades na amostra no domínio $c$ que também possuem o atributo $A$. 
 
 Considerando fixado o tamanho da amostra no domínio $c$, a variância condicional do estimador $\widehat {p}_{cA}$ é dada por:
 
@@ -429,9 +429,9 @@ Um estimador da variância de $\widehat p_{cA}$ sob AAS resulta em:
 $$
 \widehat V_{AAS} (\widehat p_{cA}\;|\;n_c \text{ fixo)}) = \left( \frac 1 {n_c} - \frac{1}{N_c} \right) {\widehat p_{cA} (1 - \widehat p_{cA}) } \,\, (\#eq:eqdom28) 
 $$
-Nas expressões \@ref(eq:eqdom27) e \@ref(eq:eqdom28), $n_c$, $N_c$ e $p_{cA}$ são, respectivamente, o número de unidades da amostra que pertencem ao domínio, o número total de unidades do domínio e a proporção de unidades no domìnio que possuem o atributo $A$.
+Nas expressões \@ref(eq:eqdom27) e \@ref(eq:eqdom28), $n_c$, $N_c$ e $p_{cA}$ são, respectivamente, o número de unidades da amostra que pertencem ao domínio, o número total de unidades no domínio e a proporção de unidades no domìnio que possuem o atributo $A$.
 
-Caso $N_c$ não seja conhecido, a fração amostral no domínio $n_c / N_c$ pode ser aproximado por $n / N$ na expressão anterior, levando ao estimador:
+Caso $N_c$ não seja conhecido, a fração amostral no domínio, $n_c / N_c$, pode ser aproximada por $n / N$ na expressão anterior, levando ao estimador:
 
 $$
 \widehat V_{AAS} (\widehat p_{cA}\;|\;n_c \text{ fixo)}) = \left( 1 - \frac{n}{N} \right) \frac {\widehat p_{cA} (1 - \widehat p_{cA}) } {n_c} \,\, (\#eq:eqdom29) 
@@ -542,13 +542,13 @@ b)  Repita o item a. utilizando as informações obtidas pelos dois dentistas.
 c)  Estime a média de dentes com cárie somente para as crianças da população que tem dentes cariados, usando somente as informações do Dr. A. Dê um intervalo de 95% de confiança para a média.
 d)  Repita o item c. utilizando as informações obtidas pelos dois dentistas.
 
-**(#exr:exrdom8)** Utilizando o arquivo dos municípios brasileiros, MunicBR_dat.rds, selecione uma AAS de 300 municípios. Utilizando as informações contidas nessa amostra:
+**(#exr:exrdom8)** Utilizando o arquivo dos municípios brasileiros, 'MunicBR_dat.rds', selecione uma AAS de 300 municípios. Utilizando as informações contidas nessa amostra:
 
 a)  Estime a área total de cada uma das 5 regiões brasileiras (N, NE, SE, S e CO) e calcule a estimativa do *CV* para cada caso.
 b)  Estime a proporção de municípios brasileiros com população menor que 10.000 habitantes e respectivo erro padrão.
 c)  Estime a população total, para o Brasil, dos municípios com menos de 10.000 habitantes e de um intervalo de 95% de confiança.
 
-**(#exr:exrdom9)** Selecione uma amostra de 30 fazendas do arquivo fazendas_dat.rds e estime os seguintes parâmetros populacionais e respectivos erros padrão:
+**(#exr:exrdom9)** Selecione uma amostra de 30 fazendas do arquivo 'fazendas_dat.rds' e estime os seguintes parâmetros populacionais e respectivos erros padrão:
 
 a) Razão entre Despesa e Receita para os estabelecimentos com área menor que 100.
 b) Razão entre Despesa e Receita para os estabelecimentos com área igual ou maior que 100.
