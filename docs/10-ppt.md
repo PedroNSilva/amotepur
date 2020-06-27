@@ -4,11 +4,11 @@
 
 Como já indicado no capítulo \@ref(visger), a *Amostragem Probabilística* contempla o emprego de métodos de amostragem que levam a ter probabilidades de inclusão na amostra desiguais, isto é, $\pi_i \ne \pi_j$ para algum par de unidades distintas $i \ne j \in U$. A teoria apresentada no capítulo \@ref(visger) cobre o caso geral, mas não indica quando o recurso de usar probabilidades desiguais de inclusão na amostra seria vantajoso. Neste capítulo tratamos justamente dessa questão, indicando estratégias que se pode usar para tirar proveito do emprego de amostragem com probabilidades desiguais para aumentar a eficiência dos estimadores de totais e médias.
 
-A ideia central já mencionada na seção \@ref(propHT) é fazer com que as probabilidades de inclusão fiquem proporcionais aos valores da(s) variável(is) de estudo $y$. É claro que não podemos conseguir isso de forma exata, já que os valores da variável $y$ são desconhecidos antes da seleção da amostra. Mas em muitas situações práticas é possível contar com cadastros que contenham valores de uma variável auxiliar $x$ indicativa do tamanho das unidades populacionais. Sempre que a variação dos tamanhos das unidades for grande, a informação auxiliar disponível sobre os tamanhos for precisa e o tamanho for positivamente correlacionado com as variáveis de interesse podemos empregar métodos de seleção que usam probabilidades proporcionais ao tamanho. Tais métodos permitem aumentar a eficiência na estimação de totais e médias, em comparação com métodos de amostragem com probabilidades iguais, para tamanhos de amostra idênticos.
+A ideia central já mencionada na seção \@ref(propHT) é fazer com que as probabilidades de inclusão fiquem proporcionais aos valores da(s) variável(is) de estudo $y$. É claro que não podemos conseguir isso de forma exata, já que os valores da variável $y$ são desconhecidos antes da seleção da amostra. Mas em muitas situações práticas é possível contar com cadastros que contenham valores de uma variável auxiliar $x$ indicativa do tamanho das unidades populacionais. Sempre que a variação dos tamanhos das unidades for grande, a informação auxiliar disponível sobre os tamanhos for precisa e o tamanho for positivamente correlacionado com as variáveis de interesse, podemos empregar métodos de seleção que usam probabilidades proporcionais ao tamanho. Tais métodos permitem aumentar a eficiência na estimação de totais e médias, em comparação com métodos de amostragem com probabilidades iguais, para tamanhos de amostra idênticos.
 
 ### Estimação do total populacional
 
-Considere o caso em que os valores de uma variável auxiliar $x$ são conhecidos para todos as unidades da população $U$ mediante um cadastro. Se $x_i>0 \,\, \forall \, i \in U$, então podemos usar esta variável como uma *medida de tamanho* das unidades populacionais. Por enquanto, vamos supor que é possível selecionar amostras de acordo com um plano amostral tal que: $\pi_i \propto x_i \,\,\forall \,\, i \in U$. Mais tarde, apresentaremos diversos métodos para implementar essa ideia.
+Considere o caso em que os valores de uma variável auxiliar $x$ são conhecidos para todas as unidades da população $U$ mediante um cadastro. Se $x_i>0 \,\, \forall \, i \in U$, então podemos usar esta variável como uma *medida de tamanho* das unidades populacionais. Por enquanto, vamos supor que é possível selecionar amostras de acordo com um plano amostral tal que: $\pi_i \propto x_i \,\,\forall \,\, i \in U$. Mais adiante, apresentamos diversos métodos para implementar essa ideia.
 
 Conforme já mostrado no capítulo \@ref(visger), sabemos que o estimador HT para estimar o total populacional $Y = \sum_{i \in U} y_i$ é dado por:
 
@@ -18,13 +18,13 @@ $$
 onde cada unidade da amostra tem um peso amostral igual ao inverso da respectiva probabilidade de inclusão, dado por $d_i = 1 / \pi_i \,\, \forall \, i \in U$.
 
 Quando a probabilidade de inclusão na amostra é proporcional ao tamanho, temos:
-$\pi_i = n \times {x_i} / {X}$ 
+$\pi_i = n{x_i} / {X}$ 
 onde $X = \sum_{i \in U} x_i$ é o total populacional da variável $x$ e $n$ é o tamanho da amostra. 
 
 Sendo assim, o peso amostral da unidade $i$ é dado por $d_i = X / (n x_i)$. Substituindo na equação \@ref(eq:eqppt1), o estimador HT do total $Y$ fica dado por:
 
 $$
-\widehat Y_{HT/PPT} = \displaystyle X \times \frac{1}{n} \sum_{i \in s} \frac{y_i}{x_i}  \,\, (\#eq:eqppt2)
+\widehat Y_{HT/PPT} = \displaystyle X\frac{1}{n} \sum_{i \in s} \frac{y_i}{x_i}  \,\, (\#eq:eqppt2)
 $$
 Verifica-se então que, para amostras extraídas com probabilidades de inclusão exatamente proporcionais ao tamanho, o estimador de total depende de estimar a *média das razões* entre a variável de interesse $y$ e a medida de tamanho $x$, e depois multiplicar essa estimativa pelo total conhecido da medida de tamanho na população. Essa forma de apresentar o estimador de total sugere que sempre que as razões ${y_i}/{x_i}$ forem aproximadamente constantes, a média amostral delas será um estimador preciso da correspondente média populacional, e o estimador de total terá variância pequena.
 
@@ -32,7 +32,7 @@ Uma forma de ver isto mais diretamente requer lembrar da expressão alternativa 
 
 $$
 \begin{align} V_{SYG} \left( \widehat Y_{HT/PPT} \right) & = \displaystyle \sum_{i \in U} \sum_{j>i} (\pi_i \pi_j - \pi_{ij}) \left( \frac{y_i}{\pi_i} - \frac{y_j}{\pi_j} \right)^2 \\
-& = \displaystyle X^2 \times \frac{1}{n^2} \sum_{i \in U} \sum_{j>i} (\pi_i \pi_j - \pi_{ij}) \left( \frac{y_i}{x_i} - \frac{y_j}{x_j} \right)^2 \end{align} \,\, (\#eq:eqppt3)
+& = \displaystyle X^2 \frac{1}{n^2} \sum_{i \in U} \sum_{j>i} (\pi_i \pi_j - \pi_{ij}) \left( \frac{y_i}{x_i} - \frac{y_j}{x_j} \right)^2 \end{align} \,\, (\#eq:eqppt3)
 $$
 
 Da expressão \@ref(eq:eqppt3) podemos observar que a variância do estimador de total seria nula caso $y_i/x_i = y_j/x_j$ para todo $i \neq j \in U$. Portanto, se $y_i \propto x_i \,\,\forall i \in U$, então $V_{SYG}\left( \widehat Y_{HT} \right) = 0$. Isto sugere que se $y$ e $x$ forem aproximadamente proporcionais (logo, alta e positivamente correlacionadas), então a variância do estimador HT do total será pequena.
@@ -41,13 +41,13 @@ Também se pode notar que a variância deveria ser pequena quando $\pi_{ij} \dot
 
 Sendo assim, a chave para alcançar eficiência através da amostragem PPT é ter medidas de tamanho ($x$) alta e positivamente correlacionadas com a(s) resposta(s) de interesse na pesquisa ($y$). Essa situação é muitas vezes encontrada ao realizar pesquisas de estabelecimentos ou instituições, onde as principais variáveis de estudo da pesquisa são bem correlacionadas com medidas de tamanho frequentemente disponíveis nos cadastros empregados para seleção das respectivas amostras.
 
-A seleção de amostras com PPT pode ser feita com ou sem reposição. O sorteio de amostras com reposição é pouco usado na prática, devido à perda de eficiência em comparação com métodos de sorteio sem reposição e também ao problema prático do que fazer em caso de repetição de unidades selecionadas. Apesar disso, é importante conhecer este método e suas propriedades, pois com frequência é usado como aproximação para obter estimativas simplificadas de variãncia. Já na amostragem PPT sem reposição há vários métodos de seleção, trazendo mais complexidade e dificuldades na estimação da precisão. Porém a eficiência é maior e se justifica o emprego de métodos mais complexos. 
+A seleção de amostras com PPT pode ser feita com ou sem reposição. O sorteio de amostras com reposição é pouco usado na prática, devido à perda de eficiência em comparação com métodos de sorteio sem reposição e também ao problema prático do que fazer em caso de repetição de unidades selecionadas. Apesar disso, é importante conhecer este método e suas propriedades, pois com frequência é usado como aproximação para obter estimativas simplificadas de variância. Já na amostragem PPT sem reposição há vários métodos de seleção, trazendo mais complexidade e dificuldades na estimação da precisão. Porém a eficiência é maior e se justifica o emprego de métodos mais complexos. 
 
 Na sequência apresentamos os principais métodos de sorteio de amostras PPT, com e sem reposição. Para um tratamento mais completo dos métodos disponíveis, consultar @Brewer1983.
 
 ## Amostragem PPT Com Reposição
 
-O algoritmo para seleção de amostra PPT com reposição é denominado *método dos totais cumulativos*, e consiste nos seguintes passos: 
+O algoritmo para seleção de amostra PPT com reposição é denominado *método dos totais cumulativos* e consiste nos seguintes passos: 
 
 1. Acumule as medidas de tamanho na população, isto é, faça $X_{(0)} = 0$ e calcule $X_{(K)} = \displaystyle \sum_{k=1}^{i} x_k$ para $i=1,...,N$.
 
@@ -61,7 +61,7 @@ O algoritmo para seleção de amostra PPT com reposição é denominado *método
 
 A *Amostra selecionada* $s$ é constituída pelas unidades $i_1, ..., i_l, ..., i_n$ cujos rótulos foram sorteados nas várias iterações do passo 4.
 
-Amostragem PPT Com Reposição é um método muito simples de implementar, mas que pode implicar seleção repetida da(s) mesma(s) unidade(s). O tamanho efetivo da amostra (número de unidades distintas na amostra) é aleatório, podendo ser menor que o tamanho total desejado ($n$). O exemplo a seguir ilustra o emprego do método com uma pequena população para ajudar a compreensão.
+Amostragem PPT Com Reposição é um método muito simples de implementar, mas que pode implicar seleção repetida de unidades. O tamanho efetivo da amostra (número de unidades distintas na amostra) é aleatório, podendo ser menor que o tamanho total desejado ($n$). O exemplo a seguir ilustra o emprego do método com uma pequena população para ajudar a compreensão.
 
 **(#exm:exmppt1)** Considere a população de $N=6$ fazendas com as respectivas áreas, conforme apresentada na Tabela \@ref(tab:tabppt1). Este exemplo mostra como extrair uma amostra de $n=3$ fazendas usando PPT com reposição, tomando a variável Área como medida de tamanho, usando o *método dos totais cumulativos*.
 
@@ -115,13 +115,13 @@ $$
 \widehat V_{PPTC} \left(\widehat Y_{PPTC}\right) = \frac{1}{n(n-1)} \displaystyle \sum_{i \in s} f_i \left( \frac{y_i}{p_i} - \widehat Y_{PPTC} \right)^2 \,\,(\#eq:eqppt6)
 $$
 
-Como já discutido anteriormente, métodos de seleção com reposição raramente são empregados na prática, pois sempre é possível aplicar métodos sem reposição de maior eficiência para o mesmo custo. Por esse motivo, passaremos agora a discutir alguns dos muitos métodos disponíveis para sorteio de amostras com *PPT sem reposição*. Nossa seleção de métodos a apresentar se guiou fortemente pela relevância da aplicação destes métodos em pesquisas conduzidas no Brasil, que vamos citar como exemplos ao longo da discussão.
+Como já discutido anteriormente, métodos de seleção com reposição raramente são empregados na prática, pois sempre é possível aplicar métodos sem reposição de maior eficiência para o mesmo custo. Por esse motivo, passamos agora a discutir alguns dos muitos métodos disponíveis para sorteio de amostras com *PPT sem reposição*. Nossa seleção de métodos a apresentar se guiou fortemente pela relevância da aplicação destes métodos em pesquisas conduzidas no Brasil, que vamos citar como exemplos ao longo da discussão.
 
 ## Amostragem PPT de Poisson - PO
 
-O *método de Poisson* para seleção de amostras com PPT sem reposição é implementado mediante a realização de uma prova de Bernoulli independente para cada unidade da população, que determina se a unidade é incluída (ou não) na amostra com uma probabilidade proporcional ao seu tamanho. Caso todas as probabilidades de inclusão na amostra sejam iguais, este método se reduz à *Amostragem Binomial*, e portanto, este método é uma generalização daquele método.
+O *método de Poisson* para seleção de amostras com PPT sem reposição é implementado mediante a realização de uma prova de Bernoulli independente para cada unidade da população, que determina se a unidade é incluída (ou não) na amostra com uma probabilidade proporcional ao seu tamanho. Caso todas as probabilidades de inclusão na amostra sejam iguais, este método se reduz à *Amostragem Binomial* e, portanto, este método é uma generalização daquele método.
 
-Um algoritmo baseado em processamento sequencial de lista para implementar o método PPT de Poisson para selecionar uma amostra de tamanho $n$ da população $U$ de tamanho $N$ consiste dos seguintes passos.
+Um algoritmo baseado em processamento sequencial de lista para implementar o método PPT de Poisson para selecionar uma amostra de tamanho $n$ da população $U$ de tamanho $N$ consiste nos seguintes passos.
 
 1. Para cada unidade populacional $i$, determine o valor da probabilidade de inclusão $\pi_i = n x_i / X = n p_i$.
 
@@ -133,7 +133,7 @@ O conjunto $s$ de unidades selecionadas por este algoritmo não terá unidades r
 
 Alguns cuidados devem ser observados ao implementar a *Amostragem PPT de Poisson*. Em primeiro lugar, verifique se nenhuma unidade tem tamanho relativo $x_i / X$ maior que $1/n$. Se isto ocorrer, a ‘probabilidade de inclusão’ desta unidade seria maior que 1, o que é impossível. Caso alguma unidade seja tão grande que $x_i / X > 1/n$, inclua esta unidade com certeza (isto é, faça $\pi_i = 1$). Em seguida, refaça os cálculos dos $\pi_i$ com o tamanho desta unidade excluído do total $X$, e o tamanho de amostra diminuído de uma unidade. Repita a verificação até que nenhuma unidade tenha tamanho relativo maior que 1 sobre o tamanho residual da amostra.
 
-A *Amostragem PPT de Poisson* é pouco usada na prática devido à variabilidade do tamanho efetivo da amostra. É um metodo menos eficiente que outros métodos de seleção PPT sem reposição. Um método moderno que corrige este defeito é *Amostragem Sequencial de Poisson (ASP)* - veja @Ohlsson1998 - descrito na seção seguinte.
+A *Amostragem PPT de Poisson* é pouco usada na prática devido à variabilidade do tamanho efetivo da amostra. É um método menos eficiente que outros métodos de seleção PPT sem reposição. Um método moderno que corrige este defeito é *Amostragem Sequencial de Poisson (ASP)* - veja @Ohlsson1998 - descrito na seção seguinte.
 
 **Estimação HT do total sob Amostragem de Poisson**
 
@@ -171,11 +171,11 @@ $$
 $$
 onde $m$ é o tamanho efetivo da amostra selecionada. Para mais detalhes sobre a estimação da variância, veja @Ohlsson1998.
 
-## Amostragem sequencial de Poisson - ASP
+## Amostragem Sequencial de Poisson - ASP
 
-O método de *Amostragem Sequencial de Poisson - ASP*, proposto por @Ohlsson1998, é uma modificação do método de *Amostragem de Poisson* que elimina a variabilidade do tamanho efetivo da amostra. O custo dessa modificação é um procedimento de amostragem um pouco mais complexo, e que requer uso de resultados aproximados para a estimação tanto do total como de sua variância.
+O método de *Amostragem Sequencial de Poisson - ASP*, proposto por @Ohlsson1998, é uma modificação do método de *Amostragem de Poisson* que elimina a variabilidade do tamanho efetivo da amostra. O custo dessa modificação é um procedimento de amostragem um pouco mais complexo e que requer uso de resultados aproximados para a estimação tanto do total como de sua variância.
 
-Um algoritmo baseado em processamento sequencial de lista para implementar o método para selecionar uma amostra de tamanho $n$ da população $U$ consiste dos seguintes passos.
+Um algoritmo baseado em processamento sequencial de lista para implementar o método para selecionar uma amostra de tamanho $n$ da população $U$ consiste nos seguintes passos.
 
 1. Gere um número aleatório uniforme independente $A_i$ para cada unidade $i$ da população.
 
@@ -220,7 +220,7 @@ O método de *Amostragem Sistemática com PPT* consiste nos seguintes passos:
 
 4. Selecione um número aleatório $r$ (ponto de partida) com distribuição uniforme entre 0 e $K$.
 
-5. Selecione as unidades correspondentes aos intervalos nos quais caem os valores $r+(j-1)\times K$, para $j=1,2,...,n$. Isto é, selecione toda unidade $i$ tal que $r+(j-1)\times K \in (X_{(i-1)};X_{(i)}]$, para $j=1,2,...,n$. 
+5. Selecione as unidades correspondentes aos intervalos nos quais caem os valores $r+(j-1) K$, para $j=1,2,...,n$. Isto é, selecione toda unidade $i$ tal que $r+(j-1) K \in (X_{(i-1)};X_{(i)}]$, para $j=1,2,...,n$. 
 
 Seguem alguns cuidados a serem tomados no uso da Amostragem Sistemática com PPT:
 
@@ -240,9 +240,9 @@ A seleção com amostragem PPT sistemática com ordenação segue os seguintes p
 
 Esta forma de implementar a Amostragem Sistemática PPT confere um efeito de ‘estratificação implícita’ pela variável (ou variáveis) usada(s) na ordenação. 
 
-A Amostragem sistemática com PPT (com ou sem ordenação) era muito usada na prática por sua simplicidade na seleção de amostras. Porém, com o advento de modernas ferramentas computacionais que permitem selecionar com facilidade amostras PPT sem reposição usando outros métodos, tornou-se menos popular.
+A Amostragem Sistemática com PPT (com ou sem ordenação) era muito usada na prática por sua simplicidade na seleção de amostras. Porém, com o advento de modernas ferramentas computacionais que permitem selecionar com facilidade amostras PPT sem reposição usando outros métodos, tornou-se menos popular.
 
-Quando *Amostragem Sistemática com PPT* for usada para selecionar a amostra, pode-se usar o estimador HT para o total conforme descrito na expressão \@ref(eq:eqppt2). Para esse plano amostral, a variância tem uma expressão complexa, e não há estimador consistente de variância disponível na literatura. O problema da estimação de variância sob amostragem sistemática com PPT é ainda mais difícil quando o sorteio é feito com ordenação. @Berger2003 oferece uma estratégia que pode ser considerada nesse caso.
+Quando *Amostragem Sistemática com PPT* for usada para selecionar a amostra, pode-se usar o estimador HT para o total conforme descrito na expressão \@ref(eq:eqppt2). Para esse plano amostral, a variância tem uma expressão complexa e não há estimador consistente de variância disponível na literatura. O problema da estimação de variância sob amostragem sistemática com PPT é ainda mais difícil quando o sorteio é feito com ordenação. @Berger2003 oferece uma estratégia que pode ser considerada nesse caso.
 
 ## Amostragem PPT de Pareto - AP 
 
@@ -258,7 +258,7 @@ A seleção com amostragem PPT de Pareto, de acordo com [@Rosen2000], segue os s
 
 5. Selecione para a amostra as $n$ unidades com os menores valores de $C_i$.
 
-A Amostragem PPT de Pareto - AP é o método empregado para sorteio de unidades primárias de amostragem da PNAD Contínua - ver @Freitas2014. Para tamanhos de amostra iguais, AP é mais eficiente que ASP. A implementação deste método requer os mesmos cuidados com relação a unidades muito grandes que com outros métodos PPT sem reposição. As probabilidades exatas de inclusão não são estritamente proporcionais ao tamanho, e são difíceis de calcular. Porém resultados sugerem que as aproximações consideradas no passo 2 são suficientemente boas - veja @Aires2005 - para a maioria das situações de interesse prático.
+A Amostragem PPT de Pareto - AP é o método empregado para sorteio de unidades primárias de amostragem da PNAD Contínua - ver @Freitas2014. Para tamanhos de amostra iguais, AP é mais eficiente que ASP. A implementação deste método requer os mesmos cuidados com relação a unidades muito grandes que com outros métodos PPT sem reposição. As probabilidades exatas de inclusão não são estritamente proporcionais ao tamanho e são difíceis de calcular. Porém, resultados sugerem que as aproximações consideradas no passo 2 são suficientemente boas para a maioria das situações de interesse prático, como pode ser visto em @Aires2005.
 
 **Estimação do total sob amostragem PPT de Pareto - AP**
 
@@ -268,7 +268,7 @@ $$
 \widehat Y_{AP} = \displaystyle\sum_{i \in s}\frac{y_i}{\lambda_i} = \frac{1}{n}\sum_{i \in s}\frac{y_i}{p_i}\,\,(\#eq:eqppt16) 
 $$
 
-Note que $E_{AP} \left(\widehat Y_{AP}\right)\doteq Y$. A variância de $\widehat Y_{AP}$ e o seu respectivo estimador são dados por (Veja @Rosen2000): 
+Note que $E_{AP} \left(\widehat Y_{AP}\right)\doteq Y$. A variância de $\widehat Y_{AP}$ e o seu respectivo estimador são dados, segundo @Rosen2000, por: 
 
 $$
 V_{AP} \left(\widehat Y_{AP}\right) \doteq \frac{N}{N-1} \displaystyle \sum_{i \in U} \left(\frac{y_i}{\lambda_i} - \frac{\sum_{k \in U} y_k(1 - \lambda_k)} {\sum_{k \in U} \lambda_k(1 - \lambda_k)}\right)^2 \lambda_i(1 - \lambda_i) \,\, (\#eq:eqppt17)
@@ -280,17 +280,20 @@ $$
 
 A Tabela \@ref(tab:tabppt2) apresenta um resumo de parâmetros e respectivos estimadores para o total sob os diversos métodos de seleção com PPT apresentados neste capítulo. 
 
-<center>
 <table>
 <caption>(#tab:tabppt2)Parâmetros e respectivos estimadores sob PPT</caption>
 </table>
+**PROPOSTA 1**
+<center>
 ----------
 Parâmetro                                Estimador
 ---------------------------------------- -----------------------------------     
-$Y=\displaystyle\sum_{i\in U}y_i$        $\widehat Y_{HT/PPT} = \displaystyle X \times \frac{1}{n} \sum_{i \in s} \frac{y_i}{x_i}$ $\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,$ $\widehat Y_{PPTC} = \displaystyle\frac{1}{n} \sum_{i \in s} \frac{f_i y_i}{p_i}$                     $\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,$
-                                         $\displaystyle\widehat Y_{PO} = \sum_{i \in s} \frac{y_i} {\pi_i} =  \frac{1}{n} \sum_{i \in s} \frac{y_i}{p_i}$
-                                         $\,\,\,\,\,\,\,\,$ $\widehat Y_{PO}^R =\displaystyle \frac{N}{\widehat N} \sum_{i \in s} d_i {y_i} = N \displaystyle\frac{\sum_{i \in s} d_i {y_i}}{\sum_{i \in s} d_i }$         $\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,$ $\widehat Y_{ASP} = \displaystyle\frac{1} {n} \sum_{i \in s} \frac{y_i}{p_i}$
-                                            $\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,$ $\widehat Y_{AP} = \displaystyle\sum_{i \in s}\frac{y_i}{\lambda_i} = \frac{1}{n}\sum_{i \in s}\frac{y_i}{p_i}$
+$Y=\displaystyle\sum_{i\in U}y_i$        $\widehat Y_{HT/PPT} = \displaystyle X\frac{1}{n} \sum_{i \in s} \frac{y_i}{x_i}\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,$        
+                                         $\widehat Y_{PPTC} = \displaystyle\frac{1}{n} \sum_{i \in s} \frac{f_i y_i}{p_i} \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,$
+                                         $\displaystyle\widehat Y_{PO} = \sum_{i \in s} \frac{y_i} {\pi_i} =  \frac{1}{n} \sum_{i \in s} \frac{y_i}{p_i}\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,$
+                                         $\widehat Y_{PO}^R =\displaystyle \frac{N}{\widehat N} \sum_{i \in s} d_i {y_i} = N \displaystyle\frac{\sum_{i \in s} d_i {y_i}}{\sum_{i \in s} d_i } \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,$ 
+                                         $\widehat Y_{ASP} = \displaystyle\frac{1} {n} \sum_{i \in s} \frac{y_i}{p_i}\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,$ 
+                                         $\widehat Y_{AP} = \displaystyle\sum_{i \in s}\frac{y_i}{\lambda_i} = \frac{1}{n}\sum_{i \in s}\frac{y_i}{p_i}$
                                             
 $V_{PPTC}\left(\widehat Y_{PPTC}\right)$ $\widehat V_{PPTC} \left(\widehat Y_{PPTC}\right)=\displaystyle\frac{1}{n(n-1)}\displaystyle \sum_{i \in s} f_i \left( \frac{y_i}{p_i}-\widehat Y_{PPTC}\right)^2$ 
 
@@ -301,6 +304,30 @@ $V_{PO}\left(\widehat Y_{PO}^R\right)$   $\widehat V_{PO}\left(\widehat Y_{PO}^R
 $V_{ASP}\left(\widehat Y_{ASP}\right)$   $\widehat V_{ASP}\left(\widehat Y_{ASP}\right) = \displaystyle\frac{1}{n(n-1)} \displaystyle\sum_{i \in s}\left(\frac{y_i}{p_i} - \widehat Y_{ASP}\right)^2 (1-np_i)p_i$
 
 $V_{AP} \left(\widehat Y_{AP}\right)$    $\widehat V_{AP} \left(\widehat Y_{AP}\right) =\displaystyle \frac{n}{n-1} \displaystyle\sum_{i \in s} \left(\frac{y_i}{\lambda_i} - \frac{\sum_{k \in s} y_k(1-\lambda_k)} {\sum_{k \in s} (1-\lambda_k)}\right)^2 (1-\lambda_i)$
+
+----------
+</center>
+**PROPOSTA 2**
+<center>
+----------
+Parâmetro                                                                                                                                                                                                                   Estimador
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- ----------------------- 
+$\scriptstyle Y=\sum_{i\in U}y_i$                                                                                                                                                                                             $\scriptstyle\widehat Y_{HT/PPT} = X  \frac{1} {n} \sum_{i \in s} \frac{y_i}{x_i}\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\; \;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;$ 
+                                                                                                                                                                                                                              $\scriptstyle\widehat Y_{PPTC} = \frac{1}{n} \sum_{i \in s} \frac{f_i y_i}{p_i}\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\; \;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;$                     
+                                                                                                                                                                                                                              $\scriptstyle\widehat Y_{PO} = \sum_{i \in s} \frac{y_i} {\pi_i} =  \frac{1}{n} \sum_{i \in s} \frac{y_i}{p_i}\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\; \;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;$
+                                                                                                                                                                                                                              $\scriptstyle\widehat Y_{PO}^R = \frac{N} {\widehat N} \sum_{i \in s} d_i {y_i} = N\frac{\sum_{i\in s} d_i {y_i}}{\sum_{i \in s} d_i }\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\; \;\;\;\;\;\;\;\;\;\;\;\;\;\;\;$          
+                                                                                                                                                                                                                              $\scriptstyle\widehat Y_{ASP} = \frac{1} {n} \sum_{i \in s} \frac{y_i}{p_i}\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\; \;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;$
+                                                                                                                                                                                                                              $\scriptstyle\widehat Y_{AP} = \sum_{i \in s}\frac{y_i}{\lambda_i} = \frac{1}{n}\sum_{i \in s}\frac{y_i}{p_i}$
+                                            
+$\scriptstyle V_{PPTC}\left(\widehat Y_{PPTC}\right)=\frac{1}{n}\sum_{i\in U}\left(\frac{y_i}{p_i}-Y\right)^2p_i$                                                                                                           $\scriptstyle\widehat V_{PPTC} \left(\widehat Y_{PPTC}\right)=\frac{1}{n(n-1)}\sum_{i \in s} f_i \left( \frac{y_i}{p_i}-\widehat Y_{PPTC}\right)^2$ 
+
+$\scriptstyle V_{PO}\left(\widehat Y_{PO}\right)=\sum_{i\in U}\pi_i(1-\pi_i)\left(\frac{y_i}{\pi_i}\right)^2=\sum_{i\in U}\frac{(1-\pi_i)}{\pi_i} y_i^2$                                                                    $\scriptstyle\widehat V_{PO} \left( \widehat Y_{PO} \right) = \sum_{i \in s} \frac{(1 - \pi_i)}{\pi_i^2} y_i^2$
+
+$\scriptstyle V_{PO}\left(\widehat Y_{PO}^R\right)\doteq\frac{N}{N-1}\frac{1}{n}\sum_{i\in U}(1-np_i)\left(\frac{y_i}{p_i}- Y\right)^2 p_i$                                                                                 $\scriptstyle\widehat V_{PO}\left(\widehat Y_{PO}^R \right) = \frac{1}{n(m-1)} \sum_{i \in s} (1 - n p_i) \left( \frac{y_i}{p_i} - \widehat Y_{PO}^R \right)^2$
+
+$\scriptstyle V_{ASP}\left(\widehat Y_{ASP}\right)\doteq\frac{N}{N-1}\frac{1}{n}\sum_{i\in U}(1-np_i)\left(\frac{y_i}{p_i}-Y\right)^2p_i=V_{PO}\left(\widehat Y_{PO}^R\right)$                                               $\scriptstyle\widehat V_{ASP}\left(\widehat Y_{ASP}\right) = \frac{1}{n(n-1)}\sum_{i \in s}\left(\frac{y_i}{p_i} - \widehat Y_{ASP}\right)^2 (1-np_i)p_i$
+
+$\scriptstyle V_{AP}\left(\widehat Y_{AP}\right)\doteq\frac{N}{N-1}\sum_{i\in U}\left(\frac{y_i}{\lambda_i}-\frac{\sum_{k\in U} y_k(1-\lambda_k)}{\sum_{k \in U}\lambda_k(1-\lambda_k)}\right)^2\lambda_i(1-\lambda_i)$      $\scriptstyle\widehat V_{AP}\left(\widehat Y_{AP}\right)=\frac{n}{n-1}\sum_{i\in s}\left(\frac{y_i}{\lambda_i}-\frac{\sum_{k\in s}y_k(1-\lambda_k)}{\sum_{k\in s}(1-\lambda_k)}\right)^2 (1-\lambda_i)$
 
 ----------
 </center>
@@ -341,7 +368,7 @@ c) Compare os resultados com a despesa média verdadeira das 338 fazendas e teç
 
   * Um retângulo de comprimento C e largura L foi desenhado sobre um mapa da região; 
   * Pares de números aleatórios uniformes entre 0 e 1 foram gerados. O primeiro número de cada par foi multiplicado por C e o segundo por L, dando coordenadas dentro da região em estudo. 
-  * Se a coordenada “caia” sobre um lago no mapa, este era selecionado para a amostra; 
+  * Se a coordenada “caísse” sobre um lago no mapa, este era selecionado para a amostra; 
   * O procedimento foi repetido até que 4 pontos “caíssem” sobre algum lago; 
   * O primeiro lago da amostra foi selecionado 2 vezes.
 

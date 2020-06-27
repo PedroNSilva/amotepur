@@ -1,14 +1,14 @@
-# Amostragem Sistemática Simples (AS) {#AS}
+# Amostragem Sistemática Simples - AS {#AS}
 
 ## Ideia básica
 
-A Amostragem Sistemática Simples (AS) é um método para selecionar com *equiprobabilidade* unidades de uma população de pesquisa para compor a amostra desejada. Por sua simplicidade, trata-se de uma alternativa à AAS bastante utilizada na prática. Um dos motivos para justificar sua utilização é que o método pode ser aplicado mesmo quando não existe cadastro prévio da população de pesquisa, podendo este cadastro ser construído ao mesmo tempo em que é feita a seleção da amostra.
+A *Amostragem Sistemática Simples - AS* é um método para selecionar com *equiprobabilidade* unidades de uma população de pesquisa para compor a amostra desejada. Por sua simplicidade, trata-se de uma alternativa à AAS bastante utilizada na prática. Um dos motivos para justificar sua utilização é que o método pode ser aplicado mesmo quando não existe cadastro prévio da população de pesquisa, podendo este cadastro ser construído ao mesmo tempo em que é feita a seleção da amostra.
 
 O método consiste em selecionar cada $K$-ésima unidade da população a ser amostrada, começando de uma *partida aleatória* $r$ sorteada ao acaso entre os números inteiros de $1$ a $K$. A amostra resultante é *sem reposição*, e todas as unidades da população têm a mesma chance $(1/K)$ de serem selecionadas, como se verá adiante.
 
 Seja $U = \{{ 1 , 2 , ..., N }\}$ a população de pesquisa, de tamanho $N = nK+c$, com $0 \le c < K$. O número inteiro $K$ é chamado de *intervalo de seleção*, $n=[N/K]$ é igual à parte inteira da divisão de $N$ por $K$ e $c$ é o resto dessa mesma divisão.
 
-AS pode ser utilizada para selecionar uma amostra de um cadastro de unidades da população mediante um algoritmo de processamento sequencial de lista. Na ausência de um cadastro prévio, o método também pode ser implementado, bastando para isso especificar um mecanismo para cadastramento sequencial das unidades populacionais e definir o valor de $K$. Isto feito, deve ser selecionada a *partida aleatória* e iniciado o cadastramento sequencial das unidades da população tal como especificado. O algoritmo de seleção das unidades da amostra pode ser facilmente implementado em ambos os casos (cadastro prévio ou construído durante a operação de pesquisa).
+AS pode ser utilizada para selecionar uma amostra de um cadastro de unidades da população mediante um algoritmo de processamento sequencial de lista. Na ausência de um cadastro prévio, o método também pode ser implementado, bastando para isso especificar um mecanismo para cadastramento sequencial das unidades populacionais e definir o valor de $K$. Feito isso, deve ser selecionada a *partida aleatória* e iniciado o cadastramento sequencial das unidades da população tal como especificado. O algoritmo de seleção das unidades da amostra pode ser facilmente implementado em ambos os casos (cadastro prévio ou construído durante a operação de pesquisa).
 
 **(#exm:exmsis1)** Suponha que se deseja aplicar um questionário a uma amostra dos espectadores de uma peça teatral sendo encenada em determinado teatro, num determinado dia. Nesse caso não estaria disponível uma lista das pessoas que irão ao teatro naquela data. Pode-se selecionar uma AS utilizando os passos indicados a seguir.
   1)  Definir o valor de $K$. Por exemplo, seja $K=10$ significando que ao final a amostra será composta por aproximadamente um de cada dez, ou 10% dos espectadores da noite.
@@ -18,7 +18,7 @@ AS pode ser utilizada para selecionar uma amostra de um cadastro de unidades da 
   
 Duas características funcionam como um apelo para a adoção da AS como método de seleção da amostra: sua simplicidade, já que ao selecionar a primeira unidade a ser incluída na amostra, todas as demais estarão automaticamente escolhidas; e a possibilidade de aplicação mesmo quando não se tem disponível um cadastro prévio da população. 
 
-Essas características foram determinantes, por exemplo, da adoção de AS para a seleção, em cada setor censitário, dos domicílios que deveriam responder ao questionário da amostra nos Censos Demográficos realizados pelo IBGE de 1960 até 2000. Para implementar o método, cada recenseador utilizava um formulário denominado *Folha de coleta do setor* para cadastrar os domicílios que ia encontrando ao percorrer um setor censitário que lhe fora atribuído. Este formulário servia para cadastrar as unidades da população (domicílios) encontradas em cada setor, e de instrumento para a seleção da amostra sistemática. Linhas marcadas em sombreado indicavam ao recenseador em que domicílios devia aplicar o questionário mais longo, denominado da amostra, em lugar do questionário simplificado (denominado básico), que era aplicado aos demais domicílios não incluídos na amostra. 
+Essas características foram determinantes, por exemplo, para adoção de AS para a seleção, em cada setor censitário, dos domicílios que deveriam responder ao questionário da amostra nos Censos Demográficos realizados pelo IBGE de 1960 até 2000. Para implementar o método, cada recenseador utilizava um formulário denominado *Folha de coleta do setor* para cadastrar os domicílios que ia encontrando ao percorrer um setor censitário que lhe fora atribuído. Este formulário servia para cadastrar as unidades da população (domicílios) encontradas em cada setor, e de instrumento para a seleção da amostra sistemática. Linhas marcadas em sombreado indicavam ao recenseador em que domicílios devia aplicar o questionário mais longo, denominado da amostra, em lugar do questionário simplificado (denominado básico), que era aplicado aos demais domicílios não incluídos na amostra. 
 
 Ao  terminar de percorrer o setor censitário, o recenseador teria elaborado um cadastro dos domicílios de seu setor, e selecionado a amostra correspondente. O cadastro de domicílios assim construído era utilizado como base para o trabalho de campo das outras pesquisas por amostragem realizadas pelo IBGE ao longo da década subsequente ao Censo. Veja por exemplo @Albieri2015.
 
@@ -39,22 +39,24 @@ $$
 Em consequência desse método, há exatamente $K$ *amostras sistemáticas* distintas possíveis. Todas têm igual probabilidade de ser a amostra selecionada, logo: 
 
 $$
- p(s) = \left\{\begin{array}{ll} 1/K & \textrm{se} \,\,\,\, s=s_r, \,\,r=1,\,\,\,2,\,\,\,...,\,\,\,K \\ 0 & \textrm{caso contrário}   \end{array} \right.
- (\#eq:eqsis1b)
+ p(s) = \left\{\begin{array}{ll} 1/K,\,\text{se} \,\,\, s=s_r \,\,\text{para} \,\,r=1,\,\,\,2,\,\,\,...,\,\,\,K \\ 0, \,\,\, \textrm{caso contrário}   \end{array} \right.
+ (\#eq:eqsis2)
 $$
  
 O *tamanho efetivo* da amostra selecionada por AS, aqui denotado por $n_r$, não é fixado a priori, pois depende do valor da *partida aleatória* $r$ selecionada, e pode tomar dois valores possíveis:
 
 $$
-n_r=\left\{\begin{array}{ll} n+1 & \textrm{quando} \,\,\,\,r \le c \\ n & \textrm{quando}\,\,\,\,r>c\end{array}\right.
+n_r=\left\{\begin{array}{ll} n+1, \,\, \textrm{quando} \,\,\,r \le c \\ n, \,\, \textrm{quando}\,\,\,r>c\end{array}\right.
 $$ 
  
 O *tamanho efetivo* da amostra será $n+1$ com probabilidade $c/K$ e $n$ com probabilidade $1-(c/K)$.
 
-**(#exm:exmsis2)** Considere uma população de $N=20$ unidades, da qual se quer selecionar uma amostra sistemática simples com intervalo de seleção $K=5$. Nesse caso, existem 5 amostras distintas, todas de tamanho $n=4$. Pode-se utilizar o R para realizar a tarefa.
+**(#exm:exmsis2)** Considere uma população de $N=20$ unidades, da qual se quer selecionar uma amostra sistemática simples com intervalo de seleção $K=5$. Nesse caso, existem 5 amostras distintas, todas de tamanho $n=4$. Pode-se utilizar o pacote R para realizar a tarefa.
 
 
 ```r
+# Alterando o separador de decimais para vírgula
+options(OutDec=",")
 # Fixa semente para geração de números aleatórios
 set.seed(867)
 # Tamanho da população
@@ -108,7 +110,7 @@ print(paste("Partida aleatória r:", r), quote=FALSE)
 
 ```r
 # Geração da lista das unidades da população U
-U=1:N
+U=1:N                  
 # Determinação das unidades da amostra s
 s_r = subset(U, (U%%K)==r)
 print("Amostra sistemática selecionada s_r:", quote=FALSE)
@@ -126,27 +128,40 @@ print(s_r)
 ## [1]  4  9 14 19
 ```
 
+```r
+# Alterando o separador de decimais para ponto
+options(OutDec=".")
+```
+
 ## Composição de amostras sistemáticas simples de intervalo $K$
 
-As unidades componentes das possíveis amostras sistemáticas de intervalo $K$ podem ser esquematicamente representadas como nas linhas da Tabela \@ref(tab:tabsis1) a seguir.  
+A Tabela \@ref(tab:tabsis1) a seguir, representa uma população de onde se pretende selecionar uma amostra sistemática de intervalo $K$. Os índices das unidades populacionais estão dispostos na forma de uma matriz com $K$ linhas e $n$ colunas, onde $n$ é o maior tamanho de amostra possível para o $K$ definido. Assim cada linha, $r$, da tabela é formada por uma das possíveis amostras, $s_r$. No caso de $N\ne nK$, algumas das últimas células da tabela são vazias, e o tamanho efetivo da amostra é $n$ ou $n-1$, dependendo do valor de $r$ selecionado.
 
 <center>
 <table>
-<caption>(#tab:tabsis1)Unidades que compõe as possíveis $K$ amostras sistemáticas com partida aleatória no intervalo $[1,   2,   ...,   K]$</caption>
+<caption>(#tab:tabsis1)Unidades que compõem as possíveis $K$ amostras sistemáticas, $s_1,   s_2,   ...,s_r,   ...,   s_K$, com partida aleatória $r$ no intervalo $[1,   2,   ...,   K]$</caption>
 </table>
 ----------
-Amostras possíveis $l=0$      $l=1$      $\vdots$   $l=n$          
------------------- ---------- ---------- ---------- ---------- 
-$s_1$              $1$        $K+1$      $...$      $nK+1$         
-$s_2$              $2$        $K+2$      $...$      $nK+2$         
-$...$              $...$      $...$      $...$      $...$          
-$s_c$              $c$        $K+c$      $...$      $nK+c$         
-$...$              $...$      $...$      $...$      $-$          
-$s_K$              $K$        $2K$       $...$      $-$
+ Possíveis                           Índices das  
+ amostras                            unidades $U_i$                     
+----------- ----------- ----------- ---------------- ----------- ----------- 
+             **$c_1$**   **$c_2$**    **$c_3$**        **$...$**  **$c_n$** 
+             
+**$s_1$**       1          K+1         2K+1              ...       (n-1)K+1  
+
+**$s_2$**       2          K+2         2K+2              ...       (n-1)K+2   
+
+**$...$**      ...         ...         ...               ...         ...  
+
+**$s_r$**       r          K+r         2K+r              ...       (n-1)K+r    
+
+**$...$**      ...         ...         ...               ...         ...      
+
+**$s_K$**       K          2K          3k                ...         - 
 ----------
 </center>
 
-Examinando a Tabela \@ref(tab:tabsis1) se conclui que unidades em diferentes amostras sistemáticas simples possíveis nunca podem aparecer juntas na mesma amostra! Outra constatação importante é que o conjunto de amostras possíveis é bem pequeno, e de tamanho $K$, em contraste com o que ocorre com os planos de amostragem AAS e AASC, discutidos até agora. 
+Examinando a Tabela \@ref(tab:tabsis1) conclui-se que unidades em diferentes amostras sistemáticas simples possíveis nunca podem aparecer juntas na mesma amostra! Outra constatação importante é que o conjunto de amostras possíveis é bem pequeno, e de tamanho $K$, em contraste com o que ocorre com os planos de amostragem AAS e AASC, discutidos até agora. 
 
 **(#exm:exmsis3)** Identifique as amostras sistemáticas simples possíveis quando a população tem $N=19$ unidades e o tamanho desejado da amostra é de $n=4$ unidades. 
 
@@ -160,10 +175,12 @@ $s_3 = \{{ 3 ; 7 ; 11 ; 15 ; 19 }\}$ com $n_3=5$;
 
 $s_4 = \{{ 4 ; 8 ; 12 ; 16 }\}$ com $n_4=4$.
 
-Podemos utilizar o R para realizar a mesma tarefa.
+Podemos utilizar o pacote R para realizar a mesma tarefa.
 
 
 ```r
+# Alterando o separador de decimais para vírgula
+options(OutDec=",")
 # Tamanho da População
 N=19
 print(paste("Tamanho da população N:", N), quote=FALSE)
@@ -222,6 +239,11 @@ amostras_possiveis
 ## 4     s_4         4         8        12        16      <NA>
 ```
 
+```r
+# Alterando o separador de decimais para ponto
+options(OutDec=".")
+```
+
 **(#exm:exmsis4)** Calcule o tamanho efetivo da amostra resultante da seleção sistemática em uma população com $N=149$ unidades, quando o tamanho desejado da amostra sistemática simples é de $n=60$ unidades. Como $N = 149 = 60 \times 2 + 29$, resulta que $K=2$ com $n=74$ e $c=1$. Sendo assim as duas únicas amostras possíveis são:
 
 $s_1 = \{\textrm{números ímpares até 149, inclusive}\}$ com $n_1=75$;
@@ -238,16 +260,16 @@ $$
 $$
 Foi visto na Equação \@ref(eq:eqsis1) que a primeira unidade a ser incluída na amostra é a unidade $r$, que é um inteiro selecionado com equiprobabilidade no intervalo $[1,\: K]$. Como há $K$ números inteiros nesse intervalo, segue-se que a probabilidade de sortear um qualquer desses números é $1/K$. 
 
-As demais unidades selecionadas são obtidas somando a $r$ os múltiplos $l K$, com $l$ variando de $1$ a $n$, enquanto $lK+r \le nK+c$,  varrendo assim os intervalos de seleção subsequentes. Desta forma, ao selecionar $r$ todas as unidades amostrais ficam definidas, implicando que a probabilidade de selecionar uma unidade qualquer da população é igual à de selecionar a partida aleatória que determina qual das amostras $s_r$ será observada.
+As demais unidades selecionadas são obtidas somando a $r$ os múltiplos $l K$, com $l$ variando de $1$ a $n$, enquanto $lK+r \le nK+c$,  varrendo assim os intervalos de seleção subsequentes. Dessa forma, ao selecionar $r$, todas as unidades amostrais ficam definidas, implicando que a probabilidade de selecionar uma unidade qualquer da população é igual à de selecionar a partida aleatória que determina qual das amostras $s_r$ será observada.
 
 A probabilidade de inclusão das unidades $i \ne j$ na amostra é dada por:
-$$\pi_{ij}=\left\{\begin{array}{ll} 1/K & \,\,\textrm{se }i \ne j \,\in s_r,\,\,\,  r=1,\,\dots,\,K\\\ 0 &\,\, \textrm{caso contrário} \end{array}\right.\,\,\,$$ 
+$$\pi_{ij}=\left\{\begin{array}{ll} 1/K, \,\,\textrm{se }i \ne j \,\in s_r\,\,\,\text{para}\,\,\  r=1,\,\dots,\,K\\\ 0,\,\,\, \textrm{caso contrário} \end{array}\right.\,\,\,$$ 
 
 ## Variáveis aleatórias indicadoras - propriedades
 
 Note que ao escolher $r,\, 1\le r\le K$, selecionamos a amostra inteira. Sejam as variáveis indicadoras associadas às amostras possíveis $s_r$: 
 $$
- I(r)=\left\{\begin{array}{ll} 1 &\textrm{se a amostra é}\,s_r\,,\ \textrm {para}\,1\le r\le K \\ 0 & \textrm{caso contrário} \end{array}\right.\,\,\,
+ I(r)=\left\{\begin{array}{ll} 1,\,\,\textrm{se a amostra é}\,s_r\,\ \textrm {para}\,\,1\le r\le K \\ 0,\,\, \textrm{caso contrário} \end{array}\right.\,\,\,
  $$ 
 
 Então o valor esperado de $I(r)$ é
@@ -274,24 +296,24 @@ $$
 Como a probabilidade de inclusão de uma amostra sistemática simples $s_r$ qualquer é $1/K$, o peso amostral das unidades dessa amostra é sempre igual a $d_i = 1 / \pi_i = K$. Sendo assim, sob AS o estimador de Horvitz-Thompson para o total é dado por:
 
 $$
-\widehat{Y}_{AS} = K t_r = K \sum_{i \in s_r} y_i (\#eq:eqsis5)
+\widehat{Y}_{AS} = K t_r = K \sum_{i \in s_r} y_i (\#eq:eqsis3)
 $$ 
-Com base nas propriedades do estimador de Horvitz-Thompson para o total, já sabemos que este estimador é não viciado para o total populacional. Mas vamos aqui demonstrar esse resultado também para o caso particular da AS, pois a prova nos ajudará com a obtenção posterior de expressão para a variância do estimador sob essse plano amostral. Note então que:
+Com base nas propriedades do estimador de Horvitz-Thompson para o total, já sabemos que este estimador é não viciado para o total populacional. Mas vamos aqui demonstrar esse resultado também para o caso particular da AS, pois a prova nos ajudará com a obtenção posterior de expressão para a variância do estimador sob esse plano amostral. Note então que:
 $$
 \begin{array}{ll}
-E_{AS}(\widehat{Y}_{AS}) & = E_{AS} \left[ K t_r \right] = K E_{AS} \left[ \displaystyle \sum_{r=1}^{K} I(r) t_r \right] \\ &= \displaystyle \sum_{r=1}^{K}E_{AS} \left [I(r) \right] t_r = K \sum_{r=1}^{K} \frac{1}{K} t_r = \sum_{r=1}^{K} t_r = Y
+E_{AS}(\widehat{Y}_{AS}) & = E_{AS} \left[ K t_r \right] = K E_{AS} \left[ \displaystyle \sum_{r=1}^{K} I(r) t_r \right] \\ &= \displaystyle K\sum_{r=1}^{K}E_{AS} \left [I(r) \right] t_r = K \sum_{r=1}^{K} \frac{1}{K} t_r = \sum_{r=1}^{K} t_r = Y
 \end{array}
 $$
 
 provando, portanto, que $\widehat{Y}_{AS}$ é não viciado para o total populacional $Y$.
 
-Quando o tamanho populacional $N$ for desconhecido, pode também ser estimado sem vício usando uma variável $y$ útil para contanges, tomando o valor 1 para todas as unidades da população:
+Quando o tamanho populacional $N$ for desconhecido, pode também ser estimado sem vício usando uma variável $y$ útil para contagens, tomando o valor 1 para todas as unidades da população e usando a Expressão \@ref(eq:eqsis3):
 $$
 \widehat{N}_{AS} = K n_r
 $$
 Um estimador do total de unidades da população pode ser útil em situações nas quais não há cadastro prévio, e o mesmo é construído durante a operação de pesquisa. 
 
-**(#exm:exmsis7)** Considere a população composta de $N=19$ unidades, cujos dados da variável de interesse $y$ são mostrados na Tabela \@ref(tab:tabsis5) , da qual se deseja retirar uma amostra sistemática simples com intervalo de seleção $K=4$ para estimar o total populacional. Verifique numericamente que o estimador $\widehat Y_{AS}$ é não viciado.
+**(#exm:exmsis5)** Considere a população composta de $N=19$ unidades, cujos dados da variável de interesse $y$ são mostrados na Tabela \@ref(tab:tabsis5) , da qual se deseja retirar uma amostra sistemática simples com intervalo de seleção $K=4$ para estimar o total populacional. Verifique numericamente que o estimador $\widehat Y_{AS}$ é não viciado.
 
 <center>
 <table>
@@ -313,10 +335,12 @@ $s_1$ $s_2$	$s_3$ $s_4$
 ----------
 </center>
 
-Para mostrar que o estimador é não viciado, basta verificar que a média dos seus valores possíveis é igual ao parâmetro populacional a ser estimado. No caso, basta calcular as estimativas de total para cada uma das possíveis amostras (cada coluna da Tabela \@ref(tab:tabsis5)), e calcular a média dessas estimativas. A comparação com o total populacional, dado pela soma de todos os valores da tabela, mostra o resultado desejado. Pode-se utilizar o R para realizar a tarefa, como ilustrado a seguir.
+Para mostrar que o estimador é não viciado, basta verificar que a média dos seus valores possíveis é igual ao parâmetro populacional a ser estimado. No caso, basta calcular as estimativas de total para cada uma das possíveis amostras (cada coluna da Tabela \@ref(tab:tabsis5)), e calcular a média dessas estimativas. A comparação com o total populacional, dado pela soma de todos os valores da tabela, mostra o resultado desejado. Pode-se utilizar o pacote R para realizar a tarefa, como ilustrado a seguir.
 
 
 ```r
+# Alterando o separador de decimais para vírgula
+options(OutDec=",")
 # Intervalo de seleção
 K=4
 print(paste("Intervalo de seleção K:", K), quote=FALSE)
@@ -388,6 +412,11 @@ print(paste("Total populacional Y:", Y), quote=FALSE)
 ## [1] Total populacional Y: 1439
 ```
 
+```r
+# Alterando o separador de decimais para ponto
+options(OutDec=".")
+```
+
 ## Estimação de médias sob amostragem sistemática simples
 
 A média populacional $\overline Y=Y/N$ pode ser vista como uma razão entre o total da variável $y$ e o total de unidades populacionais:
@@ -397,14 +426,16 @@ $$
 Para estimá-la deve-se considerar duas situações: quando o tamanho $N$ da população é conhecido, ou quando esse valor é desconhecido. Um estimador não viciado para a média quando $N$ é conhecido é dado por: 
 
 $$
-\overline y_{AS} = \frac {\widehat Y_{AS}} N = \frac {K t_r}{N}  (\#eq:eqsis6)
+\overline y_{AS} = \frac {\widehat Y_{AS}} N = \frac {K t_r}{N}  (\#eq:eqsis4)
 $$ 
 Este estimador é não viciado para $\overline Y$, pois foi visto que $\widehat Y_{AS}$ é não viciado para o total populacional $Y$. Também é interessante observar que este estimador não é igual à média amostral, a menos no caso em que $N = nK$.
 
-**(#exm:exmsis8)** Considerando a mesma população do Exemplo \@ref(exm:exmsis7) pode-se verificar que $\overline y_{AS}$ é não viciado para a média populacional $\overline Y$. Neste caso, basta calcular a estimativa da média para cada coluna (AS possível) da Tabela \@ref(tab:tabsis5), calcular o valor médio das estimativas e comparar com média populacional. Pode-se utilizar o R para realizar a tarefa.
+**(#exm:exmsis6)** Considerando a mesma população do Exemplo \@ref(exm:exmsis5) pode-se verificar que $\overline y_{AS}$ é não viciado para a média populacional $\overline Y$. Neste caso, basta calcular a estimativa da média para cada coluna (AS possível) da Tabela \@ref(tab:tabsis5), calcular o valor médio das estimativas e comparar com média populacional. Pode-se utilizar o R para realizar a tarefa.
 
 
 ```r
+# Alterando o separador de decimais para vírgula
+options(OutDec=",")
 # Intervalo de seleção e tamanho da população conhecido
 K=4
 print(paste("Intervalo de seleção K:", K), quote=FALSE)
@@ -463,7 +494,7 @@ print(ybarAS.r)
 ```
 
 ```
-## [1] 82.31579 83.78947 82.10526 54.73684
+## [1] 82,31579 83,78947 82,10526 54,73684
 ```
 
 ```r
@@ -473,7 +504,7 @@ print(paste("Média das estimativas possíveis da média:", EybarAS), quote=FALS
 ```
 
 ```
-## [1] Média das estimativas possíveis da média: 75.7368421052632
+## [1] Média das estimativas possíveis da média: 75,7368421052632
 ```
 
 ```r
@@ -483,13 +514,20 @@ print(paste("Média populacional:", Ybar), quote=FALSE)
 ```
 
 ```
-## [1] Média populacional: 75.7368421052632
+## [1] Média populacional: 75,7368421052632
 ```
 
-**(#exm:exmsis9)** Utilizando a mesma população, pode-se verificar que o estimador média amostral simples ($\overline y$) para a média populacional de $y$ não coincide com o estimador $\overline y_{AS}$, e além disso, é viciado.
+```r
+# Alterando o separador de decimais para ponto
+options(OutDec=".")
+```
+
+**(#exm:exmsis7)** Utilizando a mesma população, pode-se verificar que o estimador média amostral simples $(\overline y)$ para a média populacional de $y$ não coincide com o estimador $\overline y_{AS}$ e, além disso, é viciado.
 
 
 ```r
+# Alterando o separador de decimais para vírgula
+options(OutDec=",")
 # Intervalo de seleção e tamanho da população conhecido
 K=4
 # Carregando os valores populacionais da variável y
@@ -501,7 +539,7 @@ ybar.r
 ```
 
 ```
-## [1] 78.2 79.6 78.0 65.0
+## [1] 78,2 79,6 78,0 65,0
 ```
 
 ```r
@@ -511,37 +549,46 @@ print(paste("Média das estimativas possíveis da média:", Eybar), quote=FALSE)
 ```
 
 ```
-## [1] Média das estimativas possíveis da média: 75.2
+## [1] Média das estimativas possíveis da média: 75,2
+```
+
+```r
+# Alterando o separador de decimais para ponto
+options(OutDec=".")
 ```
 
 Quando $N$ é desconhecido, um estimador alternativo para a média é dado pela razão entre os estimadores do total e do tamanho populacionais: 
 
 $$
-\overline y_{AS}=\frac {\widehat Y_{AS}}{\widehat N_{AS}}=\frac {Kt_r}{Kn_r}=\frac {t_r}{n_r}=\overline y_r=\overline y(\#eq:eqsis7)
+\overline y_{AS}=\frac {\widehat Y_{AS}}{\widehat N_{AS}}=\frac {Kt_r}{Kn_r}=\frac {t_r}{n_r}=\overline y_r=\overline y(\#eq:eqsis5)
 $$ 
 que é a média amostral.
 
 Verifica-se assim que a média amostral simples é um estimador para uma razão, sendo portanto viciado para estimar a média populacional. Tal estimador só será exatamente não viciado quando $N=nK$, pois:
 
-\begin{eqnarray}E_{AS}(\overline{y}_{AS}) & = & E_{AS}(\overline y)= E_{AS} \left [\sum_{r=1}^{K}I(r)\overline y_r \right] \\ &=& \frac{1}{K} \sum_{r=1}^{K}\overline y_r = \frac{1}{K} \sum_{r=1}^{K}\frac {t_r}{n_r} \\& \neq & \frac {\sum_{r=1}^{K}t_r}{\sum_{r=1}^{K}n_r} = \overline YX,\end{eqnarray}
+$$
+\begin{align} E_{AS}(\overline{y}_{AS})&=  E_{AS}(\overline y)= E_{AS} \left[\sum_{r=1} ^{K}I(r) \overline y_r \right] \\ &= \frac{1}{K} \sum_{r=1}^{K}\overline y_r = \frac{1}{K} \sum_{r=1}^{K}\frac {t_r}{n_r} \\&\neq \frac {\sum_{r=1}^{K}t_r} {\sum_{r=1}^{K}n_r} = \overline Y \end{align}
+$$
 
 O vício desse estimador (quando $N \ne nK$) é o preço pago quando não se conhece o tamanho $N$ da população!
 
 ## Estimação de uma proporção na amostragem Sistemática
 
-Como já foi visto no Capítulo \@ref(proporc), muitas vezes o interesse é estimar a proporção de unidades da população que possuem uma determinada característica de interesse. Nesse caso, para as unidades onde a característica de interesse estiver presente a variável $y$ terá o valor $1$ e para as demais unidades $y$ receberá o valor $0$.
+Como já foi visto no Capítulo \@ref(proporc), muitas vezes o interesse é estimar a proporção de unidades da população que possuem uma determinada característica de interesse. Nesse caso, para as unidades com a característica de interesse presente, a variável $y$ recebe o valor $1$ e para as demais unidades, $y$ recebe o valor $0$.
 
 Como já foi visto que a proporção equivale à média de uma variável do tipo indicadora, quando o tamanho total da população, $N$, for conhecido um estimador não viciado para a proporção é dado por:
 
 $$
-\widehat p_{AS} = \frac K N \sum_{i \in s_r} y_i = \frac K N t_r = \frac K N n_a (\#eq:eqsis8)
+\widehat p_{AS} = \frac K N \sum_{i \in s_r} y_i = \frac K N t_r = \frac K N n_a (\#eq:eqsis6)
 $$
 onde $n_a$ denota o número de unidades na amostra que têm a característica de interesse.
 
-**(#exm:exmsis10)** Utilizando o R pode-se ver numericamente que o estimador $\widehat p_{AS}$ para a proporção $p$ é não viciado quando $N$ é conhecido.
+**(#exm:exmsis8)** Utilizando o R pode-se ver numericamente que o estimador $\widehat p_{AS}$ para a proporção $p$ é não viciado quando $N$ é conhecido.
 
 
 ```r
+# Alterando o separador de decimais para vírgula
+options(OutDec=",")
 # Intervalo de seleção e tamanho da população conhecido
 K=4
 print(paste("Intervalo de seleção K:", K), quote=FALSE)
@@ -591,7 +638,7 @@ print(p_AS)
 ```
 
 ```
-## [1] 0.4210526 0.4210526 0.6315789 0.4210526
+## [1] 0,4210526 0,4210526 0,6315789 0,4210526
 ```
 
 ```r
@@ -601,7 +648,7 @@ print(paste("Média das estimativas possíveis da proporção:", Ep_AS), quote=F
 ```
 
 ```
-## [1] Média das estimativas possíveis da proporção: 0.473684210526316
+## [1] Média das estimativas possíveis da proporção: 0,473684210526316
 ```
 
 ```r
@@ -611,14 +658,19 @@ print(paste("Proporção na população p:", p), quote=FALSE)
 ```
 
 ```
-## [1] Proporção na população p: 0.473684210526316
+## [1] Proporção na população p: 0,473684210526316
 ```
 
-No caso em que o tamanho $N$ da população é desconhecido pode-se utilizar o estimador tipo razão que, nesse caso, é igual à proporção amostral:
+```r
+# Alterando o separador de decimais para ponto
+options(OutDec=".")
+```
+
+No caso em que o tamanho $N$ da população é desconhecido, pode-se utilizar o estimador tipo razão que, nesse caso, é igual à proporção amostral:
 $$
 \widehat p_{AS} = \frac {n_a} {n_r}
 $$
-Este estimador é viciado, a menos do caso onde $N=nK$, como já foi visto.
+Este estimador é viciado, a menos que $N=nK$, como já foi visto.
 
 
 ## Variância dos estimadores sob amostragem sistemática simples
@@ -627,7 +679,7 @@ A variância de $\widehat Y_{AS}$ sob amostragem sistemática simples é dada po
 
 $$
 \begin{array}{ll}
-V_{AS}(\widehat{Y}_{AS})&=&V_{AS}\left[K\sum_{r=1}^{K}I(r)t_r\right]\\&=&K^2\left[{\sum_{r=1}^{K}{t_r}^2 V_{AS}[I(r)]}+\sum_{r\neq K}COV_{AS}[I(r),I(q)]t_rt_q\right]\\&=& K^2\left[\sum_{r=1}^{K}{t_r}^2\frac{1}{K}\left(1-\frac{1}{K}\right)+\sum_{r\neq K}t_rt_q\left(-\frac{1}{K^2}\right)\right]\\&=& K^2\left[\frac{1}{K}\sum_{r=1}^{K}{t_r}^2 - \frac{1}{K^2}\left(\sum_{r=1}^{K}{t_r}^2+\sum_{r\neq K}t_rt_q\right)\right]\\&=&K\left[\sum_{r=1}^{K}{t_r}^2 - \left(\sum_{r=1}^{K}{t_r}\right)^2/K\right]\\&=&K\sum_{r=1}^{K}(t_r-\overline t)^2 (\#eq:eqsis9)
+V_{AS}(\widehat{Y}_{AS})&=&V_{AS}\left[K\sum_{r=1}^{K}I(r)t_r\right]\\&=&K^2\left[{\sum_{r=1}^{K}{t_r}^2 V_{AS}[I(r)]}+\sum_{r\neq K}COV_{AS}[I(r),I(q)]t_rt_q\right]\\&=& K^2\left[\sum_{r=1}^{K}{t_r}^2\frac{1}{K}\left(1-\frac{1}{K}\right)+\sum_{r\neq K}t_rt_q\left(-\frac{1}{K^2}\right)\right]\\&=& K^2\left[\frac{1}{K}\sum_{r=1}^{K}{t_r}^2 - \frac{1}{K^2}\left(\sum_{r=1}^{K}{t_r}^2+\sum_{r\neq K}t_rt_q\right)\right]\\&=&K\left[\sum_{r=1}^{K}{t_r}^2 - \left(\sum_{r=1}^{K}{t_r}\right)^2/K\right]\\&=&K\sum_{r=1}^{K}(t_r-\overline t)^2 (\#eq:eqsis7)
 \end{array}
 $$
 
@@ -635,20 +687,22 @@ onde: $\overline t = \displaystyle \frac 1 K \sum_{r=1}^{K} t_r = \frac Y K$
 
 Portanto a variância é calculada a partir da soma de quadrados dos desvios entre totais das amostras possíveis em relacão à média destes totais.
 
-Quando $N$ é conhecido a variância do estimador da média populacional é dada por:
+Quando $N$ é conhecido, a variância do estimador da média populacional é dada por:
 
 $$
 V_{AS}(\overline y_{AS}) = \frac1{N^2} V_{AS}(\widehat Y_{AS})
 $$
 
-Um problema que ocorre com a amostragem sistemática simples é o fato da ordenação da população em relação aos valores da variável de interesse afetar a variância (precisão) dos estimadores. Para demonstrar esse problema pode-se utilizar a população apresentada nos exemplos acima, alterando a ordem de suas unidades, para mostrar como isso afeta a composição das possíveis amostras sistemáticas.
+Um problema que ocorre com a amostragem sistemática simples é o fato da ordenação da população em relação aos valores da variável de interesse afetar a variância (precisão) dos estimadores. Para demonstrar esse problema, pode-se utilizar a população apresentada nos exemplos acima, alterando a ordem de suas unidades, para mostrar como isso afeta a composição das possíveis amostras sistemáticas.
 
-Em primeiro lugar, consideramos a população ordenada tal como foi apresentada na Tabela \@ref(tab:tabsis5) e calculamos a variância do estimador do total considerando as possíveis amostras listadas no exemplo \@ref(exm:exmsis7). Em seguida, ordenamos a população em ordem crescente (ou decrescente) dos valores de $y$ e repetimos o cálculo da variância. Observa-se que a variância do estimador do total com a população ordenada diminui consideravelmente em comparação com o caso em que não havíamos reordenado a população. 
+Em primeiro lugar, consideramos a população ordenada tal como foi apresentada na Tabela \@ref(tab:tabsis5) e calculamos a variância do estimador do total considerando as possíveis amostras listadas no exemplo \@ref(exm:exmsis5). Em seguida, ordenamos a população em ordem crescente (ou decrescente) dos valores de $y$ e repetimos o cálculo da variância. Observa-se que a variância do estimador do total com a população ordenada diminui consideravelmente em comparação com o caso em que não havíamos reordenado a população. 
 
-Embora este seja um exemplo extremo, pois na prática não teríamos como ordenar a população pelos valores da variável de interesse, ele mostra bem o efeito que a ordenação pode ter na precisão dos estimadores baseados em amostras sistemáticas simples. Na sequência, ilustramos estes cálculos usando o R. 
+Embora este seja um exemplo extremo, pois na prática não teríamos como ordenar a população pelos valores da variável de interesse, ele mostra bem o efeito que a ordenação pode ter na precisão dos estimadores baseados em amostras sistemáticas simples. Na sequência, ilustramos estes cálculos usando o pacote R. 
 
 
 ```r
+# Alterando o separador de decimais para vírgula
+options(OutDec=",")
 # Intervalo de seleção e tamanho da população conhecido
 K=4
 print(paste("Intervalo de seleção K:", K), quote=FALSE)
@@ -733,13 +787,18 @@ print(paste("Variância do estimador de total - ordem crescente:", V_YhatAS), qu
 ## [1] Variância do estimador de total - ordem crescente: 20611
 ```
 
+```r
+# Alterando o separador de decimais para ponto
+options(OutDec=".")
+```
+
 Fica como exercício para o leitor verificar que o mesmo não ocorre quando se utiliza uma AAS ou AASC, pois nestes casos a ordenação dos valores de $y$ na população não tem influência na precisão das estimativas.
 
 **Notas**
 
 1. Como $r$ pode tomar apenas um valor, $V_{AS}(\widehat Y_{AS})$ não pode ser diretamente estimada a partir da amostra. 
 
-2. Em @Cochran1977 é apresentada uma boa discussão sobre como a ordenação dos valores da variável de pesquisa para unidades populacionais pode afetar a eficiência de amostras sistemáticas.
+2. Em @Cochran1977 é apresentada uma boa discussão sobre como a ordenação dos valores da variável de pesquisa para unidades populacionais pode afetar a eficiência de amostras sistemáticas. Para uma definição de eficiência veja a Expressão \@ref(eq:eqdom24).
 
 3. Para populações em 'ordem aleatória', o desempenho da amostragem sistemática simples é semelhante ao da amostragem aleatória simples sem reposição (@Cochran1977, seção 8.5). 
 
@@ -747,9 +806,9 @@ Fica como exercício para o leitor verificar que o mesmo não ocorre quando se u
 
 5. Para populações periódicas, amostragem sistemática simples com intervalo de seleção em sincronia com o período é um desastre (@Cochran1977, página 218).
 
-**Considere o caso especial onde $N = n \times K$**
+**Considere o caso especial onde $N = nK$**
 
-Da tabela 8.2 do @Cochran1977 é fácil ver que $\overline y_r = t_r/n_r$ é um estimador não viciado para $\overline Y$. Como
+Da tabela 8.2 do @Cochran1977, página 207, é fácil ver que $\overline y_r = t_r/n_r$ é um estimador não viciado para $\overline Y$. Como
 
 $$
 \displaystyle \sum_{r=1}^{K} \sum_{i \in s_r} (y_i - \overline Y)^2 = n \sum_{r=1}^{K} (\overline y_r - \overline Y)^2 + \sum_{r=1}^{K} \sum_{i \in s_r} (y_i - \overline y_r)^2
@@ -757,64 +816,64 @@ $$
 
 tem-se que 
 $$
-(N-1) S_y^2 = n K V_{AS}(\overline y) + K (n-1) S_D^2
+(N-1) S_y^2 = n K V_{AS}(\overline y_{AS}) + K (n-1) S_D^2
 $$
 
-onde $S_y^2$ é a variância populacional total, $S_D^2$ é a variância *dentro* das amostras sistemáticas e $V_{AS}(\overline y)$ é a variância de $\overline y$ sob amostragem sistemática simples.
+onde $S_y^2$ é a variância populacional total, $S_D^2$ é a variância *dentro* das amostras sistemáticas e $V_{AS}(\overline y_{AS})$ é a variância de $\overline y_{AS}$ sob amostragem sistemática simples.
 
 Portanto, conforme @Cochran1977, página 208, o estimador de média é mais eficiente sob amostragem sistemática que sob AAS se e somente se $S_D^2 > S_y^2$.
 
-**Uma expressão alternativa para $V_{AS}(\overline y)$ quando $N = nK$**
+**Uma expressão alternativa para $V_{AS}(\overline y_{AS})$ quando $N = nK$**
 
 De acordo com o Teorema 8.2 de @Cochran1977, página 209, tem-se:
 
 $$
 \begin{array}{ll}
-V_{AS}(\overline y) & = & \left( \frac {N-1} {N} \right) [1 + (n-1) \rho \,] \frac {S_y^2} {n} 
-\\& \doteq  & \left[ 1 + (n-1)\rho \right] \frac {S_y^2} {n} \, \,  (\#eq:eqsis10)
+V_{AS}(\overline y_{AS}) & = & \displaystyle\left( \frac {N-1} {N} \right) [1 + (n-1) \rho \,] \frac {S_y^2} {n} 
+\\& \doteq  & \displaystyle\left[ 1 + (n-1)\rho \right] \frac {S_y^2} {n} \, \,  (\#eq:eqsis8)
 \end{array}
 $$ 
 
 onde:
 
 $$
-\rho = \frac {1} {(n-1) (N-1) S_y^2} \displaystyle \sum_{r=1}^{K} \sum_{i \neq j \in s_r} (y_i - \overline Y) (y_j - \overline Y) (\#eq:eqsis11)
+\rho = \frac {1} {(n-1) (N-1) S_y^2} \displaystyle \sum_{r=1}^{K} \sum_{i \neq j \in s_r} (y_i - \overline Y) (y_j - \overline Y) (\#eq:eqsis9)
 $$
 
 é a *correlação intraclasse* das amostras sistemáticas possíveis.
 
 Este resultado mostra que a correlação positiva entre unidades de uma mesma amostra aumenta a variância da média amostral sob seleção sistemática simples quando comparada com a variãncia da média amostral sob seleção AAS.
 
-Lembrando que sob AAS, $V_{AAS}(\overline y) = \displaystyle \left( 1 - \frac {n} {N} \right) \frac {S_y^2} {n}$.
+Lembrando que sob AAS, $V_{AAS}(\overline y_{AAS}) = \displaystyle \left( 1 - \frac {n} {N} \right) \frac {S_y^2} {n}$.
 
 Então, tem-se a relação aproximada:
 
 $$
-\frac {V_{AS}(\overline y)} {V_{AAS}(\overline y)} = 1 + (n-1) \rho \, \left\{\begin{array}{lll} < 1 & \textrm{se} \,\,\, \rho<0\, \\ = 1 & \textrm{se} \,\,\,\rho=0 \,\\ > 1 & \textrm{se} \,\,\, \rho>0 \, \end{array} \right. (\#eq:eqsis12)
+\frac {V_{AS}(\overline y_{AS})} {V_{AAS}(\overline y_{AAS})} = 1 + (n-1) \rho \, \left\{\begin{array}{lll} < 1, & \textrm{se} \,\,\, \rho<0\, \\ = 1, & \textrm{se} \,\,\,\rho=0 \,\\ > 1, & \textrm{se} \,\,\, \rho>0 \, \end{array} \right. (\#eq:eqsis10)
 $$ 
 
-Cabe notar que razões do tipo $V_{AS}(\overline y)/V_{AAS}(\overline y)$ são chamadas de *Efeito do Plano Amostral (EPA)*. Em inglês, usa-se o termo *design effect*, abreviado como *deff*.
+Cabe notar que razões do tipo $V_{AS}(\overline y_{AS})/V_{AAS}(\overline y_{AAS})$ são chamadas de *Efeito do Plano Amostral (EPA)*. Em inglês, usa-se o termo *design effect*, abreviado como *deff*.
 
 ## Estimação de variâncias dos estimadores na amostragem sistemática
 
 Quando se usa amostragem sistemática simples não há um estimador não viciado para a variância dos estimadores do total e da média. O que se faz é utilizar estimadores mais adequados de acordo com a ordenação da população.
 
-No caso de se poder supor que não há uma ordenação ou que a população esteja espalhada aleatoriamente no cadastro de seleção em relação à(s) variável(eis) de interesse, de modo que as médias dentro de cada intervalo de seleção sejam pelo menos aproximadamente iguais ($\overline Y_r \doteq constante$), o que se pode fazer é utilizar um estimador para a variância da média equivalente ao usado quando se tem uma AAS, dado pela fórmula:
+No caso de se poder supor que não há uma ordenação ou que a população esteja espalhada aleatoriamente no cadastro de seleção em relação à(s) variável(eis) de interesse, de modo que as médias dentro de cada intervalo de seleção sejam pelo menos aproximadamente iguais $(\overline Y_r \doteq constante)$, o que se pode fazer é utilizar um estimador para a variância da média equivalente ao usado quando se tem uma AAS, dado pela expressão:
 
 $$
-\widehat V_{1AS} (\overline y_{AS}) = \left( \frac {1}{n} - \frac 1 {N} \right) \frac {1}{n-1} \sum_{i \in s_r} (y_i - \overline y_{AS})^2 (\#eq:eqsis13)
+\widehat V_{1AS} (\overline y_{AS}) = \left( \frac {1}{n} - \frac 1 {N} \right) \frac {1}{n-1} \sum_{i \in s_r} (y_i - \overline y_{AS})^2 (\#eq:eqsis11)
 $$
-Esse estimador serve para o caso de $N$ conhecido e será não viciado caso a suposição de ordenação aleatória das unidades na população esteja correta. No caso de não se conhecer $N$ pode-se utilizar as alternativas dadas pelos estimadores de razão.
+Esse estimador serve para o caso de $N$ conhecido e será não viciado caso a suposição de ordenação aleatória das unidades na população esteja correta. No caso de não se conhecer $N$, pode-se utilizar as alternativas dadas pelos estimadores de razão.
 
-No caso em que a população esteja ordenada segundo uma "estratificação" de modo que as médias em cada intervalo de seleção variem (p.ex.: a população é ordenada segundo os valores de $y$), pode-se utilizar, para estimar a variancia do estimador da média, a fórmula:
+No caso em que a população esteja ordenada segundo uma "estratificação" de modo que as médias em cada intervalo de seleção variem (p.ex.: a população é ordenada segundo os valores de $y$), @Cochran1977 sugere, para estimar a variancia do estimador da média, a expressão:
 
 $$
- \widehat V_{2AS}(\overline y_{AS}) = \left( \frac {1}{n} - \frac 1 {N} \right) \frac {1}{2(n-1)} \sum_{i \in s_r} (y_i - y_{i+K})^2 (\#eq:eqsis14)
+ \widehat V_{2AS}(\overline y_{AS}) = \left( \frac {1}{n} - \frac 1 {N} \right) \frac {1}{2(n-1)} \sum_{i \in s_r} (y_i - y_{i+K})^2 (\#eq:eqsis12)
 $$
 
-Alternativamente e independente da ordenação da população, pode-se usar um estimador do tipo replicação, onde são selecionadas $q$ amostras sistemáticas de tamanhos $n/q$ cada uma, tomando a variância das estimativas dadas por cada uma das amostras. Essa técnica, também chamada *amostra sistemática repetida*, está descrita em @Scheaffer2011.
+Alternativamente e independentemente da ordenação da população, pode-se usar um estimador do tipo replicação, onde são selecionadas $q$ amostras sistemáticas de tamanhos $n/q$ cada uma, tomando a variância das estimativas dadas por cada uma das amostras. Essa técnica, também chamada *amostra sistemática repetida*, está descrita em @Scheaffer2011.
 
-Quando a seleção de uma AS for realizada a partir de um cadastro conhecido, é sempre possível reordenar as unidades aleatóriamente antes proceder a seleção. Esse é um artifício muito útil e que permite que se utilize os estimadores equivalentes aos da AAS para estimar a variância dos estimadores. Se por um lado essa técnica viabiliza o emprego de estimadores simplificados de variância, por outro se espera que acabe resultando em menor precisão para a estimação pontual.
+Quando a seleção de uma AS for realizada a partir de um cadastro conhecido, é sempre possível reordenar as unidades aleatóriamente antes proceder a seleção. Esse é um artifício muito útil e que permite que se utilizem os estimadores equivalentes aos da AAS para estimar a variância dos estimadores. Se por um lado essa técnica viabiliza o emprego de estimadores simplificados de variância, por outro se espera que acabe resultando em menor precisão para a estimação pontual.
 
 Pode-se encontrar boas discussões sobre a estimação da variância sob amostragem sistemática simples em @Cochran1977 ou @Thompson2012.
 
@@ -845,18 +904,20 @@ $\displaystyle V_{AS}(\overline y_{AS})=\frac K{N^2}\sum_{r=1}^K(t_r-\overline t
  
 ## Alternativas para seleção com amostragem sistemática simples
 
-Como foi visto, existem dificuldades quando o tamanho da população, $N$, não é um múltiplo do intervalo de seleção $K$, ou seja, quando $N \ne n K$. Neste caso, o estimador simples da média têm vício. @Cochran1977 indica que esse vício pode ser considerado desprezível quando se trabalha com tamanhos de amostra razoavelmente grandes, podendo-se considerar como tal amostras com tamanhos iguais ou maiores que $n=50$.
+Como foi visto, existem dificuldades quando o tamanho da população, $N$, não é um múltiplo do intervalo de seleção $K$, ou seja, quando $N \ne n K$. Neste caso, o estimador simples da média tem vício. @Cochran1977 indica que esse vício pode ser considerado desprezível quando se trabalha com tamanhos de amostra razoavelmente grandes, podendo-se considerar como tal amostras com tamanhos iguais ou maiores que $n=50$.
 
-Há também alternativas que podem ser utilizadas quando a seleção da amostra sistemática for feita a partir de um cadastro ou lista das unidades populacionais. @Cochran1977 recomenda usar um método de seleção 'circular' proposto por Lahiri em 1952, para obter uma amostra sistemática. Esse método consiste em:
+Há também alternativas que podem ser utilizadas quando a seleção da amostra sistemática for feita a partir de um cadastro ou lista das unidades populacionais. @Murthy1967, página 139, recomenda usar um método de seleção 'circular' proposto por Lahiri em 1952, para obter uma amostra sistemática. Esse método consiste em:
   1)  Tomar como intervalo de seleção o inteiro mais próximo de $N/n$, ou $K=round(N/n)$;
   2)  Selecionar como partida aleatória um número inteiro $r \in[1,N]$;
   3)  Tomar como primeira unidade da amostra a unidade $r$;
   4)  Em seguida, selecionar as unidades seguintes sempre somando $K$ ao índice da última unidade selecionada; quando $r+jK > N$, subtrair $N$ e continuar o processo até obter as $n$ unidades amostrais desejadas.
   
-**(\#exm:exmsis11)**  Seja uma população de $N=21$ unidades da qual se deseja uma amostra sistemática de exatamente $n=5$ unidades. O *script* a seguir seleciona uma amostra sistemática circular com o tamanho desejado. Note que nesse caso $K=4$.
+**(\#exm:exmsis9)**  Seja uma população de $N=21$ unidades da qual se deseja selecionar uma amostra sistemática de exatamente $n=5$ unidades. O *script* a seguir seleciona uma amostra sistemática circular com o tamanho desejado. Note que nesse caso $K=4$.
   
 
 ```r
+# Alterando o separador de decimais para vírgula
+options(OutDec=",")
 # Definindo a semente para permitir replicação
 set.seed(77099)
 # Tamanho da população
@@ -899,9 +960,21 @@ sr
 ## [1] 10 14 18  1  5
 ```
 
-Veja que com a amostra sistemática circular o número de amostras possíveis é $N$ e pode-se definir estimadores não viciados para a média e o total da variável de interesse $y$, como:
+```r
+# Alterando o separador de decimais para ponto
+options(OutDec=".")
+```
+
+Veja que com uma *Amostra Sistemática circular - ASc*, o número de amostras possíveis é $N$ e pode-se definir estimadores não viciados para a média e o total da variável de interesse $y$, como:
+
 $$
-\overline y_{ASc}=\overline y=\frac 1n \sum_{i=1}^n y_i \,\,\,\text{ e }\,\,\,\widehat Y=N\overline y_{ASc}
+\overline y_{ASc}=\overline y=\frac 1n \sum_{i=1}^n y_i (\#eq:eqsis13)
+$$ 
+
+e
+
+$$
+\widehat Y_{ASc}=N\overline y_{ASc} (\#eq:eqsis14)
 $$
 
 Neste método a seleção é feita com equiprobabilidade e sem reposição, como na AS tradicional, porém é necessário que $N$ seja conhecido e a seleção é um pouco mais trabalhosa. A vantagem é que os estimadores são sempre não viciados.
@@ -912,7 +985,7 @@ Fica para o leitor verificar que os estimadores para a média e total são não 
 
 **(#exr:exrsis1)**  Identifique as outras 4 amostras possíveis referidas no Exemplo \@ref(exm:exmsis1). 
 
-**(#exr:exrsis2)** Transcrito de @Cochran1977, exercício 8.4. A Tabela \@ref(tab:tabsis7) mostra a listagem dos moradores dos 13 domicílios de uma rua. As pessoas foram listadas de acordo com a seguinte regra: H=homem adulto, M=mulher adulta, h=homem criança e m=mulher criança. Cada coluna da tabela representa um dos domicílios da rua.
+**(#exr:exrsis2)** (Transcrito de @Cochran1977, exercício 8.4) A Tabela \@ref(tab:tabsis7) mostra a listagem dos moradores dos 13 domicílios de uma rua. As pessoas foram listadas de acordo com a seguinte regra: H=homem adulto, M=mulher adulta, h=homem criança e m=mulher criança. Cada coluna da tabela representa um dos domicílios da rua.
 
 <center>
 <table>
@@ -939,14 +1012,14 @@ Fica para o leitor verificar que os estimadores para a média e total são não 
   c) Repita os itens $a$ e $b$ para a proporção de crianças;
   d) Em que casos a AS é mais indicada que a AAS? Por quê?
   
-**Dica:** para selecionar a amostra sistemática numere as pessoas sequencialmente a partir do homem adulto do domicílio 1, descendo na coluna e passando para o topo da coluna seguinte.
+**Dica:** para selecionar a amostra sistemática, numere as pessoas sequencialmente a partir do homem adulto do domicílio 1, descendo na coluna e passando para o topo da coluna seguinte.
   
 **(#exr:exrsis3)**  Para estimar o número de erros de digitação num livro de 207 páginas, uma amostra sistemática foi retirada selecionando-se, em primeiro lugar, um número aleatório entre 1 e 10, incluindo na amostra todas as décimas páginas subsequentes. O número aleatório selecionado foi 9. Os números de erros nas páginas selecionadas foram, respectivamente, $1,\,\,1,\,\,3,\,\, 0,\,\,0,\,\,0,\,\,2,\,\,3,\,\,0,\,\,2,\,\,2,\,\,1,\,\,1,\,\,2,\,\,2,\,\,2,\,\,2,\,\,2,\,\,3$ e $3$.
   
   a)  Quais foram as páginas selecionadas?
-  b)  De uma estimativa não viciada do total de erros de digitação no livro.
+  b)  Dê uma estimativa não viciada do total de erros de digitação no livro.
   c)  Uma pessoa usou os dados da amostra e calculou uma estimativa para o total de erros da seguinte maneira: calculou o número médio de erros por página da amostra e multiplicou por 207, resultando 331,20 erros. Esta é uma estimativa não viciada considerando o plano amostral utilizado? Justifique sua resposta?
-  d) A variância do estimador foi estimada por $207\times(207-20)\times 1,09/20$, onde $\small 1,09$ é a variância amostral dos 20 valores observados. Essa estimativa é não viciada? Justifique sua resposta?
+  d) A variância do estimador foi estimada por 207 $\times$ (207-20) $\times$ 1,09/20, onde 1,09 é a variância amostral dos 20 valores observados. Essa estimativa é não viciada? Justifique sua resposta?
 
 **(#exr:exrsis4)**  A Tabela \@ref(tab:tabsis8) mostra o número de sementes germinadas em cada canteiro de um viveiro de mudas com um total de 200 canteiros. Suponha que se deseja estimar a média de sementes por canteiro, através de uma amostra de tamanho 10. (**Dica:** As linhas, $i$, são as possíveis amostras sistemáticas e as colunas, $h$, representam uma estratificação dos canteiros)
 
@@ -998,7 +1071,7 @@ i  \\  h    1   2   3   4   5   6   7   8   9  10  Totais
 
 20       26  30  39  29  9   30  30  29  10  3       235
 
-Totais   410 459 674 551 325 528 303 358 342 205    4155
+Totais   410 459 674 551 325 528 303 358 342 205   4.155
 
 ----------
 </center>
@@ -1020,7 +1093,7 @@ Totais   410 459 674 551 325 528 303 358 342 205    4155
   c) Estime a média de ocupantes por veículo no dia da pesquisa;
   d) Supondo que a distribuição do número de ocupantes é aleatória, estime um intervalo de 95% de confiança para a média de ocupantes por veículo.
   
-**(#exr:exrsis6)**  O departamento de controle de qualidade de uma indústria alimentícia utiliza amostragem sistemática para estimar a média da quantidade de determinado alimento colocada em cada lata na linha de produção. A Tabela \@ref(tab:tabsis9) relaciona a amostra selecionada de 1 em cada 50 latas num dia, quando a produção diária foi de 1820 latas.
+**(#exr:exrsis6)**  (Adaptado de @Scheaffer1990, exercício 7.6) O departamento de controle de qualidade de uma indústria alimentícia utiliza amostragem sistemática para estimar a média da quantidade de determinado alimento colocada em cada lata na linha de produção. A Tabela \@ref(tab:tabsis9) relaciona a amostra selecionada de 1 em cada 50 latas num dia, quando a produção diária foi de 1.820 latas.
 
 <center>
 <table><caption>(#tab:tabsis9)Quantidade de alimento, em onças, por lata na AS</caption></table>
@@ -1042,31 +1115,27 @@ Totais   410 459 674 551 325 528 303 358 342 205    4155
 </center>
 
   a)  Estime a média da quantidade de alimento por lata;
-  b)  Estime a variância da estimativa da média e de um intervalo de $95\%$ de confiança para a média;
+  b)  Estime a variância da estimativa da média e dê um intervalo de 95% de confiança para a média;
   c)  Quais as suposições feitas para escolher o estimador de variância utilizado?
 
-**(#exr:exrsis7)**  Seja a população da tabela abaixo:
+**(#exr:exrsis7)**  A Tabela \@ref(tab:tabsis10) abaixo, apresenta os valores de uma variável $y$ para toda a população em estudo:
 
 <center>
 <table>
 <caption>(#tab:tabsis10)Valores da variável $y$ para a população</caption>
 </table>
-----------
- i     I   II   III   IV   V
------ --- ---- ----- ---- --- 
-1     30  63   29    76   54
+---------- 
+             1    2     3    4    5    6  Total
+--------- ---- ---- ----- ---- ---- ---- ------	 
+**I**	     30	  95    53	 63	  58   29     328
+      
+**II**   	 63	  24    39	 38	  79   36     279
 
-2     95  24   24    76   55
+**III**	   29	  24    62	 25	  99   84     323
 
-3     53  39   62    53   73
+**IV**	   76	  76    53	 52	  55   52     364
 
-4     63  38   25    52   37
-
-5     58  79   99    55   96
-
-6     29  36   84    52   79
-
-Total 328 279  323   364  394
+**V**	     54	  55    73	 37	  96   79     394
 ----------
 </center>
 
@@ -1077,7 +1146,7 @@ Caso não fossem conhecidos os valores da variável representada na tabela, qual
  
 Em cada caso calcule a variância do estimador do total populacional para sustentar sua resposta.
 
-**(#exr:exrsis8)**  Numa determinada região há 3 comunidades consistindo, respectivamente, de pessoas de descendência Anglo-saxã, Polonesa e Italiana. Está disponível um cadastro atualizado, no qual as pessoas de cada domicílio estão listadas na seguinte ordem: esposo, esposa, filhos por idade e outros residentes.Os domicílios estão listados em ordem em cada rua.  O número médio de pessoas por domicílio é 5. Você pode escolher entre uma amostra sistemática com K=5 ou uma AAS com fração amostral de 20%. Para quais das seguintes variáveis você espera, e qual a razão, que a amostragem sistemática seja mais precisa?
+**(#exr:exrsis8)**  Numa determinada região, há 3 comunidades consistindo, respectivamente, de pessoas de descendência Anglo-saxã, Polonesa e Italiana. Está disponível um cadastro atualizado, no qual as pessoas de cada domicílio estão listadas na seguinte ordem: esposo, esposa, filhos por idade e outros residentes.Os domicílios estão listados em ordem em cada rua.  O número médio de pessoas por domicílio é 5. Você pode escolher entre uma amostra sistemática com K=5 ou uma AAS com fração amostral de 20%. Para quais das seguintes variáveis você espera, e qual a razão, que a amostragem sistemática seja mais precisa?
 
   a)  Proporção de pessoas descendentes de Poloneses;
   b)  Proporção de homens;
@@ -1086,13 +1155,13 @@ Em cada caso calcule a variância do estimador do total populacional para susten
 **(#exr:exrsis9)**  Um censo foi realizado numa comunidade. A cada 20 domicílios, a partir da seleção aleatória de uma partida entre 1 e 20, foi perguntado o número de anos que a família residia naquele imóvel. Os resultados sumarizados da amostra são dados a seguir:
 		              
 $$
-n=115;\:\:N=2300;\:\:\sum_{i=1}^ny_i=407,1\:\:\text{e}\:\:\sum_{i=1}^ny_i^2=2011,15
+n=115;\:\:N=2.300;\:\:\sum_{i=1}^ny_i=407,1\:\:\text{e}\:\:\sum_{i=1}^ny_i^2=2.011,15
 $$
   a)  Descreva o plano amostral utilizado e seus parâmetros;
   b)  Estime o número médio de anos de moradia das famílias nos domicílios;
   c)  Estime a variância do estimador da média, citando a suposição feita sobre a distribuição da variável de interesse na população.
   
-**(#exr:exrsis10)**  Os dirigentes de uma associação profissional querem estimar a proporção de membros que são a favor de algumas propostas de alterações no estatuto da entidade. Uma AS foi feita a partir da lista dos associados, selecionando uma partida aleatória entre 1 e 10 e tomando todos os décimos associados da lista, a partir do número sorteado. Foram selecionados 65 sócios no total de 654 existentes. Os sócios da amostra favoráveis às mudanças foran assinalados com $y_i=1$ e os contrátrios com $y_i=0$. Ao final da pesquisa obteve-se $\sum_{i=1}^{65}y_i=48$.
+**(#exr:exrsis10)**  Os dirigentes de uma associação profissional querem estimar a proporção de membros que são a favor de algumas propostas de alterações no estatuto da entidade. Uma AS foi feita a partir da lista dos associados, selecionando uma partida aleatória entre 1 e 10 e tomando todos os décimos associados da lista, a partir do número sorteado. Foram selecionados 65 sócios no total de 654 existentes. Os sócios da amostra favoráveis às mudanças foram assinalados com $y_i=1$ e os contrários com $y_i=0$. Ao final da pesquisa obteve-se $\sum_{i=1}^{65}y_i=48$.
 
   a)  Estime a proporção, $p$, de sócios favoráveis às mudanças no estatuto;
-  b)  Estime a margem de erro, com $95\%$ de confiança, para a estimativa de $p$.
+  b)  Estime a margem de erro, com 95% de confiança, para a estimativa de $p$.

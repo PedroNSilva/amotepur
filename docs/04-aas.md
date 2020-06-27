@@ -4,15 +4,15 @@
 
 O planejamento da amostra de uma pesquisa requer a definição dos seguintes componentes fundamentais: 
 
-C1) Que método será usado para *seleção* da amostra;
+C1. Que método será usado para *seleção* da amostra?
 
-C2)	Qual será o *tamanho* da amostra;
+C2.	Qual será o *tamanho* da amostra?
 
-C3)	Que *estimadores* serão usados para os parâmetros de interesse; e
+C3.	Que *estimadores* serão usados para os parâmetros de interesse?
 
-C4)	Como será feita a *avaliação da precisão* das estimativas, isto é, como será feita a estimação da variância dos estimadores empregados.
+C4.	Como será feita a *avaliação da precisão* das estimativas, isto é, como será feita a estimação da variância dos estimadores empregados?
 
-Os componentes C1) e C2), em conjunto, dão origem à especificação do *plano amostral*. Já os componentes C3) e C4) dão origem à especificação dos *métodos de estimação* da pesquisa. 
+Os componentes C1 e C2, em conjunto, dão origem à especificação do *plano amostral*. Já os componentes C3 e C4 dão origem à especificação dos *métodos de estimação* da pesquisa. 
 
 Para aplicar um plano amostral qualquer $p(s)$ (a função que associa a cada amostra possível $s$ uma probabilidade de esta ser a amostra selecionada) precisamos contar com um *algoritmo de seleção*. Um *algoritmo de seleção* é um método que permite selecionar as unidades da amostra $s$ de tal forma que a probabilidade de ser $s \in S$ a amostra selecionada seja igual a $p(s)$.
 
@@ -56,7 +56,7 @@ $$
 E(Z_k) = E \left( N  Y_k \right) = \displaystyle \sum_{i \in U} (N  y_i)  \frac{1}{N} = Y
 $$
 
-É também fácil mostrar que a variância de $Z_k \, \, \forall \, \, k = 1, 2, ..., n$ é dada por:
+É também fácil mostrar que a variância de $Z_k, \, \, \forall \, \, k = 1, 2, ..., n$ é dada por:
 
 $$
 V_{AASC} (Z_k) = V_{AASC} \left( N  Y_k \right) = \displaystyle \sum_{i \in U} ({N  y_i - Y})^2  \frac{1}{N} = N^2  \sigma_y^2
@@ -67,7 +67,7 @@ onde $\sigma_y^2 = \displaystyle \frac{1}{N} \sum_{i \in U} ({y_i - \overline{Y}
 Com estes resultados, e considerando que sob AASC os dados são obtidos mediante a realização de $n$ sorteios independentes e realizados em condições idênticas, tem-se que um *estimador não viciado* - ENV para $Y$ é dado por:
 
 $$
-\widehat{Y}_{AASC} = \displaystyle \frac - {1}{n} \sum_{k = 1}^{n} Z_k = \displaystyle \frac {N}{n} \sum_{k = 1}^{n} Y_k = \displaystyle \frac {N}{n} \sum_{k = 1}^{n} y_{i_k} = \displaystyle \frac {N}{n} \sum_{i \in s} y_i = N  \overline{y}\,\,(\#eq:eqaas1)
+\widehat{Y}_{AASC} = \displaystyle \frac {1}{n} \sum_{k = 1}^{n} Z_k = \displaystyle \frac {N}{n} \sum_{k = 1}^{n} Y_k = \displaystyle \frac {N}{n} \sum_{k = 1}^{n} y_{i_k} = \displaystyle \frac {N}{n} \sum_{i \in s} y_i = N  \overline{y}\,\,(\#eq:eqaas1)
 $$
 
 onde $\overline{y} = \displaystyle \frac {1}{n} \sum_{k = 1}^{n} y_{i_k} =  \displaystyle \frac {1}{n} \sum_{i \in s} y_i$ é a média dos valores observados na amostra.
@@ -81,7 +81,7 @@ $$
 A estimação dessa variância pode ser feita sem viés usando o estimador:
 
 $$
-\widehat{V}_{AASC} (\widehat{Y}_{AASC}) = \displaystyle  N^2  \widehat{\sigma}_y^2 / n\,\,(\#eq:eqaas3)
+\widehat{V}_{AASC} (\widehat{Y}_{AASC}) = \displaystyle  N^2  \widehat{\sigma}_y^2 / n= N^2 s_y^2 / n\,\,(\#eq:eqaas3)
 $$
 onde $s_y^2 = \displaystyle \frac{1}{n-1} \sum_{i \in s} ({y_i - \overline{y}})^2$ é um ENV para a variância $\sigma_y^2$.
 
@@ -95,7 +95,7 @@ A Tabela \@ref(tab:tabaas2) apresenta um resumo da estimação dos parâmetros m
 <table>
 <caption>(#tab:tabaas2)Parâmetros e respectivos estimadores sob AASC</caption>
 </table>
-|Parâmetro| |Estimador não viciado|
+|Parâmetro| |Estimador|
 |:---|:---|:---|
 |$\overline{Y} = \displaystyle \sum_{i\in U} y_i / N$| |$\overline{y}=\displaystyle\sum_{i \in s} y_i / n$|
 |$Y = \displaystyle \sum_{i\in U} y_i$               | |$\widehat{Y}_{AASC} = N \, \overline{y}$|
@@ -106,7 +106,7 @@ A Tabela \@ref(tab:tabaas2) apresenta um resumo da estimação dos parâmetros m
 
 Para provas destes resultados, veja por exemplo o Teorema 3.3 de @Bolfarine2005.
 
-Note que o estimador $\widehat{Y}_{AASC}$ para o total não é o estimador tipo Horvitz-Thompson para este plano amostral. Veja o (#exr:exeaas1) para uma discussão dessa questão.
+Note que o estimador $\widehat{Y}_{AASC}$ para o total não é o estimador tipo Horvitz-Thompson para este plano amostral. Veja o (#exr:exraas1) para uma discussão dessa questão.
 
 A importância da AASC é principalmente teórica: através dela se mostra que é possível obter amostras de forma simples, cujos dados são utilizáveis mediante a aplicação de procedimentos convencionais da Inferência Estatística clássica. Por exemplo, a estimação não enviesada da média populacional $\overline{Y}$ pode ser feita simplesmente com o estimador média amostral $\overline{y}$, e a obtenção das propriedades deste estimador fica facilitada porque as variáveis aleatórias correspondentes aos valores das observações na amostra são IID, mesmo quando a população alvo tem tamanho finito. Ainda mais, o estimador $\overline{y}$ da média $\overline{Y}$ continua válido mesmo quando não se propõe um modelo estocástico para descrever a distribuição dos valores da população, sendo este estimador não viciado independente da forma que tem a distribuição dos valores da população. Tudo isso justifica a apresentação da AASC dentro do conjunto de técnicas abordadas neste livro.
 
@@ -115,7 +115,7 @@ AASC é ineficiente em comparação com a amostragem aleatória simples *sem rep
 
 ## Amostragem Aleatória Simples Sem Reposição 
 
-A *Amostragem Aleatória Simples Sem Reposição* - abreviada por *AAS* é um plano amostral similar à *AASC*, sendo que neste caso cada unidade da população pode aparecer na amostra no máximo uma única vez, isto é, não pode haver repetição de unidades na amostra. Na verdade, *AAS* é qualquer procedimento de seleção que garanta que *todas* as amostras de tamanho $n$ da população de tamanho $N$ têm a *mesma probabilidade* de serem escolhidas. Como existem $\binom{N}{n} = \frac{N!}{n!(N-n)!}$ amostras distintas em $S$, então $p(s) = 1/\binom{N}{n}$ $\forall s\in S$, onde $s$ é qualquer subconjunto de $n$ inteiros distintos entre os inteiros de $1$ a $N$.
+A *Amostragem Aleatória Simples Sem Reposição* - abreviada por *AAS* é um plano amostral similar à *AASC*, sendo que neste caso cada unidade da população pode aparecer na amostra no máximo uma única vez, isto é, não pode haver repetição de unidades na amostra. Na verdade, *AAS* é qualquer procedimento de seleção que garanta que *todas* as amostras de tamanho $n$ da população de tamanho $N$ têm a *mesma probabilidade* de serem escolhidas. Como existem $\binom{N}{n} = \frac{N!}{n!(N-n)!}$ amostras distintas em $S$, então $p(s) = 1/\binom{N}{n},$ $\forall\, s\in S$, onde $s$ é qualquer subconjunto de $n$ inteiros distintos entre os inteiros de 1 a $N$.
 
 Na *AAS* duas determinações da amostra são consideradas iguais quando constituídas das mesmas unidades da população, não importando a ordem de seleção dessas unidades. 
 
@@ -139,7 +139,7 @@ Tal algoritmo fornecia a regra para *seleção manual* com uso de *tabelas de n�
 
 Este algoritmo foi proposto por @Hajek1960 e consiste nos seguintes passos: 
 
-*Passo 1:* Para cada $i\in U$, associe um *número pseudoaleatório* $a_i$, onde os $a_i$ são determinações de variáveis aleatórias IID $A_1, A_2, ..., A_N$, todas com distribuição $U[0;1]$, conforme apresentado na Tabela \@ref(tab:tabaas3).
+*Passo 1:* Para cada $i\in U$, associe um *número pseudoaleatório* $a_i$, onde os $a_i$ são determinações de variáveis aleatórias IID $A_1, A_2, ..., A_N$, todas com distribuição $U(0;1)$, conforme apresentado na Tabela \@ref(tab:tabaas3).
 
 <table>
 <caption>(#tab:tabaas3)Número pseudoaleatório associado a cada unidade da população</caption>
@@ -180,15 +180,15 @@ O algoritmo de Hàjek requer duas passagens sobre a lista, mais uma operação d
 
 Este algoritmo foi proposto por @Fan1962 e consiste nos seguintes passos: 
 
-Como no algoritmo anterior, sejam $a_i, \, i = 1, 2, ..., m$, determinações de variáveis aleatórias IID $A_1, A_2, ..., A_m$, todas com distribuição $U[0;1]$. 
+Como no algoritmo anterior, sejam $a_i, \, i = 1, 2, ..., m$, determinações de variáveis aleatórias IID $A_1, A_2, ..., A_m$, todas com distribuição $U(0;1)$. 
 
-Processe sequencialmente a lista, para as unidades $i = 1, 2, 3, ..., m$, incluindo na amostra as unidades $i$ tais que $a_i < \frac{n - k_{i-1}}{N - i + 1}$, onde $k_{i-1}$ é o número de unidades selecionadas até o processamento da unidade $i-1$. Após processar cada unidade da lista, atualize o número de unidades já incluídas na amostra. Interrompa o processamento quando $k_{m} = n$, o que ocorre quando for processada a unidade de ordem $m$. Note que $m$ é uma quantidade aleatória, que vai variar no intervalo $n \le m \le N$, e corresponde ao número de sorteios necessários para conseguir uma AAS de tamanho $n$ da população de tamanho $N$.
+Processe sequencialmente a lista, para as unidades $i = 1, 2, 3, ..., m$, incluindo na amostra as unidades $i$, tais que $a_i < \frac{n - k_{i-1}}{N - i + 1}$, onde $k_{i-1}$ é o número de unidades selecionadas até o processamento da unidade $i-1$. Após processar cada unidade da lista, atualize o número de unidades já incluídas na amostra. Interrompa o processamento quando $k_{m} = n$, o que ocorre quando for processada a unidade de ordem $m$. Note que $m$ é uma quantidade aleatória, que vai variar no intervalo $n \le m \le N$, e corresponde ao número de sorteios necessários para conseguir uma AAS de tamanho $n$ da população de tamanho $N$.
 
 O algoritmo de Fan, Muller e Rezucha, para selecionar uma *AAS* de tamanho $n$ de uma população de $N$ unidades, pode ser resumido nos seguintes passos:
 
 1)  $i\leftarrow 0$
 2)  $i\leftarrow I+1$
-3)  Para a unidade $U_i$ gere um número pseudolaeatório $a_i\sim U(0,1)$
+3)  Para a unidade $U_i$ gere um número pseudolaeatório $a_i\approx U(0;1)$
 4)  Se $a_i<n/N$
     * Inclua $U_i$ na amostra
     * $N\leftarrow N-1$
@@ -217,26 +217,26 @@ s
 
 ```
 ##      i
-## 1  893
-## 2  167
-## 3  218
-## 4  949
-## 5  393
-## 6  973
-## 7  487
-## 8  723
-## 9  656
-## 10 411
-## 11  57
-## 12 297
-## 13 604
-## 14 348
-## 15 400
-## 16  90
-## 17  43
-## 18 916
-## 19 763
-## 20  21
+## 1   43
+## 2  248
+## 3  380
+## 4  358
+## 5  375
+## 6  382
+## 7  276
+## 8  691
+## 9  872
+## 10 743
+## 11 361
+## 12 712
+## 13 127
+## 14 909
+## 15   1
+## 16 900
+## 17 901
+## 18 357
+## 19 228
+## 20 440
 ```
 
 ```r
@@ -269,51 +269,51 @@ s
 
 ```
 ##      i
-## 1   10
-## 2  151
-## 3  192
-## 4  307
-## 5  348
-## 6  359
-## 7  404
-## 8  495
-## 9  526
-## 10 637
-## 11 679
-## 12 725
-## 13 729
-## 14 752
-## 15 772
-## 16 805
-## 17 810
-## 18 884
-## 19 933
-## 20 986
+## 1   11
+## 2   33
+## 3   86
+## 4   99
+## 5  106
+## 6  219
+## 7  263
+## 8  424
+## 9  449
+## 10 510
+## 11 605
+## 12 662
+## 13 718
+## 14 740
+## 15 767
+## 16 799
+## 17 880
+## 18 915
+## 19 927
+## 20 970
 ```
 ### Probabilidades de inclusão sob AAS
 
-Como já indicado no capítulo \@ref(visger), tratar com as distribuições de aleatorização $p(s)$ sob AAS pode ser complicado do ponto de vista prático. @Sarndal1992, pãgina 29, mencionam que numa população com $N = 1.000$ unidades, o conjunto $S$ de amostras AAS possíveis de tamanho $n = 40$ tem dimensão $\binom{N}{n} = \binom{1.000}{40} = 5,6 \times 10^{71}$. Se a população tivesse $N = 5.000$ e a amostra tamanho $n = 200$, a dimensão de $S$ cresceria para $\binom{5.000}{200} = 1,4 \times 10^{363}$. Portanto, a enumeração de todas as amostras possíveis seria tarefa complicada, mesmo com computadores poderosos. 
+Como já indicado no capítulo \@ref(visger), tratar com as distribuições de aleatorização $p(s)$ sob AAS pode ser complicado do ponto de vista prático. @Sarndal1992, página 29, mencionam que numa população com $N =$ 1.000 unidades, o conjunto $S$ de amostras AAS possíveis de tamanho $n=$ 40 tem dimensão $\binom{N}{n} = \binom{1.000}{40} =$ 5,6 $\times$ 10<sup>71</sup>. Se a população tivesse $N =$ 5.000 e a amostra tamanho $n =$ 200, a dimensão de $S$ cresceria para $\binom{5.000}{200} =$ 1,4 $\times$ 10<sup>363</sup>. Portanto, a enumeração de todas as amostras possíveis seria tarefa complicada, mesmo com computadores poderosos. 
 
 Note que os tamanhos de população e amostra acima são modestos do ponto de vista de aplicações práticas.
 Foi para eliminar essa dificuldade que introduzimos resumos simples derivados da distribuição $p(s)$. Tais resumos serão suficientes para a obtenção de propriedades de estimadores tais como valor esperado e variância, na maioria das situações de interesse prático. Esses resumos são as *probabilidades de inclusão* de unidades ou de pares de unidades na amostra.
 
-1) Sob AAS, $\pi_i = n / N > 0$, $\forall i \in U$ desde que $n > 0$.
+1) Sob AAS, $\pi_i = n / N > 0$, $\forall \,i \in U$ desde que $n > 0$.
 
 2) $f = n / N$ é chamada de *fração amostral* ou *taxa de amostragem*.
 
-3) Estimação de variância sem vício requer $\pi_{ij} > 0$,  $\forall i,j \in U$. Sob AAS, $\pi_{ij} = \displaystyle \frac{n(n-1)}{N(N-1)} > 0 \,\,\, \forall i \ne j \in U$.
+3) Estimação de variância sem vício requer $\pi_{ij} > 0$,  $\forall\, i,j \in U$. Sob AAS, $\pi_{ij} = \displaystyle \frac{n(n-1)}{N(N-1)} > 0 \,\,\, \forall\, i \ne j \in U$.
 
 4) Sob AAS, as probabilidades de inclusão $\pi_i$, $\pi_{ij}$, etc. não dependem de $i$ ou $j$, e essa é a razão da simplicidade desse plano amostral.
 
 Sob AAS de tamanho $n$ de população com $N$, para a variável $\delta_i$ indicadora do evento ´inclusão da unidade $i$ na amostra $s$´, tem-se:
 
-$E_{AAS} [{\delta_i}] = \displaystyle\frac{n}{N}$, 
+$E_{AAS} [{\delta_i}] = \displaystyle\frac{n}{N}$ 
  
-$V_{AAS} [{\delta_i}] = \displaystyle\frac{n}{N} \left(1-\frac{n}{N}\right)$  e 
+$V_{AAS} [{\delta_i}] = \displaystyle\frac{n}{N} \left(1-\frac{n}{N}\right)$  
 
 $COV_{AAS} [{\delta_i},{\delta_j} ] = \displaystyle\frac{n(n-1)}{N(N-1)} - \left(\frac{n}{N}\right)^2 = \frac{n}{N}\left(1-\frac{n}{N}\right)\left(-\frac{1}{N-1}\right)$
 
-Assim sob AAS a correlação entre duas variáveis indicadoras de inclusão de unidades distintas na amostra é dada por: 
+Assim, sob AAS a correlação entre duas variáveis indicadoras de inclusão de unidades distintas na amostra é dada por: 
 
 $CORR_{AAS} [{\, \delta_i} \, , {\delta_j} ] = -1/(N-1)$ se $i \ne j$
 
@@ -346,7 +346,7 @@ A Tabela \@ref(tab:tabaas5) apresenta um resumo da estimação de parâmetros m�
 <caption>(#tab:tabaas5)Parâmetros e respectivos estimadores sob AAS</caption>
 </table>
 
-|Parâmetro| |Estimador não viciado|
+|Parâmetro| |Estimador|
 |:---|:---|:---|
 |$\overline{Y} = \displaystyle \sum_{i\in U} y_i / N$| |$\overline{y} = \displaystyle \sum_{i \in s} y_i / n$|
 |$Y = \displaystyle \sum_{i\in U} y_i$| |$\widehat{Y}_{AAS} = N \overline{y} = \displaystyle \frac {N}{n} \sum_{i \in s} y_i$|
@@ -374,7 +374,7 @@ $$
 
 onde $N(0;1)$ denota uma variável aleatória com distribuição normal padrão com média zero e variância um. Mais detalhes podem ser obtidos em @Cochran1977, seções 2.8 e 2.15, ou em @Sarndal1992, seção 2.11.
 
-É com base nessa distribuição assintótica que se pode fazer inferência por intervalos de confiança para a média populacional, e com base nesta ideia, medir a *margem de erro* de uma estimativa da média populacional. Um intervalo de confiança de nível $(1 - \alpha)\%$ para a média populacional sob AAS é dado por:
+É com base nessa distribuição assintótica que se pode fazer inferência por intervalos de confiança para a média populacional, e com base nesta ideia, medir a *margem de erro* de uma estimativa da média populacional. Um intervalo de confiança de nível $(1 - \alpha)$% para a média populacional sob AAS é dado por:
 
 $$
 IC_{AAS} (\overline{Y} ; 1 - \alpha) = \left [ \overline {y} \mp z_{\alpha/2} \sqrt{\widehat {V}_{AAS}(\overline{y})} \right ]\,\,(\#eq:eqaas8)
@@ -409,7 +409,7 @@ Em resumo, as diferenças da *amostragem aleatória simples sem reposição* - A
 
 Nesta seção, procura-se responder à pergunta de que *tamanho* deve ter a amostra de uma pesquisa. A resposta a essa pergunta depende da resposta a uma de duas perguntas alternativas: 
 
-a) Quanto se pretende gastar na pesquisa? ou 
+a) Quanto se pretende gastar na pesquisa? 
 
 b) Qual a precisão desejada (esperada) dos resultados?
 
@@ -425,7 +425,7 @@ Considere um cenário em que o interesse é realizar uma pesquisa junto a empres
 
 Após realizar reuniões com o cliente e ter informação mais precisa sobre o questionário e características da pesquisa, o responsável por planejar a amostra estima que coletar dados de cada empresa selecionada para a amostra terá um custo médio de R$ 200 por questionário. Vale também comentar que é importante que, ao estimar o custo médio de coleta por questionário, o planejador da pesquisa deixe margem de segurança para cobrir eventuais dificuldades imprevistas de coleta. 
 
-Considerando o orçamento disponível para a coleta, o recomendável seria então usar uma amostra de $n = 400.000 / 200 = 2.000$ empresas. 
+Considerando o orçamento disponível para a coleta, o recomendável seria então usar uma amostra de $n =$ 400.000 / 200 $=$ 2.000 empresas. 
 
 Após calcular este tamanho de amostra, o responsável pelo planejamento da amostra deve comunicar ao cliente alguma ideia de que precisão seria possível alcançar com esse tamanho de amostra e orçamento, ao menos para os principais parâmetros de interesse da pesquisa. Isto ajudaria a evitar frustrações ou reclamações após a coleta dos dados e a obtenção das estimativas de interesse.
 
@@ -439,13 +439,13 @@ Exemplos:
 
 2)	“Desejamos que a estimativa da média não se afaste do valor verdadeiro mais que 10%, com probabilidade 0,95.”
 
-Em 1) acima, estabelecemos a *margem de erro* - $D$, igual à semiamplitude do *intervalo de confiança* para $\overline Y$ em unidades da variável resposta, para um determinado *nível de confiança* (90% ou 0,90). 
+No item 1 acima, estabelecemos a *margem de erro* - $D$ igual à semiamplitude do *intervalo de confiança* para $\overline Y$ em unidades da variável resposta, para um determinado *nível de confiança* (90% ou 0,90). 
 
-Em 2) acima, estabelecemos a *margem de erro relativo* - $D_r$, a semiamplitude do intervalo de confiança para $\overline Y$ em *termos relativos*, aceitando um *erro relativo máximo* de 10% do valor de $\overline Y$, para um determinado nível de confiança (95% ou 0,95).
+No item 2 acima, estabelecemos a *margem de erro relativo* - $D_r$ a semiamplitude do intervalo de confiança para $\overline Y$ em *termos relativos*, aceitando um *erro relativo máximo* de 10% do valor de $\overline Y$, para um determinado nível de confiança (95% ou 0,95).
 
 Para determinar o tamanho amostral para precisão fixada, a ideia é usar a informação disponível sobre a distribuição do estimador e alguma informação prévia existente sobre a população.
 
-Sabe-se que para $n$ grande e $f = n/N$ limitada longe de $1$:
+Sabe-se que para $n$ grande e $f = n/N$ limitada longe de 1:
 
 $$\frac {\overline {y} - \overline{Y}} {\displaystyle \sqrt{\left(\frac{1}{n}-\frac{1}{N}\right)S_y^2}} \approx N(0;1)$$
 Segue-se então que:
@@ -460,7 +460,7 @@ $$P \left(|\overline {y}-\overline{Y}|\le z_{\alpha/2}{\sqrt{\left(\frac{1}{n}-\
 
 Logo, o erro de estimar $\overline Y$  usando $\overline y$  sob AAS é menor ou igual a $z_{\alpha/2} {\sqrt {\left( \frac{1}{n} - \frac{1}{N} \right) S_y^2}}$  com probabilidade $1-\alpha$.
 
-Então se desejamos estimar $\overline Y$ com um erro máximo de $\pm 10$ unidades, com um nível de confiança de 90% (o que significa que o valor tabelado $z_{\alpha/2} = 1,645$), basta fazer:
+Então se desejamos estimar $\overline Y$ com um erro máximo de $\pm 10$ unidades, com um nível de confiança de 90% (o que significa que o valor tabelado $z_{\alpha/2}=$ 1,645), basta fazer:
 
 $$z_{\alpha/2} {\sqrt{ \left( \frac{1}{n} - \frac{1}{N} \right )S_y^2}} = 1,645 \sqrt{ \left( \frac{1}{n} - \frac{1}{N} \right) S_y^2} = 10$$
 
@@ -484,9 +484,9 @@ Para calcular o tamanho desejado da amostra precisamos conhecer $N$ e $S_y^2$. S
 
 **O caso geral**
 
-Seja $D$ a *precisão desejada*, a *margem de erro máximo admissível* na estimação de $\overline Y$, a *semiamplitude* desejada para o intervalo de confiança de $\overline Y$. Seja $1-\alpha$ o *coeficiente de confiança* desejado para o procedimento. Para *intervalos de confiança* de 95% usamos $z_{\alpha/2} = 1,96$.
+Seja $D$ a *precisão desejada*, a *margem de erro máximo admissível* na estimação de $\overline Y$, a *semiamplitude* desejada para o intervalo de confiança de $\overline Y$. Seja $1-\alpha$ o *coeficiente de confiança* desejado para o procedimento. Para *intervalos de confiança* de 95% usamos $z_{\alpha/2} =$ 1,96.
 
-Um intervalo de confiança não é uma especificação sobre uma particular amostra, mas sobre o desempenho do procedimento sob todas as possíveis amostras. Quando se usa um intervalo de confiança de 95% para um parâmetro, isto quer dizer que os intervalos construídos com cerca de 95 de cada 100 amostras selecionadas (sob idênticas condições) cobririam o "verdadeiro" valor do parâmetro de interesse. Para uma amostra específica, selecionada pelo método escolhido, acredita-se que é de 95% a chance que o "verdadeiro" valor seja coberto pelo intervalo: $[\text{Estimativa} - 1,96 \times \text{desvio padrão} ;\,\, \text{Estimativa} + 1,96 \times \text{desvio padrão}]$.
+Um intervalo de confiança não é uma especificação sobre uma particular amostra, mas sobre o desempenho do procedimento sob todas as possíveis amostras. Quando se usa um intervalo de confiança de 95% para um parâmetro, isto quer dizer que os intervalos construídos com cerca de 95 de cada 100 amostras selecionadas (sob idênticas condições) cobririam o "verdadeiro" valor do parâmetro de interesse. Para uma amostra específica, selecionada pelo método escolhido, acredita-se que é de 95% a chance que o "verdadeiro" valor seja coberto pelo intervalo: $[$Estimativa $-$ 1,96 $\times$ desvio padrão;  Estimativa $+$ 1,96 $\times$ desvio padrão$]$. 
 
 Assim:  
 
@@ -495,18 +495,18 @@ $$\left( \frac{1}{n} - \frac{1}{N} \right) S_y^2 = \left( \frac{D}{z_{\alpha/2}}
 Portanto, o tamanho de uma AAS que assegura precisão $D$ com nível de confiança $1 - \alpha$ é:
 
 $$
-n = \displaystyle\frac{1}{\displaystyle\left( \frac{D}{z_{\alpha/2}} \right)^2 \displaystyle\frac{1}{S_y^2} + \frac{1}{N}} = \displaystyle\frac{N z_{\alpha/2}^2 S_Y^2} {N{D}^2 + {z_{\alpha/2}^2} S_y^2}\,\,(\#eq:eqaas10)
+n = \displaystyle\frac{1}{\displaystyle\left( \frac{D}{z_{\alpha/2}} \right)^2 \displaystyle\frac{1}{S_y^2} + \frac{1}{N}} = \displaystyle\frac{N z_{\alpha/2}^2 S_y^2} {N{D}^2 + {z_{\alpha/2}^2} S_y^2}\,\,(\#eq:eqaas10)
 $$
 
 **Comentários**
 
-1. A expressão \@ref(eq:eqaas10) só se aplica para o caso do estimador média amostral $\overline y$ para a média populacional $\overline Y$ sob AAS.
+1. A Expressão \@ref(eq:eqaas10) só se aplica para o caso do estimador média amostral $\overline y$ para a média populacional $\overline Y$ sob AAS.
 
 2. É possível derivar expressões similares para o caso da estimação de totais, e também de outros parâmetros.
 
-3. Para planos amostrais mais complexos, é mais difícil resolver equações do tipo acima para determinar tamanhos amostrais, e sua alocação em estratos e conglomerados. Entretanto, a ideia de *Efeito de Plano Amostral* - EPA vai ser útil neste contexto. Veja discussão no capítulo \@ref(cong).
+3. Para planos amostrais mais complexos, é mais difícil resolver equações do tipo acima para determinar tamanhos amostrais, e sua alocação em estratos e conglomerados. Entretanto, a ideia de *Efeito do Plano Amostral* - EPA vai ser útil neste contexto. Veja discussão no capítulo \@ref(cong).
 
-**(#exm:exmaas2)** Considere a população formada pelos municípios brasileiros, conforme consta do arquivo ‘MunicBR_dat.rds’. Tendo esta população em mente, imagine que seria usada para seleção de uma amostra AAS de $n=200$ municípios. Imagine que tal amostra seria usada para estimar a *média populacional* da variável *área* dos municípios. 
+**(#exm:exmaas2)** Considere a população formada pelos municípios brasileiros, conforme consta do arquivo 'MunicBR_dat.rds'. Tendo esta população em mente, imagine que seria usada para seleção de uma amostra AAS de $n=$ 200 municípios. Imagine que tal amostra seria usada para estimar a *média populacional* da variável *área* dos municípios. 
 
 1.	Com esta perspectiva, use os *dados populacionais* para:
   
@@ -516,9 +516,9 @@ $$
 
     c)	Avaliar a *margem de erro relativo* que a estimativa teria ao nível 95% de confiança;
 
-    d)	Determinar o *tamanho da amostra* que seria necessária para estimar a média da área com um erro máximo de $150 \, km^2$ ao nível de confiança de 95%.
+    d)	Determinar o *tamanho da amostra* que seria necessária para estimar a média da área com um erro máximo de 150 km<sup>2</sup> ao nível de confiança de 95%.
 
-2.	Selecione uma AAS de tamanho $n=200$ e use os *dados amostrais* para calcular:
+2.	Selecione uma AAS de tamanho $n=$ 200 e use os *dados amostrais* para calcular:
   
     a)	Uma estimativa da *média populacional*;
 
@@ -526,7 +526,7 @@ $$
 
     c)	Estime a *margem de erro relativo* que a estimativa obtida em a) teria ao nível 95% de confiança;
 
-    d)	O *tamanho da amostra* que seria necessária para estimar a média da área com um erro máximo de $150 \, km^2$ ao nível de confiança de 95%.
+    d)	O *tamanho da amostra* que seria necessária para estimar a média da área com um erro máximo de 150 km<sup>2</sup> ao nível de confiança de 95%.
 
 3.	Compare estimativas obtidas no item 2 com os valores obtidos no item 1 e analise/comente.
 
@@ -654,7 +654,7 @@ munic_amo <- getdata(MunicBR_dat, srswor(n, N))
 ```
 
 ```
-## [1] 1763.627
+## [1] 1640.244
 ```
 
 ```r
@@ -663,7 +663,7 @@ munic_amo <- getdata(MunicBR_dat, srswor(n, N))
 ```
 
 ```
-## [1] 195872.3
+## [1] 94986.8
 ```
 
 ```r
@@ -679,7 +679,7 @@ munic_amo <- getdata(MunicBR_dat, srswor(n, N))
 ```
 
 ```
-## [1] 22.0832
+## [1] 23.74436
 ```
 
 ```r
@@ -688,7 +688,7 @@ munic_amo <- getdata(MunicBR_dat, srswor(n, N))
 ```
 
 ```
-## [1] 43.28228
+## [1] 46.53809
 ```
 
 ```r
@@ -706,7 +706,7 @@ munic_amo <- getdata(MunicBR_dat, srswor(n, N))
 ```
 
 ```
-## [1] 3089.479
+## [1] 2097.418
 ```
 
 ```r
@@ -714,34 +714,34 @@ munic_amo <- getdata(MunicBR_dat, srswor(n, N))
 ```
 
 ```
-## [1] 3090
+## [1] 2098
 ```
 
 
 ## Exercícios 
 
-**(#exr:exeaas1)** Mostre que o estimador $\widehat{Y}_{AASC}$ para o total não é um estimador tipo Horvitz-Thompson. 
+**(#exr:exraas1)** Mostre que o estimador $\widehat{Y}_{AASC}$ para o total não é um estimador tipo Horvitz-Thompson. 
   
-**(#exr:exeaas2)** Considere a população de 338 fazendas produtoras de cana de açúcar fornecida no arquivo “fazendas_dat.rds”. Esse arquivo contém os dados de algumas variáveis econômicas medidas para cada uma das fazendas dessa população, tais como área plantada com cana de açúcar (*Area*), quantidade colhida de cana (*Quant*), receita (*Receita*) e despesa com a produção de cana (*Despesa*), e algumas variáveis de contexto sobre as fazendas, tais como região de localização (*Regiao*) e classe de tamanho da fazenda (*Classe*). 
+**(#exr:exraas2)** Considere a população de 338 fazendas produtoras de cana-de-açúcar fornecida no arquivo 'fazendas_dat.rds'. Esse arquivo contém os dados de algumas variáveis econômicas medidas para cada uma das fazendas dessa população, tais como área plantada com cana-de-açúcar (Area), quantidade colhida de cana (Quant), receita (Receita) e despesa com a produção de cana (Despesa), e algumas variáveis de contexto sobre as fazendas, tais como região de localização (Regiao) e classe de tamanho da fazenda (Classe). 
 
-Imagine que há interesse em pesquisar por amostragem essa população de fazendas, visando estimar medidas descritivas da população, tais como os totais das variáveis Quant, Receita e Despesa. O objetivo do exercício é usar os dados fornecidos para estudar o comportamento esperado de um plano amostral. Considere a ideia de selecionar uma amostra de $n=50$ fazendas da população usando AAS.
+Imagine que há interesse em pesquisar por amostragem essa população de fazendas, visando estimar medidas descritivas da população, tais como os totais das variáveis Quant, Receita e Despesa. O objetivo do exercício é usar os dados fornecidos para estudar o comportamento esperado de um plano amostral. Considere a ideia de selecionar uma amostra de $n=$ 50 fazendas da população usando AAS.
 
 a)	Use os valores populacionais das variáveis de interesse (Area, Quant e Receita) para calcular os totais populacionais de interesse. Calcule também o desvio padrão - DP e o coeficiente de variação - CV esperados para os estimadores dos totais populacionais de interesse, supondo que o estimador Horvitz-Thompson para o total seria empregado. Compare os resultados para as diversas variáveis.
 b)	Selecione efetivamente uma amostra segundo o esquema amostral indicado e use essa amostra para estimar os totais populacionais de interesse, bem como os respectivos DPs e CVs. Compare os resultados com os valores obtidos no item 1 e comente aspectos dignos de nota.
 c)	Use a amostra selecionada por AAS para estimar a variância populacional de Quant e Receita. Use estas informações para dimensionar a amostra necessária para estimar o total com CV de 10% para cada uma das duas variáveis. Ao final, que tamanho de amostra você usaria na pesquisa para atingir o objetivo estabelecido?
-d)	Repita 500 vezes o item 2, e analise a distribuição resultante das estimativas de total para as variáveis *Quant* e *Receita*. Analise, comente.
+d)	Repita 500 vezes o item 2, e analise a distribuição resultante das estimativas de total para as variáveis Quant e Receita. Analise, comente.
 
-**(#exr:exeaas3)** Para uma população com $N=4$ unidades, cujos valores de uma dada variável de interesse, $y$, são $\{0,\;1,\;2,\;3,\;4\}$, 
+**(#exr:exraas3)** Para uma população com $N=$ 4 unidades, cujos valores de uma dada variável de interesse, $y$, são $\{0,\;1,\;2,\;3,\;4\}$:
 
-a.  Liste todas as possíveis AAS de tamanho $n=2$;
-b.  Calcule $S^2_y$ e $V_{AAS}(\overline y)$;
-c.  Mostre numericamente que $V_{AAS}(\overline y)=\frac {N-n}N \frac {S^2_y}n$ ,
-d.  Mostre numericamente que $E_{AAS}(s^2_y)=S^2_y$
-e.  Liste todas as possíveis AASC de tamanho $n=2$;
-f.  Mostre numericamente que $V_{AASC}(\overline y)= \frac {\sigma^2_y}n$ ,
-g.  Mostre numericamente que $E_{AASC}(s^2_y)=\sigma^2_y$
+a.  Liste todas as possíveis AAS de tamanho $n=$ 2.
+b.  Calcule $S^2_y$ e $V_{AAS}(\overline y)$.
+c.  Mostre numericamente que $V_{AAS}(\overline y)=\frac {N-n}N \frac {S^2_y}n$.
+d.  Mostre numericamente que $E_{AAS}(s^2_y)=S^2_y$.
+e.  Liste todas as possíveis AASC de tamanho $n=$ 2.
+f.  Mostre numericamente que $V_{AASC}(\overline y)= \frac {\sigma^2_y}n$.
+g.  Mostre numericamente que $E_{AASC}(s^2_y)=\sigma^2_y$.
 
-**(#exr:exeaas4)** A administração de um parque florestal deseja estimar a população de coelhos e veados no parque nos meses de inverno. Para isso a área da floresta foi dividida, através de um levantamento aerofotométrico, em 10.000 pequenas áreas de aproximadamente 10m<sup>2</sup>. Uma AAS de $n = 500$ dessas pequenas áreas foi selecionada e foram observados os números de coelhos e veados em cada uma delas, resultando na Tabela \@ref(tab:tabaas6):
+**(#exr:exraas4)** A administração de um parque florestal deseja estimar a população de coelhos e veados no parque nos meses de inverno. Para isso a área da floresta foi dividida, através de um levantamento aerofotométrico, em 10.000 pequenas áreas de aproximadamente 10 m<sup>2</sup>. Uma AAS de $n =$ 500 dessas pequenas áreas foi selecionada e foram observados os números de coelhos e veados em cada uma delas, resultando na Tabela \@ref(tab:tabaas6):
 
 <center>
 <table>
@@ -756,11 +756,11 @@ Variância amostral     0,65     0,97
 ----------
 </center>
 
-a.  Estime o total de veados do parque e o coeficiente de variação da estimativa; 
-b.  Estime o total de coelhos do parque e o coeficiente de variação da estimativa; 
+a.  Estime o total de veados do parque e o coeficiente de variação da estimativa. 
+b.  Estime o total de coelhos do parque e o coeficiente de variação da estimativa.
 c.  Observando os CVs estimados, compare e comente sobre a precisão das estimativas de total de veados e coelhos.
  
-**(#exr:exeaas5)** Uma grande empresa de construção tem 120 obras em andamento em diversos estágios. Para estimar o total de dinheiro já investido no conjunto das obras, para um relatório gerencial, foram selecionadas 12 delas, por AAS, e verificados os gastos acumulados até aquele momento. Os resultados estão na Tabela \@ref(tab:tabaas7):
+**(#exr:exraas5)** Uma grande empresa de construção tem 120 obras em andamento em diversos estágios. Para estimar o total de dinheiro já investido no conjunto das obras, para um relatório gerencial, foram selecionadas 12 delas, por AAS, e verificados os gastos acumulados até aquele momento. Os resultados estão na Tabela \@ref(tab:tabaas7):
 
 <center>
 <table>
@@ -783,11 +783,11 @@ c.  Observando os CVs estimados, compare e comente sobre a precisão das estimat
 ----------
 </center>
 
-a. Estime o gasto médio acumulado por obra e a precisão da estimativa, calculando a estimativa do CV; 
-b. Estime o gasto total acumulado para as 120 obras e a precisão da estimativa, calculando a estimativa do CV;
-c. Compare as estimativas de precisão obtidas em a. e b..
+a. Estime o gasto médio acumulado por obra e a precisão da estimativa, calculando a estimativa do CV. 
+b. Estime o gasto total acumulado para as 120 obras e a precisão da estimativa, calculando a estimativa do CV.
+c. Compare as estimativas de precisão obtidas nos itens a e b.
 
-**(#exr:exeaas6)** Considere os dados, apresentados na Tabela \@ref(tab:tabaas8), de salários (em 1.000 Reais) pagos no ano de 1997 pelas 5 (cinco) empresas de uma amostra que foi pesquisada de uma população com 250 empresas, onde o plano amostral foi amostragem aleatória simples sem reposição.
+**(#exr:exraas6)** Considere os dados, apresentados na Tabela \@ref(tab:tabaas8), de salários (em 1.000 Reais) pagos no ano de 1997 pelas 5 (cinco) empresas de uma amostra que foi pesquisada de uma população com 250 empresas, onde o plano amostral foi amostragem aleatória simples sem reposição.
 
 <center>
 <table>
@@ -801,9 +801,9 @@ Empresa            1    2    3   4   5
 </center>
   
 a)  Estime o total de salários pagos pelas empresas da população, seu respectivo CV e obtenha um intervalo de confiança de 95% para o total populacional de interesse.
-b)  Usando a amostra observada como amostra piloto, calcule o tamanho de amostra necessário para estimar o total dos salários com precisão relativa $D_r = 0,10$, ao nível de confiança de 95%.
+b)  Usando a amostra observada como amostra piloto, calcule o tamanho de amostra necessário para estimar o total dos salários com precisão relativa $D_r =$ 0,10, ao nível de confiança de 95%.
 
-**(#exr:exeaas7)**  A Tabela \@ref(tab:tabaas9) mostra os dados amostrais de uma pesquisa feita por uma AAS numa população de 500 unidades. 
+**(#exr:exraas7)**  A Tabela \@ref(tab:tabaas9) mostra os dados amostrais de uma pesquisa feita por uma AAS numa população de 500 unidades. 
 
 <center>
 <table>
@@ -828,60 +828,35 @@ b)  Usando a amostra observada como amostra piloto, calcule o tamanho de amostra
 ----------
 </center>
 
-a. Estime a média populacional e construa um intervalo de 95% de confiança para a média;
+a. Estime a média populacional e construa um intervalo de 95% de confiança para a média.
 b. Usando a amostra apresentada como amostra piloto, calcule um tamanho de amostra suficiente para estimar a média da população de maneira que, com 95% de probabilidade, a margem de erro não ultrapasse a 5% do valor da média.
 
-**(#exr:exeaas8)**  Foi selecionada uma AAS de 30 unidades de uma população composta por 100 unidades. Uma variável de interesse $y$ foi observada e os valores obtidos foram: 8, 5, 2, 6, 6, 3, 8, 6, 10, 7, 15, 9, 15, 3, 5, 6, 7, 10, 14, 3, 4, 17, 10, 6, 14, 12, 7, 8, 12, 9. 
+**(#exr:exraas8)**  Foi selecionada uma AAS de 30 unidades de uma população composta por 100 unidades. Uma variável de interesse $y$ foi observada e os valores obtidos foram: 8, 5, 2, 6, 6, 3, 8, 6, 10, 7, 15, 9, 15, 3, 5, 6, 7, 10, 14, 3, 4, 17, 10, 6, 14, 12, 7, 8, 12, 9. 
 
 a) Qual o peso amostral de cada unidade da amostra? 
-b) Usando o peso amostral, estime o total populacional de $y$; 
-c) Construa um intervalo de 95% de confiança para o total populacional; 
+b) Usando o peso amostral, estime o total populacional de $y$.
+c) Construa um intervalo de 95% de confiança para o total populacional. 
 
-**(#exr:exeaas9)**  Seja a população formada pelos 450 municípios da Região Norte que aparecem no arquivo MunicBR_dat.rds. Calcule os seguintes parâmetros populacionais da variável de interesse população (Pop):
+**(#exr:exraas9)**  Seja a população formada pelos 450 municípios da Região Norte que aparecem no arquivo 'MunicBR_dat.rds'. 
 
-a)  Média populacional;
-b)  Variância populacional;
+Calcule os seguintes parâmetros populacionais da variável de interesse população (Pop): média populacional e variância populacional.
   
-Supondo desconhecidos os valores da população dos municípios, selecione uma AAS de tamanho $n=40$ e estime os seguintes parâmetros populacionais:
+Supondo desconhecidos os valores da população dos municípios, selecione uma AAS de tamanho $n=$ 40 e estime os seguintes parâmetros populacionais:
 
-c)  Estime a média populacional;
-d)  Estime a variância populacional e a variância do estimador da média populacional;
-e)  Construa $IC_{95\%}$ para a média populacional;
-f)  Compare, e comente, os resultados estimados na amostra com os valores verdadeiros da população;
-g)  A média populacional pertence ao intervalo de confiança construído? O que isso significa?
+a)  Estime a média populacional.
+b)  Estime a variância populacional e a variância do estimador da média populacional.
+c)  Construa $IC_{95\%}$ para a média populacional.
+d)  Compare, e comente, os resultados estimados na amostra com os valores verdadeiros da população.
+e)  A média populacional pertence ao intervalo de confiança construído? O que isso significa?
 
-**(#exr:exeaas10)**  Um biólogo deseja estimar o total populacional de determinado animal numa reserva florestal. Para isso ele dividiu a floresta em lotes de tamanhos aproximadamente iguais e selecionou uma amostra desses lotes, contando os animais encontrados. A figura a seguir mostra, esquematicamente, o mapa da reserva com a divisão feita. A amostra é formada pelos lotes onde aparecem os números de animais encontrados, que foram selecionados usando um processo de AAS. 
+**(#exr:exraas10)**  Um biólogo deseja estimar o total populacional de determinado animal numa reserva florestal. Para isso ele dividiu a floresta em lotes de tamanhos aproximadamente iguais e selecionou uma amostra desses lotes, contando os animais encontrados. A Figura \@ref(fig:figAAS1) mostra, esquematicamente, o mapa da reserva com a divisão feita. A amostra é formada pelos lotes onde aparecem os números de animais encontrados, que foram selecionados usando um processo de AAS. 
 
 <center>
-\begin{array}{|r|r|r|r|r|r|r|r|r|r|r|}
-\hline
-\text{}&1&2&3&4&5&6&7&8&9&10\\
-\hline
-\text{a}&\text{}&\text{}&\text{}&\text{}&\text{}&\text{}&\text{}&\text{}&\text{}&\text{}\\
-\hline
-\text{b}&\text{5}&\text{}&\text{}&\text{}&\text{}&\text{}&\text{}&\text{}&\text{}&\text{}\\
-\hline
-\text{c}&\text{}&\text{9}&\text{}&\text{}&\text{}&\text{}&\text{}&\text{}&\text{}&\text{}\\
-\hline
-\text{d}&\text{}&\text{}&\text{}&\text{}&\text{}&\text{}&\text{1}&\text{}&\text{}&\text{4}\\
-\hline
-\text{e}&\text{}&\text{}&\text{}&\text{}&\text{}&\text{12}&\text{}&\text{}&\text{}&\text{}\\
-\hline
-\text{f}&\text{}&\text{}&\text{}&\text{}&\text{}&\text{}&\text{}&\text{}&\text{}&\text{}\\
-\hline
-\text{g}&\text{}&\text{}&\text{}&\text{}&\text{}&\text{}&\text{}&\text{}&\text{7}&\text{}\\
-\hline
-\text{h}&\text{}&\text{}&\text{11}&\text{}&\text{}&\text{}&\text{}&\text{}&\text{10}&\text{}\\
-\hline
-\text{i}&\text{}&\text{}&\text{}&\text{}&\text{}&\text{}&\text{}&\text{}&\text{}&\text{}\\
-\hline
-\text{j}&\text{}&\text{}&\text{}&\text{12}&\text{}&\text{}&\text{}&\text{}&\text{4}&\text{}\\
-\hline
-\end{array}
-Figura 4.1: Mapa esquemático da reserva com o número de animais encontrados nos lotes selecionados
-
+<div class="figure">
+<img src="Figuras/Fig41.png" alt="Mapa esquemático da reserva com o número de animais encontrados nos lotes selecionados" width="60%" />
+<p class="caption">(\#fig:figAAS1)Mapa esquemático da reserva com o número de animais encontrados nos lotes selecionados</p>
+</div>
 </center>
-
 
   a) Faça uma tabela com os dados amostrais. 
   b) Use a amostra para estimar o número de animais da espécie em estudo na reserva. 
