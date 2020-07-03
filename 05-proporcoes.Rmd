@@ -4,12 +4,12 @@
 
 Um caso especial de parâmetro de interesse para muitos estudos ou pesquisas ocorre quando a variável $y$ indica se uma determinada unidade populacional tem ou não uma determinada característica ou atributo, ou pertence a um determinado grupo especificado de unidades da população. São exemplos desse tipo as investigações sobre:
 
-* migrantes entre os habitantes de determinada região;
-* estabelecimentos agropecuários que se dedicam exclusivamente à produção leiteira numa determinada localidade;
-* estudantes do sexo feminino em escolas;
-* sondagens eleitorais, onde se deseja conhecer qual parcela dos eleitores pretende votar em determinado candidato.
+* Migrantes entre os habitantes de determinada região.
+* Estabelecimentos agropecuários que se dedicam exclusivamente à produção leiteira numa determinada localidade.
+* Estudantes do sexo feminino em escolas.
+* Sondagens eleitorais, onde se deseja conhecer qual parcela dos eleitores pretende votar em determinado candidato.
 
-Sendo uma variável indicadora, a variável $y$ irá assumir para cada unidade da população um de dois valores possíveis: o valor 1, se a unidade possui o atributo de interesse, ou o valor 0, caso a unidade não possua o atributo. Para fins de apresentação, seja $A \subset U$ o subconjunto das unidades da população $U$ que possuem o atributo de interesse. Então, para cada unidade $i$ da população, a variável $y$ será definida como:
+Sendo uma variável indicadora, a variável $y$ irá assumir para cada unidade da população um de dois valores possíveis: o valor $1$, se a unidade possui o atributo de interesse, ou o valor $0$, caso a unidade não possua o atributo. Para fins de apresentação, seja $A \subset U$ o subconjunto das unidades da população $U$ que possuem o atributo de interesse. Então, para cada unidade $i$ da população, a variável $y$ será definida como:
 
 $$
 \displaystyle y_i = I(i \in A) =
@@ -27,7 +27,7 @@ Y = \displaystyle \sum_{i \in U} y_i = N_A  (\#eq:eqpro2)
 $$
 onde $N_A$ representa o número de unidades populacionais que possuem o atributo de interesse.
 
-Um exemplo clássico do uso de variáveis indicadoras ocorre quando se quer tabular frequências de respostas a uma pergunta categórica numa pesquisa ou censo. Considere uma pergunta cujas respostas podem ser um dos valores inteiros de $1$ a $C$, onde $C$ representa o número de categorias de resposta da pergunta. Por exemplo, para a pergunta 'Qual é o sexo do morador', há duas categorias de resposta $(C=$ 2$)$: 1 (=Feminino) e 2 (=Masculino). Logo, para contar o número de pessoas por sexo na população, seria necessário criar duas variáveis indicadoras: $y_{1i} = I[Sexo(i) = 1]$ e $y_{2i} = I[Sexo(i) = 2]$. Estas contagens poderiam ser representadas por $N_1$ para as pessoas do sexo Feminino, e $N_2$ para as pessoas do sexo Masculino, que seriam obtidos como dois totais populacionais:
+Um exemplo clássico do uso de variáveis indicadoras ocorre quando se quer tabular frequências de respostas a uma pergunta categórica numa pesquisa ou censo. Considere uma pergunta cujas respostas podem ser um dos valores inteiros de $1$ a $C$, onde $C$ representa o número de categorias de resposta da pergunta. Por exemplo, para a pergunta 'Qual é o sexo do morador', há duas categorias de resposta $(C= 2)$: 1 (=Feminino) e 2 (=Masculino). Logo, para contar o número de pessoas por sexo na população, seria necessário criar duas variáveis indicadoras: $y_{1i} = I[Sexo(i) = 1]$ e $y_{2i} = I[Sexo(i) = 2]$. Estas contagens poderiam ser representadas por $N_1$ para as pessoas do sexo Feminino, e $N_2$ para as pessoas do sexo Masculino, que seriam obtidos como dois totais populacionais:
 
 
 $$
@@ -51,7 +51,7 @@ $$ \hspace{-1.0cm}
 S^2_y = \displaystyle \frac {1}{N-1} \left( \sum_{i \in U} y^2_i - N \overline{Y}^2 \right) = \frac{1}{N-1} \left(Np-Np^2 \right) = \frac{N}{N-1} p \left(1-p\right) (\#eq:eqpro4)
 $$ 
 
-A *variância* populacional de $y$ pode também ser definida como $\sigma^2_y = p (1-p)$. Tanto $S^2_y$ como $\sigma^2_y$ representam a dispersão da distribuição dos valores de $y$ na população. Para populações com um grande número de unidades ($N \displaystyle \rightarrow \infty$), é fácil verificar que as duas quantidades são praticamente iguais, pois pode-se considerar $S^2_y \displaystyle \doteq p(1-p) = \sigma^2_y$.
+A *variância* populacional de $y$ pode também ser definida como $\sigma^2_y = p (1-p)$. Tanto $S^2_y$ como $\sigma^2_y$ representam a dispersão da distribuição dos valores de $y$ na população. Para populações com um grande número de unidades $(N \displaystyle \rightarrow \infty)$, é fácil verificar que as duas quantidades são praticamente iguais, pois pode-se considerar $S^2_y \displaystyle \doteq p(1-p) = \sigma^2_y$.
 
 Outra medida importante para avaliar a dispersão de uma variável é o seu *Coeficiente de Variação* ou *CV*, definido como a razão entre o *Desvio Padrão* de $y$ e sua média:
 
@@ -325,14 +325,14 @@ $$
 \end{cases}  
 $$
 
-Em ambos os casos $1 - \alpha$ é o *nível de confiança* desejado. Por exemplo, para intervalos de 95% de confiança, deve-se usar $\alpha=$ 0,05.
+Em ambos os casos $1 - \alpha$ é o *nível de confiança* desejado. Por exemplo, para intervalos de 95% de confiança, deve-se usar $\alpha= 0,05$.
 
 A solução desses sistemas costumava ser trabalhosa, exigindo aplicação de métodos iterativos que consumiam quantidade razoavelmente grande de recursos computacionais. Atualmente, com o avanço dos métodos computacionais, esse problema pode facilmente ser resolvido, por exemplo, com o uso do R. Uma maneira é utilizar as funções *qbinom* e *qhyper* que podem calcular os quantis das distribuições Binomial e Hipergeométrica para $\alpha /2$ e $1 -\alpha /2$.
 
 Além disso há outros programas já prontos facilmente utilizávies como, por exemplo, as funções *binconf* e *confCI* incluídas, respectivamente nos pacotes *Hmisc* e *prevalence* do R. Essas funções estimam intervalos de confiança para vários métodos além do mostrado acima, como o da aproximação Normal, apresentado na próxima seção, além de outras abordagens.
 Há, também, no pacote *survey* uma função específica, *svyciprop*, para calcular intervalos de confiança para proporções. Uma característica interessante do pacote *survey* é que é possível determinar a utilização do fator de correção para populações finitas, quando a seleção é sem reposição.
 
-**(#exm:exmprop2)** Voltando ao exemplo da escola com $N=$ 1.000 alunos, suponha que foi selecionada uma amostra aleatória simples de tamanho $n=$ 125 e foi investigado o sexo de cada um desses alunos, sendo que 60 são do sexo feminino. Constuir um intervalo de aproximadamente 95% de confiança para a proporção de alunos do sexo feminino, utilizando os vários métodos  da linguagem R sugeridos acima.
+**(#exm:exmprop2)** Voltando ao exemplo da escola com $N=1.000$ alunos, suponha que foi selecionada uma amostra aleatória simples de tamanho $n=125$ e foi investigado o sexo de cada um desses alunos, sendo que 60 são do sexo feminino. Constuir um intervalo de aproximadamente 95% de confiança para a proporção de alunos do sexo feminino, utilizando os vários métodos  da linguagem R sugeridos acima.
 
 ```{r,echo=TRUE}
      # Carregando pacotes necessários
@@ -407,7 +407,7 @@ $$
 \frac {\widehat p - p} {\sqrt {V_{p(s)}(\widehat p)}} \approx N(0;1)(\#eq:eqpro28) 
 $$
 
-A Figura \@ref(fig:figprop1) mostra o histograma construído a partir dos valores estimados da proporção $p$ de unidades com uma determinada característica de interesse, a partir de 1.000 amostras aleatórias simples de tamanho $n=$ 100, selecionadas com reposição, de uma população de tamanho $N=$ 5.000, onde exatamente metade das unidades tem a característica de interesse ($p=$ 1/2). Para construir o histograma, os 1.000 valores de $\widehat p$ foram normalizados utilizando-se a Expressão \@ref(eq:eqpro28). Finalmente o histograma foi sobreposto pelo gráfico da distribuição $N(0;1)$, mostrando que esta se assemelha à distribuição do estimador $\widehat p$.
+A Figura \@ref(fig:figprop1) mostra o histograma construído a partir dos valores estimados da proporção $p$ de unidades com uma determinada característica de interesse, a partir de 1.000 amostras aleatórias simples de tamanho $n=100$, selecionadas com reposição, de uma população de tamanho $N=5.000$, onde exatamente metade das unidades tem a característica de interesse ($p=1/2$). Para construir o histograma, os 1.000 valores de $\widehat p$ foram normalizados utilizando-se a Expressão \@ref(eq:eqpro28). Finalmente o histograma foi sobreposto pelo gráfico da distribuição $N(0;1)$, mostrando que esta se assemelha à distribuição do estimador $\widehat p$.
 <center>
 ```{r,figprop1,echo=F,fig.cap="Aproximação Normal da distribuição do estimador de ***p*** no caso de *AASC*"}
 y=NULL
@@ -489,7 +489,7 @@ cat("<table>",paste0("<caption>", "(#tab:tabprop3)","Valores mínimos de $n_A$ p
 
 </center>
 
-A Tabela \@ref(tab:tabprop3) foi construída considerando um nível de significância de $\alpha=$ 0,05, que é um valor comumente utilizado em muitas situações práticas.Tem-se, a partir daí, critérios práticos para assumir a utilização da aproximação Normal, notando-se que o tamanho mínimo da amostra requerido é de $n=$ 30.
+A Tabela \@ref(tab:tabprop3) foi construída considerando um nível de significância de $\alpha=0,05$, que é um valor comumente utilizado em muitas situações práticas.Tem-se, a partir daí, critérios práticos para assumir a utilização da aproximação Normal, notando-se que o tamanho mínimo da amostra requerido é de $n=30\small.$
 
 Nas condições estabelecidas para a validade da aproximação Normal, tem-se que $S^2_y \doteq \sigma^2_y=p(1-p)$, portanto, $\displaystyle V_{AAS}(\widehat p) \doteq V_{AASC}(\widehat p)$. Então, para os dois tipos de seleção, pode-se considerar o intervalo de confiança para a proporção como: 
 
@@ -523,7 +523,7 @@ $$
 \displaystyle \widehat{IC}(p;{1-\alpha})=\left[\widehat p \mp \left(z_{\alpha/ 2}\sqrt {\left(\frac{N-n}{N}\right) \frac{\widehat p \widehat q} {n-1}} + \frac 1{2n} \right) \right](\#eq:eqpro34)
 $$
 
-Veja que o efeito da correção de continuidade tende rapidamente a ser nulo quando o tamanho da amostra, $n$, cresce. Para uma amostra de tamanho $n=$ 50 esse fator já é de apenas 1%, o que pode ser desprezível dependendo da proporção que estiver sendo estimada, porém é preciso muito cuidado pois quando se está trabalhando com proporções são valores, às vezes, bastante pequenos.
+Veja que o efeito da correção de continuidade tende rapidamente a ser nulo quando o tamanho da amostra, $n$, cresce. Para uma amostra de tamanho $n=50$ esse fator já é de apenas 1%, o que pode ser desprezível dependendo da proporção que estiver sendo estimada, porém é preciso muito cuidado pois quando se está trabalhando com proporções são valores, às vezes, bastante pequenos.
 
 **(#exm:exmprop3)** Em um período pré-eleitoral, deseja-se estimar a intenção de votação dos eleitores nos candidatos A e B. Para isso foi selecionada e pesquisada uma amostra AAS de 2.000 eleitores. Desses, 900 declararam intenção de votar em A, 800 em B e os demais 300 se disseram indecisos. Supondo que o total de eleitores da população de pesquisa é de 4 milhões, responda às perguntas abaixo.
 
@@ -614,7 +614,7 @@ Pesquisas que utilizam medidas objetivas para alcançar seus resultados, como in
 
 O tamanho da amostra também depende da variância da variável utilizada para seu cálculo, através do produto $p(1-p)$. Como $p$ é a proporção que se deseja estimar, se fosse conhacida não haveria a necessidade de uma amostra. Geralmente, como no caso de se pesquisar variáveis continuas, utilizam-se pesquisas anteriores ou variáveis correlacionadas com a atual variável de interesse, ou mesmo uma pesquisa piloto com um tamanho arbitrário de amostra para se ter uma estimativa inicial do fenomeno a ser medido e poder calcular o tamanho de amostra realmente necessário. Quando se utiliza uma pesquisa piloto, existem métodos para utilizar os resultados relativos às unidades já pesquisadas e selecionar outras unidades para complementar o tamanho da amostra.
 
-No caso da estimação de proporções o valor de $p(1-p)$ é limitado variando de 0 a 0,25, sendo esse valor máximo atingido quando $p=$ 0,5. O gráfigo da Figura \@ref(fig:figprop3) mostra como variam os valores de $p(1-p)$ conforme a variação dos valores de $p$.
+No caso da estimação de proporções o valor de $p(1-p)$ é limitado variando de 0 a 0,25, sendo esse valor máximo atingido quando $p= 0,5$. O gráfigo da Figura \@ref(fig:figprop3) mostra como variam os valores de $p(1-p)$ conforme a variação dos valores de $p$.
 
 <center>
 ```{r, figprop3,fig.cap="Variação de $p(1-p)$ em função dos valores de $p$",echo=F}
@@ -624,7 +624,7 @@ plot(p,pq, type="l", xlab="p",ylab="p(1-p)")
 ```
 </center>
 
-Como o valor máximo de $S_y^2\doteq \sigma _y^2=p(1-p)$, que é a maior variabilidade da variável de interesse, é atingido quando $p=$ 0,5, caso não exista nenhuma informação sobre o a proporção a ser estimada, uma maneira de determinar um tamanho de amostra conservador é supor exatamente que $p=$ 0,5. Assim pode-se simplificar a fórmula de cálculo de $n$ para uma *AASC*: 
+Como o valor máximo de $S_y^2\doteq \sigma _y^2=p(1-p)$, que é a maior variabilidade da variável de interesse, é atingido quando $p=0,5$, caso não exista nenhuma informação sobre o a proporção a ser estimada, uma maneira de determinar um tamanho de amostra conservador é supor exatamente que $p=0,5$. Assim pode-se simplificar a fórmula de cálculo de $n$ para uma *AASC*: 
 
 $$ 
 n \ge \frac {z^2_{\alpha /2}}{4D^2}(\#eq:eqpro39) 
@@ -646,7 +646,7 @@ $$n\ge\frac {Np(1-p)}{ND^2 /{z^2_{\alpha /2}} + p(1-p)}$$
   b)  Que tamanho deveria ter a amostra para estimar a proporção de domicílios que consomem suprimentos para animais domésticos, tal que a estimativa não se afaste do verdadeiro valor da proporção mais do que 1% com 95% de confiança?
   c)  Se o diretor da empresa informar ao estatístico que a proporção de domicílios que consomem suprimentos para animais domésticos varia no intervalo [0,10; 0,30], mudaria a resposta para o item b? Caso afirmativo, qual seria a nova resposta?
   
-  A resposta para o item a é que a fórmula está correta, pois, sendo a população bastante grande, $N=$ 30.000, pode-se desprezar o fator de correção $(N-1)/N$ como mostrado na Expressão \@ref(eq:eqpro36).
+  A resposta para o item a é que a fórmula está correta, pois, sendo a população bastante grande, $N=30.000$, pode-se desprezar o fator de correção $(N-1)/N$ como mostrado na Expressão \@ref(eq:eqpro36).
   
   Para os demais itens pode-se recorrer ao R.
   
@@ -685,9 +685,9 @@ options(scipen=8)
 (n <- ceiling(N * p * q/(N*D^2/z2alfa^2 +  p * q)))
 ```
 
-No caso de não existir nenhuma indicação sobre o valor de $p$, como no item $b$ do exemplo, deve-se tomar $n=$ 7.275, supondo $p=$ 0,5. Já no item $c$, deve-se optar pelo maior tamanho de amostra necessário para suprir as exigências de precisão. Neste caso, como a informação é que $p$ deve estar no intervalo [0,10; 0,30] deve-se selecionar uma amostra de $n=$ 6.358 domicílios. 
+No caso de não existir nenhuma indicação sobre o valor de $p$, como no item $b$ do exemplo, deve-se tomar $n=7.275$, supondo $p=0,5$. Já no item $c$, deve-se optar pelo maior tamanho de amostra necessário para suprir as exigências de precisão. Neste caso, como a informação é que $p$ deve estar no intervalo [0,10; 0,30] deve-se selecionar uma amostra de $n=6.358$ domicílios. 
 
-Sugere-se que o leitor refaça o exercício com uma margem de erro diferente, $D=$ 0,03 por exemplo, e observe o que acontece com os valores de $n$ calculados.
+Sugere-se que o leitor refaça o exercício com uma margem de erro diferente, $D=0,03$ por exemplo, e observe o que acontece com os valores de $n$ calculados.
 
 ### Cálculo do $n$ utilizando outras formas de representar o erro amostral
 
@@ -723,9 +723,9 @@ As expressões para a seleção sem reposição são derivadas como no caso em q
 
 Até o momento foi tratado o caso em que temos uma variável indicadora com duas categorias, definindo se uma determinada unidade na população (ou na amostra) tem ou não determinada característica de interesse. Muitas vezes temos a necessidade de definir mais de duas categorias como, por exemplo:
 
-* estudar a distribuição por faixas etárias de uma localidade ou grupo de pessoas;
-* estudar a classificação econômica das empresas de determinado país;
-* estimar a intenção de votos dos candidatos em uma eleição com mais de 2 candidatos, além das possibilidades de voto em branco ou nulo ou, ainda, eleitores indecisos.
+* Estudar a distribuição por faixas etárias de uma localidade ou grupo de pessoas.
+* Estudar a classificação econômica das empresas de determinado país.
+* Estimar a intenção de votos dos candidatos em uma eleição com mais de 2 candidatos, além das possibilidades de voto em branco ou nulo ou, ainda, eleitores indecisos.
 
 Nesses casos, há interesse de estimar a proporção de unidades em cada uma das possíveis categorias e respectiva precisão.
 
@@ -817,7 +817,7 @@ Vale notar que em \@ref(eq:eqpro48) tanto o numerador como o denominador do esti
 **(#exr:exrprop2)** Numa grande cidade, deseja-se estimar a proporção de habitantes que são favoráveis à instalação de uma usina térmica para geração de eletricidade numa área próxima a uma reserva biológica.
 
   a) Qual deve ser o tamanho de uma amostra aleatória para estimar essa proporção com uma margem de erro de 0,03, com um nível de confiança de 95%?
-  b) E se o mesmo problema fosse em uma pequena comunidade de $N=$ 2.000 habitantes, qual deveria ser o tamanho da amostra, com o mesmo nível de precisão?
+  b) E se o mesmo problema fosse em uma pequena comunidade de $N=2.000$ habitantes, qual deveria ser o tamanho da amostra, com o mesmo nível de precisão?
   
 **(#exr:exrprop3)** Supondo que o valor da variância populacional, $S^2$, de uma determinada variável de interesse, $y$, é o mesmo nos três casos a seguir, qual dos planos amostrais apresentados abaixo tem maior precisão para estimar uma proporção populacional? Por quê?
 
@@ -833,7 +833,7 @@ Vale notar que em \@ref(eq:eqpro48) tanto o numerador como o denominador do esti
   d) Estime a proporção de unidades onde $y$ é menor que 10.
   e) Construa um intervalo de 95% de confiança para a proporção de unidades onde $y$ é menor que 10.
   
-**(#exr:exrprop5)** Considere a população de $N=$ 338 fazendas produtoras de cana-de-açúcar fornecida no arquivo 'fazendas_dat.rds'. Selecione uma AAS de $n=$ 50 fazendas, e use esta amostra para obter a estimativa pontual, o erro padrão, o CV e o intervalo de confiança de 95%, para cada um dos seguintes parâmetros populacionais:
+**(#exr:exrprop5)** Considere a população de $N=338$ fazendas produtoras de cana-de-açúcar fornecida no arquivo 'fazendas_dat.rds'. Selecione uma AAS de $n=50$ fazendas, e use esta amostra para obter a estimativa pontual, o erro padrão, o CV e o intervalo de confiança de 95%, para cada um dos seguintes parâmetros populacionais:
 
   a)  Proporção de fazendas na região 1.
   b)  Proporção de fazendas com Area maior que 100. 
@@ -877,7 +877,7 @@ Sem suíte           6        34
   a)  Calcule um intervalo de 0,95 de confiança para a proporção, $p$, de pessoas favoráveis à proposta.
   b)  Qual deveria ser o tamanho de uma AAS para estimar $p$ com confiança de 95% e um erro máximo aproximado de 3%?
   
-**(#exr:exrprop10)** Numa população fictícia de $N=$ 6 unidades, sabe-se que $Y=\{0, 0, 1, 1, 1, 1 \}$. Suponha que se deseja estimar a proporção de *“uns”* na população por meio de uma AAS de tamanho $n=$ 4.
+**(#exr:exrprop10)** Numa população fictícia de $N=6$ unidades, sabe-se que $Y=\{0, 0, 1, 1, 1, 1 \}$. Suponha que se deseja estimar a proporção de *“uns”* na população por meio de uma AAS de tamanho $n=4$.
 
   a) Encontre a distribuição amostral de $\widehat p$, estimador da proporção de *“uns”*, e mostre numericamente que é um estimador não viciado para $p$, a proporção populacional de *“uns”*.
   b) Sugira um estimador para a variância de $\widehat p$ e verifique empiricamente se esse estimador é não viciado.
