@@ -81,7 +81,7 @@ tal que os totais estimados das variáveis auxiliares com os novos pesos $w_i$ s
 Os *estimadores de regressão como estimadores de calibração* são definidos quando: 
 
 $$
-G_i(w_i,d_i) = \frac{(w_i - d_i)^2}{q_i d_i} \,\, \forall i \in s \,\, (\#eq:eqcal7)
+G_i(w_i,d_i) = \frac{(w_i - d_i)^2}{q_i d_i}, \,\, \forall i \in s \,\, (\#eq:eqcal7)
 $$
 para algumas constantes conhecidas $q_i > 0, \, i \in s$. Neste caso, *a solução* do problema é dada por:
 
@@ -113,7 +113,7 @@ onde os *coeficientes do modelo* são estimados por
 $$
 {\bf \widehat B}_j = \left(\sum_{i \in s} d_i q_i {\bf x}_i {\bf x}'_i \right)^{-1} \left(\sum_{i \in s} d_i q_i {\bf x}_i y_{ij} \right) \,\, (\#eq:eqcal13)
 $$
-Uma questão prática importante é a *escolha das constantes* $\{ q_i, i \in s \}$ que serão usadas para obter os pesos $\{ w_i, i \in s \}$. Na prática, é comum adotar o *mesmo conjunto de constantes* $\{ q_i, i \in s \}$  *para todas as variáveis de pesquisa*, de modo a ter um *único conjunto de pesos* $\{ w_i, i \in s \}$ para cada pesquisa. Se os mesmos pesos $\{ w_i, i \in s \}$ propostos forem usados para *todas* as variáveis de pesquisa, então as mesmas constantes $\{ q_i, i \in s \}$ serão usadas para todas as variáveis. Em muitas aplicações, isso não seria um problema, já que uma escolha comum é tornar todas essas constantes iguais, ou seja, $q_ i= 1 \,\,\forall i \in s$.
+Uma questão prática importante é a *escolha das constantes* $\{ q_i, i \in s \}$ que serão usadas para obter os pesos $\{ w_i, i \in s \}$. Na prática, é comum adotar o *mesmo conjunto de constantes* $\{ q_i, i \in s \}$  *para todas as variáveis de pesquisa*, de modo a ter um *único conjunto de pesos* $\{ w_i, i \in s \}$ para cada pesquisa. Se os mesmos pesos $\{ w_i, i \in s \}$ propostos forem usados para *todas* as variáveis de pesquisa, então as mesmas constantes $\{ q_i, i \in s \}$ serão usadas para todas as variáveis. Em muitas aplicações, isso não seria um problema, já que uma escolha comum é tornar todas essas constantes iguais, ou seja, $q_ i= 1, \,\,\forall i\, \in s$.
 
 Em alguns casos, as diferentes variáveis $y$ podem ter resíduos da regressão linear da população nas variáveis auxiliares que mostram diferentes padrões de heteroscedasticidade. Nestes casos, os diferentes conjuntos de valores para as constantes $q_i$ necessários para representarem adequadamente esses padrões podem levar a diferentes conjuntos de pesos calibrados, para cada conjunto específico de uma ou mais variáveis de pesquisa. Por um lado, usar *pesos distintos para cada variável* pode ser justificado com base em maior eficiência resultante de modelos mais aderentes para estimar o total de cada variável de pesquisa $y_j$. Por outro lado, isso levaria a possíveis problemas de coerência na estimação de certos parâmetros populacionais. Por exemplo, para estimar razões de totais, sempre que os pesos usados para estimar o total do numerador fossem distintos dos pesos usados para estimar o total do denominador. Outra incoerência surge quando estimativas ponderadas de partes de uma soma podem não corresponder à estimativa ponderada do total para a soma das partes. 
 
@@ -123,7 +123,7 @@ Portanto, a ideia de usar diferentes conjuntos de pesos para diferentes variáve
 
 Os estimadores de calibração possuem algumas boas propriedades. Primeiro, os pesos de calibração de acordo com a Expressão \@ref(eq:eqcal4) fornecem estimativas amostrais para os totais das variáveis auxiliares que correspondem exatamente aos totais populacionais conhecidos para essas variáveis. Portanto, se os totais populacionais das variáveis auxiliares tiverem sido publicados antes que os resultados da pesquisa sejam produzidos, a calibração garantirá que as estimativas da pesquisa sejam *coerentes* com as já existentes no domínio público. Essa propriedade, embora não seja essencial, é uma das razões dominantes pelas quais a calibração é usada com frequência na prática de pesquisa.
 
-A segunda propriedade é a sua *simplicidade*, ou seja, o fato de que o estimador de calibração é linear. Isso significa que cada registro de pesquisa pode ter um único peso a ser usado para estimar todas as variáveis da pesquisa. O cálculo das estimativas para totais, médias, proporções e muitos outros parâmetros é simples, usando um *software* estatístico padrão. No caso das funções de distância definidas pelas Equações \@ref(eq:eqcal6) e \@ref(eq:eqcal7), os pesos calibrados são dados em uma expressão de forma fechada e são fáceis de calcular usando um *software* estatístico padrão.
+A segunda propriedade é a sua *simplicidade*, ou seja, o fato de que o estimador de calibração é linear. Isso significa que cada registro de pesquisa pode ter um único peso a ser usado para estimar todas as variáveis da pesquisa. O cálculo das estimativas para totais, médias, proporções e muitos outros parâmetros é simples, usando um *software* estatístico padrão. No caso das funções de distância definidas pelas Expressões \@ref(eq:eqcal6) e \@ref(eq:eqcal7), os pesos calibrados são dados em uma expressão de forma fechada e são fáceis de calcular usando um *software* estatístico padrão.
 
 A terceira propriedade de tais estimadores de calibração é sua *flexibilidade* para incorporar informações auxiliares que podem incluir variáveis contínuas, categóricas ou de ambos os tipos ao mesmo tempo. Se os totais auxiliares representam contagens dos números de unidades populacionais em certas classes de variáveis categóricas (discretas), então os valores das variáveis $x$ são simplesmente indicadores de que as unidades são membros das classes correspondentes. A classificação cruzada de duas ou mais variáveis categóricas também pode ser facilmente acomodada pela definição de variáveis indicadoras para as respectivas combinações de categorias.
 
@@ -181,7 +181,7 @@ knitr::include_graphics("Figuras/Figcalib2.PNG")
 ```
 </center>
 
-Usando uma amostra aleatória simples com $n=50$ fazendas, estimamos os totais populacionais das variáveis QUANT, RECEITA e DESPESA para as fazendas de cana-de-açúcar por dois métodos: estimador HT e estimador de regressão (GREG) considerando a variável AREA como variável auxiliar. A Tabela \@ref(tab:tabcalib2) apresenta as estimativas dos totais e dos respectivos erros padrões e coeficientes de variação (CV). 
+Usando uma amostra aleatória simples com $n=50$ fazendas, estimamos os totais populacionais das variáveis Quant, Receita e Despesa para as fazendas de cana-de-açúcar por dois métodos: estimador HT e estimador de regressão (GREG) considerando a variável Area como variável auxiliar. A Tabela \@ref(tab:tabcalib2) apresenta as estimativas dos totais e dos respectivos erros padrão e coeficientes de variação (CV). 
 
 
 ```{r, echo=FALSE, label="tabcalib2"}
@@ -199,23 +199,23 @@ names(quadro14_1) <- c("Variável", "Total HT", "Total GREG", "Erro Padrão HT",
 
 knitr::kable(quadro14_1, booktabs = TRUE, align= "lrrrrrr",
              format.args= list(big.mark = '.'),
-  caption = "Estimativas de totais, erros padrões e coeficientes de variação (CV) usando os estimadores HT e de regressão (GREG) para variáveis selecionadas"
+  caption = "Estimativas de totais, erros padrão e coeficientes de variação (CV) usando os estimadores HT e de regressão (GREG) para variáveis selecionadas"
   )
 ```
 
-Os resultados mostram a superioridade do estimador de regressão usando AREA como variável auxiliar, com redução substancial dos erros padrões (ou CVs).
+Os resultados mostram a superioridade do estimador de regressão usando AREA como variável auxiliar, com redução substancial dos erros padrão (ou CVs).
 
 Comandos relevantes do R
 
 > fazendas.plano = svydesign(data=fazendas.amo, id=~1, fpc=~CPF)
 
-> Totais.HT = svytotal(design=fazendas.plano, ~AREA + QUANT + RECEITA + DESPESA)
+> Totais.HT = svytotal(design=fazendas.plano, ~Area + Quant + Receita + Despesa)
 
-> fazendas.calib1 = calibrate(fazendas.plano, formula=~AREA, population=Totais.pop)
+> fazendas.calib1 = calibrate(fazendas.plano, formula=~Area, population=Totais.pop)
 
-> Totais.GREG = svytotal(design=fazendas.calib1, ~AREA + QUANT + RECEITA + DESPESA)
+> Totais.GREG = svytotal(design=fazendas.calib1, ~Area + Quant + Receita + Despesa)
 
-**(#exm:exmcalib2)** Usando a mesma amostra aleatória simples com $n=50$ fazendas, e considerando agora a REGIAO como variável auxiliar, estimamos novamente os totais populacionais usando agora os estimadores HT e de pós-estratificação (PS-Região). A Tabela \@ref(tab:tabcalib3) apresenta as estimativas de total e dos respectivos erros padrões e coeficientes de variação (CV). 
+**(#exm:exmcalib2)** Usando a mesma amostra aleatória simples com $n=50$ fazendas, e considerando agora a REGIAO como variável auxiliar, estimamos novamente os totais populacionais usando agora os estimadores HT e de pós-estratificação (PS-Região). A Tabela \@ref(tab:tabcalib3) apresenta as estimativas de total e dos respectivos erros padrão e coeficientes de variação (CV). 
 
 
 ```{r, echo=FALSE, label="tabcalib3"}
@@ -233,7 +233,7 @@ names(quadro14_2) <- c("Variável", "Total  HT", "Total PS-Região", "Erro Padr�
 
 knitr::kable(quadro14_2, booktabs = TRUE, align= "lrrrrrr",
              format.args= list(big.mark = '.'),
-  caption = "Estimativas de totais, erros padrões e coeficientes de variação (CV) usando os estimadores HT e pós-estratificação (PS-Região) para variáveis selecionadas"
+  caption = "Estimativas de totais, erros padrão e coeficientes de variação (CV) usando os estimadores HT e pós-estratificação (PS-Região) para variáveis selecionadas"
   )
 ```
 
@@ -278,7 +278,7 @@ $$
 \tilde V_p\left(\widehat T_{y_j}^C\right) = \sum_{i \in s} \sum_{k \in s} \left( {d_i d_k} - {d_{ik}} \right) e_{ij} e_{kj} \,\,(\#eq:eqcal21)
 $$
 
-Ambos os estimadores de variância são assintoticamente não viciados de primeira ordem sob o desenho para a variância aproximada do estimador de regressão, mas o estimador da Equaçao \@ref(eq:eqcal20) também é aproximadamente não viciado sob o modelo $\xi$ - veja @Sarndal1989. 
+Ambos os estimadores de variância são assintoticamente não viciados de primeira ordem sob o desenho para a variância aproximada do estimador de regressão, mas o estimador da Expressão \@ref(eq:eqcal20) também é aproximadamente não viciado sob o modelo $\xi$ - veja @Sarndal1989. 
 
 Sob *Amostragem Aleatória Simples* tem-se os dois resultados simplificados:
 
@@ -315,7 +315,7 @@ A última questão nesta lista (erros de medida e seus efeitos na calibração),
 
 ### Tamanhos de Amostra Pequenos
 
-O problema com os estimadores de calibração quando os tamanhos das amostras são pequenos vem do fato de que seu vício pode se tornar importante, em relação à sua variância. É bem conhecido, por exemplo, que os estimadores de razão são tendenciosos e que o vício é da ordem $(n-1)$ (ver @Cochran1977, páginas 160-162). O estimador de razão é um caso especial do estimador de calibração quando o vetor $\bf x$ inclui uma única variável contínua $x$, nenhum termo de intercepto é incluído no modelo $\xi$, e as constantes $q_i$ são definidas como $q_i = 1 / x_i$ (assumindo que $x_i > 0 \,\, \forall i$).
+O problema com os estimadores de calibração quando os tamanhos das amostras são pequenos vem do fato de que seu vício pode se tornar importante, em relação à sua variância. É bem conhecido, por exemplo, que os estimadores de razão são tendenciosos e que o vício é da ordem $(n-1)$ (ver @Cochran1977, páginas 160-162). O estimador de razão é um caso especial do estimador de calibração quando o vetor $\bf x$ inclui uma única variável contínua $x$, nenhum termo de intercepto é incluído no modelo $\xi$, e as constantes $q_i$ são definidas como $q_i = 1 / x_i$ (assumindo que $x_i > 0, \,\, \forall\,\, i$).
 
 Recomenda-se que os estimadores de razão sejam usados somente para amostras de tamanhos grandes o suficiente para que o seu vício seja desprezível. @Sarndal1992, página 251, sugerem que amostras de tamanho 20 ou mais devem ser suficientes para que isso aconteça. @Cochran1977, página 162, sugere que o coeficiente de variação do estimador de HT do total da variável $x$, $CV(\widehat T_x$), deve ser menor que 10% para que o vício do estimador de razão possa ser ignorado ou considerado pequeno em comparação com o seu erro padrão.
 
@@ -346,7 +346,7 @@ $$
 e que os fatores de calibração sejam limitados abaixo e acima por limites especificados
 
 $$
-LI \le g_i \le LS \,\, \forall i \in s, \text{com} \,\, 0 < LI < 1 < LS \,\, (\#eq:eqcal26)
+LI \le g_i \le LS, \,\, \forall \,i \in s,\,\, \text{com} \,\, 0 < LI < 1 < LS \,\, (\#eq:eqcal26)
 $$
 
 Esta é a abordagem adotada no desenvolvimento do *Generalized Estimation System - GES* pelo Statistics Canada (ver @Estevao1995). 
@@ -384,8 +384,7 @@ cat("<table>",paste0("<caption>", "(#tab:tabcalib4)", "Funções de distância p
 
 5      $(w_i - d_i)^2/(2w_i)$
 
-6      $\displaystyle (g_i - LI) log \left( \frac {g_i-LI} {1-LI} \right) + (LS-g_i) log \left( \frac {LS-g_i} {LS-1} \right)$$\:\:\:\:\:$ 
-       $g_i = w_i / d_i, \,\, 0 < LI < 1 < LS$
+6      $\displaystyle (g_i - LI) log \left( \frac {g_i-LI} {1-LI} \right) + (LS-g_i) log \left( \frac {LS-g_i} {LS-1} \right)\text{com}\,\,g_i = w_i / d_i, \, 0 < LI < 1 < LS$
 
 -------------------------------------------------------------
 
@@ -393,18 +392,18 @@ cat("<table>",paste0("<caption>", "(#tab:tabcalib4)", "Funções de distância p
 
 Todas as funções de distância $G$ consideradas na Tabela \@ref(tab:tabcalib4) satisfazem algumas condições de regularidade, ou seja, para cada valor fixo $d>0$:
 
-a) $G_i(w,d)\geq 0$ e $G(d,d)=0$;
+a) $G_i(w,d)\geq 0$ e $G(d,d)=0$.
 
-b) $G_i(w,d)$ é definida num intervalo $D_i$ que contém $d$;  
+b) $G_i(w,d)$ é definida num intervalo $D_i$ que contém $d$.
 
-c) $G_i(w,d)$ é estritamente convexa e duas vezes diferenciável em $w$;
+c) $G_i(w,d)$ é estritamente convexa e duas vezes diferenciável em $w$.
 
 d) $\partial G_i(w,d)/\partial w$ é contínua e mapeia $D_i$ sobre um intervalo $Im_i (d)$ de forma biunívoca (um para um).
 
 A solução para o problema de *minimizar a distância* $D(w;d)$ pode ser obtida usando o método dos multiplicadores de Lagrange, sob as restrições definidas em \@ref(eq:eqcal25). A solução é encontrada resolvendo: 
 
 $$
-\partial G_i(w_i,d_i)/\partial w_i - {\bf {x}}'_i \lambda = 0 \,\,\,\forall i \in s\,\,(\#eq:eqcal27)
+\partial G_i(w_i,d_i)/\partial w_i - {\bf {x}}'_i \lambda = 0, \,\,\,\forall i \in s\,\,(\#eq:eqcal27)
 $$
 
 Se uma solução existir, sob algumas das condições de regularidade ela será única e dada por: 
@@ -460,7 +459,7 @@ Um algoritmo para calcular os pesos de calibração proposto por @Deville1992 po
 
 *Passo 1:* Calcule os erros de calibração para o estimador de HT para as variáveis auxiliares consideradas: ${\bf T}_x - {\bf \widehat T}_x$. 
 
-*Passo 2:* Para a função de calibração $F(·)$ escolhida, resolva as Equações \@ref(eq:eqcal29) requeridas para determinar o *multiplicador de Lagrange* ${\bf  λ}$.
+*Passo 2:* Para a função de calibração $F(·)$ escolhida, resolva as Expressões \@ref(eq:eqcal29) requeridas para determinar o *multiplicador de Lagrange* ${\bf  λ}$.
 
 Isto pode ser feito aplicando o método de Newton. Defina:
 
@@ -510,7 +509,7 @@ Os pesos de calibração e estimadores correspondentes obtidos como resultado de
 
 •	*Integração*: os estimadores de pós-estratificação, razão, GREG e *raking* (como os usados para ponderar pessoas na *UK-LFS*) são todos casos particulares de estimadores de calibração. 
 
-@Deville1992 demonstraram que membros dessa classe de estimadores de calibração possuem propriedades assintóticas idênticas àquelas dos estimadores GREG baseados no mesmo conjunto de variáveis auxiliares. Portanto, os estimadores de calibração definidos por uma das funções de distância acima são assintoticamente *não viciados*, com *variância* assintótica *igual à do estimador GREG* dada pela Expressão \@ref(eq:eqcal17). Além disso, sua *variância* também pode ser *estimada* por uma das expressões \@ref(eq:eqcal20) ou \@ref(eq:eqcal21).
+@Deville1992 demonstraram que membros dessa classe de estimadores de calibração possuem propriedades assintóticas idênticas àquelas dos estimadores GREG baseados no mesmo conjunto de variáveis auxiliares. Portanto, os estimadores de calibração definidos por uma das funções de distância acima são assintoticamente *não viciados*, com *variância* assintótica *igual à do estimador GREG* dada pela Expressão \@ref(eq:eqcal17). Além disso, sua *variância* também pode ser *estimada* por uma das Expressões \@ref(eq:eqcal20) ou \@ref(eq:eqcal21).
 
 O estimador de calibração resultante do algoritmo *não é mais eficiente* que o estimador GREG, mas oferece *flexibilidade* para lidar com pesos extremos. 
 
@@ -622,7 +621,7 @@ $$
 {\bf C}_j = \left( \displaystyle \sum_{i \in U} r_i q_i {\bf x}_i'{\bf x}_i \right)^{-1} \left( \sum_{ i \in U} r_i q_i {\bf x}_i' y_{ij} \right) \doteq E \left( \widehat {\bf B}_j \right) \,\, (\#eq:eqcal43)
 $$
 
-A *redução de vício* pretendida com uso de calibração somente será alcançada, no entanto, se o mecanismo combinado de resposta e amostragem for *ignorável* dadas as variáveis $\bf x$ consideradas para calibração, isto é, a seleção dos respondentes é condicionalmente independente de $y_{ij}|{\bf {x}_i} \,\, \forall \, i \in U$. Alternativamente, o vício se anula quando ${\bf c}'{\bf x}_i = 1/r_i \,\, \forall \, i \in U$,  sendo ${\bf c}$ um vetor de constantes.
+A *redução de vício* pretendida com uso de calibração somente será alcançada, no entanto, se o mecanismo combinado de resposta e amostragem for *ignorável* dadas as variáveis $\bf x$ consideradas para calibração, isto é, a seleção dos respondentes é condicionalmente independente de $y_{ij}|{\bf {x}_i}, \,\, \forall \, i \in U$. Alternativamente, o vício se anula quando ${\bf c}'{\bf x}_i = {1/r_i},\,\, \forall \, i\, \in U$,  sendo ${\bf c}$ um vetor de constantes.
 
 Isto sugere que a escolha das variáveis $\bf x$ a serem consideradas para a calibração deve levar em conta os prováveis efeitos da não resposta e, em particular, deve-se incorporar todas as variáveis $x$ para as quais dados populacionais auxiliares estão disponíveis e que contêm informações sobre as probabilidades desconhecidas de responder à pesquisa. Sob um modelo simplificado onde $\delta_i$ denota a probabilidade de que uma unidade responderá à pesquisa, dado que ela é selecionada na amostra, e a resposta é independente para unidades distintas, uma condição para o estimador de calibração ser aproximadamente não viciado sob a distribuição de aleatorização e a distribuição de resposta é que $\delta_i^{-1}=1+q_i{\bf x}_i{\bf  λ}$, para todo $k$ e algum vetor de constantes ${\bf  λ}$ (ver @Lundstrom1997, página 46). No entanto, como os pesos de calibração $w_i$ são sempre da forma $w_i=d_iF(q_i{\bf x}_i{\bf  λ})$ (ver Expressão \@ref(eq:eqcal36)). É fácil ver que a calibração levará a estimativas aproximadamente não viciadas quando $w_i=d_i\delta_i^{-1}$, uma condição que depende tanto da escolha das variáveis $x$ quanto da forma da função de distância (ou calibração) usada para obter os pesos de calibração.
 
@@ -657,13 +656,13 @@ O exemplo acima ilustra as questões que se deve abordar em relação ao uso da 
 
 @Skinner1999 discute calibração na presença da não resposta. Entre as consequências e problemas, destacam-se: 
 
-• pesos negativos ou extremos podem ocorrer com muito mais frequência;
+• Pesos negativos ou extremos podem ocorrer com muito mais frequência.
  
-• pesos calibrados ($w_i$) podem não convergir para os pesos originais ($d_i$) do desenho;
+• Pesos calibrados ($w_i$) podem não convergir para os pesos originais ($d_i$) do desenho.
 
-• a variância do estimador de calibração depende da escolha da função de distância adotada na calibração (função $G$ ou $F$);
+• A variância do estimador de calibração depende da escolha da função de distância adotada na calibração (função $G$ ou $F$).
 
-• calibração pode mascarar efeitos da não resposta ou falhas de cobertura. 
+• Calibração pode mascarar efeitos da não resposta ou falhas de cobertura. 
 
 Veja também @Lundstrom1997, @Lundstrom1999 e @Sarndal2005.
 
@@ -708,7 +707,7 @@ knitr::kable(tabela,align= "lrrrrr",format.args= list(big.mark = '.',dec=',')
 kable_styling(full_width = F)
 ```
 
-O exemplo considerado mostra que os erros padrões para a estimativa da média se reduzem à medida que os modelos considerados vão ficando maiores (em termos do número de parâmetros requeridos). Mostra também que os erros padrão são muito similares para vários modelos incompletos em comparação com o mínimo atingido considerando o modelo saturado. Por exemplo, seria possível estimar com a mesma precisão usando modelos com 13 parâmetros que aquela obtida pelo modelo saturado, que tem 24.
+O exemplo considerado mostra que os erros padrão para a estimativa da média se reduzem à medida que os modelos considerados vão ficando maiores (em termos do número de parâmetros requeridos). Mostra também que os erros padrão são muito similares para vários modelos incompletos em comparação com o mínimo atingido considerando o modelo saturado. Por exemplo, seria possível estimar com a mesma precisão usando modelos com 13 parâmetros que aquela obtida pelo modelo saturado, que tem 24.
 
 ## Indicadores de qualidade da calibração 
 
@@ -795,31 +794,31 @@ Os passos seguintes podem ser distintos, dependendo do objetivo principal estabe
 
 •	Para redução de variância: 
 
-- Escolha o(s) principal(is) alvo(s) de inferência;
+- Escolha o(s) principal(is) alvo(s) de inferência.
 
-- Guie a escolha de variáveis auxiliares considerando os alvos de inferência escolhidos;
+- Guie a escolha de variáveis auxiliares considerando os alvos de inferência escolhidos.
 
-- Se houver muitas variáveis auxiliares, considere um procedimento de seleção de variáveis guiado por estimativas da variância do estimador de calibração;
+- Se houver muitas variáveis auxiliares, considere um procedimento de seleção de variáveis guiado por estimativas da variância do estimador de calibração.
 
-- Comece considerando o estimador de regressão, sem limites para os fatores de ajuste;
+- Comece considerando o estimador de regressão, sem limites para os fatores de ajuste.
 
-- Lembre que nem sempre usar o maior número de variáveis auxiliares leva a menor variância;
+- Lembre que nem sempre usar o maior número de variáveis auxiliares leva a menor variância.
 
 - Avalie os resultados da calibração usando os indicadores de qualidade sugeridos.
 
 •	Para redução de vício devido a não resposta:
 
-- Concentre-se na inclusão de variáveis auxiliares que ajudem a explicar o mecanismo de resposta;
+- Concentre-se na inclusão de variáveis auxiliares que ajudem a explicar o mecanismo de resposta.
 
--	Se houver muitas variáveis auxiliares, considere um procedimento de seleção de variáveis guiado por estimativas do $EQM$ ou do vício do estimador de calibração;
+-	Se houver muitas variáveis auxiliares, considere um procedimento de seleção de variáveis guiado por estimativas do $EQM$ ou do vício do estimador de calibração.
 
--	Comece considerando o estimador de regressão, sem limites para os fatores de ajuste;
+-	Comece considerando o estimador de regressão, sem limites para os fatores de ajuste.
 
 -	Avalie os resultados da calibração usando os indicadores de qualidade sugeridos.
 
 •	Ideias aplicáveis nos dois casos: 
 
-- Para variáveis auxiliares categóricas, considere subconjuntos baseados em *calibrar nas marginais*, em vez de classificações cruzadas (*pós-estratificação multivariada incompleta*); 
+- Para variáveis auxiliares categóricas, considere subconjuntos baseados em *calibrar nas marginais*, em vez de classificações cruzadas (*pós-estratificação multivariada incompleta*).
 
 - Para pesquisas que empreguem amostragem conglomerada, considere adicionar restrições de que os pesos sejam iguais para todas as unidades elementares de um conglomerado. Por exemplo: considere o emprego de ‘*ponderação integrada por domicílios*’.
 
@@ -827,29 +826,29 @@ Os passos seguintes podem ser distintos, dependendo do objetivo principal estabe
 
 **(#exm:exmcalib5)** Uso de calibração nos *Censos Demográficos* brasileiros
 
-Os *Censos Demográficos* realizados pelo IBGE utilizam dois tipos de questionários, sendo que um deles, o *Questionário Básico*, contém um pequeno subconjunto dos quesitos da pesquisa que devem ser investigados em todos os domicílios do país e seus respectivos moradores, enquanto que o outro, o *Questionário da Amostra*, contém esses mesmos quesitos além de um número relativamente maior de quesitos, e é aplicado somente numa amostra de domicílios, e respectivos moradores, em cada um dos municípios brasileiros. 
+Os *Censos Demográficos* realizados pelo IBGE utilizam dois tipos de questionários, sendo que um deles, o *Questionário Básico*, contém um pequeno subconjunto dos quesitos da pesquisa que devem ser investigados em todos os domicílios do país e seus respectivos moradores, enquanto que o outro, o *Questionário da Amostra*, contém esses mesmos quesitos além de um número relativamente maior de quesitos, é aplicado somente numa amostra de domicílios e respectivos moradores, em cada um dos municípios brasileiros. 
 
-O *Questionário Básico* do Censo 2010 continha 37 quesitos distribuídos entre os seguintes temas:
+No Censo 2010, por exemplo, o *Questionário Básico*  continha 37 quesitos distribuídos entre os seguintes temas:
 
-- Características do domicílio - oito quesitos;    
-- Emigração Internacional - seis quesitos;    
-- Responsabilidade pelo domicílio - dois quesitos;    
-- Lista de moradores - três quesitos;    
-- Características do morador - 13 quesitos; e    
+- Características do domicílio - oito quesitos.    
+- Emigração Internacional - seis quesitos.    
+- Responsabilidade pelo domicílio - dois quesitos.    
+- Lista de moradores - três quesitos.    
+- Características do morador - 13 quesitos.     
 - Mortalidade - cinco quesitos.
 
-O *Questionário da Amostra* continha os mesmos temas do *Questionário Básico*, sendo alguns deles com maior detalhamento, além de outros temas investigados apenas na amostra. No total o questionário foi composto de por 108 quesitos, ressaltando-se que os moradores não necessáriamente tinham de responder a todos eles, pois haviam saltos dependendo de características como sexo e idade. Os quesitos foram distribuídos pelos seguintes temas:
+O *Questionário da Amostra* continha os mesmos temas do *Questionário Básico*, sendo alguns deles com maior detalhamento, além de outros temas investigados apenas na amostra. No total o questionário foi composto por 108 quesitos, ressaltando-se que os moradores não necessáriamente tinham de responder a todos eles, pois havia saltos dependendo de características como sexo e idade. Os quesitos foram distribuídos pelos seguintes temas:
 
-- Características do domicílio - 22 quesitos;    
-- Emigração internacional - seis quesitos;    
-- Responsabilidade pelo domicílio - dois quesitos;    
-- Lista de moradores - três quesitos;    
-- Características do morador - 70 quesitos; e    
+- Características do domicílio - 22 quesitos.    
+- Emigração internacional - seis quesitos.    
+- Responsabilidade pelo domicílio - dois quesitos.    
+- Lista de moradores - três quesitos.    
+- Características do morador - 70 quesitos;     
 - Mortalidade - cinco quesitos.    
 
-Desta forma as questões abordadas no *Questionário Básico* formam, efetivamente, um conjunto de informações pesquisadas de forma censitária e, portanto, seus totais são conhecidos para toda a população de domicílios e pessoas do país. A partir do *Censo 2000* os pesos amostrais, relativos às informações pesquisadas apenas no *Questionário da Amostra*, são calibrados utilizando-se como *infromações auxiliares* aquelas variáveis que são pesquisadas em ambos os questionários.
+Desta forma as questões abordadas no *Questionário Básico* formam, efetivamente, um conjunto de informações pesquisadas de forma censitária e, portanto, seus totais são conhecidos para toda a população de domicílios e pessoas do país. Os pesos amostrais, relativos às informações pesquisadas apenas no *Questionário da Amostra*, são calibrados, desde o *Censo 1960*, utilizando-se como *informações auxiliares* aquelas variáveis que são pesquisadas em ambos os questionários. Até o *Censo 1980* foi utilizado um processo de pós-estratificação com adaptações necessárias em cada Censo. A partir do *Censo 1991* passou-se a utilizar processos baseados em estimadores de regressão - ver @Bankier1992.
 
-Como a amostra foi do tipo conglomerada, onde se selecionou domicílios e todos seus moradores foram pesquisados, a calibração foi feita no nível do domicílio e os peso calibrado foi atribuído a cada um dos moradores, de acordo com uma das recomendações listadas anteriormente. Detalhes da utilização de calibração nos censos brasileiros de 2000 e 2010, bem como outros aspectos dessas pesquisas, podem ser vistos em @Censo2003 e @IBGE2016.
+Como as amostras dos censos demográficos são do tipo conglomerada, onde se selecionam domicílios e todos seus moradores são pesquisados, a calibração é feita no nível do domicílio e o peso calibrado é atribuído a cada um dos seus moradores, de acordo com uma das recomendações listadas anteriormente. Detalhes da utilização de calibração nos censos brasileiros de 2000 e 2010, bem como outros aspectos dessas pesquisas, podem ser vistos em @Censo2003 e @IBGE2016.
 
 ## Observações finais 
 
