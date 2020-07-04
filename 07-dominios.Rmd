@@ -63,7 +63,7 @@ Muitos outros parâmetros podem ser definidos para domínios, mas não é comum 
 
 Esta seção mostra como fazer para estimar os parâmetros populacionais para o domínio $c$ considerados na seção \@ref(domin2), com base numa amostra aleatória simples sem reposição de tamanho $n$ extraída da população $U$. Embora a discussão seja restrita aqui ao caso de amostras aleatórias simples, o processo de adaptação de estimadores para parâmetros de domínios aqui mostrado pode ser facilmente seguido para o caso de outros planos amostrais. Tudo se baseia na ideia de criação das variáveis derivadas apresentada na seção \@ref(domin1). 
 
-*Passo 1:* Selecionar uma AAS de tamanho $n$ da população $U$ de tamanho $N$ e observar $y_i$ para todo $i \in s$.
+*Passo 1:* Selecionar uma AAS de tamanho $n$ da população $U$ de tamanho $N$ e observar $y_i$, para todo $i \in s$.
 
 *Passo 2:* Construir as variáveis derivadas $c_i = I(i \in U_c)$ e $y_{ic} = y_i c_i$.
 
@@ -253,7 +253,7 @@ $V_{AAS}\left(\widehat{Y}_c^R\mid{n_c>0}\right)$       $\widehat V_{AAS}\left(\w
 
 Considere os dados da população de municípios brasileiros fornecidos no arquivo 'MunicBR_dat.rds'.
 
-1. Selecione uma AAS de $n=$ 250 municípios, e use esta amostra para estimar os seguintes parâmetros populacionais:
+1. Selecione uma AAS de $n=250$ municípios, e use esta amostra para estimar os seguintes parâmetros populacionais:
 
     a.	População total por região do Brasil e correspondentes margens de erro relativo ao nível de confiança de 95%; suponha *conhecidos* os tamanhos dos domínios;
 
@@ -446,7 +446,7 @@ Onde $\frac 1  {2n_c}$ é a correção de continuidade. Essa correção é, prat
 
 ## Exercícios
 
-**(#exr:exrdom1)** A população total de uma cidade é de $N =$ 50.000 pessoas. Uma amostra de fração amostral igual a 20% é selecionada aleatoriamente sem reposição. Na amostra 4.000 pessoas estão na força de trabalho, das quais 200 estão sem emprego.
+**(#exr:exrdom1)** A população total de uma cidade é de $N = 50.000$ pessoas. Uma amostra de fração amostral igual a 20% é selecionada aleatoriamente sem reposição. Na amostra 4.000 pessoas estão na força de trabalho, das quais 200 estão sem emprego.
 
 a) Que proporção da força de trabalho está desempregada?
 b) Qual o intervalo com 90% de confiança para essa proporção populacional? 
@@ -458,7 +458,7 @@ b)  Construa um intervalo de 95% de confiança para a média estimada.
 c)  Estime total semanal dos gastos com alimentação das famílias com criança da localidade.
 d)  Construa um intervalo de 95% de confiança para o total estimado.
 
-**(#exr:exrdom3)** Considere a população de $N =$ 338 fazendas produtoras de cana-de-açúcar fornecida no arquivo 'fazendas_dat.rds'. Considere um plano AAS e tamanhos amostrais $n$ variando no conjunto {5, 10, 20, 50, 100}. Imagine que há interesse em estimar dois parâmetros:
+**(#exr:exrdom3)** Considere a população de $N = 338$ fazendas produtoras de cana-de-açúcar fornecida no arquivo 'fazendas_dat.rds'. Considere um plano AAS e tamanhos amostrais $n$ variando no conjunto {5, 10, 20, 50, 100}. Imagine que há interesse em estimar dois parâmetros:
 
    I)	A média da variável Produtividade $=$ Quant / Area;
    II)  A produtividade média por unidade de área na população.
@@ -468,12 +468,13 @@ Para cada um dos tamanhos de amostra considerados, realize as tarefas abaixo ind
 a) Obtenha 500 amostras por AAS da população de fazendas. 
 b) Use cada uma destas amostras para calcular estimativas dos dois parâmetros de interesse, e dos respectivos erros padrão.
 c) Use as 500 estimativas pontuais obtidas para cada parâmetro para avaliar:
-    -  O comportamento do viés dos estimadores;
-    -  O comportamento do viés dos estimadores dos erros padrões;
-    -  A adequação da aproximação normal para a distribuição dos estimadores usados.
+    
+    - O comportamento do viés dos estimadores.
+    - O comportamento do viés dos estimadores dos erros padrão.
+    - A adequação da aproximação normal para a distribuição dos estimadores usados.
 
 
-**(#exr:exrdom4)** Considere a população de $N =$ 338 fazendas produtoras de cana-de-açúcar fornecida no arquivo 'fazendas_dat.rds'. Considere agora um plano AAS e dois tamanhos amostrais $n_1 =$ 20 e $n_2 =$ 100. Agora o interesse é estimar a despesa com a *produção total de cana para um domínio de interesse*, definido como o conjunto de fazendas pertencentes às classes de tamanho 4, 5 e 6.
+**(#exr:exrdom4)** Considere a população de $N = 338$ fazendas produtoras de cana-de-açúcar fornecida no arquivo 'fazendas_dat.rds'. Considere agora um plano AAS e dois tamanhos amostrais $n_1 = 20$ e $n_2 = 100$. Agora o interesse é estimar a despesa com a *produção total de cana para um domínio de interesse*, definido como o conjunto de fazendas pertencentes às classes de tamanho 4, 5 e 6.
 
 Para cada um dos tamanhos de amostra considerados, realize as tarefas abaixo indicadas.
 
@@ -552,9 +553,10 @@ c)  Estime a população total, para o Brasil, dos municípios com menos de 10.0
 
 a) Razão entre Despesa e Receita para os estabelecimentos com área menor que 100.
 b) Razão entre Despesa e Receita para os estabelecimentos com área igual ou maior que 100.
-c) As razões podem ser consideradas iguais ao nível de significância $\alpha=$ 5%?
+c) As razões podem ser consideradas iguais ao nível de significância $\alpha=5\%$?
 
 **(#exr:exrdom10)** Uma granja tem um plantel de 10.000 aves de 5 espécies diferentes. Foi selecionada uma AAS de 100 aves. A Tabela \@ref(tab:tabdom5) apresenta as contagens dos animais da amostra.
+
 <center>
 ```{r, results="asis", echo=FALSE}
 cat("<table>",paste0("<caption>", "(#tab:tabdom5)", "Quantidade de aves na amostra por espécie", "</caption>"),"</table>", sep ="\n")
