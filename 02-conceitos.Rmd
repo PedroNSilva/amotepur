@@ -185,7 +185,7 @@ Pesquisas por amostragem, para serem bem feitas, requerem cuidadoso planejamento
 Para uma visão de conjunto, o *Modelo Genérico do Processo de Produção Estatística - MGPPE* ou *Generic Statistical Business Process Model - GSBPM*, definido pela United Nations Economic Commission for Europe - UNECE, é um modelo que descreve de forma abrangente as atividades do processo de produção estatística. Este modelo tem sido utilizado como quadro de referência para nortear a modernização e a melhoria da qualidade da produção estatística em muitos institutos nacionais de estatística, entre eles o IBGE. Uma representação esquemática dessa abordagem é apresentada na Figura \@ref(fig:modpesq), adaptada do *Generic Statistical Business Process Model: GSBPM: version 5.0* (@GSBPM2013, página 9). 
 
 <center>
-```{r, modpesq, echo=FALSE, encoding="UTF-8", fig.cap="Modelo Genérico do Processo de Produção Estatística, adaptado"}
+```{r, modpesq, echo=FALSE, encoding="UTF-8", fig.cap="Modelo Genérico do Processo de Produção Estatística, adaptado",out.width = '100%'}
 knitr::include_graphics("Figuras/ProcessodePesquisaModelo.PNG")
 ```
 </center>
@@ -334,7 +334,7 @@ A malha digital de setores censitários do Brasil é um conjunto de arquivos con
 A Figura \@ref(fig:cadset) apresenta uma ilustração da subdivisão em setores censitários do IBGE para Copacabana no município do Rio de Janeiro, conforme a malha setorial vigente para o Censo Demográfico 2010.
 
 <center>
-```{r, cadset, echo=FALSE, fig.cap="O cadastro de setores do IBGE - Copacabana - RJ"}
+```{r, cadset, echo=FALSE, fig.cap="O cadastro de setores do IBGE - Copacabana - RJ",out.width = '100%'}
 knitr::include_graphics("Figuras/SetorCopacabana.PNG")
 ```
 </center>
@@ -344,12 +344,12 @@ O *Cadastro Nacional de Endereços para Fins Estatísticos - CNEFE* é uma lista
 As Figuras \@ref(fig:cnefe1) e \@ref(fig:cnefe2) ilustram informações disponíveis no CNEFE para um determinado setor censitário <https://censo2010.ibge.gov.br/cnefe/Exibe_Tabela.html?ag=330455705100417>. 
 
 <center>
-```{r, cnefe1, echo=FALSE, fig.cap="Informações do CNEFE para um setor de Copacabana - RJ"}
+```{r, cnefe1, echo=FALSE, fig.cap="Informações do CNEFE para um setor de Copacabana - RJ",out.width = '100%'}
 knitr::include_graphics("Figuras/Dadossetor.PNG")
 ```
 
 
-```{r, cnefe2, echo=FALSE, fig.cap="Ilustração de dados do CNEFE"}
+```{r, cnefe2, echo=FALSE, fig.cap="Ilustração de dados do CNEFE",out.width = '100%'}
 knitr::include_graphics("Figuras/CNEFE.PNG")
 ```
 </center>
@@ -386,7 +386,7 @@ O cadastro deve ser estruturado de tal forma que seja possível determinar como 
 Nesta situação cada unidade $C_i$ do cadastro corresponde a uma e somente uma unidade de referência $U_i$ da população de pesquisa, conforme ilustração na Figura \@ref(fig:umparaum). 
 
 <center>
-```{r, umparaum, echo=FALSE, fig.cap="Ilustração da regra de associação um para um"}
+```{r, umparaum, echo=FALSE, fig.cap="Ilustração da regra de associação um para um",out.width = '100%'}
 knitr::include_graphics("Figuras/Associa1-1.PNG") #{width=50%}
 ```
 </center>
@@ -419,12 +419,12 @@ Outro bom exemplo deste tipo de situação seria um cadastro de veículos (autom
 Nesta situação, uma ou mais unidades de referência da população de pesquisa são vinculadas a cada unidade elementar do cadastro, conforme ilustrações nas Figuras \@ref(fig:varparaum1) e \@ref(fig:varparaum2). A unidade de amostragem  é um *conglomerado* de unidades da população. Neste caso, se adotam os planos amostrais conglomerados, onde a seleção é de uma amostra de unidades conglomeradas do cadastro. Os vínculos são geralmente conhecidos só para os conglomerados da amostra. O cadastro é mais barato de construir e manter, porém a amostragem é na maioria das vezes menos eficiente do que se poderia fazer tendo cadastros do tipo um para um.
 
 <center>
-```{r, varparaum1, echo=FALSE, fig.cap="Ilustração da regra de associação vários para um"}
+```{r, varparaum1, echo=FALSE, fig.cap="Ilustração da regra de associação vários para um",out.width = '100%'}
 knitr::include_graphics("Figuras/Associavarios-1a.PNG")
 ```
 
 
-```{r, varparaum2, echo=FALSE, fig.cap="Ilustração da regra de associação vários para um"}
+```{r, varparaum2, echo=FALSE, fig.cap="Ilustração da regra de associação vários para um",out.width = '100%'}
 knitr::include_graphics("Figuras/Associavarios-1b.PNG")
 ```
 </center>
