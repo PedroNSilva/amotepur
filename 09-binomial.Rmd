@@ -213,7 +213,7 @@ P(m=k)= \frac{N_A-n+1}{N-k+1} \frac {\binom{N_A}{n-1}\binom{N-N_A}{k-n}} {\binom
 $$
 para $k=n, n+1, ..., N_A$. Uma hipótese necessária para obter essa distribuição de probabilidades é que $n < N_A$.
 
-O tamanho total da amostra $m$ mede o esforço de abordagem de unidades selecionadas. O tamanho da amostra efetiva $n$ mede o esforço adicional para obtenção das entrevistas ou medidas de interesse. Ambos são relevantes para a estimação dos custos da pesquisa. Como $n$ é pré-fixado, resta saber alguma coisa mais sobre $m$. O valor esperado e a variância desta quantidade aleatória são dados por:
+A necessidade de aplicação da *Amostragem Inversa* surge do fato de não estar disponível um cadastro apenas das unidades com determinadas características que as tornem elegíveis para a amostra. Se o mesmo estivesse disponível, bastaria selecionar as $n$ unidades necessárias para a amostra através, por exemplo, de um processo de AAS. Como o cadastro disponível contém, também, unidades não elegíveis para a amostra, é necessário selecionar $m \ge n$ unidades e investigar efetivamente as $n$ unidades com as características desejáveis. Portanto, o tamanho total da amostra, $m$, mede o esforço de abordagem e caracterização das unidades selecionadas. O tamanho da amostra efetiva, $n$, mede o esforço para obtenção das entrevistas ou medidas de interesse da pesquisa. Ambos são relevantes para a estimação dos custos totais da pesquisa. Como $n$ é pré-fixado, resta saber alguma coisa mais sobre $m$. O valor esperado e a variância desta quantidade aleatória são dados por:
 
 $$
 E_{AIS} (m)= \frac{(N+1)n}{N_A+1}(\#eq:eqinv4)
@@ -225,7 +225,7 @@ $$
 V_{AIS} (m) = \frac{(N+1)(N_A-n+1)(N-N_A)}{(N_A+1)^2 (N_A+2)}(\#eq:eqinv5)
 $$
 
-Embora um dos parâmetros da distribuição ($N_A$) seja desconhecido, as expressões acima podem ser usadas para fazer cálculos com distintos valores que permitirão ter um intervalo de variação esperado para $m$, e em consequência, para o custo esperado da etapa de abordagem das unidades selecionadas. O fato de que o esforço de abordagem da pesquisa tem tamanho variável (antes de implementar a pesquisa) é provavelmente a principal desvantagem prática da AIS. Por outro lado, o fato de que AIS vai permitir alcançar o tamanho da amostra efetiva desejado é uma vantagem grande em comparação com planos amostrais como AAS, em que o tamanho total da amostra é fixado, mas o tamanho da amostra efetiva é variável.
+Embora um dos parâmetros da distribuição, $N_A$, seja desconhecido, as expressões acima podem ser usadas para fazer cálculos com distintos valores que permitirão ter um intervalo de variação esperado para $m$, e em consequência, para o custo esperado da etapa de abordagem das unidades selecionadas. O fato de que o esforço de abordagem da pesquisa tem tamanho variável (antes de implementar a pesquisa) é provavelmente a principal desvantagem prática da AIS. Por outro lado, o fato de que AIS vai permitir alcançar o tamanho da amostra efetiva desejado é uma vantagem grande em comparação com planos amostrais como AAS, em que o tamanho total da amostra é fixado, mas o tamanho da amostra efetiva é variável.
 
 #### Estimação da média e total na AIS
 
