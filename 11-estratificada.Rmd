@@ -561,9 +561,11 @@ A implementação de amostragem estratificada simples com alocação ótima pode
 
 5. Ganhos de eficiência podem ser modestos, particularmente para estimação de proporções. 
 
-    * @Cochran1977, página 99, mostra que os ganhos de precisão possíveis dependem da relação entre a(s) variável(is) de estratificação e as variáveis de pesquisa. Em geral, os ganhos são pequenos para amostras de pessoas e variáveis ligadas a atitudes, opiniões, comportamentos, etc. Para pesquisas amostrais de estabelecimentos ou instituições, os ganhos podem ser maiores. 
+    * @Cochran1977, página 99, mostra que $V_{AESN} \left( \overline y_{AES} \right) \le V_{AESP} \left( \overline y_{AES} \right) \le V_{AAS} \left( \overline y \right)$.
+    
+    * Os ganhos de precisão possíveis dependem da relação entre a(s) variável(is) de estratificação e as variáveis de pesquisa. Em geral, os ganhos são pequenos para amostras de pessoas e variáveis ligadas a atitudes, opiniões, comportamentos, etc. Para pesquisas amostrais de estabelecimentos ou instituições, os ganhos podem ser maiores. 
 
-Quando os ganhos de precisão alcançados com a estratificação não são grandes, o responsável pelo planejamento da pesquisa precisa avaliar se a estratificação proposta vale a pena ou se pode ser melhorada. Caso possa ser melhorada, o trabalho de alocação deve ser refeito após a redefinição
+    * Quando os ganhos de precisão alcançados com a estratificação não são grandes, o responsável pelo planejamento da pesquisa precisa avaliar se a estratificação proposta vale a pena ou se pode ser melhorada. Caso possa ser melhorada, o trabalho de alocação deve ser refeito após a redefinição.
 
 ## Definição dos limites dos estratos
 
