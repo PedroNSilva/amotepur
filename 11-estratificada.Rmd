@@ -526,46 +526,46 @@ A implementação de amostragem estratificada simples com alocação ótima pode
 
 1. Em geral, os valores de $S_{h,y},\, h=1,...,H$, são desconhecidos.
 
-    * As solucões usadas na prática incluem as seguintes alternativas:
+    As solucões usadas na prática incluem as seguintes alternativas:
 
-        a. Usar informações de uma variável auxiliar $x$, usando $S_{h,x}$ em lugar de $S_{h,y}$ na Expressão \@ref(eq:eqest20). 
+    a. Usar informações de uma variável auxiliar $x$, usando $S_{h,x}$ em lugar de $S_{h,y}$ na Expressão \@ref(eq:eqest20). 
 
-        b. Predizer $y_i$ usando informações auxiliares $x_i$, e então estimar $S_{h,y}$ a partir dos valores preditos. 
+    b. Predizer $y_i$ usando informações auxiliares $x_i$, e então estimar $S_{h,y}$ a partir dos valores preditos. 
 
-        c. Usar o total ou a amplitude da variável auxiliar $x$ no estrato $h$ como proxy para $S_{h,y}$.
+    c. Usar o total ou a amplitude da variável auxiliar $x$ no estrato $h$ como proxy para $S_{h,y}$.
 
-        d. Selecionar pequena amostra piloto (preliminar) e usar dados desta amostra para estimar $S_{y,h}$.
+    d. Selecionar pequena amostra piloto (preliminar) e usar dados desta amostra para estimar $S_{y,h}$.
 
 2. Pode haver muitas variáveis de pesquisa $y$.
 
-    * Caso se tenha informações sobre as diversas variáveis de interesse da pesquisa para fazer alocações alternativas da amostra, isto pode ser feito usando um dos métodos de alocação descritos acima. Entretanto, tomar cada variável como guia para a alocação geralmente levaria a ter alocações ótimas diferentes. Nesses casos, os métodos mais simples buscam soluções de compromisso considerando as diversas alocações alternativas: 
+    Caso se tenha informações sobre as diversas variáveis de interesse da pesquisa para fazer alocações alternativas da amostra, isto pode ser feito usando um dos métodos de alocação descritos acima. Entretanto, tomar cada variável como guia para a alocação geralmente levaria a ter alocações ótimas diferentes. Nesses casos, os métodos mais simples buscam soluções de compromisso considerando as diversas alocações alternativas: 
 
-        a. Usar a média das alocações alternativas em cada estrato. 
+    a. Usar a média das alocações alternativas em cada estrato. 
 
-        b. Escolher uma ou duas variáveis principais; com duas variáveis, usar a média das alocações alternativas.
+    b. Escolher uma ou duas variáveis principais; com duas variáveis, usar a média das alocações alternativas.
 
-        c. Construir um ‘índice’ das variáveis de pesquisa e usar este índice para definir a alocação.
+    c. Construir um ‘índice’ das variáveis de pesquisa e usar este índice para definir a alocação.
 
-        d. Usar alocação proporcional.
+    d. Usar alocação proporcional.
 
-    * Todas as soluções acima são saídas simplificadoras, que na verdade não enfrentam o problema existente. 
+    Todas as soluções acima são saídas simplificadoras, que na verdade não enfrentam o problema existente. 
 @Brito2015 oferece uma abordagem para *alocação ótima multivariada*, usando formulações de programação inteira binária para obter soluções exatas do problema, que inclusive reconhecem que os tamanhos de amostra nos estratos têm que ser inteiros e limitados abaixo por 1 (ou outro valor especificado) e acima (por $N_h$). O pacote *stratbr* do R implementa duas soluções: uma delas permite minimizar o custo ou tamanho amostral para limites de precisão especificados; a outra permite minimizar uma função de variância dado um orçamento ou tamanho amostral total especificado.
 
 3. Se $n_h > N_h$ para algum estrato.
 
-    * Fazer $n_h = N_h$, tornando esse estrato um *estrato certo* ou *estrato censitário* para os estratos em que $n_h > N_h$. Em seguida, refazer a alocação ótima nos demais estratos, após ajustar o tamanho da amostra disponível para seleção nestes outros estratos.
+    Fazer $n_h = N_h$, tornando esse estrato um *estrato certo* ou *estrato censitário* para os estratos em que $n_h > N_h$. Em seguida, refazer a alocação ótima nos demais estratos, após ajustar o tamanho da amostra disponível para seleção nestes outros estratos.
 
 4. Se $n_h < 2$ para algum estrato.
     
-    * Se a estimação de variâncias for importante, então forçar $n_h \geq 2$ para todos os estratos. Na prática, costuma-se fazer $n_h \geq 5$ devido à possibilidade de ocorrência de não resposta. Para estimação sem viés do total ou média, é essencial que $n_h \geq 2$ para todos os estratos. Quando ocorrem situações de estratos com $n_h = 1$, é necessário utilizar métodos aproximados para estimação de variâncias, tais como agregação de estratos ou similares (ver @Cochran1977, seção 5A.12).
+    Se a estimação de variâncias for importante, então forçar $n_h \geq 2$ para todos os estratos. Na prática, costuma-se fazer $n_h \geq 5$ devido à possibilidade de ocorrência de não resposta. Para estimação sem viés do total ou média, é essencial que $n_h \geq 2$ para todos os estratos. Quando ocorrem situações de estratos com $n_h = 1$, é necessário utilizar métodos aproximados para estimação de variâncias, tais como agregação de estratos ou similares (ver @Cochran1977, seção 5A.12).
 
 5. Ganhos de eficiência podem ser modestos, particularmente para estimação de proporções. 
 
-    * @Cochran1977, página 99, mostra que $V_{AESN} \left( \overline y_{AES} \right) \le V_{AESP} \left( \overline y_{AES} \right) \le V_{AAS} \left( \overline y \right)$.
+    @Cochran1977, página 99, mostra que $V_{AESN} \left( \overline y_{AES} \right) \le V_{AESP} \left( \overline y_{AES} \right) \le V_{AAS} \left( \overline y \right)$.
     
-    * Os ganhos de precisão possíveis dependem da relação entre a(s) variável(is) de estratificação e as variáveis de pesquisa. Em geral, os ganhos são pequenos para amostras de pessoas e variáveis ligadas a atitudes, opiniões, comportamentos, etc. Para pesquisas amostrais de estabelecimentos ou instituições, os ganhos podem ser maiores. 
+    Os ganhos de precisão possíveis dependem da relação entre a(s) variável(is) de estratificação e as variáveis de pesquisa. Em geral, os ganhos são pequenos para amostras de pessoas e variáveis ligadas a atitudes, opiniões, comportamentos, etc. Para pesquisas amostrais de estabelecimentos ou instituições, os ganhos podem ser maiores. 
 
-    * Quando os ganhos de precisão alcançados com a estratificação não são grandes, o responsável pelo planejamento da pesquisa precisa avaliar se a estratificação proposta vale a pena ou se pode ser melhorada. Caso possa ser melhorada, o trabalho de alocação deve ser refeito após a redefinição.
+    Quando os ganhos de precisão alcançados com a estratificação não são grandes, o responsável pelo planejamento da pesquisa precisa avaliar se a estratificação proposta vale a pena ou se pode ser melhorada. Caso possa ser melhorada, o trabalho de alocação deve ser refeito após a redefinição.
 
 ## Definição dos limites dos estratos
 
