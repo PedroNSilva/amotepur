@@ -8,15 +8,19 @@ AB - Amostragem Binomial ou de Bernoulli
 
 AC1 - Amostragem Conglomerada em um estágio 
 
-AC1PPT - Amostragem Conglomerada com PPT em um estágio
+AC1P - Amostragem Conglomerada com PPT em um estágio
 
-AC2 - Amostragem Conglomerada em dois estágios 
+AC1PC - Amostragem Conglomerada com PPT com reposição em um estágio
 
-AC2PPT - AC2 com PPT no primeiro estágio e AAS no estágio 2
+AC2 - Amostragem Conglomerada em dois estágios
 
-AC2PPTC - AC2 com PPT com reposição no primeiro estágio e AAS no estágio 2
+AC2P - AC2 com PPT no primeiro estágio e AAS no estágio 2
 
-AC2PPPS - AC2 com PPT Poisson Sequencial no primeiro estágio e AAS no estágio 2 
+AC2PC - AC2 com PPT com reposição no primeiro estágio e AAS no estágio 2
+
+AC2PS - AC2 com PPT Poisson Sequencial no primeiro estágio e AAS no estágio 2 
+
+AC2S - AC2 com AAS no primeiro e segundo estágio 
 
 ACS - Amostragem Conglomerada Simples 
 
@@ -40,13 +44,13 @@ AP - Amostragem PPT de Pareto
 
 AS - Amostragem Sistemática Simples
 
-ASP - Amostragem sequencial de Poisson 
+ASP - Amostragem Sequencial de Poisson 
 
 B - Vício 
 
 BASCULA - Survey Software desenvolvido pelo Statiscs Netherlands 
 
-BLAISE - Computer-assisted interviewing system and survey processing tool developed by Statistics Netherlands
+BLAISE - Sistema desenvolvido pelo Statistics Netherlands (Computer-assisted interviewing system and survey processing tool) 
 
 BOG - Base Operacional Geográfica 
 
@@ -74,6 +78,8 @@ CORR - Correlação
 
 COV - Covariância 
 
+CPF - Cadastro de Pessoas Físicas
+
 CV - Coeficiente de Variação
 
 D - Margem de Erro máxima admissível ou Precisão desejada
@@ -94,7 +100,7 @@ ENCE - Escola Nacional de Ciências Estatísticas
 
 ENV - Estimador Não Viciado 
 
-EPA - Efeito de Plano Amostral
+EPA - Efeito do Plano Amostral
 
 EQM -  Erro Quadrático Médio 
 

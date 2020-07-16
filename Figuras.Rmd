@@ -44,4 +44,3 @@ Figura 13.2: Regressão linear para a população de fazendas de cana-de-açúca
 
 Figura 13.3: $EQM$ do estimador de regressão versus número de variáveis $x$
 
-

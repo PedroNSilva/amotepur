@@ -69,9 +69,10 @@ Tabela 6.2: Parâmetros e estimadores para uma razão sob AAS
 Tabela 6.3: Informações coletadas na amostra de domicílios 
 
 Tabela 6.4: Peso e quantidade de açúcar, ambos em libras, nas laranjas da amostra 
-Tabela 6.5: Contagem das árvores mortas na amostra, por aerofotogrametria ($x_i$) e localmente ($y_i$)
 
-Tabela 6.6: Quantias declaradas ($x_i$) e contadas ($y_i$) pelos alunos da amostra
+Tabela 6.5: Contagem das árvores mortas na amostra, por aerofotogrametria $(x_i)$ e localmente $(y_i)$
+
+Tabela 6.6: Quantias declaradas $(x_i)$ e contadas $(y_i)$ pelos alunos da amostra
 
 Tabela 6.7: Diâmetro e idade das árvores da amostra 
 
@@ -79,7 +80,7 @@ Tabela 6.8: População hipotética de $N=9$ unidades
 
 Tabela 6.9: Notas de Cálculo 1 e Cálculo 2 para os alunos da amostra 
 
-Tabela 7.1: Parâmetros e respectivos estimadores de domínio sob AAS 
+Tabela 7.1: Parâmetros e respectivos estimadores no domínio $c$ sob AAS
 
 Tabela 7.2: Distância, em quilômetros, percorrida para chegar ao trabalho pelos 24 entrevistados 
 
@@ -89,9 +90,9 @@ Tabela 7.4: Distribuição de frequências do número de dentes cariados por cri
 
 Tabela 7.5: Quantidade de aves na amostra por espécie 
 
-Tabela 8.1: Unidades que compõe as possíveis $K$ amostras sistemáticas com partida aleatória no intervalo $[1,   2,   ...,   K]$
+Tabela 8.1: Unidades que compõem as possíveis $K$ amostras sistemáticas, $s_1,   s_2,   ...,s_r,   ...,   s_K$, com partida aleatória $r$ no intervalo $[1; K]$
 
-Tabela 8.2: Dados das amostras sistemáticas possíveis, numa população com $N=19$ e intervalo de seleção $K=4$
+Tabela 8.2: Dados das amostras sistemáticas possíveis, numa população com $N=19$ e intervalo de seleção com $K=4$
 
 Tabela 8.3: Parâmetros e estimadores sob AS 
 
@@ -105,9 +106,11 @@ Tabela 8.7: Valores da variável $y$ para a população
 
 Tabela 9.1: Parâmetros e respectivos estimadores sob AB 
 
-Tabela 9.2: Valores observados na amostra
+Tabela 9.2: Parâmetros e respectivos estimadores sob AIS
 
-Tabela 9.3: População a ser amostrada 
+Tabela 9.3: Valores observados na amostra
+
+Tabela 9.4: População a ser amostrada 
 
 Tabela 10.1: Informações das áreas de uma população de $N=6$ fazendas
 
@@ -119,43 +122,39 @@ Tabela 10.4: Informações obtidas para os lagos selecionados
 
 Tabela 10.5: Dados populacionais das empresas
 
-Tabela 11.1: Tamanho do estrato e dados populacionais da variável $y$ por estrato
+Tabela 11.1: Parâmetros e respectivos estimadores sob AES 
 
-Tabela 11.2: Tamanho amostral e dados amostrais da variável $y$ por estrato
+Tabela 11.2: Valores de $EPA$ para valores variados de $H$ e de correlação
 
-Tabela 11.3: Parâmetros e respectivos estimadores sob AES 
+Tabela 11.3: Dados observados na amostra, por estrato
 
-Tabela 11.4: Valores de $EPA$ para valores variados de $H$ e de correlação
+Tabela 11.4: Informações da estratificação das fazendas de soja 
 
-Tabela 11.5: Dados observados na amostra, por estrato
+Tabela 11.5: Informações censitárias sobre a variável de interesse 
 
-Tabela 11.6: Informações da estratificação das fazendas de soja 
+Tabela 11.6: Estratificação das lojas e resultados da amostra 
 
-Tabela 11.7: Informações cansitárias sobre a variável de interesse 
+Tabela 11.7: Resultados observados na amostra 
 
-Tabela 11.8: Estratificação das lojas e resultados da amostra 
+Tabela 11.8: Tamanho e variância por estrato 
 
-Tabela 11.9: Resultados observados na amostra 
+Tabela 11.9: Falta no mês para cada trabalhador selecionado 
 
-Tabela 11.10: Tamanho e variância por estrato 
-
-Tabela 11.11: Falta no mês para cada trabalhador selecionado 
-
-Tabela 11.12: Informações populacionais dos clientes 
+Tabela 11.10: Informações populacionais dos clientes 
 
 Tabela 12.1: Ilustrações de possíveis conglomerados
 
-Tabela 12.2: Notação dos tamanhos da população e amostra na AC1 por conjunto de unidades 
+Tabela 12.2: Definição dos tamanhos da população e da amostra na AC1  
 
-Tabela 12.3: Descrição de parâmetros populacionais no conglomerado e em toda população 
+Tabela 12.3: Definição de parâmetros populacionais nos conglomerados e na população 
 
-Tabela 12.4: Descrição das informações amostrais na ACS 
+Tabela 12.4: Descrição das informações amostrais na AC1S 
 
-Tabela 12.5: Parâmetros e respectivos estimadores sob ACS 
+Tabela 12.5: Estimadores dos parâmetros média e total populacional sob AC1S 
 
-Tabela 12.6: Efeitos de plano amostral sob ACS por tamanho do conglomerado e do coeficiente de correlação intraclasse 
+Tabela 12.6: Efeitos do plano amostral sob AC1S por tamanho do conglomerado e valor do coeficiente de correlação intraclasse 
 
-Tabela 12.7: Parâmetros e respectivos estimadores sob os Planos 1, 2 e 3 de AC2
+Tabela 12.7: Estimadores do total populacional e de sua variância sob os Planos AC2S, AC2PC e AC2PS
 
 Tabela 12.8: Resultados obtidos para a amostra 
 
@@ -181,6 +180,4 @@ Tabela 13.5: Funções de calibração propostas em Deville e Särndal (1992)
 
 Tabela 13.6: Identificação dos grupos sub-representados e super-representados na pesquisa de força de trabalho do Reino Unido
 
-Tabela 13.7: Estimativas do rendimento médio domiciliar por esquema de ponderação da pesquisa domiciliar da Holanda 1977/1978 
-
-
+Tabela 13.7: Estimativas do rendimento médio domiciliar por esquema de ponderação da pesquisa domiciliar da Holanda 1977/1978
