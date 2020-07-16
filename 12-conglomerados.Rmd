@@ -8,9 +8,9 @@ Se tal cadastro não existir ou não puder ser construído, ou se o custo de con
 
 A *amostragem conglomerada* consiste num esquema de amostragem em estágios, sendo que em cada estágio a unidade amostral é formada por grupos ou subconjuntos (*conglomerados*) de unidades populacionais. A formação de conglomerados pode ser:
 
- - natural (exemplos: turma de alunos, edifício de apartamentos, quarteirão, município); ou 
+ - Natural (exemplos: turma de alunos, edifício de apartamentos, quarteirão, município).
 
- - planejada, quando os grupos são definidos pelo estatístico de acordo com o objetivo da pesquisa (exemplos: grupos de seis alunos que sentam na mesma fileira numa sala de aula, grupos de dez peças industriais do mesmo tipo saindo de uma linha de produção, grupos de cinco endereços residenciais no mesmo setor censitário, etc.).
+ - Planejada, quando os grupos são definidos pelo estatístico de acordo com o objetivo da pesquisa (exemplos: grupos de seis alunos que sentam na mesma fileira numa sala de aula, grupos de dez peças industriais do mesmo tipo saindo de uma linha de produção, grupos de cinco endereços residenciais no mesmo setor censitário, etc.).
  
 A unidade populacional depende da análise que está sendo feita e é determinada pelo propósito da pesquisa e não pelo plano amostral. Pode acontecer de mais de uma unidade populacional estar envolvida na pesquisa quando, por exemplo, características de domicílios e de pessoas são investigadas no mesmo levantamento. 
 
@@ -58,7 +58,7 @@ A utilização de amostragem de áreas se dá quando não existe um cadastro de 
 
 Num levantamento de uma população humana, por exemplo, é operacionalmente mais conveniente pesquisar todas as pessoas numa amostra de domicílios do que selecionar o mesmo número de pessoas espalhadas por toda a população. Também é mais conveniente pesquisar todos os domicílios numa amostra de áreas (por exemplo, setores censitários) do que selecionar aleatoriamente uma amostra do mesmo número de domicílios numa lista de todos os domicílios da região de interesse da pesquisa. Por um lado, tal lista nem sempre está disponível e, por outro, seu preparo tornaria a pesquisa bem mais cara. 
 
-Suponha que uma AAS de $n=$ 400 domicílios deva ser selecionada de uma população de $N=$ 10.000 domicílios de uma cidade. Como não dispomos de uma lista atualizada com todos os domicílios, optamos por uma amostra de domicílios localizados dentro de uma amostra de quarteirões. Isto pode ser feito dividindo a área da cidade em quarteirões e selecionando 1/25 dos quarteirões. A probabilidade de selecionar um domicílio na cidade é a probabilidade de selecionar um quarteirão, ou seja, 1/25 $=$ 400/10.000. Neste caso, o tamanho da amostra de domicílios será uma variável aleatória que depende dos quarteirões selecionados para a amostra, sendo o seu valor esperado igual ao $n$ desejado.
+Suponha que uma AAS de $n=400$ domicílios deva ser selecionada de uma população de $N=10.000$ domicílios de uma cidade. Como não dispomos de uma lista atualizada com todos os domicílios, optamos por uma amostra de domicílios localizados dentro de uma amostra de quarteirões. Isto pode ser feito dividindo a área da cidade em quarteirões e selecionando 1/25 dos quarteirões. A probabilidade de selecionar um domicílio na cidade é a probabilidade de selecionar um quarteirão, ou seja, $1/25 = 400/10.000$. Neste caso, o tamanho da amostra de domicílios será uma variável aleatória que depende dos quarteirões selecionados para a amostra, sendo o seu valor esperado igual ao $n$ desejado.
 
 Nesse exemplo, as unidades amostrais são os quarteirões da cidade, que poderiam ser listados para formar o cadastro de seleção. A seleção da amostra de quarteirões determina a seleção dos domicílios que estão localizados nos quarteirões. Se todos os domicílios de cada quarteirão são pesquisados, então a amostra é conglomerada em um estágio.
 
@@ -66,9 +66,9 @@ Mesmo que a lista de todos os domicílios esteja disponível, reduções do cust
 
 Se comparamos uma amostra conglomerada com uma amostra de unidades elementares do mesmo número de unidades elementares, em geral, na amostra conglomerada espera-se que:
 
-- o custo por unidade elementar seja mais baixo, devido ao mais baixo custo de listagem, de localização das unidades ou de ambos; e
+- O custo por unidade elementar seja mais baixo, devido ao mais baixo custo de listagem, de localização das unidades ou de ambos.
 
-- a variância de estimativas amostrais seja maior, dependendo do grau de homogeneidade das unidades agrupadas em conglomerados. 
+- A variância de estimativas amostrais seja maior, dependendo do grau de homogeneidade das unidades agrupadas em conglomerados. 
 
 Então verifica-se que a amostragem conglomerada impõe vantagens (menor custo) e desvantagens (menor precisão). Levando em conta os aspectos operacionais e a redução de custos que a amostragem conglomerada proporciona, em muitas situações práticas, a perda de eficiência amostral é mais que compensada por essa vantagem. Além disso, a redução de custos proporcionada pode permitir selecionar amostras maiores, compensando assim a perda de precisão em relação a amostras não conglomeradas. 
 
@@ -127,7 +127,7 @@ knitr::include_graphics("Figuras/baralhoAC1.png") #{width=50%}
 ```
 </center>
 
-Na ilustração foram selecionados, utilizando um dos métodos de seleção vistos anteriormente, dois conglomerados, no caso os de número 3 e 7, resultando numa amostra de 8 cartas do baralho: 3 de paus, 3 de ouros, 3 de copas, 3 de espadas, 7 de paus, 7 de ouros, 7 de copas, 7 de espadas. 
+Na ilustração foram selecionados, utilizando um dos métodos de seleção vistos anteriormente, dois conglomerados, no caso os de número 3 e 7, resultando numa amostra de 8 cartas do baralho: 3 de paus, 3 de ouros, 3 de copas, 3 de espadas, 7 de paus, 7 de ouros, 7 de copas e 7 de espadas. 
 
 
 ## Amostragem conglomerada em vários estágios 
@@ -324,13 +324,13 @@ $$
 
 onde $s_e^2 = \displaystyle \frac {1} {m-1} \displaystyle \sum_{i \in a} \left(Y_i - \overline y_C \right)^2$.
 
-Quando todos os conglomerados têm tamanhos iguais, isto é, $N_i = \overline N \, \, \forall\, i \in C$, o estimador natural é a única opção de estimador simples para o total. Quando os tamanhos dos conglomerados variam, este estimador pode ser pouco eficiente. Nesse caso, um estimador que ajuda a reduzir o efeito da variação dos tamanhos dos conglomerados na precisão é um estimador tipo razão baseado no tamanho dos conglomerados. Este estimador é dado por: 
+Quando todos os conglomerados têm tamanhos iguais, isto é, $N_i = \overline N, \, \, \forall\, i \in C$, o estimador natural é a única opção de estimador simples para o total. Quando os tamanhos dos conglomerados variam, este estimador pode ser pouco eficiente. Nesse caso, um estimador que ajuda a reduzir o efeito da variação dos tamanhos dos conglomerados na precisão é um estimador tipo razão baseado no tamanho dos conglomerados. Este estimador é dado por: 
 
 $$
 \displaystyle \widehat Y_{AC1S/R} = \frac {N} {n} \displaystyle \sum_{i \in a} Y_i = N \overline y = \displaystyle \sum_{i \in a} \sum_{j \in C_i} w_{ij}^R y_{ij} \,\, (\#eq:eqcong4)
 $$
 
-onde $w_{ij}^R = N/n$ são pesos amostrais ajustados ou ‘calibrados’, no sentido de que seu uso aplicado a uma variável de contagem ($y_{ij}=1, \, \,\forall\, i,j$) levaria a obter uma estimativa para o tamanho da população igual ao tamanho total $N$.
+onde $w_{ij}^R = N/n$ são pesos amostrais ajustados ou ‘calibrados’, no sentido de que seu uso aplicado a uma variável de contagem $(y_{ij}=1, \, \,\forall\, i,j)$ levaria a obter uma estimativa para o tamanho da população igual ao tamanho total $N$.
 
 Note que este estimador requer que o tamanho total da população $(N)$ seja conhecido. Portanto, em muitas situações este estimador não é viável.
 
@@ -350,7 +350,7 @@ $$
 
 Comparando os estimadores natural e tipo razão para o total populacional, sob o plano amostral de AC1S, tem-se:  
 
-1. Se os conglomerados tiverem todos o mesmo tamanhos, ou seja:
+1. Se os conglomerados tiverem todos o mesmo tamanho, ou seja:
 
 $$
 N_i=N/M=\overline N,\;\;\forall \,i=1,\dots,M
@@ -515,7 +515,7 @@ $\scriptstyle V_{AC1S}\left(\widehat Y_{AC1S/R}\right)\doteq M^2\left(\frac1m-\f
 ---------
 </center>
 
-Aqui não foi tratado explicitamente do problema da estimação de proporções. Porém, lembrando que proporção é equivalente à média de uma variável do tipo indicadora, que só pode assumir valores 0 (não possui a característica de interesse) ou 1 (possui a característica de interesse) e, recorrendo ao exposto no Capítulo \@ref(proporc), é fácil derivar as expressões para estimar proporções e avaliar a precisão das estimativas a partir das expressões para estimação de média fornecidas aqui. 
+Aqui não foi tratado explicitamente do problema da estimação de proporções. Porém, lembrando que proporção é equivalente à média de uma variável do tipo indicadora, que só pode assumir valores $0$ (não possui a característica de interesse) ou $1$ (possui a característica de interesse) e, recorrendo ao exposto no Capítulo \@ref(proporc), é fácil derivar as expressões para estimar proporções e avaliar a precisão das estimativas a partir das expressões para estimação de média fornecidas aqui. 
 
 ## Efeito do Plano Amostral - EPA
 
@@ -555,7 +555,7 @@ O EPA mede o quanto a variância do estimador é maior (ou menor) por usar, nest
 - $EPA = 1 \Rightarrow$ *mesma precisão*, não há diferença de precisão, pode-se optar pelo plano operacionalmente mais vantajoso.
 - $EPA > 1 \Rightarrow$ *perda de precisão*, devido ao uso de amostragem conglomerada.
 
-Um valor de $EPA=$ 5, por exemplo, indicaria que a variância sob amostragem conglomerada seria cinco vezes maior que a variância de uma AAS de igual tamanho total.
+Um valor de $EPA=5$, por exemplo, indicaria que a variância sob amostragem conglomerada seria cinco vezes maior que a variância de uma AAS de igual tamanho total.
 
 **(#exm:exmcon5)** Efeito do plano amostral ao estimar a média populacional por unidade elementar, através do estimador tipo razão com AC1S em relação ao uso da AAS.
 
@@ -587,7 +587,7 @@ $$
 $$
 \displaystyle S_d^2 = \frac {1} {M} \displaystyle \sum_{i \in C} \frac {1} {\overline N - 1} \sum_{j \in C_i} \left (y_{ij} - \overline {Y_i} \right)^2 = \frac {1} {M} \sum_{i \in C} S_i^2
 $$ 
-com  
+com:  
 $$
 \displaystyle S_i^2 = \frac {1} {\overline N - 1} \sum_{j \in C_i} \left( y_{ij} - \overline {Y_i} \right)^2
 $$ 
@@ -619,25 +619,23 @@ Cabem algumas considerações relacionadas com a variação do $EPA$ para AC1S:
 
 1. Se os conglomerados tiverem variância dentro grande, isto é, se $\displaystyle S_d^2 \doteq S_y^2$, então $\rho \doteq 0$ e portanto, $EPA(AC1S/R;\,AAS) \doteq 1 + (\overline N - 1) \times 0 = 1$.
 
-Nesse caso, não ocorreria perda de precisão devido ao uso de amostragem conglomerada.
+    Nesse caso, não ocorreria perda de precisão devido ao uso de amostragem conglomerada.
 
 2. Pode ser demonstrado que $\displaystyle - \left( \frac {M-1} {N-M} \right) \le \rho \le 1$, ou ainda, de forma aproximada, que $\displaystyle \frac {-1} {\overline N - 1} \le \rho \le1$.
 
-Em muitas aplicações práticas, $\rho > 0$, porque os conglomerados tendem a ser mais homogêneos internamente do que a população em geral.
+    Em muitas aplicações práticas, $\rho > 0$, porque os conglomerados tendem a ser mais homogêneos internamente do que a população em geral.
 
-“Birds of a feather flock together!”
+    “Birds of a feather flock together!”
 
-Consequência: $EPA(AC1S/R;\,AAS) > 1$ na maioria das vezes.
+    Consequência: $EPA(AC1S/R;\,AAS) > 1$ na maioria das vezes.
 
 3. Raramente $\rho<  0$, caso em que AC1S seria mais eficiente que AAS.
 
 4. Num caso extremo, $\rho = 1$ e portanto $EPA(AC1S/R;\,AAS) = \overline N$ e 
 
-$$
-\displaystyle V_{AC1S} (\overline y_{AC1S/R}) = EPA(AC1S/R;\,AAS)\, V_{AAS} (\overline y) \doteq \overline N \frac {S_y^2} {m \overline N} = \frac{S_y^2}{m}
-$$
- 
-Nesse caso, a precisão da amostra conglomerada de tamanho total igual a $m \overline N$ é equivalente apenas àquela obtida com uma amostra aleatória simples de tamanho $m$!!! 
+    $\displaystyle V_{AC1S} (\overline y_{AC1S/R}) = EPA(AC1S/R;\,AAS)\, V_{AAS} (\overline y) \doteq \overline N \frac {S_y^2} {m \overline N} = \frac{S_y^2}{m}$
+    
+    Nesse caso, a precisão da amostra conglomerada de tamanho total igual a $m \overline N$ é equivalente apenas àquela obtida com uma amostra aleatória simples de tamanho $m$!!! 
 
 A Tabela \@ref(tab:tabcong6) apresenta efeitos de plano amostral sob AC1S de acordo com valores selecionados dos tamanhos dos conglomerados e do coeficiente de correlação intraclasse. 
 
@@ -646,8 +644,8 @@ cat("<table>",paste0("<caption>", "(#tab:tabcong6)", "Efeitos de plano amostral 
 ```
 <center>
 ---------
- Tamanho    $\rho=0,01$   $\rho=0,05$   $\rho=0,1$   $\rho=0,2$   $\rho=0,3$   $\rho=0,5$  
---------- ------------- ------------- ------------ ------------ ------------ ------------ -                                                                                
+ Tamanho   $\rho=0,01$  $\rho=0,05$  $\rho=0,1$  $\rho=0,2$  $\rho=0,3$  $\rho=0,5$  
+--------- ------------ ------------ ----------- ----------- ----------- ----------- -                                                                               
      2               1           1            1           1           1           2   
 
      5               1           1            1           2           2           3
@@ -744,7 +742,6 @@ f) $\widehat Y_{AC1PC}$ possui propriedades exatas (é não viciado, possui expr
 O plano de amostragem conglomerada em dois estágios se caracteriza pela seleção de uma amostra de conglomerados com subamostragem, assim definida: 
 
 - **Estágio 1**: selecione uma amostra $a$ de $m$ UPAs (conglomerados).
-
 - **Estágio 2**: para cada UPA $C_i$ da amostra de primeiro estágio, selecione amostra $s_i$ de $n_i$ unidades secundárias das $N_i$ unidades existentes nessa UPA.
 
 A amostra completa de unidades selecionadas é dada por: $s = s_{i_1}\cup s_{i_2} \cup \dots \cup s_{i_m}= \bigcup_{k=1}^{m} s_{i_k}$
@@ -775,9 +772,9 @@ $$
 V[\widehat \theta] = V_1[ E_2(\widehat \theta)] + E_1[ V_2(\widehat \theta)] \,\,(\#eq:eqcong26) 
 $$
 
-$E_2$, $V_2$ denotam, respectivamente, valor esperado e variância considerando todas as possíveis amostras de unidades dentro de um conjunto fixado de UPAs (estágio 2);
+$E_2$, $V_2$ denotam, respectivamente, valor esperado e variância considerando todas as possíveis amostras de unidades dentro de um conjunto fixado de UPAs (estágio 2).
 
-$E_1$, $V_1$ denotam, respectivamente, valor esperado e variância considerando todas as possíveis amostras de UPAs (estágio 1);
+$E_1$, $V_1$ denotam, respectivamente, valor esperado e variância considerando todas as possíveis amostras de UPAs (estágio 1).
 
 $\widehat \theta$ é algum estimador para um parâmetro $\theta$. 
 
@@ -789,20 +786,22 @@ $$
 \widehat Y_{AC2/HT} = \displaystyle \sum_{i\in a} \frac{\widehat Y_i}{\pi_i} = \sum_{i \in a} \frac {1} {\pi_i} \sum_{j \in s_i} \frac {y_{ij}} {\pi_{j|i}} = \sum_{i \in a} \sum_{j \in s_i}d_{ij} y_{ij} \,\,(\#eq:eqcong27) 
 $$
 
-onde $\pi_i$ é a probabilidade de inclusão da UPA $i$;
+onde:
+
+$\pi_i$ é a probabilidade de inclusão da UPA $i$;
 
 $s_i$ é a amostra de unidades selecionadas dentro da UPA $i$;
 
 $\widehat Y_i = \displaystyle \sum_{j \in s_i} \frac {y_{ij}} {\pi_{j|i}}$ é um estimador HT do total $Y_i$ da UPA $i$;
 
-$\pi_{j|i} = P(j \in s_i \, | \, i \in a)$ é a probabilidade de inclusão da unidade $j$ dado que a UPA $i$ está na amostra $a$;
+$\pi_{j|i} = P(j \in s_i \, | \, i \in a)$ é a probabilidade de inclusão da unidade $j$ dado que a UPA $i$ está na amostra $a$; e
 
 $d_{ij} = \pi_{ij}^{-1} = \pi_i^{-1} \pi_{j|i}^{-1}$ é o peso associado à unidade $j$ da UPA $i$.
 
 A variância de $\widehat Y_{AC2/HT}$ sob AC2 é dada por: 
 
 $$
-\begin{eqnarray}\hspace{-1.0cm}
+\begin{eqnarray}\hspace{-1.5cm}
 V_{AC2} \left( \widehat Y_{AC2/HT} \right) & = & V_1 \left[E_2 \left( \displaystyle \sum_{i \in a} \frac {\widehat Y_i} {\pi_i} \right) \right] + E_1 \left[ V_2 \left(\sum_{i \in a} \frac {\widehat Y_i} {\pi_i} \right) \right] \\ & = & V_1 \left[ \displaystyle \sum_{i \in U} \delta_i E_2 \left( \widehat Y_i \right) \big/ \pi_i \right] + E_1 \left[ \sum_{i \in U} \delta_i V_2 \left( {\widehat Y_i} \right) \big/ {\pi_i}^2 \right] \\ & = & V_1 \left( \displaystyle \sum_{i \in a} {Y_i} \big/ \pi_i \right) + \sum_{i \in U} V_2 \left( \widehat Y_i \right) \big/ \pi_i \\
 & = & V_{UPA} + V_{USA} 
 \end{eqnarray}(\#eq:eqcong28) 
@@ -841,7 +840,6 @@ Este estimador de razão da média pode ser calculado mesmo quando $N$ for desco
 Tratamos agora do plano amostral AC2 com AAS nos 2 estágios de seleção, ou seja:   
 
 - **Estágio 1**: selecione amostra de $m$ UPAs usando AAS.
-
 - **Estágio 2**: para cada UPA $i$ da amostra de primeiro estágio, selecione $n_i$ unidades secundárias das $N_i$ unidades existentes usando AAS.
 
 Para esse plano, a probabilidade de inclusão da unidade $j$ da UPA $i$ é dada por:
@@ -882,18 +880,15 @@ Note que:
 
 i) Se $m = M$ então, a 1ª componente da variância é nula, ou seja: 
 
-$$
-V_{AC2S} \left( \widehat Y_{AC2S} \right) = \sum_{i \in C} N_i^2 \left( \frac {1} {n_i} - \frac {1} {N_i} \right) S_i^2 = V_{AES} \left( \widehat Y_{AES} \right)
-$$ 
-$\hspace{0.4cm}$ e este plano equivaleria ao de uma amostra estratificada, em que os conglomerados se tornaram estratos! 
+    $V_{AC2S} \left( \widehat Y_{AC2S} \right) = \displaystyle\sum_{i \in C} N_i^2 \left( \frac {1} {n_i} - \frac {1} {N_i} \right) S_i^2 = V_{AES} \left( \widehat Y_{AES} \right)$ 
+
+    e este plano equivaleria ao de uma amostra estratificada, em que os conglomerados se tornaram estratos! 
 
 ii) Se $n_i = N_i \,\, (\forall\, i = 1, 2, \dots, n)$ então, a 2ª componente da variância é nula, ou seja:
 
-$$
-V_{AC2S} \left( \widehat Y_{AC2S} \right) = \displaystyle M^2 \left( \frac {1} {m} - \frac {1} {M} \right) \frac {1} {M-1} \sum_{i \in C} \left( Y_i - \overline {Y_C} \right)^2 = V_{AC1S} \left( \widehat Y \right) 
-$$ 
-
-$\hspace{0.4cm}$ e este plano amostral equivaleria ao de uma amostra de conglomerados em um estágio simples.
+    $V_{AC2S} \left( \widehat Y_{AC2S} \right) = \displaystyle M^2 \left( \frac {1} {m} - \frac {1} {M} \right) \frac {1} {M-1} \sum_{i \in C} \left( Y_i - \overline {Y_C} \right)^2 = V_{AC1S} \left( \widehat Y \right)$ 
+    
+    e este plano amostral equivaleria ao de uma amostra de conglomerados em um estágio simples.
 
 De acordo com @Cochran1977, Expressão (11.24), um estimador não viciado da variância do estimador HT do total sob o Plano AC2S é dado por: 
 
@@ -931,8 +926,7 @@ $$
 
 Tratamos agora do plano amostral AC2 com seleção PPT com reposição no primeiro estágio e seleção por AAS no segundo estágio.
 
-- **Estágio 1**: selecione amostra de $m$ UPAs com reposição, usando probabilidades proporcionais a uma medida de tamanho $x_i$;
-
+- **Estágio 1**: selecione amostra de $m$ UPAs com reposição, usando probabilidades proporcionais a uma medida de tamanho $x_i$.
 - **Estágio 2**: para cada UPA $i$ da amostra de primeiro estágio, selecione $n_i$ unidades secundárias das $N_i$ unidades existentes usando AAS. 
 
 Para o plano amostral AC2PC, a probabilidade de inclusão da unidade $j$ da UPA $i$ é dada por:
@@ -955,9 +949,9 @@ A variância de $\widehat Y_{AC2PC}$, conforme @Cochran1977, Expressão (11.33),
 
 
 $$
-\begin{eqnarray}\hspace{-2.0cm}
+\begin{eqnarray}\hspace{-2.2cm}
 V_{AC2PC} \left( \widehat Y_{AC2PC} \right) & = & V_1 \left[ E_2 \left( \widehat Y_{AC2PC} \right) \right] + E_1 \left[ V_2 \left( \widehat Y_{AC2PC} \right) \right] \\
-& = & \frac{1} {m} \displaystyle \sum_{i \in U} \left( \frac {Y_i} {p_i} - Y \right)^2 p_i + \frac {1} {m} \sum_{i \in U} \frac {1} {p_i} N_i^2 \left( \frac {1} {n_i} - \frac {1} {N_i} \right) S_i^2 
+& = & \frac{1} {m} \displaystyle \sum_{i \in C} \left( \frac {Y_i} {p_i} - Y \right)^2 p_i + \frac {1} {m} \sum_{i \in C} \frac {1} {p_i} N_i^2 \left( \frac {1} {n_i} - \frac {1} {N_i} \right) S_i^2 
 \end{eqnarray}(\#eq:eqcong41) 
 $$
 
@@ -1015,13 +1009,32 @@ $\small\widehat Y_{AC2PS} = \displaystyle \frac {1} {m} \displaystyle \sum_{i \i
 
 $\small\widehat V_{AC2S} \left( \widehat Y_{AC2S} \right) = M^2 \left( \displaystyle \frac {1} {m} - \frac {1} {M} \right)\displaystyle \frac {1} {m-1} \displaystyle \sum_{i \in a} \left( \widehat Y_i - \overline y_C \right)^2 + \displaystyle\frac{M} {m} \displaystyle \sum_{i \in a} N_i^2 \left( \frac {1} {n_i} - \frac {1} {N_i} \right) \widehat S_i^2$
                                                                                        
-$\small\widehat V_{AC2PC} \left( \widehat Y_{AC2PC} \right) = \displaystyle \frac {1} {m(m-1)} \displaystyle \sum_{i \in a} \left( \frac {\widehat Y_i} {p_i} - \widehat Y_{AC2PC} \right)^2$
+$\small\widehat V_{AC2PC} \left( \widehat Y_{AC2PC} \right) = \displaystyle \frac {1} {m(m-1)} \displaystyle \sum_{i \in a} f_i\left( \frac {\widehat Y_i} {p_i} - \widehat Y_{AC2PC} \right)^2$
 
 $\small\widehat V_{AC2PS} \left( \widehat Y_{AC2PS} \right) = \displaystyle\frac {1} {m}\frac {M}{M-1} \displaystyle\sum_{i\in a}\left(\frac{\widehat Y_i}{p_i}-\widehat Y_{AC2PS}\right)^2(1 -m p_i)p_i+\displaystyle\sum_{i \in a} \frac {N_i^2} {m p_i}  \left( \frac {1} {n_i} - \frac {1} {N_i} \right) \widehat S_i^2$ 
 ---------
 </center>
 
 **Proposta 2**
+
+<center>
+
+---------
+Parâmetro                                           Estimador                  
+--------------------------------------------------- ------------------------------------------------------------------
+$\small Y=\displaystyle\sum_{i \in C} Y_i$          $\small\widehat Y_{AC2S} =\displaystyle\frac {M} {m} \sum_{i \in a} \widehat Y_i \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\, \,\,\,\,\,\,\,\,\, \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,$ 
+                                                                  $\small\widehat Y_{AC2PC} =\displaystyle\frac {1} {m} \sum_{i \in a} f_i \frac {\widehat Y_i} {p_i} \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\, \,\, \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,$ 
+                                                                  $\small\widehat Y_{AC2PS} = \displaystyle \frac {1} {m}\sum_{i \in a} \frac {\widehat Y_i} {p_i} \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\, \, \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,$          
+
+$\small V_{AC2S} \left( \widehat Y_{AC2S} \right)$          $\small\widehat V_{AC2S} \left(\widehat Y_{AC2S}\right)=\small M^2 \left(\displaystyle \frac {1} {m} - \frac {1} {M} \right) \displaystyle\frac {1} {m-1} \small\displaystyle\sum_{i \in a} \left( \widehat Y_i - \overline y_C \right)^2+\frac{M} {m}\sum_{i \in a} N_i^2 \left( \frac {1} {n_i} - \frac {1} {N_i} \right) \widehat S_i^2$ 
+                                                                                       
+$\small V_{AC2PC} \left( \widehat Y_{AC2PC} \right)$                    $\small\widehat V_{AC2PC} \left(\widehat Y_{AC2PC} \right) = \small\displaystyle\frac {1} {m(m-1)} \displaystyle\sum_{i \in a} f_i\left( \frac {\widehat Y_i} {p_i} - \widehat Y_{AC2PC} \right)^2$
+
+$\small V_{AC2PS} \left( \widehat Y_{AC2PS} \right)$      $\small\widehat V_{AC2PS} \left( \widehat Y_{AC2PS} \right) = \small\displaystyle\frac {1} {m}\frac {M}{M-1}\displaystyle\sum_{i\in a}\left(\frac{\widehat Y_i}{p_i}-\widehat Y_{AC2PS} \right)^2(1 -m p_i)p_i +$ $\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\small+\displaystyle\sum_{i \in a} \frac {1} {m p_i} N_i^2 \left( \frac {1} {n_i} - \frac {1} {N_i} \right) \widehat S_i^2$ 
+---------
+</center>
+
+**Proposta 3**
 
 <center>
 
@@ -1034,13 +1047,13 @@ $\scriptstyle Y=\sum_{i=1}^{M} Y_i = \sum_{i \in C} Y_i$          $\scriptstyle\
 
 $\scriptstyle V_{AC2S} \left( \widehat Y_{AC2S} \right)$          $\scriptstyle\widehat V_{AC2S} \left(\widehat Y_{AC2S}\right)=\scriptstyle M^2 \left( \frac {1} {m} - \frac {1} {M} \right)  \frac {1} {m-1} \scriptstyle\sum_{i \in a} \left( \widehat Y_i - \overline y_C \right)^2+\frac{M} {m}\sum_{i \in a} N_i^2 \left( \frac {1} {n_i} - \frac {1} {N_i} \right) \widehat S_i^2$ 
                                                                                        
-$\scriptstyle V_{AC2PC} \left( \widehat Y_{AC2PC} \right)$                    $\scriptstyle\widehat V_{AC2PC} \left(\widehat Y_{AC2PC} \right) = \scriptstyle\frac {1} {m(m-1)} \sum_{i \in a} \left( \frac {\widehat Y_i} {p_i} - \widehat Y_{AC2PC} \right)^2$
+$\scriptstyle V_{AC2PC} \left( \widehat Y_{AC2PC} \right)$                    $\scriptstyle\widehat V_{AC2PC} \left(\widehat Y_{AC2PC} \right) = \scriptstyle\frac {1} {m(m-1)} \sum_{i \in a} f_i\left( \frac {\widehat Y_i} {p_i} - \widehat Y_{AC2PC} \right)^2$
 
 $\scriptstyle V_{AC2PS} \left( \widehat Y_{AC2PS} \right)$                  $\scriptstyle\widehat V_{AC2PS} \left( \widehat Y_{AC2PS} \right) = \scriptstyle\frac {1} {m}\frac {M}{M-1}\sum_{i\in a}\left(\frac{\widehat Y_i}{p_i}-\widehat Y_{AC2PS} \right)^2(1 -m p_i)p_i + \sum_{i \in a} \frac {1} {m p_i} N_i^2 \left( \frac {1} {n_i} - \frac {1} {N_i} \right) \widehat S_i^2$ 
 ---------
 </center>
 
-**Proposta 3**
+**Proposta 4**
 
 <center>
 
@@ -1053,12 +1066,12 @@ $\scriptstyle Y=\sum_{i=1}^{M} Y_i = \sum_{i \in C} Y_i$                        
 
 $\scriptstyle V_{AC2S}\left(\widehat Y_{AC2S}\right)=\scriptstyle M^2\left(\frac{1}{m}-\frac{1}{M}\right)\frac{1}{M-1}\sum_{i\in C}\left(Y_i-\overline{Y_C}\right)^2+\\\scriptstyle \;\;\;\;\;\;\;\;\;\;\;\;\;\;\; \;\;\;\;\;\;\;+\frac{M}{m}\sum_{i\in C}N_i^2 \left( \frac{1}{n_i}-\frac {1}{N_i}\right) S_i^2$             $\scriptstyle\widehat V_{AC2S}\left(\widehat Y_{AC2S}\right)=\scriptstyle M^2\left(\frac{1}{m}- frac{1}{M} \right)\frac{1}{m-1}\scriptstyle\sum_{i\in a}\left(\widehat Y_i-\overline y_C\right)^2+\\\scriptstyle\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\; +\frac{M}{m}\sum_{i in a}N_i^2\left(\frac{1}{n_i}-\frac{1}{N_i}\right) \widehat S_i^2$ 
                                                                                        
-$\scriptstyle V_{AC2PC}\left(\widehat Y_{AC2PC}\right)=\frac{1}{m}\sum_{i\in U}\left(\frac {Y_i}{p_i}-Y\right)^2p_i+\\\scriptstyle\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;+\frac{1}{m}\sum_{i\in U}\frac{1}{p_i}N_i^2\left(\frac{1}{n_i}-\frac{1}{N_i}\right)S_i^2$                                                                                                                                                                                                                                                                      $\scriptstyle\widehat V_{AC2PC} \left(\widehat Y_{AC2PC} \right) = \scriptstyle\frac {1} {m(m-1)} \sum_{i \in a} \left( \frac {\widehat Y_i} {p_i} - \widehat Y_{AC2PC} \right)^2$               
+$\scriptstyle V_{AC2PC}\left(\widehat Y_{AC2PC}\right)=\frac{1}{m}\sum_{i\in C}\left(\frac {Y_i}{p_i}-Y\right)^2p_i+\\\scriptstyle\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;+\frac{1}{m}\sum_{i\in C}\frac{1}{p_i}N_i^2\left(\frac{1}{n_i}-\frac{1}{N_i}\right)S_i^2$                                                                                                                                                                                                                                                                      $\scriptstyle\widehat V_{AC2PC} \left(\widehat Y_{AC2PC} \right) = \scriptstyle\frac {1} {m(m-1)} \sum_{i \in a} f_i\left( \frac {\widehat Y_i} {p_i} - \widehat Y_{AC2PC} \right)^2$               
 $\scriptstyle V_{AC2PS}\left(\widehat Y_{AC2PS}\right)=\frac{1}{m}\frac{M}{M-1}\sum_{i\in C}\left(\frac{Y_i}{p_i}-Y\right)^2\times\\\scriptstyle\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\; \;\;\;\times(1-mp_i)p_i+\sum_{i\in C}\frac{1}{m p_i}N_i^2\left(\frac{1}{n_i}-\frac{1}{N_i}\right) S_i^2$                                               $\scriptstyle\widehat V_{AC2PS} \left( \widehat Y_{AC2PS} \right) = \scriptstyle\frac {1} {m}\frac {M}{M-1}\sum_{i\in a}\left(\frac{\widehat Y_i}{p_i}-\widehat Y_{AC2PS} \right)^2\times\\\scriptstyle\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\times(1 -m p_i)p_i+ \sum_{i \in a} \frac {1} {m p_i} N_i^2 \left( \frac {1} {n_i} - \frac {1} {N_i} \right) \widehat S_i^2$ 
 ---------
 </center>
 
-Pata obtenção dos estimadores da média populacional basta dividir os estimadores do total por $N$ e, para estimar a variância do estimador da média, divir os estimadores da variância do total por $N^2$.
+Para obtenção dos estimadores da média populacional basta dividir os estimadores do total por $N$ e, para estimar a variância do estimador da média, divir os estimadores da variância do total por $N^2$.
 
 
 ## Ideias básicas na escolha de unidades compostas 
@@ -1105,9 +1118,9 @@ Algumas vezes, para o Plano AC2PS, determinamos primeiro o valor para $\overline
 
 Em geral, para tamanhos totais de amostra fixados, pode-se escolher entre:
 
-- aumentar $m$ e reduzir $\overline n$, o que aumenta a precisão mas aumenta o custo; ou então
+- Aumentar $m$ e reduzir $\overline n$, o que aumenta a precisão mas aumenta o custo.
 
-- reduzir $m$ e aumentar $\overline n$, o que reduz a precisão mas também reduz o custo.
+- Reduzir $m$ e aumentar $\overline n$, o que reduz a precisão mas também reduz o custo.
 
 Um compromisso é necessário! Um guia importante é considerar: 
 
@@ -1140,9 +1153,12 @@ $$
 *Passo 2*: Note que, de acordo com @Silva1990, página 31, se o número de unidades a serem investigadas no segundo estágio é constante para qualquer conglomerado ($n_i=\overline n,\,\forall\, i$), tem-se: 
 
 $$\hspace{-1.0cm}
-EPA(AC2PC; \, AAS) = \displaystyle \frac {V_{AC2PC} (\overline y_{AC2PC})} {V_{AAS} (\overline y)} \doteq 1 + (\overline n - 1) \rho (\#eq:eqcong49) 
+EPA(AC2PC; \, AAS) = \displaystyle \frac {V_{AC2PC} (\overline y_{AC2PC})} {V_{AAS} (\overline y)} \doteq 1 + (\overline n - 1) \rho_c (\#eq:eqcong49) 
 $$
-Logo, segue-se que:
+onde: $\rho_c$ é uma medida  de  correlação  intraclasse, no caso em que os conglomerados  possuem  tamanhos diferentes, dada por:
+
+$$\rho_c= 1-\frac{\displaystyle\sum_{i\in C}N_iS_i^2}{S_y^2(N-1)}$$
+Da Expressão \@ref(eq:eqcong49) segue-se que:
 
 $$ 
 V_{AAS} (\overline y) = \frac{V_{AC2PC}(\overline y_{AC2PC})}{EPA(AC2PC; \, AAS)}
@@ -1197,14 +1213,14 @@ $$
 Ou alternativamente: 
 
 $$
-n_{AC2PC} \doteq n_{AAS} \,\, [1 + (\overline n - 1) \rho] \,\,(\#eq:eqcong54)
+n_{AC2PC} \doteq n_{AAS} \,\, [1 + (\overline n - 1) \rho_c] \,\,(\#eq:eqcong54)
 $$
 
 A relação mostrada na Expressão \@ref(eq:eqcong53) pode ser utilizada como referência para determinação do tamanho desejado de amostra para outros planos que utilizem amostragem conglomerada.
 
 ## Exercícios
 
-**(#exr:execong1)** Considere uma população de $M=$ 100 conglomerados de mesmo tamanho $\overline N$, cada um formado por 4 pessoas, em que a proporção de pessoas com um determinado atributo é $p=$ 0,5. Em uma amostra de 5 conglomerados tipo AC1S foram obtidos os resultados da Tabela \@ref(tab:tabcong8):
+**(#exr:execong1)** Considere uma população de $M=100$ conglomerados de mesmo tamanho $\overline N$, cada um formado por 4 pessoas, em que a proporção de pessoas com um determinado atributo é $p=0,5$. Em uma amostra de 5 conglomerados tipo AC1S foram obtidos os resultados da Tabela \@ref(tab:tabcong8):
 
 <center>
 ```{r, results="asis", echo=FALSE}
@@ -1219,7 +1235,7 @@ Pessoas com o atributo   2   3   1   2   1
   
 Estime a eficiência da amostragem conglomerada em relação à de uma amostra aleatória simples de igual tamanho, para estimar a proporção.
 
-**(#exr:execong2)** Seja uma população de $N=$ 20 unidades, cujos valores associados a certa característica $y$ são relacionados na Tabela \@ref(tab:tabcong9):
+**(#exr:execong2)** Seja uma população de $N=20$ unidades, cujos valores associados a certa característica $y$ são relacionados na Tabela \@ref(tab:tabcong9):
 
 <center>
 ```{r, results="asis", echo=FALSE}
@@ -1271,7 +1287,7 @@ cat("<table>", paste0("<caption>", "(#tab:tabcong10)", "Conglomerados e respecti
 
 Calcule o coeficiente de correlação intraclasse, $\rho$. Com base no resultado, comente sobre a eficiência da amostragem conglomerada AC1S em comparação com uma AAS com tamanho total igual a 5 unidades.
 
-**(#exr:execong3)** A Tabela \@ref(tab:tabcong11) contém os dados de uma amostra de $m=$ 20 quarteirões selecionados aleatoriamente e sem reposição, entre os 270 quarteirões de uma localidade que tem, no total, 6.786 domicílios. A unidade de investigação da pesquisa foi o domicílio.
+**(#exr:execong3)** A Tabela \@ref(tab:tabcong11) contém os dados de uma amostra de $m=20$ quarteirões selecionados aleatoriamente e sem reposição, entre os 270 quarteirões de uma localidade que tem, no total, 6.786 domicílios. A unidade de investigação da pesquisa foi o domicílio.
   
 <center>
 ```{r, results="asis", echo=FALSE}
@@ -1304,9 +1320,7 @@ cat("<table>", paste0("<caption>", "(#tab:tabcong11)", "Número de domicílios e
 </center>
 
 a) Estime a proporção de domicílios alugados na localidade, utilizando o estimador natural, e construa um $IC_{95\%}$ para essa proporção.
-
 b) Repita o item a, utilizando o estimador tipo razão, tendo como variável auxiliar o tamanho dos conglomerados.
-
 c) Qual dos dois estimadores você escolheria? Por quê?
 
 **(#exr:execong4)** É dada uma população com $N$ unidades distribuídas em $M$ conglomerados de tamanhos desiguais. Deseja-se selecionar uma amostra de $m$ conglomerados para estimar o total de uma determinada característica. Quais as medidas que devem ser tomadas na definição do plano amostral para controlar a variação do tamanho dos conglomerados:
@@ -1321,20 +1335,16 @@ b) Determine o tamanho de amostra de quarteirões necessário para estimar o tot
 
 **(#exr:execong6)** Compare as 2 amostras seguintes, cada uma delas baseada em 3.600 unidades elementares selecionadas de uma população com 1.800.000 unidades.
   
-1) Uma amostra aleatória simples de 3.600 unidades elementares resultando em $\overline y=$ 513 e $\widehat V_{AAS} (\overline y)=$ 10,89.
-
-2) Uma amostra aleatória de 180 conglomerados selecionados dentre 90.000 conglomerados, com cada conglomerado contendo $N=$ 20 unidades elementares, com $\overline y_{AC1S/HT}=$ 524 e $\widehat{V}_{AC1S} (\overline y_{AC1S/HT})=$ 102,01.
+1) Uma amostra aleatória simples de 3.600 unidades elementares resultando em $\overline y = 513$ e $\widehat V_{AAS} (\overline y) = 10,89$.
+2) Uma amostra aleatória de 180 conglomerados selecionados dentre 90.000 conglomerados, com cada conglomerado contendo $N=20$ unidades elementares, com $\overline y_{AC1S/HT} = 524$ e $\widehat{V}_{AC1S} (\overline y_{AC1S/HT}) = 102,01$.
   
 Note que a variância estimada para estimar a média da característica $y$ para a segunda amostra é quase 10 vezes maior que a da primeira amostra. 
 
 Em cada uma das afirmativas abaixo, complete com (V) se a afirmativa for verdadeira e (F) se for falsa, justificando sua escolha em cada caso.
 
 a) (  ) O coeficiente de correlação intraclasse dos 90.000 conglomerados é maior que zero.
-
-b) (  ) Todos os elementos dentro de cada conglomerado são iguais ($y_{ij} = y_{ik},\,\forall\,\, j\,\,\text{e}\,\,k$). 
-
+b) (  ) Todos os elementos dentro de cada conglomerado são iguais $(y_{ij} = y_{ik},\,\forall\,\, j\,\,\text{e}\,\,k)$. 
 c) (  ) A estimativa da variância da segunda amostra pode ser reduzida, para atingir o valor da variância estimada com a primeira amostra, aumentando em menos de 1.000 o número de conglomerados na segunda amostra.
-
 d) (  ) Se a primeira amostra for reduzida para 1.200 unidades elementares, ela teria a mesma precisão estimada para a média da característica $y$ que a segunda amostra.
 
 **(#exr:execong7)** De uma população com 10.000 conglomerados e 50.000 unidades elementares, uma amostra aleatória simples sem reposição de 10 conglomerados foi selecionada. Desses conglomerados, temos as informações mostradas na Tabela \@ref(tab:tabcong12):
@@ -1371,7 +1381,6 @@ Total              1.025     45
 </center>
 
   a) Dê duas estimativas da média por unidade elementar.
-  
   b) Qual estimativa é, provavelmente, melhor? Justifique.
   
 **(#exr:execong8)** Uma cadeia de supermercados tem lojas em 32 cidades. Um órgão de fiscalização deseja estimar a proporção das lojas da cadeia que não seguem determinados padrões especificados de higiene.  Amostra de conglomerados é desejável no caso, devido aos altos custos de locomoção entre as cidades; assim foi decidido por uma amostra de conglomerados em dois estágios, com equiprobabilidade nos dois estágios de seleção, contendo aproximadamente metade das lojas de 4 cidades amostradas. Os dados amostrais aparecem na Tabela \@ref(tab:tabcong13):
@@ -1395,23 +1404,17 @@ cat("<table>",paste0("<caption>", "(#tab:tabcong13)", "Valores observados para a
 </center>
 
 a) Estime a proporção, na cadeia de supermercados, de lojas que não atendem aos critérios de higiene, levando em conta que os tamanhos dos conglomerados são diferentes.
-
 b) Estime a margem de erro com nível de confiança de 95% e dê o intervalo de confiança correspondente.
 
-**(#exr:execong9)** Uma população é composta de 100 conglomerados, cada um deles composto de 5 unidades elementares. Deseja-se selecionar uma amostra de 50 unidades dessa população. São conhecidos os seguintes parâmetros populacionais: $S^2_d=$ 100 e $S^2_e=$ 1.500.
+**(#exr:execong9)** Uma população é composta de 100 conglomerados, cada um deles composto de 5 unidades elementares. Deseja-se selecionar uma amostra de 50 unidades dessa população. São conhecidos os seguintes parâmetros populacionais: $S^2_d = 100$ e $S^2_e = 1.500$.
 
 a) Calcule a variância do estimador do total para o caso de uma AAS de 50 unidades elementares.
-
 b) Calcule a variância do estimador do total caso seja utilizada uma AC1S que resulte em 50 unidades elementares.
-
 c) Calcule a variância do estimador do total caso seja utilizada uma AC2S com fração amostral no segundo estágio igual a 2/5 em cada uma das UPAs selecionadas, de modo que se tenha uma amostra com 50 unidades elementares.
-
 d) Qual dos três planos amostrais seria mais indicado? Justifique sua resposta.
-
 e) Calcule o coeficiente de correlação intraclasse e comente se o resultado é coerente com o item d.
 
 **(#exr:execong10)** Uma fábrica produz placas eletrônicas que possuem 12 microchips cada uma. Uma amostra de 10 placas é selecionada aleatoriamente para o controle de qualidade, de um determinado lote de placas fabricadas, e verifica-se o número de microchips defeituosos em cada uma: 2, 0, 1, 3, 2, 0, 0, 1, 3 e 4.
 
 a) Supondo que o número total de placas é desconhecido, mas *“grande”*, estime o total de microchips defeituosos na população e o erro padrão dessa estimativa.
-
 b) Supondo que o número total de placas é 50, estime o total de microchips defeituosos na população e seu erro padrão.
