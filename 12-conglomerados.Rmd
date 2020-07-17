@@ -637,10 +637,10 @@ Cabem algumas considerações relacionadas com a variação do $EPA$ para AC1S:
     
     Nesse caso, a precisão da amostra conglomerada de tamanho total igual a $m \overline N$ é equivalente apenas àquela obtida com uma amostra aleatória simples de tamanho $m$!!! 
 
-A Tabela \@ref(tab:tabcong6) apresenta efeitos de plano amostral sob AC1S de acordo com valores selecionados dos tamanhos dos conglomerados e do coeficiente de correlação intraclasse. 
+A Tabela \@ref(tab:tabcong6) apresenta efeitos do plano amostral sob AC1S de acordo com valores selecionados dos tamanhos dos conglomerados e do coeficiente de correlação intraclasse. 
 
 ```{r, results="asis", echo=FALSE}
-cat("<table>",paste0("<caption>", "(#tab:tabcong6)", "Efeitos de plano amostral sob AC1S por tamanho do conglomerado e valor do coeficiente de correlação intraclasse", "</caption>"),"</table>", sep ="\n")
+cat("<table>",paste0("<caption>", "(#tab:tabcong6)", "Efeitos do plano amostral sob AC1S por tamanho do conglomerado e valor do coeficiente de correlação intraclasse", "</caption>"),"</table>", sep ="\n")
 ```
 <center>
 ---------
