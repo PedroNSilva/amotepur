@@ -63,7 +63,7 @@ Muitos outros parâmetros podem ser definidos para domínios, mas não é comum 
 
 Esta seção mostra como fazer para estimar os parâmetros populacionais para o domínio $c$ considerados na seção \@ref(domin2), com base numa amostra aleatória simples sem reposição de tamanho $n$ extraída da população $U$. Embora a discussão seja restrita aqui ao caso de amostras aleatórias simples, o processo de adaptação de estimadores para parâmetros de domínios aqui mostrado pode ser facilmente seguido para o caso de outros planos amostrais. Tudo se baseia na ideia de criação das variáveis derivadas apresentada na seção \@ref(domin1). 
 
-*Passo 1:* Selecionar uma AAS de tamanho $n$ da população $U$ de tamanho $N$ e observar $y_i$ para todo $i \in s$.
+*Passo 1:* Selecionar uma AAS de tamanho $n$ da população $U$ de tamanho $N$ e observar $y_i$, para todo $i \in s$.
 
 *Passo 2:* Construir as variáveis derivadas $c_i = I(i \in U_c)$ e $y_{ic} = y_i c_i$.
 
@@ -253,7 +253,7 @@ $V_{AAS}\left(\widehat{Y}_c^R\mid{n_c>0}\right)$       $\widehat V_{AAS}\left(\w
 
 Considere os dados da população de municípios brasileiros fornecidos no arquivo 'MunicBR_dat.rds'.
 
-1. Selecione uma AAS de $n=$ 250 municípios, e use esta amostra para estimar os seguintes parâmetros populacionais:
+1. Selecione uma AAS de $n=250$ municípios, e use esta amostra para estimar os seguintes parâmetros populacionais:
 
     a.	População total por região do Brasil e correspondentes margens de erro relativo ao nível de confiança de 95%; suponha *conhecidos* os tamanhos dos domínios;
 
@@ -278,18 +278,18 @@ library(tidyverse)
 ```
 
 ```
-## -- Attaching packages -------------------------------------------------------------------- tidyverse 1.2.1 --
+## -- Attaching packages ------------------------------------------------ tidyverse 1.3.0 --
 ```
 
 ```
-## v ggplot2 3.1.1       v purrr   0.3.2  
-## v tibble  2.1.1       v dplyr   0.8.0.1
-## v tidyr   0.8.3       v stringr 1.4.0  
-## v readr   1.3.1       v forcats 0.4.0
+## v ggplot2 3.3.2     v purrr   0.3.4
+## v tibble  3.0.1     v dplyr   1.0.0
+## v tidyr   1.1.0     v stringr 1.4.0
+## v readr   1.3.1     v forcats 0.5.0
 ```
 
 ```
-## -- Conflicts ----------------------------------------------------------------------- tidyverse_conflicts() --
+## -- Conflicts --------------------------------------------------- tidyverse_conflicts() --
 ## x dplyr::filter() masks stats::filter()
 ## x dplyr::lag()    masks stats::lag()
 ```
@@ -301,13 +301,13 @@ str(MunicBR_dat)
 ```
 
 ```
-## Classes 'tbl_df', 'tbl' and 'data.frame':	5570 obs. of  6 variables:
-##  $ CodMunic : chr  "1100015" "1100023" "1100031" "1100049" ...
-##  $ SiglaUF  : chr  "RO" "RO" "RO" "RO" ...
-##  $ CodUF    : chr  "11" "11" "11" "11" ...
-##  $ Pop      : num  25728 101269 6495 85863 18041 ...
-##  $ Area     : num  7067 4427 1314 3793 2783 ...
-##  $ Densidade: num  3.64 22.88 4.94 22.64 6.48 ...
+## tibble [5,570 x 6] (S3: tbl_df/tbl/data.frame)
+##  $ CodMunic : chr [1:5570] "1100015" "1100023" "1100031" "1100049" ...
+##  $ SiglaUF  : chr [1:5570] "RO" "RO" "RO" "RO" ...
+##  $ CodUF    : chr [1:5570] "11" "11" "11" "11" ...
+##  $ Pop      : num [1:5570] 25728 101269 6495 85863 18041 ...
+##  $ Area     : num [1:5570] 7067 4427 1314 3793 2783 ...
+##  $ Densidade: num [1:5570] 3.64 22.88 4.94 22.64 6.48 ...
 ```
 
 ```r
@@ -355,13 +355,13 @@ str(munic_amo)
 
 ```
 ## 'data.frame':	250 obs. of  8 variables:
-##  $ ID_unit  : int  4 57 137 234 253 254 256 283 313 332 ...
-##  $ CodMunic : chr  "1100049" "1200179" "1400027" "1505205" ...
-##  $ SiglaUF  : chr  "RO" "AC" "RR" "PA" ...
-##  $ CodUF    : chr  "11" "12" "14" "15" ...
-##  $ Pop      : num  85863 9836 10432 30088 17774 ...
-##  $ Area     : num  3793 1703 28472 3852 4115 ...
-##  $ Densidade: num  22.638 5.777 0.366 7.81 4.32 ...
+##  $ ID_unit  : int  41 151 166 185 195 217 277 279 294 316 ...
+##  $ CodMunic : chr  "1101435" "1400704" "1501105" "1502202" ...
+##  $ SiglaUF  : chr  "RO" "RR" "PA" "PA" ...
+##  $ CodUF    : chr  "11" "14" "15" "15" ...
+##  $ Pop      : num  7883 9127 26666 65498 13097 ...
+##  $ Area     : num  807 8066 4397 615 1431 ...
+##  $ Densidade: num  9.77 1.13 6.06 106.55 9.15 ...
 ##  $ Regiao   : Factor w/ 5 levels "Norte","Nordeste",..: 1 1 1 1 1 1 1 1 1 1 ...
 ```
 
@@ -372,7 +372,7 @@ table(munic_amo$Regiao)
 ```
 ## 
 ##        Norte     Nordeste      Sudeste          Sul Centro-Oeste 
-##           11           87           81           46           25
+##           16           91           73           51           19
 ```
 
 ```r
@@ -383,6 +383,10 @@ table(munic_amo$Regiao)
         group_by(Regiao) %>%
         summarise(N_d = n()) %>%
         select(Regiao, N_d) )
+```
+
+```
+## `summarise()` ungrouping output (override with `.groups` argument)
 ```
 
 ```
@@ -406,14 +410,18 @@ table(munic_amo$Regiao)
 ```
 
 ```
+## `summarise()` ungrouping output (override with `.groups` argument)
+```
+
+```
 ## # A tibble: 5 x 3
 ##   Regiao       ybar_d     t_d
 ##   <fct>         <dbl>   <dbl>
-## 1 Norte        24506.  269567
-## 2 Nordeste     32776. 2851482
-## 3 Sudeste      53116. 4302358
-## 4 Sul          23934. 1100956
-## 5 Centro-Oeste  9297.  232419
+## 1 Norte        30394.  486298
+## 2 Nordeste     20726. 1886067
+## 3 Sudeste      30399. 2219148
+## 4 Sul          18384.  937564
+## 5 Centro-Oeste 21624.  410847
 ```
 
 ```r
@@ -429,11 +437,11 @@ resumo_regiao <- left_join(N_d, ybar_d, by=c("Regiao"))
 ## # A tibble: 5 x 2
 ##   Regiao       Total_reg_est1
 ##   <fct>                 <dbl>
-## 1 Norte             11027741.
-## 2 Nordeste          58799525.
-## 3 Sudeste           88596705.
-## 4 Sul               28505187.
-## 5 Centro-Oeste       4341587.
+## 1 Norte             13677131.
+## 2 Nordeste          37182464.
+## 3 Sudeste           50706012.
+## 4 Sul               21894877.
+## 5 Centro-Oeste      10098187.
 ```
 
 ```r
@@ -447,11 +455,11 @@ resumo_regiao <- left_join(N_d, ybar_d, by=c("Regiao"))
 ## # A tibble: 5 x 2
 ##   Regiao       Total_reg_est2
 ##   <fct>                 <dbl>
-## 1 Norte              6005953.
-## 2 Nordeste          63531019.
-## 3 Sudeste           95856536.
-## 4 Sul               24529300.
-## 5 Centro-Oeste       5178295.
+## 1 Norte             10834719.
+## 2 Nordeste          42021573.
+## 3 Sudeste           49442617.
+## 4 Sul               20888926.
+## 5 Centro-Oeste       9153671.
 ```
 
 ```r
@@ -460,6 +468,10 @@ resumo_regiao <- left_join(N_d, ybar_d, by=c("Regiao"))
     group_by(Regiao) %>%    
     summarise(Total_reg_pop = sum(Pop)) %>%
     select(Regiao, Total_reg_pop))
+```
+
+```
+## `summarise()` ungrouping output (override with `.groups` argument)
 ```
 
 ```
@@ -484,7 +496,7 @@ resumo_regiao <- left_join(N_d, ybar_d, by=c("Regiao"))
 
 ```
 ##      Densm
-## 1 34.16426
+## 1 24.19436
 ```
 
 ```r
@@ -495,7 +507,7 @@ resumo_regiao <- left_join(N_d, ybar_d, by=c("Regiao"))
 
 ```
 ##      Densm
-## 1 135.0281
+## 1 128.4233
 ```
 
 ```r
@@ -515,7 +527,7 @@ munic_amo <- cbind(munic_amo, r_chapeu)
 
 ```
 ##   dp.r_chapeu cv.r_chapeu
-## 1    7.630939    22.33603
+## 1    3.150193    13.02036
 ```
 
 ```r
@@ -530,7 +542,7 @@ munic_amo <- cbind(munic_amo, r_chapeu)
 
 ```
 ##   dp.media.dens cv.media.dens
-## 1      38.14405      28.24896
+## 1      52.42499      40.82201
 ```
 
 ```r
@@ -635,7 +647,7 @@ Onde $\frac 1  {2n_c}$ é a correção de continuidade. Essa correção é, prat
 
 ## Exercícios
 
-**(#exr:exrdom1)** A população total de uma cidade é de $N =$ 50.000 pessoas. Uma amostra de fração amostral igual a 20% é selecionada aleatoriamente sem reposição. Na amostra 4.000 pessoas estão na força de trabalho, das quais 200 estão sem emprego.
+**(#exr:exrdom1)** A população total de uma cidade é de $N = 50.000$ pessoas. Uma amostra de fração amostral igual a 20% é selecionada aleatoriamente sem reposição. Na amostra 4.000 pessoas estão na força de trabalho, das quais 200 estão sem emprego.
 
 a) Que proporção da força de trabalho está desempregada?
 b) Qual o intervalo com 90% de confiança para essa proporção populacional? 
@@ -647,7 +659,7 @@ b)  Construa um intervalo de 95% de confiança para a média estimada.
 c)  Estime total semanal dos gastos com alimentação das famílias com criança da localidade.
 d)  Construa um intervalo de 95% de confiança para o total estimado.
 
-**(#exr:exrdom3)** Considere a população de $N =$ 338 fazendas produtoras de cana-de-açúcar fornecida no arquivo 'fazendas_dat.rds'. Considere um plano AAS e tamanhos amostrais $n$ variando no conjunto {5, 10, 20, 50, 100}. Imagine que há interesse em estimar dois parâmetros:
+**(#exr:exrdom3)** Considere a população de $N = 338$ fazendas produtoras de cana-de-açúcar fornecida no arquivo 'fazendas_dat.rds'. Considere um plano AAS e tamanhos amostrais $n$ variando no conjunto {5, 10, 20, 50, 100}. Imagine que há interesse em estimar dois parâmetros:
 
    I)	A média da variável Produtividade $=$ Quant / Area;
    II)  A produtividade média por unidade de área na população.
@@ -657,12 +669,13 @@ Para cada um dos tamanhos de amostra considerados, realize as tarefas abaixo ind
 a) Obtenha 500 amostras por AAS da população de fazendas. 
 b) Use cada uma destas amostras para calcular estimativas dos dois parâmetros de interesse, e dos respectivos erros padrão.
 c) Use as 500 estimativas pontuais obtidas para cada parâmetro para avaliar:
-    -  O comportamento do viés dos estimadores;
-    -  O comportamento do viés dos estimadores dos erros padrões;
-    -  A adequação da aproximação normal para a distribuição dos estimadores usados.
+    
+    - O comportamento do viés dos estimadores.
+    - O comportamento do viés dos estimadores dos erros padrão.
+    - A adequação da aproximação normal para a distribuição dos estimadores usados.
 
 
-**(#exr:exrdom4)** Considere a população de $N =$ 338 fazendas produtoras de cana-de-açúcar fornecida no arquivo 'fazendas_dat.rds'. Considere agora um plano AAS e dois tamanhos amostrais $n_1 =$ 20 e $n_2 =$ 100. Agora o interesse é estimar a despesa com a *produção total de cana para um domínio de interesse*, definido como o conjunto de fazendas pertencentes às classes de tamanho 4, 5 e 6.
+**(#exr:exrdom4)** Considere a população de $N = 338$ fazendas produtoras de cana-de-açúcar fornecida no arquivo 'fazendas_dat.rds'. Considere agora um plano AAS e dois tamanhos amostrais $n_1 = 20$ e $n_2 = 100$. Agora o interesse é estimar a despesa com a *produção total de cana para um domínio de interesse*, definido como o conjunto de fazendas pertencentes às classes de tamanho 4, 5 e 6.
 
 Para cada um dos tamanhos de amostra considerados, realize as tarefas abaixo indicadas.
 
@@ -741,9 +754,10 @@ c)  Estime a população total, para o Brasil, dos municípios com menos de 10.0
 
 a) Razão entre Despesa e Receita para os estabelecimentos com área menor que 100.
 b) Razão entre Despesa e Receita para os estabelecimentos com área igual ou maior que 100.
-c) As razões podem ser consideradas iguais ao nível de significância $\alpha=$ 5%?
+c) As razões podem ser consideradas iguais ao nível de significância $\alpha=5\%$?
 
 **(#exr:exrdom10)** Uma granja tem um plantel de 10.000 aves de 5 espécies diferentes. Foi selecionada uma AAS de 100 aves. A Tabela \@ref(tab:tabdom5) apresenta as contagens dos animais da amostra.
+
 <center>
 <table>
 <caption>(#tab:tabdom5)Quantidade de aves na amostra por espécie</caption>

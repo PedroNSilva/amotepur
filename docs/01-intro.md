@@ -10,11 +10,11 @@ Esta citação traduz uma tendência bastante atual. Vivemos numa era em que a d
 
 Tais tendências confirmam que o conhecimento do mundo ao nosso redor depende muito de dados e de estatísticas, aqui entendidas como resumos dos dados. Além disso, os métodos estatísticos fornecem:
 
-a) **orientações para a obtenção de dados relevantes, atuais, precisos e custo-efetivos; **
+a) **Orientações para a obtenção de dados relevantes, atuais, precisos e custo-efetivos.**
 
-b) **ferramentas para modelagem e extração de conhecimento relevante dos dados; e **
+b) **Ferramentas para modelagem e extração de conhecimento relevante dos dados.**
 
-c) **orientações de como usar os dados e estatísticas para apoiar a tomada de decisões. **
+c) **Orientações de como usar os dados e estatísticas para apoiar a tomada de decisões.**
 
 É nesse contexto que se coloca nossa motivação para escrever um livro sobre *Amostragem*, a parte da Estatística que lida com os métodos para extrair amostras de populações, e para obter estimativas de parâmetros relevantes dessas populações a partir das amostras observadas.
 

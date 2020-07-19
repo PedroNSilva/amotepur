@@ -129,9 +129,9 @@ O algoritmo "convencional" para a seleção na AAS sugerido pelos livros-texto m
 
 1) Selecione a primeira unidade dentre as $N$ unidades de $U$ com probabilidades iguais a $1/N$, resultando na seleção da unidade $i_1$.
 
-2) Selecione a segunda unidade dentre as $N-1$ unidades ainda não selecionadas de $U$ com probabilidades iguais a $1/(N-1)$, resultando na seleção da unidade $i_2 \ne {i_1}$; 
+2) Selecione a segunda unidade dentre as $N-1$ unidades ainda não selecionadas de $U$ com probabilidades iguais a $1/(N-1)$, resultando na seleção da unidade $i_2 \ne {i_1}$. 
 
-Prossiga com a seleção de uma unidade por sorteio, sempre excluindo de cada novo sorteio as unidades já selecionadas em sorteios anteriores, até a seleção da $n$-ésima unidade dentre as $N-n+1$ unidades de $U$ que permanecem não selecionadas após $n-1$ sorteios, com probabilidades iguais a $1/(N-n+1)$, resultando na seleção da unidade $i_n \ne {...} \ne {i_2} \ne {i_1}$..
+3) Prossiga com a seleção de uma unidade por sorteio, sempre excluindo de cada novo sorteio as unidades já selecionadas em sorteios anteriores, até a seleção da $n$-ésima unidade dentre as $N-n+1$ unidades de $U$ que permanecem não selecionadas após $n-1$ sorteios, com probabilidades iguais a $1/(N-n+1)$, resultando na seleção da unidade $i_n \ne {...} \ne {i_2} \ne {i_1}$.
 
 Tal algoritmo fornecia a regra para *seleção manual* com uso de *tabelas de números aleatórios* antes do aparecimento e uso de computadores para seleção de amostras. A aplicação deste algoritmo em computador é bastante ineficiente, devido à necessidade de percorrer várias vezes uma lista que pode ser bem grande: a das unidades ainda não selecionadas. Para enfrentar esta dificuldade, foram propostos diversos algoritmos mais eficientes na literatura. Apresentaremos aqui apenas dois, ambos baseados em processamento sequencial de listas, que se destacam por sua simplicidade.
 
@@ -188,7 +188,7 @@ O algoritmo de Fan, Muller e Rezucha, para selecionar uma *AAS* de tamanho $n$ d
 
 1)  $i\leftarrow 0$
 2)  $i\leftarrow I+1$
-3)  Para a unidade $U_i$ gere um número pseudolaeatório $a_i\approx U(0;1)$
+3)  Para a unidade $U_i$ gere um número pseudolaeatório $a_i\sim U(0;1)$
 4)  Se $a_i<n/N$
     * Inclua $U_i$ na amostra
     * $N\leftarrow N-1$
@@ -217,26 +217,26 @@ s
 
 ```
 ##      i
-## 1  610
-## 2  139
-## 3   98
-## 4  334
-## 5  499
-## 6  391
-## 7  371
-## 8  241
-## 9  609
-## 10  96
-## 11 540
-## 12 612
-## 13 484
-## 14 978
-## 15 615
-## 16 186
-## 17 803
-## 18 538
-## 19 941
-## 20 417
+## 1   16
+## 2   35
+## 3  755
+## 4   23
+## 5  117
+## 6  518
+## 7  793
+## 8  156
+## 9  169
+## 10 830
+## 11 963
+## 12 292
+## 13 334
+## 14 789
+## 15 284
+## 16 551
+## 17 236
+## 18  56
+## 19 431
+## 20 829
 ```
 
 ```r
@@ -269,43 +269,43 @@ s
 
 ```
 ##      i
-## 1   37
-## 2   71
-## 3  173
-## 4  292
-## 5  327
-## 6  342
-## 7  362
-## 8  401
-## 9  419
-## 10 521
-## 11 564
-## 12 711
-## 13 723
-## 14 727
-## 15 843
-## 16 865
-## 17 872
-## 18 878
-## 19 891
-## 20 976
+## 1   65
+## 2   66
+## 3   95
+## 4  194
+## 5  213
+## 6  251
+## 7  356
+## 8  383
+## 9  402
+## 10 629
+## 11 678
+## 12 745
+## 13 781
+## 14 789
+## 15 790
+## 16 869
+## 17 881
+## 18 903
+## 19 918
+## 20 937
 ```
 ### Probabilidades de inclusão sob AAS
 
-Como já indicado no capítulo \@ref(visger), tratar com as distribuições de aleatorização $p(s)$ sob AAS pode ser complicado do ponto de vista prático. @Sarndal1992, página 29, mencionam que numa população com $N =$ 1.000 unidades, o conjunto $S$ de amostras AAS possíveis de tamanho $n=$ 40 tem dimensão $\binom{N}{n} = \binom{1.000}{40} =$ 5,6 $\times$ 10<sup>71</sup>. Se a população tivesse $N =$ 5.000 e a amostra tamanho $n =$ 200, a dimensão de $S$ cresceria para $\binom{5.000}{200} =$ 1,4 $\times$ 10<sup>363</sup>. Portanto, a enumeração de todas as amostras possíveis seria tarefa complicada, mesmo com computadores poderosos. 
+Como já indicado no capítulo \@ref(visger), tratar com as distribuições de aleatorização $p(s)$ sob AAS pode ser complicado do ponto de vista prático. @Sarndal1992, página 29, mencionam que numa população com $N = 1.000$ unidades, o conjunto $S$ de amostras AAS possíveis de tamanho $n=40$ tem dimensão $\binom{N}{n} = \binom{1.000}{40} = 5,6 \times 10^{71}$. Se a população tivesse $N = 5.000$ e a amostra tamanho $n = 200$, a dimensão de $S$ cresceria para $\binom{5.000}{200} = 1,4 \times 10^{363}$. Portanto, a enumeração de todas as amostras possíveis seria tarefa complicada, mesmo com computadores poderosos. 
 
 Note que os tamanhos de população e amostra acima são modestos do ponto de vista de aplicações práticas.
 Foi para eliminar essa dificuldade que introduzimos resumos simples derivados da distribuição $p(s)$. Tais resumos serão suficientes para a obtenção de propriedades de estimadores tais como valor esperado e variância, na maioria das situações de interesse prático. Esses resumos são as *probabilidades de inclusão* de unidades ou de pares de unidades na amostra.
 
-1) Sob AAS, $\pi_i = n / N > 0$, $\forall \,i \in U$ desde que $n > 0$.
+1) Sob AAS, $\pi_i = n / N > 0$, $\forall \,i \in U$, desde que $n > 0$.
 
 2) $f = n / N$ é chamada de *fração amostral* ou *taxa de amostragem*.
 
-3) Estimação de variância sem vício requer $\pi_{ij} > 0$,  $\forall\, i,j \in U$. Sob AAS, $\pi_{ij} = \displaystyle \frac{n(n-1)}{N(N-1)} > 0 \,\,\, \forall\, i \ne j \in U$.
+3) Estimação de variância sem vício requer $\pi_{ij} > 0$,  $\forall\, i,j \in U$. Sob AAS, $\pi_{ij} = \displaystyle \frac{n(n-1)}{N(N-1)} > 0, \,\,\, \forall\, i \ne j \in U$.
 
-4) Sob AAS, as probabilidades de inclusão $\pi_i$, $\pi_{ij}$, etc. não dependem de $i$ ou $j$, e essa é a razão da simplicidade desse plano amostral.
+4) Sob AAS, as probabilidades de inclusão $\pi_i$ e $\pi_{ij}$ não dependem de $i$ ou $j$, e essa é a razão da simplicidade desse plano amostral.
 
-Sob AAS de tamanho $n$ de população com $N$, para a variável $\delta_i$ indicadora do evento ´inclusão da unidade $i$ na amostra $s$´, tem-se:
+Sob AAS de tamanho $n$ de população com $N$, para a variável $\delta_i$ indicadora do evento 'inclusão da unidade $i$ na amostra $s$', tem-se:
 
 $E_{AAS} [{\delta_i}] = \displaystyle\frac{n}{N}$ 
  
@@ -315,7 +315,7 @@ $COV_{AAS} [{\delta_i},{\delta_j} ] = \displaystyle\frac{n(n-1)}{N(N-1)} - \left
 
 Assim, sob AAS a correlação entre duas variáveis indicadoras de inclusão de unidades distintas na amostra é dada por: 
 
-$CORR_{AAS} [{\, \delta_i} \, , {\delta_j} ] = -1/(N-1)$ se $i \ne j$
+$CORR_{AAS} [{\, \delta_i} \, , {\delta_j} ] = -1/(N-1)$, se $i \ne j$
 
 ### Estimador não viciado do total e média populacionais sob AAS
 
@@ -374,7 +374,7 @@ $$
 
 onde $N(0;1)$ denota uma variável aleatória com distribuição normal padrão com média zero e variância um. Mais detalhes podem ser obtidos em @Cochran1977, seções 2.8 e 2.15, ou em @Sarndal1992, seção 2.11.
 
-É com base nessa distribuição assintótica que se pode fazer inferência por intervalos de confiança para a média populacional, e com base nesta ideia, medir a *margem de erro* de uma estimativa da média populacional. Um intervalo de confiança de nível $(1 - \alpha)$% para a média populacional sob AAS é dado por:
+É com base nessa distribuição assintótica que se pode fazer inferência por intervalos de confiança para a média populacional, e com base nesta ideia, medir a *margem de erro* de uma estimativa da média populacional. Um intervalo de confiança de nível $(1 - \alpha)%$ para a média populacional sob AAS é dado por:
 
 $$
 IC_{AAS} (\overline{Y} ; 1 - \alpha) = \left [ \overline {y} \mp z_{\alpha/2} \sqrt{\widehat {V}_{AAS}(\overline{y})} \right ]\,\,(\#eq:eqaas8)
@@ -425,7 +425,7 @@ Considere um cenário em que o interesse é realizar uma pesquisa junto a empres
 
 Após realizar reuniões com o cliente e ter informação mais precisa sobre o questionário e características da pesquisa, o responsável por planejar a amostra estima que coletar dados de cada empresa selecionada para a amostra terá um custo médio de R$ 200 por questionário. Vale também comentar que é importante que, ao estimar o custo médio de coleta por questionário, o planejador da pesquisa deixe margem de segurança para cobrir eventuais dificuldades imprevistas de coleta. 
 
-Considerando o orçamento disponível para a coleta, o recomendável seria então usar uma amostra de $n =$ 400.000 / 200 $=$ 2.000 empresas. 
+Considerando o orçamento disponível para a coleta, o recomendável seria então usar uma amostra de $n = 400.000 / 200 = 2.000$ empresas. 
 
 Após calcular este tamanho de amostra, o responsável pelo planejamento da amostra deve comunicar ao cliente alguma ideia de que precisão seria possível alcançar com esse tamanho de amostra e orçamento, ao menos para os principais parâmetros de interesse da pesquisa. Isto ajudaria a evitar frustrações ou reclamações após a coleta dos dados e a obtenção das estimativas de interesse.
 
@@ -460,7 +460,7 @@ $$P \left(|\overline {y}-\overline{Y}|\le z_{\alpha/2}{\sqrt{\left(\frac{1}{n}-\
 
 Logo, o erro de estimar $\overline Y$  usando $\overline y$  sob AAS é menor ou igual a $z_{\alpha/2} {\sqrt {\left( \frac{1}{n} - \frac{1}{N} \right) S_y^2}}$  com probabilidade $1-\alpha$.
 
-Então se desejamos estimar $\overline Y$ com um erro máximo de $\pm 10$ unidades, com um nível de confiança de 90% (o que significa que o valor tabelado $z_{\alpha/2}=$ 1,645), basta fazer:
+Então se desejamos estimar $\overline Y$ com um erro máximo de $\pm 10$ unidades, com um nível de confiança de 90% (o que significa que o valor tabelado $z_{\alpha/2}= 1,645$), basta fazer:
 
 $$z_{\alpha/2} {\sqrt{ \left( \frac{1}{n} - \frac{1}{N} \right )S_y^2}} = 1,645 \sqrt{ \left( \frac{1}{n} - \frac{1}{N} \right) S_y^2} = 10$$
 
@@ -484,9 +484,10 @@ Para calcular o tamanho desejado da amostra precisamos conhecer $N$ e $S_y^2$. S
 
 **O caso geral**
 
-Seja $D$ a *precisão desejada*, a *margem de erro máximo admissível* na estimação de $\overline Y$, a *semiamplitude* desejada para o intervalo de confiança de $\overline Y$. Seja $1-\alpha$ o *coeficiente de confiança* desejado para o procedimento. Para *intervalos de confiança* de 95% usamos $z_{\alpha/2} =$ 1,96.
+Seja $D$ a *precisão desejada*, a *margem de erro máximo admissível* na estimação de $\overline Y$, a *semiamplitude* desejada para o intervalo de confiança de $\overline Y$. Seja $1-\alpha$ o *coeficiente de confiança* desejado para o procedimento. Para *intervalos de confiança* de 95% usamos $z_{\alpha/2} = 1,96$.
 
-Um intervalo de confiança não é uma especificação sobre uma particular amostra, mas sobre o desempenho do procedimento sob todas as possíveis amostras. Quando se usa um intervalo de confiança de 95% para um parâmetro, isto quer dizer que os intervalos construídos com cerca de 95 de cada 100 amostras selecionadas (sob idênticas condições) cobririam o "verdadeiro" valor do parâmetro de interesse. Para uma amostra específica, selecionada pelo método escolhido, acredita-se que é de 95% a chance que o "verdadeiro" valor seja coberto pelo intervalo: $[$Estimativa $-$ 1,96 $\times$ desvio padrão;  Estimativa $+$ 1,96 $\times$ desvio padrão$]$. 
+Um intervalo de confiança não é uma especificação sobre uma particular amostra, mas sobre o desempenho do procedimento sob todas as possíveis amostras. Quando se usa um intervalo de confiança de 95% para um parâmetro, isto quer dizer que os intervalos construídos com cerca de 95 de cada 100 amostras selecionadas (sob idênticas condições) cobririam o "verdadeiro" valor do parâmetro de interesse. Para uma amostra específica, selecionada pelo método escolhido, acredita-se que é de 95% a chance que o "verdadeiro" valor seja coberto pelo intervalo: 
+$$[\text{Estimativa} - 1,96 \times \text{desvio padrão;  Estimativa} + 1,96 \times \text{desvio padrão}]$$ 
 
 Assim:  
 
@@ -506,25 +507,25 @@ $$
 
 3. Para planos amostrais mais complexos, é mais difícil resolver equações do tipo acima para determinar tamanhos amostrais, e sua alocação em estratos e conglomerados. Entretanto, a ideia de *Efeito do Plano Amostral* - EPA vai ser útil neste contexto. Veja discussão no capítulo \@ref(cong).
 
-**(#exm:exmaas2)** Considere a população formada pelos municípios brasileiros, conforme consta do arquivo 'MunicBR_dat.rds'. Tendo esta população em mente, imagine que seria usada para seleção de uma amostra AAS de $n=$ 200 municípios. Imagine que tal amostra seria usada para estimar a *média populacional* da variável *área* dos municípios. 
+**(#exm:exmaas2)** Considere a população formada pelos municípios brasileiros, conforme consta do arquivo 'MunicBR_dat.rds'. Tendo esta população em mente, imagine que seria usada para seleção de uma amostra AAS de $n=200$ municípios. Imagine que tal amostra seria usada para estimar a *média populacional* da variável *área* dos municípios. 
 
 1.	Com esta perspectiva, use os *dados populacionais* para:
   
-    a)	Calcular a *média populacional*;
+    a)	Calcular a *média populacional*.
 
-    b)	Calcular a *variância*, *desvio padrão* e *coeficiente de variação* do estimador usual;
+    b)	Calcular a *variância*, *desvio padrão* e *coeficiente de variação* do estimador usual.
 
-    c)	Avaliar a *margem de erro relativo* que a estimativa teria ao nível 95% de confiança;
+    c)	Avaliar a *margem de erro relativo* que a estimativa teria ao nível 95% de confiança.
 
     d)	Determinar o *tamanho da amostra* que seria necessária para estimar a média da área com um erro máximo de 150 km<sup>2</sup> ao nível de confiança de 95%.
 
-2.	Selecione uma AAS de tamanho $n=$ 200 e use os *dados amostrais* para calcular:
+2.	Selecione uma AAS de tamanho $n=200$ e use os *dados amostrais* para calcular:
   
-    a)	Uma estimativa da *média populacional*;
+    a)	Uma estimativa da *média populacional*.
 
-    b)	Estimativas da *variância*, *desvio padrão* e *coeficiente de variação* da média estimada;
+    b)	Estimativas da *variância*, *desvio padrão* e *coeficiente de variação* da média estimada.
 
-    c)	Estime a *margem de erro relativo* que a estimativa obtida em a) teria ao nível 95% de confiança;
+    c)	Estime a *margem de erro relativo* que a estimativa obtida no item a teria ao nível 95% de confiança.
 
     d)	O *tamanho da amostra* que seria necessária para estimar a média da área com um erro máximo de 150 km<sup>2</sup> ao nível de confiança de 95%.
 
@@ -654,7 +655,7 @@ munic_amo <- getdata(MunicBR_dat, srswor(n, N))
 ```
 
 ```
-## [1] 1532.935
+## [1] 1184.434
 ```
 
 ```r
@@ -663,7 +664,7 @@ munic_amo <- getdata(MunicBR_dat, srswor(n, N))
 ```
 
 ```
-## [1] 57700.33
+## [1] 29810.15
 ```
 
 ```r
@@ -679,7 +680,7 @@ munic_amo <- getdata(MunicBR_dat, srswor(n, N))
 ```
 
 ```
-## [1] 25.40652
+## [1] 32.88197
 ```
 
 ```r
@@ -688,7 +689,7 @@ munic_amo <- getdata(MunicBR_dat, srswor(n, N))
 ```
 
 ```
-## [1] 49.79586
+## [1] 64.44748
 ```
 
 ```r
@@ -706,7 +707,7 @@ munic_amo <- getdata(MunicBR_dat, srswor(n, N))
 ```
 
 ```
-## [1] 1495.086
+## [1] 887.5738
 ```
 
 ```r
@@ -714,7 +715,7 @@ munic_amo <- getdata(MunicBR_dat, srswor(n, N))
 ```
 
 ```
-## [1] 1496
+## [1] 888
 ```
 
 
@@ -724,24 +725,24 @@ munic_amo <- getdata(MunicBR_dat, srswor(n, N))
   
 **(#exr:exraas2)** Considere a população de 338 fazendas produtoras de cana-de-açúcar fornecida no arquivo 'fazendas_dat.rds'. Esse arquivo contém os dados de algumas variáveis econômicas medidas para cada uma das fazendas dessa população, tais como área plantada com cana-de-açúcar (Area), quantidade colhida de cana (Quant), receita (Receita) e despesa com a produção de cana (Despesa), e algumas variáveis de contexto sobre as fazendas, tais como região de localização (Regiao) e classe de tamanho da fazenda (Classe). 
 
-Imagine que há interesse em pesquisar por amostragem essa população de fazendas, visando estimar medidas descritivas da população, tais como os totais das variáveis Quant, Receita e Despesa. O objetivo do exercício é usar os dados fornecidos para estudar o comportamento esperado de um plano amostral. Considere a ideia de selecionar uma amostra de $n=$ 50 fazendas da população usando AAS.
+Imagine que há interesse em pesquisar por amostragem essa população de fazendas, visando estimar medidas descritivas da população, tais como os totais das variáveis Quant, Receita e Despesa. O objetivo do exercício é usar os dados fornecidos para estudar o comportamento esperado de um plano amostral. Considere a ideia de selecionar uma amostra de $n=50$ fazendas da população usando AAS.
 
 a)	Use os valores populacionais das variáveis de interesse (Area, Quant e Receita) para calcular os totais populacionais de interesse. Calcule também o desvio padrão - DP e o coeficiente de variação - CV esperados para os estimadores dos totais populacionais de interesse, supondo que o estimador Horvitz-Thompson para o total seria empregado. Compare os resultados para as diversas variáveis.
-b)	Selecione efetivamente uma amostra segundo o esquema amostral indicado e use essa amostra para estimar os totais populacionais de interesse, bem como os respectivos DPs e CVs. Compare os resultados com os valores obtidos no item 1 e comente aspectos dignos de nota.
+b)	Selecione efetivamente uma amostra segundo o esquema amostral indicado e use essa amostra para estimar os totais populacionais de interesse, bem como os respectivos DPs e CVs. Compare os resultados com os valores obtidos no item a e comente aspectos dignos de nota.
 c)	Use a amostra selecionada por AAS para estimar a variância populacional de Quant e Receita. Use estas informações para dimensionar a amostra necessária para estimar o total com CV de 10% para cada uma das duas variáveis. Ao final, que tamanho de amostra você usaria na pesquisa para atingir o objetivo estabelecido?
-d)	Repita 500 vezes o item 2, e analise a distribuição resultante das estimativas de total para as variáveis Quant e Receita. Analise, comente.
+d)	Repita 500 vezes o item b, e analise a distribuição resultante das estimativas de total para as variáveis Quant e Receita. Analise, comente.
 
-**(#exr:exraas3)** Para uma população com $N=$ 4 unidades, cujos valores de uma dada variável de interesse, $y$, são $\{0,\;1,\;2,\;3,\;4\}$:
+**(#exr:exraas3)** Para uma população com $N=4$ unidades, cujos valores de uma dada variável de interesse, $y$, são $\{0,\;1,\;2,\;3,\;4\}$:
 
-a.  Liste todas as possíveis AAS de tamanho $n=$ 2.
+a.  Liste todas as possíveis AAS de tamanho $n=2$.
 b.  Calcule $S^2_y$ e $V_{AAS}(\overline y)$.
 c.  Mostre numericamente que $V_{AAS}(\overline y)=\frac {N-n}N \frac {S^2_y}n$.
 d.  Mostre numericamente que $E_{AAS}(s^2_y)=S^2_y$.
-e.  Liste todas as possíveis AASC de tamanho $n=$ 2.
+e.  Liste todas as possíveis AASC de tamanho $n=2$.
 f.  Mostre numericamente que $V_{AASC}(\overline y)= \frac {\sigma^2_y}n$.
 g.  Mostre numericamente que $E_{AASC}(s^2_y)=\sigma^2_y$.
 
-**(#exr:exraas4)** A administração de um parque florestal deseja estimar a população de coelhos e veados no parque nos meses de inverno. Para isso a área da floresta foi dividida, através de um levantamento aerofotométrico, em 10.000 pequenas áreas de aproximadamente 10 m<sup>2</sup>. Uma AAS de $n =$ 500 dessas pequenas áreas foi selecionada e foram observados os números de coelhos e veados em cada uma delas, resultando na Tabela \@ref(tab:tabaas6):
+**(#exr:exraas4)** A administração de um parque florestal deseja estimar a população de coelhos e veados no parque nos meses de inverno. Para isso a área da floresta foi dividida, através de um levantamento aerofotométrico, em 10.000 pequenas áreas de aproximadamente 10 m<sup>2</sup>. Uma AAS de $n = 500$ dessas pequenas áreas foi selecionada e foram observados os números de coelhos e veados em cada uma delas, resultando na Tabela \@ref(tab:tabaas6):
 
 <center>
 <table>
@@ -801,7 +802,7 @@ Empresa            1    2    3   4   5
 </center>
   
 a)  Estime o total de salários pagos pelas empresas da população, seu respectivo CV e obtenha um intervalo de confiança de 95% para o total populacional de interesse.
-b)  Usando a amostra observada como amostra piloto, calcule o tamanho de amostra necessário para estimar o total dos salários com precisão relativa $D_r =$ 0,10, ao nível de confiança de 95%.
+b)  Usando a amostra observada como amostra piloto, calcule o tamanho de amostra necessário para estimar o total dos salários com precisão relativa $D_r = 0,10$, ao nível de confiança de 95%.
 
 **(#exr:exraas7)**  A Tabela \@ref(tab:tabaas9) mostra os dados amostrais de uma pesquisa feita por uma AAS numa população de 500 unidades. 
 
@@ -841,7 +842,7 @@ c) Construa um intervalo de 95% de confiança para o total populacional.
 
 Calcule os seguintes parâmetros populacionais da variável de interesse população (Pop): média populacional e variância populacional.
   
-Supondo desconhecidos os valores da população dos municípios, selecione uma AAS de tamanho $n=$ 40 e estime os seguintes parâmetros populacionais:
+Supondo desconhecidos os valores da população dos municípios, selecione uma AAS de tamanho $n=40$ e estime os seguintes parâmetros populacionais:
 
 a)  Estime a média populacional.
 b)  Estime a variância populacional e a variância do estimador da média populacional.

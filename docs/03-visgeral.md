@@ -47,7 +47,7 @@ O *quantil populacional* $q$ da distribuição da variável $y$ é definido como
 $$
 T_y(q)= argmin\{F_y(a) \ge q\} \,\,(\#eq:eqvis4)
 $$
-onde a função $argmin$ retorna o menor valor do argumento $a$ da função $F_y(a)$ tal que a condição ${F_y(a) \ge q}$ é satisfeita. Por exemplo, a *mediana populacional* da variável $y$ corresponde ao quantil obtido quando $q=$ 0,5, isto é, $\text{Mediana}\,_y = T_y(0,5)$.
+onde a função $argmin$ retorna o menor valor do argumento $a$ da função $F_y(a)$ tal que a condição ${F_y(a) \ge q}$ é satisfeita. Por exemplo, a *mediana populacional* da variável $y$ corresponde ao quantil obtido quando $q=0,5$, isto é, $\text{Mediana}\,_y = T_y(0,5)$.
 
 A *variância populacional* da variável $y$ é dada por: 
 
@@ -107,7 +107,7 @@ A *amostragem probabilística* é qualquer procedimento de amostragem que satisf
 
 1. O *espaço amostral* $S$, correspondente ao conjunto de todas as amostras $s$ possíveis, é bem definido, e poderia ser enumerado, ao menos teoricamente.
 
-2. Uma probabilidade $p(s)$ conhecida (ou calculável) é associada a cada amostra $s \in S$, de tal modo que $\displaystyle \sum_{s \in S} p(s) =$ 1. A função $p(s)$ é denominada *plano amostral*.
+2. Uma probabilidade $p(s)$ conhecida (ou calculável) é associada a cada amostra $s \in S$, de tal modo que $\displaystyle \sum_{s \in S} p(s) = 1$. A função $p(s)$ é denominada *plano amostral*.
 
 3. Uma única amostra $s$ $(s \in S)$ é selecionada para observação usando um mecanismo de aleatorização (sorteio) tal que a amostra $s$ é escolhida com probabilidade igual a $p(s)$.
 
@@ -155,7 +155,7 @@ $$
 RB_p(\widehat{\theta}) =\displaystyle\frac{B_p(\widehat{\theta})}{\theta}\,\,(\#eq:eqvis15)
 $$
 
-*Vício* é uma característica indesejada num estimador, pois significa que a distribuição do estimador $\widehat{\theta}$ não é centrada no alvo de inferência $\theta$. Diz-se que o estimador $\widehat{\theta}$ é *não viciado* (ou *não enviesado* ou *não tendencioso*) para o parâmetro $\theta$ quando seu valor esperado é igual ao parâmetro $\theta$, isto é, quando $E_p(\widehat{\theta}) = \theta$, ou alternativamente, quando $B_p(\widehat{\theta}) = RB_p(\widehat{\theta}) =$ 0.
+*Vício* é uma característica indesejada num estimador, pois significa que a distribuição do estimador $\widehat{\theta}$ não é centrada no alvo de inferência $\theta$. Diz-se que o estimador $\widehat{\theta}$ é *não viciado* (ou *não enviesado* ou *não tendencioso*) para o parâmetro $\theta$ quando seu valor esperado é igual ao parâmetro $\theta$, isto é, quando $E_p(\widehat{\theta}) = \theta$, ou alternativamente, quando $B_p(\widehat{\theta}) = RB_p(\widehat{\theta}) = 0$.
 
 Nosso primeiro critério para apoiar a escolha de estimadores sugere então que tratemos de usar *estimadores* sem vício, ou *não viciados*, ou ao menos *aproximadamente não viciados*. Quando isto for possível, teremos estimadores cuja distribuição será centrada no alvo desejado da inferência.  
 
@@ -217,7 +217,7 @@ Podemos então usar os critérios sugeridos para escolha de estimadores para det
 
 Para ajudar a consolidar as ideias já apresentadas até aqui, fazemos agora uso de um exemplo muito simples, mas através do qual podemos ilustrar como operar com os conceitos e definições já introduzidos.
 
-**(#exm:filh)** Considere os dados da Tabela \@ref(tab:tabvis1) de uma população fictícia com $N=$ 4 mulheres (unidades populacionais), de quem foi indagado o número de filhos tidos nascidos vivos (a variável $y$).
+**(#exm:filh)** Considere os dados da Tabela \@ref(tab:tabvis1) de uma população fictícia com $N=4$ mulheres (unidades populacionais), de quem foi indagado o número de filhos tidos nascidos vivos (a variável $y$).
 
 <center>
 <table>
@@ -230,11 +230,11 @@ Valor da variável $(y_i)$   0   0   2   1     3
 ----------
 </center>
 
-Existem $\binom{4}{2} =$ 6 amostras possíveis de duas unidades distintas dessa população, isto é, de tamanho $n=$ 2. O conjunto de todas as amostras possíveis é dado por: $S = \{(1;2); (1;3); (1;4); (2;3); (2;4); (3;4)\}$. 
+Existem $\binom{4}{2} = 6$ amostras possíveis de duas unidades distintas dessa população, isto é, de tamanho $n=2$. O conjunto de todas as amostras possíveis é dado por: $S = \{(1;2); (1;3); (1;4); (2;3); (2;4); (3;4)\}$. 
 
 A notação para representar o conjunto que forma cada amostra foi o ( ), para evitar usar { } dentro de { }. Cada elemento do conjunto $S$ é, em si mesmo, um conjunto (neste caso, um par) de rótulos de unidades selecionadas para a amostra. 
 
-Considere agora um *plano amostral* $p_1$ em que uma qualquer das amostras possíveis é selecionada com igual probabilidade atribuída a todas as amostras possíveis. Considerando a condição 2, cada uma das seis amostras possíveis terá probabilidade igual a 1/6 de ser selecionada, isto é: $p_1(s) =$ 1/6,  $\,\forall\, s \in S$.  
+Considere agora um *plano amostral* $p_1$ em que uma qualquer das amostras possíveis é selecionada com igual probabilidade atribuída a todas as amostras possíveis. Considerando a condição 2, cada uma das seis amostras possíveis terá probabilidade igual a 1/6 de ser selecionada, isto é: $p_1(s) = 1/6$,  $\,\forall\, s \in S$.  
 
 A Tabela \@ref(tab:tabvis2) apresenta o conjunto de todas as amostras possíveis, os rótulos das unidades incluídas em cada amostra, os valores de $y$ para as unidades incluídas na amostra, a soma amostral e as probabilidades de seleção de cada amostra. As colunas 1, 2 e 5 dessa tabela correspondem à apresentação detalhada do *plano amostral* $p_1$ tal como definido acima, agora representado na forma de uma tabela.
 
@@ -279,11 +279,11 @@ O valor esperado de $t$ é:
 $$
 E_{p_1}(t)= \displaystyle\sum_{s \in S} t(s) \, p_1(s) = 0\times\frac{1}{6}+1\times\frac{2}{6}+2\times\frac{2}{6}+3\times\frac{1}{6}= \frac{9}{6} = 1,5
 $$
-Porém o *total populacional* é $Y = \displaystyle \sum_{i \in U} y_i =$ 3. 
+Porém o *total populacional* é $Y = \displaystyle \sum_{i \in U} y_i = 3$. 
 
-Como 1,5 $=  E_{p_1}(t) \neq Y =$ 3, dizemos que $t$ seria um *estimador viciado* de $Y$ sob o plano amostral $p_1$ adotado.
+Como $1,5 =  E_{p_1}(t) \neq Y = 3$, dizemos que $t$ seria um *estimador viciado* de $Y$ sob o plano amostral $p_1$ adotado.
 
-Como poderíamos "corrigir" o estimador de modo que ficasse *não viciado* para o total populacional? Uma ideia simples vem da constatação de que $Y / E_{p_1}(t) =$ 3 / 1,5 = 2. Logo, multiplicando por 2 o valor da soma amostral $t$ resultaria num estimador cujo valor esperado deve ser igual a $Y$.
+Como poderíamos "corrigir" o estimador de modo que ficasse *não viciado* para o total populacional? Uma ideia simples vem da constatação de que $Y / E_{p_1}(t) = 3 / 1,5 = 2$. Logo, multiplicando por 2 o valor da soma amostral $t$ resultaria num estimador cujo valor esperado deve ser igual a $Y$.
 
 Considere então o novo estimador do total populacional dado por: $\widehat{Y} = 2 \times t$. Tal estimador pode ser escrito na forma linear como: $\widehat{Y} = 2 \times t = \displaystyle \sum_{i \in s} 2 \times y_i = \widehat Y_w$. 
 
@@ -367,7 +367,7 @@ $$
 \widehat Y_w = \displaystyle \sum_{i \in s} w_i y_i = \displaystyle \sum_{i \in s}  \frac{1}{\pi_i} y_i = \displaystyle \sum_{i \in s} {\pi_i}^{-1} y_i \,\,(\#eq:eqvis24)
 $$
 
-Essa propriedade é demonstrada de maneira formal na próxima seção. Mas antes disso, vamos verificar sua aplicação com os dados do (#exm:filh). Continuando a discussão desse exemplo com a população de $N=$ 4 mulheres de quem foi indagado o número de filhos tidos nascidos vivos ($y$), tem-se, na Tabela \@ref(tab:tabvis6), o valor da variável $y$ e  a probabilidade de inclusão ${\pi}_i$ de cada unidade da população de mulheres.   
+Essa propriedade é demonstrada de maneira formal na próxima seção. Mas antes disso, vamos verificar sua aplicação com os dados do (#exm:filh). Continuando a discussão desse exemplo com a população de $N=4$ mulheres de quem foi indagado o número de filhos tidos nascidos vivos ($y$), tem-se, na Tabela \@ref(tab:tabvis6), o valor da variável $y$ e  a probabilidade de inclusão ${\pi}_i$ de cada unidade da população de mulheres.   
 
 <center>
 <table>
@@ -382,7 +382,7 @@ Probabilidade de inclusão ${\pi}_i$ 3/6=1/2    3/6=1/2    3/6=1/2   3/6=1/2    
 ---------
 </center>
 
-Usando a propriedade recém apresentada, os pesos amostrais no (#exm:filh) seriam dados por $w_i = {1}/{\pi_i} = \frac{1}{1/2} =$ 2 para qualquer uma das unidades da população que fossem selecionadas para uma das amostras de tamanho $n=$ 2.
+Usando a propriedade recém apresentada, os pesos amostrais no (#exm:filh) seriam dados por $w_i = {1}/{\pi_i} = \frac{1}{1/2} = 2$ para qualquer uma das unidades da população que fossem selecionadas para uma das amostras de tamanho $n=2$.
 
 O estimador ponderado do total nesse caso seria dado por: 
 
@@ -393,7 +393,7 @@ $$
 e já se mostrou que este estimador é não viciado para $Y$.
 
 
-**(#exm:filhp2)** Considere a mesma população fictícia do exemplo anterior. Considere agora o plano amostral $p_2$, que retira amostras de tamanho $n=$ 2 dessa população com as probabilidades indicadas na Tabela \@ref(tab:tabvis7). 
+**(#exm:filhp2)** Considere a mesma população fictícia do exemplo anterior. Considere agora o plano amostral $p_2$, que retira amostras de tamanho $n=2$ dessa população com as probabilidades indicadas na Tabela \@ref(tab:tabvis7). 
 
 <center>
 <table>
@@ -490,7 +490,7 @@ Usando o estimador do total com os pesos adequados $\widehat Y_w$, obtém-se os 
 
 2. O fato de que a amostra 1 (composta pelas unidades {1;2}) tem probabilidade nula de ser selecionada não viola os critérios definidos para que o plano amostral $p_2$ seja chamado de *amostragem probabilística*. É fácil verificar que todas as condições enumeradas para que uma amostra seja declarada probabilística são cumpridas para esse plano amostral. Em particular, verifica-se que todas as unidades populacionais têm probabilidades positivas de inclusão na amostra - ver a Tabela \@ref(tab:tabvis9).
 
-3. Temos agora duas opções de plano amostral para selecionar amostras (de tamanho $n=$ 2) da população $U$, visando estimar o total populacional $Y$. Com ambos os planos amostrais estão disponíveis estimadores não viciados do total populacional. Coloca-se então a pergunta: qual dos dois planos é melhor? 
+3. Temos agora duas opções de plano amostral para selecionar amostras (de tamanho $n=2$) da população $U$, visando estimar o total populacional $Y$. Com ambos os planos amostrais estão disponíveis estimadores não viciados do total populacional. Coloca-se então a pergunta: qual dos dois planos é melhor? 
 
 **Estratégia 1:** Seleção equiprovável de amostras com estimador de total ponderado $(\widehat Y_w = 2t)$, conforme especificado na Tabela \@ref(tab:tabvis11). 
 
@@ -564,7 +564,7 @@ $$
 
 A variável $\delta_i$ é indicadora do evento 'inclusão da unidade $i$ na amostra $s$'.
 
-**(#exm:filh)(Continuação)** Para $N=$ 4 e $n=$ 2, as seis amostras possíveis podem ser representadas pelas indicadoras conforme apresentado na Tabela \@ref(tab:tabvis14).
+**(#exm:filh)(Continuação)** Para $N= 4$ e $n=2$, as seis amostras possíveis podem ser representadas pelas indicadoras conforme apresentado na Tabela \@ref(tab:tabvis14).
 
 <center>
 <table>
@@ -647,7 +647,7 @@ $$
 E_p(\widehat Y_w) = Y \Leftrightarrow \displaystyle \sum_{i \in U} E_p(\delta_i) w_i y_i = \sum_{i \in U} y_i \Leftrightarrow \displaystyle \sum_{i \in U} \pi_i w_i y_i = \sum_{i \in U} y_i
 $$
 
-Esta relação só será válida para quaisquer valores populacionais $y_i$ da variável de pesquisa caso $\pi_i \times w_i =$ 1, $\,\, \forall\, i \in U$.
+Esta relação só será válida para quaisquer valores populacionais $y_i$ da variável de pesquisa caso $\pi_i \times w_i = 1, \,\, \forall\, i \in U$.
 
 Portanto a condição para que o estimador linear do total $\widehat Y_w = \displaystyle \sum_{i \in s} w_i y_i$ seja **sempre** não viciado é que os pesos amostrais das unidades selecionadas sejam iguais ao inverso das respectivas probabilidades de inclusão de primeira ordem, isto é: $w_i = {\pi_i}^{-1} = {1}/{\pi_i} = d_i,\,\,\forall\, i \in U$.
  
@@ -812,7 +812,7 @@ $V_{HT}(\overline y_R)$                                     $\displaystyle\wideh
 
 ## Exercícios 
 
-**(#exr:exevisger1)** Considere a população com $N=$ 6 domicílios listada com os respectivos valores de variáveis de interesse na Tabela \@ref(tab:tabvis16).
+**(#exr:exevisger1)** Considere a população com $N=6$ domicílios listada com os respectivos valores de variáveis de interesse na Tabela \@ref(tab:tabvis16).
 
 <center>
 <table>
@@ -820,7 +820,7 @@ $V_{HT}(\overline y_R)$                                     $\displaystyle\wideh
 </table>
 ----------
  Domicílio    Renda (R$)   Número de Moradores   Número de Trabalhadores
------------ ------------ --------------------- -------------------------
+----------- ------------ --------------------- ------------------------- -
     1	          800	             2	                       2
     
     2	        4.200	             4                         3
@@ -839,7 +839,7 @@ $V_{HT}(\overline y_R)$                                     $\displaystyle\wideh
 
 Tratar das seguintes questões:
 
-1.	Para cada variável de interesse (Renda, Número de Moradores e Número de Trabalhadores), calcule os seguintes parâmetros populacionais: total; média; e variância.
+1.	Para cada variável de interesse (Renda, Número de Moradores e Número de Trabalhadores), calcule os seguintes parâmetros populacionais: total, média e variância.
 
 2.	Liste o conjunto $S$ de todas as amostras possíveis de tamanho 2 da população, considerando apenas amostras de unidades distintas.
 
@@ -857,4 +857,4 @@ Tratar das seguintes questões:
 
 5.	Faça gráficos dos valores possíveis do estimador de total sob os dois planos amostrais para comparar as respectivas distribuições.
 
-6.	Use os resultados obtidos em 3 e 4 para comparar os dois planos amostrais e indique qual deles seria preferível usar, caso fosse necessário amostrar duas unidades distintas da população ($n=$ 2) para estimar o total da *Renda*. Justifique.
+6.	Use os resultados obtidos em 3 e 4 para comparar os dois planos amostrais e indique qual deles seria preferível usar, caso fosse necessário amostrar duas unidades distintas da população ($n=2$) para estimar o total da *Renda*. Justifique.

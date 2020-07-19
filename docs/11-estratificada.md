@@ -1,17 +1,17 @@
-# Amostragem Estratificada {#estrat}
+# Amostragem Estratificada - AE {#estrat}
 
-*Amostragem Estratificada - AE* é um processo de amostragem que usa alguma informação auxiliar relevante para dividir a população $U$ em $H$ grupos disjuntos e exaustivos, geralmente mais homogêneos em relacão à(s) variável(is) de interesse, chamados *estratos*. Em seguida, é feita a seleção de amostras dentro de cada um dos estratos, de forma independente. A amostra final é formada então pela união das amostras selecionadas em cada um dos estratos. 
+*Amostragem estratificada - AE* é um processo de amostragem que usa alguma informação auxiliar relevante para dividir a população $U$ em $H$ grupos disjuntos e exaustivos, geralmente mais homogêneos em relacão à(s) variável(is) de interesse, chamados *estratos*. Em seguida, é feita a seleção de amostras dentro de cada um dos estratos, de forma independente. A amostra final é formada então pela união das amostras selecionadas em cada um dos estratos. 
 
 Para ser viável, as *variáveis de estratificação* (aquelas usadas para dividir a população em estratos) precisam estar disponíveis para todos as unidades da população da qual se vai selecionar a amostra.
 As variáveis de estratificação podem ser geográficas, como por exemplo as unidades da federação ou municípios, ou de outros tipos, tais como sexo, idade, número de empregados na empresa, área do estabelecimento, etc. 
 
 *Amostragem estratificada* é muito empregada na prática das pesquisas por amostragem por diversas razões, a saber:
 
-1. Quando os estratos formam domínios “naturais” ou de interesse, como por exemplo regiões geográficas, tipos de empresas (farmácias, supermercados, lojas de departamentos) etc., a estratificação garante a seleção de amostras de tamanhos especificados em todos os estratos formados e, desse modo, permite controlar a precisão esperada de estimativas para subgrupos da população de pesquisa definidos como estratos ou agregações de estratos;
+1. Quando os estratos formam domínios “naturais” ou de interesse, como por exemplo regiões geográficas, tipos de empresas (farmácias, supermercados, lojas de departamentos) etc., a estratificação garante a seleção de amostras de tamanhos especificados em todos os estratos formados e, desse modo, permite controlar a precisão esperada de estimativas para subgrupos da população de pesquisa definidos como estratos ou agregações de estratos.
 
-2. Quando é necessário “espalhar” a amostra sobre toda a população, isto é, tornar a amostra “representativa” e assegurar que todas as partes (estratos) relevantes da população sejam incluídas na amostra; 
+2. Quando é necessário “espalhar” a amostra sobre toda a população, isto é, tornar a amostra “representativa” e assegurar que todas as partes (estratos) relevantes da população sejam incluídas na amostra. 
 
-3. Para melhorar a eficiência amostral, isto é, para reduzir a variância dos estimadores dos parâmetros de interesse; quanto maior for a homogeneidade dentro dos estratos, mais a estratificação permite aumentar a precisão de estimativas para o conjunto da população, em comparação com planos de igual tamanho de amostra que não usam estratificação;
+3. Para melhorar a eficiência amostral, isto é, para reduzir a variância dos estimadores dos parâmetros de interesse; quanto maior for a homogeneidade dentro dos estratos, mais a estratificação permite aumentar a precisão de estimativas para o conjunto da população, em comparação com planos de igual tamanho de amostra que não usam estratificação.
 
 4. Quando for necessário usar métodos diferentes de coleta em diferentes subgrupos da população; a estratificação favorece a administração e implementação da coleta em pesquisas onde as condições de pesquisa variam entre os estratos; por exemplo, estratos podem ser formados de modo a viabilizar o emprego de modos alternativos de coleta (presencial, telefone, internet, etc.). 
 
@@ -33,15 +33,15 @@ Na prática, não é incomum encontrar aplicações onde a estratificação usad
 
 Há diversos fatores que influenciam a eficiência na AE: 
 
-- a(s) variável(is) de estratificação; 
+- A(s) variável(is) de estratificação. 
 
-- o número de estratos; 
+- O número de estratos. 
 
-- a determinação dos limites dos estratos; 
+- A determinação dos limites dos estratos. 
 
-- a alocação da amostra nos estratos; e 
+- A alocação da amostra nos estratos. 
 
-- o método de seleção da amostra em cada estrato.
+- O método de seleção da amostra em cada estrato.
 
 Para *estratificação natural*, a escolha da(s) variável(is) de estratificação se dá considerando TODAS as variáveis disponíveis necessárias para definir os domínios de interesse que se tornam *estratos naturais* da pesquisa.
 
@@ -66,15 +66,15 @@ Selecione uma amostra $s_h$ de tamanho $n_h$, com $n_h > 0$, segundo um plano am
 
 A independência da amostragem nos diferentes estratos permite tratar cada estrato como se fosse uma população separada, para fins de seleção da amostra. Isto facilita a implementação de amostragem estratificada, que pode ser feita usando um algoritmo em quatro passos:
 
-1. Defina a estratificação da população $U$;
+1. Defina a estratificação da população $U$.
 
-2. Defina o método para selecionar a amostra em cada um dos estratos formados na população;
+2. Defina o método para selecionar a amostra em cada um dos estratos formados na população.
 
-3. Selecione a amostra de cada estrato usando o método definido no passo 2;
+3. Selecione a amostra de cada estrato usando o método definido no passo 2.
 
 4. Reúna as amostras dos vários estratos para formar a amostra que será objeto da pesquisa.
 
-A seguir, exemplos de possíveis planos de Amostragem Estratificada:
+A seguir, exemplos de possíveis planos de amostragem estratificada:
 
 **(#exm:exmest1)** Amostragem com estratos definidos por conveniência administrativa
 
@@ -91,11 +91,11 @@ Este é um tipo de planejamento muito usado em pesquisas de estabelecimentos ou 
 Esse tipo de amostragem é muito utilizado em populações onde há grande assimetria das principais variáveis de interesse. Um bom exemplo são pesquisas econômicas na área da indústria onde, muitas vezes, um número pequeno de estabelecimentos industriais é responsável por grande parte do valor da produção. Neste caso, a precisão das estimativas de totais populacionais produzidas pode ser muito melhor ao empregar AEC em comparação com AAS (por exemplo), pois como no estrato certo é feito um censo, não há variabilidade devida ao uso de amostragem nesse estrato (variância nula do total 'estimado' nesse estrato).
 
 
-## Amostragem estratificada simples - AES
+## Amostragem Estratificada Simples - AES
 
 Diferentes planos amostrais podem ser empregados nos diversos estratos, mas isso é pouco comum na prática. O mais comum é usar um mesmo tipo de amostragem nos vários estratos definidos.
 
-A *Amostragem Estratificada Simples - AES* corresponde ao caso mais simples de todos, quando uma amostra aleatória simples sem reposição - AAS é selecionada em cada um dos estratos definidos. Neste caso, deve estar disponível um cadastro que permita alocar as unidades da população $U$ nos estratos definidos, conhecer os tamanhos dos estratos, e o cadastro deve estar organizado de forma a permitir a seleção da amostra em cada um dos estratos.
+A *amostragem estratificada simples - AES* corresponde ao caso mais simples de todos, quando uma amostra aleatória simples sem reposição - AAS é selecionada em cada um dos estratos definidos. Neste caso, deve estar disponível um cadastro que permita alocar as unidades da população $U$ nos estratos definidos, conhecer os tamanhos dos estratos, e o cadastro deve estar organizado de forma a permitir a seleção da amostra em cada um dos estratos.
 
 Esta seção apresenta os resultados para AES, método que considera sorteio por AAS em cada estrato, mas o mesmo tipo de enfoque pode ser adaptado quando for utilizado qualquer outro método de seleção nos estratos, tais como *Amostragem Sistemática*, *Amostragem Binomial*, *Amostragem com PPT*, etc. Como a seleção nos diferentes estratos é feita de forma independente, basta fazer as estimativas, utilizando as fórmulas adequadas ao método de seleção utilizado em cada estrato, e depois agregar os resultados dessas estimativas de forma adequada para obter estimativas para parâmetros da população como um todo.
 
@@ -110,7 +110,7 @@ $$
 e seu tamanho é dado pelo produto dos tamanhos dos conjuntos de amostras possíveis em cada um dos estratos. Como em cada estrato usamos AAS, esses tamanhos são iguais a $\binom {N_h}{n_h}$ e portanto, em cada estrato temos:
 
 $$
-p_h(s_h) = 1 \Big/ \binom {N_h}{n_h} = \binom {N_h}{n_h}^{-1} \,\,\,,\,\, h = 1, 2, \dots, H \,\,  (\#eq:eqest1)
+p_h(s_h) = 1 \Big/ \binom {N_h}{n_h} = \binom {N_h}{n_h}^{-1} ,\,\,\, h = 1, 2, \dots, H \,\,  (\#eq:eqest1)
 $$
 
 Em consequência, o plano amostral $p_{AES}(s)$ é dado por:
@@ -129,18 +129,18 @@ Seguem as definições de alguns parâmetros populacionais de uma variável de i
 
 **Parâmetros nos estratos:**
 
-A seguir são apresentadas definições para o total $Y_h$, a média $\overline Y_h$ e a variância $S_h^2(y)$ do estrato $h$:
+A seguir são apresentadas definições para o total $Y_h$, a média $\overline {Y_h}$ e a variância $S_h^2(y)$ do estrato $h$:
 
 $$
 Y_h = \displaystyle \sum_{i \in U_h} y_{i}
 $$
 
 $$
-\overline Y_h = Y_h / N_h = \frac {1} {N_h} \displaystyle \sum_{i \in U_h} y_{i}
+\overline {Y_h} = Y_h / N_h = \frac {1} {N_h} \displaystyle \sum_{i \in U_h} y_{i}
 $$ 
 
 $$
-S_{y,h}^2 = \displaystyle \frac {1} {N_h-1} \sum_{i \in U_h}  (y_i - \overline Y_h)^2
+S_{y,h}^2 = \displaystyle \frac {1} {N_h-1} \sum_{i \in U_h}  (y_i - \overline {Y_h})^2
 $$
 
 **Parâmetros populacionais (globais):**
@@ -148,13 +148,13 @@ $$
 O total populacional é dado por: 
 
 $$
-Y = \displaystyle \sum_{h=1}^H Y_h = \displaystyle \sum_{h=1}^H N_h \overline Y_h (\#eq:eqest3)
+Y = \displaystyle \sum_{h=1}^H Y_h = \displaystyle \sum_{h=1}^H N_h \overline {Y_h} (\#eq:eqest3)
 $$
 
 A média populacional é definida como:
 
 $$
-\overline Y = Y/N = \frac {1} {N}\displaystyle \sum_{h=1}^H N_h \overline Y_h = \sum_{h=1}^H W_h\overline Y_h (\#eq:eqest4)
+\overline Y = Y/N = \frac {1} {N}\displaystyle \sum_{h=1}^H N_h \overline {Y_h} = \sum_{h=1}^H W_h\overline {Y_h} (\#eq:eqest4)
 $$
 
 onde $W_h = N_h/N$ é o *peso* da média do estrato $h$, $h=1, 2, ..., H$, na composição da média populacional global.
@@ -162,19 +162,17 @@ onde $W_h = N_h/N$ é o *peso* da média do estrato $h$, $h=1, 2, ..., H$, na co
 A variância populacional pode ser escrita como:
 
 $$
-\begin{align} 
-S_y^2 = & \displaystyle \frac {1} {N-1} \sum_{h=1}^H \sum_{i \in U_h} \left( y_i - \overline Y \right)^2 \\ 
- = & \frac {1} {N-1} \sum_{h=1}^H \sum_{i \in U_h} \left[ \left(y_i - \overline Y_h \right) + \left(\overline Y_h - \overline Y \right) \right]^2 \\ 
- = & \frac {1} {N-1} \sum_{h=1}^H (N_h - 1) S_{y,h}^2 + \frac {1} {N-1} \sum_{h=1}^{H} {N_h} \left( \overline Y_h - \overline Y \right)^2 \\ 
- = & S_D^2 + S_E^2 \end{align} \,\,\, (\#eq:eqest5)
+\begin{eqnarray} 
+S_y^2 & = & \frac {1} {N-1} \sum_{h=1}^H \sum_{i \in U_h} \left( y_i - \overline Y \right)^2 \\ 
+& = & \frac {1} {N-1} \sum_{h=1}^H \sum_{i \in U_h} \left[ \left(y_i - \overline {Y_h} \right) + \left(\overline {Y_h} - \overline Y \right) \right]^2 \\ 
+& = & \frac {1} {N-1} \sum_{h=1}^H (N_h - 1) S_{y,h}^2 + \frac {1} {N-1} \sum_{h=1}^{H} {N_h} \left( \overline {Y_h} - \overline Y \right)^2 \\ 
+ & = & S_D^2 + S_E^2 \end{eqnarray} (\#eq:eqest5)
 $$
-onde 
+onde: 
 
-$$S_D^2 = \displaystyle  \sum_{h=1}^H  \frac {N_h - 1}{N - 1} S_{y,h}^2$$ e
+$$S_D^2 = \displaystyle  \sum_{h=1}^H  \frac {N_h - 1}{N - 1} S_{y,h}^2\;\;\;\text{e}\;\;\; S_E^2 = \displaystyle \sum_{h=1}^{H} \frac {N_h}{N - 1} \left( \overline {Y_h} - \overline Y \right)^2$$
 
-$$S_E^2 = \displaystyle \sum_{h=1}^{H} \frac {N_h}{N - 1} \left( \overline Y_h - \overline Y \right)^2$$.
-
-A Expressão \@ref(eq:eqest5) mostra uma decomposição útil da variância total da variável $y$ na população, com duas componentes que são conhecidas como *Variância Dentro* e *Variância Entre* estratos, respectivamente. Como se vê na sequência, por selecionar amostras de forma independente em *todos* os estratos definidos, a *Amostragem Estratificada* elimina a componente de variação *entre* os estratos ao estimar parâmetros do conjunto da população, tais como o total ou a média. Além disso, note que para uma variância total $S_y^2$ fixada, minimizar a *Variância Dentro* $S_D^2$, mediante a definição de estratos homogêneos em relação à variável de interesse, deve permitir eliminar grande parte da variação relevante para a estimação de totais e médias populacionais. 
+A Expressão \@ref(eq:eqest5) mostra uma decomposição útil da variância total da variável $y$ na população, com duas componentes que são conhecidas como *Variância Dentro* e *Variância Entre* estratos, respectivamente. Como se vê na sequência, por selecionar amostras de forma independente em *todos* os estratos definidos, a *amostragem estratificada* elimina a componente de variação *entre* os estratos ao estimar parâmetros do conjunto da população, tais como o total ou a média. Além disso, note que para uma variância total $S_y^2$ fixada, minimizar a *Variância Dentro* $S_D^2$, mediante a definição de estratos homogêneos em relação à variável de interesse, deve permitir eliminar grande parte da variação relevante para a estimação de totais e médias populacionais. 
 
 
 ### Estimação do total e da média populacional 
@@ -202,13 +200,12 @@ $$
 Como temos AAS de $n_h$ unidades dentro do estrato $h$, são válidas as seguintes propriedades: 
 
 $$
-E_{AES} \left( \overline y_h\right) = \overline Y_h
+E_{AES} \left( \overline y_h\right) = \overline {Y_h}
 $$
 
 $$
 E_{AES} \left(\widehat Y_h \right) = Y_h
 $$ 
-e 
 
 $$
 E_{AES} \left( s_{h,y}^2 \right) = S_{h,y}^2
@@ -251,7 +248,7 @@ $$
 $$
 \overline y_{AES} = \displaystyle \sum_{h=1}^{H}W_h \overline y_h = \sum_{h=1}^{H} \frac{N_h}{N} \overline y_h \,\, (\#eq:eqest7)
 $$
-e o estimador da média $\overline Y$.
+é o estimador da média $\overline Y$.
 
 O estimador da média populacional sob AES é não viciado, isto é: 
 
@@ -261,13 +258,13 @@ $$
 
 Isto segue porque 
 $$
-E_{AES} \left (\overline y_h\right) = \overline Y_h
+E_{AES} \left (\overline y_h\right) = \overline {Y_h}
 $$ 
 
 para todo $h=1,...,H$, e 
 
 $$
-E_{AES} \left( \displaystyle \sum_{h=1}^{H} W_h \overline y_h \right) = \displaystyle \sum_{h=1}^{H} W_h E_{AES} (\overline y_h) = \sum_{h=1}^{H} W_h \overline Y_h = \overline Y
+E_{AES} \left( \displaystyle \sum_{h=1}^{H} W_h \overline y_h \right) = \displaystyle \sum_{h=1}^{H} W_h E_{AES} (\overline y_h) = \sum_{h=1}^{H} W_h \overline {Y_h} = \overline Y
 $$
 
 Devido à independência da amostragem nos estratos, a variância do estimador $\overline y_{AES}$ pode ser obtida como:
@@ -302,8 +299,8 @@ A Tabela \@ref(tab:tabestr1) apresenta um resumo da estimação dos parâmetros 
 </table>
 |Parâmetro| |Estimador não viciado|
 |:---|:---|:---|
-|$\displaystyle \overline Y = \sum_{h=1}^H \frac{N_h}{N} \overline Y_h = \displaystyle \sum_{h=1}^H W_h \overline Y_h$| |$\displaystyle \overline y_{AES} = \sum_{h=1}^{H} \frac{N_h}{N} \overline y_h = \displaystyle \sum_{h=1}^{H} W_h \overline y_h$|
-|$Y = \displaystyle \sum_{h=1}^H Y_h = \displaystyle \sum_{h=1}^H N_h \overline Y_h$| |$\widehat Y_{AES} = \displaystyle \sum_{h=1}^{H} \widehat Y_h = \sum_{h=1}^{H} N_h \overline y_h$|
+|$\displaystyle \overline Y = \sum_{h=1}^H \frac{N_h}{N} \overline {Y_h} = \displaystyle \sum_{h=1}^H W_h \overline {Y_h}$| |$\displaystyle \overline y_{AES} = \sum_{h=1}^{H} \frac{N_h}{N} \overline y_h = \displaystyle \sum_{h=1}^{H} W_h \overline y_h$|
+|$Y = \displaystyle \sum_{h=1}^H Y_h = \displaystyle \sum_{h=1}^H N_h \overline {Y_h}$| |$\widehat Y_{AES} = \displaystyle \sum_{h=1}^{H} \widehat Y_h = \sum_{h=1}^{H} N_h \overline y_h$|
 |$V_{AES} \left( \overline y_{AES} \right) = \displaystyle \sum_{h=1}^{H} W_h^2 \left( \frac{1}{n_h} - \frac{1}{N_h} \right) S_{h,y}^2$| |$\widehat V_{AES} \left( \overline y_{AES} \right) = \displaystyle \sum_{h=1}^{H} W_h^2 \left( \frac{1}{n_h} - \frac{1}{N_h} \right) s_{h,y}^2$|
 |$V_{AES} \left( \widehat Y_{AES} \right) = \displaystyle \sum_{h=1}^{H} {N_h^2} \left( \frac{1}{n_h} - \frac {1}{N_h} \right) S_{h,y}^2$| |$\widehat V_{AES} \left( \widehat Y_{AES} \right) = \displaystyle\sum_{h=1}^{H} N_h^2 \left( \frac{1}{n_h} - \frac{1}{N_h} \right) s_{h,y}^2$|
 </center>
@@ -325,13 +322,13 @@ $$
 Para médias dentro de estratos, $\overline y_h$, os tamanhos de amostras *por estratos* $n_h$ sendo suficientemente grandes, o Teorema Central do Limite indica que:
 
 $$
-\frac{\overline y_h - \overline Y_h}{\sqrt{\widehat V_{AES}\left(\overline y_h\right)}} \approx N(0;1)
+\frac{\overline y_h - \overline {Y_h}}{\sqrt{\widehat V_{AES}\left(\overline y_h\right)}} \approx N(0;1)
 $$
  
-e então um intervalo de confiança de nível $1-\alpha$ para $\overline Y_h$ é dado por:
+e então um intervalo de confiança de nível $1-\alpha$ para $\overline {Y_h}$ é dado por:
 
 $$
-IC_{AES} (\overline Y_h; 1-\alpha) = \left[ \overline y_h \mp z_{\alpha/2} \sqrt{\widehat V_{AES} \left( \overline y_h \right)} \right]
+IC_{AES} (\overline {Y_h}; 1-\alpha) = \left[ \overline y_h \mp z_{\alpha/2} \sqrt{\widehat V_{AES} \left( \overline y_h \right)} \right]
 $$
 
 
@@ -347,19 +344,19 @@ A chamada *alocação proporcional* é o método no qual o tamanho da amostra al
 
 Entre os métodos mais comuns de *alocação desproporcional* podemos citar: 
 
-- *alocação igual*: quando os tamanhos das amostras em todos os estratos são iguais a $n/H$; 
+- *Alocação igual*: quando os tamanhos das amostras em todos os estratos são iguais a $n/H$. 
 
-- *alocação de Neyman*: quando a distribuição da amostra total considera tanto os tamanhos como a variabilidade entre unidades dentro dos estratos, levando a tamanhos de amostra maiores em estratos com maior tamanho e maior variabilidade entre unidades do mesmo estrato;    
+- *Alocação de Neyman*: quando a distribuição da amostra total considera tanto os tamanhos como a variabilidade entre unidades dentro dos estratos, levando a tamanhos de amostra maiores em estratos com maior tamanho e maior variabilidade entre unidades do mesmo estrato.    
 
-- *alocação ótima*: quando a distribuição da amostra total depende do tamanho, da variabilidade e do custo de coleta de cada estrato; e
+- *Alocação ótima*: quando a distribuição da amostra total depende do tamanho, da variabilidade e do custo de coleta de cada estrato.
 
-- *alocação potência*: quando os tamanhos das amostras nos estratos são proporcionais a uma potência dos tamanhos dos estratos.
+- *Alocação potência*: quando os tamanhos das amostras nos estratos são proporcionais a uma potência dos tamanhos dos estratos.
 
 Todas estas formas de alocação estão disponíveis para aplicações, e cabe ao planejador da amostra escolher a que melhor se adapta à situação de sua pesquisa. Na sequência apresentamos com detalhes cada um dos métodos de alocação mencionados acima e, ao final, apresentamos também métodos mais modernos baseados no emprego de otimização.
 
 ### Alocação proporcional
 
-Uma amostra ‘representativa’ deveria ‘imitar’ ou se parecer bastante com a população de onde foi extraída. Uma das formas de tornar a amostra parecida com a população é assegurar que suas unidades são distribuídas nos estratos da mesma forma que na população. Por exemplo, numa população onde há 51% de mulheres e 49% de homens, as proporções na amostra deveriam ser idênticas. Esta ideia norteou algumas das abordagens inicialmente consideradas para a amostragem de populações, e deu origem, entre outros tipos de técnicas, à *amostragem por cotas*. No contexto da *amostragem probabilística*, a *Amostragem Estratificada Simples com alocação proporcional* é o plano amostral mais similar à ideia de uma amostra por cotas.
+Uma amostra ‘representativa’ deveria ‘imitar’ ou se parecer bastante com a população de onde foi extraída. Uma das formas de tornar a amostra parecida com a população é assegurar que suas unidades são distribuídas nos estratos da mesma forma que na população. Por exemplo, numa população onde há 51% de mulheres e 49% de homens, as proporções na amostra deveriam ser idênticas. Esta ideia norteou algumas das abordagens inicialmente consideradas para a amostragem de populações, e deu origem, entre outros tipos de técnicas, à *amostragem por cotas*. No contexto da *amostragem probabilística*, a *amostragem estratificada simples com alocação proporcional* é o plano amostral mais similar à ideia de uma amostra por cotas.
 
 Nesse método, as unidades populacionais são distribuídas nos estratos segundo as proporções: 
 
@@ -370,13 +367,15 @@ $$
 As proporções amostrais nos estratos são definidas como:
 
 $$
-\lambda_h = n_h/n , \,\, h = 1, \dots , H \; com \; \displaystyle \sum_{h=1}^{H} \lambda_h = 1
+\lambda_h = n_h/n , \,\, h = 1, \dots , H \; \text{com} \; \displaystyle \sum_{h=1}^{H} \lambda_h = 1
 $$.
 
-Então, o critério de *alocação proporcional* implica em tentar fazer $\lambda_h = W_h \,\,\, \forall h = 1, 2, \dots, H$. Logo:
+Então, o critério de *alocação proporcional* implica em tentar fazer $\lambda_h = W_h, \,\, \forall\, h = 1, 2, \dots, H$. 
+
+Logo:
 
 $$
-\displaystyle \frac{n_h}{n} = \frac{N_h}{N} \Rightarrow \displaystyle n_h = n \frac{N_h}{N} = n W_h, \,\,\, \forall h = 1, 2, \dots, H \,\, (\#eq:eqest13)
+\displaystyle \frac{n_h}{n} = \frac{N_h}{N} \Rightarrow \displaystyle n_h = n \frac{N_h}{N} = n W_h, \,\, \forall\, h = 1, 2, \dots, H \,\, (\#eq:eqest13)
 $$.
 
 Esta distribuição da amostra nos estratos é chamada *Alocação Proporcional*.
@@ -430,13 +429,13 @@ $$
 
 Este método de alocação foi proposto por @Neyman1934, em seu artigo seminal que introduziu as bases da amostragem probabilística, definiu a amostragem estratificada e já indicava a maneira ótima de alocar amostras nos estratos no contexto da AES. Note que, sob *alocação ótima*, uma amostra maior será selecionada num estrato $h$ sempre que:
 
-a. O estrato tiver mais unidades $(N_h$ grande);
+a. O estrato tiver mais unidades $(N_h$ grande).
 
-b. A variabilidade no estrato for maior ($S_{h,y}$ grande); e
+b. A variabilidade no estrato for maior ($S_{h,y}$ grande).
 
 c. O custo de amostragem no estrato for menor ($c_h$ pequeno).
 
-Note também que, quando $S_h = S^*$ e $c_h = c^* \,\, \forall \, h = 1, 2, \dots, H$, ambos constantes, então $n_h = n N_h / N$, isto é, a *alocação ótima* coincide com a *alocação proporcional*. Entretanto, se apenas os custos de amostragem forem constantes ao longo dos estratos, isto é, quando $c_h = c^* \, \forall \, h = 1, 2, \dots, H$, então 
+Note também que, quando $S_h = S^*$ e $c_h = c^*, \,\, \forall \, h = 1, 2, \dots, H$, ambos constantes, então $n_h = n N_h / N$, isto é, a *alocação ótima* coincide com a *alocação proporcional*. Entretanto, se apenas os custos de amostragem forem constantes ao longo dos estratos, isto é, quando $c_h = c^*, \, \forall \, h = 1, 2, \dots, H$, então: 
 
 $$
 n_h = n \times \frac {N_h S_{h,y}} {\displaystyle \sum_{k=1}^{H} N_k S_{k,y}}
@@ -454,7 +453,7 @@ Seja uma alocação $a_h$ e um valor fixado para a variância da média populaci
 $$
 V\le V_{AES} \left( \overline y_{AES} \right) = \displaystyle \sum_{h=1}^{H} W_h^2 S_{h,y}^2 \left( \frac{1}{n_h} - \frac{1}{N_h} \right) = \frac1n\sum_{h=1}^{H} \frac {W_h^2 S_{h,y}^2}{a_h} - \frac1N\sum_{h=1}^{H}{ W_h S_{h,y}^2}
 $$
-Logo,
+Logo:
 
 $$
 n \ge \frac {\sum_{h=1}^{H} \frac {W_h^2 S_{h,y}^2}{a_h}}{V+\frac1N\sum_{h=1}^{H}{ W_h S_{h,y}^2}}\;\;(\#eq:eqest19)
@@ -480,7 +479,7 @@ O segundo termo à direita corresponde à *correção de população finita*.
 
 A Expressão \@ref(eq:eqest21) é obtida pela substituição de $n_h$ na Expressão \@ref(eq:eqest8) pela expressão do $n_h$ da alocação de Neyman.
 
-As soluções aqui apresentadas para alocação ótima ou de Neyman são aproximadas, pois ignoram restrições do tipo $1 \le n_h \le N_h$ e $n_h$ inteiro $\forall \, h$. Soluções exatas para o problema de alocação devem ter em conta estas restrições e a literatura tem várias propostas. @Brito2015 oferecem uma solução exata para este problema de otimização utilizando uma formulação de *Programação Inteira Binária*. Um pacote denominado *stratbr* para o R foi desenvolvido onde esta solução está disponível - ver @Brito2019 para detalhes.
+As soluções aqui apresentadas para alocação ótima ou de Neyman são aproximadas, pois ignoram restrições do tipo $1 \le n_h \le N_h$ e $n_h$ inteiro, $\forall \, h$. Soluções exatas para o problema de alocação devem ter em conta estas restrições e a literatura tem várias propostas. @Brito2015 oferecem uma solução exata para este problema de otimização utilizando uma formulação de *Programação Inteira Binária*. Um pacote denominado *stratbr* para o R foi desenvolvido onde esta solução está disponível - ver @Brito2019 para detalhes.
 
 
 ### Comparação de alternativas de alocação da amostra
@@ -497,16 +496,16 @@ ou seja, AES com alocação de Neyman é mais eficiente que AES com alocação p
 
 Este método de alocação da amostra foi proposto por @Bankier1988 num contexto em que a alocação da amostra em *estratos naturais* tem que satisfazer simultaneamente dois objetivos distintos:
 
-- permitir estimar para a população como um todo com precisão controlada;
+- Permitir estimar para a população como um todo com precisão controlada.
 
-- permitir estimar para os estratos naturais com uma precisão controlada.
+- Permitir estimar para os estratos naturais com uma precisão controlada.
 
 A alocação proposta é dada por:
 
 $$
-n_{AESPo} = n \times \frac{ X_h^q (S_{h,y} / \overline Y_h)} {\displaystyle \sum_{k=1}^{H} X_k^q (S_{k,y} / \overline Y_k) } \,\,\, (\#eq:eqest22)
+n_{AESPo} = n \times \frac{ X_h^q (S_{h,y} / \overline {Y_h})} {\displaystyle \sum_{k=1}^{H} X_k^q (S_{k,y} / \overline Y_k) } \,\,\, (\#eq:eqest22)
 $$
-onde $X_h = \sum_{i \in U_h} x_i$ é o total de alguma variável de tamanho das unidades do estrato $h$, e $0 \le q \le 1$ é uma potência a ser escolhida pelo responsável pelo planejamento da pesquisa. As quantidades $S_{h,y} / \overline Y_h$ representam os *coeficientes de variação* da variável de interesse dentro de cada um dos estratos definidos. Em muitas aplicações práticas, os estratos são construídos tentando fazer com que estes coeficientes de variação fiquem aproximadamente iguais ao longo dos vários estratos definidos. Nesse caso, a alocação potência se resumirá à forma simplificada:
+onde $X_h = \sum_{i \in U_h} x_i$ é o total de alguma variável de tamanho das unidades do estrato $h$, e $0 \le q \le 1$ é uma potência a ser escolhida pelo responsável pelo planejamento da pesquisa. As quantidades $S_{h,y} / \overline {Y_h}$ representam os *coeficientes de variação* da variável de interesse dentro de cada um dos estratos definidos. Em muitas aplicações práticas, os estratos são construídos tentando fazer com que estes coeficientes de variação fiquem aproximadamente iguais ao longo dos vários estratos definidos. Nesse caso, a alocação potência se resumirá à forma simplificada:
 
 $$
 n_{AESPo} = n \times \frac{ X_h^q } {\displaystyle \sum_{k=1}^{H} X_k^q } \,\,\, (\#eq:eqest23)
@@ -525,47 +524,48 @@ Quando se faz $q=1$ nesta última expressão, obtem-se a *alocação proporciona
 
 A implementação de amostragem estratificada simples com alocação ótima pode apresentar dificuldades em algumas situações práticas. 
 
-1. Em geral, os valores de $S_{h,y}, h=1,...,H$, são desconhecidos.
+1. Em geral, os valores de $S_{h,y},\, h=1,...,H$, são desconhecidos.
 
-As solucões usadas na prática incluem as seguintes alternativas:
+    As solucões usadas na prática incluem as seguintes alternativas:
 
-- usar informações de uma variável auxiliar $x$, usando $S_{h,x}$ em lugar de $S_{h,y}$ na Expressão \@ref(eq:eqest20); 
+    a. Usar informações de uma variável auxiliar $x$, usando $S_{h,x}$ em lugar de $S_{h,y}$ na Expressão \@ref(eq:eqest20). 
 
-- predizer $y_i$ usando informações auxiliares $x_i$, e então estimar $S_{h,y}$ a partir dos valores preditos; 
+    b. Predizer $y_i$ usando informações auxiliares $x_i$, e então estimar $S_{h,y}$ a partir dos valores preditos. 
 
-- usar o total ou a amplitude da variável auxiliar $x$ no estrato $h$ como proxy para $S_{h,y}$;
+    c. Usar o total ou a amplitude da variável auxiliar $x$ no estrato $h$ como proxy para $S_{h,y}$.
 
-- selecionar pequena amostra piloto (preliminar) e usar dados desta amostra para estimar $S_{y,h}$.
+    d. Selecionar pequena amostra piloto (preliminar) e usar dados desta amostra para estimar $S_{y,h}$.
 
 2. Pode haver muitas variáveis de pesquisa $y$.
 
-Caso se tenha informações sobre as diversas variáveis de interesse da pesquisa para fazer alocações alternativas da amostra, isto pode ser feito usando um dos métodos de alocação descritos acima. Entretanto, tomar cada variável como guia para a alocação geralmente levaria a ter alocações ótimas diferentes. Nesses casos, os métodos mais simples buscam soluções de compromisso considerando as diversas alocações alternativas: 
+    Caso se tenha informações sobre as diversas variáveis de interesse da pesquisa para fazer alocações alternativas da amostra, isto pode ser feito usando um dos métodos de alocação descritos acima. Entretanto, tomar cada variável como guia para a alocação geralmente levaria a ter alocações ótimas diferentes. Nesses casos, os métodos mais simples buscam soluções de compromisso considerando as diversas alocações alternativas: 
 
-- usar a média das alocações alternativas em cada estrato; 
+    a. Usar a média das alocações alternativas em cada estrato. 
 
-- escolher uma ou duas variáveis principais; com duas variáveis, usar a média das alocações alternativas;
+    b. Escolher uma ou duas variáveis principais; com duas variáveis, usar a média das alocações alternativas.
 
-- construir um ‘índice’ das variáveis de pesquisa e usar este índice para definir a alocação;
+    c. Construir um ‘índice’ das variáveis de pesquisa e usar este índice para definir a alocação.
 
-- usar alocação proporcional.
+    d. Usar alocação proporcional.
 
-Todas as soluções acima são saídas simplificadoras, que na verdade não enfrentam o problema existente. 
+    Todas as soluções acima são saídas simplificadoras, que na verdade não enfrentam o problema existente. 
 @Brito2015 oferece uma abordagem para *alocação ótima multivariada*, usando formulações de programação inteira binária para obter soluções exatas do problema, que inclusive reconhecem que os tamanhos de amostra nos estratos têm que ser inteiros e limitados abaixo por 1 (ou outro valor especificado) e acima (por $N_h$). O pacote *stratbr* do R implementa duas soluções: uma delas permite minimizar o custo ou tamanho amostral para limites de precisão especificados; a outra permite minimizar uma função de variância dado um orçamento ou tamanho amostral total especificado.
 
 3. Se $n_h > N_h$ para algum estrato.
 
-Fazer $n_h = N_h$, tornando esse estrato um *estrato certo* ou *estrato censitário* para os estratos em que $n_h > N_h$. Em seguida, refazer a alocação ótima nos demais estratos, após ajustar o tamanho da amostra disponível para seleção nestes outros estratos.
+    Fazer $n_h = N_h$, tornando esse estrato um *estrato certo* ou *estrato censitário* para os estratos em que $n_h > N_h$. Em seguida, refazer a alocação ótima nos demais estratos, após ajustar o tamanho da amostra disponível para seleção nestes outros estratos.
 
 4. Se $n_h < 2$ para algum estrato.
-
-Se a estimação de variâncias for importante, então forçar $n_h \geq 2$ para todos os estratos. Na prática, costuma-se fazer $n_h \geq 5$ devido à possibilidade de ocorrência de não resposta. Para estimação sem viés do total ou média, é essencial que $n_h \geq 2$ para todos os estratos. Quando ocorrem situações de estratos com $n_h = 1$, é necessário utilizar métodos aproximados para estimação de variâncias, tais como agregação de estratos ou similares (ver @Cochran1977, seção 5A.12).
+    
+    Se a estimação de variâncias for importante, então forçar $n_h \geq 2$ para todos os estratos. Na prática, costuma-se fazer $n_h \geq 5$ devido à possibilidade de ocorrência de não resposta. Para estimação sem viés do total ou média, é essencial que $n_h \geq 2$ para todos os estratos. Quando ocorrem situações de estratos com $n_h = 1$, é necessário utilizar métodos aproximados para estimação de variâncias, tais como agregação de estratos ou similares (ver @Cochran1977, seção 5A.12).
 
 5. Ganhos de eficiência podem ser modestos, particularmente para estimação de proporções. 
 
-@Cochran1977, página 99, mostra que os ganhos de precisão possíveis dependem da relação entre a(s) variável(is) de estratificação e as variáveis de pesquisa. Em geral, os ganhos são pequenos para amostras de pessoas e variáveis ligadas a atitudes, opiniões, comportamentos, etc. Para pesquisas amostrais de estabelecimentos ou instituições, os ganhos podem ser maiores. 
+    @Cochran1977, página 99, mostra que $V_{AESN} \left( \overline y_{AES} \right) \le V_{AESP} \left( \overline y_{AES} \right) \le V_{AAS} \left( \overline y \right)$.
+    
+    Os ganhos de precisão possíveis dependem da relação entre a(s) variável(is) de estratificação e as variáveis de pesquisa. Em geral, os ganhos são pequenos para amostras de pessoas e variáveis ligadas a atitudes, opiniões, comportamentos, etc. Para pesquisas amostrais de estabelecimentos ou instituições, os ganhos podem ser maiores. 
 
-Quando os ganhos de precisão alcançados com a estratificação não são grandes, o responsável pelo planejamento da pesquisa precisa avaliar se a estratificação proposta vale a pena ou se pode ser melhorada. Caso possa ser melhorada, o trabalho de alocação deve ser refeito após a redefinição 
-
+    Quando os ganhos de precisão alcançados com a estratificação não são grandes, o responsável pelo planejamento da pesquisa precisa avaliar se a estratificação proposta vale a pena ou se pode ser melhorada. Caso possa ser melhorada, o trabalho de alocação deve ser refeito após a redefinição.
 
 ## Definição dos limites dos estratos
 
@@ -579,7 +579,7 @@ Para valores de $H \ge 3$, há uma variedade de soluções disponíveis na liter
 
 <center>
 <div class="figure">
-<img src="Figuras/numeroestratos.png" alt="Soluções sobre escolha de número de estratos" width="379" />
+<img src="Figuras/numeroestratos.png" alt="Soluções sobre escolha de número de estratos" width="100%" />
 <p class="caption">(\#fig:numeroestratos)Soluções sobre escolha de número de estratos</p>
 </div>
 </center>
@@ -593,13 +593,13 @@ Quando se trata de *estratificação estatística*, não há interesse na estima
 
 Considere as hipóteses aqui indicadas: 
 
-- $N$ é grande e $f=n/N$ é pequena; 
+- $N$ é grande e $f=n/N$ é pequena. 
 
-- o modelo $y_i = a + b x_i + \varepsilon_i$ para $i \in U$ descreve bem a relação entre a variável de pesquisa $y$ e a variável de estratificação $x$ na população; 
+- O modelo $y_i = a + b x_i + \varepsilon_i$ para $i \in U$ descreve bem a relação entre a variável de pesquisa $y$ e a variável de estratificação $x$ na população. 
 
-- é usada *delimitação ótima* dos estratos com base em $x$; e
+- É usada *delimitação ótima* dos estratos com base em $x$.
 
-- é usada *alocação igual* da amostra nos estratos ($n_h = n/H$).
+- ´É usada *alocação igual* da amostra nos estratos ($n_h = n/H$).
 
 Sob as hipóteses enumeradas, pode-se mostrar que: 
 
@@ -636,18 +636,18 @@ A análise dos resultados acima evidencia que ganhos adicionais de eficiência p
 
 ## Exercícios
 
-**(#exr:exeest1)** Mostre que a média amostral global $\overline y=\displaystyle\frac{1}{n}\displaystyle\sum_{h=1}^{H}\sum_{i \in s_h}y_{hi}$ pode ser escrita como $\overline y=\displaystyle\sum_{h=1}^{H}\frac{n_h}{n}\overline y_h\ne \sum_{h=1}^{H}\frac{N_h}{N}\overline y_h=\overline y_{AES}$, a menos que $\displaystyle\frac{n_h}{n}=\frac{N_h}{N}, \,\, \forall h=1,\dots,H$ ou seja, a menos que se adote amostragem estratificada simples proporcional ou equiponderada.
+**(#exr:exeest1)** Mostre que a média amostral global $\overline y=\displaystyle\frac{1}{n}\displaystyle\sum_{h=1}^{H}\sum_{i \in s_h}y_{hi}$ pode ser escrita como $\overline y=\displaystyle\sum_{h=1}^{H}\frac{n_h}{n}\overline y_h\ne \sum_{h=1}^{H}\frac{N_h}{N}\overline y_h=\overline y_{AES}$, a menos que $\displaystyle\frac{n_h}{n}=\frac{N_h}{N}, \,\, \forall\, h=1,\dots,H$ ou seja, a menos que se adote amostragem estratificada simples proporcional ou equiponderada.
 
 **(#exr:exeest2)** Quais são as probabilidades de inclusão de primeira e segunda ordem para unidades na população sob AES? Que valores estas probabilidades assumem em caso de um plano AES proporcional ou equiponderada?
 
 **(#exr:exeest3)** Seja uma população fictícia, de tamanho $N=6$, onde são conhecidos os valores para uma variável $y$, sendo $Y=\{2, 4, 9, 2, 10, 11\}$.
 
-a)  Selecione todas as possíveis amostra de tamanho $n=4$ usando AAS;
-b)  Calcule as estimativas da média populacional para cada uma das amostras AAS possíveis;
-c)  Calcule a variância da estimativa da média populacional com AAS;
-d)  Selecione todas as amostras possíveis de tamanho $n=4$ usando AES, estratificando a população em dois estratos formados pelas unidades onde $y_i<5$ e $y_i\ge 5$, com alocação proporcional;
-e)  Calcule as estimativas da média populacional para cada uma das amostras AES possíveis;
-f)  Calcule a variância da estimativa da média populacional com AES;
+a)  Selecione todas as possíveis amostra de tamanho $n=4$ usando AAS.
+b)  Calcule as estimativas da média populacional para cada uma das amostras AAS possíveis.
+c)  Calcule a variância da estimativa da média populacional com AAS.
+d)  Selecione todas as amostras possíveis de tamanho $n=4$ usando AES, estratificando a população em dois estratos formados pelas unidades onde $y_i<5$ e $y_i\ge 5$, com alocação proporcional.
+e)  Calcule as estimativas da média populacional para cada uma das amostras AES possíveis.
+f)  Calcule a variância da estimativa da média populacional com AES.
 g)  Compare e comente os resultados encontrados.
 
 **(#exr:exeest4)** Em uma determinada localidade formada por 500 domicílios deseja-se fazer um estudo sobre o hábito de fumar entre as pessoas maiores de 16 anos. A população foi estratificada em 2 estratos: domicílios com renda alta (estrato 1), onde foram classificados 200 domicílios; e domicílios com renda mais baixa (estrato 2), onde foram classificados os outros 300 domicílios. É conhecido que o número de pessoas com mais de 16 anos no estrato 1 é 520 e no estrato 2 é 1.230. De cada um dos estratos foi selecionada e pesquisada uma amostra aleatória simples de 5 domicílios, apresentando os resultados mostrados na Tabela \@ref(tab:tabestr3):
@@ -676,8 +676,8 @@ Estime o total de fumantes e o intervalo de 95% de confiança, entre as pessoas 
 <caption>(#tab:tabestr4)Informações da estratificação das fazendas de soja</caption>
 </table>
 ----------
-Grupo        $N_h$  $\overline Y_h$  $S^2_h$
----------- ------- ---------------- -------- 
+Grupo        $N_h$  $\overline {Y_h}$  $S^2_h$
+---------- ------- ------------------ -------- 
 Pequenas     2.400               10      100    
                                    
 Grandes        100               80    1.600   
@@ -695,11 +695,11 @@ d)  Amostragem Estratificada por Corte.
 
 <center>
 <table>
-<caption>(#tab:tabestr5)Informações cansitárias sobre a variável de interesse</caption>
+<caption>(#tab:tabestr5)Informações censitárias sobre a variável de interesse</caption>
 </table>
 ----------
- Estrato   $N_h$   $\overline Y_h$  $S^2_h(y)$
---------- ------ ----------------- -----------
+ Estrato   $N_h$  $\overline {Y_h}$  $S^2_h(y)$
+--------- ------ ------------------ -----------
     1         44             17,18       18,48
 
     2        168             20,14       24,55
@@ -819,4 +819,4 @@ Europa        68     3,24     25
 ----------
 </center>
 
-**(#exr:exeest11)** Raramente é necessário estimar a variância global $S_y^2$. Se fosse necessário, e considerando que seria usada *Amostragem Estratificada Simples*, como você faria isso? 
+**(#exr:exeest11)** Raramente é necessário estimar a variância global $S_y^2$. Se fosse necessário, e considerando que seria usada *amostragem estratificada simples*, como você faria isso? 

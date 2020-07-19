@@ -8,17 +8,17 @@ A *Amostragem Binomial ou de Bernoulli* - AB oferece uma alternativa (pouco usad
 
 ### Método de seleção da amostra
 
-As unidades aparecem na população ou no cadastro numa certa ordem, digamos igual à dos rótulos $i=1,2,...,N$. Seja $\pi$ a *fração amostral* desejada, tal que $0<\pi<1$. Seja também {$A_1, A_2, ..., A_N$} um conjunto de $N$ variáveis aleatórias *independentes* e distribuídas segundo uma distribuição Uniforme no intervalo [0;1], denotada $U[0;1]$. Associamos cada $A_i$ com a correspondente unidade $i$ da população, para todo $i \in U$.
+As unidades aparecem na população ou no cadastro numa certa ordem, digamos igual à dos rótulos $i=1,2,...,N$. Seja $\pi$ a *fração amostral* desejada, tal que $0<\pi<1$. Seja também {$A_1, A_2, ..., A_N$} um conjunto de $N$ variáveis aleatórias *independentes* e distribuídas segundo uma distribuição Uniforme no intervalo $[0;1]$, denotada $U(0;1)$. Associamos cada $A_i$ com a correspondente unidade $i$ da população, para todo $i \in U$.
 
 Então percorremos sequencialmente as unidades $U_i$ da população e são incluídas na amostra todas aquelas para as quais o valor da variável aleatória $A_i$ correspondente é tal que $A_i\le \pi$.
 
-Uma vantagem desse tipo de amostragem é a possibilidade de sua aplicação quando não se tem disponível um cadastro atualizado das unidades populacionais. Por exemplo, numa pesquisa domiciliar os domicílios são identificados sequencialmente num trajeto previamente definido e para cada um desses é selecionado um número aleatório $A_i \sim U[0,1]$. Se $A_i\le \pi$ o domicílio é selecionado e a entrevista realizada. Caso contrário passa-se para o próximo domicílio. Ao final do trajeto, quando toda a área de interesse foi percorrida, tem-se o cadastro atualizado dos domicílios e a amostra selecionada com os questionários preenchidos.
+Uma vantagem desse tipo de amostragem é a possibilidade de sua aplicação quando não se tem disponível um cadastro atualizado das unidades populacionais. Por exemplo, numa pesquisa domiciliar os domicílios são identificados sequencialmente num trajeto previamente definido e para cada um desses é selecionado um número aleatório $A_i \sim U(0;1)$. Se $A_i\le \pi$ o domicílio é selecionado e a entrevista realizada. Caso contrário passa-se para o próximo domicílio. Ao final do trajeto, quando toda a área de interesse foi percorrida, tem-se o cadastro atualizado dos domicílios e a amostra selecionada com os questionários preenchidos.
 
 ### Probabilidades de inclusão na Amostragem Binomial
 
 As probabilidades de inclusão de primeira ordem são:
 
-$\pi_i = P(i \in s) = P(A_i \le \pi) = P(U[0;1] \le \pi) = \pi$
+$\pi_i = P(i \in s) = P(A_i \le \pi) = P(U(0;1) \le \pi) = \pi$
 
 As probabilidades de inclusão de segunda ordem são:
 
@@ -213,7 +213,7 @@ P(m=k)= \frac{N_A-n+1}{N-k+1} \frac {\binom{N_A}{n-1}\binom{N-N_A}{k-n}} {\binom
 $$
 para $k=n, n+1, ..., N_A$. Uma hipótese necessária para obter essa distribuição de probabilidades é que $n < N_A$.
 
-O tamanho total da amostra $m$ mede o esforço de abordagem de unidades selecionadas. O tamanho da amostra efetiva $n$ mede o esforço adicional para obtenção das entrevistas ou medidas de interesse. Ambos são relevantes para a estimação dos custos da pesquisa. Como $n$ é pré-fixado, resta saber alguma coisa mais sobre $m$. O valor esperado e a variância desta quantidade aleatória são dados por:
+A necessidade de aplicação da *Amostragem Inversa* surge do fato de não estar disponível um cadastro apenas das unidades com determinadas características que as tornem elegíveis para a amostra. Se o mesmo estivesse disponível, bastaria selecionar as $n$ unidades necessárias para a amostra através, por exemplo, de um processo de AAS. Como o cadastro disponível contém, também, unidades não elegíveis para a amostra, é necessário selecionar $m \ge n$ unidades e investigar efetivamente as $n$ unidades com as características desejáveis. Portanto, o tamanho total da amostra, $m$, mede o esforço de abordagem e caracterização das unidades selecionadas. O tamanho da amostra efetiva, $n$, mede o esforço para obtenção das entrevistas ou medidas de interesse da pesquisa. Ambos são relevantes para a estimação dos custos totais da pesquisa. Como $n$ é pré-fixado, resta saber alguma coisa mais sobre $m$. O valor esperado e a variância desta quantidade aleatória são dados por:
 
 $$
 E_{AIS} (m)= \frac{(N+1)n}{N_A+1}(\#eq:eqinv4)
@@ -225,7 +225,7 @@ $$
 V_{AIS} (m) = \frac{(N+1)(N_A-n+1)(N-N_A)}{(N_A+1)^2 (N_A+2)}(\#eq:eqinv5)
 $$
 
-Embora um dos parâmetros da distribuição ($N_A$) seja desconhecido, as expressões acima podem ser usadas para fazer cálculos com distintos valores que permitirão ter um intervalo de variação esperado para $m$, e em consequência, para o custo esperado da etapa de abordagem das unidades selecionadas. O fato de que o esforço de abordagem da pesquisa tem tamanho variável (antes de implementar a pesquisa) é provavelmente a principal desvantagem prática da AIS. Por outro lado, o fato de que AIS vai permitir alcançar o tamanho da amostra efetiva desejado é uma vantagem grande em comparação com planos amostrais como AAS, em que o tamanho total da amostra é fixado, mas o tamanho da amostra efetiva é variável.
+Embora um dos parâmetros da distribuição, $N_A$, seja desconhecido, as expressões acima podem ser usadas para fazer cálculos com distintos valores que permitirão ter um intervalo de variação esperado para $m$, e em consequência, para o custo esperado da etapa de abordagem das unidades selecionadas. O fato de que o esforço de abordagem da pesquisa tem tamanho variável (antes de implementar a pesquisa) é provavelmente a principal desvantagem prática da AIS. Por outro lado, o fato de que AIS vai permitir alcançar o tamanho da amostra efetiva desejado é uma vantagem grande em comparação com planos amostrais como AAS, em que o tamanho total da amostra é fixado, mas o tamanho da amostra efetiva é variável.
 
 #### Estimação da média e total na AIS
 
@@ -254,8 +254,8 @@ De acordo com as definições apresentadas anteriormente, a população $U$ é d
 $$
 \displaystyle \pi_k =
 \begin{cases} 
-\frac n{N_A}, & \quad \text { se a unidade } k \in A\\\\ 
-\frac n{N_A+1}, &\quad \text{ se a unidade } k \in \overline A
+\frac n{N_A}\small, & \quad \text { se a unidade } k \in A\\\\ 
+\frac n{N_A+1}\small, &\quad \text{ se a unidade } k \in \overline A
 (\#eq:eqinv6)
 \end{cases}
 $$
@@ -264,9 +264,9 @@ As probabilidades de inclusão conjunta das unidades $k$ e $l$ na amostra são d
 $$
 \displaystyle \pi_{kl} =
 \begin{cases} 
-\frac {n(n-1)}{N_A(N_A-1)}, & \quad\text{ se as unidades } (k,l) \in A\\ 
-\frac {n(n+1)}{(N_A+1)(N_A+2)}, & \quad\text{ se as unidades } (k,l) \in \overline A\\
-\frac {n^2}{N_A(N_A+1)}, & \quad\text{ se a unidade } k\in A \text{ e } l\in \overline A
+\frac {n(n-1)}{N_A(N_A-1)}\small, & \quad\text{ se as unidades } (k,l) \in A\\ 
+\frac {n(n+1)}{(N_A+1)(N_A+2)}\small, & \quad\text{ se as unidades } (k,l) \in \overline A\\
+\frac {n^2}{N_A(N_A+1)}\small, & \quad\text{ se a unidade } k\in A \text{ e } l\in \overline A
 (\#eq:eqinv7)
 \end{cases}
 $$
@@ -278,14 +278,15 @@ $$
 A variância do estimador HT para o total na AIS pode ser calculada por:
 
 $$
-\begin{align} V_{AIS} ({\widehat Y}_{AIS/HT})& = N_A^2 \left(\frac{N_A – n}{N_A – 1}\right)\frac{\sigma_A^2}n+\frac{(N_A - r + 1) (N – N_A)}{ (N_A + 2) n}\\&\;\;\;\;\;\left[(N + 1){{\overline y}}_{\overline A} ^2+ (N_A + 1) \sigma_{\overline A}^2 \right]\end{align}(\#eq:eqinv9)
+\begin{align} V_{AIS} ({\widehat Y}_{AIS/HT})& = N_A^2 \left(\frac{N_A – n}{N_A – 1}\right)\frac{\sigma_A^2}n+\frac{(N_A - r + 1) (N – N_A)}{ (N_A + 2) n}\times\\&\;\;\;\;\times\left[(N + 1){{\overline y}}_{\overline A} ^2+ (N_A + 1) \sigma_{\overline A}^2 \right]\end{align}(\#eq:eqinv9)
 $$
 onde: $$\displaystyle {\overline y}_A=\frac1{N_A}\sum_{k\in A}y_k\text{, }\;\;{\overline y}_{\overline A}=\frac1{N-N_A}\sum_{k\in \overline A}y_k\text{,}\\ \sigma_A^2=\frac 1{N_A}\sum_{k\in A}(y_k-{\overline y}_A)^2\;\;\text{ e }\;\;\sigma_{\overline A}^2=\frac 1{N-N_A}\sum_{k\in {\overline A}}(y_k-{\overline y}_{\overline A})^2$$
 
 A variância do estimador do total pode ser estimada por:
 
 $$
-\begin{align}{\widehat V}_{AIS}({\widehat Y}_{AIS/HT})&=N_A^2\left(1-\frac n{N_A}\right)\frac {s_A^2}n+\\&+\frac{(N_A+1)(N_A-n+1)}{{n(n+1)}}\left[\sum_{k\in\overline A}y^2_k+\frac1n\left(\sum_{k\in\overline A}y_k\right)^2\right]\end{align}(\#eq:eqinv10)
+\begin{align}\hspace{-1,0cm}
+{\widehat V}_{AIS}({\widehat Y}_{AIS/HT})&=N_A^2\left(1-\frac n{N_A}\right)\frac {s_A^2}n+\\&\;\;\;+\frac{(N_A+1)(N_A-n+1)}{{n(n+1)}}\left[\sum_{k\in\overline A}y^2_k+\frac1n\left(\sum_{k\in\overline A}y_k\right)^2\right]\end{align}(\#eq:eqinv10)
 $$
 O estimador da média populacional é obtido dividindo o estimador do total por $N$, enquanto a variância do estimador da média e o estimador desta variância são obtidos dividindo as respectivas expressões por $N^2$, como se segue.
 
@@ -297,12 +298,14 @@ $$
 Sua variância é calculada pela expressão:
 
 $$
-\begin{align}V_{AIS} ({\overline y}_{AIS/HT})& =\left(\frac{N_A}N\right)^2\left(\frac{N_A–n}{N_A–1}\right)\frac{\sigma_A^2}n+\\&+\frac{(N_A-r+1)(N–N_A)}{N^2(N_A+2)n}\left[(N+1){{\overline y}}_{\overline A}^2+(N_A+1) \sigma_{\overline A}^2 \right]\end{align}(\#eq:eqinv12)
+\begin{align}\hspace{-1,0cm}
+V_{AIS} ({\overline y}_{AIS/HT})& =\left(\frac{N_A}N\right)^2\left(\frac{N_A–n}{N_A–1}\right)\frac{\sigma_A^2}n+\\&\;\;\;+\frac{(N_A-r+1)(N–N_A)}{N^2(N_A+2)n}\left[(N+1){{\overline y}}_{\overline A}^2+(N_A+1) \sigma_{\overline A}^2 \right]\end{align}(\#eq:eqinv12)
 $$
 Um estimador para a variância do estimador da média é dado pela expressão:
 
 $$
-\begin{align}{\widehat V}_{AIS}({\overline y}_{AIS/HT})& =\left(\frac{N_A}N\right)^2\left(1-\frac n{N_A}\right)\frac {s_A^2}n+\\&+\frac{(N_A+1)(N_A-n+1)}{{N^2n(n+1)}}\left[\sum_{k\in\overline A}y^2_k+\frac1n\left(\sum_{k\in\overline A}y_k\right)^2\right]\end{align}(\#eq:eqinv13)
+\begin{align}\hspace{-1,0cm}
+{\widehat V}_{AIS}({\overline y}_{AIS/HT})& =\left(\frac{N_A}N\right)^2\left(1-\frac n{N_A}\right)\frac {s_A^2}n+\\&\;\;\;+\frac{(N_A+1)(N_A-n+1)}{{N^2n(n+1)}}\left[\sum_{k\in\overline A}y^2_k+\frac1n\left(\sum_{k\in\overline A}y_k\right)^2\right]\end{align}(\#eq:eqinv13)
 $$
 
 
@@ -326,7 +329,8 @@ $$
 Um estimador não viciado para essa variância é:
 
 $$
-\begin{align}\widehat {V}({\widehat Y}_M)&=\sum_{i\in U}\sum_{(j<i)\in U}\left(\frac{P(s\mid i,j)}{P(s)}-\sum_{s\ni i,j}\frac{P(s\mid i)P(s\mid j)}{P^2(s)}\right)\\& \;\;\;\;\;\left(\frac{y_i}{p_i}-\frac{y_j}{p_j}\right)^2p_ip_j\end{align}(\#eq:eqinv16)
+\begin{align}\hspace{-1,0cm}
+\widehat {V}({\widehat Y}_M)&=\sum_{i\in U}\sum_{(j<i)\in U}\left(\frac{P(s\mid i,j)}{P(s)}-\sum_{s\ni i,j}\frac{P(s\mid i)P(s\mid j)}{P^2(s)}\right)\times\\& \;\;\times\left(\frac{y_i}{p_i}-\frac{y_j}{p_j}\right)^2p_ip_j\end{align}(\#eq:eqinv16)
 $$
 
 onde $P(s\mid i,j)$ é a probabilidade condicional de selecionar $S$ dado que as unidades $i$ e $j$ foram selecionadas, em qualquer ordem.
@@ -336,19 +340,19 @@ Para a média populacional, basta dividir o estimador do total pelo tamanho, $N$
 $$
  {\overline y}_M = \frac 1 N \sum_{i \in s} \frac {P(s \mid i)} {P(s)} y_i \,\,\,(\#eq:eqinv17)
 $$
-$$
+$$\hspace{-1,0cm}
 V({\overline y}_M)=\frac1{N^2}\sum_{i\in U}\sum_{(j<i)\in U}\left(1-\sum_{s\ni i,j}\frac{P(s\mid i)P(s\mid j)}{P(s)}\right)\left(\frac{y_i}{p_i}-\frac{y_j}{p_j}\right)^2p_ip_j(\#eq:eqinv18)
 $$
-$$
-\begin{align}\widehat {V}({\overline{y}}_M)&=\frac1{N^2}\sum_{i\in U}\sum_{(j<i)\in U}\left(\frac{P(s\mid i,j)}{P(s)}-\sum_{s\ni i,j}\frac{P(s\mid i)P(s\mid j)}{P^2(s)}\right)\\&\;\;\;\;\;\left(\frac{y_i}{p_i}-\frac{y_j}{p_j}\right)^2p_ip_j\end{align}(\#eq:eqinv19)
+$$\hspace{-2,2cm}
+\begin{align}\widehat {V}({\overline{y}}_M)&=\frac1{N^2}\sum_{i\in U}\sum_{(j<i)\in U}\left(\frac{P(s\mid i,j)}{P(s)}-\sum_{s\ni i,j}\frac{P(s\mid i)P(s\mid j)}{P^2(s)}\right)\left(\frac{y_i}{p_i}-\frac{y_j}{p_j}\right)^2p_ip_j\end{align}(\#eq:eqinv19)
 $$
 
 No caso da AIS podemos reescrever os estimadores acima da forma sugerida por @SalehiSeber2001. Seja uma variável indicadora $\delta_i$, que assume o valor $1$ se a unidade $i$ da população foi selecionada para a amostra e o valor $0$ caso contrário. No caso da AIS, sabe-se que a última unidade selecionada obrigatoriamente pertence ao subconjunto $A$ da população, como definido acima. Portanto as demais unidades da amostra podem ser alocadas de $(n-1)!$ maneiras, de forma que a amostra $s$ pode ser obtida de $m(n-1)!$ configurações distintas. Para o conjunto das unidades pertencentes à subpopulação $A$ o evento $\{\delta_i=1\}$ pode ocorrer de $(m−1)(n−2)!$ maneiras, enquanto que para as unidades pertencentes à subpopulação $\overline A$ esse mesmo evento pode ocorrer de $m(n-2)!$ formas. Sabe-se, ainda, que a seleção das unidades da amostra é feita com equiprobabilidade. Portanto: 
 
 $$
  \displaystyle\frac {P(s \mid i)} {P(s)} = 
- \begin {cases}  \frac{N(m-1)}{(n-1)m}, & \quad \text{se } i \in A \\\\
- \frac N{n-1}, & \quad \text{se } i \in \overline A 
+ \begin {cases}  \frac{N(m-1)}{(n-1)m}\small, & \quad \text{se } i \in A \\\\
+ \frac N{n-1}\small, & \quad \text{se } i \in \overline A 
  \end {cases} \,\, 
 $$
 
@@ -362,17 +366,24 @@ Cuja variância pode ser obtida obtida através da expressão \@ref(eq:eqinv15).
 Para obter uma expressão para o estimador da variância, seja $n>2$ e:
 
 $$
-\frac{P(s\mid i,j)}{P(s)}=\begin{cases}\frac{N(N-1)(n-2)}{(m-1)(m-2)n}, & \quad \text{se } i,\;j \in A \\ \\
-\frac{N(N-1)(n-1)}{(m-2)(m-1)n)}, &\quad\text{se }i\in A \text{ e } j\in\overline A\\ \\
-\frac{N(N-1)}{(m-1)(m-2)}, &\quad\text{se } i,\;j\in\overline A
+\frac{P(s\mid i,j)}{P(s)}=\begin{cases}\frac{N(N-1)(n-2)}{(m-1)(m-2)n}\small, & \quad \text{se } i,\;j \in A \\ \\
+\frac{N(N-1)(n-1)}{(m-2)(m-1)n)}\small, &\quad\text{se }i\in A \text{ e } j\in\overline A\\ \\
+\frac{N(N-1)}{(m-1)(m-2)}\small, &\quad\text{se } i,\;j\in\overline A
 \end{cases}
 $$
 Substituindo na expressão \@ref(eq:eqinv16), a expressão do estimador da variância pode ser escrita como:
 
 $$
-\begin{align}
-\widehat V_{AIS}(\widehat Y_{AIS/M}) = \frac {N}{(m-1)^2(m-2)}\left[\frac{n(n-2)(N-m+1)-N(m-2)}{n^2} \\ \sum_{i=1}^n\sum_{j<i}^n (y_i-y_j)^2 +(N-m+1)\;\;\;\;\;\;\;\;\;\;\;\;\ \\ \;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\left(\frac{n-1}{n}\sum_{i=1}^n\sum_{j=n+1}^m (y_i-y_j)^2+\sum_{i=n+1}^m\sum_{j>i}^m (y_i-y_j)^2\right)\right]
-\end{align}(\#eq:eqinv21) 
+\begin{align}\hspace{-3,0cm}
+\widehat V_{AIS}(\widehat Y_{AIS/M}) = \frac {N}{(m-1)^2(m-2)}\left[\frac{n(n-2)(N-m+1)-N(m-2)}{n^2}\times \\\times \sum_{i=1}^n\sum_{j<i}^n (y_i-y_j)^2 +(N-m+1)\times\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\ \\ \times\left(\frac{n-1}{n}\sum_{i=1}^n\sum_{j=n+1}^m (y_i-y_j)^2+\sum_{i=n+1}^m\sum_{j>i}^m (y_i-y_j)^2\right)\right]
+\\\\\end{align}(\#eq:eqinv21) 
+$$
+ou 
+
+$$
+\begin{align}\hspace{-2,0cm}
+\small{\widehat V_{AIS}(\widehat Y_{AIS/M}) = \frac{N}{(m-1)^2(m-2)}\left[\frac{n(n-2)(N-m+1)-N(m-2)}{n^2}\sum_{i=1}^n\sum_{j<i}^n (y_i-y_j)^2+\\ \;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;+(N-m+1)\left(\frac{n-1}{n}\sum_{i=1}^n\sum_{j=n+1}^m (y_i-y_j)^2+\sum_{i=n+1}^m\sum_{j>i}^m (y_i-y_j)^2\right)\right]}
+\\\\\end{align} (\#eq:eqinv21)
 $$
 
 Para obter o estimador da média populacional basta dividir a expressão do estimador do total por $N$:
@@ -383,52 +394,22 @@ $$
 O estimador da variância do estimador da média é dado pela expressão:
 
 $$
-\begin{align}\widehat V(\overline y_{AIS/M})=\frac 1{N(m-1)^2(m-2)}\left[\frac{n(n-2)(N-m+1)-N(m-2)}{n^2}\\\sum_{i=1}^n\sum_{j<i}^n (y_i-y_j)^2+(N-m+1)\;\;\;\;\;\;\;\;\;\;\;\;\;\;\\\;\;\;\;\;\;\;\;\;\;\;\;\;\;\left( \frac{n-1}{n}\sum_{i=1}^n\sum_{j=n+1}^m (y_i-y_j)^2+\sum_{i=n+1}^m\sum_{j>i}^m (y_i-y_j)^2\right)\right]\end{align}(\#eq:eqinv23)
+\begin{align}\hspace{-3,5cm}
+\widehat V_{AIS}(\overline y_{AIS/M})=\frac 1{N(m-1)^2(m-2)}\left[\frac{n(n-2)(N-m+1)-N(m-2)}{n^2}\times\\ \times\sum_{i=1}^n\sum_{j<i}^n (y_i-y_j)^2+(N-m+1)\times\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\\\times\left( \frac{n-1}{n}\sum_{i=1}^n\sum_{j=n+1}^m (y_i-y_j)^2+\sum_{i=n+1}^m\sum_{j>i}^m (y_i-y_j)^2\right)\right]\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\\\\\end{align}(\#eq:eqinv23)
 $$
+ou
 
+$$
+\begin{align}\hspace{-2,0cm}
+\small{\widehat V_{AIS}(\overline y_{AIS/M}) = \frac{1}{N(m-1)^2(m-2)}\left[\frac{n(n-2)(N-m+1)-N(m-2)}{n^2}\sum_{i=1}^n\sum_{j<i}^n (y_i-y_j)^2+\\ \;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;+(N-m+1)\left(\frac{n-1}{n}\sum_{i=1}^n\sum_{j=n+1}^m (y_i-y_j)^2+\sum_{i=n+1}^m\sum_{j>i}^m (y_i-y_j)^2\right)\right]}
+\\\\\end{align} (\#eq:eqinv23)
+$$
+A Tabela \@ref(tab:tabbin1a) resume os resultados para estimação sob AIS.
 
 <table>
 <caption>(#tab:tabbin1a)Parâmetros e respectivos estimadores sob AIS</caption>
 </table>
 **PROPOSTA 1**
-<center>
-----------
-Parâmetro                                                                                                                                                                                                                                         Estimador
-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- --------------------
-$\scriptstyle Y=\sum_{i\in U} Y_i$                                                                                                                                                                                                                  $\scriptstyle{\widehat Y}_{AIS/HT}=\frac1n  \left (N_A \sum_{k \in A} y_k +  (N_A + 1) \sum_{k∈\overline A} y_k \right)$                           
-                                                                                                                                                                                                                                                    $\scriptstyle{\widehat Y}_{AIS/M} = \frac N {n-1}\left( \frac{m-1} m\sum_{i \in A}  y_i + \sum_{i \in \overline A} y_i \right)$
-             
-$\scriptstyle\overline Y=\frac YN$                                                                                                                                                                                                                  $\scriptstyle {\overline y}_{AIS/HT}=\frac1{Nn}\left (N_A \sum_{k \in A} y_k +  (N_A + 1) \sum_{k∈\overline A} y_k \right)$                                                                                                                                                                                                                                                                                                                                         $\scriptstyle{\overline y}_{AIS/M} = \frac 1 {n-1}\left( \frac{m-1} m\sum_{i \in A}  y_i + \sum_{i \in \overline A} y_i \right)$
-               
-$\scriptstyle V_{AIS}({\widehat Y}_{AIS/HT})=N_A^2\left(\frac{N_A–n}{N_A–1}\right)\frac{\sigma_A^2}n+\frac{(N_A-r+1)(N–N_A)}{(N_A + 2)n}\left[(N+1){{\overline y}}_{\overline A}^2+(N_A+1)\sigma_{\overline A}^2 \right]$                           $\scriptstyle{\widehat V}_{AIS}({\widehat Y}_{AIS/HT})=N_A^2\left(1-\frac n{N_A}\right)\frac {s_A^2}n+\\\scriptstyle+\frac{(N_A+1)(N_A-n+1)}{{n(n+1)}}\scriptstyle\left[\sum_{k\in\overline A}y^2_k+\frac1n\left(\sum_{k\in\overline A}y_k\right)^2\right]$
-
-$\scriptstyle V_{AIS}({\widehat Y}_{AIS/M})=\sum_{i\in U}\sum_{(j<i)\in U}\left(1-\sum_{s\ni i,j}\frac{P(s\mid i)P(s\mid j)}{P(s)}\right)\left(\frac{y_i}{p_i}-\frac{y_j}{p_j}\right)^2 p_ip_j$                                                         $\scriptstyle \widehat V_{AIS}(\widehat Y_{AIS/M})=\frac {N}{(m-1)^2(m-2)}\left[\frac{n(n-2)(N-m+1)-N(m-2)}{n^2}\times\\\times\scriptstyle\sum_{i=1}^n\sum_{j<i}^n (y_i-y_j)^2 +(N-m+1)\times\\\times\scriptstyle \left(\frac{n-1}{n}\sum_{i=1}^n\sum_{j=n+1}^m (y_i-y_j)^2+\sum_{i=n+1}^m\sum_{j>i}^m (y_i-y_j)^2\right)\right]$
-
-$\scriptstyle V_{AIS}({\overline y}_{AIS/HT})=\left(\frac{N_A}N\right)^2\left(\frac{N_A–n}{N_A–1}\right)\frac{\sigma_A^2}n+\frac{(N_A-r+1)(N–N_A)}{(N_A + 2)n}\left[(N+1){{\overline y}}_{\overline A}^2+(N_A+1)\sigma_{\overline A}^2\right]$          $\scriptstyle{\widehat V}_{AIS}({\overline y}_{AIS/HT})=\left(\frac{N_A}N\right)^2\left(1-\frac n{N_A}\right)\frac {s_A^2}n+\\\scriptstyle+\frac{(N_A+1)(N_A-n+1)}{{n(n+1)}}\scriptstyle\left[\sum_{k\in\overline A}y^2_k+\frac1n\left(\sum_{k\in\overline A}y_k\right)^2\right]$
-
-$\scriptstyle V_{AIS}({\overline y}_{AIS/M})=\frac1{N^2}\sum_{i\in U}\sum_{(j<i)\in U}\left(1-\sum_{s\ni i,j}\frac{P(s\mid i)P(s\mid j)}{P(s)}\right)\left(\frac{y_i}{p_i}-\frac{y_j}{p_j}\right)^2 p_ip_j$                                             $\scriptstyle \widehat V_{AIS}(\overline y_{AIS/M})=\frac {1}{N(m-1)^2(m-2)}\left[\frac{n(n-2)(N-m+1)-N(m-2)}{n^2}\times\\\times\scriptstyle\sum_{i=1}^n\sum_{j<i}^n (y_i-y_j)^2 +(N-m+1)\times\\\times\scriptstyle \left(\frac{n-1}{n}\sum_{i=1}^n\sum_{j=n+1}^m (y_i-y_j)^2+\sum_{i=n+1}^m\sum_{j>i}^m (y_i-y_j)^2\right)\right]$
----------
-</center>
-**PROPOSTA 2**
-<center>
-----------
-Parâmetro                                     Estimador
---------------------------------------------- ------------------------------------------------------------
-$\scriptstyle Y$                              $\scriptstyle{\widehat Y}_{AIS/HT}=\frac1n\left (N_A \sum_{k \in A} y_k +  (N_A + 1) \sum_{k∈\overline A}y_k \right)\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,$                                                                                                                                                                                                                                                                                                           $\scriptstyle{\widehat Y}_{AIS/M} = \frac N {n-1}\left( \frac{m-1} m\sum_{i \in A}  y_i + \sum_{i \in \overline A} y_i \right)\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,$
-
-$\scriptstyle\overline Y$                     $\scriptstyle {\overline y}_{AIS/HT}=\frac1{Nn}\left (N_A \sum_{k \in A} y_k +  (N_A + 1) \sum_{k∈\overline A} y_k \right)\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,$                                         
-                                              $\scriptstyle{\overline y}_{AIS/M} = \frac 1 {n-1}\left( \frac{m-1} m\sum_{i \in A}  y_i + \sum_{i \in \overline A} y_i \right)$
-               
-$\scriptstyle V_{AIS}(\widehat Y_{AIS/HT})$   $\scriptstyle{\widehat V}_{AIS}({\widehat Y}_{AIS/HT})=N_A^2\left(1-\frac n{N_A}\right)\frac {s_A^2}n+\frac{(N_A+1)(N_A-n+1)}{{n(n+1)}}\left[\sum_{k\in\overline A}y^2_k+\frac1n \left(\sum_{k\in\overline A}y_k\right)^2\right]$
-
-$\scriptstyle V_{AIS}(\widehat Y_{AIS/M})$    $\scriptstyle \widehat V_{AIS}(\widehat Y_{AIS/M})=\frac {N}{(m-1)^2(m-2)}\left[\frac{n(n-2)(N-m+1)-N(m-2)}{n^2}\sum_{i=1}^n\sum_{j<i}^n (y_i-y_j)^2 +(N-m+1)\times\\\times\scriptstyle \left(\frac{n-1}{n}\sum_{i=1}^n\sum_{j=n+1}^m (y_i-y_j)^2+\sum_{i=n+1}^m\sum_{j>i}^m (y_i-y_j)^2\right)\right]$
-
-$\scriptstyle V_{AIS}(\overline y_{AIS/HT})$  $\scriptstyle{\widehat V}_{AIS}({\overline y}_{AIS/HT})=\left(\frac{N_A}N\right)^2\left(1-\frac n{N_A}\right)\frac {s_A^2}n+ \frac{(N_A+1)(N_A-n+1)}{{n(n+1)}} \left[\sum_{k\in\overline A}y^2_k+ \frac1n\left(\sum_{k\in\overline A}y_k\right)^2\right]$
-
-$\scriptstyle V_{AIS}(\overline y_{AIS/M})$   $\scriptstyle \widehat V_{AIS}(\overline y_{AIS/M})=\frac {1}{N(m-1)^2(m-2)}\left[\frac{n(n-2)(N-m+1)-N(m-2)}{n^2}\sum_{i=1}^n\sum_{j<i}^n (y_i-y_j)^2 +(N-m+1)\times\\\times\scriptstyle \left(\frac{n-1}{n}\sum_{i=1}^n\sum_{j=n+1}^m (y_i-y_j)^2+\sum_{i=n+1}^m\sum_{j>i}^m (y_i-y_j)^2\right)\right]$
----------
-</center>
-**PROPOSTA 3**
 <center>
 ----------
 Parâmetro                                        Estimador
@@ -439,16 +420,37 @@ $\displaystyle Y$                                $\displaystyle{\widehat Y}_{AIS
 $\displaystyle\overline Y$                       $\displaystyle {\overline y}_{AIS/HT}=\frac1{Nn}\left (N_A \sum_{k \in A} y_k +  (N_A + 1) \sum_{k∈\overline A} y_k \right)$                           
                                                  $\displaystyle{\overline y}_{AIS/M} = \frac 1 {n-1}\left( \frac{m-1} m\sum_{i \in A}  y_i + \sum_{i \in \overline A} y_i \right)$
                
-$\displaystyle V_{AIS}({\widehat Y}_{AIS/HT})$   $\displaystyle{\widehat V}_{AIS}({\widehat Y}_{AIS/HT})=N_A^2\left(1-\frac n{N_A}\right)\frac {s_A^2}n+\\\displaystyle+\frac{(N_A+1)(N_A-n+1)} {{n(n+1)}} \displaystyle\left[\sum_{k\in\overline A}y^2_k+\frac1n\left(\sum_{k\in\overline A}y_k\right)^2\right]$
+$\displaystyle V_{AIS}({\widehat Y}_{AIS/HT})$   $\displaystyle{\widehat V}_{AIS}({\widehat Y}_{AIS/HT})=N_A^2\left(1-\frac n{N_A}\right)\frac {s_A^2}n+\\\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\displaystyle+\frac{(N_A+1)(N_A-n+1)} {{n(n+1)}} \displaystyle\left[\sum_{k\in\overline A}y^2_k+\frac1n\left(\sum_{k\in\overline A}y_k\right)^2\right]$
 
-$\displaystyle V_{AIS}({\widehat Y}_{AIS/M})$    $\displaystyle \widehat V_{AIS}(\widehat Y_{AIS/M})=\frac {N}{(m-1)^2(m-2)}\left[\frac{n(n-2)(N-m+1)-N(m-2)}{n^2}\times\\\times\displaystyle\sum_{i=1}^n\sum_{j<i}^n (y_i-y_j)^2 +(N-m+1)\times\\\times\displaystyle \left(\frac{n-1}{n}\sum_{i=1}^n\sum_{j=n+1}^m (y_i-y_j)^2+\sum_{i=n+1}^m\sum_{j>i}^m (y_i-y_j)^2\right)\right]$
+$\displaystyle V_{AIS}({\widehat Y}_{AIS/M})$    $\displaystyle \widehat V_{AIS}(\widehat Y_{AIS/M})=\frac {N}{(m-1)^2(m-2)}\left[\frac{n(n-2)(N-m+1)-N(m-2)}{n^2}\times\\\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\times\displaystyle\sum_{i=1}^n\sum_{j<i}^n (y_i-y_j)^2 +(N-m+1)\times\\\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\times\displaystyle \left(\frac{n-1}{n}\sum_{i=1}^n\sum_{j=n+1}^m (y_i-y_j)^2+\sum_{i=n+1}^m\sum_{j>i}^m (y_i-y_j)^2\right)\right]$
 
-$\displaystyle V_{AIS}({\overline y}_{AIS/HT})$  $\displaystyle{\widehat V}_{AIS}({\overline y}_{AIS/HT})=\left(\frac{N_A}N\right)^2\left(1-\frac n{N_A}\right)\frac {s_A^2}n+\\\displaystyle+ \frac{(N_A+1)(N_A-n+1)} {{n(n+1)}} \displaystyle\left[\sum_{k\in\overline A}y^2_k+\frac1n\left(\sum_{k\in\overline A}y_k\right)^2\right]$
+$\displaystyle V_{AIS}({\overline y}_{AIS/HT})$  $\displaystyle{\widehat V}_{AIS}({\overline y}_{AIS/HT})=\left(\frac{N_A}N\right)^2\left(1-\frac n{N_A}\right)\frac {s_A^2}n+\\\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\displaystyle+ \frac{(N_A+1)(N_A-n+1)} {{n(n+1)}} \displaystyle\left[\sum_{k\in\overline A}y^2_k+\frac1n\left(\sum_{k\in\overline A}y_k\right)^2\right]$
 
-$\displaystyle V_{AIS}({\overline y}_{AIS/M})$   $\displaystyle \widehat V_{AIS}(\overline y_{AIS/M})=\frac {1}{N(m-1)^2(m-2)}\left[\frac{n(n-2)(N-m+1)-N(m-2)}{n^2}\times\\\times\displaystyle\sum_{i=1}^n\sum_{j<i}^n (y_i-y_j)^2 +(N-m+1)\times\\\times\displaystyle \left(\frac{n-1}{n}\sum_{i=1}^n\sum_{j=n+1}^m (y_i-y_j)^2+\sum_{i=n+1}^m\sum_{j>i}^m (y_i-y_j)^2\right)\right]$
+$\displaystyle V_{AIS}({\overline y}_{AIS/M})$   $\displaystyle \widehat V_{AIS}(\overline y_{AIS/M})=\frac {1}{N(m-1)^2(m-2)}\left[\frac{n(n-2)(N-m+1)-N(m-2)}{n^2}\times\\\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\times\displaystyle\sum_{i=1}^n\sum_{j<i}^n (y_i-y_j)^2 +(N-m+1)\times\\\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\times\displaystyle \left(\frac{n-1}{n}\sum_{i=1}^n\sum_{j=n+1}^m (y_i-y_j)^2+\sum_{i=n+1}^m\sum_{j>i}^m (y_i-y_j)^2\right)\right]$
 ---------
 </center>
 
+
+**PROPOSTA 2** (uso do barra small)
+<center>
+----------
+Parâmetro                                            Estimador
+------------------------------------------------     --------------------
+$\small\displaystyle Y$                              $\small\displaystyle{\widehat Y}_{AIS/HT}=\frac1n  \left (N_A \sum_{k \in A} y_k +  (N_A + 1) \sum_{k∈\overline A} y_k \right)$                           
+                                                     $\small\displaystyle{\widehat Y}_{AIS/M} = \frac N {n-1}\left( \frac{m-1} m\sum_{i \in A}  y_i + \sum_{i \in \overline A} y_i \right)$
+             
+$\small\displaystyle\overline Y$                     $\small\displaystyle {\overline y}_{AIS/HT}=\frac1{Nn}\left (N_A \sum_{k \in A} y_k +  (N_A + 1) \sum_{k∈\overline A} y_k \right)$                           
+                                                     $\small\displaystyle{\overline y}_{AIS/M} = \frac 1 {n-1}\left( \frac{m-1} m\sum_{i \in A}  y_i + \sum_{i \in \overline A} y_i \right)$
+               
+$\small\displaystyle V_{AIS}({\widehat Y}_{AIS/HT})$ $\small\displaystyle{\widehat V}_{AIS}({\widehat Y}_{AIS/HT})=N_A^2\left(1-\frac n{N_A}\right)\frac {s_A^2}n+\\\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\small\displaystyle+\frac{(N_A+1)(N_A-n+1)} {{n(n+1)}} \displaystyle\left[\sum_{k\in\overline A}y^2_k+\frac1n\left(\sum_{k\in\overline A}y_k\right)^2\right]$
+
+$\small\displaystyle V_{AIS}({\widehat Y}_{AIS/M})$   $\small\displaystyle \widehat V_{AIS}(\widehat Y_{AIS/M})=\frac {N}{(m-1)^2(m-2)}\left[\frac{n(n-2)(N-m+1)-N(m-2)}{n^2}\times\\\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\times\displaystyle\sum_{i=1}^n\sum_{j<i}^n (y_i-y_j)^2 +(N-m+1)\times\\\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\times\displaystyle \left(\frac{n-1}{n}\sum_{i=1}^n\sum_{j=n+1}^m (y_i-y_j)^2+\sum_{i=n+1}^m\sum_{j>i}^m (y_i-y_j)^2\right)\right]$
+
+$\small\displaystyle V_{AIS}({\overline y}_{AIS/HT})$  $\small\displaystyle{\widehat V}_{AIS}({\overline y}_{AIS/HT})=\left(\frac{N_A}N\right)^2\left(1-\frac n{N_A}\right)\frac {s_A^2}n+\\\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\small\displaystyle+ \frac{(N_A+1)(N_A-n+1)} {{n(n+1)}} \displaystyle\left[\sum_{k\in\overline A}y^2_k+\frac1n\left(\sum_{k\in\overline A}y_k\right)^2\right]$
+
+$\small\displaystyle V_{AIS}({\overline y}_{AIS/M})$   $\small\displaystyle \widehat V_{AIS}(\overline y_{AIS/M})=\frac {1}{N(m-1)^2(m-2)}\left[\frac{n(n-2)(N-m+1)-N(m-2)}{n^2}\times\\\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\times\displaystyle\sum_{i=1}^n\sum_{j<i}^n (y_i-y_j)^2 +(N-m+1)\times\\\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\times\displaystyle \left(\frac{n-1}{n}\sum_{i=1}^n\sum_{j=n+1}^m (y_i-y_j)^2+\sum_{i=n+1}^m\sum_{j>i}^m (y_i-y_j)^2\right)\right]$
+---------
+</center>
 
 ### Exemplos de aplicação da amostragem inversa
 
@@ -464,8 +466,8 @@ A AIS, ao contrário, é guiada por procedimentos estritos de amostragem probabi
 
 **(#exr:exerbin1)** Suponha que você deseja selecionar uma amostra de Bernoulli de uma população para estimar o total de uma variável de interesse, $y$,  com um $CV$ de 10% para o estimador utilizado. Sabe-se que o total de $y$ num censo anterior é de aproximadamente 1,81E6 e a soma dos quadrados dos valores de $y$ é 1,69E11. Calcule o tamanho esperado da amostra para:
 
-a)  Estimar o total utilizando o estimador não viciado de Horvitz-Thompson;    
-b)  Estimar o total utilizando o estimador alternativo;
+a)  Estimar o total utilizando o estimador não viciado de Horvitz-Thompson.    
+b)  Estimar o total utilizando o estimador alternativo.
 c)  E se a amostra selecionada for uma AAS?
 
 **(#exr:exerbin2)** Uma amostra de Bernoulli, com $\pi = 0,1$, foi selecionada de uma população para estimar os totais de duas variáveis de interesse, $y$ e $x$. A Tabela \@ref(tab:tabbin2) mostra os resultados das observações da amostra.
@@ -483,9 +485,9 @@ x                  4.178             878.452
 ----------
 </center>
 
-a)  Estime os totais populacionais;
-b)  Estime as variâncias dos estimadores;
-c)  Estime os coeficientes de variação dos estimadores;
+a)  Estime os totais populacionais.
+b)  Estime as variâncias dos estimadores.
+c)  Estime os coeficientes de variação dos estimadores.
 d)  Comente os resultados.
 
 **(#exr:exerbin3)** Seja a população de $N=30$ unidades populacionais, cujos valores da variável de interesse, $y$, são apresentados na Tabela \@ref(tab:tabbin3).
@@ -516,28 +518,28 @@ d)  Comente os resultados.
 Caso não fossem conhecidos os valores da variável representada na tabela, qual seria a melhor alternativa para estimar o total populacional?    
 (Em cada caso calcule a variância do estimador do total populacional para justificar sua resposta.)
 
-a)  Uma amostra sistemática com $k=5$?
+a)  Uma amostra sistemática com $K=5$?
 b)  Uma AAS de tamanho $n=6$?
 c)  Uma amostra de Bernoulli com $\pi=0,2$?
   
-**(#exr:exerbin4)** Acesse <https://www.ibge.gov.br/estatisticas/sociais/populacao/9662-censo-demografico-2010.html?=&t=downloads>, que é uma área de _**Downloads**_ do *site* do IBGE. Busque na área referente ao Censo 2010 e, em *resultados*, o arquivo *total_populacao_minas_gerais.zip*. Esse arquivo é uma planilha contendo os resultados para os totais populacionais de cada um dos municípios de Minas Gerais. Selecione uma amostra Binomial dos municípios, com $\pi=0,10$, e calcule:
+**(#exr:exerbin4)** Acesse <https://www.ibge.gov.br/estatisticas/sociais/populacao/9662-censo-demografico-2010.html?=&t=downloads>, que é uma área de _**Downloads**_ do *site* do IBGE. Busque na área referente ao Censo 2010 e, em *resultados*, o arquivo 'total_populacao_minas_gerais.zip'. Esse arquivo é uma planilha contendo os resultados para os totais populacionais de cada um dos municípios de Minas Gerais. Selecione uma amostra Binomial dos municípios, com $\pi=0,10$, e calcule:
 
-a)  A estimativa do total populacional para Minas Gerais em 2010, baseada na amostra selecionada;
-b)  Construa o $IC_{95\%}$ para a estimativa;
-c)  Repita os itens a. e b., supondo que a amostra foi selecionada utilizando AAS;
-d)  Compare os resultados com o valor verdadeiro do total populacional de Minas Gerais no Censo 2010;
+a)  A estimativa do total populacional para Minas Gerais em 2010, baseada na amostra selecionada.
+b)  Construa o $IC_{95\%}$ para a estimativa.
+c)  Repita os itens a e b, supondo que a amostra foi selecionada utilizando AAS.
+d)  Compare os resultados com o valor verdadeiro do total populacional de Minas Gerais no Censo 2010.
 e)  Comente  os resultados.
 
 **(#exr:exerbin5)** Uma lista com 10.875 denúncias, contra uma determinada entidade, foi enviada a um analista para que fossem avaliadas. Sabendo que nem todas as denúncias seriam procedentes, o analista resolveu selecionar uma amostra dos processos para estimar o total das denúncias procedentes, seguindo os seguintes passos:
 
-  * Para cada denúncia foi gerado um número aleatório com distribuição $U(0,1)$;
-  * A lista foi ordenada em ordem crescente dos aleatórios gerados;
+  * Para cada denúncia foi gerado um número aleatório com distribuição $U(0;1)$.
+  * A lista foi ordenada em ordem crescente dos aleatórios gerados.
   * Foram incluídas na amostra as denúncias em que o aleatório correspondente foi menor que 0,01.
   
 Verifique quais das afirmações seguintes são verdadeiras ou falsas, justificando sua resposta em cada caso:
 
-a)  O analista utilizou uma AAS;
-b)  O método utilizado é de equiprobabilidade para toda a população;
-c)  Sabendo que na amostra foram observadas 85 denúncias procedentes, a estimativa do total de procedentes na população é 8.500;
-d)  Uma estimativa não viciada para a variância da estimativa do total é 840;
+a)  O analista utilizou uma AAS.
+b)  O método utilizado é de equiprobabilidade para toda a população.
+c)  Sabendo que na amostra foram observadas 85 denúncias procedentes, a estimativa do total de procedentes na população é 8.500.
+d)  Uma estimativa não viciada para a variância da estimativa do total é 840.
 e)  O tamanho da amostra é fixo, com $n = 108$.

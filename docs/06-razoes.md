@@ -18,7 +18,7 @@ Alguns exemplos de razões de interesse incluem:
 
 - A densidade de pessoas por dormitório em domicílios particulares, definida como a razão entre o número de pessoas residentes em domicílios particulares e o número total de dormitórios em domicílios particulares.
 
-No caso da razão entre o total dos gastos com transporte ($y$) e o total da renda das famílias ($x$), a razão fica definida como:
+No caso da razão entre o total dos gastos com transporte $(y)$ e o total da renda das famílias $(x)$, a razão fica definida como:
 
 \begin{equation}
 \frac{\textrm {Total dos gastos com transporte}}{\textrm{Total da renda}} = \frac{\sum_{i\in U}y_i}{\sum_{i\in U}x_i}=\frac{Y}{X} = R 
@@ -100,7 +100,7 @@ Um exemplo simples de função linear é a *diferença* entre dois totais popula
  D = \sum_{i\in U} y_{2i} - \sum_{i\in U} y_{1i} = Y_2 - Y_1
 \end{equation}
 
-Nesse caso, temos uma situação envolvendo $K=$ 2 totais populacionais, com $a_1 =$ 1 e $a_2 =$ -1. 
+Nesse caso, temos uma situação envolvendo $K=2$ totais populacionais, com $a_1 = 1$ e $a_2 = -1$. 
 
 Outro exemplo de parâmetro que pode ser escrito como função de totais é o caso da *função de distribuição cumulativa* num ponto, dada por:
 
@@ -108,7 +108,7 @@ Outro exemplo de parâmetro que pode ser escrito como função de totais é o ca
  F_y(a) = \displaystyle \frac{1}{N} \sum_{i\in U} I(y_i \le a) \quad
 \end{equation}
 
-Nesse caso, a situação envolve apenas dois totais populacionais ($K=$ 2), sendo a primeira definida como $y_{1i} \equiv I(y_i \le a)$ e a segunda $y_{2i} \equiv$ 1, e a função definida como $f(Y_1, Y_2) = Y_1 / Y_2$.
+Nesse caso, a situação envolve apenas dois totais populacionais $(K=2)$, sendo a primeira definida como $y_{1i} = I(y_i \le a)$ e a segunda $y_{2i} = 1$, e a função definida como $f(Y_1, Y_2) = Y_1 / Y_2$.
 
 A *variância* de uma variável de pesquisa $y$, dada por
 
@@ -116,7 +116,7 @@ A *variância* de uma variável de pesquisa $y$, dada por
  S^2_y = \frac{1}{N-1} \left[ \sum_{i\in U} {y_i}^2 - N \overline{Y}^2 \right] = \frac{1}{N-1} \left[ \sum_{i\in U} {y_i}^2 -  {Y}^2/N \right]
 \end{equation}
 
-também pode ser vista como uma função envolvendo três totais populacionais ($K=$ 3), sendo o primeiro definido como total da variável $y_{1i} \equiv y_i^2$, a segunda $y_{2i} \equiv y_i$ e a terceira como $y_{3i} \equiv$ 1. A função que retorna a variância $S^2_y$ é definida como 
+também pode ser vista como uma função envolvendo três totais populacionais $(K=3)$, sendo o primeiro definido como total da variável $y_{1i} = y_i^2$, a segunda $y_{2i} = y_i$ e a terceira como $y_{3i} = 1$. A função que retorna a variância $S^2_y$ é definida como 
 $f(Y_1, Y_2, Y_3) = \frac {1} {Y_3 - 1} \left[ Y_1 - (Y_2^2/Y_3) \right]$.
 
 De maneira similar, a *covariância* e a *correlação* das variáveis $y$ e $z$ podem ser definidas como:
@@ -131,7 +131,7 @@ e
 {\rho}_{y , z} = \frac{S_{y , z}} {S_{y} S_{z}}
 \end{equation}
 
-A covariância pode ser vista como uma função envolvendo quatro totais populacionais ($K=$ 4), sendo o primeiro definido como o total $Y_1$ da variável $y_{1i} \equiv y$, o segundo o total $Y_2$ da variável $y_{2i} \equiv z$, o terceiro o total da variável definida como $y_{3i} \equiv y_{i} z_{i}$ e o quarto o total da variável definida como $y_{4i} \equiv$ 1. Por simplicidade, a função que define a correlação foi definida em função da covariância e dos desvios-padrão das duas variáveis de interesse, mas também poderia ser escrita como função de totais como já ilustrado nos demais casos.
+A covariância pode ser vista como uma função envolvendo quatro totais populacionais $(K=4)$, sendo o primeiro definido como o total $Y_1$ da variável $y_{1i} = y$, o segundo o total $Y_2$ da variável $y_{2i} = z$, o terceiro o total da variável definida como $y_{3i} = y_{i} z_{i}$ e o quarto o total da variável definida como $y_{4i} = 1$. Por simplicidade, a função que define a correlação foi definida em função da covariância e dos desvios-padrão das duas variáveis de interesse, mas também poderia ser escrita como função de totais como já ilustrado nos demais casos.
 
 O ponto importante a destacar nesta seção é o fato de que muitos parâmetros de interesse podem ser vistos como funções de totais populacionais, e com isso, podem também ser estimados aplicando as funções que definem os parâmetros a estimadores dos totais correspondentes. Isto corresponde essencialmente a uma espécie de *método dos momentos* para estimar parâmetros populacionais, onde cada total populacional desconhecido é substituído na expressão do parâmetro por um estimador amostral não viciado do total correspondente.
 
@@ -150,7 +150,7 @@ Para estimar *razões de totais* (ou médias) como $R$, o estimador “natural�
 
 1. Tanto o numerador como o denominador do estimador $\widehat{R}$ da razão $R$ podem variar com a amostra selecionada, $s$.
 
-2. Apesar de termos estimadores não viciados para os totais populacionais $\widehat{Y}_{HT}$ e $\widehat{X}_{HT}$, em geral,  $E(Z/W) \ne E(Z)E(W)$, e portanto 
+2. Apesar de termos estimadores não viciados para os totais populacionais $\widehat{Y}_{HT}$ e $\widehat{X}_{HT}$, em geral,  $E(Z/W) \ne E(Z)E(W)$, e portanto: 
 $$
 E(\widehat{R}) = E(\widehat{Y}_{HT}/ \widehat{X}_{HT}) \ne E(\widehat{Y}_{HT})/E(\widehat{X}_{HT})= {Y} / {X} = R
 $$
@@ -291,7 +291,7 @@ Como $\widehat{R}$ tem um pequeno vício técnico, a avaliação de sua precisã
 
 já que o termo $\left[ B_p( \widehat{R} ) \right]^2$ fica menor que 1% da variância $V_p(\widehat{R})$ sempre que $CV_p(\widehat{X}) \le 0,1$.
 
-Usando ainda o resultado da seção \@ref(estoft) quanto à linearização de estimadores que podem ser escritos como funções não lineares de totais, segue-se que podemos aproximar a variância do estimador $\widehat{R}$ pela variância do estimador linearizado, onde a razão depende dos totais populacionais de duas variáveis ($K=$ 2), sendo o primeira definida como $y_{1i} \equiv y_i$ e a segunda $y_{2i} \equiv x_i$, com a função definida como $f(Y_1, Y_2) = Y_1 / Y_2$. 
+Usando ainda o resultado da seção \@ref(estoft) quanto à linearização de estimadores que podem ser escritos como funções não lineares de totais, segue-se que podemos aproximar a variância do estimador $\widehat{R}$ pela variância do estimador linearizado, onde a razão depende dos totais populacionais de duas variáveis $(K=2)$, sendo o primeira definida como $y_{1i} = y_i$ e a segunda $y_{2i} = x_i$, com a função definida como $f(Y_1, Y_2) = Y_1 / Y_2$. 
 
 Nesse caso, a variável linearizada $z_i$ pode ser obtida notando que:
 
@@ -354,7 +354,7 @@ $V_{AAS}(\widehat{R})$                                           $\widehat{V}_{A
 
 Considere a população de municípios brasileiros fornecida no arquivo 'MunicBR_dat.rds'.
 
-1.	Selecione uma AAS de $n =$ 200 municípios, e use esta amostra para estimar os seguintes parâmetros populacionais:
+1.	Selecione uma AAS de $n = 200$ municípios, e use esta amostra para estimar os seguintes parâmetros populacionais:
 
     a. Densidade demográfica média por km<sup>2</sup> no Brasil.
 
@@ -383,18 +383,18 @@ library(tidyverse)
 ```
 
 ```
-## -- Attaching packages -------------------------------------------------------------------- tidyverse 1.2.1 --
+## -- Attaching packages ------------------------------------------------ tidyverse 1.3.0 --
 ```
 
 ```
-## v ggplot2 3.1.1       v purrr   0.3.2  
-## v tibble  2.1.1       v dplyr   0.8.0.1
-## v tidyr   0.8.3       v stringr 1.4.0  
-## v readr   1.3.1       v forcats 0.4.0
+## v ggplot2 3.3.2     v purrr   0.3.4
+## v tibble  3.0.1     v dplyr   1.0.0
+## v tidyr   1.1.0     v stringr 1.4.0
+## v readr   1.3.1     v forcats 0.5.0
 ```
 
 ```
-## -- Conflicts ----------------------------------------------------------------------- tidyverse_conflicts() --
+## -- Conflicts --------------------------------------------------- tidyverse_conflicts() --
 ## x dplyr::filter() masks stats::filter()
 ## x dplyr::lag()    masks stats::lag()
 ```
@@ -406,13 +406,13 @@ str(MunicBR_dat)
 ```
 
 ```
-## Classes 'tbl_df', 'tbl' and 'data.frame':	5570 obs. of  6 variables:
-##  $ CodMunic : chr  "1100015" "1100023" "1100031" "1100049" ...
-##  $ SiglaUF  : chr  "RO" "RO" "RO" "RO" ...
-##  $ CodUF    : chr  "11" "11" "11" "11" ...
-##  $ Pop      : num  25728 101269 6495 85863 18041 ...
-##  $ Area     : num  7067 4427 1314 3793 2783 ...
-##  $ Densidade: num  3.64 22.88 4.94 22.64 6.48 ...
+## tibble [5,570 x 6] (S3: tbl_df/tbl/data.frame)
+##  $ CodMunic : chr [1:5570] "1100015" "1100023" "1100031" "1100049" ...
+##  $ SiglaUF  : chr [1:5570] "RO" "RO" "RO" "RO" ...
+##  $ CodUF    : chr [1:5570] "11" "11" "11" "11" ...
+##  $ Pop      : num [1:5570] 25728 101269 6495 85863 18041 ...
+##  $ Area     : num [1:5570] 7067 4427 1314 3793 2783 ...
+##  $ Densidade: num [1:5570] 3.64 22.88 4.94 22.64 6.48 ...
 ```
 
 ```r
@@ -445,13 +445,13 @@ str(munic_amo)
 
 ```
 ## 'data.frame':	200 obs. of  7 variables:
-##  $ ID_unit  : int  4 57 137 234 253 254 332 416 496 513 ...
-##  $ CodMunic : chr  "1100049" "1200179" "1400027" "1505205" ...
-##  $ SiglaUF  : chr  "RO" "AC" "RR" "PA" ...
-##  $ CodUF    : chr  "11" "12" "14" "15" ...
-##  $ Pop      : num  85863 9836 10432 30088 17774 ...
-##  $ Area     : num  3793 1703 28472 3852 4115 ...
-##  $ Densidade: num  22.638 5.777 0.366 7.81 4.32 ...
+##  $ ID_unit  : int  41 151 166 185 195 217 277 279 294 316 ...
+##  $ CodMunic : chr  "1101435" "1400704" "1501105" "1502202" ...
+##  $ SiglaUF  : chr  "RO" "RR" "PA" "PA" ...
+##  $ CodUF    : chr  "11" "14" "15" "15" ...
+##  $ Pop      : num  7883 9127 26666 65498 13097 ...
+##  $ Area     : num  807 8066 4397 615 1431 ...
+##  $ Densidade: num  9.77 1.13 6.06 106.55 9.15 ...
 ```
 
 ```r
@@ -466,7 +466,7 @@ str(munic_amo)
 
 ```
 ##      Densm
-## 1 34.74338
+## 1 24.88523
 ```
 
 ```r
@@ -477,7 +477,7 @@ str(munic_amo)
 
 ```
 ##      Densm
-## 1 147.5197
+## 1 149.7957
 ```
 
 ```r
@@ -498,7 +498,7 @@ munic_amo <- cbind(munic_amo, r_chapeu)
 
 ```
 ##   dp.r_chapeu cv.r_chapeu
-## 1    8.781149    25.27431
+## 1    3.665081    14.72793
 ```
 
 ```r
@@ -512,7 +512,7 @@ munic_amo <- cbind(munic_amo, r_chapeu)
 
 ```
 ##   dp.media.dens cv.media.dens
-## 1      47.43697      32.15637
+## 1      65.75791      43.89841
 ```
 
 ```r
@@ -551,7 +551,7 @@ munic_amo <- cbind(munic_amo, r_chapeu)
 **(#exr:exerazao2)** Para estimar o total de despesas com gastos sociais das prefeituras de uma região que abrange 281 municípios, foi selecionada uma amostra aleatória simples sem reposição de 50 municípios. Sabe-se que a população total da região é de 6.818 (em milhares de pessoas). 
 São dadas as seguintes informações provenientes da amostra:
 
-$\quad\displaystyle\sum_{i=1}^{50} y_i=$ 128.080; $\quad \displaystyle\sum_{i=1}^{50} x_i=$ 1.067; $\quad s^2_y=$ 6.244.516; $\quad s^2_x=$ 454,51; $\quad s_{xy}=$ 45.399
+$$\sum_{i=1}^{50} y_i = 128.080; \quad \sum_{i=1}^{50} x_i =1.067; \quad s^2_y=6.244.516; \quad s^2_x=454,51;\quad s_{xy}=45.399$$
 
 Obs.: os valores de $x$ e $y$ são dados em milhares.
 
@@ -588,7 +588,7 @@ Considerando que $(N − n)/ N \dot= 1$:
   d) Estime a despesa média por domicílio usando o segundo estimador e estime a variância do estimador.
   e) Baseado nos resultados, qual estimador é preferível nesta situação? Por quê?
 
-**(#exr:exerazao4)** Num estudo para estimar a quantidade total de açúcar contida num carregamento de laranjas, uma AAS de $n=$ 10 laranjas foi selecionada. Cada uma das laranjas foi pesada, retirado o suco e pesada a quantidade de açúcar no suco. A Tabela \@ref(tab:tabrazao4) dá os resultados para as 10 laranjas da amostra. O caminhão foi pesado carregado com as laranjas e, depois, vazio levando a conclusão que o peso total da carga de laranjas era de 1.800 libras. Estime o total de açúcar contido em todas as laranjas e dê um intervalo de 95% de confiança para esse total.
+**(#exr:exerazao4)** Num estudo para estimar a quantidade total de açúcar contida num carregamento de laranjas, uma AAS de $n=10$ laranjas foi selecionada. Cada uma das laranjas foi pesada, retirado o suco e pesada a quantidade de açúcar no suco. A Tabela \@ref(tab:tabrazao4) dá os resultados para as 10 laranjas da amostra. O caminhão foi pesado carregado com as laranjas e, depois, vazio levando a conclusão que o peso total da carga de laranjas era de 1.800 libras. Estime o total de açúcar contido em todas as laranjas e dê um intervalo de 95% de confiança para esse total.
 
 <center>
 <table>
@@ -623,7 +623,7 @@ Considerando que $(N − n)/ N \dot= 1$:
 
 <center>
 <table>
-<caption>(#tab:tabrazao5)Contagem das árvores mortas na amostra, por aerofotogrametria ($x_i$) e localmente($y_i$)</caption>
+<caption>(#tab:tabrazao5)Contagem das árvores mortas na amostra, por aerofotogrametria $(x_i)$ e localmente $(y_i)$</caption>
 </table>
 ------ --- --- --- --- --- --- --- --- --- ---- 
 Área    1   2   3   4   5   6   7   8   9   10
@@ -638,22 +638,22 @@ a)  Supondo que a amostra é *AAS*, estime o número total de árvores mortas na
 b)  Estime o vício do número de árvores mortas.
 c)  Recalcule as estimativas sem utilizar a informação auxiliar e compare os resultados.
 
-**(#exr:exerazao6)**  Considere uma população $U$ com $N =$ 100 unidades. Para cada uma das unidades $U_i$, considere o par $(Y_i,X_i)$, onde $Y_i$ tem distribuição $U(50;100)$ e $x_i = 3y_i+e_i$, com $e_i \approx N(0;16)$, $i=$ 1, 2, ..., 100.
+**(#exr:exerazao6)**  Considere uma população $U$ com $N = 100$ unidades. Para cada uma das unidades $U_i$, considere o par $(Y_i,X_i)$, onde $Y_i$ tem distribuição $U(50;100)$ e $x_i = 3y_i+e_i$, com $e_i \approx N(0;16)$, $i=1, 2, ..., 100$.
 
 a)  Usando funções do R, gere a população $U$ com os valores de $Y_i$ e $X_i$, como descrito acima.
 b)  Calcule os parâmetros populacionais $\overline Y,\,\,\overline X,\,\,S^2_y,\,\,S ^2_x$.
-c)  Selecione 200 *AAS* de tamanho $n=$ 20 da população gerada.
+c)  Selecione 200 *AAS* de tamanho $n=20$ da população gerada.
 d)  Para cada amostra estime $\overline Y$ e o respectivo intevalo de 95% de confiança, usando o estimador natural da *AAS* e o estimador de razão.
 e)  Verifique, para cada tipo de estimador, quantos intervalos não contém o valor verdadeiro da média populacional de $y$. O resultado é razoável?
-f)  Calcule o vício médio empírico das estimativas, utilizando 
+f)  Calcule o vício médio empírico das estimativas, utilizando: 
 $$\widehat{\overline B}=\frac 1 {200} \sum|\overline y_i -\overline Y|\,\,\,\text{e} \,\,\,\widehat{\overline B}_R=\frac 1 {200} \sum|\overline y_{Ri} -\overline Y|$$
 g)  Compare e comente os resultados. 
 
-**(#exr:exerazao7)**  Foi solicitado a um grupo de 50 alunos de uma escola que cada um declarasse quanto dinheiro tinha no bolso $(x_i)$, sem contar. A média dos valores declarados por todos os alunos foi de $\overline X=$ R$4,93. Em seguida foram selecionados, aleatoriamente e sem reposição, 10 desses alunos que foram solicitados a contar quanto dinheiro cada um tinha no bolso $(y_i)$. A Tabela \@ref(tab:tabrazao6) mostra os dois valores para cada aluno da amostra.
+**(#exr:exerazao7)**  Foi solicitado a um grupo de 50 alunos de uma escola que cada um declarasse quanto dinheiro tinha no bolso $(x_i)$, sem contar. A média dos valores declarados por todos os alunos foi de $\overline X= R\$4,93$. Em seguida foram selecionados, aleatoriamente e sem reposição, 10 desses alunos que foram solicitados a contar quanto dinheiro cada um tinha no bolso $(y_i)$. A Tabela \@ref(tab:tabrazao6) mostra os dois valores para cada aluno da amostra.
 
 <center>
 <table>
-<caption>(#tab:tabrazao6)Quantias declaradas ($x_i$) e contadas ($y_i$) pelos alunos da amostra</caption>
+<caption>(#tab:tabrazao6)Quantias declaradas $(x_i)$ e contadas $(y_i)$ pelos alunos da amostra</caption>
 </table>
 ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- -----
 $x_i$  1,91  7,41  3,03  8,63  4,76  8,12  3,89  2,75  8,66  0,85
@@ -711,7 +711,7 @@ A Tabela \@ref(tab:tabrazao8) contém os dados dessa população de pesquisa.
 
 <center>
 <table>
-<caption>(#tab:tabrazao8)População hipotética de $N=$ 9 unidades</caption>
+<caption>(#tab:tabrazao8)População hipotética de $N=9$ unidades</caption>
 </table>
 ----------
  $U_i$	 $X_i$	$Y_i$
@@ -742,7 +742,7 @@ c) Construa os histogramas para as duas distribuições e comente os resultados.
 d) Calcule a média e a variância para as duas distribuições e as compare.
 e) Calcule o vício do estimador de razão para a média e compare com o resultado obtido pela fórmula aproximada do vício.
 
-**(#exr:exerazao10)**  As notas da primeira prova de Cálculo 1 de 486 alunos de uma faculdade são conhecidas e sua média é $\overline X=$ 52. Esses alunos foram submetidos à primeira prova de Cálculo 2 e, para ter uma prévia do rendimento dos alunos, foi selecionada uma AAS dessas provas. As notas dos alunos da amostra estão na Tabela  \@ref(tab:tabrazao9): 
+**(#exr:exerazao10)**  As notas da primeira prova de Cálculo 1 de 486 alunos de uma faculdade são conhecidas e sua média é $\overline X=52$. Esses alunos foram submetidos à primeira prova de Cálculo 2 e, para ter uma prévia do rendimento dos alunos, foi selecionada uma AAS dessas provas. As notas dos alunos da amostra estão na Tabela  \@ref(tab:tabrazao9): 
 
 <center>
 <table>
@@ -773,6 +773,6 @@ e) Calcule o vício do estimador de razão para a média e compare com o resulta
 ----------
 </center>
 
-a)  Estime a média das notas de Cálculo 2 utilizando o estimador natural da AAS e construa um $IC_{95\%}$; 
-b)  Estime a média das notas de Cálculo 2 utilizando o estimador de razão e construa um $IC_{95\%}$; 
+a)  Estime a média das notas de Cálculo 2 utilizando o estimador natural da AAS e construa um $IC_{95\%}$. 
+b)  Estime a média das notas de Cálculo 2 utilizando o estimador de razão e construa um $IC_{95\%}$. 
 c)  Faça um gráfico comparando os intervalos de confiança e comente os resultados.
