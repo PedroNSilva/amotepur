@@ -114,15 +114,15 @@ Portanto, a amostragem do tipo AC1 é caracterizada pelos seguintes aspectos:
 Segue ilustração utilizando um baralho que pode ser observado na Figura \@ref(fig:baralho). Cada grupo de um mesmo número ou letra (A, 2, ..., 7, J, Q, K) representa um conglomerado de cartas dos quatro diferentes naipes (paus, ouros, copas e espadas).
 
 <center>
-```{r, baralho, echo=FALSE, fig.cap="Ilustração de unidades elementares “naturalmente” agrupadas"}
-knitr::include_graphics("Figuras/baralho.png") #{width=50%}
+```{r, baralho, echo=FALSE, fig.cap="Ilustração de unidades elementares “naturalmente” agrupadas", out.width="80%"}
+knitr::include_graphics("Figuras/baralho.png") 
 ```
 </center>
 
 Na ilustração da Figura \@ref(fig:baralhoAC1) temos uma amostra selecionada por amostragem do tipo AC1, onde os conglomerados foram formados com as quatro cartas de cada número ou letra.
 
 <center>
-```{r, baralhoAC1, echo=FALSE, fig.cap="Ilustração da seleção de amostragem conglomerada em um estágio"}
+```{r, baralhoAC1, echo=FALSE, fig.cap="Ilustração da seleção de amostragem conglomerada em um estágio", out.width="80%"}
 knitr::include_graphics("Figuras/baralhoAC1.png") #{width=50%}
 ```
 </center>
@@ -165,7 +165,7 @@ Fica como exercício para o leitor definir o tipo de seleção que poderia ser u
 Segue ilustração na Figura \@ref(fig:baralhoAC2) de amostragem conglomerada em dois estágios - AC2, utilizando o baralho com os grupamentos definidos anteriormente.  
 
 <center>
-```{r, baralhoAC2, echo=FALSE, fig.cap="Ilustração da seleção de amostragem conglomerada em 2 estágios "}
+```{r, baralhoAC2, echo=FALSE, fig.cap="Ilustração da seleção de amostragem conglomerada em 2 estágios ", out.width="80%"}
 knitr::include_graphics("Figuras/baralhoAC2.png") #{width=50%}
 ```
 </center>
@@ -637,10 +637,10 @@ Cabem algumas considerações relacionadas com a variação do $EPA$ para AC1S:
     
     Nesse caso, a precisão da amostra conglomerada de tamanho total igual a $m \overline N$ é equivalente apenas àquela obtida com uma amostra aleatória simples de tamanho $m$!!! 
 
-A Tabela \@ref(tab:tabcong6) apresenta efeitos do plano amostral sob AC1S de acordo com valores selecionados dos tamanhos dos conglomerados e do coeficiente de correlação intraclasse. 
+A Tabela \@ref(tab:tabcong6) apresenta efeitos de plano amostral sob AC1S de acordo com valores selecionados dos tamanhos dos conglomerados e do coeficiente de correlação intraclasse. 
 
 ```{r, results="asis", echo=FALSE}
-cat("<table>",paste0("<caption>", "(#tab:tabcong6)", "Efeitos do plano amostral sob AC1S por tamanho do conglomerado e valor do coeficiente de correlação intraclasse", "</caption>"),"</table>", sep ="\n")
+cat("<table>",paste0("<caption>", "(#tab:tabcong6)", "Efeitos de plano amostral sob AC1S por tamanho do conglomerado e valor do coeficiente de correlação intraclasse", "</caption>"),"</table>", sep ="\n")
 ```
 <center>
 ---------
