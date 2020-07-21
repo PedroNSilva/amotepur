@@ -140,7 +140,7 @@ $$
 $$ 
 
 $$
-S_{y,h}^2 = \displaystyle \frac {1} {N_h-1} \sum_{i \in U_h}  (y_i - \overline {Y_h})^2
+S_{h,y}^2 = \displaystyle \frac {1} {N_h-1} \sum_{i \in U_h}  (y_i - \overline {Y_h})^2
 $$
 
 **Parâmetros populacionais (globais):**
@@ -165,12 +165,12 @@ $$
 \begin{eqnarray} 
 S_y^2 & = & \frac {1} {N-1} \sum_{h=1}^H \sum_{i \in U_h} \left( y_i - \overline Y \right)^2 \\ 
 & = & \frac {1} {N-1} \sum_{h=1}^H \sum_{i \in U_h} \left[ \left(y_i - \overline {Y_h} \right) + \left(\overline {Y_h} - \overline Y \right) \right]^2 \\ 
-& = & \frac {1} {N-1} \sum_{h=1}^H (N_h - 1) S_{y,h}^2 + \frac {1} {N-1} \sum_{h=1}^{H} {N_h} \left( \overline {Y_h} - \overline Y \right)^2 \\ 
+& = & \frac {1} {N-1} \sum_{h=1}^H (N_h - 1) S_{h,y}^2 + \frac {1} {N-1} \sum_{h=1}^{H} {N_h} \left( \overline {Y_h} - \overline Y \right)^2 \\ 
  & = & S_D^2 + S_E^2 \end{eqnarray} (\#eq:eqest5)
 $$
 onde: 
 
-$$S_D^2 = \displaystyle  \sum_{h=1}^H  \frac {N_h - 1}{N - 1} S_{y,h}^2\;\;\;\text{e}\;\;\; S_E^2 = \displaystyle \sum_{h=1}^{H} \frac {N_h}{N - 1} \left( \overline {Y_h} - \overline Y \right)^2$$
+$$S_D^2 = \displaystyle  \sum_{h=1}^H  \frac {N_h - 1}{N - 1} S_{h,y}^2\;\;\;\text{e}\;\;\; S_E^2 = \displaystyle \sum_{h=1}^{H} \frac {N_h}{N - 1} \left( \overline {Y_h} - \overline Y \right)^2$$
 
 A Expressão \@ref(eq:eqest5) mostra uma decomposição útil da variância total da variável $y$ na população, com duas componentes que são conhecidas como *Variância Dentro* e *Variância Entre* estratos, respectivamente. Como se vê na sequência, por selecionar amostras de forma independente em *todos* os estratos definidos, a *amostragem estratificada* elimina a componente de variação *entre* os estratos ao estimar parâmetros do conjunto da população, tais como o total ou a média. Além disso, note que para uma variância total $S_y^2$ fixada, minimizar a *Variância Dentro* $S_D^2$, mediante a definição de estratos homogêneos em relação à variável de interesse, deve permitir eliminar grande parte da variação relevante para a estimação de totais e médias populacionais. 
 
@@ -304,6 +304,8 @@ cat("<table>",paste0("<caption>", "(#tab:tabestr1)", "Parâmetros e respectivos 
 |$V_{AES} \left( \overline y_{AES} \right) = \displaystyle \sum_{h=1}^{H} W_h^2 \left( \frac{1}{n_h} - \frac{1}{N_h} \right) S_{h,y}^2$| |$\widehat V_{AES} \left( \overline y_{AES} \right) = \displaystyle \sum_{h=1}^{H} W_h^2 \left( \frac{1}{n_h} - \frac{1}{N_h} \right) s_{h,y}^2$|
 |$V_{AES} \left( \widehat Y_{AES} \right) = \displaystyle \sum_{h=1}^{H} {N_h^2} \left( \frac{1}{n_h} - \frac {1}{N_h} \right) S_{h,y}^2$| |$\widehat V_{AES} \left( \widehat Y_{AES} \right) = \displaystyle\sum_{h=1}^{H} N_h^2 \left( \frac{1}{n_h} - \frac{1}{N_h} \right) s_{h,y}^2$|
 </center>
+
+No item \@ref(razCS) são apresentados, como casos particulares de calibração, o estimador de razão combinada e o estimador de razão separada, que são do tipo razão usuais para o total populacional $(Y)$ no caso de AES. 
 
 ### Intervalos de confiança
 
