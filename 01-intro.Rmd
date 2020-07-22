@@ -16,7 +16,7 @@ b) **Ferramentas para modelagem e extração de conhecimento relevante dos dados
 
 c) **Orientações de como usar os dados e estatísticas para apoiar a tomada de decisões.**
 
-É nesse contexto que se coloca nossa motivação para escrever um livro sobre *Amostragem*, a parte da Estatística que lida com os métodos para extrair amostras de populações, e para obter estimativas de parâmetros relevantes dessas populações a partir das amostras observadas.
+É nesse contexto que se coloca nossa motivação para escrever um livro sobre *Amostragem*, a parte da Estatística que lida com os métodos para extrair amostras de populações e obter estimativas de parâmetros relevantes dessas populações a partir das amostras observadas.
 
 Nossa experiência no Instituto Brasileiro de Geografia e Estatística - IBGE e com assessoria para o planejamento e realização de pesquisas por amostragem nos convenceu da importância da *Amostragem* para a obtenção, a custo justo, de dados atuais, relevantes e confiáveis. Nossa experiência como docentes de cursos de Amostragem na Escola Nacional de Ciências Estatísticas - ENCE e também em outras instituições nos mostrou que há espaço para um novo texto nessa área, que adote uma abordagem mais moderna para ensinar. Nesse livro adotamos uma abordagem que faz uso da ampla disponibilidade de dados públicos e de software aberto e livre para mostrar como fazer para implementar os vários métodos de amostragem e de estimação cobertos no texto. O uso extensivo de exemplos ancorados na prática de pesquisas feitas no Brasil também é um dos diferenciais que nosso livro tem.
 
@@ -28,15 +28,15 @@ b) **A qualidade das medidas e respostas disponíveis pode ser insatisfatória p
 
 c) **A cobertura da população de interesse pode ser precária ou difícil de avaliar, levando ao risco de inferências enviesadas por efeito de seletividade não controlada. **
 
-Em todos esses casos, pesquisas amostrais podem ser necessárias para suplementar as informações das fontes *orgânicas* de modo a permitir obter respostas adequadas às perguntas de interesse sobre as populações especificadas. 
+Em todos esses casos, pesquisas amostrais podem ser necessárias para suplementar as informações das fontes *orgânicas* de modo a obter respostas adequadas às perguntas de interesse sobre as populações especificadas. 
 
-Além das questões já apontadas, haverá também situações em que a *Amostragem* será necessária para permitir analisar os dados orgânicos em tempo adequado ou com custo computacional acessível. Algumas das fontes de dados desse tipo são tão vastas que não é factível pensar que podem ser exploradas de forma exaustiva, e técnicas de amostragem serão então necessárias para extrair amostras adequadas dos dados orgânicos para exploração e análise.
+Além das questões já apontadas, há também situações em que a *Amostragem* é necessária para permitir analisar os dados orgânicos em tempo adequado ou com custo computacional acessível. Algumas das fontes de dados desse tipo são tão vastas que não é factível pensar que podem ser exploradas de forma exaustiva e técnicas de amostragem são então necessárias para extrair amostras adequadas dos dados orgânicos para exploração e análise.
 
 É nesse contexto formado por novos desafios e oportunidades que apresentamos neste livro o conteúdo de um curso de *Amostragem* para aplicações em pesquisas de populações finitas. O material evoluiu da nossa experiência de ensinar na ENCE, tanto em disciplinas do curso de Graduação em Estatística, como também na Pós-graduação em População, Território e Estatísticas Públicas, além de diversas outras experiências na apresentação de cursos curtos de capacitação ministrados sobre o tema.
 
 ## Objetivos do livro
 
-Nosso livro pretende cobrir o conteúdo essencial para um curso básico de *Amostragem*, em nível similar ao de textos como @Bolfarine2005, @Cochran1977 ou @Lohr2010. Trataremos dos métodos fundamentais de *Amostragem*, sempre que possível ilustrando com exemplos sua utilização em pesquisas realizadas no Brasil ou também em outras partes.
+Nosso livro pretende cobrir o conteúdo essencial para um curso básico de *Amostragem*, em nível similar ao de textos como @Bolfarine2005, @Cochran1977 ou @Lohr2010. Tratamos dos métodos fundamentais de *Amostragem*, sempre que possível ilustrando com exemplos sua utilização em pesquisas realizadas no Brasil ou também em outras partes.
 
 Pretendemos que um leitor atento e dedicado consiga, ao final da leitura e estudo prático e interativo do material, usar de forma confiante os vários métodos de amostragem e de estimação apresentados e discutidos no livro. Pretendemos também que possa usar ferramentas de software modernas para implementar os vários métodos apresentados. Para docentes de cursos de *Amostragem*, pretendemos que o uso do livro sirva de apoio como material didático de referência e por fornecer uma boa coleção de exercícios para fixação da aprendizagem. 
 
@@ -72,8 +72,8 @@ Este livro está organizado em treze capítulos, incluindo esta introdução, de
 
 13) **Estimadores de Calibração **
 
-Cada um dos capítulos é auto-contido, e vários deles podem ser saltados. Por exemplo, os capítulos sobre *Outros Métodos de Amostragem com Equiprobabilidade* pode ser omitido num curso que tenha carga horária insuficiente para cobrir todo o material. O capítulo sobre Estimadores de Calibração tem grande importância prática, e pode ser apresentado antes do tratamento da Amostragem Conglomerada, se necessário.
+Cada um dos capítulos é autocontido e vários deles podem ser saltados. Por exemplo, os capítulos sobre *Outros Métodos de Amostragem com Equiprobabilidade* pode ser omitido num curso que tenha carga horária insuficiente para cobrir todo o material. O capítulo sobre Estimadores de Calibração tem grande importância prática e pode ser apresentado antes do tratamento da Amostragem Conglomerada, se necessário.
 
 O leitor de qualquer livro precisa reconhecer que não é possível começar do zero: é preciso contar com conhecimento prévio de algumas ideias e conceitos básicos essenciais à compreensão do material tratado. Nossa abordagem pressupõe que o leitor está familiarizado com um curso básico de introdução à probabilidade e à inferência estatística, no nível tratado, por exemplo, em @Magalhaes2004 e @Magalhaes2006.
 
-Nossa abordagem não busca ser exaustiva, e por esse motivo, são poucas as provas que incluímos dos resultados aqui discutidos. Aos leitores interessados em verificar os resultados, recomendamos a consulta ao excelente livro de @Sarndal1992, ou então às muitas referências incluídas ao longo do texto.
+Nossa abordagem não busca ser exaustiva e, por esse motivo, são poucas as provas que incluímos dos resultados aqui discutidos. Aos leitores interessados em verificar os resultados, recomendamos a consulta ao excelente livro de @Sarndal1992, ou então às muitas referências incluídas ao longo do texto.
