@@ -324,9 +324,8 @@ A distribuição de $\widehat Y_w = 2 \times t = \displaystyle \sum_{i \in s} 2 
 
 No (#exm:filh) mostrou-se como se pode obter a *distribuição amostral* de um estimador (ou de uma estatística qualquer) a partir da distribuição de probabilidades induzida pelo plano amostral $p(s)$. Isto foi muito fácil de fazer porque contamos com duas condições favoráveis, que não se repetirão na prática:
 
-1) Os tamanhos da população $N$ e da amostra $n$ eram muito pequenos (4 e 2, respectivamente).
-
-2) consideramos conhecidos os valores da variável $y$ para todas as unidades da população $U$.
+1) Os tamanhos da população $N$ e da amostra $n$ eram muito pequenos (4 e 2, respectivamente).    
+2) consideramos conhecidos os valores da variável $y$ para todas as unidades da população $U$.  
 
 Na grande maioria das situações de interesse prático no campo das pesquisas por amostragem, os tamanhos de população e amostra serão muito maiores. Também não serão conhecidos os valores da variável de interesse para unidades que não sejam selecionadas para a amostra que vai ser pesquisada. Num cenário com estas características, trabalhar com a distribuição $p(s)$ para daí tentar derivar distribuições amostrais de estimadores é complicado. 
 
@@ -420,8 +419,7 @@ cat("<table>",paste0("<caption>", "(#tab:tabvis7)", "Informações de cada amost
 
 Vamos agora usar as informações acima para:
 
-1.	Verificar que a estatística soma amostral ($t$) é viciada para estimar o total populacional $Y$.
-
+1.	Verificar que a estatística soma amostral ($t$) é viciada para estimar o total populacional $Y$.    
 2.	Obter / definir um estimador não viciado para o total populacional $Y$.
 
 A distribuição da soma amostral $t$ sob o plano $p_2$ é apresentada na Tabela \@ref(tab:tabvis8). 
@@ -724,12 +722,9 @@ O estimador $\widehat V_{SYG}(\widehat Y_{HT})$ foi motivado a partir da forma d
 
 **Comentários finais**
 
-1. Com amostras probabilísticas, é sempre possível estimar sem vício um total populacional usando uma soma amostral $\pi$-ponderada, isto é, o estimador HT do total.
-
-2. Há expressões de variância disponíveis para permitir avaliar a qualidade do estimador de total sob distintas situações (população, variável) para qualquer plano amostral probabilístico.
-
-3. A estimação de muitos outros parâmetros populacionais (tais como médias, proporções e razões) usa em grande medida os resultados aqui apresentados para a estimação de totais. Isto ficará mais claro nos capítulos seguintes.
-
+1. Com amostras probabilísticas, é sempre possível estimar sem vício um total populacional usando uma soma amostral $\pi$-ponderada, isto é, o estimador HT do total.    
+2. Há expressões de variância disponíveis para permitir avaliar a qualidade do estimador de total sob distintas situações (população, variável) para qualquer plano amostral probabilístico.    
+3. A estimação de muitos outros parâmetros populacionais (tais como médias, proporções e razões) usa em grande medida os resultados aqui apresentados para a estimação de totais. Isto ficará mais claro nos capítulos seguintes.    
 4. Pode-se derivar estimadores não viciados do total populacional e da variância do estimador HT de total para distintos planos amostrais como casos especiais da teoria geral aqui apresentada. Isto será conveniente, em particular, para a estimação de variâncias, cujas expressões gerais dependem de somas duplas que podem se tornar inconvenientes de calcular quando os tamanhos de amostra são grandes. As expressões apresentadas para cada um dos planos amostrais específicos são úteis porque permitem simplificar os cálculos da estimação de variâncias.
 
 ### Estimação da média populacional
@@ -839,22 +834,15 @@ cat("<table>",paste0("<caption>", "(#tab:tabvis16)", "Valores de variáveis de i
 
 Tratar das seguintes questões:
 
-1.	Para cada variável de interesse (Renda, Número de Moradores e Número de Trabalhadores), calcule os seguintes parâmetros populacionais: total, média e variância.
-
-2.	Liste o conjunto $S$ de todas as amostras possíveis de tamanho 2 da população, considerando apenas amostras de unidades distintas.
-
+1.	Para cada variável de interesse (Renda, Número de Moradores e Número de Trabalhadores), calcule os seguintes parâmetros populacionais: total, média e variância.    
+2.	Liste o conjunto $S$ de todas as amostras possíveis de tamanho 2 da população, considerando apenas amostras de unidades distintas.    
 3.	Supondo que todas as amostras listadas no conjunto $S$ são equiprováveis (Plano A), calcule:
 
-    a.	As probabilidades de inclusão das unidades.
-
-    b.	As probabilidades de inclusão dos pares de unidade.
-
-    c.	Os valores possíveis para o estimador Horvitz-Thompson do total populacional para a variável Renda.
-
+    a.	As probabilidades de inclusão das unidades.    
+    b.	As probabilidades de inclusão dos pares de unidade.    
+    c.	Os valores possíveis para o estimador Horvitz-Thompson do total populacional para a variável Renda.    
     d.	O valor esperado e a variância para o estimador Horvitz-Thompson do total populacional para a variável Renda.
 
-4.	Considere agora que o conjunto $S$ é formado somente pelas amostras (1;2), (2;3), (2;4), (2;5) e (2;6), tendo cada uma delas probabilidade 1/5 de ser a amostra selecionada (Plano B). Repita os cálculos do item 3 para o novo plano amostral.
-
-5.	Faça gráficos dos valores possíveis do estimador de total sob os dois planos amostrais para comparar as respectivas distribuições.
-
+4.	Considere agora que o conjunto $S$ é formado somente pelas amostras (1;2), (2;3), (2;4), (2;5) e (2;6), tendo cada uma delas probabilidade 1/5 de ser a amostra selecionada (Plano B). Repita os cálculos do item 3 para o novo plano amostral.    
+5.	Faça gráficos dos valores possíveis do estimador de total sob os dois planos amostrais para comparar as respectivas distribuições.    
 6.	Use os resultados obtidos em 3 e 4 para comparar os dois planos amostrais e indique qual deles seria preferível usar, caso fosse necessário amostrar duas unidades distintas da população ($n=2$) para estimar o total da *Renda*. Justifique.

@@ -1,8 +1,8 @@
 # Outros Métodos de Amostragem com Equiprobabilidade
 
-Neste capítulo apresentamos dois métodos de amostragem de unidades elementares com equiprobabilidade que são menos usados, mas também podem ser úteis em muitas situações de interesse. O primeiro deles é a *Amostragem Binomial ou de Bernoulli* e o segundo é a *Amostragem Inversa Simples*.
+Neste capítulo apresentamos dois métodos de amostragem de unidades elementares com equiprobabilidade que são menos usados, mas também podem ser úteis em muitas situações de interesse. O primeiro deles é a *Amostragem Binomial ou de Bernoulli - AB* e o segundo é a *Amostragem Inversa Simples - AIS*.
 
-## Amostragem Binomial ou de Bernoulli - AB {#binom}
+## Amostragem binomial ou de Bernoulli {#binom}
 
 A *Amostragem Binomial ou de Bernoulli* - AB oferece uma alternativa (pouco usada) à AAS, para selecionar diretamente unidades com *equiprobabilidade*. Trata-se de método de amostragem que também dispensa existência de cadastro prévio para seleção da amostra, podendo a amostra ser selecionada ao mesmo tempo que o cadastro vai sendo construído, como na amostragem sistemática simples.
 
@@ -14,7 +14,7 @@ Então percorremos sequencialmente as unidades $U_i$ da população e são inclu
 
 Uma vantagem desse tipo de amostragem é a possibilidade de sua aplicação quando não se tem disponível um cadastro atualizado das unidades populacionais. Por exemplo, numa pesquisa domiciliar os domicílios são identificados sequencialmente num trajeto previamente definido e para cada um desses é selecionado um número aleatório $A_i \sim U(0;1)$. Se $A_i\le \pi$ o domicílio é selecionado e a entrevista realizada. Caso contrário passa-se para o próximo domicílio. Ao final do trajeto, quando toda a área de interesse foi percorrida, tem-se o cadastro atualizado dos domicílios e a amostra selecionada com os questionários preenchidos.
 
-### Probabilidades de inclusão na Amostragem Binomial
+### Probabilidades de inclusão na amostragem binomial
 
 As probabilidades de inclusão de primeira ordem são:
 
@@ -28,7 +28,7 @@ Uma dificuldade associada com Amostragem Binomial é que, antes de ser feita a s
 
 Para verificar isso, note que $n = \sum_{i \in U} I(A_i \le \pi)$. Consequentemente,  $n \, \textrm{~ Binomial} (N;\pi)$. Logo: $E_{AB}(n) = N  \pi$  e $V_{AB}(n) = N  \pi (1-\pi)$. 
 
-### Estimação de totais sob Amostragem Binomial 
+### Estimação de totais sob amostragem binomial 
 
 O estimador HT (não viciado) do total $Y$ é dado por: 
 
@@ -86,7 +86,7 @@ $$
 s_y^2 = \frac {1}{n-1} \sum_{i \in s} (y_i - \overline y)^2 
 $$
 
-### Estimação de médias sob Amostragem Binomial 
+### Estimação de médias sob amostragem binomial 
 
 O estimador HT (não viciado) da média $\overline{Y}$ é dado por: 
 
@@ -152,7 +152,7 @@ $\displaystyle V_{AB}\left({\overline y}_{AB}^R\right)\doteq\left(\frac{1}{N\pi}
 ----------
 </center>
 
-### Exemplos de aplicação da Amostragem Binomial
+### Exemplos de aplicação da amostragem binomial
 
 Um exemplo clássico ocorre na inspeção alfandegária praticada na saída de passageiros chegando de vôos internacionais num aeroporto. Quando cada passageiro aperta o botão para saber se sua bagagem será ou não inspecionada pela autoridade aduaneira, está em ação um processo de Amostragem Binomial. Não sabemos o valor da fração amostral estabelecida pela autoridade aduaneira, mas este é o único parâmetro necessário para especificar completamente o processo de amostragem em questão. 
 
@@ -161,7 +161,7 @@ A Amostragem Sistemática também seria viável nesse caso, mas poderia ser mais
 Aplicações de Amostragem Binomial para populações em fluxo são convenientes, pois dispensam lista ou cadastro prévios. Como desvantagem, deve-se evitar seu uso sempre que $P(n=0)$ for ‘grande’, pois no caso em que o tamanho efetivo da amostra for nulo é impossível fazer inferência sobre quaisquer parâmetros populacionais de interesse.
 
 
-## Amostragem Inversa Simples - AIS {#inversa}
+## Amostragem inversa simples {#inversa}
 
 Na prática da pesquisa usando métodos de amostragem probabilística, é usual buscar a seleção de um número fixo, pré-especificado $n < N$ de unidades da população $U$ para compor a amostra $s$. As unidades selecionadas para a amostra são então identificadas e abordadas para tentar obter as medidas das variáveis de interesse utilizando-se os instrumentos especificados para a pesquisa em questão. No caso de pesquisas socioeconômicas, frequentemente são utilizados questionários para serem respondidos por algum representante da unidade selecionada, que pode ser uma pessoa, um domicílio, um estabelecimento industrial, uma escola, etc. Em casos como um processo de controle de qualidade por amostragem podem ser utilizados instrumentos de medida para conferência das dimensões de peças fabricadas em série ou mesmo a realização de ensaios para testar alguma condição desejável. Muitas vezes tais ensaios podem ser destrutivos e, portanto, este é um exemplo clássico onde a utilização de amostragem se impõe pela impossibilidade de testar todas as peças fabricadas.
 
@@ -192,7 +192,7 @@ O processo descrito acima implica que o número de unidades selecionadas para a 
 
 Outra consideração importante a fazer é que os esforços feitos para obtenção dos dados de cada unidade selecionada devem sempre seguir o mesmo protocolo especificado para a coleta. Variações do protocolo ou do esforço de coleta para cada unidade selecionada podem implicar em *não resposta diferencial* e acarretar em *viés de seleção* na amostra obtida.
 
-### Amostragem Inversa Simples para varredura por amostragem
+### Amostragem inversa simples para varredura por amostragem
 
 Seja $U$ uma população composta de $N$ unidades para a qual se deseja investigar uma amostra dentre as unidades que fazem parte de uma determinada subpopulação $A \subset U$, ou seja, de um subconjunto das unidades populacionais que possuam uma determinada característica. Nesse caso, a população pode ser descrita como a união de dois subconjuntos, onde um deles será composto das $N_A$ unidades com a característica que interessa, e outro de $N - N_A$ unidades que não possuem tal característica. Considera-se que o tamanho da subpopulação $N_A$ é desconhecido antes da realização da pesquisa. 
 
@@ -452,7 +452,7 @@ $\small\displaystyle V_{AIS}({\overline y}_{AIS/M})$   $\small\displaystyle \wid
 ---------
 </center>
 
-### Exemplos de aplicação da amostragem inversa
+### Exemplos de aplicação da amostragem inversa simples
 
 @Vasconcellos2005 descreve uma aplicação de amostragem inversa simples na etapa de seleção de domicílios dentro dos setores selecionados, numa pesquisa domiciliar empregando amostragem conglomerada. Essa pesquisa talvez represente a primeira aplicação de amostragem inversa numa pesquisa domiciliar nacional realizada no Brasil.
 

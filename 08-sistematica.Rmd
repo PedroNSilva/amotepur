@@ -1,4 +1,4 @@
-# Amostragem Sistemática Simples - AS {#AS}
+# Amostragem sistemática simples {#AS}
 
 ## Ideia básica
 
@@ -12,19 +12,16 @@ AS pode ser utilizada para selecionar uma amostra de um cadastro de unidades da 
 
 **(#exm:exmsis1)** Suponha que se deseja aplicar um questionário a uma amostra dos espectadores de uma peça teatral sendo encenada em determinado teatro, num determinado dia. Nesse caso não estaria disponível uma lista das pessoas que irão ao teatro naquela data. Pode-se selecionar uma AS utilizando os passos indicados a seguir.
 
-  1)  Definir o valor de $K$. Por exemplo, seja $K=10$ significando que ao final a amostra será composta por aproximadamente um de cada dez, ou 10% dos espectadores da noite.
-  
-  2)  Selecionar a *partida aleatória* entre 1 e 10. Suponha que o número escolhido seja 3.
-  
-  3)  Iniciar o processo de cadastramento sequencial dos espectadores de acordo com a ordem de chegada (ou de saída) ao teatro, numerando cada espectador cadastrado.
-  
+  1)  Definir o valor de $K$. Por exemplo, seja $K=10$ significando que ao final a amostra será composta por aproximadamente um de cada dez, ou 10% dos espectadores da noite.    
+  2)  Selecionar a *partida aleatória* entre 1 e 10. Suponha que o número escolhido seja 3.    
+  3)  Iniciar o processo de cadastramento sequencial dos espectadores de acordo com a ordem de chegada (ou de saída) ao teatro, numerando cada espectador cadastrado.    
   4)  Entrevistar os espectadores selecionados por AS, começando pelo de número 3 e seguindo com os de números de chegada (ou saída) iguais a 13, 23, 33, etc.
   
 Duas características funcionam como um apelo para a adoção da AS como método de seleção da amostra: sua simplicidade, já que ao selecionar a primeira unidade a ser incluída na amostra, todas as demais estarão automaticamente escolhidas; e a possibilidade de aplicação mesmo quando não se tem disponível um cadastro prévio da população. 
 
 Essas características foram determinantes, por exemplo, para adoção de AS para a seleção, em cada setor censitário, dos domicílios que deveriam responder ao questionário da amostra nos Censos Demográficos realizados pelo IBGE de 1960 até 2000. Para implementar o método, cada recenseador utilizava um formulário denominado *Folha de coleta do setor* para cadastrar os domicílios que ia encontrando ao percorrer um setor censitário que lhe fora atribuído. Este formulário servia para cadastrar as unidades da população (domicílios) encontradas em cada setor, e de instrumento para a seleção da amostra sistemática. Linhas marcadas em sombreado indicavam ao recenseador em que domicílios devia aplicar o questionário mais longo, denominado da amostra, em lugar do questionário simplificado (denominado básico), que era aplicado aos demais domicílios não incluídos na amostra. 
 
-Ao  terminar de percorrer o setor censitário, o recenseador teria elaborado um cadastro dos domicílios de seu setor, e selecionado a amostra correspondente. O cadastro de domicílios assim construído era utilizado como base para o trabalho de campo das outras pesquisas por amostragem realizadas pelo IBGE ao longo da década subsequente ao Censo. Veja por exemplo @Albieri2015.
+Ao  terminar de percorrer o setor censitário, o recenseador teria elaborado um cadastro dos domicílios de seu setor, e selecionado a amostra correspondente. O cadastro de domicílios assim construído era utilizado como base para o trabalho de campo das outras pesquisas por amostragem realizadas pelo IBGE ao longo da década subsequente ao Censo. Ver, por exemplo, @Albieri2015.
 
 Nos censos de 1960, 1970 e 1980 o intervalo de seleção usado pelo IBGE foi sempre com $K=4$. Começando no Censo de 1991, o IBGE passou a usar valores de $K$ que podiam variar conforme o tamanho do município em que a amostra estava sendo selecionada. Maiores detalhes sobre a amostragem nos Censos de 2000 e 2010 podem ser vistos em @IBGE2003 e @IBGE2016, respectivamente. Uma revisão dos aspectos de amostragem dos Censos Demográficos brasileiros desde 1960 pode ser encontrada em @Albieri2017.
 
@@ -87,7 +84,7 @@ print(s_r)
 options(OutDec=".")
 ```
 
-## Composição de amostras sistemáticas simples 
+## Composição das amostras sistemáticas simples 
 
 A Tabela \@ref(tab:tabsis1) a seguir, representa uma população de onde se pretende selecionar uma amostra sistemática com intervalo definido por $K$. Os índices das unidades populacionais estão dispostos na forma de uma matriz com $K$ linhas e $n$ colunas, onde $n$ é o maior tamanho de amostra possível para o $K$ definido. Assim cada linha, $r$, da tabela é formada por uma das possíveis amostras, $s_r$. No caso de $N\ne nK$, algumas das últimas células da tabela são vazias, e o tamanho efetivo da amostra é $n$ ou $n-1$, dependendo do valor de $r$ selecionado.
 
@@ -354,7 +351,7 @@ $$
 
 O vício desse estimador (quando $N \ne nK$) é o preço pago quando não se conhece o tamanho $N$ da população!
 
-## Estimação de uma proporção na amostragem sistemática
+## Estimação de uma proporção na amostragem sistemática simples
 
 Como já foi visto no Capítulo \@ref(proporc), muitas vezes o interesse é estimar a proporção de unidades da população que possuem uma determinada característica de interesse. Nesse caso, para as unidades com a característica de interesse presente, a variável $y$ recebe o valor $1$ e para as demais unidades, $y$ recebe o valor $0$.
 
@@ -463,14 +460,10 @@ Fica como exercício para o leitor verificar que o mesmo não ocorre quando se u
 
 **Notas**
 
-1. Como $r$ pode tomar apenas um valor, $V_{AS}(\widehat Y_{AS})$ não pode ser diretamente estimada a partir da amostra. 
-
-2. Em @Cochran1977 é apresentada uma boa discussão sobre como a ordenação dos valores da variável de pesquisa para unidades populacionais pode afetar a eficiência de amostras sistemáticas. Para uma definição de eficiência veja a Expressão \@ref(eq:eqdom24).
-
-3. Para populações em 'ordem aleatória', o desempenho da amostragem sistemática simples é semelhante ao da amostragem aleatória simples sem reposição (@Cochran1977, seção 8.5). 
-
-4. Para populações com tendência linear, amostragem sistemática simples é melhor que AAS (@Cochran1977, seção 8.6).
-
+1. Como $r$ pode tomar apenas um valor, $V_{AS}(\widehat Y_{AS})$ não pode ser diretamente estimada a partir da amostra.    
+2. Em @Cochran1977 é apresentada uma boa discussão sobre como a ordenação dos valores da variável de pesquisa para unidades populacionais pode afetar a eficiência de amostras sistemáticas. Para uma definição de eficiência ver a Expressão \@ref(eq:eqdom24).   
+3. Para populações em 'ordem aleatória', o desempenho da amostragem sistemática simples é semelhante ao da amostragem aleatória simples sem reposição (@Cochran1977, seção 8.5).     
+4. Para populações com tendência linear, amostragem sistemática simples é melhor que AAS (@Cochran1977, seção 8.6).     
 5. Para populações periódicas, amostragem sistemática simples com intervalo de seleção em sincronia com o período é um desastre (@Cochran1977, página 218).
 
 **Considere o caso especial onde $N = nK$**
@@ -521,7 +514,7 @@ $$
 
 Cabe notar que razões do tipo $V_{AS}(\overline y_{AS})/V_{AAS}(\overline y_{AAS})$ são chamadas de *Efeito do Plano Amostral (EPA)*. Em inglês, usa-se o termo *design effect*, abreviado como *deff*.
 
-## Estimação de variâncias dos estimadores na amostragem sistemática
+## Estimação de variâncias dos estimadores na amostragem sistemática simples
 
 Quando se usa amostragem sistemática simples não há um estimador não viciado para a variância dos estimadores do total e da média. O que se faz é utilizar estimadores mais adequados de acordo com a ordenação da população.
 
@@ -616,7 +609,7 @@ sr
 options(OutDec=".")
 ```
 
-Veja que com uma *Amostra Sistemática circular - ASc*, o número de amostras possíveis é $N$ e pode-se definir estimadores não viciados para a média e o total da variável de interesse $y$, como:
+Note que com uma *Amostra Sistemática circular - ASc*, o número de amostras possíveis é $N$ e pode-se definir estimadores não viciados para a média e o total da variável de interesse $y$, como:
 
 $$
 \overline y_{ASc}=\overline y=\frac 1n \sum_{i=1}^n y_i (\#eq:eqsis13)

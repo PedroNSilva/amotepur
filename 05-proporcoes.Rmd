@@ -107,7 +107,7 @@ Na=480
 Nas duas seções seguintes tratamos do problema da estimação desses parâmetros populacionais a partir dos dados de amostras aleatórias simples retiradas da população de interesse com e sem reposição, respectivamente.
 
 
-## Estimação sob Amostragem Aleatória Simples Com Reposição - *AASC*
+## Estimação sob amostragem aleatória simples com reposição 
 
 Seja $s$ uma *AASC* de tamanho $n$ selecionada de uma população composta de $N$ unidades, onde se observa uma variável indicadora $y$ como definida na seção anterior. Pode-se obter estimadores para os parâmetros populacionais de $y$ adaptando os estimadores gerais de total e média apresentados no capítulo anterior.
 
@@ -185,7 +185,7 @@ $\displaystyle V_{AASC} (\widehat p) ={p(1-p)}/{n}$    $\displaystyle\widehat V_
 </center>
 
 
-## Estimação sob Amostragem Aleatória Simples Sem Reposição - *AAS*
+## Estimação sob amostragem aleatória simples sem reposição 
 
 No caso de uma amostra $s$ obtida por seleção do tipo *AAS*, as expressões da soma amostral $t_y$, da proporção amostral $\widehat p$ e da variância amostral $s^2_y$ têm a mesma forma já apresentada acima para amostras obtidas por *AASC*. Em consequência, também são idênticos os estimadores para o total populacional $N_A$ e a proporção populacional $p$. Entretanto, uma diferença é que no caso da *AAS* a variância amostral $s^2_y$ é um estimador não viciado para $S^2_y$ e não para $\sigma^2_y$. Também são diferentes as expressões para as variâncias dos estimadores amostrais e seus correspondentes estimadores não viciados.
 
@@ -304,7 +304,7 @@ $$
 \displaystyle E_{AAS}(\widehat p)=p \quad\text e\quad V_{AAS}(\widehat p)=\left(\frac1n-\frac1N\right)S^2_y\,\, (\#eq:eqpro25)
 $$
 
-## Intervalos de confiança para proporções na Amostragem Aleatória Simples
+## Intervalos de confiança para proporções na amostragem aleatória simples
 
 Foi visto que na *Amostragem Aleatória Simples*, tanto com ou sem reposição, são conhecidas as distribuições exatas para o estimador $\widehat p$. Portanto, é possível obter os limites inferior e superior para intervalos de confiança para a proporção $p$, com um nível de significância $\alpha$ fixado. Para isso, no caso de *AASC*, é necessário resolver o sistema de equações determinando os valores de $\widehat p_I$ e $\widehat p_S$ que satisfaçam:
 
@@ -397,7 +397,7 @@ Pode-se observar que nos exemplos acima, onde o tamanho da amostra é grande, os
 
 Na maioria dos casos práticos, opta-se pelo uso da aproximação pela distribuição Normal de probabilidades, pela facilidade de seu uso tanto para *AAS* como *AASC*. Isso pode ser feito sempre que as condições do problema assim o permitirem, como se discute na próxima seção.
 
-## Intervalos de confiança utilizando a aproximação Normal
+## Intervalos de confiança utilizando a aproximação normal
 
 Como já foi visto no capítulo anterior, a distribuição do estimador da proporção, $\widehat p$, pode ser aproximada pela distribuição Normal de probabilidade. Esta aproximação pode ser utilizada mesmo no caso da *AAS* onde os $y_i$ observados na amostra não são independentes, desde que se tenha valores de $N$ e $n$ suficientemente grandes e valor da fração amostral, $f=\frac n N$, pequeno.
 
@@ -523,7 +523,7 @@ $$
 \displaystyle \widehat{IC}(p;{1-\alpha})=\left[\widehat p \mp \left(z_{\alpha/ 2}\sqrt {\left(\frac{N-n}{N}\right) \frac{\widehat p \widehat q} {n-1}} + \frac 1{2n} \right) \right](\#eq:eqpro34)
 $$
 
-Veja que o efeito da correção de continuidade tende rapidamente a ser nulo quando o tamanho da amostra, $n$, cresce. Para uma amostra de tamanho $n=50$ esse fator já é de apenas 1%, o que pode ser desprezível dependendo da proporção que estiver sendo estimada, porém é preciso muito cuidado pois quando se está trabalhando com proporções são valores, às vezes, bastante pequenos.
+Note que o efeito da correção de continuidade tende rapidamente a ser nulo quando o tamanho da amostra, $n$, cresce. Para uma amostra de tamanho $n=50$ esse fator já é de apenas 1%, o que pode ser desprezível dependendo da proporção que estiver sendo estimada, porém é preciso muito cuidado pois quando se está trabalhando com proporções são valores, às vezes, bastante pequenos.
 
 **(#exm:exmprop3)** Em um período pré-eleitoral, deseja-se estimar a intenção de votação dos eleitores nos candidatos A e B. Para isso foi selecionada e pesquisada uma amostra AAS de 2.000 eleitores. Desses, 900 declararam intenção de votar em A, 800 em B e os demais 300 se disseram indecisos. Supondo que o total de eleitores da população de pesquisa é de 4 milhões, responda às perguntas abaixo.
 

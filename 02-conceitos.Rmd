@@ -73,7 +73,7 @@ Ainda segundo o IBGE, "A Pesquisa de Orçamentos Familiares 2008-2009 teve por o
 O plano amostral empregado na pesquisa é descrito como "... conglomerado em dois estágios de seleção, com estratificação geográfica e estatística das unidades de primeiro estágio. Os setores correspondem às unidades do primeiro estágio de seleção e os domicílios particulares permanentes, às unidades do segundo estágio." Sendo assim, a pesquisa identificou duas *unidades de amostragem*: setores censitários (selecionados no primeiro estágio de amostragem), e domicílios (selecionados no segundo estágio de amostragem). Uma vez que um domicílio era selecionado para a amostra no segundo estágio, todos os moradores do mesmo deviam ser pesquisados. Note então que as pessoas moradoras não são *unidades de amostragem*, pois não participam de qualquer etapa de sorteio. 
 
 Para fins do dimensionamento da amostra, "Foram fixados diferentes coeficientes de variação para estimar com a precisão desejada o total da renda dos responsáveis pelos domicílios, segundo os diferentes domínios de estimação."
-"Para estimar o total nas Unidades da Federação da Região Norte, foram fixados coeficientes de variação que variaram de 10% a 15%."... Veja os detalhes em:
+"Para estimar o total nas Unidades da Federação da Região Norte, foram fixados coeficientes de variação que variaram de 10% a 15%."... Ver detalhes em:
 <http://www.ibge.gov.br/home/estatistica/populacao/condicaodevida/pof/2008_2009/POFnotastecnicas.pdf>.
 
 **(#exm:canlfs)** *Canadian Labour Force Survey* 
@@ -151,21 +151,21 @@ Uma rica fonte de informações sobre as definições conceituais de uma vasta c
 
 Pesquisas por amostragem dependem criticamente da qualidade da amostra selecionada para coleta ou obtenção dos dados. Para cumprir bem seu papel na pesquisa, são características desejáveis da amostra: 
 
-a) **Permitir generalizar estimativas dela derivadas para o conjunto da população de pesquisa.**
+a) Permitir generalizar estimativas dela derivadas para o conjunto da população de pesquisa.
 
-b) **'Imparcialidade'.**
+b) 'Imparcialidade'.
 
-c) **Fornecer estimativas com o menor erro amostral possível, dados os recursos disponíveis (financeiros, tempo, pessoal e outros) e considerando as restrições operacionais.**
+c) Fornecer estimativas com o menor erro amostral possível, dados os recursos disponíveis (financeiros, tempo, pessoal e outros) e considerando as restrições operacionais.
 
-d) **Assegurar a capacidade de medir a precisão das estimativas dela provenientes.**
+d) Assegurar a capacidade de medir a precisão das estimativas dela provenientes.
 
 A base para o processo de amostragem e de inferência que consideramos neste livro não é dada por um modelo que se utiliza para representar distribuições geradoras dos valores da população, mas sim por um *modelo de aleatorização* que decorre da imposição de um método imparcial (ao acaso, por sorteio) de escolha das unidades da amostra. Este modelo depende de três condições simples de satisfazer, em grande número de aplicações: 
 
-1) **Cada unidade da população de pesquisa deve ter uma probabilidade positiva, conhecida ou calculável, de ser incluída na amostra.** 
+1) Cada unidade da população de pesquisa deve ter uma probabilidade positiva, conhecida ou calculável, de ser incluída na amostra. 
 
-2) **A seleção da amostra deve ser feita por mecanismo aleatório que assegure a condição 1 e que permita conhecer ou calcular as probabilidades de inclusão de cada uma das unidades selecionadas.**
+2) A seleção da amostra deve ser feita por mecanismo aleatório que assegure a condição 1 e que permita conhecer ou calcular as probabilidades de inclusão de cada uma das unidades selecionadas.
 
-3) **As probabilidades de inclusão das unidades selecionadas devem ser levadas em consideração ao fazer inferência para os parâmetros da população, juntamente com outros aspectos da estrutura do método usado para seleção da amostra.**
+3) As probabilidades de inclusão das unidades selecionadas devem ser levadas em consideração ao fazer inferência para os parâmetros da população, juntamente com outros aspectos da estrutura do método usado para seleção da amostra.
 
 Procedimentos de amostragem que satisfazem as condições 1 a 3 formam a base da abordagem denominada de *Amostragem Probabilística*, que é a mais usada para a amostragem de populações finitas e para a elaboração de estatísticas oficiais e públicas ao redor do mundo. Essa abordagem fornece as condições para fazer inferências seguras para os parâmetros da população de pesquisa, com margem de erro conhecida e controlada. 
 
@@ -387,7 +387,7 @@ Nesta situação cada unidade $C_i$ do cadastro corresponde a uma e somente uma 
 
 <center>
 ```{r, umparaum, echo=FALSE, fig.cap="Ilustração da regra de associação um para um",out.width = '100%'}
-knitr::include_graphics("Figuras/Associa1-1.PNG") #{width=50%}
+knitr::include_graphics("Figuras/Associa1-1.PNG")
 ```
 </center>
 
@@ -403,7 +403,7 @@ Nesta situação, cada unidade de referência da população de pesquisa corresp
 
 <center>
 ```{r, umparavar, echo=FALSE, fig.cap="Ilustração da regra de associação um para vários"}
-knitr::include_graphics("Figuras/Associa1-varios.PNG") #{width=50%}
+knitr::include_graphics("Figuras/Associa1-varios.PNG") 
 ```
 </center>
 
@@ -441,48 +441,31 @@ knitr::include_graphics("Figuras/Associavariosniveis.PNG")
 
 ## Exercícios 
 
-**(#exr:execonc1)** Toda pesquisa deve procurar registrar com clareza seus conceitos básicos. Dessa clareza depende a capacidade dos usuários de interpretar os resultados e avaliar sua qualidade e adequação. Para perceber a importância dessa questão, nada melhor do que praticar e se colocar “na pele” de um usuário que procura identificar, na documentação disponível de uma dada pesquisa, seus principais conceitos e definições.
-
+**(#exr:execonc1)** Toda pesquisa deve procurar registrar com clareza seus conceitos básicos. Dessa clareza depende a capacidade dos usuários de interpretar os resultados e avaliar sua qualidade e adequação. Para perceber a importância dessa questão, nada melhor do que praticar e se colocar “na pele” de um usuário que procura identificar, na documentação disponível de uma dada pesquisa, seus principais conceitos e definições.    
 Visite a página do CETIC.br na internet (<https://cetic.br/>) e identifique a publicação de resultados da Pesquisa TIC Domicílios 2017. Nesta publicação, localize a seção do ‘relatório metodológico’ e usando somente essa documentação, procure responder às perguntas abaixo.
 
-a)	Qual é o *objetivo* da pesquisa? 
-
-b)	Qual é a *população alvo*? Qual é a *população de pesquisa*?
-
-c)	Qual é o principal *cadastro* utilizado?
-
-d)	Quais são as *unidades de referência*?
-
-e)	Quais são as *unidades informantes*?
-
-f)	Quais são as *unidades de análise*?
-
-g)	Quais são as *unidades de amostragem*?
-
-h)	Qual é o *tipo* de pesquisa? *Censo*, *amostra*, compilação de *registro administrativo*? 
-
-i)	Como a pesquisa se desenvolve no *tempo*? Uma só ocasião? Pesquisa Repetida? Se a pesquisa é repetida, qual é a periodicidade com que isso ocorre?
-
-j)	Como são *coletados* os dados? Entrevistas, correio, observação, etc.?
-
-k)	Para que tipos de *quantidades resumo* são publicadas estimativas? Totais, médias, proporções, razões, taxas, índices? Exemplifique alguns que encontrar.
-
-l)	Foi possível responder todas as perguntas acima só com a documentação da pesquisa disponível na internet? Comente sobre suas dificuldades. O que ficou faltando?
+a)	Qual é o *objetivo* da pesquisa?     
+b)	Qual é a *população alvo*? Qual é a *população de pesquisa*?    
+c)	Qual é o principal *cadastro* utilizado?    
+d)	Quais são as *unidades de referência*?    
+e)	Quais são as *unidades informantes*?    
+f)	Quais são as *unidades de análise*?    
+g)	Quais são as *unidades de amostragem*?    
+h)	Qual é o *tipo* de pesquisa? *Censo*, *amostra*, compilação de *registro administrativo*?     
+i)	Como a pesquisa se desenvolve no *tempo*? Uma só ocasião? Pesquisa Repetida? Se a pesquisa é repetida, qual é a periodicidade com que isso ocorre?    
+j)	Como são *coletados* os dados? Entrevistas, correio, observação, etc.?    
+k)	Para que tipos de *quantidades resumo* são publicadas estimativas? Totais, médias, proporções, razões, taxas, índices? Exemplifique alguns que encontrar.    
+l)	Foi possível responder todas as perguntas acima só com a documentação da pesquisa disponível na internet? Comente sobre suas dificuldades. O que ficou faltando?    
 
 **(#exr:execonc2)** Um pesquisador está planejando a realização de uma pesquisa por amostragem junto a estudantes do ensino fundamental regular - EFR matriculados em *escolas públicas municipais* no município do Rio de Janeiro. A coleta dos dados estava prevista para ser realizada entre *setembro e outubro de 2019*. Ele começou a investigar opções de cadastros que poderia utilizar para realizar a seleção da amostra. De imediato, localizou os seguintes cadastros:
 
-a)	*Cadastro* derivado do *Censo Escolar do MEC*, referente ao ano calendário *2018*, que pode ser acessado no endereço: <http://portal.inep.gov.br/web/guest/microdados>.
-
+a)	*Cadastro* derivado do *Censo Escolar do MEC*, referente ao ano calendário *2018*, que pode ser acessado no endereço: <http://portal.inep.gov.br/web/guest/microdados>.    
 b) *Lista* de todas as *escolas públicas municipais* que oferecem turmas do ensino fundamental regular fornecida pela Prefeitura municipal, atualizada até Agosto de 2019, contendo nome e endereço da escola, nome e dados de contato do diretor da escola, e séries que a escola oferece no ano de 2019.
 
 Tratar das seguintes questões:
 
-1)	Para cada um dos cadastros disponíveis para o pesquisador, indique o tipo de associação entre as unidades do cadastro e as unidades de referência da pesquisa (estudantes do ensino fundamental regular matriculados em escolas públicas municipais em setembro de 2019). 
-
-2)	Discuta as vantagens e desvantagens de utilizar cada um dos cadastros disponíveis para o pesquisador. 
-
-3)	Caso o pesquisador opte pelo uso do cadastro listado no item a, que cuidados deveria adotar para mitigar ou eliminar possíveis erros de cobertura?
-
-4)	Caso o pesquisador opte pelo uso do cadastro listado no item b, que procedimento(s) precisa adotar para assegurar a cobertura da população de interesse?
-
+1)	Para cada um dos cadastros disponíveis para o pesquisador, indique o tipo de associação entre as unidades do cadastro e as unidades de referência da pesquisa (estudantes do ensino fundamental regular matriculados em escolas públicas municipais em setembro de 2019).     
+2)	Discuta as vantagens e desvantagens de utilizar cada um dos cadastros disponíveis para o pesquisador.     
+3)	Caso o pesquisador opte pelo uso do cadastro listado no item a, que cuidados deveria adotar para mitigar ou eliminar possíveis erros de cobertura?    
+4)	Caso o pesquisador opte pelo uso do cadastro listado no item b, que procedimento(s) precisa adotar para assegurar a cobertura da população de interesse?    
 5)	Se você fosse o pesquisador, como usaria um ou mais dos cadastros citados?

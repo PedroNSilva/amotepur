@@ -1,4 +1,4 @@
-# Estimação para Domínios de Estudo {#domin}
+# Estimação Para Domínios de Estudo {#domin}
 
 ## Domínios de estudo {#domin1}
 
@@ -254,13 +254,9 @@ $V_{AAS}\left(\widehat{Y}_c^R\mid{n_c>0}\right)$       $\widehat V_{AAS}\left(\w
 Considere os dados da população de municípios brasileiros fornecidos no arquivo 'MunicBR_dat.rds'.
 
 1. Selecione uma AAS de $n=250$ municípios, e use esta amostra para estimar os seguintes parâmetros populacionais:
-
     a.	População total por região do Brasil e correspondentes margens de erro relativo ao nível de confiança de 95%; suponha *conhecidos* os tamanhos dos domínios;
-
     b.	População total por região do Brasil, e correspondentes margens de erro relativo ao nível de confiança de 95%; suponha *desconhecidos* os tamanhos dos domínios;
-
     c.	Média da densidade habitacional por km<sup>2</sup> por município para municípios com população igual ou superior a 100 mil habitantes, e correspondente margem de erro ao nível de confiança de 95%. Nesse caso, considere que o tamanho do domínio é *desconhecido*.
-
 2. Usando os dados populacionais, calcule os valores dos parâmetros estimados nos itens a e c e compare com suas estimativas amostrais. Comente.
 
 
@@ -458,21 +454,17 @@ b)  Construa um intervalo de 95% de confiança para a média estimada.
 c)  Estime total semanal dos gastos com alimentação das famílias com criança da localidade.
 d)  Construa um intervalo de 95% de confiança para o total estimado.
 
-**(#exr:exrdom3)** Considere a população de $N = 338$ fazendas produtoras de cana-de-açúcar fornecida no arquivo 'fazendas_dat.rds'. Considere um plano AAS e tamanhos amostrais $n$ variando no conjunto {5, 10, 20, 50, 100}. Imagine que há interesse em estimar dois parâmetros:
-
-   I)	A média da variável Produtividade $=$ Quant / Area;
-   II)  A produtividade média por unidade de área na população.
-
+**(#exr:exrdom3)** Considere a população de $N = 338$ fazendas produtoras de cana-de-açúcar fornecida no arquivo 'fazendas_dat.rds'. Considere um plano AAS e tamanhos amostrais $n$ variando no conjunto {5, 10, 20, 50, 100}. Imagine que há interesse em estimar dois parâmetros:    
+$\;\;\;$I)$\;\,$A média da variável Produtividade = Quant / Area; e   
+$\;\;\;$II) A produtividade média por unidade de área na população.    
 Para cada um dos tamanhos de amostra considerados, realize as tarefas abaixo indicadas.
 
 a) Obtenha 500 amostras por AAS da população de fazendas. 
 b) Use cada uma destas amostras para calcular estimativas dos dois parâmetros de interesse, e dos respectivos erros padrão.
 c) Use as 500 estimativas pontuais obtidas para cada parâmetro para avaliar:
-    
     - O comportamento do viés dos estimadores.
     - O comportamento do viés dos estimadores dos erros padrão.
     - A adequação da aproximação normal para a distribuição dos estimadores usados.
-
 
 **(#exr:exrdom4)** Considere a população de $N = 338$ fazendas produtoras de cana-de-açúcar fornecida no arquivo 'fazendas_dat.rds'. Considere agora um plano AAS e dois tamanhos amostrais $n_1 = 20$ e $n_2 = 100$. Agora o interesse é estimar a despesa com a *produção total de cana para um domínio de interesse*, definido como o conjunto de fazendas pertencentes às classes de tamanho 4, 5 e 6.
 

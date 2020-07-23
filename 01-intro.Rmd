@@ -10,11 +10,11 @@ Esta citação traduz uma tendência bastante atual. Vivemos numa era em que a d
 
 Tais tendências confirmam que o conhecimento do mundo ao nosso redor depende muito de dados e de estatísticas, aqui entendidas como resumos dos dados. Além disso, os métodos estatísticos fornecem:
 
-a) **Orientações para a obtenção de dados relevantes, atuais, precisos e custo-efetivos.**
+a) Orientações para a obtenção de dados relevantes, atuais, precisos e custo-efetivos.
 
-b) **Ferramentas para modelagem e extração de conhecimento relevante dos dados.**
+b) Ferramentas para modelagem e extração de conhecimento relevante dos dados.
 
-c) **Orientações de como usar os dados e estatísticas para apoiar a tomada de decisões.**
+c) Orientações de como usar os dados e estatísticas para apoiar a tomada de decisões.
 
 É nesse contexto que se coloca nossa motivação para escrever um livro sobre *Amostragem*, a parte da Estatística que lida com os métodos para extrair amostras de populações e obter estimativas de parâmetros relevantes dessas populações a partir das amostras observadas.
 
@@ -22,11 +22,11 @@ Nossa experiência no Instituto Brasileiro de Geografia e Estatística - IBGE e 
 
 Uma questão de fundo é a da relevância da *Amostragem* como área de ensino e pesquisa na Estatística. Por um lado, o advento dos chamados *big data* ou *dados orgânicos*, na definição de @Groves2011, parece representar séria ameaça à cultura e prática das pesquisas por amostragem. Isto se dá porque agora é possível encontrar situações em que dados *universais*, *frequentes* e *de baixo custo* poderiam ser usados para responder perguntas sobre as populações de interesse, sem o necessário recurso ao uso da *Amostragem* para sua obtenção. Por outro lado, há evidências de que, sozinhos, dados orgânicos nunca serão suficientes para responder a todas as perguntas de interesse. Os motivos podem ser um ou mais dos seguintes:
 
-a) **O número de variáveis ou medidas disponíveis para cada unidade nalgumas dessas novas fontes pode ser pequeno, ou as variáveis medidas podem não ser as que permitem responder adequadamente às perguntas de interesse. **
+a) O número de variáveis ou medidas disponíveis para cada unidade nalgumas dessas novas fontes pode ser pequeno, ou as variáveis medidas podem não ser as que permitem responder adequadamente às perguntas de interesse. 
 
-b) **A qualidade das medidas e respostas disponíveis pode ser insatisfatória por motivos ligados à forma de captura das informações.  **
+b) A qualidade das medidas e respostas disponíveis pode ser insatisfatória por motivos ligados à forma de captura das informações.  
 
-c) **A cobertura da população de interesse pode ser precária ou difícil de avaliar, levando ao risco de inferências enviesadas por efeito de seletividade não controlada. **
+c) A cobertura da população de interesse pode ser precária ou difícil de avaliar, levando ao risco de inferências enviesadas por efeito de seletividade não controlada. 
 
 Em todos esses casos, pesquisas amostrais podem ser necessárias para suplementar as informações das fontes *orgânicas* de modo a obter respostas adequadas às perguntas de interesse sobre as populações especificadas. 
 
@@ -46,31 +46,31 @@ Tomando em conta as facilidades disponíveis com base nas modernas ferramentas c
 
 Este livro está organizado em treze capítulos, incluindo esta introdução, denominados a seguir:
 
-1) **Introdução**
+1) Introdução
 
-2) **Conceitos e Cadastros **
+2) Conceitos e Cadastros 
 
-3) **Visão Geral da Amostragem e Estimação **
+3) Visão Geral da Amostragem e Estimação 
 
-4) **Amostragem Aleatória Simples - AAS ** 
+4) Amostragem Aleatória Simples - AAS  
 
-5) **Estimação de Proporções ** 
+5) Estimação de Proporções  
 
-6) **Estimação de Razões e Funções de Totais **
+6) Estimação de Razões e Funções de Totais 
 
-7) **Estimação para Domínios de Estudo **
+7) Estimação para Domínios de Estudo 
 
-8) **Amostragem Sistemática Simples - AS **
+8) Amostragem Sistemática Simples - AS 
 
-9) **Outros Métodos de Amostragem com Equiprobabilidade **
+9) Outros Métodos de Amostragem com Equiprobabilidade 
 
-10) **Amostragem com Probabilidades Proporcionais ao Tamanho - PPT **
+10) Amostragem com Probabilidades Proporcionais ao Tamanho - PPT 
 
-11) **Amostragem Estratificada **
+11) Amostragem Estratificada 
 
-12) **Amostragem Conglomerada **
+12) Amostragem Conglomerada 
 
-13) **Estimadores de Calibração **
+13) Estimadores de Calibração 
 
 Cada um dos capítulos é autocontido e vários deles podem ser saltados. Por exemplo, os capítulos sobre *Outros Métodos de Amostragem com Equiprobabilidade* pode ser omitido num curso que tenha carga horária insuficiente para cobrir todo o material. O capítulo sobre Estimadores de Calibração tem grande importância prática e pode ser apresentado antes do tratamento da Amostragem Conglomerada, se necessário.
 

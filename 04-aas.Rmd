@@ -1,16 +1,15 @@
-# Amostragem Aleatória Simples - AAS {#aas}
+# Amostragem Aleatória Simples {#aas}
+
+A *Amostragem Aleatória Simples* - *AAS* é um plano básico de amostragem que tanto pode ser utilizado diretamente na seleção de uma amostra como ser parte de outros planos amostrais como, por exemplo, *Amostragem Estratificada*, que serão tatados mais adiante.
 
 ## Planos amostrais e algoritmos de seleção
 
 O planejamento da amostra de uma pesquisa requer a definição dos seguintes componentes fundamentais: 
 
-C1. Que método será usado para *seleção* da amostra?
-
-C2.	Qual será o *tamanho* da amostra?
-
-C3.	Que *estimadores* serão usados para os parâmetros de interesse?
-
-C4.	Como será feita a *avaliação da precisão* das estimativas, isto é, como será feita a estimação da variância dos estimadores empregados?
+$\;\;\;\;\;$C1. Que método será usado para *seleção* da amostra?    
+$\;\;\;\;\;$C2.	Qual será o *tamanho* da amostra?    
+$\;\;\;\;\;$C3.	Que *estimadores* serão usados para os parâmetros de interesse?    
+$\;\;\;\;\;$C4.	Como será feita a *avaliação da precisão* das estimativas, isto é, como será feita a estimação da $\;\;\;\;\;\;\;\;\;\;\;\,$variância dos estimadores empregados?
 
 Os componentes C1 e C2, em conjunto, dão origem à especificação do *plano amostral*. Já os componentes C3 e C4 dão origem à especificação dos *métodos de estimação* da pesquisa. 
 
@@ -24,7 +23,7 @@ Os algoritmos de seleção baseados em *processamento sequencial de listas* são
 
 Neste capítulo vamos ilustrar estes conceitos com um tipo de plano amostral bem simples. Mas as ideias básicas aqui introduzidas são aplicáveis de maneira geral a muitas outras situações de interesse.
 
-## Amostragem Aleatória Simples Com Reposição - AASC
+## Amostragem aleatória simples com reposição
 
 A *Amostragem Aleatória Simples Com Reposição* - *AASC* é um plano amostral probabilístico básico, implementado por meio de um algoritmo de seleção no qual um número $n$ prédeterminado de sorteios é feito, sendo em cada sorteio selecionada uma unidade da população (de tamanho $N$). Nesse plano, os sorteios são feitos de forma independente uns dos outros, isto é, *com reposição* das unidades na população antes da aplicação dos sorteios subsequentes. A seleção da amostra é feita de tal forma que todas as unidades da população têm a mesma chance de ser incluídas na amostra em cada sorteio, e essa probabilidade é igual a $1/N$.
 
@@ -104,18 +103,18 @@ cat("<table>",paste0("<caption>", "(#tab:tabaas2)", "Parâmetros e respectivos e
 |$V_{AASC}(\widehat{Y}_{AASC}) = N^2 \sigma^2_y /n$  | |$\widehat V_{AASC}(\widehat{Y}_{AASC}) = N^2 s_y^2 / n$ |
 </center>
 
-Para provas destes resultados, veja por exemplo o Teorema 3.3 de @Bolfarine2005.
+Para provas destes resultados, ver, por exemplo, o Teorema 3.3 de @Bolfarine2005.
 
-Note que o estimador $\widehat{Y}_{AASC}$ para o total não é o estimador tipo Horvitz-Thompson para este plano amostral. Veja o (#exr:exraas1) para uma discussão dessa questão.
+Note que o estimador $\widehat{Y}_{AASC}$ para o total não é o estimador tipo Horvitz-Thompson para este plano amostral. Ver o (#exr:exraas1) para uma discussão dessa questão.
 
 A importância da AASC é principalmente teórica: através dela se mostra que é possível obter amostras de forma simples, cujos dados são utilizáveis mediante a aplicação de procedimentos convencionais da Inferência Estatística clássica. Por exemplo, a estimação não enviesada da média populacional $\overline{Y}$ pode ser feita simplesmente com o estimador média amostral $\overline{y}$, e a obtenção das propriedades deste estimador fica facilitada porque as variáveis aleatórias correspondentes aos valores das observações na amostra são IID, mesmo quando a população alvo tem tamanho finito. Ainda mais, o estimador $\overline{y}$ da média $\overline{Y}$ continua válido mesmo quando não se propõe um modelo estocástico para descrever a distribuição dos valores da população, sendo este estimador não viciado independente da forma que tem a distribuição dos valores da população. Tudo isso justifica a apresentação da AASC dentro do conjunto de técnicas abordadas neste livro.
 
 Na prática, entretanto, é raro surgirem aplicações deste plano amostral. O motivo principal, como já indicado, é que
 AASC é ineficiente em comparação com a amostragem aleatória simples *sem reposição* de igual tamanho, como vamos mostrar na sequência.
 
-## Amostragem Aleatória Simples Sem Reposição 
+## Amostragem aleatória simples sem reposição 
 
-A *Amostragem Aleatória Simples Sem Reposição* - abreviada por *AAS* é um plano amostral similar à *AASC*, sendo que neste caso cada unidade da população pode aparecer na amostra no máximo uma única vez, isto é, não pode haver repetição de unidades na amostra. Na verdade, *AAS* é qualquer procedimento de seleção que garanta que *todas* as amostras de tamanho $n$ da população de tamanho $N$ têm a *mesma probabilidade* de serem escolhidas. Como existem $\binom{N}{n} = \frac{N!}{n!(N-n)!}$ amostras distintas em $S$, então $p(s) = 1/\binom{N}{n},$ $\forall\, s\in S$, onde $s$ é qualquer subconjunto de $n$ inteiros distintos entre os inteiros de 1 a $N$.
+A *Amostragem Aleatória Simples sem reposição* - *AAS* é um plano amostral similar à *AASC*, sendo que neste caso cada unidade da população pode aparecer na amostra no máximo uma única vez, isto é, não pode haver repetição de unidades na amostra. Na verdade, *AAS* é qualquer procedimento de seleção que garanta que *todas* as amostras de tamanho $n$ da população de tamanho $N$ têm a *mesma probabilidade* de serem escolhidas. Como existem $\binom{N}{n} = \frac{N!}{n!(N-n)!}$ amostras distintas em $S$, então $p(s) = 1/\binom{N}{n},$ $\forall\, s\in S$, onde $s$ é qualquer subconjunto de $n$ inteiros distintos entre os inteiros de 1 a $N$.
 
 Na *AAS* duas determinações da amostra são consideradas iguais quando constituídas das mesmas unidades da população, não importando a ordem de seleção dessas unidades. 
 
@@ -123,7 +122,7 @@ A seleção da amostra pode ser feita realizando-se $n$ sorteios consecutivos, d
 
 A *AAS* é um procedimento simples e básico da teoria e prática de amostragem, tendo importância não só pelas aplicações diretas como também por servir de base para muitos outros planos amostrais mais complexos. As ideias principais de amostragem podem ser com ele desenvolvidas.
 
-### Algoritmo “convencional” para selecionar AAS
+### Algoritmo “convencional” para selecionar uma AAS
 
 O algoritmo "convencional" para a seleção na AAS sugerido pelos livros-texto mais conhecidos em amostragem consiste nos seguintes passos: 
 
@@ -340,20 +339,16 @@ $$
 $$
 Note que a *margem de erro* é também uma quantidade que se pode estimar a partir da amostra selecionada e observada. Essa é uma das vantagens importantes da *amostragem probabilística*, pois nos fornece além das estimativas pontuais diretas dos parâmetros de interesse, também indicativos da incerteza associada a tais estimativas.
 
-### Comparação dos planos de Amostragem Aleatória Simples Com e Sem Reposição
+### Comparação dos planos de amostragem aleatória simples com e sem reposição
 
 Do ponto de vista prático, a principal diferença entre os planos amostrais *AASC* e *AAS* é que, no primeiro, unidades populacionais podem ser selecionadas mais de uma vez para compor a amostra, o que não é possível no segundo. Ambos os planos permitem usar estimadores não viciados bem simples para o total e a média populacionais, mas o plano *AAS* fornece estimadores com menor variância para iguais tamanhos de amostra, sendo por isso mesmo preferido na prática. 
 
-Em resumo, as diferenças da *amostragem aleatória simples sem reposição* - AAS para a *com reposição* - AASC estão nos seguintes aspectos: 
+Em resumo, as diferenças da *amostragem aleatória simples sem reposição* - *AAS* para a *com reposição* - *AASC* estão nos seguintes aspectos: 
 
-1.	AAS evita repetição de seleção de unidades para a amostra.
-
-2.	AAS leva a um modelo estatístico diferente: as observações amostrais *não são independentes*.
-
-3.	AAS diminui o conjunto $S$ de amostras possíveis.
-
-4.	AAS mantém a simplicidade dos estimadores.
-
+1.	AAS evita repetição de seleção de unidades para a amostra.    
+2.	AAS leva a um modelo estatístico diferente: as observações amostrais *não são independentes*.    
+3.	AAS diminui o conjunto $S$ de amostras possíveis.     
+4.	AAS mantém a simplicidade dos estimadores.    
 5.	AAS permite estimação mais eficiente da média ou total populacionais sob amostras de igual tamanho.
 
 ## Determinação do tamanho da amostra
@@ -386,9 +381,8 @@ Se a escolha for determinar o tamanho amostral para garantir resultados com cert
 
 Exemplos: 
 
-1)	“Desejamos estar 90% confiantes de que a estimativa da média está a no máximo $\pm 10$ unidades do valor verdadeiro.”
-
-2)	“Desejamos que a estimativa da média não se afaste do valor verdadeiro mais que 10%, com probabilidade 0,95.”
+1)	“Desejamos estar 90% confiantes de que a estimativa da média está a no máximo $\pm 10$ unidades do valor verdadeiro.”    
+2)	“Desejamos que a estimativa da média não se afaste do valor verdadeiro mais que 10%, com probabilidade 0,95.”    
 
 No item 1 acima, estabelecemos a *margem de erro* - $D$ igual à semiamplitude do *intervalo de confiança* para $\overline Y$ em unidades da variável resposta, para um determinado *nível de confiança* (90% ou 0,90). 
 
@@ -452,34 +446,22 @@ $$
 
 **Comentários**
 
-1. A Expressão \@ref(eq:eqaas10) só se aplica para o caso do estimador média amostral $\overline y$ para a média populacional $\overline Y$ sob AAS.
-
-2. É possível derivar expressões similares para o caso da estimação de totais, e também de outros parâmetros.
-
-3. Para planos amostrais mais complexos, é mais difícil resolver equações do tipo acima para determinar tamanhos amostrais, e sua alocação em estratos e conglomerados. Entretanto, a ideia de *Efeito do Plano Amostral* - EPA vai ser útil neste contexto. Veja discussão no capítulo \@ref(cong).
+1. A Expressão \@ref(eq:eqaas10) só se aplica para o caso do estimador média amostral $\overline y$ para a média populacional $\overline Y$ sob AAS.    
+2. É possível derivar expressões similares para o caso da estimação de totais, e também de outros parâmetros.    
+3. Para planos amostrais mais complexos, é mais difícil resolver equações do tipo acima para determinar tamanhos amostrais, e sua alocação em estratos e conglomerados. Entretanto, a ideia de *Efeito do Plano Amostral* - EPA vai ser útil neste contexto. Ver discussão no capítulo \@ref(cong).
 
 **(#exm:exmaas2)** Considere a população formada pelos municípios brasileiros, conforme consta do arquivo 'MunicBR_dat.rds'. Tendo esta população em mente, imagine que seria usada para seleção de uma amostra AAS de $n=200$ municípios. Imagine que tal amostra seria usada para estimar a *média populacional* da variável *área* dos municípios. 
 
-1.	Com esta perspectiva, use os *dados populacionais* para:
-  
-    a)	Calcular a *média populacional*.
-
-    b)	Calcular a *variância*, *desvio padrão* e *coeficiente de variação* do estimador usual.
-
-    c)	Avaliar a *margem de erro relativo* que a estimativa teria ao nível 95% de confiança.
-
-    d)	Determinar o *tamanho da amostra* que seria necessária para estimar a média da área com um erro máximo de 150 km<sup>2</sup> ao nível de confiança de 95%.
-
-2.	Selecione uma AAS de tamanho $n=200$ e use os *dados amostrais* para calcular:
-  
-    a)	Uma estimativa da *média populacional*.
-
-    b)	Estimativas da *variância*, *desvio padrão* e *coeficiente de variação* da média estimada.
-
-    c)	Estime a *margem de erro relativo* que a estimativa obtida no item a teria ao nível 95% de confiança.
-
-    d)	O *tamanho da amostra* que seria necessária para estimar a média da área com um erro máximo de 150 km<sup>2</sup> ao nível de confiança de 95%.
-
+1.	Com esta perspectiva, use os *dados populacionais* para:    
+    a)	Calcular a *média populacional*.    
+    b)	Calcular a *variância*, *desvio padrão* e *coeficiente de variação* do estimador usual.    
+    c)	Avaliar a *margem de erro relativo* que a estimativa teria ao nível 95% de confiança.    
+    d)	Determinar o *tamanho da amostra* que seria necessária para estimar a média da área com um erro máximo de 150 km<sup>2</sup> ao nível de confiança de 95%.    
+2.	Selecione uma AAS de tamanho $n=200$ e use os *dados amostrais* para calcular:    
+    a)	Uma estimativa da *média populacional*.    
+    b)	Estimativas da *variância*, *desvio padrão* e *coeficiente de variação* da média estimada.    
+    c)	Estime a *margem de erro relativo* que a estimativa obtida no item a teria ao nível 95% de confiança.    
+    d)	O *tamanho da amostra* que seria necessária para estimar a média da área com um erro máximo de 150 km<sup>2</sup> ao nível de confiança de 95%.    
 3.	Compare estimativas obtidas no item 2 com os valores obtidos no item 1 e analise/comente.
 
 Solução do (#exm:exmaas2) usando R

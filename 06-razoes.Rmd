@@ -4,9 +4,9 @@
 
 Muitas vezes na prática de pesquisas por amostragem, o *parâmetro* populacional de interesse é uma razão entre os totais (ou médias) de duas variáveis de pesquisa definidas para cada unidade da população. Nesse caso, o *parâmetro* é denominado *razão de totais (ou de médias)* ou simplesmente *razão*. Chamando de $y$ e $x$ as variáveis cujos totais aparecem no numerador e denominador da razão, respectivamente, define-se a *razão* $R$ como:
 
-\begin{equation}
+$$
 R = \frac{\sum_{i\in U}y_i}{\sum_{i\in U}x_i} = \frac{Y}{X}=\frac{\overline{Y}}{\overline{X}} (\#eq:eqraz1)
-\end{equation}
+$$
  
 Alguns exemplos de razões de interesse incluem:
 
@@ -20,11 +20,11 @@ Alguns exemplos de razões de interesse incluem:
 
 No caso da razão entre o total dos gastos com transporte $(y)$ e o total da renda das famílias $(x)$, a razão fica definida como:
 
-\begin{equation}
+$$
 \frac{\textrm {Total dos gastos com transporte}}{\textrm{Total da renda}} = \frac{\sum_{i\in U}y_i}{\sum_{i\in U}x_i}=\frac{Y}{X} = R 
-\end{equation}
+$$
  
-## Razão de médias versus média de razões
+## Razão de médias *versus* média de razões
 
 Um cuidado importante aqui é compreender o significado do parâmetro de interesse. A razão de totais $R$ não é a média $\left(\overline{R} = \sum_{i\in U}{r_i}/{N} \right)$ das *razões por unidade* $\left(r_i=y_i/x_i\right)$. Neste capítulo estamos interessados na razão de totais (ou médias), e não na média de razões. A média de razões $\left(\overline{R} \right)$ pode ser estimada usando os estimadores habituais de médias populacionais discutidos no capítulo \@ref(visger), aplicados à variável $r$ definida aqui.
 
@@ -80,56 +80,56 @@ Os dados apurados nas últimas duas linhas da Tabela \@ref(tab:tabrazao1) ilustr
 
 Neste capítulo já definimos as *razões de totais* populacionais, e agora vamos apresentar mais alguns parâmetros que podem ser definidos como funções de totais populacionais. Para introduzir o caso mais geral, considere um parâmetro $\theta$ que pode ser definido como uma função de $K$ totais populacionais, isto é:
 
-\begin{equation} 
+$$ 
  \theta = f(Y_1, Y_2, ..., Y_K) 
-\end{equation}
+$$
 
 onde $Y_k$ é o total populacional da variável de pesquisa $y_k$, para $k=1,...,K$, e $f$ é uma função real que especifica como obter o valor de $\theta$ a partir dos totais das variáveis de pesquisa.
 
 Um caso geral de interesse é o das funções lineares de totais populacionais, dadas por:
 
-\begin{equation}
+$$
  \theta = f(Y_1, Y_2, ..., Y_K) = \sum_{k=1}^K a_k \, Y_k (\#eq:eqraz2)
-\end{equation}
+$$
 
 onde $a_k$ são constantes conhecidas, para $k=1,...,K$.
 
 Um exemplo simples de função linear é a *diferença* entre dois totais populacionais especificados, dada por:
 
-\begin{equation}
+$$
  D = \sum_{i\in U} y_{2i} - \sum_{i\in U} y_{1i} = Y_2 - Y_1
-\end{equation}
+$$
 
 Nesse caso, temos uma situação envolvendo $K=2$ totais populacionais, com $a_1 = 1$ e $a_2 = -1$. 
 
 Outro exemplo de parâmetro que pode ser escrito como função de totais é o caso da *função de distribuição cumulativa* num ponto, dada por:
 
-\begin{equation}
+$$
  F_y(a) = \displaystyle \frac{1}{N} \sum_{i\in U} I(y_i \le a) \quad
-\end{equation}
+$$
 
 Nesse caso, a situação envolve apenas dois totais populacionais $(K=2)$, sendo a primeira definida como $y_{1i} = I(y_i \le a)$ e a segunda $y_{2i} = 1$, e a função definida como $f(Y_1, Y_2) = Y_1 / Y_2$.
 
 A *variância* de uma variável de pesquisa $y$, dada por
 
-\begin{equation}
+$$
  S^2_y = \frac{1}{N-1} \left[ \sum_{i\in U} {y_i}^2 - N \overline{Y}^2 \right] = \frac{1}{N-1} \left[ \sum_{i\in U} {y_i}^2 -  {Y}^2/N \right]
-\end{equation}
+$$
 
 também pode ser vista como uma função envolvendo três totais populacionais $(K=3)$, sendo o primeiro definido como total da variável $y_{1i} = y_i^2$, a segunda $y_{2i} = y_i$ e a terceira como $y_{3i} = 1$. A função que retorna a variância $S^2_y$ é definida como 
 $f(Y_1, Y_2, Y_3) = \frac {1} {Y_3 - 1} \left[ Y_1 - (Y_2^2/Y_3) \right]$.
 
 De maneira similar, a *covariância* e a *correlação* das variáveis $y$ e $z$ podem ser definidas como:
 
-\begin{equation}
+$$
 S_{y , z} = \displaystyle \frac{1}{N-1} \sum_{i\in U} \left({y_{i} - \overline{Y}} \right)  \left({z_{i} - \overline{Z}} \right) = \frac{1}{N-1} \left[ \sum_{i\in U} {y_{i}} {z_{i}} - \, Y Z / {N} \right] \quad  
-\end{equation}
+$$
 
 e
 
-\begin{equation}
+$$
 {\rho}_{y , z} = \frac{S_{y , z}} {S_{y} S_{z}}
-\end{equation}
+$$
 
 A covariância pode ser vista como uma função envolvendo quatro totais populacionais $(K=4)$, sendo o primeiro definido como o total $Y_1$ da variável $y_{1i} = y$, o segundo o total $Y_2$ da variável $y_{2i} = z$, o terceiro o total da variável definida como $y_{3i} = y_{i} z_{i}$ e o quarto o total da variável definida como $y_{4i} = 1$. Por simplicidade, a função que define a correlação foi definida em função da covariância e dos desvios-padrão das duas variáveis de interesse, mas também poderia ser escrita como função de totais como já ilustrado nos demais casos.
 
@@ -137,50 +137,45 @@ O ponto importante a destacar nesta seção é o fato de que muitos parâmetros 
 
 Essa ideia pode ser aplicada de maneira bastante geral para obter estimadores para grande quantidade de parâmetros populacionais que possam ser escritos em função de totais populacionais de variáveis bem definidas. Para fixar as ideias, este método é aplicado primeiramente para obter estimador para uma *razão de totais*. 
 
-## Estimando razões (de totais)
+## Estimando razões de totais
 
 Para estimar *razões de totais* (ou médias) como $R$, o estimador “natural” é a *razão dos estimadores Horwitz-Thompson de total*:
 
-\begin{equation}
+$$
 \widehat{R} = \frac{ \sum_{i\in s} w_i y_i} {\sum_{i\in s} w_i x_i} = \frac{ \widehat{Y}_{HT} } {\widehat{X}_{HT}} (\#eq:eqraz3)
-\end{equation}
+$$
 
 
 **Notas**
 
-1. Tanto o numerador como o denominador do estimador $\widehat{R}$ da razão $R$ podem variar com a amostra selecionada, $s$.
-
-2. Apesar de termos estimadores não viciados para os totais populacionais $\widehat{Y}_{HT}$ e $\widehat{X}_{HT}$, em geral,  $E(Z/W) \ne E(Z)E(W)$, e portanto: 
+1. Tanto o numerador como o denominador do estimador $\widehat{R}$ da razão $R$ podem variar com a amostra selecionada, $s$.    
+2. Apesar de termos estimadores não viciados para os totais populacionais $\widehat{Y}_{HT}$ e $\widehat{X}_{HT}$, em geral,  $E(Z/W) \ne E(Z)E(W)$, e portanto:     
 $$
 E(\widehat{R}) = E(\widehat{Y}_{HT}/ \widehat{X}_{HT}) \ne E(\widehat{Y}_{HT})/E(\widehat{X}_{HT})= {Y} / {X} = R
-$$
-
-3. Logo $\widehat{R}$ é um *estimador viciado* de $R$.
-
-4. O vício de $\widehat{R}$ é pequeno e chamado de *vício técnico*, para distingui-lo de outros vícios potencialmente causados por problemas tais como erros de cobertura, não resposta e outros. Para amostras grandes (isto é, com $n$ grande), este vício é geralmente desprezível do ponto de vista prático. Veja discussão na seção \@ref(vicioraz).
-
+$$    
+3. Logo $\widehat{R}$ é um *estimador viciado* de $R$.    
+4. O vício de $\widehat{R}$ é pequeno e chamado de *vício técnico*, para distingui-lo de outros vícios potencialmente causados por problemas tais como erros de cobertura, não resposta e outros. Para amostras grandes (isto é, com $n$ grande), este vício é geralmente desprezível do ponto de vista prático. Ver discussão na seção \@ref(vicioraz).    
 5. Sob AAS, como os pesos amostrais são constantes (e iguais a $N/n$ para todas as unidades da amostra), o estimador $\widehat{R}$ simplifica para:
-
-\begin{equation}
+$$
 \widehat{R}_{AAS} = \frac{\sum_{i\in s} y_i} {\sum_{i\in s} x_i} = \frac{\overline{y}} {\overline{x}} (\#eq:eqraz4)
-\end{equation}
+$$
 
 
 ## Estimando outras funções de totais {#estoft}
 
 Quando o parâmetro de interesse é uma função de totais populacionais $\theta = f(Y_1, Y_2, ..., Y_K)$, o método mais simples para estimar esse parâmetro é aplicar a mesma função a estimadores não viciados dos totais, isto é, usar o estimador:
 
-\begin{equation}
+$$
 \widehat{\theta} = f(\widehat{Y}_1, \widehat{Y}_2, ..., \widehat{Y}_K) (\#eq:eqraz5)
-\end{equation}
+$$
 
 onde $\widehat{Y}_k$ é o estimador HT do total populacional da variável de pesquisa $y_k$, para $k=1,...,K$.
 
 Para o caso de *funções lineares*, o estimador resultante será dado por:
 
-\begin{equation}
+$$
  \widehat{\theta} = \sum_{k=1}^K a_k \, \widehat{Y}_k (\#eq:eqraz6)
-\end{equation}
+$$
 
 e será um estimador não viciado do parâmetro $\theta$. 
 
@@ -267,9 +262,9 @@ E_p \left( \widehat{R} \right) & = & \frac{Y}{X} - \frac{1}{X} \times COV_p \lef
 
 Chamando agora de $B_p( \widehat{R} ) = E_p \left( \widehat{R} \right) - R$, o vício do estimador $\widehat{R}$, mostrou-se que este pode ser obtido como:
 
-\begin{equation}
+$$
 B_p( \widehat{R} ) = - \frac{1}{X} \times COV_p \left( \widehat{R} , \widehat{X} \right) (\#eq:eqraz13)
-\end{equation}
+$$
 
 Esta expressão fornece um caminho para estabelecer um limite superior para o valor absoluto do vício dividido pelo desvio padrão do estimador da razão. Notando que: $COV_p \left( \widehat{R} , \widehat{X} \right) = CORR_p \left( \widehat{R} , \widehat{X} \right) \times DP_p(\widehat{R}) \times DP_p(\widehat{X})$, segue-se que:
 
@@ -281,9 +276,9 @@ Esta expressão fornece um caminho para estabelecer um limite superior para o va
 Assim, quando o tamanho da amostra for grande o suficiente para tornar o CV do estimador do total $\widehat{X}$ no denominador da razão $\widehat{R}$ pequeno (digamos, menor que 0,1 ou 10%), então o vício do estimador da razão será pequeno quando comparado com o desvio padrão desse estimador. Vícios desse tipo são geralmente desprezados na prática, a menos que se tenha amostra *muito pequena*.
 
 
-## Erro Quadrático Médio - EQM de $\widehat{R}$
+## Erro quadrático médio de $\widehat{R}$
 
-Como $\widehat{R}$ tem um pequeno vício técnico, a avaliação de sua precisão deve ser feita considerando seu *Erro Quadrático Médio - EQM*. Entretanto, sempre que a amostra for grande o suficiente (o que pode ser avaliado calculando o coeficiente de variação da estimativa de total do denominador da razão), o EQM poderá ser bem aproximado pela variância, como indicado:
+Como $\widehat{R}$ tem um pequeno vício técnico, a avaliação de sua precisão deve ser feita considerando seu *Erro Quadrático Médio* - *EQM*. Entretanto, sempre que a amostra for grande o suficiente (o que pode ser avaliado calculando o coeficiente de variação da estimativa de total do denominador da razão), o EQM poderá ser bem aproximado pela variância, como indicado:
 
 \begin{eqnarray}
  EQM_p(\widehat{R}) & = & V_p(\widehat{R}) + \left[ B_p( \widehat{R} ) \right]^2 & \doteq & V_p(\widehat{R}) (\#eq:eqraz15)
@@ -295,43 +290,43 @@ Usando ainda o resultado da seção \@ref(estoft) quanto à linearização de es
 
 Nesse caso, a variável linearizada $z_i$ pode ser obtida notando que:
 
-\begin{equation}
+$$
 \frac {\partial {f(Y_1, Y_2)}} {\partial{Y_1}} = \frac {1}{Y_2} = \frac {1}{X}
-\end{equation}
+$$
 
 e 
-\begin{equation}
+$$
 \frac {\partial {f(Y_1, Y_2)}} {\partial{Y_2}} = \frac {-Y_1}{Y^2_2} = \frac {-Y}{X^2}
-\end{equation}
+$$
 
 levando a:
-\begin{equation}
+$$
 z_i = \frac {1}{X} y_i - \frac {Y}{X^2} x_i = \frac {1}{X} \left( y_i - R x_i \right)
-\end{equation}
+$$
 
 Sendo assim, a variância aproximada do estimador $\widehat{R}$ pode ser obtida calculando a variância do estimador de total da variável linearizada $z_i$:
 
-\begin{equation}
+$$
  V_p ( \widehat{R} ) \doteq V_p(\widehat{Z}_{HT}) = \displaystyle \sum_{i \in U} \sum_{j \in U} \left( \frac{d_i d_j}{d_{ij}} - 1 \right) {z_i} {z_j} (\#eq:eqraz16)
-\end{equation}
+$$
 
 e um estimador dessa variância aproximada é dado por:
 
-\begin{equation}
+$$
 \widehat{V}_p ( \widehat{R} ) = \widehat{V}_p(\widehat{Z}_{HT}) = \displaystyle \sum_{i \in s} \sum_{j \in s} \left( {d_i d_j} - {d_{ij}} \right) {z_i} {z_j} (\#eq:eqraz17)
-\end{equation}
+$$
 
-Sob AAS, as expressões acima simplificam para as expressões a seguir. Para mais detalhes, veja @Cochran1977. A variância aproximada do estimador da razão é dada por:
+Sob AAS, as expressões acima simplificam para as expressões a seguir. Para mais detalhes, ver @Cochran1977. A variância aproximada do estimador da razão é dada por:
 
-\begin{equation}
+$$
 V_{AAS} (\widehat{R}) \doteq \frac{1}{\overline{X}^2} \left( \frac{1}{n} -  \frac{1}{N}\right) \times \frac{1}{N-1} \displaystyle \sum_{i \in U} \left( y_i - R x_i \right)^2 (\#eq:eqraz18)
-\end{equation}
+$$
 
 e o estimador da variância fica igual a:
 
-\begin{equation}
+$$
 \widehat{V}_{AAS}(\widehat{R}) = \frac{1}{\overline{x}^2}  \left( \frac{1}{n} -  \frac{1}{N}  \right) \times \frac{1}{n-1} \displaystyle\sum_{i\in s} \left( y_i - \widehat{R} x_i \right)^2 (\#eq:eqraz19)
-\end{equation}
+$$
 
 A Tabela \@ref(tab:tabrazao2) apresenta um resumo da estimação de parâmetros de uma razão sob AAS.
 
@@ -355,19 +350,13 @@ $V_{AAS}(\widehat{R})$                                           $\widehat{V}_{A
 Considere a população de municípios brasileiros fornecida no arquivo 'MunicBR_dat.rds'.
 
 1.	Selecione uma AAS de $n = 200$ municípios, e use esta amostra para estimar os seguintes parâmetros populacionais:
-
     a. Densidade demográfica média por km<sup>2</sup> no Brasil.
-
     b. Média da variável densidade demográfica por km<sup>2</sup> por município.
-
 2.	Para cada uma das estimativas acima:
-
     a.	Estime o erro padrão e o coeficiente de variação. 
-
     b.	Compare com os correspondentes parâmetros populacionais.
     
 3.	Calcule o tamanho da amostra que seria necessário para a estimar densidade demográfica média por km<sup>2</sup> no Brasil com erro máximo de 10 Hab/km<sup>2</sup> com nível de confiança de 95%.
-
 4.	Selecione uma amostra do tamanho calculado em 3 e estime o parâmetro e sua margem de erro, considerando coeficiente de confiança de 95%.
 
 Solução dos itens 1. e 2. do (#exm:exmrazao2), usando R:  

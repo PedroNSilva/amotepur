@@ -1,4 +1,6 @@
-# Amostragem com Probabilidades Proporcionais ao Tamanho - PPT {#ppt}
+# Amostragem com Probabilidades Proporcionais ao Tamanho {#ppt}
+
+A *Amostragem com Probabilidades Proporcionais ao Tamanho - PPT* agrega alguns métodos de seleção de amostra onde as unidades da população têm probabilidades distintas de seleção, proporcionais a uma medida de tamanho associada a cada unidade.
 
 ## Justificativa para amostragem PPT
 
@@ -45,9 +47,9 @@ A seleção de amostras com PPT pode ser feita com ou sem reposição. O sorteio
 
 Na sequência apresentamos os principais métodos de sorteio de amostras PPT, com e sem reposição. Para um tratamento mais completo dos métodos disponíveis, consultar @Brewer1983.
 
-## Amostragem PPT Com Reposição - PPTC
+## Amostragem PPT com reposição
 
-O algoritmo para seleção de amostra PPT com reposição é denominado *método dos totais cumulativos* e consiste nos seguintes passos: 
+O algoritmo para seleção de amostra com *Probabilidades Proporcionais ao Tamanho com Reposição - PPTC* é denominado *método dos totais cumulativos* e consiste nos seguintes passos: 
 
 1. Acumule as medidas de tamanho na população, isto é, faça $X_{(0)} = 0$ e calcule $X_{(i)} = \displaystyle \sum_{k=1}^{i} x_k$ para $i=1,...,N$.
 
@@ -117,9 +119,9 @@ $$
 
 Como já discutido anteriormente, métodos de seleção com reposição raramente são empregados na prática, pois sempre é possível aplicar métodos sem reposição de maior eficiência para o mesmo custo. Por esse motivo, passamos agora a discutir alguns dos muitos métodos disponíveis para sorteio de amostras com *PPT sem reposição*. Nossa seleção de métodos a apresentar se guiou fortemente pela relevância da aplicação destes métodos em pesquisas conduzidas no Brasil, que vamos citar como exemplos ao longo da discussão.
 
-## Amostragem PPT de Poisson - PO
+## Amostragem PPT de Poisson
 
-O *método de Poisson* para seleção de amostras com PPT sem reposição é implementado mediante a realização de uma prova de Bernoulli independente para cada unidade da população, que determina se a unidade é incluída (ou não) na amostra com uma probabilidade proporcional ao seu tamanho. Caso todas as probabilidades de inclusão na amostra sejam iguais, este método se reduz à *Amostragem Binomial* e, portanto, este método é uma generalização daquele método.
+O método de *Amostragem PPT de Poisson - PO* ou, simplesmente, *Amostragem de Poisson - PO* para seleção de amostras com PPT sem reposição é implementado mediante a realização de uma prova de Bernoulli independente para cada unidade da população, que determina se a unidade é incluída (ou não) na amostra com uma probabilidade proporcional ao seu tamanho. Caso todas as probabilidades de inclusão na amostra sejam iguais, este método se reduz à *Amostragem Binomial* e, portanto, este método é uma generalização daquele método.
 
 Um algoritmo baseado em processamento sequencial de lista para implementar o método PPT de Poisson para selecionar uma amostra de tamanho $n$ da população $U$ de tamanho $N$ consiste nos seguintes passos:
 
@@ -171,7 +173,7 @@ $$
 $$
 onde $m$ é o tamanho efetivo da amostra selecionada. Para mais detalhes sobre a estimação da variância, veja @Ohlsson1998.
 
-## Amostragem Sequencial de Poisson - ASP
+## Amostragem sequencial de Poisson
 
 O método de *Amostragem Sequencial de Poisson - ASP*, proposto por @Ohlsson1998, é uma modificação do método de *Amostragem de Poisson* que elimina a variabilidade do tamanho efetivo da amostra. O custo dessa modificação é um procedimento de amostragem um pouco mais complexo e que requer uso de resultados aproximados para a estimação tanto do total como de sua variância.
 
@@ -208,9 +210,9 @@ $$
 No Brasil, ASP foi usada para a seleção de escolas para aplicação de testes padronizados no âmbito do Sistema de Avaliação da Educação Básica - SAEB, como descrito em @Bussab1999. 
 
 
-## Amostragem Sistemática com PPT - SIS
+## Amostragem sistemática com PPT
 
-O método de *Amostragem Sistemática com PPT* consiste nos seguintes passos:
+O método de *Amostragem Sistemática com PPT -SIS* consiste nos seguintes passos:
 
 1. Acumule as medidas de tamanho na população, isto é, e faça $X_{(0)}=0$ e calcule $X_{(i)}=\displaystyle \sum_{k=1}^{i}x_k$ para $i=1,...,N$.
 
@@ -244,9 +246,9 @@ A Amostragem Sistemática com PPT (com ou sem ordenação) era muito usada na pr
 
 Quando *Amostragem Sistemática com PPT* for usada para selecionar a amostra, pode-se usar o estimador HT para o total conforme descrito na expressão \@ref(eq:eqppt2). Para esse plano amostral, a variância tem uma expressão complexa e não há estimador consistente de variância disponível na literatura. O problema da estimação de variância sob amostragem sistemática com PPT é ainda mais difícil quando o sorteio é feito com ordenação. @Berger2003 oferece uma estratégia que pode ser considerada nesse caso.
 
-## Amostragem PPT de Pareto - AP 
+## Amostragem PPT de Pareto
 
-A seleção com amostragem PPT de Pareto, de acordo com @Rosen2000, segue os seguintes passos:
+A seleção com *Amostragem PPT de Pareto - AP*, de acordo com @Rosen2000, segue os seguintes passos:
 
 1. Gere número aleatório uniforme independente $A_i$ para cada unidade $i$ da população.
 
