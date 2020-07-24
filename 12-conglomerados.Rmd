@@ -66,8 +66,7 @@ Mesmo que a lista de todos os domicílios esteja disponível, reduções do cust
 
 Se comparamos uma amostra conglomerada com uma amostra de unidades elementares do mesmo número de unidades elementares, em geral, na amostra conglomerada espera-se que:
 
-- O custo por unidade elementar seja mais baixo, devido ao mais baixo custo de listagem, de localização das unidades ou de ambos.
-
+- O custo por unidade elementar seja mais baixo, devido ao mais baixo custo de listagem, de localização das unidades ou de ambos.     
 - A variância de estimativas amostrais seja maior, dependendo do grau de homogeneidade das unidades agrupadas em conglomerados. 
 
 Então verifica-se que a amostragem conglomerada impõe vantagens (menor custo) e desvantagens (menor precisão). Levando em conta os aspectos operacionais e a redução de custos que a amostragem conglomerada proporciona, em muitas situações práticas, a perda de eficiência amostral é mais que compensada por essa vantagem. Além disso, a redução de custos proporcionada pode permitir selecionar amostras maiores, compensando assim a perda de precisão em relação a amostras não conglomeradas. 
@@ -97,9 +96,9 @@ Um exemplo que ilustra bem a diferenciação do papel que estruturas de grupos d
 
 Essa mesma estrutura de grupos serve como estratos no caso da seleção de domicílios do Censo Demográfico que vão responder ao questionário mais longo, denominado de questionário da amostra. Nessa operação, em cada setor censitário, uma amostra de domicílios é selecionada dentro de cada um dos setores censitários, dando a eles então este papel de estratos, e não de conglomerados - ver @IBGE2016 para detalhes. 
 
-## Amostragem Conglomerada em um estágio - AC1
+## Amostragem conglomerada em um estágio  
 
-Num plano de *amostragem conglomerada em um estágio - AC1*, são incluídas na amostra da pesquisa todas as unidades de $U$ encontradas nos conglomerados selecionados em $a$. A amostra $s$ de unidades da população $U$ que serão pesquisadas é dada por:
+Num plano de *Amostragem Conglomerada em em estágio - AC1*, são incluídas na amostra da pesquisa todas as unidades de $U$ encontradas nos conglomerados selecionados em $a$. A amostra $s$ de unidades da população $U$ que serão pesquisadas é dada por:
 
 $$
 s = C_{i_1} \cup C_{i_2} \cup \dots \cup C_{i_m} = \bigcup_{k=1}^{m}C_{i_k}
@@ -107,8 +106,7 @@ $$
 
 Portanto, a amostragem do tipo AC1 é caracterizada pelos seguintes aspectos: 
 
-- As unidades populacionais são reunidas em *grupos* denominados *conglomerados*. 
-
+- As unidades populacionais são reunidas em *grupos* denominados *conglomerados*.      
 - Uma amostra de unidades é obtida selecionando uma *amostra de conglomerados* e *incluindo na amostra todas as unidades* pertencentes aos conglomerados selecionados.
 
 Segue ilustração utilizando um baralho que pode ser observado na Figura \@ref(fig:baralho). Cada grupo de um mesmo número ou letra (A, 2, ..., 7, J, Q, K) representa um conglomerado de cartas dos quatro diferentes naipes (paus, ouros, copas e espadas).
@@ -156,10 +154,8 @@ Fica como exercício para o leitor definir o tipo de seleção que poderia ser u
 
 **Notas**
 
-1) Sem USAs, o esquema acima se torna amostragem conglomerada em dois estágios, ou amostragem conglomerada com subamostragem.
-
-2) O processo acima pode ser estendido para quatro ou mais estágios.
-
+1) Sem USAs, o esquema acima se torna amostragem conglomerada em dois estágios, ou amostragem conglomerada com subamostragem.     
+2) O processo acima pode ser estendido para quatro ou mais estágios.     
 3) Na prática, é raro ver planos com mais de três ou quatro estágios de seleção. 
 
 Segue ilustração na Figura \@ref(fig:baralhoAC2) de amostragem conglomerada em dois estágios - AC2, utilizando o baralho com os grupamentos definidos anteriormente.  
@@ -176,14 +172,10 @@ Populações humanas em geral são organizadas segundo uma hierarquia definida p
 
 **(#exm:exmcon2)** Como outros exemplos de estruturas com hierarquia, considere:
 
-a) Conglomerados = áreas num mapa; e unidades elementares = estabelecimentos agropecuários.
-
-b) UPAs = hospitais; USAs = enfermarias; e unidades elementares = pacientes.
-
-c) UPAs = escolas; USAs = turmas; e unidades elementares = crianças/estudantes.
-
-d) Conglomerados = veículos cruzando um posto de pedágio; e unidades elementares = passageiros nos veículos.
-
+a) Conglomerados = áreas num mapa; e unidades elementares = estabelecimentos agropecuários.   
+b) UPAs = hospitais; USAs = enfermarias; e unidades elementares = pacientes.     
+c) UPAs = escolas; USAs = turmas; e unidades elementares = crianças/estudantes.    
+d) Conglomerados = veículos cruzando um posto de pedágio; e unidades elementares = passageiros nos veículos.     
 e) UPAs = empresas industriais; e unidades elementares = unidades locais. 
 
 **(#exm:exmcon3)** Plano amostral da *Pesquisa Mensal de Emprego - PME* - na Região Metropolitana de São Paulo realizada pelo IBGE
@@ -206,16 +198,12 @@ Seria possível implementar um quarto estágio selecionando apenas uma parte dos
 
 A amostragem conglomerada em um ou mais estágios deve ser adotada sempre que: 
 
-1. *Não existe cadastro* de unidades elementares, mas existe (ou se pode construir) um cadastro de UPAs e, sendo necessário, cadastros de USAs, etc.
-
-2. *Concentrar a coleta* de dados em umas poucas localidades ou grupos de unidades reduz o custo de deslocamento entre unidades elementares.
-
-3. O *acesso* às unidades elementares pode depender de pontos de passagem controlados nalgum nível da hierarquia.
-
+1. *Não existe cadastro* de unidades elementares, mas existe (ou se pode construir) um cadastro de UPAs e, sendo necessário, cadastros de USAs, etc.    
+2. *Concentrar a coleta* de dados em umas poucas localidades ou grupos de unidades reduz o custo de deslocamento entre unidades elementares.    
+3. O *acesso* às unidades elementares pode depender de pontos de passagem controlados nalgum nível da hierarquia.     
 4. A maior capacidade de supervisão do trabalho em grupos de unidades pode resultar em melhor qualidade dos dados a serem coletados.
 
-
-## Notação na Amostragem Conglomerada em um estágio - AC1
+## Notação na amostragem conglomerada em um estágio
 
 A Tabela \@ref(tab:tabcong2) apresenta a notação para os tamanhos populacionais e da amostra na AC1 para uma dada população. 
 
@@ -258,12 +246,11 @@ Média populacional por unidade                                       $\overline
 </center>
 
 
-## Amostragem conglomerada em um estágio simples - AC1S
+## Amostragem conglomerada em um estágio simples 
 
-O método de seleção de uma amostra conglomerada em um estágio simples consiste nos seguintes passos: 
+O método de seleção de uma amostra por *Amostragem Conglomerada em um estágio simples -AC1S* consiste nos seguintes passos: 
 
-1. Selecione uma amostra $a$ de $m$ conglomerados dentre os $M$ existentes na população $C$ de UPAs por AAS.
-
+1. Selecione uma amostra $a$ de $m$ conglomerados dentre os $M$ existentes na população $C$ de UPAs por AAS.    
 2. Pesquise cada uma das unidades elementares presentes nos conglomerados selecionados da amostra $a$.
 
 A amostra desejada é formada por todas as unidades elementares existentes nos $m$ conglomerados selecionados.
@@ -350,24 +337,18 @@ $$
 
 Comparando os estimadores natural e tipo razão para o total populacional, sob o plano amostral de AC1S, tem-se:  
 
-1. Se os conglomerados tiverem todos o mesmo tamanho, ou seja:
-
+1. Se os conglomerados tiverem todos o mesmo tamanho, ou seja:    
 $$
 N_i=N/M=\overline N,\;\;\forall \,i=1,\dots,M
 $$
-então: 
+então:    
 $$
 \widehat Y_{AC1S/R} = \widehat Y_{AC1S/HT}
 $$
-
-2. Somente o estimador natural, $\widehat Y_{AC1S/HT}$, pode ser utilizado quando $N$ for desconhecido.
-
-3. O estimador $\widehat Y_{AC1S/HT}$ é exatamente não viciado.
-
-4. O estimador $\widehat Y_{AC1S/R}$ é apenas aproximadamente não viciado, para grandes amostras.
-
+2. Somente o estimador natural, $\widehat Y_{AC1S/HT}$, pode ser utilizado quando $N$ for desconhecido.    
+3. O estimador $\widehat Y_{AC1S/HT}$ é exatamente não viciado.    
+4. O estimador $\widehat Y_{AC1S/R}$ é apenas aproximadamente não viciado, para grandes amostras.    
 5. O estimador tipo razão, $\widehat Y_{AC1S/R}$, pode ser muito mais preciso que $\widehat Y_{AC1S/HT}$ em certos casos, pois se:
-
  $$
  \overline {Y_i} \doteq \overline Y, \,\, \forall \,i
  $$  
@@ -375,9 +356,7 @@ $$
  $$
  V_{AC1S} \left( \widehat Y_{AC1S/R} \right) \doteq 0
  $$ 
- 
  enquanto que: 
- 
  $$
  V_{AC1S} \left( \widehat Y_{AC1S/HT} \right) \propto \displaystyle \sum_{i \in C} \left( Y_i - \overline Y_C \right)^2 = \displaystyle \sum_{i \in C} \left( N_i \overline {Y_i} - \overline N \overline Y \right)^2 \doteq \overline Y^2 \displaystyle \sum_{i \in C} \left( N_i - \overline N \right)^2
  $$
@@ -392,8 +371,7 @@ $$
 
 Os ganhos de precisão do estimador tipo razão podem ser grandes quando:
 
-* For grande a variação dos tamanhos $N_i$.
-
+* For grande a variação dos tamanhos $N_i$.    
 * For pequena a variação entre as médias $\overline {Y_i}$ dos conglomerados.
 
 Na prática, a formação de conglomerados com tamanhos iguais para controlar a variação de tamanho na variância do estimador e, também, na variação do tamanho final da amostra, nem sempre é possível, sendo a ocorrência de conglomerados com tamanhos iguais pouco comum. 
@@ -402,16 +380,13 @@ Assim, ao invés de tentar construir artificialmente conglomerados de tamanhos i
 
 Os métodos usuais para reduzir o efeito da variabilidade dos tamanhos dos conglomerados são: 
 
-a) Selecionar os conglomerados com probabilidades proporcionais ao tamanho. 
-
-b) Estratificar os conglomerados, utilizando o tamanho como variável de estratificação.  
-
+a) Selecionar os conglomerados com probabilidades proporcionais ao tamanho.     
+b) Estratificar os conglomerados, utilizando o tamanho como variável de estratificação.      
 c) Usar estimadores tipo razão, com a variável auxiliar sendo o tamanho do conglomerado. 
 
 **Recomendações**
 
-* Em geral, prefira $\widehat Y_{AC1S/R}$ a menos que $N$ seja desconhecido.
-
+* Em geral, prefira $\widehat Y_{AC1S/R}$ a menos que $N$ seja desconhecido.    
 * Se $\widehat Y_{AC1S/HT}$ tiver que ser usado: *estratifique os conglomerados* por tamanho ou *use amostragem conglomerada com PPT*. Em termos de eficiência não parece haver vantagem nítida de qualquer das duas alternativas, sendo bastante semelhantes os resultados obtidos com ambas as técnicas em termos da precisão final das estimativas. 
 
 ### Estimação da média sob AC1S
@@ -460,11 +435,9 @@ com $\overline n$ em lugar de $\overline N$ quando este for desconhecido.
 
 **Notas**
 
-1. Se $N$ (ou  $\overline N$) for desconhecido, só podemos usar $\overline y_{AC1S/R}$.
-
-2. As comparações de vício e variância feitas para o caso dos estimadores de total seguem válidas para os estimadores da média.
-
-3. Quase sempre é preferível usar $\overline y_{AC1S/R} = \overline y$, a média simples por unidade elementar. 
+1. Se $N$ (ou  $\overline N$) for desconhecido, só podemos usar $\overline y_{AC1S/R}$.    
+2. As comparações de vício e variância feitas para o caso dos estimadores de total seguem válidas para os estimadores da média.     
+3. Quase sempre é preferível usar $\overline y_{AC1S/R} = \overline y$, a média simples por unidade elementar.       
 
 A Tabela \@ref(tab:tabcong5) apresenta um resumo da estimação de parâmetros média e total da variável $y$ sob AC1S. 
 
@@ -517,7 +490,7 @@ $\scriptstyle V_{AC1S}\left(\widehat Y_{AC1S/R}\right)\doteq M^2\left(\frac1m-\f
 
 Aqui não foi tratado explicitamente do problema da estimação de proporções. Porém, lembrando que proporção é equivalente à média de uma variável do tipo indicadora, que só pode assumir valores $0$ (não possui a característica de interesse) ou $1$ (possui a característica de interesse) e, recorrendo ao exposto no Capítulo \@ref(proporc), é fácil derivar as expressões para estimar proporções e avaliar a precisão das estimativas a partir das expressões para estimação de média fornecidas aqui. 
 
-## Efeito do Plano Amostral - EPA
+## Efeito do plano amostral
 
 O *Efeito do Plano Amostral - EPA* é uma medida para comparar a *eficiência* de duas estratégias, $E_1$ e $E_2,$ formadas pelas combinações de *plano amostral e estimador*, para um mesmo tamanho de amostra.
 
@@ -539,8 +512,7 @@ O $FPA$ compara diretamente o *desvio padrão* dos estimadores sob duas estraté
 
 Neste caso, as duas estratégias cuja eficiência se quer comparar são:
 
-- *Estratégia 1*: Amostragem conglomerada em um estágio simples - AC1S, com o estimador natural $\overline y_{AC1S/HT}$.
-
+- *Estratégia 1*: Amostragem conglomerada em um estágio simples - AC1S, com o estimador natural $\overline y_{AC1S/HT}$       
 - *Estratégia 2*: Amostragem aleatória simples - AAS de mesmo tamanho total $(n)$, com o estimador usual de média $\displaystyle \overline y = \frac 1 n \sum_{i \in s} y_i$.
 
 O efeito do plano amostral (neste caso, conglomeração) ao estimar a média populacional por unidade elementar é:
@@ -559,8 +531,7 @@ Um valor de $EPA=5$, por exemplo, indicaria que a variância sob amostragem cong
 
 **(#exm:exmcon5)** Efeito do plano amostral ao estimar a média populacional por unidade elementar, através do estimador tipo razão com AC1S em relação ao uso da AAS.
 
-- *Estratégia 1*: Amostragem conglomerada em um estágio simples - AC1S, com estimador tipo razão $\overline y_{AC1S/R} =\displaystyle \frac {1} {n} \sum_{i \in a} Y_i$ para a média.
-
+- *Estratégia 1*: Amostragem conglomerada em um estágio simples - AC1S, com estimador tipo razão $\overline y_{AC1S/R} =\displaystyle \frac {1} {n} \sum_{i \in a} Y_i$ para a     
 - *Estratégia 2*: Amostragem aleatória simples - AAS de mesmo tamanho total $(n)$, com o estimador usual de média $\overline y = \displaystyle \frac 1 n \sum_{i \in s} y_i$.
 
 O efeito do plano amostral (neste caso, conglomeração) ao estimar a média populacional por unidade elementar é:
@@ -617,24 +588,15 @@ $$
 
 Cabem algumas considerações relacionadas com a variação do $EPA$ para AC1S: 
 
-1. Se os conglomerados tiverem variância dentro grande, isto é, se $\displaystyle S_d^2 \doteq S_y^2$, então $\rho \doteq 0$ e portanto, $EPA(AC1S/R;\,AAS) \doteq 1 + (\overline N - 1) \times 0 = 1$.
-
-    Nesse caso, não ocorreria perda de precisão devido ao uso de amostragem conglomerada.
-
-2. Pode ser demonstrado que $\displaystyle - \left( \frac {M-1} {N-M} \right) \le \rho \le 1$, ou ainda, de forma aproximada, que $\displaystyle \frac {-1} {\overline N - 1} \le \rho \le1$.
-
-    Em muitas aplicações práticas, $\rho > 0$, porque os conglomerados tendem a ser mais homogêneos internamente do que a população em geral.
-
-    “Birds of a feather flock together!”
-
-    Consequência: $EPA(AC1S/R;\,AAS) > 1$ na maioria das vezes.
-
-3. Raramente $\rho<  0$, caso em que AC1S seria mais eficiente que AAS.
-
-4. Num caso extremo, $\rho = 1$ e portanto $EPA(AC1S/R;\,AAS) = \overline N$ e 
-
-    $\displaystyle V_{AC1S} (\overline y_{AC1S/R}) = EPA(AC1S/R;\,AAS)\, V_{AAS} (\overline y) \doteq \overline N \frac {S_y^2} {m \overline N} = \frac{S_y^2}{m}$
-    
+1. Se os conglomerados tiverem variância dentro grande, isto é, se $\displaystyle S_d^2 \doteq S_y^2$, então $\rho \doteq 0$ e portanto, $EPA(AC1S/R;\,AAS) \doteq 1 + (\overline N - 1) \times 0 = 1$.    
+    Nesse caso, não ocorreria perda de precisão devido ao uso de amostragem conglomerada.    
+2. Pode ser demonstrado que $\displaystyle - \left( \frac {M-1} {N-M} \right) \le \rho \le 1$, ou ainda, de forma aproximada, que $\displaystyle \frac {-1} {\overline N - 1} \le \rho \le1$.    
+    Em muitas aplicações práticas, $\rho > 0$, porque os conglomerados tendem a ser mais homogêneos internamente do que a população em geral.    
+    “Birds of a feather flock together!”    
+    Consequência: $EPA(AC1S/R;\,AAS) > 1$ na maioria das vezes.     
+3. Raramente $\rho<  0$, caso em que AC1S seria mais eficiente que AAS.     
+4. Num caso extremo, $\rho = 1$ e portanto $EPA(AC1S/R;\,AAS) = \overline N$ e     
+    $\displaystyle V_{AC1S} (\overline y_{AC1S/R}) = EPA(AC1S/R;\,AAS)\, V_{AAS} (\overline y) \doteq \overline N \frac {S_y^2} {m \overline N} = \frac{S_y^2}{m}$    
     Nesse caso, a precisão da amostra conglomerada de tamanho total igual a $m \overline N$ é equivalente apenas àquela obtida com uma amostra aleatória simples de tamanho $m$!!! 
 
 A Tabela \@ref(tab:tabcong6) apresenta efeitos de plano amostral sob AC1S de acordo com valores selecionados dos tamanhos dos conglomerados e do coeficiente de correlação intraclasse. 
@@ -678,10 +640,8 @@ A ocorrência de variabilidade nos tamanhos dos conglomerados causa acentuada pe
 
 A amostragem conglomerada em um estágio com probabilidade proporcional ao tamanho - AC1P se caracteriza por: 
 
-1. Ser útil para controlar os efeitos da variação nos tamanhos dos conglomerados.
-
-2. Poder ser adotada na etapa de seleção da amostra, enquanto que estimadores tipo razão somente podem ser considerados na etapa de estimação.
-
+1. Ser útil para controlar os efeitos da variação nos tamanhos dos conglomerados.    
+2. Poder ser adotada na etapa de seleção da amostra, enquanto que estimadores tipo razão somente podem ser considerados na etapa de estimação.    
 3. Selecionar conglomerados com probabilidades proporcionais ao seu tamanho (número de unidades subordinadas ou outra medida de tamanho). 
 
 A seguir, o estimador não viciado do total $Y$ com AC1P, no caso de usar amostragem PPT com reposição para a seleção dos conglomerados. 
@@ -724,22 +684,17 @@ $$
 
 **Notas:**
 
-a) $\widehat Y_{AC1PC}$ é *mais preciso* que o estimador não viciado do total $\widehat Y$ com AC1S, quando as médias dos conglomerados não são relacionadas com os tamanhos dos conglomerados.
-
-b) $\widehat Y_{AC1PC}$ *não se beneficia* do fator de correção de população finita.
-
-c) Métodos para amostragem conglomerada com *PPT sem reposição* estão disponíveis e podem ser usados em lugar de PPTC.
-
-d) Para planos AC1P ou AC1PC, os tamanhos precisam ser conhecidos para cada conglomerado da população, antes de selecionar a amostra. Caso contrário, podem ser usadas medidas aproximadas de tamanho.
-
-e) $\widehat Y_{AC1PC}$ tem desempenho similar ao estimador de razão do total sob AC1S, $\widehat Y_{AC1S/R}$. Quando não for feita amostragem PPT de conglomerados, usar $\widehat Y_{AC1S/R}$ sempre que possível.
-
+a) $\widehat Y_{AC1PC}$ é *mais preciso* que o estimador não viciado do total $\widehat Y$ com AC1S, quando as médias dos conglomerados não são relacionadas com os tamanhos dos conglomerados.    
+b) $\widehat Y_{AC1PC}$ *não se beneficia* do fator de correção de população finita.    
+c) Métodos para amostragem conglomerada com *PPT sem reposição* estão disponíveis e podem ser usados em lugar de PPTC.     
+d) Para planos AC1P ou AC1PC, os tamanhos precisam ser conhecidos para cada conglomerado da população, antes de selecionar a amostra. Caso contrário, podem ser usadas medidas aproximadas de tamanho.     
+e) $\widehat Y_{AC1PC}$ tem desempenho similar ao estimador de razão do total sob AC1S, $\widehat Y_{AC1S/R}$. Quando não for feita amostragem PPT de conglomerados, usar $\widehat Y_{AC1S/R}$ sempre que      
 f) $\widehat Y_{AC1PC}$ possui propriedades exatas (é não viciado, possui expressão exata para a variância e estimador não viciado para a variância) que valem também para amostras pequenas.
 
 
-## Amostragem conglomerada em dois estágios - AC2 
+## Amostragem conglomerada em dois estágios 
 
-O plano de amostragem conglomerada em dois estágios se caracteriza pela seleção de uma amostra de conglomerados com subamostragem, assim definida: 
+O plano de *Amostragem Conglomerada em dois estágios - AC2* se caracteriza pela seleção de uma amostra de conglomerados com subamostragem, assim definida: 
 
 - **Estágio 1**: selecione uma amostra $a$ de $m$ UPAs (conglomerados).
 - **Estágio 2**: para cada UPA $C_i$ da amostra de primeiro estágio, selecione amostra $s_i$ de $n_i$ unidades secundárias das $N_i$ unidades existentes nessa UPA.
@@ -750,13 +705,10 @@ O tamanho total da amostra é $n = \displaystyle \sum_{i \in a} n_i$.
 
 As principais razões para adotar amostragem conglomerada em dois estágios são as seguintes:
 
-1) Geralmente não é prático pesquisar todas as unidades nos conglomerados selecionados: *conglomerados* muito *grandes*, *carga de trabalho variável* por entrevistador, etc.
-
-2) Constatou-se que a perda de precisão da AC1S em relação à AAS para amostras de mesmo tamanho é tanto maior quanto maior for o tamanho do conglomerado. A adoção de AC2 vem reduzir a influência do tamanho dos conglomerados na eficiência da amostragem conglomerada, permitindo ao amostrista controlar melhor a precisão do estimador resultante, ao manejar o número de unidades que são selecionadas em cada conglomerado. Na AC1 isso não está sob controle do amostrista, pois uma vez selecionado um conglomerado, todas as suas unidades devem ser pesquisadas.
-
-3) Se a variância dentro dos conglomerados for pequena, as médias por conglomerados $\overline {Y_i}$ podem ser bem estimadas por amostragem.
-
-4) *Amostragem em dois estágios* é mais complexa, porém *mais flexível*. 
+1) Geralmente não é prático pesquisar todas as unidades nos conglomerados selecionados: *conglomerados* muito *grandes*, *carga de trabalho variável* por entrevistador, etc.     
+2) Constatou-se que a perda de precisão da AC1S em relação à AAS para amostras de mesmo tamanho é tanto maior quanto maior for o tamanho do conglomerado. A adoção de AC2 vem reduzir a influência do tamanho dos conglomerados na eficiência da amostragem conglomerada, permitindo ao amostrista controlar melhor a precisão do estimador resultante, ao manejar o número de unidades que são selecionadas em cada conglomerado. Na AC1 isso não está sob controle do amostrista, pois uma vez selecionado um conglomerado, todas as suas unidades devem ser pesquisadas.     
+3) Se a variância dentro dos conglomerados for pequena, as médias por conglomerados $\overline {Y_i}$ podem ser bem estimadas por amostragem.     
+4) *Amostragem em dois estágios* é mais complexa, porém *mais flexível*.     
 
 Na estimação sob AC2, cujo plano amostral compreende *dois estágios de seleção*, para encontrar médias e variâncias de estimadores, devem ser calculadas médias considerando todas as possíveis amostras sob o plano amostral.
 
@@ -878,16 +830,11 @@ a variância dentro da UPA $i$.
 
 Note que:
 
-i) Se $m = M$ então, a 1ª componente da variância é nula, ou seja: 
-
-    $V_{AC2S} \left( \widehat Y_{AC2S} \right) = \displaystyle\sum_{i \in C} N_i^2 \left( \frac {1} {n_i} - \frac {1} {N_i} \right) S_i^2 = V_{AES} \left( \widehat Y_{AES} \right)$ 
-
-    e este plano equivaleria ao de uma amostra estratificada, em que os conglomerados se tornaram estratos! 
-
-ii) Se $n_i = N_i \,\, (\forall\, i = 1, 2, \dots, n)$ então, a 2ª componente da variância é nula, ou seja:
-
-    $V_{AC2S} \left( \widehat Y_{AC2S} \right) = \displaystyle M^2 \left( \frac {1} {m} - \frac {1} {M} \right) \frac {1} {M-1} \sum_{i \in C} \left( Y_i - \overline {Y_C} \right)^2 = V_{AC1S} \left( \widehat Y \right)$ 
-    
+i) Se $m = M$ então, a 1ª componente da variância é nula, ou seja:      
+    $V_{AC2S} \left( \widehat Y_{AC2S} \right) = \displaystyle\sum_{i \in C} N_i^2 \left( \frac {1} {n_i} - \frac {1} {N_i} \right) S_i^2 = V_{AES} \left( \widehat Y_{AES} \right)$     
+    e este plano equivaleria ao de uma amostra estratificada, em que os conglomerados se tornaram estratos!      
+ii) Se $n_i = N_i \,\, (\forall\, i = 1, 2, \dots, n)$ então, a 2ª componente da variância é nula, ou seja:    
+$V_{AC2S} \left( \widehat Y_{AC2S} \right) = \displaystyle M^2 \left( \frac {1} {m} - \frac {1} {M} \right) \frac {1} {M-1} \sum_{i \in C} \left( Y_i - \overline {Y_C} \right)^2 = V_{AC1S} \left( \widehat Y \right)$    
     e este plano amostral equivaleria ao de uma amostra de conglomerados em um estágio simples.
 
 De acordo com @Cochran1977, Expressão (11.24), um estimador não viciado da variância do estimador HT do total sob o Plano AC2S é dado por: 
@@ -1080,36 +1027,28 @@ A seguir são apresentadas algumas ideias básicas a serem adotadas na escolha d
 
 Definição das unidades e do plano amostral no caso de pesquisas domiciliares:
 
-a) Usar unidades claramente definidas, com mapeamento preciso, para evitar omissões e dupla contagem.
-
-b) Garantir que o cadastro tenha boa cobertura em relação ao objetivo da pesquisa, para evitar omissão de unidades.
-
-c) Definir procedimentos precisos para operações de listagem ou cadastramento de unidades, quando necessário.
-
-d) Definir um plano amostral simples de implementar.
-
+a) Usar unidades claramente definidas, com mapeamento preciso, para evitar omissões e dupla contagem.    
+b) Garantir que o cadastro tenha boa cobertura em relação ao objetivo da pesquisa, para evitar omissão de unidades.     
+c) Definir procedimentos precisos para operações de listagem ou cadastramento de unidades, quando necessário.    
+d) Definir um plano amostral simples de implementar.    
 e) Preferir cadastros ou listas disponíveis em computador.
 
 Em termos de medidas de tamanho e informação auxiliar: 
 
-f) Medidas de tamanho devem ser tão precisas quanto possível.
-
+f) Medidas de tamanho devem ser tão precisas quanto possível.    
 g) Informações auxiliares são necessárias para estratificar UPAs, para selecionar unidades com PPT, para usar na estimação, etc.
 
 Em termos da escolha dos tamanhos das UPAs, considerar que:  
 
-h) UPAs menores geralmente apresentam menores custos de listagem e de deslocamento entre unidades; porém UPAs menores são mais homogêneas e podem aumentar a variância.
-
-i) Geralmente adotam-se UPAs do maior tamanho possível, tal que uma UPA possa ser coberta por apenas um entrevistador durante a operação de coleta.
-
+h) UPAs menores geralmente apresentam menores custos de listagem e de deslocamento entre unidades; porém UPAs menores são mais homogêneas e podem aumentar a variância.    
+i) Geralmente adotam-se UPAs do maior tamanho possível, tal que uma UPA possa ser coberta por apenas um entrevistador durante a operação de coleta.    
 j) UPAs de tamanhos parecidos reduzem a variância.
 
 Em termos da escolha de $m$ e $n_i$, considerar que:
 
 k) Geralmente, utiliza-se uma das opções equiponderadas dos Planos AC2S e AC2PS, para manter a simplicidade.
 
-- Sob o Plano AC2S, escolher: $f_1 = m / M$, a fração amostral do primeiro estágio; e $f_{2i} = n_i / N_i = \overline n / \overline N$, as frações amostrais do segundo estágio iguais para todos os conglomerados da amostra;
-
+- Sob o Plano AC2S, escolher: $f_1 = m / M$, a fração amostral do primeiro estágio; e $f_{2i} = n_i / N_i = \overline n / \overline N$, as frações amostrais do segundo estágio iguais para todos os conglomerados da amostra;    
 - Sob o Plano AC2PS, escolher: $f_1 = m / M$ e $\overline n$ (tamanho amostral fixo no segundo estágio, quando as probabilidades de sorteio no primeiro estágio são $p_i \propto N_i$).
 
 l) Em cada caso, há duas quantidades de interesse a especificar para definir completamente o plano amostral. Restrições orçamentárias geralmente permitem reduzir a escolha a apenas uma dessas quantidades.
@@ -1118,8 +1057,7 @@ Algumas vezes, para o Plano AC2PS, determinamos primeiro o valor para $\overline
 
 Em geral, para tamanhos totais de amostra fixados, pode-se escolher entre:
 
-- Aumentar $m$ e reduzir $\overline n$, o que aumenta a precisão mas aumenta o custo.
-
+- Aumentar $m$ e reduzir $\overline n$, o que aumenta a precisão mas aumenta o custo.    
 - Reduzir $m$ e aumentar $\overline n$, o que reduz a precisão mas também reduz o custo.
 
 Um compromisso é necessário! Um guia importante é considerar: 
@@ -1130,8 +1068,7 @@ $$
 
 Da Expressão \@ref(eq:eqcong46) segue-se de imediato que:
 
-i) Se $\rho > 0 \Rightarrow [1 + (\overline n - 1) \rho] << [1 + (\overline N - 1) \rho]$, que é o efeito de conglomeração na AC1S. Logo, do ponto de vista de melhoria da precisão das estimativas, é interessante manter $\overline n$ pequeno, o que implica ter mais UPAs na amostra, mas com subamostras menores em cada UPA. 
-
+i) Se $\rho > 0 \Rightarrow [1 + (\overline n - 1) \rho] << [1 + (\overline N - 1) \rho]$, que é o efeito de conglomeração na AC1S. Logo, do ponto de vista de melhoria da precisão das estimativas, é interessante manter $\overline n$ pequeno, o que implica ter mais UPAs na amostra, mas com subamostras menores em cada UPA.      
 ii) Se $\rho < 0 \Rightarrow [1 + (\overline n - 1) \rho] > [1 + (\overline N - 1) \rho]$. Logo, nesse caso a melhor alternativa é fazer $\overline n = \overline N$, isto é fazer AC1, selecionando menos UPAs. Vale destacar que são muito raras situações como essa na prática. 
 
 Vale registrar que, se a fração amostral do primeiro estágio cresce, como em geral o custo de adicionar uma unidade primária é maior que o de adicionar uma unidade secundária, então o fator custo não deve ser ignorado na determinação dos tamanhos da amostra dos diferentes estágios.  
