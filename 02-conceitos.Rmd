@@ -82,7 +82,7 @@ Conforme o Statistics Canada, agência responsável pela pesquisa: "The target p
 
 Nesse exemplo também aparece a ideia de uma *população alvo* que seria maior que a *população de pesquisa* de fato considerada na pesquisa e inclusive há uma estimativa do déficit de cobertura representado pelas exclusões indicadas: 2% da população canadense de 15 anos e mais. Também é interessante notar que a pesquisa foca apenas na população de 15 anos e mais.
 
-A citação a esta pesquisa é útil também porque contém uma explicitação mais complexa dos objetivos que devem ser cumpridos em termos da qualidade com que certas estimativas deveriam ser produzidas. O motivo é que há conjuntos de *domínios de interesse* mais variados. A publicação @StatisticsCanada2018 explicita os seguintes objetivos quanto à precisão de estimativas para diferentes domínios:
+A citação a esta pesquisa é útil também porque contém uma explicitação mais complexa dos objetivos que devem ser cumpridos em termos da qualidade com que certas estimativas deveriam ser produzidas. O motivo é que há conjuntos de *domínios de interesse* mais variados. A publicação @StatisticsCanada2020 explicita os seguintes objetivos quanto à precisão de estimativas para diferentes domínios:
 
 "For monthly estimates of unemployment at the Canada level:
 
@@ -96,6 +96,7 @@ For three-month moving average estimates at the sub-provincial level:
 
  + a CV lower than 25% for the unemployment estimate at the Economic Region - ER level.
  + a CV lower than 15% for the unemployment rate estimate at the Employment Insurance Economic Regions - EIER level if the unemployment rate is higher than 5%, or a fixed confidence interval width equivalent to that of an unemployment rate of 5% with a CV of 15%."
+
 
 Assim os objetivos especificados para guiar o dimensionamento da amostra incluíram não só níveis diferenciados de precisão para domínios de diferentes tamanhos, como também envolveram a consideração de períodos de acumulação de amostras (a pesquisa é repetida mensalmente) necessários para permitir obter estimativas para os domínios mais detalhados ou desagregados.
 
