@@ -106,13 +106,9 @@ Os dados amostrais para a variável $y$ são representados por $Y_s = \{y_{i_1},
 A *amostragem probabilística* é qualquer procedimento de amostragem que satisfaça todas as condições enumeradas a seguir:
 
 1. O *espaço amostral* $S$, correspondente ao conjunto de todas as amostras $s$ possíveis, é bem definido e poderia ser enumerado, ao menos teoricamente.
-
 2. Uma probabilidade $p(s)$ conhecida (ou calculável) é associada a cada amostra $s \in S$, de tal modo que $\displaystyle \sum_{s \in S} p(s) = 1$. A função $p(s)$ é denominada *plano amostral*.
-
 3. Uma única amostra $s$ $(s \in S)$ é selecionada para observação usando um mecanismo de aleatorização (sorteio) tal que a amostra $s$ é escolhida com probabilidade igual a $p(s)$.
-
 4. Cada unidade $i \in U$ tem uma probabilidade positiva de ser selecionada para a amostra, isto é: $\pi_i = P(i \in s) = \displaystyle \sum_{s \ni i} p(s) > 0$, $\forall\, i \in U$. A probabilidade $\pi_i$ é denominada *probabilidade de inclusão* (de primeira ordem) da unidade $i$.
-
 5. As probabilidades de inclusão das unidades selecionadas para a amostra e outros aspectos da estrutura do plano amostral são levados em conta ao fazer inferência sobre os parâmetros populacionais.
 
 ## Estatísticas, estimadores e estimativas
@@ -325,7 +321,7 @@ A distribuição de $\widehat Y_w = 2 \times t = \displaystyle \sum_{i \in s} 2 
 No (#exm:filh) mostrou-se como se pode obter a *distribuição amostral* de um estimador (ou de uma estatística qualquer) a partir da distribuição de probabilidades induzida pelo plano amostral $p(s)$. Isto foi muito fácil de fazer porque contamos com duas condições favoráveis, que não se repetem na prática:
 
 1) Os tamanhos da população $N$ e da amostra $n$ eram muito pequenos (4 e 2, respectivamente).    
-2) consideramos conhecidos os valores da variável $y$ para todas as unidades da população $U$.  
+2) Consideramos conhecidos os valores da variável $y$ para todas as unidades da população $U$.  
 
 Na grande maioria das situações de interesse prático no campo das pesquisas por amostragem, os tamanhos de população e amostra serão muito maiores. Também não serão conhecidos os valores da variável de interesse para unidades que não sejam selecionadas para a amostra que vai ser pesquisada. Num cenário com estas características, trabalhar com a distribuição $p(s)$ para daí tentar derivar distribuições amostrais de estimadores é complicado. 
 
@@ -366,7 +362,7 @@ $$
 \widehat Y_w = \displaystyle \sum_{i \in s} w_i y_i = \displaystyle \sum_{i \in s}  \frac{1}{\pi_i} y_i = \displaystyle \sum_{i \in s} {\pi_i}^{-1} y_i \,\,(\#eq:eqvis24)
 $$
 
-Essa propriedade é demonstrada de maneira formal na próxima seção. Mas antes disso, vamos verificar sua aplicação com os dados do (#exm:filh). Continuando a discussão desse exemplo com a população de $N=4$ mulheres de quem foi indagado o número de filhos tidos nascidos vivos ($y$), tem-se, na Tabela \@ref(tab:tabvis6), o valor da variável $y$ e  a probabilidade de inclusão ${\pi}_i$ de cada unidade da população de mulheres.   
+Essa propriedade é demonstrada de maneira formal na próxima seção. Mas antes disso, vamos verificar sua aplicação com os dados do (#exm:filh). Continuando a discussão desse exemplo com a população de $N=4$ mulheres de quem foi indagado o número de filhos tidos nascidos vivos $(y)$, tem-se, na Tabela \@ref(tab:tabvis6), o valor da variável $y$ e  a probabilidade de inclusão ${\pi}_i$ de cada unidade da população de mulheres.   
 
 <center>
 ```{r, results="asis", echo=FALSE}
@@ -419,7 +415,7 @@ cat("<table>",paste0("<caption>", "(#tab:tabvis7)", "Informações de cada amost
 
 Vamos agora usar as informações acima para:
 
-1.	Verificar que a estatística soma amostral ($t$) é viciada para estimar o total populacional $Y$.    
+1.	Verificar que a estatística soma amostral $(t)$ é viciada para estimar o total populacional $Y$.    
 2.	Obter / definir um estimador não viciado para o total populacional $Y$.
 
 A distribuição da soma amostral $t$ sob o plano $p_2$ é apresentada na Tabela \@ref(tab:tabvis8). 
@@ -485,9 +481,7 @@ cat("<table>",paste0("<caption>", "(#tab:tabvis10)", "Obtenção de estimativa s
 **Notas**
 
 1. O estimador $\widehat Y_w$ obtido usando os pesos iguais a $1 / \pi_i$ tem valor esperado (ver total da última coluna da Tabela \@ref(tab:tabvis10)) igual ao total populacional $Y$. Logo, o estimador assim obtido é *não viciado* também sob o plano amostral $p_2$.
-
 2. O fato de que a amostra 1 (composta pelas unidades {1;2}) tem probabilidade nula de ser selecionada não viola os critérios definidos para que o plano amostral $p_2$ seja chamado de *amostragem probabilística*. É fácil verificar que todas as condições enumeradas para que uma amostra seja declarada probabilística são cumpridas para esse plano amostral. Em particular, verifica-se que todas as unidades populacionais têm probabilidades positivas de inclusão na amostra - ver a Tabela \@ref(tab:tabvis9).
-
 3. Temos agora duas opções de plano amostral para selecionar amostras (de tamanho $n=2$) da população $U$, visando estimar o total populacional $Y$. Com ambos os planos amostrais estão disponíveis estimadores não viciados do total populacional. Coloca-se então a pergunta: qual dos dois planos é melhor? 
 
 **Estratégia 1:** Seleção equiprovável de amostras com estimador de total ponderado $(\widehat Y_w = 2t)$, conforme especificado na Tabela \@ref(tab:tabvis11). 
@@ -503,7 +497,7 @@ Com probabilidade $p(s)$ sob $p_1(s)$    1/6  2/6   2/6  1/6
 ---------
 </center>
 
-**Estratégia 2:** Seleção de amostras com probabilidades desiguais e estimador de total ponderado ($\widehat Y_w$), conforme especificado na Tabela \@ref(tab:tabvis12). 
+**Estratégia 2:** Seleção de amostras com probabilidades desiguais e estimador de total ponderado $(\widehat Y_w)$, conforme especificado na Tabela \@ref(tab:tabvis12). 
 
 <center>
 ```{r, results="asis", echo=FALSE}
@@ -516,7 +510,7 @@ Com probabilidade $p(s)$ sob $p_2(s)$  0,30  0,40   0,30
 ---------
 </center>
 
-A melhor estratégia é escolhida medindo o *afastamento esperado* entre os valores possíveis do estimador e o valor do total populacional desconhecido ($Y$).  Para isso, como em ambos os casos o estimador é não viciado, usamos a *variância do estimador*. A Tabela \@ref(tab:tabvis13) indica como pode ser calculada a variância de cada um dos estimadores sob as duas opções de plano amostral ($p_2$ e $p_1$).
+A melhor estratégia é escolhida medindo o *afastamento esperado* entre os valores possíveis do estimador e o valor do total populacional desconhecido $(Y)$.  Para isso, como em ambos os casos o estimador é não viciado, usamos a *variância do estimador*. A Tabela \@ref(tab:tabvis13) indica como pode ser calculada a variância de cada um dos estimadores sob as duas opções de plano amostral ($p_2$ e $p_1$).
 
 <center>
 ```{r, results="asis", echo=FALSE}
@@ -758,7 +752,7 @@ $$
 Usando esse estimador do tamanho da população no denominador, um estimador tipo razão para a média populacional é dado por:
 
 $$
-\overline y_R = \widehat Y_{HT} / \widehat N_{HT} = \frac {\sum_{i \in s} d_i y_i} {\sum_{i \in s}d_i} = \sum_{i \in s} w_i^R y_i \,\, (\#eq:eqvis34)
+\overline y^R = \widehat Y_{HT} / \widehat N_{HT} = \frac {\sum_{i \in s} d_i y_i} {\sum_{i \in s}d_i} = \sum_{i \in s} w_i^R y_i \,\, (\#eq:eqvis34)
 $$
 
 onde $w_i^R = d_i / \displaystyle\sum_{j \in s} d_j$.
@@ -766,40 +760,41 @@ onde $w_i^R = d_i / \displaystyle\sum_{j \in s} d_j$.
 A variância desse estimador de média pode ser aproximada por:
 
 $$
-V_{HT} (\overline y_R) \doteq \frac{1}{N^2} \sum_{i \in U} \sum_{j \in U} (\pi_{ij} - \pi_i\pi_j) \left( \frac {y_i - \overline Y} {\pi_i} \right) \left( \frac{y_j - \overline Y} {\pi_j} \right) \,\, (\#eq:eqvis35) 
+V_{HT} (\overline y^R) \doteq \frac{1}{N^2} \sum_{i \in U} \sum_{j \in U} (\pi_{ij} - \pi_i\pi_j) \left( \frac {y_i - \overline Y} {\pi_i} \right) \left( \frac{y_j - \overline Y} {\pi_j} \right) \,\, (\#eq:eqvis35) 
 $$
 
 Um estimador aproximadamente não viciado para essa variância é dado por: 
 
 $$
-\widehat V_{HT} (\overline y_R) = \frac{1}{\widehat{N}_{HT}^2} \sum_{i \in s} \sum_{j \in s} \frac {(\pi_{ij} - \pi_i\pi_j)} {\pi_{ij}} \left( \frac{y_i - \overline y_R} {\pi_i} \right) \left( \frac{y_j - \overline y_R} {\pi_j} \right) \,\, (\#eq:eqvis36) 
+\widehat V_{HT} (\overline y^R) = \frac{1}{\widehat{N}_{HT}^2} \sum_{i \in s} \sum_{j \in s} \frac {(\pi_{ij} - \pi_i\pi_j)} {\pi_{ij}} \left( \frac{y_i - \overline y^R} {\pi_i} \right) \left( \frac{y_j - \overline y^R} {\pi_j} \right) \,\, (\#eq:eqvis36) 
 $$
 
-Cabe registrar que para alguns planos amostrais, os dois estimadores são equivalentes, isto é, $\overline y_R=\overline y_{HT}$ porque $w_i^R=w_i^{HT}$. Porém, quando diferem, o *estimador de razão da média* é geralmente mais eficiente que o estimador HT. Uma outra propriedade atraente do estimador tipo razão da média é que ele é invariante sob transformações de locação, isto é, se tomarmos $z_i = y_i + A$, então $\overline z_R = \overline y_R + A$. Esta propriedade não se verifica para o estimador HT.
+Cabe registrar que para alguns planos amostrais, os dois estimadores são equivalentes, isto é, $\overline y^R=\overline y_{HT}$ porque $w_i^R=w_i^{HT}$. Porém, quando diferem, o *estimador de razão da média* é geralmente mais eficiente que o estimador HT. Uma outra propriedade atraente do estimador tipo razão da média é que ele é invariante sob transformações de locação, isto é, se tomarmos $z_i = y_i + A$, então $\overline z^R = \overline y^R + A$. Esta propriedade não se verifica para o estimador HT.
 
 Em planos amostrais equiponderados, isto é, em que as probabilidades de inclusão $\pi_i$ são todas iguais, os pesos $w_i$ para estimação de médias ficam todos iguais a $1/n$ para ambos os estimadores (HT e de Razão). Esta é uma vantagem de planos deste tipo, pois a tarefa de estimação fica simplificada.
 
-A Tabela \@ref(tab:tabvis15) apresenta um resumo de parâmetros e respectivos estimadores HT para o total e a média. 
+A Tabela \@ref(tab:tabvis15) apresenta um resumo dos estimadores HT do total, média e respectivas variâncias. 
 
 <center>
 ```{r, results="asis", echo=FALSE}
-cat("<table>",paste0("<caption>", "(#tab:tabvis15)", "Parâmetros e respectivos estimadores HT", "</caption>"),"</table>", sep ="\n")
+cat("<table>",paste0("<caption>", "(#tab:tabvis15)", "Estimadores HT do total, média e respectivas variâncias", "</caption>"),"</table>", sep ="\n")
 ```
 ----------
-Parâmetro                                                   Estimador
------------------------------------------------------------ ------------------------------------------------------------------------------------------------------------------------------------------------------             
-$Y=\displaystyle\sum_{i\in U}y_i$                           $\widehat Y_{HT}=\displaystyle\sum_{i\in s}d_i y_i=\displaystyle \sum_{i \in s} {y_i}/{\pi_i}$
+Estimador
+-----------------------------------------------------------             
+$\widehat Y_{HT}=\displaystyle\sum_{i\in s}d_i y_i=\displaystyle \sum_{i \in s} {y_i}/{\pi_i}$
 
-$\overline{Y}=\displaystyle\sum_{i\in U}y_i/N$              $\overline y_{HT}=\widehat Y_{HT}/N=\displaystyle \sum_{i\in s}d_i y_i/N=\sum_{i\in s}w_i^{HT}y_i$
-                                                            $\overline y_R=\displaystyle \frac{\sum_{i\in s}d_i y_i}{\sum_{i\in s}d_i}=\displaystyle\sum_{i\in s}w_i^R y_i$
+$\overline y_{HT}=\widehat Y_{HT}/N=\displaystyle \sum_{i\in s}d_i y_i/N=\sum_{i\in s}w_i^{HT}y_i$
+                                                            
+$\overline y^R=\displaystyle \frac{\sum_{i\in s}d_i y_i}{\sum_{i\in s}d_i}=\displaystyle\sum_{i\in s}w_i^R y_i$
     
-$V_{HT}(\widehat Y_{HT})$                                   $\widehat V_{HT}(\widehat Y_{HT})=\displaystyle\sum_{i\in s}\sum_{j\in s}\frac{(\pi_{ij}-\pi_i\pi_j)}{\pi_{ij}}\left(\frac{y_i}{\pi_i}\frac{y_j}{\pi_j}\right)$                                    
+$\widehat V_{HT}(\widehat Y_{HT})=\displaystyle\sum_{i\in s}\sum_{j\in s}\frac{(\pi_{ij}-\pi_i\pi_j)}{\pi_{ij}}\left(\frac{y_i}{\pi_i}\frac{y_j}{\pi_j}\right)$                                    
 
-$V_{SYG}(\widehat Y_{HT})$                                  $\widehat V_{SYG}(\widehat Y_{HT})=\displaystyle\sum_{i\in s}\sum_{j>i}\left(\frac{\pi_i\pi_j-\pi_{ij}}{\pi_{ij}}\right)\left(\frac{y_i}{\pi_i}-\frac{y_j} { \pi_j}\right)^2$
+$\widehat V_{SYG}(\widehat Y_{HT})=\displaystyle\sum_{i\in s}\sum_{j>i}\left(\frac{\pi_i\pi_j-\pi_{ij}}{\pi_{ij}}\right)\left(\frac{y_i}{\pi_i}-\frac{y_j} { \pi_j}\right)^2$
 
-$V_{HT}(\overline y_{HT})$                                  $\widehat V_{HT}(\overline y_{HT})=\displaystyle\widehat V_{HT}(\widehat Y_{HT})/{N^2}$
+$\widehat V_{HT}(\overline y_{HT})=\displaystyle\widehat V_{HT}(\widehat Y_{HT})/{N^2}$
 
-$V_{HT}(\overline y_R)$                                     $\displaystyle\widehat V_{HT}(\overline y_R)=\frac{1}{\widehat{N}_{HT}^2}\displaystyle\sum_{i\in s}\sum_{j\in s}\frac{(\pi_{ij}-\pi_i\pi_j)}{\pi_{ij}}\left(\frac{y_i-\overline y_R}{\pi_i} \right)\left(\frac{y_j-\overline y_R}{\pi_j}\right)$   
+$\displaystyle\widehat V_{HT}(\overline y^R) = \frac{1}{\widehat{N}_{HT}^2}\displaystyle\sum_{i\in s}\sum_{j\in s}\frac{(\pi_{ij}-\pi_i\pi_j)}{\pi_{ij}}\left(\frac{y_i-\overline y^R}{\pi_i} \right)\left(\frac{y_j-\overline y^R}{\pi_j}\right)$   
                                                  
 ----------
 </center>
@@ -837,12 +832,10 @@ Tratar das seguintes questões:
 1.	Para cada variável de interesse (Renda, Número de Moradores e Número de Trabalhadores), calcule os seguintes parâmetros populacionais: total, média e variância.    
 2.	Liste o conjunto $S$ de todas as amostras possíveis de tamanho 2 da população, considerando apenas amostras de unidades distintas.    
 3.	Supondo que todas as amostras listadas no conjunto $S$ são equiprováveis (Plano A), calcule:
-
     a.	As probabilidades de inclusão das unidades.    
     b.	As probabilidades de inclusão dos pares de unidade.    
     c.	Os valores possíveis para o estimador Horvitz-Thompson do total populacional para a variável Renda.    
     d.	O valor esperado e a variância para o estimador Horvitz-Thompson do total populacional para a variável Renda.
-
 4.	Considere agora que o conjunto $S$ é formado somente pelas amostras (1;2), (2;3), (2;4), (2;5) e (2;6), tendo cada uma delas probabilidade 1/5 de ser a amostra selecionada (Plano B). Repita os cálculos do item 3 para o novo plano amostral.    
 5.	Faça gráficos dos valores possíveis do estimador de total sob os dois planos amostrais para comparar as respectivas distribuições.    
-6.	Use os resultados obtidos em 3 e 4 para comparar os dois planos amostrais e indique qual deles seria preferível usar, caso fosse necessário amostrar duas unidades distintas da população ($n=2$) para estimar o total da *Renda*. Justifique.
+6.	Use os resultados obtidos em 3 e 4 para comparar os dois planos amostrais e indique qual deles seria preferível usar, caso fosse necessário amostrar duas unidades distintas da população $(n=2)$ para estimar o total da Renda. Justifique.
