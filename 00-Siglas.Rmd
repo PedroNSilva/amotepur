@@ -4,7 +4,7 @@
 -----------
 Sigla            Descrição
 ---------------- -----------------------------------------------------------
-AAS              Amostragem Aleatória Simples 
+AAS              Amostragem Aleatória Simples sem reposição 
 
 AASC             Amostragem Aleatória Simples Com Reposição
 
@@ -147,6 +147,8 @@ ME                Margem de Erro
 MEC               Ministério da Educação
 
 MGPPE             Modelo Genérico do Processo de Produção Estatística 
+
+MQG               Mínimos Quadrados Generalizados
 
 NIC.br            Núcleo de Informação e Coordenação do Ponto BR
 
