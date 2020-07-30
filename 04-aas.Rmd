@@ -6,10 +6,10 @@ A *amostragem aleatória simples* é um plano básico de amostragem que tanto po
 
 O planejamento da amostra de uma pesquisa requer a definição dos seguintes componentes fundamentais: 
 
-$\;\;\;\;\;$C1. Que método será usado para *seleção* da amostra?    
-$\;\;\;\;\;$C2.	Qual será o *tamanho* da amostra?    
-$\;\;\;\;\;$C3.	Que *estimadores* serão usados para os parâmetros de interesse?    
-$\;\;\;\;\;$C4.	Como será feita a *avaliação da precisão* das estimativas, isto é, como será feita a estimação da $\;\;\;\;\;\;\;\;\;\;\;\,$variância dos estimadores empregados?
+ -  C1 - Que método será usado para *seleção* da amostra?    
+ -  C2 - Qual será o *tamanho* da amostra?    
+ -  C3 - Que *estimadores* serão usados para os parâmetros de interesse?    
+ -  C4 - Como será feita a *avaliação da precisão* das estimativas, isto é, como será feita a *estimação da variância* dos estimadores empregados?
 
 Os componentes C1 e C2, em conjunto, dão origem à especificação do *plano amostral*. Já os componentes C3 e C4 dão origem à especificação dos *métodos de estimação* da pesquisa. 
 
