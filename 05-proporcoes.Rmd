@@ -144,10 +144,10 @@ $$
 A *variância amostral* de $y$ é dada por:
 
 $$
-\displaystyle s^2_y = \frac {n}{n-1} \widehat p (1 - \widehat p) (\#eq:eqpro11) 
+\displaystyle \widehat S^2_y = \frac {n}{n-1} \widehat p (1 - \widehat p) (\#eq:eqpro11) 
 $$
 
-Sob AASC, a *variância amostral *$s^2_y$ é um estimador não viciado para a *variância populacional* $\sigma^2_y$. Assim se obtem um estimador não viciado para a variância do estimador $\widehat p$ como:
+Sob AASC, a *variância amostral *$\widehat S^2_y$ é um estimador não viciado para a *variância populacional* $\sigma^2_y$. Assim se obtém um estimador não viciado para a variância do estimador $\widehat p$ como:
 
 $$
 \displaystyle \widehat {V}_{AASC} (\widehat p) = \frac {\widehat p (1 - \widehat p)}{n-1} \,\, (\#eq:eqpro12) 
@@ -166,28 +166,27 @@ A Tabela \@ref(tab:tabprop1) reúne os resultados principais da estimação de c
 
 <center>
 ```{r,results="asis",echo=FALSE}
-cat("<table>",paste0("<caption>", "(#tab:tabprop1)","Parâmetros e respectivos estimadores sob AASC", "</caption>"),"</table>", sep ="\n")
+cat("<table>",paste0("<caption>", "(#tab:tabprop1)","Estimadores do total (contagem), proporção e respectivas variâncias sob AASC", "</caption>"),"</table>", sep ="\n")
 ```
 ----------
-Parâmetro                                              Estimador                                                            
------------------------------------------------------- ----------------------------------------------------------------------------------
-$\displaystyle N_A = \sum_{i \in U} y_i$               $\displaystyle\widehat N_A= N\times n_A/n = N\times \widehat p$
+Estimador                                                            
+---------------------------------------------------
+$\displaystyle\widehat N_A= N\times n_A/n = N\times \widehat p$
 
-$\displaystyle p = N_A /N$                             $\displaystyle\widehat{p}=\displaystyle n_A / n$
+$\displaystyle\widehat{p}=\displaystyle n_A / n$
 
-$\displaystyle\sigma^2_y = p (1-p)$                    $\displaystyle s^2_y=\displaystyle\frac{n}{n-1}\widehat p (1-\widehat p)$
+$\displaystyle \widehat S^2_y=\displaystyle\frac{n}{n-1}\widehat p (1-\widehat p)$
 
-$\displaystyle V_{AASC}(\widehat N_A)=N^2{p(1-p)}/{n}$ $\displaystyle\widehat V_{AASC}(\widehat N_A)=N^2\widehat{p}(1-\widehat{p})/(n-1)$
+$\displaystyle\widehat V_{AASC}(\widehat N_A)=N^2\widehat{p}(1-\widehat{p})/(n-1)$
 
-$\displaystyle V_{AASC} (\widehat p) ={p(1-p)}/{n}$    $\displaystyle\widehat V_{AASC}(\widehat{p})=\widehat{p} (1-\widehat{p})/(n-1)$
+$\displaystyle\widehat V_{AASC}(\widehat{p})=\widehat{p} (1-\widehat{p})/(n-1)$
 
 ----------
 </center>
 
-
 ## Estimação sob amostragem aleatória simples sem reposição 
 
-No caso de uma amostra $s$ obtida por seleção do tipo *AAS*, as expressões da soma amostral $t_y$, da proporção amostral $\widehat p$ e da variância amostral $s^2_y$ têm a mesma forma já apresentada acima para amostras obtidas por *AASC*. Em consequência, também são idênticos os estimadores para o total populacional $N_A$ e a proporção populacional $p$. Entretanto, uma diferença é que no caso da *AAS* a variância amostral $s^2_y$ é um estimador não viciado para $S^2_y$ e não para $\sigma^2_y$. Também são diferentes as expressões para as variâncias dos estimadores amostrais e seus correspondentes estimadores não viciados.
+No caso de uma amostra $s$ obtida por seleção do tipo *AAS*, as expressões da soma amostral $t_y$, da proporção amostral $\widehat p$ e da variância amostral $\widehat S^2_y$ têm a mesma forma já apresentada acima para amostras obtidas por *AASC*. Em consequência, também são idênticos os estimadores para o total populacional $N_A$ e a proporção populacional $p$. Entretanto, uma diferença é que no caso da *AAS* a variância amostral $\widehat S^2_y$ é um estimador não viciado para $S^2_y$ e não para $\sigma^2_y$. Também são diferentes as expressões para as variâncias dos estimadores amostrais e seus correspondentes estimadores não viciados.
 
 Foi visto no Capítulo \@ref(aas) que as variâncias dos estimadores do total e da média são dadas pelas expressões:
 
@@ -211,7 +210,7 @@ $$
 
 Note que para populações onde o número de unidades $N$ é suficientemente grande, tem-se que $V_{AAS} (\widehat p) \doteq \displaystyle\frac {p (1 - p)}{n}$, resultando numa equivalência aproximada entre os desempenhos da *AAS* e da *AASC* na estimação da proporção populacional. Intuitivamente, isso ocorre porque a probabilidade de seleção repetida sob *AASC* tende a ser muito pequena no caso de populações muito grandes.
 
-Utilizando $s^2_y$ como estimador não viciado para $S^2_y$ chega-se aos estimadores para as variâncias dos estimadores de total e proporção:
+Utilizando $\widehat S^2_y$ como estimador não viciado para $S^2_y$ chega-se aos estimadores para as variâncias dos estimadores de total e proporção:
 
 $$
 \widehat V_{AAS} (\widehat {N} _A) = N^2 \left( \frac 1 n - \frac {1}{N} \right) \frac {n\widehat p (1 - \widehat p)} {n-1} \,\,(\#eq:eqpro17) 
@@ -226,21 +225,20 @@ A Tabela \@ref(tab:tabprop2) reúne os resultados principais da estimação de c
 <center>
 
 ```{r,results="asis",echo=FALSE}
-cat("<table>",paste0("<caption>", "(#tab:tabprop2)","Parâmetros e respectivos estimadores sob AAS", "</caption>"),"</table>", sep ="\n")
+cat("<table>",paste0("<caption>", "(#tab:tabprop2)","Estimadores do total (contagem), proporção e respectivas variâncias sob AAS", "</caption>"),"</table>", sep ="\n")
 ```
-
 ----------
-Parâmetro                                                                             Estimador 
-------------------------------------------------------------------------------------- --------------------------------------------------------------------------------------------------------------------------
-$\displaystyle N_A=\sum_{i \in U} y_i$                                                $\displaystyle\widehat N_A = N \times n_A / n = N \times\widehat p$
+Estimador 
+----------------------------------------------
+$\displaystyle\widehat N_A = N \times n_A / n = N \times\widehat p$
 
-$\displaystyle p = N_A/N$                                                             $\displaystyle\widehat{p} = n_A/n$
+$\displaystyle\widehat{p} = n_A/n$
 
-$\displaystyle S^2_y =\frac{N}{N-1}p(1-p)$                                            $\displaystyle s^2_y =\displaystyle\frac{n}{n-1} \widehat p (1 - \widehat p)$
+$\displaystyle \widehat S^2_y =\displaystyle\frac{n}{n-1} \widehat p (1 - \widehat p)$
 
-$\displaystyle V_{AAS}(\widehat N_A)= N^2\left(\frac1 n-\frac1 N\right)S^2_y$         $\displaystyle\widehat V_{AAS}(\widehat N_A)=N^2\left(\frac 1 n-\frac {1}{N}\right)\frac{n\widehat p (1-\widehat p)}{n-1}$
+$\displaystyle\widehat V_{AAS}(\widehat N_A)=N^2\left(\frac 1 n-\frac {1}{N}\right)\frac{n\widehat p (1-\widehat p)}{n-1}$
 
-$\displaystyle V_{AAS}(\widehat p)=\displaystyle\left(\frac1 n-\frac1 N\right)S^2_y$  $\displaystyle\widehat V_{AAS}(\widehat p)=\left(\frac 1 n-\frac{1}{N}\right)\frac{n\widehat p(1-\widehat p)} {n-1}$
+$\displaystyle\widehat V_{AAS}(\widehat p)=\left(\frac 1 n-\frac{1}{N}\right)\frac{n\widehat p(1-\widehat p)} {n-1}$
 ----------
 </center>
  
@@ -253,14 +251,14 @@ $$ \hspace{-1.0cm}
 \begin{align} \displaystyle P(Y_k = 1) = P(y_{i_k} \text{ ter o atributo de interesse}) = \frac {N_A} {N} = p \\ P(Y_k = 0) = P(y_{i_k} \text{ não ter o atributo de interesse}) = 1 - \frac {N_A} {N} = 1-p \end{align}\,\, (\#eq:eqpro19) 
 $$
 
-Dessa maneira fica configurada uma distribuição de **_Bernoulli$(p)$_** para cada uma dessas variáveis:
+Dessa maneira fica configurada uma distribuição de $\text Bernoulli(p)$ para cada uma dessas variáveis:
 $$
 \begin{array}{c | c c} 
  {v} & \ 1 & 0 \\
 \hline \text{$P(Y_k = v)$} & p & 1-p  \\
 \end{array}
 $$
-Ainda sob *AASC*, a soma amostral $t_y = n_A$, que representa o número de unidades na amostra com o atributo de interesse, é então dada pela soma de $n$ variáveis aleatórias IID com distribuição **_Bernoulli$(p)$_**. Portanto, sob *AASC* a variável aleatória $t_y = n_A$ segue uma distribuição **_Binomial$(n,p)$_**. Imediatamente tem-se que:
+Ainda sob *AASC*, a soma amostral $t_y = n_A$, que representa o número de unidades na amostra com o atributo de interesse, é então dada pela soma de $n$ variáveis aleatórias IID com distribuição $\text Bernoulli(p)$. Portanto, sob *AASC* a variável aleatória $t_y = n_A$ segue uma distribuição $\text Binomial(n,p)$. Imediatamente tem-se que:
 
 $$
 E_{AASC}(n_A) = n p {\quad \text e \quad} V_{AASC}(n_A) = n p (1-p) \,\, (\#eq:eqpro20) 
@@ -279,10 +277,10 @@ $$ \hspace{-0,4cm}
 $$
 
 
-Esta distribuição corresponde apenas a uma transformação escalar da distribuição **_Binomial$(n,p)$_**, onde a contagem de sucessos ($n_A$) é dividida pelo número de sorteios ($n$).
+Esta distribuição corresponde apenas a uma transformação escalar da distribuição $\text Binomial(n,p)$, onde a contagem de sucessos $(n_A)$ é dividida pelo número de sorteios $(n)$.
 
-Sob *AAS*, a distribuição da contagem de sucessos ($n_A$) tem uma distribuição de probabilidades 
-**_Hipergeométrica$(N, N_A, n)$_**. Isto ocorre porque sob *AAS* os $n$ sorteios são feitos da população sem reposição, e portanto, a cada nova unidade sorteada, o número de unidades remanescentes na população com o atributo de interesse varia, dependendo do número dessas unidades já selecionadas.
+Sob *AAS*, a distribuição da contagem de sucessos $(n_A)$ tem uma distribuição de probabilidades 
+$\text Hipergeométrica(N, N_A, n)$. Isto ocorre porque sob *AAS* os $n$ sorteios são feitos da população sem reposição, e portanto, a cada nova unidade sorteada, o número de unidades remanescentes na população com o atributo de interesse varia, dependendo do número dessas unidades já selecionadas.
 
 O número total de amostras aleatórias simples sem reposição de tamanho $n$ que podem ser selecionadas de uma população com $N$ unidades é dado por $\binom{N}{n}$; o número dessas amostras com exatamente $v$ unidades com a característica em estudo, e $n-v$ unidades sem essa característica, pode se calculado por $\binom{N_A}{v}\binom{N-N_A}{n-v}$. Sendo assim, a distribuição de probabilidades da variável aleatória $t_y = n_A$ é dada por:
 
@@ -407,9 +405,9 @@ $$
 \frac {\widehat p - p} {\sqrt {V_{p(s)}(\widehat p)}} \approx N(0;1)(\#eq:eqpro28) 
 $$
 
-A Figura \@ref(fig:figprop1) mostra o histograma construído a partir dos valores estimados da proporção $p$ de unidades com uma determinada característica de interesse, a partir de 1.000 amostras aleatórias simples de tamanho $n=100$, selecionadas com reposição, de uma população de tamanho $N=5.000$, onde exatamente metade das unidades tem a característica de interesse ($p=1/2$). Para construir o histograma, os 1.000 valores de $\widehat p$ foram normalizados utilizando-se a Expressão \@ref(eq:eqpro28). Finalmente o histograma foi sobreposto pelo gráfico da distribuição $N(0;1)$, mostrando que esta se assemelha à distribuição do estimador $\widehat p$.
+A Figura \@ref(fig:figprop1) mostra o histograma construído a partir dos valores estimados da proporção $p$ de unidades com uma determinada característica de interesse, a partir de 1.000 amostras aleatórias simples de tamanho $n=100$, selecionadas com reposição, de uma população de tamanho $N=5.000$, onde exatamente metade das unidades tem a característica de interesse $(p=1/2)$. Para construir o histograma, os 1.000 valores de $\widehat p$ foram normalizados utilizando-se a Expressão \@ref(eq:eqpro28). Finalmente o histograma foi sobreposto pelo gráfico da distribuição $N(0;1)$, mostrando que esta se assemelha à distribuição do estimador $\widehat p$.
 <center>
-```{r,figprop1,echo=F,fig.cap="Aproximação Normal da distribuição do estimador de ***p*** no caso de *AASC*"}
+```{r,figprop1,echo=F,fig.cap="Aproximação Normal da distribuição do estimador de $p$ no caso de *AASC*"}
 y=NULL
 p_est=NULL
 p_norm=NULL
@@ -436,7 +434,7 @@ legend("topright", bty="n", seg.len=3, lty=c(2,1), lwd=c(2,2),col=c(2,1),
 A Figura \@ref(fig:figprop2) mostra o gráfico para um exercício similar ao anterior onde as amostras foram selecionadas sem reposição.
 
 <center>
-```{r,figprop2,echo=F,fig.cap="Aproximação Normal da distribuição do estimador de ***p*** no caso de *AAS*"}
+```{r,figprop2,echo=F,fig.cap="Aproximação Normal da distribuição do estimador de $p$ no caso de *AAS*"}
 y=NULL
 p_est=NULL
 p_norm=NULL
@@ -513,7 +511,7 @@ $$
 \displaystyle IC(p;{1-\alpha})=\left[\widehat p \mp \left(z_{\alpha/ 2}\sqrt { \left(\frac {N-n}{N-1} \right) \frac{p(1-p)}{n}}+\frac 1 {2n} \right) \right](\#eq:eqpro32) 
 $$
 
-Nas aplicações práticas o valor da variância do estimador da proporção $p$, geralmente, não é conhecido. Assim o que se pode fazer é estimar um intervalo de confiança, substituindo $S^2_y$ por $s^2_y$ na expressões anteriores:
+Nas aplicações práticas o valor da variância do estimador da proporção $p$, geralmente, não é conhecido. Assim o que se pode fazer é estimar um intervalo de confiança, substituindo $S^2_y$ por $\widehat S^2_y$ na expressões anteriores:
 
 $$
 \displaystyle \widehat{IC}(p;{1-\alpha})=\left[\widehat p \mp \left(z_{\alpha/ 2}\sqrt {\frac{\widehat p \widehat q} {n-1}} + \frac 1{2n} \right) \right](\#eq:eqpro33)
@@ -614,7 +612,7 @@ Pesquisas que utilizam medidas objetivas para alcançar seus resultados, como in
 
 O tamanho da amostra também depende da variância da variável utilizada para seu cálculo, através do produto $p(1-p)$. Como $p$ é a proporção que se deseja estimar, se fosse conhacida não haveria a necessidade de uma amostra. Geralmente, como no caso de se pesquisar variáveis continuas, utilizam-se pesquisas anteriores ou variáveis correlacionadas com a atual variável de interesse, ou mesmo uma pesquisa piloto com um tamanho arbitrário de amostra para se ter uma estimativa inicial do fenomeno a ser medido e poder calcular o tamanho de amostra realmente necessário. Quando se utiliza uma pesquisa piloto, existem métodos para utilizar os resultados relativos às unidades já pesquisadas e selecionar outras unidades para complementar o tamanho da amostra.
 
-No caso da estimação de proporções o valor de $p(1-p)$ é limitado variando de 0 a 0,25, sendo esse valor máximo atingido quando $p= 0,5$. O gráfigo da Figura \@ref(fig:figprop3) mostra como variam os valores de $p(1-p)$ conforme a variação dos valores de $p$.
+No caso da estimação de proporções o valor de $p(1-p)$ é limitado variando de 0 a 0,25, sendo esse valor máximo atingido quando $p= 0,5$. O gráfico da Figura \@ref(fig:figprop3) mostra como variam os valores de $p(1-p)$ conforme a variação dos valores de $p$.
 
 <center>
 ```{r, figprop3,fig.cap="Variação de $p(1-p)$ em função dos valores de $p$",echo=F}
@@ -700,7 +698,7 @@ n \ge \frac {1-p} {c^2p}(\#eq:eqpro41)
 $$
 no caso da seleção com reposição.
 
-Para chegar a esse resultado, basta ver que $CV_{AASC}(\widehat p)= \frac {\sqrt {V_{AASC}(\widehat p)}}p$ e substituir na fórmula apresentada para o cálculo de $n$ a partir da margem de erro fixada.
+Para chegar a esse resultado, basta ver que $CV_{AASC}(\widehat p)= \displaystyle\frac {\sqrt {V_{AASC}(\widehat p)}}p$ e substituir na fórmula apresentada para o cálculo de $n$ a partir da margem de erro fixada.
 
 Para a seleção sem reposição pode-se fazer:
 
