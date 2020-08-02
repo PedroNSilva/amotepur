@@ -1,4 +1,4 @@
-# Estimação Para Domínios de Estudo {#domin}
+# Estimação para Domínios de Estudo {#domin}
 
 ## Domínios de estudo {#domin1}
 
@@ -165,23 +165,23 @@ $$
 @Cochran1977, na seção 2.12, sugere analisar a distribuição da média considerando o tamanho da amostra no domínio $n_c$ como fixado em seu valor observado. Nesse caso, mostra que as $n_c$ observações na amostra $s$ formam uma AAS da população $U_c$. Segue-se então que: 
 
 $$
- V_{AAS} (\overline{y}_c | \, n_c>0) = \left( \frac 1 {n_c} - \frac{1}{N_c} \right) S_c^2 (\#eq:eqdom17)
+ V_{AAS} (\overline{y}_c | \, n_c>0) = \left( \frac 1 {n_c} - \frac{1}{N_c} \right) S_c^2 = \displaystyle \left(1-\frac{n_c}{N_c}\right)\frac{S_c^2}{n_c}  (\#eq:eqdom17)
 $$
 
 A variância pode então ser estimada usando:
 
 $$
-\widehat V_{AAS} (\overline{y}_c | \, n_c>0) = \left(\frac 1 {n_c} - \frac{1}{N_c} \right) s_c^2  (\#eq:eqdom18)
+\widehat V_{AAS} (\overline{y}_c | \, n_c>0) = \left(\frac 1 {n_c} - \frac{1}{N_c} \right) \widehat S_c^2=\displaystyle \left(1-\frac{n_c}{N_c}\right)\frac{\widehat S_c^2}{n_c}  (\#eq:eqdom18)
 $$
  
-onde $s_c^2 = \sum_{i \in s} c_i (y_i - \overline{y}_c)^2 / (n_c-1)$  é um estimador não viciado para $S_c^2$  (quando $n_c$ é fixado).
+onde $\widehat S_c^2 = \sum_{i \in s} c_i (y_i - \overline{y}_c)^2 / (n_c-1)$  é um estimador não viciado para $S_c^2$  (quando $n_c$ é fixado).
 
 Quando $N_c$ é desconhecido, $\widehat V_{AAS}(\overline{y}_c |\,n_c>0)$  não é calculável. 
 
 @Cochran1977, página 35, sugere substituir a fração amostral no domínio, $n_c/N_c$, pela fração amostral esperada no domínio, dada por $n/N$, o que implica em:
  
 $$
- \widehat V_{AAS}^* (\overline{y}_c | \, n_c>0) = \left(1-\frac{n}{N} \right) \frac {s_c^2} {n_c} (\#eq:eqdom19)
+ \widehat V_{AAS}^* (\overline{y}_c | \, n_c>0) = \left(1-\frac{n}{N} \right) \frac {\widehat S_c^2} {n_c} (\#eq:eqdom19)
 $$
 
 ## Estimação do total no domínio quando tamanho do domínio é conhecido 
@@ -207,45 +207,43 @@ $$
 A variância condicional deste estimador, considerando fixado o tamanho da amostra no domínio $c$, é dada por:
 
 $$
-V_{AAS} \left(\widehat {Y}_c^R | \, n_c>0 \right) = N_c^2 \left( \frac 1 {n_c} - \frac {1} {N_c} \right) S_c^2 \,\, (\#eq:eqdom22)
+V_{AAS} \left(\widehat {Y}_c^R | \, n_c>0 \right) = \displaystyle N_c^2\left(1-\frac{n_c}{N_c}\right)\frac{S_c^2}{n_c} \,\, (\#eq:eqdom22)
 $$
 
 Essa variância pode ser estimada usando:
 
 $$
-\widehat V_{AAS} \left( \widehat{Y}_c^R | \, n_c>0 \right) = N_c^2 \left( \frac 1 {n_c} - \frac {1} {N_c} \right) s_c^2 \,\, (\#eq:eqdom23)
+\widehat V_{AAS} \left( \widehat{Y}_c^R | \, n_c>0 \right) =\displaystyle N_c^2\left(1-\frac{n_c}{N_c}\right)\frac{\widehat S_c^2}{n_c}  \,\, (\#eq:eqdom23)
 $$
 
-A Tabela \@ref(tab:tabdom1) apresenta um resumo da estimação de parâmetros proporção, média e total no domínio $c$ sob AAS. 
+A Tabela \@ref(tab:tabdom1) apresenta um resumo de estimadores do total, proporção, média e respectivas variäncias no domínio $c$ sob AAS. 
 
 <center>
 ```{r, results="asis", echo=FALSE}
-cat("<table>",paste0("<caption>", "(#tab:tabdom1)", "Parâmetros e respectivos estimadores no domínio $c$ sob AAS", "</caption>"),"</table>", sep ="\n")
+cat("<table>",paste0("<caption>", "(#tab:tabdom1)", "Estimadores  do total, proporção, média e respectivas variäncias no domínio $c$ sob AAS ", "</caption>"),"</table>", sep ="\n")
 ```
 ----------
-Parâmetro                                              Estimador 
------------------------------------------------------- ------------------------------------------------------------------
- $p_c=\displaystyle\sum_{i\in U}c_i/N= N_c/N$          $\widehat{p}_c=n_c/n, \,\, N_c \,\,\text{desconhecido}$ 
-      
- $\overline{Y_c}=Y_c/N_c$                                        
-                                                       $\overline{y}_c=\widehat{Y}_c/\widehat{N}_c=\displaystyle\sum_{i\in s}y_{ic}/n_c,\,\, N_c \,\,\text{desconhecido}$
+Estimador 
+--------------------------------------
+$\widehat{Y}_c=N/n\displaystyle\sum_{i\in s} y_{ic},\,\, N_c\,\,\text{desconhecido}$
 
-$Y_c=N_c\overline{Y_c}$                                $\widehat{Y}_c=N/n\displaystyle\sum_{i\in s} y_{ic},\,\, N_c\,\,\text{desconhecido}$
-                                                       $\widehat{Y}_c^R=N_c\overline{y}_c,\,\, N_c\,\,\text{conhecido}$  
-                                                  
-$V_{AAS}(\widehat p_c)$                                $\widehat V_{AAS}(\widehat p_c)=\displaystyle\left(\frac 1 n-\frac 1 N\right)\frac n {n-1}\widehat p_c(1-\widehat p_c)$
+$\widehat{Y}_c^R=N_c\overline{y}_c,\,\, N_c\,\,\text{conhecido}$ 
 
-$V_{AAS}(\overline{y}_c)$                              $\widehat V_{AAS}(\overline{y}_c) = \displaystyle\frac{1}{\widehat p_c^2}\left(\frac1 n-\frac{1}{N}\right)\frac{1}{n-1}\displaystyle\sum_{i\in s}                                                             c_i\left(y_i-\overline{y}_c\right)^2$
+$\widehat{p}_c=n_c/n, \,\, N_c \,\,\text{desconhecido}$ 
 
+$\overline{y}_c=\widehat{Y}_c/\widehat{N}_c=\displaystyle\sum_{i\in s}y_{ic}/n_c,\,\, N_c \,\,\text{desconhecido}$
 
-$V_{AAS}(\overline{y}_c\mid{n_c>0},\,\text{fixo})$     $\widehat V_{AAS}(\overline{y}_c\mid n_c>0)=\displaystyle\left(\frac 1 {n_c}-\frac{1}{N_c}\right)s_c^2$   
-                                                       $\widehat V_{AAS}^*(\overline{y}_c\mid n_c>0)=\displaystyle\left(1-\frac{n}{N}\right)\frac{s_c^2}{n_c},\,N_c\,\text{desconhecido}$
- 
-$V_{AAS}(\widehat{Y}_c)$                               $\widehat{V}_{AAS}(\widehat{Y}_c)=N^2\displaystyle\left(\frac{1}{n}-\frac{1}{N}\right)\frac{1}{N-1}\sum_{i\in s}                                    \left(y_{id}-\frac{t_c}{n}\right)^2$ 
-   
-    
-$V_{AAS}\left(\widehat{Y}_c^R\mid{n_c>0}\right)$       $\widehat V_{AAS}\left(\widehat{Y}_c^R\mid n_c>0 \right)= \displaystyle N_c^2\left(1-\frac{n_c}{N_c}\right)\frac{s_c^2}{n_c}$
+$\widehat{V}_{AAS}(\widehat{Y}_c)=N^2\displaystyle\left(\frac{1}{n}-\frac{1}{N}\right)\frac{1}{N-1}\sum_{i\in s}                                    \left(y_{id}-\frac{t_c}{n}\right)^2,\,\, N_c\,\,\text{desconhecido}$
 
+$\widehat V_{AAS}\left(\widehat{Y}_c^R\mid n_c>0 \right)= \displaystyle N_c^2\left(1-\frac{n_c}{N_c}\right)\frac{\widehat S_c^2}{n_c},\,\, N_c\,\,\text{conhecido}$
+
+$\widehat V_{AAS}(\widehat p_c)=\displaystyle\left(\frac 1 n-\frac 1 N\right)\frac n {n-1}\widehat p_c(1-\widehat p_c),\,\, N_c\,\,\text{desconhecido}$
+
+$\widehat V_{AAS}(\overline{y}_c) = \displaystyle\frac{1}{\widehat p_c^2}\left(\frac1 n-\frac{1}{N}\right)\frac{1}{n-1}\displaystyle\sum_{i\in s}                                                             c_i\left(y_i-\overline{y}_c\right)^2,\,N_c\,\text{desconhecido}$
+
+$\widehat V_{AAS}(\overline{y}_c\mid n_c>0)=\displaystyle \left(1-\frac{n_c}{N_c}\right)\frac{\widehat S_c^2}{n_c} ,\,\, N_c\,\,\text{conhecido}$   
+
+$\widehat V_{AAS}^*(\overline{y}_c\mid n_c>0)=\displaystyle\left(1-\frac{n}{N}\right)\frac{\widehat S_c^2}{n_c},\,N_c\,\text{desconhecido}$
 -----------
 </center>
 
@@ -253,10 +251,10 @@ $V_{AAS}\left(\widehat{Y}_c^R\mid{n_c>0}\right)$       $\widehat V_{AAS}\left(\w
 
 Considere os dados da população de municípios brasileiros fornecidos no arquivo 'MunicBR_dat.rds'.
 
-1. Selecione uma AAS de $n=250$ municípios, e use esta amostra para estimar os seguintes parâmetros populacionais:
+1. Selecione uma AAS de $n=250$ municípios e use esta amostra para estimar os seguintes parâmetros populacionais:
     a.	População total por região do Brasil e correspondentes margens de erro relativo ao nível de confiança de 95%; suponha *conhecidos* os tamanhos dos domínios;
-    b.	População total por região do Brasil, e correspondentes margens de erro relativo ao nível de confiança de 95%; suponha *desconhecidos* os tamanhos dos domínios;
-    c.	Média da densidade habitacional por km<sup>2</sup> por município para municípios com população igual ou superior a 100 mil habitantes, e correspondente margem de erro ao nível de confiança de 95%. Nesse caso, considere que o tamanho do domínio é *desconhecido*.
+    b.	População total por região do Brasil e correspondentes margens de erro relativo ao nível de confiança de 95%; suponha *desconhecidos* os tamanhos dos domínios;
+    c.	Média da densidade habitacional por km<sup>2</sup> por município para municípios com população igual ou superior a 100 mil habitantes e correspondente margem de erro ao nível de confiança de 95%. Nesse caso, considere que o tamanho do domínio é *desconhecido*.
 2. Usando os dados populacionais, calcule os valores dos parâmetros estimados nos itens a e c e compare com suas estimativas amostrais. Comente.
 
 
@@ -382,7 +380,7 @@ $$
 
 onde $\gamma_c^2 = S_c^2 / \overline{Y_c}^2$ é a variância relativa da característica $y$ no domínio $c$.  
  
-Isto mostra que conhecer o valor de $N_c$ sempre melhora a eficiência do estimador de total no domínio $c$, e que a melhoria é maior quando $p_c$ é pequena. Essa expressão também torna evidente que, para domínios raros na população, isto é, aqueles com valores bem pequenos de $p_c$, o estimador do total no domínio $c$ para $N_c$ desconhecido é bem pouco preciso, devendo talvez indicar a necessidade de uso de plano amostral que favoreça a estimação de $Y_c$ com melhor precisão que uma AAS.  
+Isto mostra que conhecer o valor de $N_c$ sempre melhora a eficiência do estimador de total no domínio $c$ e que a melhoria é maior quando $p_c$ é pequena. Essa expressão também torna evidente que, para domínios raros na população, isto é, aqueles com valores bem pequenos de $p_c$, o estimador do total no domínio $c$ para $N_c$ desconhecido é bem pouco preciso, devendo talvez indicar a necessidade de uso de plano amostral que favoreça a estimação de $Y_c$ com melhor precisão que uma AAS.  
 
 ## Estimação de proporções dentro do domínio
 
@@ -394,7 +392,7 @@ $$
  y_i = I(i \in A) = \left\{\begin{array}{ll} 1, & \textrm{se} \,\,i \textrm{ possui o atributo A}\,\,\\ 0, & \textrm{caso contrário}\end{array}\right.\,\,\, 
 $$
 
-Na população como um todo, a proporção de unidades com atributo $A$ é definida como $p = N_A / N$, e a estimação desta proporção foi tratada no capítulo \@ref(proporc). Considere a notação a seguir.
+Na população como um todo, a proporção de unidades com atributo $A$ é definida como $p = N_A / N$ e a estimação desta proporção foi tratada no capítulo \@ref(proporc). Considere a notação a seguir.
 
 O número de unidades no domínio $c$ que também possuem o atributo $A$ é definido como: 
 
@@ -460,7 +458,7 @@ $\;\;\;$II) A produtividade média por unidade de área na população.
 Para cada um dos tamanhos de amostra considerados, realize as tarefas abaixo indicadas.
 
 a) Obtenha 500 amostras por AAS da população de fazendas. 
-b) Use cada uma destas amostras para calcular estimativas dos dois parâmetros de interesse, e dos respectivos erros padrão.
+b) Use cada uma destas amostras para calcular estimativas dos dois parâmetros de interesse e dos respectivos erros padrão.
 c) Use as 500 estimativas pontuais obtidas para cada parâmetro para avaliar:
     - O comportamento do viés dos estimadores.
     - O comportamento do viés dos estimadores dos erros padrão.
@@ -473,7 +471,7 @@ Para cada um dos tamanhos de amostra considerados, realize as tarefas abaixo ind
 a) Obtenha 500 amostras por AAS da população de fazendas. 
 b) Use cada uma destas amostras para calcular estimativas do parâmetro de interesse e dos correspondentes erros padrões supondo que o tamanho do domínio é *desconhecido*.
 c) Use cada uma destas amostras para calcular estimativas do parâmetro de interesse e dos correspondentes erros padrões supondo que o tamanho do domínio é *conhecido*.
-d) Use as 500 estimativas pontuais obtidas nos itens b e c para avaliar a adequação da aproximação normal para a distribuição dos estimadores usados, e também para avaliar qual dos dois estimadores fornece resultados mais precisos.
+d) Use as 500 estimativas pontuais obtidas nos itens b e c para avaliar a adequação da aproximação normal para a distribuição dos estimadores usados e também para avaliar qual dos dois estimadores fornece resultados mais precisos.
 
 **(#exr:exrdom5)** Foi realizado um estudo sobre a distância percorrida pelos responsáveis pelos domicílios de uma localidade de suas residências até  seus locais de trabalho. Uma AAS de 30 responsáveis foi selecionada entre os 393 responsáveis por domicílios da área em questão. Durante as entrevistas foi verificado que alguns dos selecionados não precisavam se deslocar para o trabalho por estarem aposentados, entre outras razões. Da amostra selecionada, apenas 24 dos responsáveis se adequavam ao estudo. A Tabela \@ref(tab:tabdom2) apresenta a distância percorrida por cada entrevistado para chegar ao trabalho.
 
