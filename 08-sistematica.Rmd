@@ -1,4 +1,4 @@
-# Amostragem sistemática simples {#AS}
+# Amostragem Sistemática Simples {#AS}
 
 ## Ideia básica
 
@@ -163,7 +163,7 @@ $s_2 = \{\textrm{números pares até 148, inclusive }\}$ com $n_2=74$.
 
 Nesse caso, verifica-se que o tamanho efetivo da amostra poderá ser 74 ou 75, um pouco maiores que o tamanho desejado de 60. 
 
-## Probabilidades de inclusão na amostragem sistemática
+## Probabilidades de inclusão na amostragem sistemática simples
 
 É fácil notar que a probabilidade de inclusão na amostra de uma unidade $i$ qualquer é dada por: 
 $$
@@ -246,7 +246,7 @@ $s_1$ $s_2$	$s_3$ $s_4$
 ----------
 </center>
 
-Para mostrar que o estimador é não viciado, basta verificar que a média dos seus valores possíveis é igual ao parâmetro populacional a ser estimado. No caso, basta calcular as estimativas de total para cada uma das possíveis amostras (cada coluna da Tabela \@ref(tab:tabsis2)), e calcular a média dessas estimativas. A comparação com o total populacional, dado pela soma de todos os valores da tabela, mostra o resultado desejado. Pode-se utilizar o pacote R para realizar a tarefa, como ilustrado a seguir.
+Para mostrar que o estimador é não viciado, basta verificar que a média dos seus valores possíveis é igual ao parâmetro populacional a ser estimado. No caso, basta calcular as estimativas de total para cada uma das possíveis amostras (cada coluna da Tabela \@ref(tab:tabsis2)) e calcular a média dessas estimativas. A comparação com o total populacional, dado pela soma de todos os valores da tabela, mostra o resultado desejado. Pode-se utilizar o pacote R para realizar a tarefa, como ilustrado a seguir.
 
 ```{r,echo=T}
 # Alterando o separador de decimais para vírgula
@@ -419,7 +419,7 @@ $$
 
 Um problema que ocorre com a amostragem sistemática simples é o fato da ordenação da população em relação aos valores da variável de interesse afetar a variância (precisão) dos estimadores. Para demonstrar esse problema, pode-se utilizar a população apresentada nos exemplos acima, alterando a ordem de suas unidades, para mostrar como isso afeta a composição das possíveis amostras sistemáticas.
 
-Em primeiro lugar, consideramos a população ordenada tal como foi apresentada na Tabela \@ref(tab:tabsis2) e calculamos a variância do estimador do total considerando as possíveis amostras listadas no exemplo \@ref(exm:exmsis5). Em seguida, ordenamos a população em ordem crescente (ou decrescente) dos valores de $y$ e repetimos o cálculo da variância. Observa-se que a variância do estimador do total com a população ordenada diminui consideravelmente em comparação com o caso em que não havíamos reordenado a população. 
+Em primeiro lugar, consideramos a população ordenada tal como foi apresentada na Tabela \@ref(tab:tabsis2) e calculamos a variância do estimador do total considerando as possíveis amostras listadas no Exemplo \@ref(exm:exmsis5). Em seguida, ordenamos a população em ordem crescente (ou decrescente) dos valores de $y$ e repetimos o cálculo da variância. Observa-se que a variância do estimador do total com a população ordenada diminui consideravelmente em comparação com o caso em que não havíamos reordenado a população. 
 
 Embora este seja um exemplo extremo, pois na prática não teríamos como ordenar a população pelos valores da variável de interesse, ele mostra bem o efeito que a ordenação pode ter na precisão dos estimadores baseados em amostras sistemáticas simples. Na sequência, ilustramos estes cálculos usando o pacote R. 
 
@@ -468,7 +468,7 @@ Fica como exercício para o leitor verificar que o mesmo não ocorre quando se u
 
 **Considere o caso especial onde $N = nK$**
 
-Da tabela 8.2 do @Cochran1977, página 207, é fácil ver que $\overline y_r = t_r/n_r$ é um estimador não viciado para $\overline Y$. Como
+Da Tabela 8.2 do @Cochran1977, página 207, é fácil ver que $\overline y_r = t_r/n_r$ é um estimador não viciado para $\overline Y$. Como
 
 $$
 \displaystyle \sum_{r=1}^{K} \sum_{i \in s_r} (y_i - \overline Y)^2 = n \sum_{r=1}^{K} (\overline y_r - \overline Y)^2 + \sum_{r=1}^{K} \sum_{i \in s_r} (y_i - \overline y_r)^2
@@ -525,10 +525,20 @@ $$
 $$
 Esse estimador serve para o caso de $N$ conhecido e será não viciado caso a suposição de ordenação aleatória das unidades na população esteja correta. No caso de não se conhecer $N$, pode-se utilizar as alternativas dadas pelos estimadores de razão.
 
+No caso de $N$ conhecido e não houver ordenação das unidades da população, um estimador para a variância do estimador do total é dado por:
+
+$$
+\widehat V_{1AS} (\widehat Y_{AS}) =  N^2\widehat V_{1AS} (\overline y_{AS})(\#eq:eqsis12)
+$$
 No caso em que a população esteja ordenada segundo uma "estratificação" de modo que as médias em cada intervalo de seleção variem (p.ex.: a população é ordenada segundo os valores de $y$), @Cochran1977 sugere, para estimar a variancia do estimador da média, a expressão:
 
 $$
- \widehat V_{2AS}(\overline y_{AS}) = \left( \frac {1}{n} - \frac 1 {N} \right) \frac {1}{2(n-1)} \sum_{i \in s_r} (y_i - y_{i+K})^2 (\#eq:eqsis12)
+ \widehat V_{2AS}(\overline y_{AS}) = \left( \frac {1}{n} - \frac 1 {N} \right) \frac {1}{2(n-1)} \sum_{i \in s_r} (y_i - y_{i+K})^2 (\#eq:eqsis13)
+$$
+Neste caso, um estimador para a variância do estimador do total é dado por:
+
+$$
+\widehat V_{2AS} (\widehat Y_{AS}) =  N^2\widehat V_{2AS} (\overline y_{AS})(\#eq:eqsis14)
 $$
 
 Alternativamente e independentemente da ordenação da população, pode-se usar um estimador do tipo replicação, onde são selecionadas $q$ amostras sistemáticas de tamanhos $n/q$ cada uma, tomando a variância das estimativas dadas por cada uma das amostras. Essa técnica, também chamada *amostra sistemática repetida*, está descrita em @Scheaffer2011.
@@ -537,36 +547,29 @@ Quando a seleção de uma AS for realizada a partir de um cadastro conhecido, é
 
 Pode-se encontrar boas discussões sobre a estimação da variância sob amostragem sistemática simples em @Cochran1977 ou @Thompson2012.
 
-A Tabela \@ref(tab:tabsis3) apresenta um resumo sobre a estimação de alguns parâmetros sob AS.
+A Tabela \@ref(tab:tabsis3) apresenta os estimadores do total, média  e respectivas variâncias sob AS.
 
 <center>
 ```{r,results="asis",echo=FALSE}
-cat("<table>",paste0("<caption>", "(#tab:tabsis3)","Parâmetros e Estimadores sob AS", "</caption>"),"</table>", sep ="\n")
+cat("<table>",paste0("<caption>", "(#tab:tabsis3)","Estimadores do total, média e respectivas variâncias sob AS", "</caption>"),"</table>", sep ="\n")
 ```
 ----------
-Parâmetro                                                                           Estimador  
------------------------------------------------------------------------------------ ----------------------------------------------
-$\displaystyle Y=\sum_{i \in U} y_i$                                                  $\widehat{Y}_{AS}=Kt_r=K \displaystyle \sum_{r=1}^{K}I(r)t_r$
+Estimador  
+----------------------------------
+$\widehat{Y}_{AS}=Kt_r=K \displaystyle \sum_{r=1}^{K}I(r)t_r$
 
-$N$                                                                                   $\displaystyle \widehat N_{AS}=Kn_r\small,\,\, \small\text{ se  } N \text{ é desconhecido }$
+$\displaystyle \overline {y}_{AS}=\frac KNt_r,\,\,\text{ se } N \text{ é conhecido }\\ \displaystyle  \overline{y}_{AS}= \frac {t_r}{n_r}=\overline y,\,\,\text{ se }N \text{ é desconhecido }$
 
-$\displaystyle \overline Y=Y/N$                                                       $\displaystyle \overline {y}_{AS}=\frac KNt_r\small,\,\,\small\text{ se } N \text{ é conhecido }\\ \displaystyle  \overline{y}_{AS}= \frac {t_r}{n_r}=\overline y\small,\,\,\small\text{ se }N \text{ é desconhecido }$
+$\widehat V_{1AS} (\widehat Y_{AS}) = N^2\widehat V_{1AS} (\overline y_{AS}),\,\,\text{se}\, N\text{ é conhecido}$\
+                                                                        $\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\text{e não houver ordenação das unidades na população}$                           $\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,$                                                                                                                                                                          $\widehat V_{2AS}(\widehat Y_{AS}) = N^2\widehat V_{2AS}(\overline y_{AS}),\,\,\text{se}\, N\text{ é conhecido}$
+                                                                        $\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\text{e houver ordenação das unidades na população}$                         
 
-$\displaystyle p = N_A/N$                                                             $\displaystyle \widehat {p}_{AS}=\frac KNn_a\small,\,\,\small \text{ se }  N \text{ é conhecido }\\  \displaystyle \widehat {p}_{AS}= \frac {n_a} {n_r}\small,\,\,\small\text{ se }N \text{ é desconhecido }$  
-
-
-$\displaystyle V_{AS}(\widehat Y_{AS})=K\sum_{r=1}^K(t_r-\overline t)^2$               $\widehat V_{1AS} (\widehat Y_{AS}) = N^2\widehat V_{1AS} (\overline y_{AS})\small,\,\,\small\text{se}\, N\text{ é conhecido}$
-                                                                                       $\small \text{e não houver ordenação das unidades na população}$                           $\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,$                                                                                                                                                                                                                 $\widehat V_{2AS}(\widehat Y_{AS}) = N^2\widehat V_{2AS}(\overline y_{AS})\small,\,\text{se}\, N\text{ é conhecido}$
-                                                                                       $\small\text{e houver ordenação das unidades na população}$                         
-
-
-$\displaystyle V_{AS}(\overline y_{AS})=\frac K{N^2}\sum_{r=1}^K(t_r-\overline t)^2$   $\widehat V_{1AS} (\overline y_{AS}) = \left( \frac {1}{n} - \frac 1 {N} \right) \frac {1}{n-1}\displaystyle \sum_{i \in s_r} (y_i - \overline y_{AS})^2\small,$ 
-                                                                                       $\small \text{se}\, N\, \text{é conhecido e não houver ordenação na população}$                                                                        $\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,$                                                                                                                                               $\widehat V_{2AS}(\overline y_{AS}) = \left( \frac {1}{n} - \frac 1 {N} \right) \frac {1}{2(n-1)} \displaystyle\sum_{i \in s_r} (y_i - y_{i+K})^2\small,$
-                                                                                       $\small\text{se}\,N\, \text{é conhecido e houver ordenação na população}$                 
+$\widehat V_{1AS} (\overline y_{AS}) = \displaystyle\left(\frac {1}{n} - \frac 1 {N} \right) \frac {1}{n-1}\displaystyle \sum_{i \in s_r} (y_i - \overline y_{AS})^2,\,\, \text{ se  } N \text{ é conhecido }$ 
+                                                                        $\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\text{e não houver ordenação das unidades na população}$\                                                          $\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,$                                                                                                 $\widehat V_{2AS}(\overline y_{AS}) = \displaystyle\left( \frac {1}{n} - \frac 1 {N} \right) \frac {1}{2(n-1)} \displaystyle\sum_{i \in s_r} (y_i - y_{i+K})^2,\,\, \text{ se  } N \text{ é conhecido }$
+                                                                        $\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\text{e houver ordenação das unidades na população}$                 
 ----------
 </center>  
-  
- 
+    
 ## Alternativas para seleção com amostragem sistemática simples
 
 Como foi visto, existem dificuldades quando o tamanho da população, $N$, não é um múltiplo de $K$, ou seja, quando $N \ne n K$. Neste caso, o estimador simples da média tem vício. @Cochran1977 indica que esse vício pode ser considerado desprezível quando se trabalha com tamanhos de amostra razoavelmente grandes, podendo-se considerar como tal amostras com tamanhos iguais ou maiores que $n=50$.
@@ -612,13 +615,13 @@ options(OutDec=".")
 Note que com uma *Amostra Sistemática circular - ASc*, o número de amostras possíveis é $N$ e pode-se definir estimadores não viciados para a média e o total da variável de interesse $y$, como:
 
 $$
-\overline y_{ASc}=\overline y=\frac 1n \sum_{i=1}^n y_i (\#eq:eqsis13)
+\overline y_{ASc}=\overline y=\frac 1n \sum_{i=1}^n y_i (\#eq:eqsis15)
 $$ 
 
 e
 
 $$
-\widehat Y_{ASc}=N\overline y_{ASc} (\#eq:eqsis14)
+\widehat Y_{ASc}=N\overline y_{ASc} (\#eq:eqsis16)
 $$
 
 Neste método a seleção é feita com equiprobabilidade e sem reposição, como na AS tradicional, porém é necessário que $N$ seja conhecido e a seleção é um pouco mais trabalhosa. A vantagem é que os estimadores são sempre não viciados.
@@ -629,7 +632,7 @@ Fica para o leitor verificar que os estimadores para a média e total são não 
 
 **(#exr:exrsis1)**  Identifique as outras 4 amostras possíveis referidas no Exemplo \@ref(exm:exmsis1). 
 
-**(#exr:exrsis2)** (Transcrito de @Cochran1977, exercício 8.4) A Tabela \@ref(tab:tabsis4) mostra a listagem dos moradores dos 13 domicílios de uma rua. As pessoas foram listadas de acordo com a seguinte regra: H=homem adulto, M=mulher adulta, h=homem criança e m=mulher criança. Cada coluna da tabela representa um dos domicílios da rua.
+**(#exr:exrsis2)** (Transcrito de @Cochran1977, Exercício 8.4) A Tabela \@ref(tab:tabsis4) mostra a listagem dos moradores dos 13 domicílios de uma rua. As pessoas foram listadas de acordo com a seguinte regra: H=homem adulto, M=mulher adulta, h=homem criança e m=mulher criança. Cada coluna da tabela representa um dos domicílios da rua.
 
 <center>
 ```{r, results="asis", echo=FALSE}
@@ -725,18 +728,17 @@ Totais 410 459 674 551 325 528 303 358 342 205  4.155
   
 **(#exr:exrsis5)**  A administração do Parque da Tijuca precisou estimar o número médio de ocupantes nos carros que visitaram o parque num determinado dia. Para isso foi feita uma amostra, usando a seguinte estratégia: 
   
-  - Na hora da abertura da cabine de cobrança foi selecionado um número aleatório entre 1 e 10.
-  
+  - Na hora da abertura da cabine de cobrança foi selecionado um número aleatório entre 1 e 10.  
   - A partir do veículo com esse número, por ordem de chegada, foram contados os ocupantes de todos os décimos veículos.
     
-    No final do dia passaram pela cancela 105 veículos e os selecionados para a amostra tinham, por ordem de passagem, 3, 5, 7, 2, 3, 4, 5, 4, 4, e 2, ocupantes (incluindo o motorista).
+    No final do dia passaram pela cancela 105 veículos e os selecionados para a amostra tinham, por ordem de passagem, 3, 5, 7, 2, 3, 4, 5, 4, 4 e 2 ocupantes (incluindo o motorista).
 
   a) Defina qual o tipo de plano amostral utilizado e dê os seus parâmetros.
   b) Liste os números de ordem dos veículos pesquisados, sabendo que o número aleatório selecionado foi 8.
   c) Estime a média de ocupantes por veículo no dia da pesquisa.
   d) Supondo que a distribuição do número de ocupantes é aleatória, estime um intervalo de 95% de confiança para a média de ocupantes por veículo.
   
-**(#exr:exrsis6)**  (Adaptado de @Scheaffer1990, exercício 7.6) O departamento de controle de qualidade de uma indústria alimentícia utiliza amostragem sistemática para estimar a média da quantidade de determinado alimento colocada em cada lata na linha de produção. A Tabela \@ref(tab:tabsis6) relaciona a amostra selecionada de 1 em cada 50 latas num dia, quando a produção diária foi de 1.820 latas.
+**(#exr:exrsis6)**  (Adaptado de @Scheaffer1990, Exercício 7.6) O departamento de controle de qualidade de uma indústria alimentícia utiliza amostragem sistemática para estimar a média da quantidade de determinado alimento colocada em cada lata na linha de produção. A Tabela \@ref(tab:tabsis6) relaciona a amostra selecionada de 1 em cada 50 latas num dia, quando a produção diária foi de 1.820 latas.
 
 <center>
 ```{r, results="asis", echo=FALSE}
