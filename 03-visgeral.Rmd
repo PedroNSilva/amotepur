@@ -309,7 +309,7 @@ O método pelo qual deduzimos os pesos para usar com o estimador $\widehat Y_w$ 
 
 ## A distribuição de aleatorização
 
-A função $p(s)$ definida no conjunto $S$ de todas as amostras possíveis é uma distribuição de probabilidades. Induzida por esta distribuição, é possível obter a distribuição de probabilidades de qualquer estatística (ou estimador) que seria calculada a partir dos dados coletados na amostra selecionada $s$. A distribuição de probabilidades assim obtida é chamada de *distribuição de aleatorização* da estatística ou estimador. Este foi o conceito ilustrado quando obtivemos a distribuição de probabilidades da estatística *soma amostral* no (#exm:filh).
+A função $p(s)$ definida no conjunto $S$ de todas as amostras possíveis é uma distribuição de probabilidades. Induzida por esta distribuição, é possível obter a distribuição de probabilidades de qualquer estatística (ou estimador) que seria calculada a partir dos dados coletados na amostra selecionada $s$. A distribuição de probabilidades assim obtida é chamada de *distribuição de aleatorização* da estatística ou estimador. Este foi o conceito ilustrado quando obtivemos a distribuição de probabilidades da estatística *soma amostral* no Exemplo \@ref(exm:filh).
 
 Na *amostragem probabilística*, inferências são feitas considerando a *distribuição de aleatorização*. Tais inferências consideram como única fonte de variação ou incerteza a possível repetição hipotética do processo de amostragem utilizando o *plano amostral* $p(s)$, que resultaria em diferentes amostras $s_1, s_2, ... \in S$.
 
@@ -318,7 +318,7 @@ A distribuição de $\widehat Y_w = 2 \times t = \displaystyle \sum_{i \in s} 2 
 
 ## Estimadores não viciados para o total populacional
 
-No (#exm:filh) mostrou-se como se pode obter a *distribuição amostral* de um estimador (ou de uma estatística qualquer) a partir da distribuição de probabilidades induzida pelo plano amostral $p(s)$. Isto foi muito fácil de fazer porque contamos com duas condições favoráveis, que não se repetem na prática:
+No Exemplo \@ref(exm:filh) mostrou-se como se pode obter a *distribuição amostral* de um estimador (ou de uma estatística qualquer) a partir da distribuição de probabilidades induzida pelo plano amostral $p(s)$. Isto foi muito fácil de fazer porque contamos com duas condições favoráveis, que não se repetem na prática:
 
 1) Os tamanhos da população $N$ e da amostra $n$ eram muito pequenos (4 e 2, respectivamente).    
 2) Consideramos conhecidos os valores da variável $y$ para todas as unidades da população $U$.  
@@ -362,7 +362,7 @@ $$
 \widehat Y_w = \displaystyle \sum_{i \in s} w_i y_i = \displaystyle \sum_{i \in s}  \frac{1}{\pi_i} y_i = \displaystyle \sum_{i \in s} {\pi_i}^{-1} y_i \,\,(\#eq:eqvis24)
 $$
 
-Essa propriedade é demonstrada de maneira formal na próxima seção. Mas antes disso, vamos verificar sua aplicação com os dados do (#exm:filh). Continuando a discussão desse exemplo com a população de $N=4$ mulheres de quem foi indagado o número de filhos tidos nascidos vivos $(y)$, tem-se, na Tabela \@ref(tab:tabvis6), o valor da variável $y$ e  a probabilidade de inclusão ${\pi}_i$ de cada unidade da população de mulheres.   
+Essa propriedade é demonstrada de maneira formal na próxima seção. Mas antes disso, vamos verificar sua aplicação com os dados do Exemplo \@ref(exm:filh). Continuando a discussão desse exemplo com a população de $N=4$ mulheres de quem foi indagado o número de filhos tidos nascidos vivos $(y)$, tem-se, na Tabela \@ref(tab:tabvis6), o valor da variável $y$ e  a probabilidade de inclusão ${\pi}_i$ de cada unidade da população de mulheres.   
 
 <center>
 ```{r, results="asis", echo=FALSE}
@@ -377,7 +377,7 @@ Probabilidade de inclusão ${\pi}_i$ 3/6=1/2    3/6=1/2    3/6=1/2   3/6=1/2    
 ---------
 </center>
 
-Usando a propriedade recém apresentada, os pesos amostrais no (#exm:filh) seriam dados por $w_i = {1}/{\pi_i} = \frac{1}{1/2} = 2$ para qualquer uma das unidades da população que fossem selecionadas para uma das amostras de tamanho $n=2$.
+Usando a propriedade recém apresentada, os pesos amostrais no Exemplo \@ref(exm:filh) seriam dados por $w_i = {1}/{\pi_i} = \frac{1}{1/2} = 2$ para qualquer uma das unidades da população que fossem selecionadas para uma das amostras de tamanho $n=2$.
 
 O estimador ponderado do total nesse caso seria dado por: 
 
