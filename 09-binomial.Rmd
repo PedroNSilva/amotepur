@@ -184,7 +184,7 @@ A *Amostragem Inversa Simples* é um procedimento sequencial de amostragem propo
 
 ### Método de seleção da amostra inversa simples
 
-A implementação mais simples de AIS pode ser feita usando o *Algoritmo de Hàjek* (ver @Hajek1960) para selecionar AAS, tal como descrito na seção \@ref(Hajek). Este algoritmo se baseia na ideia de obter uma *permutação aleatória* dos rótulos das unidades da população $U$, denotada por $\Pi(U) = \{i_1, i_2, ..., i_N\}$, onde cada um dos rótulos originais tem a mesma probabilidade que qualquer outro de ocupar a 1a. posição, ou a 2a. posição, e assim por diante.
+A implementação mais simples de AIS pode ser feita usando o *Algoritmo de Hàjek* (ver @Hajek1960) para selecionar AAS, tal como descrito na Seção \@ref(Hajek). Este algoritmo se baseia na ideia de obter uma *permutação aleatória* dos rótulos das unidades da população $U$, denotada por $\Pi(U) = \{i_1, i_2, ..., i_N\}$, onde cada um dos rótulos originais tem a mesma probabilidade que qualquer outro de ocupar a 1a. posição, ou a 2a. posição, e assim por diante.
 
 Então a AIS pode ser implementada modificando-se o Passo 3 do algoritmo original da seguinte maneira.
 
@@ -296,7 +296,7 @@ onde: $$\widehat S^2_A=\displaystyle\frac{1}{n-1}\sum_{k \in s_A}(y_k-\overline 
 
 O estimador da média populacional é obtido dividindo o estimador do total por $N$, enquanto a variância do estimador da média e o estimador desta variância são obtidos dividindo as respectivas expressões por $N^2$, como se segue.
 
-A média da população é obtida por:
+A média da população é estimada por:
 
 $$
  {\overline y}_{AIS/HT}=\frac1{Nn}  \left (N_A \sum_{k \in s_A} y_k +  (N_A + 1) \sum_{k∈ s_{\overline A}} y_k \right)(\#eq:eqinv11)
