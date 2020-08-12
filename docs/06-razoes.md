@@ -137,7 +137,7 @@ O ponto importante a destacar nesta seção é o fato de que muitos parâmetros 
 
 Essa ideia pode ser aplicada de maneira bastante geral para obter estimadores para grande quantidade de parâmetros populacionais que possam ser escritos em função de totais populacionais de variáveis bem definidas. Para fixar as ideias, este método é aplicado primeiramente para obter estimador para uma *razão de totais*. 
 
-## Estimando razões de totais
+## Estimadores de razões de totais
 
 Para estimar *razões de totais* (ou médias) como $R$, o estimador “natural” é a *razão dos estimadores Horwitz-Thompson de total*:
 
@@ -161,7 +161,7 @@ $$
 $$
 
 
-## Estimando outras funções de totais {#estoft}
+## Estimadores para outras funções de totais {#estoft}
 
 Quando o parâmetro de interesse é uma função de totais populacionais $\theta = f(Y_1, Y_2, ..., Y_K)$, o método mais simples para estimar esse parâmetro é aplicar a mesma função a estimadores não viciados dos totais, isto é, usar o estimador:
 
@@ -242,7 +242,7 @@ $$
 
 onde $z_i =\displaystyle\sum_{k=1}^K \frac{\partial {f(Y_1, Y_2, ..., Y_K)}} {\partial{Y_k}} \, y_{ki}$.
 
-## Analisando o vício do estimador da razão {#vicioraz}
+## Análise do o vício do estimador da razão {#vicioraz}
 
 Para analisar o vício do estimador da razão, note que:
 
@@ -344,7 +344,7 @@ $\widehat{V}_{AAS}(\widehat{R}) =\displaystyle\frac{1}{\overline{x}^2}\left(\fra
 ------------
 </center>
 
-**(#exm:exmrazao2)** Estimando Razões e Médias de Razões
+**(#exm:exmrazao2)** Estimadores de Razões e Médias de Razões
 
 Considere a população de municípios brasileiros fornecida no arquivo 'MunicBR_dat.rds'.
 
@@ -371,7 +371,7 @@ library(tidyverse)
 ```
 
 ```
-## -- Attaching packages ----------------------------------------------------------- tidyverse 1.3.0 --
+## -- Attaching packages ---------------------------------------------------------- tidyverse 1.3.0 --
 ```
 
 ```
@@ -382,7 +382,7 @@ library(tidyverse)
 ```
 
 ```
-## -- Conflicts -------------------------------------------------------------- tidyverse_conflicts() --
+## -- Conflicts ------------------------------------------------------------- tidyverse_conflicts() --
 ## x dplyr::filter() masks stats::filter()
 ## x dplyr::lag()    masks stats::lag()
 ```
