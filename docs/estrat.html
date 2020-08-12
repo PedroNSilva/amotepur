@@ -1,0 +1,1398 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xml:lang="pt-BR">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Capítulo 11 Amostragem Estratificada | Amostragem: Teoria e Prática Usando R</title>
+  <meta name="description" content="Este é o livro de Amostragem elaborado pelos autores." />
+  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Capítulo 11 Amostragem Estratificada | Amostragem: Teoria e Prática Usando R" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Este é o livro de Amostragem elaborado pelos autores." />
+  <meta name="github-repo" content="PedroNSilva/amotepur" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Capítulo 11 Amostragem Estratificada | Amostragem: Teoria e Prática Usando R" />
+  
+  <meta name="twitter:description" content="Este é o livro de Amostragem elaborado pelos autores." />
+  
+
+<meta name="author" content="Pedro Luis do Nascimento Silva, Zélia Magalhães Bianchini e Antonio José Ribeiro Dias" />
+
+
+<meta name="date" content="2020-08-12" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="ppt.html"/>
+<link rel="next" href="cong.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+
+
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Prefácio</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#agradecimentos"><i class="fa fa-check"></i>Agradecimentos</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="lista-de-siglas.html"><a href="lista-de-siglas.html"><i class="fa fa-check"></i>Lista de Siglas</a></li>
+<li class="chapter" data-level="" data-path="lista-de-tabelas.html"><a href="lista-de-tabelas.html"><i class="fa fa-check"></i>Lista de Tabelas</a></li>
+<li class="chapter" data-level="" data-path="lista-de-figuras.html"><a href="lista-de-figuras.html"><i class="fa fa-check"></i>Lista de Figuras</a></li>
+<li class="chapter" data-level="1" data-path="introduc.html"><a href="introduc.html"><i class="fa fa-check"></i><b>1</b> Introdução</a><ul>
+<li class="chapter" data-level="1.1" data-path="introduc.html"><a href="introduc.html#motivação"><i class="fa fa-check"></i><b>1.1</b> Motivação</a></li>
+<li class="chapter" data-level="1.2" data-path="introduc.html"><a href="introduc.html#objetivos-do-livro"><i class="fa fa-check"></i><b>1.2</b> Objetivos do livro</a></li>
+<li class="chapter" data-level="1.3" data-path="introduc.html"><a href="introduc.html#estrutura-do-livro"><i class="fa fa-check"></i><b>1.3</b> Estrutura do livro</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="conceitos.html"><a href="conceitos.html"><i class="fa fa-check"></i><b>2</b> Conceitos e Cadastros</a><ul>
+<li class="chapter" data-level="2.1" data-path="conceitos.html"><a href="conceitos.html#fontes-de-dados-e-tipos-de-pesquisas"><i class="fa fa-check"></i><b>2.1</b> Fontes de dados e tipos de pesquisas</a></li>
+<li class="chapter" data-level="2.2" data-path="conceitos.html"><a href="conceitos.html#alguns-conceitos-fundamentais"><i class="fa fa-check"></i><b>2.2</b> Alguns conceitos fundamentais</a></li>
+<li class="chapter" data-level="2.3" data-path="conceitos.html"><a href="conceitos.html#abordalt"><i class="fa fa-check"></i><b>2.3</b> Abordagens alternativas para pesquisas por amostragem</a></li>
+<li class="chapter" data-level="2.4" data-path="conceitos.html"><a href="conceitos.html#planejamento-e-execução-de-pesquisas-por-amostragem"><i class="fa fa-check"></i><b>2.4</b> Planejamento e execução de pesquisas por amostragem</a><ul>
+<li class="chapter" data-level="2.4.1" data-path="conceitos.html"><a href="conceitos.html#especificação-das-necessidades-da-pesquisa"><i class="fa fa-check"></i><b>2.4.1</b> Especificação das necessidades da pesquisa</a></li>
+<li class="chapter" data-level="2.4.2" data-path="conceitos.html"><a href="conceitos.html#planejamento-da-pesquisa"><i class="fa fa-check"></i><b>2.4.2</b> Planejamento da pesquisa</a></li>
+<li class="chapter" data-level="2.4.3" data-path="conceitos.html"><a href="conceitos.html#elaboração-dos-instrumentos-de-coleta-e-dos-sistemas"><i class="fa fa-check"></i><b>2.4.3</b> Elaboração dos instrumentos de coleta e dos sistemas</a></li>
+<li class="chapter" data-level="2.4.4" data-path="conceitos.html"><a href="conceitos.html#coleta-dos-dados"><i class="fa fa-check"></i><b>2.4.4</b> Coleta dos dados</a></li>
+<li class="chapter" data-level="2.4.5" data-path="conceitos.html"><a href="conceitos.html#processamento-da-pesquisa"><i class="fa fa-check"></i><b>2.4.5</b> Processamento da pesquisa</a></li>
+<li class="chapter" data-level="2.4.6" data-path="conceitos.html"><a href="conceitos.html#análise-dos-dados-da-pesquisa"><i class="fa fa-check"></i><b>2.4.6</b> Análise dos dados da pesquisa</a></li>
+<li class="chapter" data-level="2.4.7" data-path="conceitos.html"><a href="conceitos.html#disseminação-dos-resultados-da-pesquisa"><i class="fa fa-check"></i><b>2.4.7</b> Disseminação dos resultados da pesquisa</a></li>
+<li class="chapter" data-level="2.4.8" data-path="conceitos.html"><a href="conceitos.html#arquivamento-das-informações-da-pesquisa"><i class="fa fa-check"></i><b>2.4.8</b> Arquivamento das informações da pesquisa</a></li>
+<li class="chapter" data-level="2.4.9" data-path="conceitos.html"><a href="conceitos.html#avaliação-da-pesquisa"><i class="fa fa-check"></i><b>2.4.9</b> Avaliação da pesquisa</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="conceitos.html"><a href="conceitos.html#cadastros"><i class="fa fa-check"></i><b>2.5</b> Cadastros</a><ul>
+<li class="chapter" data-level="2.5.1" data-path="conceitos.html"><a href="conceitos.html#cadIBGE"><i class="fa fa-check"></i><b>2.5.1</b> Cadastros importantes no IBGE</a></li>
+<li class="chapter" data-level="2.5.2" data-path="conceitos.html"><a href="conceitos.html#defeitos-de-cadastros"><i class="fa fa-check"></i><b>2.5.2</b> Defeitos de cadastros</a></li>
+<li class="chapter" data-level="2.5.3" data-path="conceitos.html"><a href="conceitos.html#regras-de-associação-das-unidades-da-população-à-unidade-cadastral"><i class="fa fa-check"></i><b>2.5.3</b> Regras de associação das unidades da população à unidade cadastral</a></li>
+</ul></li>
+<li class="chapter" data-level="2.6" data-path="conceitos.html"><a href="conceitos.html#exercícios"><i class="fa fa-check"></i><b>2.6</b> Exercícios</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="visger.html"><a href="visger.html"><i class="fa fa-check"></i><b>3</b> Visão Geral da Amostragem e Estimação</a><ul>
+<li class="chapter" data-level="3.1" data-path="visger.html"><a href="visger.html#definições-e-notação-para-população-de-pesquisa-e-parâmetros-selecionados"><i class="fa fa-check"></i><b>3.1</b> Definições e notação para população de pesquisa e parâmetros selecionados</a></li>
+<li class="chapter" data-level="3.2" data-path="visger.html"><a href="visger.html#amostra"><i class="fa fa-check"></i><b>3.2</b> Amostra</a></li>
+<li class="chapter" data-level="3.3" data-path="visger.html"><a href="visger.html#amostragem-probabilística"><i class="fa fa-check"></i><b>3.3</b> Amostragem probabilística</a></li>
+<li class="chapter" data-level="3.4" data-path="visger.html"><a href="visger.html#estatísticas-estimadores-e-estimativas"><i class="fa fa-check"></i><b>3.4</b> Estatísticas, estimadores e estimativas</a></li>
+<li class="chapter" data-level="3.5" data-path="visger.html"><a href="visger.html#a-distribuição-de-aleatorização"><i class="fa fa-check"></i><b>3.5</b> A distribuição de aleatorização</a></li>
+<li class="chapter" data-level="3.6" data-path="visger.html"><a href="visger.html#estimadores-não-viciados-para-o-total-populacional"><i class="fa fa-check"></i><b>3.6</b> Estimadores não viciados para o total populacional</a></li>
+<li class="chapter" data-level="3.7" data-path="visger.html"><a href="visger.html#teoria-básica"><i class="fa fa-check"></i><b>3.7</b> Teoria básica</a><ul>
+<li class="chapter" data-level="3.7.1" data-path="visger.html"><a href="visger.html#estimador-linear-de-total"><i class="fa fa-check"></i><b>3.7.1</b> Estimador linear de total</a></li>
+<li class="chapter" data-level="3.7.2" data-path="visger.html"><a href="visger.html#propHT"><i class="fa fa-check"></i><b>3.7.2</b> Propriedades do estimador de Horvitz-Thompson</a></li>
+<li class="chapter" data-level="3.7.3" data-path="visger.html"><a href="visger.html#estimação-da-média-populacional"><i class="fa fa-check"></i><b>3.7.3</b> Estimação da média populacional</a></li>
+</ul></li>
+<li class="chapter" data-level="3.8" data-path="conceitos.html"><a href="conceitos.html#exercícios"><i class="fa fa-check"></i><b>3.8</b> Exercícios</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="aas.html"><a href="aas.html"><i class="fa fa-check"></i><b>4</b> Amostragem Aleatória Simples</a><ul>
+<li class="chapter" data-level="4.1" data-path="aas.html"><a href="aas.html#planos-amostrais-e-algoritmos-de-seleção"><i class="fa fa-check"></i><b>4.1</b> Planos amostrais e algoritmos de seleção</a></li>
+<li class="chapter" data-level="4.2" data-path="aas.html"><a href="aas.html#amostragem-aleatória-simples-com-reposição"><i class="fa fa-check"></i><b>4.2</b> Amostragem aleatória simples com reposição</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="aas.html"><a href="aas.html#estimação-do-total-e-média-populacionais-sob-aasc"><i class="fa fa-check"></i><b>4.2.1</b> Estimação do total e média populacionais sob AASC</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="aas.html"><a href="aas.html#amostragem-aleatória-simples-sem-reposição"><i class="fa fa-check"></i><b>4.3</b> Amostragem aleatória simples sem reposição</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="aas.html"><a href="aas.html#algoritmo-convencional-para-selecionar-uma-aas"><i class="fa fa-check"></i><b>4.3.1</b> Algoritmo “convencional” para selecionar uma AAS</a></li>
+<li class="chapter" data-level="4.3.2" data-path="aas.html"><a href="aas.html#Hajek"><i class="fa fa-check"></i><b>4.3.2</b> Algoritmo de Hàjek para selecionar AAS</a></li>
+<li class="chapter" data-level="4.3.3" data-path="aas.html"><a href="aas.html#algoritmo-de-fan-muller-e-rezucha-para-selecionar-aas"><i class="fa fa-check"></i><b>4.3.3</b> Algoritmo de Fan, Muller e Rezucha para selecionar AAS</a></li>
+<li class="chapter" data-level="4.3.4" data-path="aas.html"><a href="aas.html#probabilidades-de-inclusão-sob-aas"><i class="fa fa-check"></i><b>4.3.4</b> Probabilidades de inclusão sob AAS</a></li>
+<li class="chapter" data-level="4.3.5" data-path="aas.html"><a href="aas.html#estimador-não-viciado-do-total-e-média-populacionais-sob-aas"><i class="fa fa-check"></i><b>4.3.5</b> Estimador não viciado do total e média populacionais sob AAS</a></li>
+<li class="chapter" data-level="4.3.6" data-path="aas.html"><a href="aas.html#distribuição-da-média-amostral"><i class="fa fa-check"></i><b>4.3.6</b> Distribuição da média amostral</a></li>
+<li class="chapter" data-level="4.3.7" data-path="aas.html"><a href="aas.html#comparação-dos-planos-de-amostragem-aleatória-simples-com-e-sem-reposição"><i class="fa fa-check"></i><b>4.3.7</b> Comparação dos planos de amostragem aleatória simples com e sem reposição</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="aas.html"><a href="aas.html#determinação-do-tamanho-da-amostra"><i class="fa fa-check"></i><b>4.4</b> Determinação do tamanho da amostra</a><ul>
+<li class="chapter" data-level="4.4.1" data-path="aas.html"><a href="aas.html#tamanho-amostral-para-custo-fixado"><i class="fa fa-check"></i><b>4.4.1</b> Tamanho amostral para custo fixado</a></li>
+<li class="chapter" data-level="4.4.2" data-path="aas.html"><a href="aas.html#tamanho-amostral-para-precisão-fixada"><i class="fa fa-check"></i><b>4.4.2</b> Tamanho amostral para precisão fixada</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="conceitos.html"><a href="conceitos.html#exercícios"><i class="fa fa-check"></i><b>4.5</b> Exercícios</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="proporc.html"><a href="proporc.html"><i class="fa fa-check"></i><b>5</b> Estimação de Proporções</a><ul>
+<li class="chapter" data-level="5.1" data-path="proporc.html"><a href="proporc.html#parâmetros-populacionais"><i class="fa fa-check"></i><b>5.1</b> Parâmetros populacionais</a></li>
+<li class="chapter" data-level="5.2" data-path="proporc.html"><a href="proporc.html#estimação-sob-amostragem-aleatória-simples-com-reposição"><i class="fa fa-check"></i><b>5.2</b> Estimação sob amostragem aleatória simples com reposição</a></li>
+<li class="chapter" data-level="5.3" data-path="proporc.html"><a href="proporc.html#estimação-sob-amostragem-aleatória-simples-sem-reposição"><i class="fa fa-check"></i><b>5.3</b> Estimação sob amostragem aleatória simples sem reposição</a></li>
+<li class="chapter" data-level="5.4" data-path="proporc.html"><a href="proporc.html#distribuição-amostral-exata-de-estimadores-de-proporção-sob-aasc-e-aas"><i class="fa fa-check"></i><b>5.4</b> Distribuição amostral exata de estimadores de proporção sob AASC e AAS</a></li>
+<li class="chapter" data-level="5.5" data-path="proporc.html"><a href="proporc.html#intervalos-de-confiança-para-proporções-na-amostragem-aleatória-simples"><i class="fa fa-check"></i><b>5.5</b> Intervalos de confiança para proporções na amostragem aleatória simples</a></li>
+<li class="chapter" data-level="5.6" data-path="proporc.html"><a href="proporc.html#intervalos-de-confiança-utilizando-a-aproximação-normal"><i class="fa fa-check"></i><b>5.6</b> Intervalos de confiança utilizando a aproximação normal</a></li>
+<li class="chapter" data-level="5.7" data-path="proporc.html"><a href="proporc.html#cálculo-do-tamanho-da-amostra"><i class="fa fa-check"></i><b>5.7</b> Cálculo do tamanho da amostra</a><ul>
+<li class="chapter" data-level="5.7.1" data-path="proporc.html"><a href="proporc.html#cálculo-do-n-utilizando-outras-formas-de-representar-o-erro-amostral"><i class="fa fa-check"></i><b>5.7.1</b> Cálculo do <span class="math inline">\(n\)</span> utilizando outras formas de representar o erro amostral</a></li>
+</ul></li>
+<li class="chapter" data-level="5.8" data-path="proporc.html"><a href="proporc.html#estimação-de-proporções-para-variáveis-com-mais-de-duas-categorias"><i class="fa fa-check"></i><b>5.8</b> Estimação de proporções para variáveis com mais de duas categorias</a></li>
+<li class="chapter" data-level="5.9" data-path="conceitos.html"><a href="conceitos.html#exercícios"><i class="fa fa-check"></i><b>5.9</b> Exercícios</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="razao.html"><a href="razao.html"><i class="fa fa-check"></i><b>6</b> Estimação de Razões e Funções de Totais</a><ul>
+<li class="chapter" data-level="6.1" data-path="razao.html"><a href="razao.html#razões-populacionais-como-parâmetros-de-interesse"><i class="fa fa-check"></i><b>6.1</b> Razões populacionais como parâmetros de interesse</a></li>
+<li class="chapter" data-level="6.2" data-path="razao.html"><a href="razao.html#razão-de-médias-versus-média-de-razões"><i class="fa fa-check"></i><b>6.2</b> Razão de médias <em>versus</em> média de razões</a></li>
+<li class="chapter" data-level="6.3" data-path="razao.html"><a href="razao.html#outras-funções-de-totais"><i class="fa fa-check"></i><b>6.3</b> Outras funções de totais</a></li>
+<li class="chapter" data-level="6.4" data-path="razao.html"><a href="razao.html#estimadores-de-razões-de-totais"><i class="fa fa-check"></i><b>6.4</b> Estimadores de razões de totais</a></li>
+<li class="chapter" data-level="6.5" data-path="razao.html"><a href="razao.html#estoft"><i class="fa fa-check"></i><b>6.5</b> Estimadores para outras funções de totais</a></li>
+<li class="chapter" data-level="6.6" data-path="razao.html"><a href="razao.html#vicioraz"><i class="fa fa-check"></i><b>6.6</b> Análise do o vício do estimador da razão</a></li>
+<li class="chapter" data-level="6.7" data-path="razao.html"><a href="razao.html#erro-quadrático-médio-de-widehatr"><i class="fa fa-check"></i><b>6.7</b> Erro quadrático médio de <span class="math inline">\(\widehat{R}\)</span></a></li>
+<li class="chapter" data-level="6.8" data-path="conceitos.html"><a href="conceitos.html#exercícios"><i class="fa fa-check"></i><b>6.8</b> Exercícios</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="domin.html"><a href="domin.html"><i class="fa fa-check"></i><b>7</b> Estimação para Domínios de Estudo</a><ul>
+<li class="chapter" data-level="7.1" data-path="domin.html"><a href="domin.html#domin1"><i class="fa fa-check"></i><b>7.1</b> Domínios de estudo</a></li>
+<li class="chapter" data-level="7.2" data-path="domin.html"><a href="domin.html#domin2"><i class="fa fa-check"></i><b>7.2</b> Parâmetros de interesse para domínios</a></li>
+<li class="chapter" data-level="7.3" data-path="domin.html"><a href="domin.html#estimação-de-parâmetros-para-domínios-sob-aas"><i class="fa fa-check"></i><b>7.3</b> Estimação de parâmetros para domínios sob AAS</a></li>
+<li class="chapter" data-level="7.4" data-path="domin.html"><a href="domin.html#intervalos-de-confiança-para-os-parâmetros-para-o-domínio"><i class="fa fa-check"></i><b>7.4</b> Intervalos de confiança para os parâmetros para o domínio</a></li>
+<li class="chapter" data-level="7.5" data-path="domin.html"><a href="domin.html#propriedades-condicionais-fixando-n_c"><i class="fa fa-check"></i><b>7.5</b> Propriedades condicionais (fixando <span class="math inline">\(n_c\)</span>)</a></li>
+<li class="chapter" data-level="7.6" data-path="domin.html"><a href="domin.html#estimação-do-total-no-domínio-quando-tamanho-do-domínio-é-conhecido"><i class="fa fa-check"></i><b>7.6</b> Estimação do total no domínio quando tamanho do domínio é conhecido</a></li>
+<li class="chapter" data-level="7.7" data-path="domin.html"><a href="domin.html#comparação-da-eficiência-dos-estimadores-de-total-no-domínio"><i class="fa fa-check"></i><b>7.7</b> Comparação da eficiência dos estimadores de total no domínio</a></li>
+<li class="chapter" data-level="7.8" data-path="domin.html"><a href="domin.html#estimação-de-proporções-dentro-do-domínio"><i class="fa fa-check"></i><b>7.8</b> Estimação de proporções dentro do domínio</a></li>
+<li class="chapter" data-level="7.9" data-path="conceitos.html"><a href="conceitos.html#exercícios"><i class="fa fa-check"></i><b>7.9</b> Exercícios</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="AS.html"><a href="AS.html"><i class="fa fa-check"></i><b>8</b> Amostragem Sistemática Simples</a><ul>
+<li class="chapter" data-level="8.1" data-path="AS.html"><a href="AS.html#ideia-básica"><i class="fa fa-check"></i><b>8.1</b> Ideia básica</a></li>
+<li class="chapter" data-level="8.2" data-path="AS.html"><a href="AS.html#método-de-seleção-da-amostra"><i class="fa fa-check"></i><b>8.2</b> Método de seleção da amostra</a></li>
+<li class="chapter" data-level="8.3" data-path="AS.html"><a href="AS.html#composição-das-amostras-sistemáticas-simples"><i class="fa fa-check"></i><b>8.3</b> Composição das amostras sistemáticas simples</a></li>
+<li class="chapter" data-level="8.4" data-path="AS.html"><a href="AS.html#probabilidades-de-inclusão-na-amostragem-sistemática-simples"><i class="fa fa-check"></i><b>8.4</b> Probabilidades de inclusão na amostragem sistemática simples</a></li>
+<li class="chapter" data-level="8.5" data-path="AS.html"><a href="AS.html#variáveis-aleatórias-indicadoras---propriedades"><i class="fa fa-check"></i><b>8.5</b> Variáveis aleatórias indicadoras - propriedades</a></li>
+<li class="chapter" data-level="8.6" data-path="AS.html"><a href="AS.html#estimação-de-totais-sob-amostragem-sistemática-simples"><i class="fa fa-check"></i><b>8.6</b> Estimação de totais sob amostragem sistemática simples</a></li>
+<li class="chapter" data-level="8.7" data-path="AS.html"><a href="AS.html#estimação-de-médias-sob-amostragem-sistemática-simples"><i class="fa fa-check"></i><b>8.7</b> Estimação de médias sob amostragem sistemática simples</a></li>
+<li class="chapter" data-level="8.8" data-path="AS.html"><a href="AS.html#estimação-de-uma-proporção-na-amostragem-sistemática-simples"><i class="fa fa-check"></i><b>8.8</b> Estimação de uma proporção na amostragem sistemática simples</a></li>
+<li class="chapter" data-level="8.9" data-path="AS.html"><a href="AS.html#variância-dos-estimadores-sob-amostragem-sistemática-simples"><i class="fa fa-check"></i><b>8.9</b> Variância dos estimadores sob amostragem sistemática simples</a></li>
+<li class="chapter" data-level="8.10" data-path="AS.html"><a href="AS.html#estimação-de-variâncias-dos-estimadores-na-amostragem-sistemática-simples"><i class="fa fa-check"></i><b>8.10</b> Estimação de variâncias dos estimadores na amostragem sistemática simples</a></li>
+<li class="chapter" data-level="8.11" data-path="AS.html"><a href="AS.html#alternativas-para-seleção-com-amostragem-sistemática-simples"><i class="fa fa-check"></i><b>8.11</b> Alternativas para seleção com amostragem sistemática simples</a></li>
+<li class="chapter" data-level="8.12" data-path="conceitos.html"><a href="conceitos.html#exercícios"><i class="fa fa-check"></i><b>8.12</b> Exercícios</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="outros-métodos-de-amostragem-com-equiprobabilidade.html"><a href="outros-métodos-de-amostragem-com-equiprobabilidade.html"><i class="fa fa-check"></i><b>9</b> Outros Métodos de Amostragem com Equiprobabilidade</a><ul>
+<li class="chapter" data-level="9.1" data-path="outros-métodos-de-amostragem-com-equiprobabilidade.html"><a href="outros-métodos-de-amostragem-com-equiprobabilidade.html#binom"><i class="fa fa-check"></i><b>9.1</b> Amostragem binomial ou de Bernoulli</a><ul>
+<li class="chapter" data-level="9.1.1" data-path="AS.html"><a href="AS.html#método-de-seleção-da-amostra"><i class="fa fa-check"></i><b>9.1.1</b> Método de seleção da amostra</a></li>
+<li class="chapter" data-level="9.1.2" data-path="outros-métodos-de-amostragem-com-equiprobabilidade.html"><a href="outros-métodos-de-amostragem-com-equiprobabilidade.html#probabilidades-de-inclusão-na-amostragem-binomial"><i class="fa fa-check"></i><b>9.1.2</b> Probabilidades de inclusão na amostragem binomial</a></li>
+<li class="chapter" data-level="9.1.3" data-path="outros-métodos-de-amostragem-com-equiprobabilidade.html"><a href="outros-métodos-de-amostragem-com-equiprobabilidade.html#estimação-de-totais-sob-amostragem-binomial"><i class="fa fa-check"></i><b>9.1.3</b> Estimação de totais sob amostragem binomial</a></li>
+<li class="chapter" data-level="9.1.4" data-path="outros-métodos-de-amostragem-com-equiprobabilidade.html"><a href="outros-métodos-de-amostragem-com-equiprobabilidade.html#estimação-de-médias-sob-amostragem-binomial"><i class="fa fa-check"></i><b>9.1.4</b> Estimação de médias sob amostragem binomial</a></li>
+<li class="chapter" data-level="9.1.5" data-path="outros-métodos-de-amostragem-com-equiprobabilidade.html"><a href="outros-métodos-de-amostragem-com-equiprobabilidade.html#exemplos-de-aplicação-da-amostragem-binomial"><i class="fa fa-check"></i><b>9.1.5</b> Exemplos de aplicação da amostragem binomial</a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="outros-métodos-de-amostragem-com-equiprobabilidade.html"><a href="outros-métodos-de-amostragem-com-equiprobabilidade.html#inversa"><i class="fa fa-check"></i><b>9.2</b> Amostragem inversa simples</a><ul>
+<li class="chapter" data-level="9.2.1" data-path="outros-métodos-de-amostragem-com-equiprobabilidade.html"><a href="outros-métodos-de-amostragem-com-equiprobabilidade.html#método-de-seleção-da-amostra-inversa-simples"><i class="fa fa-check"></i><b>9.2.1</b> Método de seleção da amostra inversa simples</a></li>
+<li class="chapter" data-level="9.2.2" data-path="outros-métodos-de-amostragem-com-equiprobabilidade.html"><a href="outros-métodos-de-amostragem-com-equiprobabilidade.html#amostragem-inversa-simples-para-varredura-por-amostragem"><i class="fa fa-check"></i><b>9.2.2</b> Amostragem inversa simples para varredura por amostragem</a></li>
+<li class="chapter" data-level="9.2.3" data-path="outros-métodos-de-amostragem-com-equiprobabilidade.html"><a href="outros-métodos-de-amostragem-com-equiprobabilidade.html#exemplos-de-aplicação-da-amostragem-inversa-simples"><i class="fa fa-check"></i><b>9.2.3</b> Exemplos de aplicação da amostragem inversa simples</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="conceitos.html"><a href="conceitos.html#exercícios"><i class="fa fa-check"></i><b>9.3</b> Exercícios</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="ppt.html"><a href="ppt.html"><i class="fa fa-check"></i><b>10</b> Amostragem com Probabilidades Proporcionais ao Tamanho</a><ul>
+<li class="chapter" data-level="10.1" data-path="ppt.html"><a href="ppt.html#justificativa-para-amostragem-ppt"><i class="fa fa-check"></i><b>10.1</b> Justificativa para amostragem PPT</a><ul>
+<li class="chapter" data-level="10.1.1" data-path="ppt.html"><a href="ppt.html#estimação-do-total-populacional"><i class="fa fa-check"></i><b>10.1.1</b> Estimação do total populacional</a></li>
+</ul></li>
+<li class="chapter" data-level="10.2" data-path="ppt.html"><a href="ppt.html#amostragem-ppt-com-reposição"><i class="fa fa-check"></i><b>10.2</b> Amostragem PPT com reposição</a></li>
+<li class="chapter" data-level="10.3" data-path="ppt.html"><a href="ppt.html#amostragem-ppt-de-poisson"><i class="fa fa-check"></i><b>10.3</b> Amostragem PPT de Poisson</a></li>
+<li class="chapter" data-level="10.4" data-path="ppt.html"><a href="ppt.html#amostragem-sequencial-de-poisson"><i class="fa fa-check"></i><b>10.4</b> Amostragem sequencial de Poisson</a></li>
+<li class="chapter" data-level="10.5" data-path="ppt.html"><a href="ppt.html#amostragem-sistemática-com-ppt"><i class="fa fa-check"></i><b>10.5</b> Amostragem sistemática com PPT</a></li>
+<li class="chapter" data-level="10.6" data-path="ppt.html"><a href="ppt.html#amostragem-ppt-de-pareto"><i class="fa fa-check"></i><b>10.6</b> Amostragem PPT de Pareto</a></li>
+<li class="chapter" data-level="10.7" data-path="conceitos.html"><a href="conceitos.html#exercícios"><i class="fa fa-check"></i><b>10.7</b> Exercícios</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="estrat.html"><a href="estrat.html"><i class="fa fa-check"></i><b>11</b> Amostragem Estratificada</a><ul>
+<li class="chapter" data-level="11.1" data-path="estrat.html"><a href="estrat.html#o-método-geral"><i class="fa fa-check"></i><b>11.1</b> O método geral</a></li>
+<li class="chapter" data-level="11.2" data-path="estrat.html"><a href="estrat.html#amostragem-estratificada-simples"><i class="fa fa-check"></i><b>11.2</b> Amostragem estratificada simples</a><ul>
+<li class="chapter" data-level="11.2.1" data-path="estrat.html"><a href="estrat.html#método-de-seleção"><i class="fa fa-check"></i><b>11.2.1</b> Método de seleção</a></li>
+<li class="chapter" data-level="11.2.2" data-path="proporc.html"><a href="proporc.html#parâmetros-populacionais"><i class="fa fa-check"></i><b>11.2.2</b> Parâmetros populacionais</a></li>
+<li class="chapter" data-level="11.2.3" data-path="estrat.html"><a href="estrat.html#estimação-do-total-e-da-média-populacional"><i class="fa fa-check"></i><b>11.2.3</b> Estimação do total e da média populacional</a></li>
+<li class="chapter" data-level="11.2.4" data-path="estrat.html"><a href="estrat.html#intervalos-de-confiança"><i class="fa fa-check"></i><b>11.2.4</b> Intervalos de confiança</a></li>
+</ul></li>
+<li class="chapter" data-level="11.3" data-path="estrat.html"><a href="estrat.html#alocação-da-amostra-nos-estratos"><i class="fa fa-check"></i><b>11.3</b> Alocação da amostra nos estratos</a><ul>
+<li class="chapter" data-level="11.3.1" data-path="estrat.html"><a href="estrat.html#alocação-proporcional"><i class="fa fa-check"></i><b>11.3.1</b> Alocação proporcional</a></li>
+<li class="chapter" data-level="11.3.2" data-path="estrat.html"><a href="estrat.html#alocação-ótima"><i class="fa fa-check"></i><b>11.3.2</b> Alocação ótima</a></li>
+<li class="chapter" data-level="11.3.3" data-path="estrat.html"><a href="estrat.html#tamanho-da-amostra-estratificada---caso-geral"><i class="fa fa-check"></i><b>11.3.3</b> Tamanho da amostra estratificada - caso geral</a></li>
+<li class="chapter" data-level="11.3.4" data-path="estrat.html"><a href="estrat.html#tamanho-da-amostra-sob-alocação-ótima"><i class="fa fa-check"></i><b>11.3.4</b> Tamanho da amostra sob alocação ótima</a></li>
+<li class="chapter" data-level="11.3.5" data-path="estrat.html"><a href="estrat.html#comparação-de-alternativas-de-alocação-da-amostra"><i class="fa fa-check"></i><b>11.3.5</b> Comparação de alternativas de alocação da amostra</a></li>
+<li class="chapter" data-level="11.3.6" data-path="estrat.html"><a href="estrat.html#alocação-potência"><i class="fa fa-check"></i><b>11.3.6</b> Alocação potência</a></li>
+<li class="chapter" data-level="11.3.7" data-path="estrat.html"><a href="estrat.html#alguns-problemas-com-alocação-ótima"><i class="fa fa-check"></i><b>11.3.7</b> Alguns problemas com alocação ótima</a></li>
+</ul></li>
+<li class="chapter" data-level="11.4" data-path="estrat.html"><a href="estrat.html#definição-dos-limites-dos-estratos"><i class="fa fa-check"></i><b>11.4</b> Definição dos limites dos estratos</a></li>
+<li class="chapter" data-level="11.5" data-path="estrat.html"><a href="estrat.html#número-de-estratos-na-amostragem-estratificada-simples"><i class="fa fa-check"></i><b>11.5</b> Número de estratos na amostragem estratificada simples</a></li>
+<li class="chapter" data-level="11.6" data-path="conceitos.html"><a href="conceitos.html#exercícios"><i class="fa fa-check"></i><b>11.6</b> Exercícios</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="cong.html"><a href="cong.html"><i class="fa fa-check"></i><b>12</b> Amostragem Conglomerada</a><ul>
+<li class="chapter" data-level="12.1" data-path="cong.html"><a href="cong.html#conceituação-básica"><i class="fa fa-check"></i><b>12.1</b> Conceituação básica</a></li>
+<li class="chapter" data-level="12.2" data-path="cong.html"><a href="cong.html#amostragem-de-áreas"><i class="fa fa-check"></i><b>12.2</b> Amostragem de áreas</a></li>
+<li class="chapter" data-level="12.3" data-path="cong.html"><a href="cong.html#definições-básicas-e-notação"><i class="fa fa-check"></i><b>12.3</b> Definições básicas e notação</a></li>
+<li class="chapter" data-level="12.4" data-path="cong.html"><a href="cong.html#amostragem-conglomerada-em-um-estágio"><i class="fa fa-check"></i><b>12.4</b> Amostragem conglomerada em um estágio</a></li>
+<li class="chapter" data-level="12.5" data-path="cong.html"><a href="cong.html#amostragem-conglomerada-em-vários-estágios"><i class="fa fa-check"></i><b>12.5</b> Amostragem conglomerada em vários estágios</a></li>
+<li class="chapter" data-level="12.6" data-path="cong.html"><a href="cong.html#notação-na-amostragem-conglomerada-em-um-estágio"><i class="fa fa-check"></i><b>12.6</b> Notação na amostragem conglomerada em um estágio</a></li>
+<li class="chapter" data-level="12.7" data-path="cong.html"><a href="cong.html#amostragem-conglomerada-em-um-estágio-simples"><i class="fa fa-check"></i><b>12.7</b> Amostragem conglomerada em um estágio simples</a><ul>
+<li class="chapter" data-level="12.7.1" data-path="cong.html"><a href="cong.html#estimação-do-total-sob-ac1s"><i class="fa fa-check"></i><b>12.7.1</b> Estimação do total sob AC1S</a></li>
+<li class="chapter" data-level="12.7.2" data-path="cong.html"><a href="cong.html#estimação-da-média-sob-ac1s"><i class="fa fa-check"></i><b>12.7.2</b> Estimação da média sob AC1S</a></li>
+</ul></li>
+<li class="chapter" data-level="12.8" data-path="cong.html"><a href="cong.html#efeito-do-plano-amostral"><i class="fa fa-check"></i><b>12.8</b> Efeito do plano amostral</a></li>
+<li class="chapter" data-level="12.9" data-path="cong.html"><a href="cong.html#amostragem-conglomerada-com-probabilidade-proporcional-ao-tamanho-em-um-estágio"><i class="fa fa-check"></i><b>12.9</b> Amostragem Conglomerada com Probabilidade Proporcional ao Tamanho em um estágio</a></li>
+<li class="chapter" data-level="12.10" data-path="cong.html"><a href="cong.html#amostragem-conglomerada-em-dois-estágios"><i class="fa fa-check"></i><b>12.10</b> Amostragem conglomerada em dois estágios</a><ul>
+<li class="chapter" data-level="12.10.1" data-path="cong.html"><a href="cong.html#plano-amostral-ac2-com-aas-nos-2-estágios"><i class="fa fa-check"></i><b>12.10.1</b> Plano amostral AC2 com AAS nos 2 estágios</a></li>
+<li class="chapter" data-level="12.10.2" data-path="cong.html"><a href="cong.html#plano-amostral-com-ppt-com-reposição-no-primeiro-estágio-e-aas-no-segundo-estágio"><i class="fa fa-check"></i><b>12.10.2</b> Plano amostral com PPT com reposição no primeiro estágio e AAS no segundo estágio</a></li>
+<li class="chapter" data-level="12.10.3" data-path="cong.html"><a href="cong.html#amostra-conglomerada-com-ppt-de-poisson-sequencial-no-primeiro-e-aas-no-segundo-estágio"><i class="fa fa-check"></i><b>12.10.3</b> Amostra conglomerada com PPT de Poisson sequencial no primeiro e AAS no segundo estágio</a></li>
+</ul></li>
+<li class="chapter" data-level="12.11" data-path="cong.html"><a href="cong.html#ideias-básicas-na-escolha-de-unidades-compostas"><i class="fa fa-check"></i><b>12.11</b> Ideias básicas na escolha de unidades compostas</a></li>
+<li class="chapter" data-level="12.12" data-path="cong.html"><a href="cong.html#determinando-tamanhos-de-amostra-com-ac2pc"><i class="fa fa-check"></i><b>12.12</b> Determinando tamanhos de amostra com AC2PC</a></li>
+<li class="chapter" data-level="12.13" data-path="conceitos.html"><a href="conceitos.html#exercícios"><i class="fa fa-check"></i><b>12.13</b> Exercícios</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="calib.html"><a href="calib.html"><i class="fa fa-check"></i><b>13</b> Estimadores de Calibração</a><ul>
+<li class="chapter" data-level="13.1" data-path="calib.html"><a href="calib.html#motivação-melhorar-a-precisão-com-informações-auxiliares"><i class="fa fa-check"></i><b>13.1</b> Motivação: melhorar a precisão com informações auxiliares</a></li>
+<li class="chapter" data-level="13.2" data-path="calib.html"><a href="calib.html#problema"><i class="fa fa-check"></i><b>13.2</b> O problema</a></li>
+<li class="chapter" data-level="13.3" data-path="calib.html"><a href="calib.html#estreg"><i class="fa fa-check"></i><b>13.3</b> Estimadores de regressão como estimadores de calibração</a></li>
+<li class="chapter" data-level="13.4" data-path="calib.html"><a href="calib.html#razões-para-calibração"><i class="fa fa-check"></i><b>13.4</b> Razões para calibração</a></li>
+<li class="chapter" data-level="13.5" data-path="calib.html"><a href="calib.html#propriedades-dos-estimadores-para-grandes-amostras"><i class="fa fa-check"></i><b>13.5</b> Propriedades dos estimadores para grandes amostras</a></li>
+<li class="chapter" data-level="13.6" data-path="calib.html"><a href="calib.html#razCS"><i class="fa fa-check"></i><b>13.6</b> Estimadores de razão como casos particulares da calibração</a><ul>
+<li class="chapter" data-level="13.6.1" data-path="calib.html"><a href="calib.html#estimador-de-razão-combinada-sob-aes"><i class="fa fa-check"></i><b>13.6.1</b> Estimador de razão combinada sob AES</a></li>
+<li class="chapter" data-level="13.6.2" data-path="calib.html"><a href="calib.html#estimador-de-razão-separada-sob-aes"><i class="fa fa-check"></i><b>13.6.2</b> Estimador de razão separada sob AES</a></li>
+<li class="chapter" data-level="13.6.3" data-path="calib.html"><a href="calib.html#comparação-dos-estimadores-de-razão-combinada-e-separada"><i class="fa fa-check"></i><b>13.6.3</b> Comparação dos estimadores de razão combinada e separada</a></li>
+</ul></li>
+<li class="chapter" data-level="13.7" data-path="calib.html"><a href="calib.html#alguns-problemas-práticos-com-calibração"><i class="fa fa-check"></i><b>13.7</b> Alguns problemas práticos com calibração</a><ul>
+<li class="chapter" data-level="13.7.1" data-path="calib.html"><a href="calib.html#tamanhos-de-amostra-pequenos"><i class="fa fa-check"></i><b>13.7.1</b> Tamanhos de amostra pequenos</a></li>
+<li class="chapter" data-level="13.7.2" data-path="calib.html"><a href="calib.html#pesos-negativos-ou-extremos"><i class="fa fa-check"></i><b>13.7.2</b> Pesos negativos ou extremos</a></li>
+<li class="chapter" data-level="13.7.3" data-path="calib.html"><a href="calib.html#grande-número-de-variáveis-de-pesquisa-ou-de-grupos-de-modelagem"><i class="fa fa-check"></i><b>13.7.3</b> Grande número de variáveis de pesquisa ou de ‘grupos de modelagem’</a></li>
+<li class="chapter" data-level="13.7.4" data-path="calib.html"><a href="calib.html#gvaraux"><i class="fa fa-check"></i><b>13.7.4</b> Grande número de variáveis auxiliares</a></li>
+<li class="chapter" data-level="13.7.5" data-path="calib.html"><a href="calib.html#não-resposta-e-calibração"><i class="fa fa-check"></i><b>13.7.5</b> Não resposta e calibração</a></li>
+</ul></li>
+<li class="chapter" data-level="13.8" data-path="calib.html"><a href="calib.html#seleção-de-variáveis-para-calibração-com-não-resposta"><i class="fa fa-check"></i><b>13.8</b> Seleção de variáveis para calibração com não resposta</a></li>
+<li class="chapter" data-level="13.9" data-path="calib.html"><a href="calib.html#indicadores-de-qualidade-da-calibração"><i class="fa fa-check"></i><b>13.9</b> Indicadores de qualidade da calibração</a></li>
+<li class="chapter" data-level="13.10" data-path="calib.html"><a href="calib.html#um-guia-para-aplicação-de-calibração"><i class="fa fa-check"></i><b>13.10</b> Um guia para aplicação de calibração</a></li>
+<li class="chapter" data-level="13.11" data-path="calib.html"><a href="calib.html#observações-finais"><i class="fa fa-check"></i><b>13.11</b> Observações finais</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="referências.html"><a href="referências.html"><i class="fa fa-check"></i>Referências</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Amostragem: Teoria e Prática Usando R</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="estrat" class="section level1">
+<h1><span class="header-section-number">Capítulo 11</span> Amostragem Estratificada</h1>
+<p><em>Amostragem estratificada - AE</em> é um processo de amostragem que usa alguma informação auxiliar relevante para dividir a população <span class="math inline">\(U\)</span> em <span class="math inline">\(H\)</span> grupos disjuntos e exaustivos, geralmente mais homogêneos em relacão à(s) variável(is) de interesse, chamados <em>estratos</em>. Em seguida, é feita a seleção de amostras dentro de cada um dos estratos, de forma independente. A amostra final é formada então pela união das amostras selecionadas em cada um dos estratos.</p>
+<p>Para ser viável, as <em>variáveis de estratificação</em> (aquelas usadas para dividir a população em estratos) precisam estar disponíveis para todos as unidades da população da qual se vai selecionar a amostra.
+As variáveis de estratificação podem ser geográficas, como por exemplo as unidades da federação ou municípios, ou de outros tipos, tais como sexo, idade, número de empregados na empresa, área do estabelecimento, etc.</p>
+<p><em>Amostragem estratificada</em> é muito empregada na prática das pesquisas por amostragem por diversas razões, a saber:</p>
+<ol style="list-style-type: decimal">
+<li>Quando os estratos formam domínios “naturais” ou de interesse, como por exemplo regiões geográficas, tipos de empresas (farmácias, supermercados, lojas de departamentos) etc., a estratificação garante a seleção de amostras de tamanhos especificados em todos os estratos formados e, desse modo, permite controlar a precisão esperada de estimativas para subgrupos da população de pesquisa definidos como estratos ou agregações de estratos.<br />
+</li>
+<li>Quando é necessário “espalhar” a amostra sobre toda a população, isto é, tornar a amostra “representativa” e assegurar que todas as partes (estratos) relevantes da população sejam incluídas na amostra.<br />
+</li>
+<li>Para melhorar a eficiência amostral, isto é, para reduzir a variância dos estimadores dos parâmetros de interesse; quanto maior for a homogeneidade dentro dos estratos, mais a estratificação permite aumentar a precisão de estimativas para o conjunto da população, em comparação com planos de igual tamanho de amostra que não usam estratificação.<br />
+</li>
+<li>Quando for necessário usar métodos diferentes de coleta em diferentes subgrupos da população; a estratificação favorece a administração e implementação da coleta em pesquisas onde as condições de pesquisa variam entre os estratos; por exemplo, estratos podem ser formados de modo a viabilizar o emprego de modos alternativos de coleta (presencial, telefone, internet, etc.).</li>
+</ol>
+<p>Para pesquisas em que a estimação é requerida para cada estrato definido na população, o processo de amostragem e estimação deve ser replicado separadamente em cada estrato. Para pesquisas onde não são de interesse resultados por estrato, parâmetros dos estratos são estimados separadamente em cada estrato, de acordo com o plano amostral adotado, e estas estimativas são então agregadas para obter estimativas dos parâmetros de interesse referentes ao conjunto da população.</p>
+<p>Como desvantagens potenciais do método, a AE pode requerer a reestruturação do cadastro antes da amostragem. Além disso, apenas uma estratificação é possível e, uma vez fixada a estratificação, a amostragem vai depender dela de forma direta. Por último, subdividir a população em muitos estratos pode levar a ter amostras muito pequenas para cada estrato, algo que pode causar complicações na implementação da pesquisa, caso ocorra não resposta.</p>
+<p>Podemos distinguir dois tipos de estratificação:</p>
+<ol style="list-style-type: decimal">
+<li><em>Natural</em> - quando os estratos são iguais a subgrupos da população para os quais se requer estimativas com precisão controlada.<br />
+</li>
+<li><em>Estatística</em> - quando os estratos são definidos como subgrupos homogêneos da população, visando aumentar eficiência na estimação para a população como um todo. Neste caso, não há interesse específico na estimação de parâmetros dos estratos formados.</li>
+</ol>
+<p>Para definir estratos no contexto de <em>estratificação natural</em>, o processo requer essencialmente ouvir os clientes ou usuários dos resultados da pesquisa. São eles que devem indicar que subgrupos da população requerem estimativas com precisão controlada. Um exemplo é o de pesquisas do IBGE, que além de produzir resultados para o país como um todo, têm que produzir também resultados por unidades da federação. Estas são então <em>estratos naturais</em> nas pesquisas, que passam a ter suas amostras planejadas de modo a ter seleção independente em cada unidade da federação, sendo tais amostras de tamanhos suficientes para estimar com a precisão desejada em cada uma.</p>
+<p>Quando os estratos não são formados para permitir divulgação de resultados em cada um, mas somente como forma de melhorar a precisão de estimativas para o conjunto da população, sua formação pode ser feita empregando métodos que visam a otimizar os efeitos da estratificação. Alguns destes métodos são apresentados na sequência deste capítulo.</p>
+<p>Na prática, não é incomum encontrar aplicações onde a estratificação usada numa pesquisa combina os dois tipos. Na amostragem de pesquisas econômicas estruturais do IBGE, por exemplo, as empresas são estratificadas por unidade da federação e tipo de atividade econômica, definindo assim seus estratos naturais. Dentro destes estratos, para aumentar a eficiência da amostragem, as empresas são estratificadas por faixas de tamanho, usando a variável pessoal ocupado, num exemplo de estratificação estatística, já que tais pesquisas não buscan estimar parâmetros populacionais nestes estratos de tamanho (dentro dos estratos naturais). Ver, por exemplo, <span class="citation">IBGE (2000)</span>.</p>
+<p>Há diversos fatores que influenciam a eficiência na AE:</p>
+<ul>
+<li>A(s) variável(is) de estratificação.<br />
+</li>
+<li>O número de estratos.<br />
+</li>
+<li>A determinação dos limites dos estratos.<br />
+</li>
+<li>A alocação da amostra nos estratos.<br />
+</li>
+<li>O método de seleção da amostra em cada estrato.</li>
+</ul>
+<p>Para <em>estratificação natural</em>, a escolha da(s) variável(is) de estratificação se dá considerando TODAS as variáveis disponíveis necessárias para definir os domínios de interesse que se tornam <em>estratos naturais</em> da pesquisa.</p>
+<p>No caso da <em>estratificação estatística</em>, a escolha deve priorizar, entre as variáveis disponíveis, as que são as <em>melhores preditoras</em> da(s) variável(is) de interesse da pesquisa. Para ganhar eficiência com o uso da estratificação, a ideia é tornar os valores da(s) variável(is) de estudo dentro de cada estrato os mais similares / homogêneos possíveis, isto é, minimizar a <em>variância dentro dos estratos</em>.</p>
+<p>Nos dois casos é fundamental ter acesso a cadastro(s) com informações completas sobre variáveis auxiliares que são necessárias para estratificar a população de forma eficiente.</p>
+<div id="o-método-geral" class="section level2">
+<h2><span class="header-section-number">11.1</span> O método geral</h2>
+<p>Particione (divida) a população <span class="math inline">\(U\)</span> em <span class="math inline">\(H\)</span> subconjuntos (grupos) mutuamente exclusivos e exaustivos, chamados <em>estratos</em>, denotados por <span class="math inline">\(U_1, ..., U_h, ..., U_H\)</span>, de modo que:</p>
+<p><span class="math inline">\(U = U_1 \cup \dots \cup U_h \cup \dots \cup U_H = \displaystyle \bigcup_{h=1}^H U_h\)</span> e</p>
+<p><span class="math inline">\(U_h \cap U_k = \emptyset, \, h \ne k\)</span>.</p>
+<p>Então <span class="math inline">\(U_h = \textrm {\{unidades pertencentes ao estrato h}\}\)</span>, para <span class="math inline">\(h=1, 2, ...,H\)</span>.</p>
+<p>Seja <span class="math inline">\(N_h\)</span> o tamanho de <span class="math inline">\(U_h\)</span>. O tamanho total da população será dado pela soma dos tamanhos dos estratos, <span class="math inline">\(N = N_1 + \dots + N_h + \dots + N_H\)</span>.</p>
+<p>Selecione uma amostra <span class="math inline">\(s_h\)</span> de tamanho <span class="math inline">\(n_h\)</span>, com <span class="math inline">\(n_h &gt; 0\)</span>, segundo um plano amostral <span class="math inline">\(p_h(s_h)\)</span> <em>independentemente</em> dentro de cada estrato <span class="math inline">\(h\)</span>, onde <span class="math inline">\(n = \displaystyle \sum_{h=1}^{H} n_h\)</span> será o tamanho total da amostra selecionada. Fica assim assegurado que cada estrato tem sua população representada na amostra completa dada por: <span class="math inline">\(s = s_1 \cup \dots \cup s_h \cup \dots \cup s_H\)</span>. Note que em função da definição dos estratos, as amostras nos vários estratos também são conjuntos mutuamente exclusivos, isto é, <span class="math inline">\(s_h \cap s_k = \emptyset, \, h \ne k\)</span>.</p>
+<p>A independência da amostragem nos diferentes estratos permite tratar cada estrato como se fosse uma população separada, para fins de seleção da amostra. Isto facilita a implementação de amostragem estratificada, que pode ser feita usando um algoritmo em quatro passos:</p>
+<ol style="list-style-type: decimal">
+<li>Defina a estratificação da população <span class="math inline">\(U\)</span>.<br />
+</li>
+<li>Defina o método para selecionar a amostra em cada um dos estratos formados na população.<br />
+</li>
+<li>Selecione a amostra de cada estrato usando o método definido no passo 2.<br />
+</li>
+<li>Reúna as amostras dos vários estratos para formar a amostra que será objeto da pesquisa.</li>
+</ol>
+<p>A seguir, exemplos de possíveis planos de amostragem estratificada:</p>
+<p><strong>Exemplo 11.1 </strong> Amostragem com estratos definidos por conveniência administrativa</p>
+<p>Considere uma população de passageiros chegando a um terminal marítimo, onde a chegada é sempre feita em navios que carregam tanto passageiros viajando com seus automóveis como passageiros que viajam a pé. Imagine que é necessário selecionar uma amostra dos passageiros para uma pesquisa que visa estimar a média dos gastos feitos na viagem por passageiro.</p>
+<p>Nesse tipo de cenário, é conveniente para a implementação da coleta dos dados que a população de passageiros seja dividida em dois estratos: passageiros chegando de automóvel (estrato 1) e passageiros chegando a pé (estrato 2). No estrato 1, poderia ser usada <em>Amostragem Sistemática</em> para selecionar um de cada <span class="math inline">\(K\)</span> automóveis cruzando um ponto de fluxo na saída do navio. Como as unidades de amostragem nesse caso são os automóveis, que podem ter um ou mais passageiros a bordo, trata-se de um cenário em que a amostragem é de grupos de passageiros (amostragem conglomerada - ver capítulo <a href="cong.html#cong">12</a>). No estrato 2, as unidades de amostragem seriam os passageiros que desembarcam a pé, individualmente. Nesse caso, poderia ser empregada, por exemplo, <em>Amostragem Binomial</em> para selecionar passageiros para entrevistar ao passarem por um ponto de fluxo na saída do navio.</p>
+<p>Pesquisas como a <em>UK International Passenger Survey</em> <span class="citation">Horsfield (2017)</span> usam estratificação desta maneira, pois os métodos mais adequados para amostrar passageiros precisam variar conforme o modo de transporte e a forma de entrada no território do Reino Unido.</p>
+<p><strong>Exemplo 11.2 </strong> Amostragem Estratificada por Corte - AEC</p>
+<p>Este é um tipo de planejamento muito usado em pesquisas de estabelecimentos ou instituições. A população é dividida em estratos. Partes da população onde existe grande heterogeneidade ou que concentram grande parte do total de uma ou mais variáveis de interesse, porém compostas de um número relativamente pequeno de unidades populacionais, são alocadas num <em>estrato certo</em>. Nesse estrato se faz um censo, isto é, se pesquisa o conjunto completo de unidades ali alocadas. Nos demais estratos são pesquisadas amostras de suas unidades.</p>
+<p>Esse tipo de amostragem é muito utilizado em populações onde há grande assimetria das principais variáveis de interesse. Um bom exemplo são pesquisas econômicas na área da indústria onde, muitas vezes, um número pequeno de estabelecimentos industriais é responsável por grande parte do valor da produção. Neste caso, a precisão das estimativas de totais populacionais produzidas pode ser muito melhor ao empregar AEC em comparação com AAS (por exemplo), pois como no estrato certo é feito um censo, não há variabilidade devida ao uso de amostragem nesse estrato (variância nula do total ‘estimado’ nesse estrato).</p>
+</div>
+<div id="amostragem-estratificada-simples" class="section level2">
+<h2><span class="header-section-number">11.2</span> Amostragem estratificada simples</h2>
+<p>Diferentes planos amostrais podem ser empregados nos diversos estratos, mas isso é pouco comum na prática. O mais comum é usar um mesmo tipo de amostragem nos vários estratos definidos.</p>
+<p>A <em>Amostragem Estratificada Simples - AES</em> corresponde ao caso mais simples de todos, quando uma amostra aleatória simples sem reposição - AAS é selecionada em cada um dos estratos definidos. Neste caso, deve estar disponível um cadastro que permita alocar as unidades da população <span class="math inline">\(U\)</span> nos estratos definidos, conhecer os tamanhos dos estratos, e o cadastro deve estar organizado de forma a permitir a seleção da amostra em cada um dos estratos.</p>
+<p>Esta seção apresenta os resultados para AES, método que considera sorteio por AAS em cada estrato, mas o mesmo tipo de enfoque pode ser adaptado quando for utilizado qualquer outro método de seleção nos estratos, tais como <em>Amostragem Sistemática</em>, <em>Amostragem Binomial</em>, <em>Amostragem com PPT</em>, etc. Como a seleção nos diferentes estratos é feita de forma independente, basta fazer as estimativas, utilizando as fórmulas adequadas ao método de seleção utilizado em cada estrato, e depois agregar os resultados dessas estimativas de forma adequada para obter estimativas para parâmetros da população como um todo.</p>
+<div id="método-de-seleção" class="section level3">
+<h3><span class="header-section-number">11.2.1</span> Método de seleção</h3>
+<p>Para cada estrato <span class="math inline">\(h = 1, 2, \dots, H\)</span>, selecione por AAS uma amostra <span class="math inline">\(s_h\)</span> de tamanho <span class="math inline">\(1 \le n_h \le N_h\)</span> das <span class="math inline">\(N_h\)</span> unidades do estrato <span class="math inline">\(U_h\)</span>, sempre de forma independente da seleção feita nos outros estratos. Qualquer um dos algoritmos descritos no capítulo <a href="aas.html#aas">4</a> pode ser empregado para a seleção das amostras nos estratos. Segue-se então que o conjunto de todas as amostras possíveis <span class="math inline">\(S_{AES}\)</span> é formado por amostras da forma:</p>
+<p><span class="math display">\[
+s = s_1 \cup \dots \cup s_h \cup \dots \cup s_H
+\]</span></p>
+<p>e seu tamanho é dado pelo produto dos tamanhos dos conjuntos de amostras possíveis em cada um dos estratos. Como em cada estrato usamos AAS, esses tamanhos são iguais a <span class="math inline">\(\binom {N_h}{n_h}\)</span> e portanto, em cada estrato temos:</p>
+<p><span class="math display" id="eq:eqest1">\[
+p_h(s_h) = 1 \Big/ \binom {N_h}{n_h} = \binom {N_h}{n_h}^{-1} ,\,\,\, h = 1, 2, \dots, H \,\,  \tag{11.1}
+\]</span></p>
+<p>Em consequência, o plano amostral <span class="math inline">\(p_{AES}(s)\)</span> é dado por:</p>
+<p><span class="math display" id="eq:eqest2">\[
+p_{AES}(s) = \prod_{h=1}^H p_h(s_h) = \prod_{h=1}^H \binom {N_h}{n_h}^{-1} \,\, \tag{11.2} 
+\]</span></p>
+<p>onde <span class="math inline">\(s \in S_{AES}\)</span>.</p>
+<p>O <em>tamanho total da amostra</em> é: <span class="math inline">\(n = n_1 + n_2 + \dots + n_H\)</span>.</p>
+</div>
+<div id="parâmetros-populacionais" class="section level3">
+<h3><span class="header-section-number">11.2.2</span> Parâmetros populacionais</h3>
+<p>Seguem as definições de alguns parâmetros populacionais de uma variável de interesse <span class="math inline">\(y\)</span> nos estratos, e de como estes podem ser agregados para obter os parâmetros referentes ao conjunto da população.</p>
+<p><strong>Parâmetros nos estratos:</strong></p>
+<p>A seguir são apresentadas definições para o total <span class="math inline">\(Y_h\)</span>, a média <span class="math inline">\(\overline {Y_h}\)</span> e a variância <span class="math inline">\(S_h^2(y)\)</span> do estrato <span class="math inline">\(h\)</span>:</p>
+<p><span class="math display">\[
+Y_h = \displaystyle \sum_{i \in U_h} y_{i}
+\]</span></p>
+<p><span class="math display">\[
+\overline {Y_h} = Y_h / N_h = \frac {1} {N_h} \displaystyle \sum_{i \in U_h} y_{i}
+\]</span></p>
+<p><span class="math display">\[
+S_{h,y}^2 = \displaystyle \frac {1} {N_h-1} \sum_{i \in U_h}  (y_i - \overline {Y_h})^2
+\]</span></p>
+<p><strong>Parâmetros populacionais (globais):</strong></p>
+<p>O total populacional é dado por:</p>
+<p><span class="math display" id="eq:eqest3">\[
+Y = \displaystyle \sum_{h=1}^H Y_h = \displaystyle \sum_{h=1}^H N_h \overline {Y_h} \tag{11.3}
+\]</span></p>
+<p>A média populacional é definida como:</p>
+<p><span class="math display" id="eq:eqest4">\[
+\overline Y = Y/N = \frac {1} {N}\displaystyle \sum_{h=1}^H N_h \overline {Y_h} = \sum_{h=1}^H W_h\overline {Y_h} \tag{11.4}
+\]</span></p>
+<p>onde <span class="math inline">\(W_h = N_h/N\)</span> é o <em>peso</em> da média do estrato <span class="math inline">\(h\)</span>, <span class="math inline">\(h=1, 2, ..., H\)</span>, na composição da média populacional global.</p>
+<p>A variância populacional pode ser escrita como:</p>
+<p><span class="math display" id="eq:eqest5">\[
+\begin{eqnarray} 
+S_y^2 &amp; = &amp; \frac {1} {N-1} \sum_{h=1}^H \sum_{i \in U_h} \left( y_i - \overline Y \right)^2 \\ 
+&amp; = &amp; \frac {1} {N-1} \sum_{h=1}^H \sum_{i \in U_h} \left[ \left(y_i - \overline {Y_h} \right) + \left(\overline {Y_h} - \overline Y \right) \right]^2 \\ 
+&amp; = &amp; \frac {1} {N-1} \sum_{h=1}^H (N_h - 1) S_{h,y}^2 + \frac {1} {N-1} \sum_{h=1}^{H} {N_h} \left( \overline {Y_h} - \overline Y \right)^2 \\ 
+ &amp; = &amp; S_D^2 + S_E^2 \end{eqnarray} \tag{11.5}
+\]</span>
+onde:</p>
+<p><span class="math display">\[S_D^2 = \displaystyle  \sum_{h=1}^H  \frac {N_h - 1}{N - 1} S_{h,y}^2\;\;\;\text{e}\;\;\; S_E^2 = \displaystyle \sum_{h=1}^{H} \frac {N_h}{N - 1} \left( \overline {Y_h} - \overline Y \right)^2\]</span></p>
+<p>A Expressão <a href="estrat.html#eq:eqest5">(11.5)</a> mostra uma decomposição útil da variância total da variável <span class="math inline">\(y\)</span> na população, com duas componentes que são conhecidas como <em>Variância Dentro</em> e <em>Variância Entre</em> estratos, respectivamente. Como se vê na sequência, por selecionar amostras de forma independente em <em>todos</em> os estratos definidos, a <em>amostragem estratificada</em> elimina a componente de variação <em>entre</em> os estratos ao estimar parâmetros do conjunto da população, tais como o total ou a média. Além disso, note que para uma variância total <span class="math inline">\(S_y^2\)</span> fixada, minimizar a <em>Variância Dentro</em> <span class="math inline">\(S_D^2\)</span>, mediante a definição de estratos homogêneos em relação à variável de interesse, deve permitir eliminar grande parte da variação relevante para a estimação de totais e médias populacionais.</p>
+</div>
+<div id="estimação-do-total-e-da-média-populacional" class="section level3">
+<h3><span class="header-section-number">11.2.3</span> Estimação do total e da média populacional</h3>
+<p>Como a amostragem é feita independentemente por estrato, podemos estimar separadamente os parâmetros de cada estrato. Sob AES, os estimadores usuais dos parâmetros nos estratos são descritos a seguir:</p>
+<p><span class="math display">\[
+\widehat Y_h = \displaystyle \sum_{i \in s_h} d_i y_i = \frac{N_h}{n_h} \sum_{i \in s_h} y_i = N_h \overline y_h
+\]</span></p>
+<p>é o estimador do total do estrato <span class="math inline">\(h\)</span> da variável <span class="math inline">\(y\)</span>, onde <span class="math inline">\(d_i = N_h / n_h\)</span> é o peso da unidade i quando ela pertence ao estrato <span class="math inline">\(h\)</span>. Note que o peso <span class="math inline">\(d_i\)</span> é o inverso da probabilidade de inclusão para unidades dentro de cada estrato <span class="math inline">\(h\)</span> sob AES.</p>
+<p><span class="math display">\[
+\overline y_h = \frac{1}{n_h} \displaystyle \sum_{i \in s_h} y_i
+\]</span></p>
+<p>é o estimador da média da variável <span class="math inline">\(y\)</span> no estrato <span class="math inline">\(h\)</span>; e</p>
+<p><span class="math display">\[
+s_{h,y}^2 = \frac{1}{n_h - 1} \displaystyle \sum_{i \in s_h} \left( y_i - \overline y_h \right)^2
+\]</span></p>
+<p>é o estimador da variância <span class="math inline">\(S_{h,y}^2\)</span> da variável <span class="math inline">\(y\)</span> no estrato <span class="math inline">\(h\)</span>.</p>
+<p>Como temos AAS de <span class="math inline">\(n_h\)</span> unidades dentro do estrato <span class="math inline">\(h\)</span>, são válidas as seguintes propriedades:</p>
+<p><span class="math display">\[
+E_{AES} \left( \overline y_h\right) = \overline {Y_h}
+\]</span></p>
+<p><span class="math display">\[
+E_{AES} \left(\widehat Y_h \right) = Y_h
+\]</span></p>
+<p><span class="math display">\[
+E_{AES} \left( s_{h,y}^2 \right) = S_{h,y}^2
+\]</span></p>
+<p>Todos estes resultados decorrem das propriedades já descritas no capítulo <a href="aas.html#aas">4</a> para estimadores de média, total e variância sob AAS. Temos também os seguintes resultados para as variâncias de estimadores de média e total por estrato:</p>
+<p><span class="math display">\[
+V_{AES} \left( \overline y_h \right) = \left( \frac{1}{n_h} - \frac{1}{N_h} \right) S_{h,y}^2
+\]</span></p>
+<p>é a variância do estimador da média da variável <span class="math inline">\(y\)</span> no estrato <span class="math inline">\(h\)</span>;</p>
+<p><span class="math display">\[
+V_{AES} \left( \widehat Y_h \right) = N_h^2 V_{AES} \left( \overline y_h \right) = N_h^2 \left( \frac{1}{n_h} - \frac{1}{N_h} \right) S_{h,y}^2
+\]</span></p>
+<p>é a variância do estimador de total da variável <span class="math inline">\(y\)</span> no estrato <span class="math inline">\(h\)</span>;</p>
+<p><span class="math display">\[
+\widehat V_{AES} \left( \overline y_h \right) = \left( \frac{1}{n_h} - \frac{1}{N_h} \right) s_{h,y}^2
+\]</span></p>
+<p>é o estimador da variância do estimador da média da variável <span class="math inline">\(y\)</span> no estrato <span class="math inline">\(h\)</span>; e</p>
+<p><span class="math display">\[
+\widehat V_{AES} \left( \widehat Y_h \right) = N_h^2 \widehat V_{AES} \left( \overline y_h \right) = N_h^2 \left( \frac{1}{n_h} - \frac{1}{N_h} \right) s_{h,y}^2
+\]</span></p>
+<p>é o estimador da variância do estimador de total da variável <span class="math inline">\(y\)</span> no estrato <span class="math inline">\(h\)</span>.</p>
+<p>Para a estimação de parâmetros populacionais globais, ou seja, para o conjunto da população temos:</p>
+<p><span class="math display" id="eq:eqest6">\[
+\widehat Y_{AES} = \displaystyle \sum_{h=1}^{H} \widehat Y_h  = \sum_{h=1}^{H} N_h \overline y_h \,\,  \tag{11.6}
+\]</span></p>
+<p>é o estimador do total <span class="math inline">\(Y\)</span>;</p>
+<p><span class="math display" id="eq:eqest7">\[
+\overline y_{AES} = \displaystyle \sum_{h=1}^{H}W_h \overline y_h = \sum_{h=1}^{H} \frac{N_h}{N} \overline y_h \,\, \tag{11.7}
+\]</span>
+é o estimador da média <span class="math inline">\(\overline Y\)</span>.</p>
+<p>O estimador da média populacional sob AES é não viciado, isto é:</p>
+<p><span class="math display">\[
+E_{AES} \left( \overline y_{AES} \right) = \overline Y
+\]</span></p>
+<p>Isto segue porque
+<span class="math display">\[
+E_{AES} \left (\overline y_h\right) = \overline {Y_h}
+\]</span></p>
+<p>para todo <span class="math inline">\(h=1,...,H\)</span>, e</p>
+<p><span class="math display">\[
+E_{AES} \left( \displaystyle \sum_{h=1}^{H} W_h \overline y_h \right) = \displaystyle \sum_{h=1}^{H} W_h E_{AES} (\overline y_h) = \sum_{h=1}^{H} W_h \overline {Y_h} = \overline Y
+\]</span></p>
+<p>Devido à independência da amostragem nos estratos, a variância do estimador <span class="math inline">\(\overline y_{AES}\)</span> pode ser obtida como:</p>
+<p><span class="math display" id="eq:eqest8">\[
+V_{AES} \left( \overline y_{AES} \right) = \displaystyle \sum_{h=1}^{H} W_h^2 V_{AES} \left( \overline y_h\right ) = \displaystyle \sum_{h=1}^{H} \frac {N_h^2}{N^2} \left( \frac{1}{n_h} - \frac {1}{N_h} \right) S_{h,y}^2 \,\, \tag{11.8}
+\]</span></p>
+<p>De forma similar se pode obter a variância do estimador do total populacional como:</p>
+<p><span class="math display" id="eq:eqest9">\[
+V_{AES} \left( \widehat Y_{AES} \right) = \displaystyle \sum_{h=1}^{H} {N_h^2} \left( \frac{1}{n_h} - \frac {1}{N_h} \right) S_{h,y}^2 \,\, \tag{11.9}
+\]</span></p>
+<p>Um estimador não viciado da variância de <span class="math inline">\(\overline y_{AES}\)</span> é dado por:</p>
+<p><span class="math display" id="eq:eqest10">\[
+\widehat V_{AES} \left( \overline y_{AES} \right) = \displaystyle \sum_{h=1}^{H} \frac {N_h^2}{N^2} \left( \frac{1}{n_h} - \frac{1}{N_h} \right) s_{h,y}^2 \,\, \tag{11.10}
+\]</span></p>
+<p>No caso da estimação de total <span class="math inline">\(\widehat Y_{AES}\)</span>, um estimador não viciado da variância é dado por:</p>
+<p><span class="math display" id="eq:eqest11">\[
+\widehat V_{AES }\left( \widehat Y_{AES} \right) = \displaystyle\sum_{h=1}^{H} N_h^2 \left( \frac{1}{n_h} - \frac{1}{N_h} \right) s_{h,y}^2 \,\, \tag{11.11}
+\]</span></p>
+<p>A Tabela <a href="estrat.html#tab:tabestr1">11.1</a> apresenta um resumo da estimação dos parâmetros média e total da variável <span class="math inline">\(y\)</span> sob AES.</p>
+<center>
+<table>
+<caption>
+<span id="tab:tabestr1">Tabela 11.1: </span>Parâmetros e respectivos estimadores sob AES
+</caption>
+</table>
+<table>
+<colgroup>
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Parâmetro</th>
+<th align="left"></th>
+<th align="left">Estimador não viciado</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><span class="math inline">\(\displaystyle \overline Y = \sum_{h=1}^H \frac{N_h}{N} \overline {Y_h} = \displaystyle \sum_{h=1}^H W_h \overline {Y_h}\)</span></td>
+<td align="left"></td>
+<td align="left"><span class="math inline">\(\displaystyle \overline y_{AES} = \sum_{h=1}^{H} \frac{N_h}{N} \overline y_h = \displaystyle \sum_{h=1}^{H} W_h \overline y_h\)</span></td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(Y = \displaystyle \sum_{h=1}^H Y_h = \displaystyle \sum_{h=1}^H N_h \overline {Y_h}\)</span></td>
+<td align="left"></td>
+<td align="left"><span class="math inline">\(\widehat Y_{AES} = \displaystyle \sum_{h=1}^{H} \widehat Y_h = \sum_{h=1}^{H} N_h \overline y_h\)</span></td>
+</tr>
+<tr class="odd">
+<td align="left"><span class="math inline">\(V_{AES} \left( \overline y_{AES} \right) = \displaystyle \sum_{h=1}^{H} W_h^2 \left( \frac{1}{n_h} - \frac{1}{N_h} \right) S_{h,y}^2\)</span></td>
+<td align="left"></td>
+<td align="left"><span class="math inline">\(\widehat V_{AES} \left( \overline y_{AES} \right) = \displaystyle \sum_{h=1}^{H} W_h^2 \left( \frac{1}{n_h} - \frac{1}{N_h} \right) s_{h,y}^2\)</span></td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(V_{AES} \left( \widehat Y_{AES} \right) = \displaystyle \sum_{h=1}^{H} {N_h^2} \left( \frac{1}{n_h} - \frac {1}{N_h} \right) S_{h,y}^2\)</span></td>
+<td align="left"></td>
+<td align="left"><span class="math inline">\(\widehat V_{AES} \left( \widehat Y_{AES} \right) = \displaystyle\sum_{h=1}^{H} N_h^2 \left( \frac{1}{n_h} - \frac{1}{N_h} \right) s_{h,y}^2\)</span></td>
+</tr>
+</tbody>
+</table>
+</center>
+<p>No item <a href="calib.html#razCS">13.6</a> são apresentados, como casos particulares de calibração, o estimador de razão combinada e o estimador de razão separada, que são do tipo razão usuais para o total populacional <span class="math inline">\((Y)\)</span> no caso de AES.</p>
+</div>
+<div id="intervalos-de-confiança" class="section level3">
+<h3><span class="header-section-number">11.2.4</span> Intervalos de confiança</h3>
+<p>Se <span class="math inline">\(n = \displaystyle \sum_{h=1}^{H} n_h\)</span> for grande, então o Teorema Central do Limite também se aplica. Portanto:</p>
+<p><span class="math display">\[
+\frac{\overline y_{AES} - \overline Y}{\sqrt{\widehat V_{AES} \left( \overline y_{AES} \right)}} \approx N(0;1)
+\]</span></p>
+<p>Logo, um intervalo de confiança de nível <span class="math inline">\(1-\alpha\)</span> para <span class="math inline">\(\overline Y\)</span> é dado por:</p>
+<p><span class="math display" id="eq:eqest12">\[
+IC_{AES} (\overline Y; 1-\alpha) = \left[ \overline y_{AES} \mp z_{\alpha/2} \sqrt{\widehat V_{AES} \left( \overline y_{AES} \right)} \right] \,\,\, \tag{11.12}
+\]</span></p>
+<p>Para médias dentro de estratos, <span class="math inline">\(\overline y_h\)</span>, os tamanhos de amostras <em>por estratos</em> <span class="math inline">\(n_h\)</span> sendo suficientemente grandes, o Teorema Central do Limite indica que:</p>
+<p><span class="math display">\[
+\frac{\overline y_h - \overline {Y_h}}{\sqrt{\widehat V_{AES}\left(\overline y_h\right)}} \approx N(0;1)
+\]</span></p>
+<p>e então um intervalo de confiança de nível <span class="math inline">\(1-\alpha\)</span> para <span class="math inline">\(\overline {Y_h}\)</span> é dado por:</p>
+<p><span class="math display">\[
+IC_{AES} (\overline {Y_h}; 1-\alpha) = \left[ \overline y_h \mp z_{\alpha/2} \sqrt{\widehat V_{AES} \left( \overline y_h \right)} \right]
+\]</span></p>
+</div>
+</div>
+<div id="alocação-da-amostra-nos-estratos" class="section level2">
+<h2><span class="header-section-number">11.3</span> Alocação da amostra nos estratos</h2>
+<p>Uma decisão importante que precisa ser tomada quando se vai usar amostragem estratificada é a forma pela qual o tamanho total da amostra será alocado ou distribuído nos estratos. Há dois caminhos principais a seguir.</p>
+<p>Quando os estratos são <em>estratos naturais</em>, é geralmente necessário calcular tamanhos de amostra necessários para estimar parâmetros dos estratos com precisão controlada. Nesse caso, o tamanho total da amostra é obtido numa abordagem tipo agregação, somando os tamanhos de amostra calculados para os estratos naturais definidos. Nesse caso, a alocação nos estratos vem antes da obtenção do tamanho total da amostra.</p>
+<p>Quando não há interesse específico na estimação de parâmetros dos estratos e um tamanho total de amostra foi calculado, é necessário distribuir esse tamanho entre os estratos definidos na população. Há duas maneiras principais de alocação da amostra, que pode ser feita de forma <em>proporcional</em> ou <em>desproporcional</em> aos tamanhos <span class="math inline">\(N_h\)</span> dos estratos.</p>
+<p>A chamada <em>alocação proporcional</em> é o método no qual o tamanho da amostra alocado no estrato <span class="math inline">\(h\)</span> é proporcional ao número de unidades populacionais nesse estrato. Em consequência, a fração amostral em cada estrato é constante e igual à fração amostral da amostra inteira. Com esse método de alocação, os estratos maiores ficam com amostras maiores. Todas as outras formas de alocação vão resultar em uma alocação <em>desproporcional</em> da amostra nos estratos.</p>
+<p>Entre os métodos mais comuns de <em>alocação desproporcional</em> podemos citar:</p>
+<ul>
+<li><em>Alocação igual</em>: quando os tamanhos das amostras em todos os estratos são iguais a <span class="math inline">\(n/H\)</span>.<br />
+</li>
+<li><em>Alocação de Neyman</em>: quando a distribuição da amostra total considera tanto os tamanhos como a variabilidade entre unidades dentro dos estratos, levando a tamanhos de amostra maiores em estratos com maior tamanho e maior variabilidade entre unidades do mesmo estrato.<br />
+</li>
+<li><em>Alocação ótima</em>: quando a distribuição da amostra total depende do tamanho, da variabilidade e do custo de coleta de cada estrato.<br />
+</li>
+<li><em>Alocação potência</em>: quando os tamanhos das amostras nos estratos são proporcionais a uma potência dos tamanhos dos estratos.</li>
+</ul>
+<p>Todas estas formas de alocação estão disponíveis para aplicações, e cabe ao planejador da amostra escolher a que melhor se adapta à situação de sua pesquisa. Na sequência apresentamos com detalhes cada um dos métodos de alocação mencionados acima e, ao final, apresentamos também métodos mais modernos baseados no emprego de otimização.</p>
+<div id="alocação-proporcional" class="section level3">
+<h3><span class="header-section-number">11.3.1</span> Alocação proporcional</h3>
+<p>Uma amostra ‘representativa’ deveria ‘imitar’ ou se parecer bastante com a população de onde foi extraída. Uma das formas de tornar a amostra parecida com a população é assegurar que suas unidades são distribuídas nos estratos da mesma forma que na população. Por exemplo, numa população onde há 51% de mulheres e 49% de homens, as proporções na amostra deveriam ser idênticas. Esta ideia norteou algumas das abordagens inicialmente consideradas para a amostragem de populações, e deu origem, entre outros tipos de técnicas, à <em>amostragem por cotas</em>. No contexto da <em>amostragem probabilística</em>, a <em>amostragem estratificada simples com alocação proporcional</em> é o plano amostral mais similar à ideia de uma amostra por cotas.</p>
+<p>Nesse método, as unidades populacionais são distribuídas nos estratos segundo as proporções:</p>
+<p><span class="math display">\[
+W_h = N_h/N , \,\, h=1,\dots,H, \; \text{com} \; \displaystyle \sum_{h=1}^{H} W_h = 1
+\]</span></p>
+<p>As proporções amostrais nos estratos são definidas como:</p>
+<p><span class="math display">\[
+\lambda_h = n_h/n , \,\, h = 1, \dots , H \; \text{com} \; \displaystyle \sum_{h=1}^{H} \lambda_h = 1
+\]</span>.</p>
+<p>Então, o critério de <em>alocação proporcional</em> implica em tentar fazer <span class="math inline">\(\lambda_h = W_h, \,\, \forall\, h = 1, 2, \dots, H\)</span>.</p>
+<p>Logo:</p>
+<p><span class="math display" id="eq:eqest13">\[
+\displaystyle \frac{n_h}{n} = \frac{N_h}{N} \Rightarrow \displaystyle n_h = n \frac{N_h}{N} = n W_h, \,\, \forall\, h = 1, 2, \dots, H \,\, \tag{11.13}
+\]</span>.</p>
+<p>Esta distribuição da amostra nos estratos é chamada <em>Alocação Proporcional</em>.</p>
+<p>Um plano AES com <span class="math inline">\(\displaystyle \frac{n_h}{n} = \frac{N_h}{N}\)</span> é chamado de <em>Amostragem Estratificada Simples Proporcional - AESP</em> ou equiponderada.</p>
+<p>Vale notar, de imediato, que a solução indicada não fornecerá resultados exatos, pois os tamanhos de amostra calculados podem não ser números inteiros. A prática usual é arredondar para cima os tamanhos de amostra calculados conforme a Expressão <a href="estrat.html#eq:eqest13">(11.13)</a>. Isto vai implicar um pequeno aumento do tamanho total da amostra, a menos que a estratificação tenha definido um número muito grande de estratos - algo conhecido como <em>estratificação profunda</em>. Nesse caso, a estratégia pode ser adaptada para uso de arredondamento comum ao inteiro mais próximo.</p>
+<p>Sob AESP, como <span class="math inline">\(n_h = n W_h\)</span>, a <em>média amostral simples</em> é o estimador não viciado da média populacional:</p>
+<p><span class="math display" id="eq:eqest14">\[
+\overline y_{AESP} = \displaystyle \sum_{h=1}^{H} W_h \overline y_h = \sum_{h=1}^{H} W_h \frac{1}{n_h} \sum_{i \in s_h} y_i = \frac{1}{n} \sum_{h=1}^{H} \sum_{i \in s_h} y_i = \overline y \,\, \tag{11.14}
+\]</span></p>
+<p>A variância de <span class="math inline">\(\overline y_{AESP}\)</span> simplifica para:</p>
+<p><span class="math display" id="eq:eqest15">\[
+V_{AESP} \left( \overline y_{AESP} \right) = \left( \frac{1}{n} - \frac{1}{N} \right) \sum_{h=1}^{H} W_h S_{h,y}^2 \doteq  \left( \frac{1}{n} - \frac{1}{N} \right) S_D^2 \,\, \tag{11.15}
+\]</span></p>
+<p>onde a aproximação envolvida para obtenção do último termo decorre do uso de pesos <span class="math inline">\(N_h/N\)</span> em lugar dos pesos <span class="math inline">\((N_h - 1) / (N - 1)\)</span> usados na definição da <em>variância dentro</em> dos estratos.</p>
+<p>Note que a expressão aproximada tem a mesma forma que a expressão correspondente ao caso da AAS, com <span class="math inline">\(S_y^2\)</span> substituído por <span class="math inline">\(S_D^2\)</span>. Como a <em>variância dentro</em> é menor que a variância total <span class="math inline">\(\left(S_D^2 &lt; S_y^2 \right)\)</span>, fica evidenciado que AESP geralmente reduz a variância do estimador quando comparada com AAS de igual tamanho.</p>
+</div>
+<div id="alocação-ótima" class="section level3">
+<h3><span class="header-section-number">11.3.2</span> Alocação ótima</h3>
+<p>A maioria das pesquisas convive com restrições orçamentárias. Já se mostrou acima que é sempre possível ganhar eficiência com uso de amostragem estratificada simples em comparação com uma AAS de igual tamanho. Mas o caminho da alocação proporcional não é o caminho que permite obter o maior ganho de eficiência possível. É nesse contexto que foi desenvolvido o método de <em>alocação ótima</em> para amostras estratificadas simples que vamos discutir na sequência.</p>
+<p>Se o custo total da pesquisa é fixado em <span class="math inline">\(C\)</span> unidades monetárias, então é necessário especificar uma <em>função custo</em> que descreva como esse custo varia para diferentes tamanhos amostrais e alternativas de alocação da amostra nos estratos. Vamos considerar aqui que uma função custo linear dada por:</p>
+<p><span class="math display" id="eq:eqest16">\[
+C = c_0 + \displaystyle \sum_{h=1}^{H} n_h c_h \,\,\, \tag{11.16}
+\]</span>
+é adequada para descrever os custos de pesquisa num cenário onde AES vai ser empregada.</p>
+<p>Note que na Expressão <a href="estrat.html#eq:eqest16">(11.16)</a>, <span class="math inline">\(c_0\)</span> representa os custos fixos da pesquisa e <span class="math inline">\(n_hc_h\)</span> os custos que dependem efetivamente de cada estrato <span class="math inline">\(h\)</span>.</p>
+<p>A ideia é minimizar a <span class="math inline">\(V_{AES} \left( \overline y_{AES} \right)\)</span> sujeita à restrição de que o custo da pesquisa não ultrapasse o orçamento disponível, isto é, não ultrapasse o custo total <span class="math inline">\(C\)</span>. Para resolver este problema, note que a variância do estimador da média populacional pode ser escrita como:</p>
+<p><span class="math display" id="eq:eqest17">\[
+V_{AES} \left( \overline y_{AES} \right) = \displaystyle \sum_{h=1}^{H} W_h^2 S_{h,y}^2 \left( \frac{1}{n_h} - \frac{1}{N_h} \right) = \sum_{h=1}^{H} W_h^2 S_{h,y}^2 / n_h - V_0 \,\,\, \tag{11.17}
+\]</span></p>
+<p>onde <span class="math inline">\(V_0 = \displaystyle \sum_{h=1}^{H} W_h^2 S_{h,y}^2 / N_h\)</span>.</p>
+<p>Como <span class="math inline">\(V_0\)</span> não depende de <span class="math inline">\(n_h\)</span>, para minimizar <span class="math inline">\(V_{AES} \left( \overline y_{AES} \right)\)</span> basta calcular os valores de <span class="math inline">\(n_h\)</span> que minimizem o primeiro termo na última expressão à direita na Expressão <a href="estrat.html#eq:eqest17">(11.17)</a>, desprezando o componente <span class="math inline">\(V_0\)</span>. Isto pode ser feito empregando as técnicas usuais de minimização de funções sujeitas a restrições lineares, empregando o método dos multiplicadores de Lagrange. O resultado da minimização corresponde à <em>alocação ótima</em> dada por:</p>
+<p><span class="math display" id="eq:eqest18">\[
+n_h = n \times \frac {W_h S_{h,y} / \sqrt c_h} {\displaystyle \sum_{k=1}^{H} W_k S_{k,y} / \sqrt c_k}, \,\, \forall \, h = 1, \dots, H \,\,\, \tag{11.18}
+\]</span></p>
+<p>Este método de alocação foi proposto por <span class="citation">Neyman (1934)</span>, em seu artigo seminal que introduziu as bases da amostragem probabilística, definiu a amostragem estratificada e já indicava a maneira ótima de alocar amostras nos estratos no contexto da AES. Note que, sob <em>alocação ótima</em>, uma amostra maior será selecionada num estrato <span class="math inline">\(h\)</span> sempre que:</p>
+<ol style="list-style-type: lower-alpha">
+<li><p>O estrato tiver mais unidades <span class="math inline">\((N_h\)</span> grande).</p></li>
+<li><p>A variabilidade no estrato for maior (<span class="math inline">\(S_{h,y}\)</span> grande).</p></li>
+<li><p>O custo de amostragem no estrato for menor (<span class="math inline">\(c_h\)</span> pequeno).</p></li>
+</ol>
+<p>Note também que, quando <span class="math inline">\(S_h = S^*\)</span> e <span class="math inline">\(c_h = c^*, \,\, \forall \, h = 1, 2, \dots, H\)</span>, ambos constantes, então <span class="math inline">\(n_h = n N_h / N\)</span>, isto é, a <em>alocação ótima</em> coincide com a <em>alocação proporcional</em>. Entretanto, se apenas os custos de amostragem forem constantes ao longo dos estratos, isto é, quando <span class="math inline">\(c_h = c^*, \, \forall \, h = 1, 2, \dots, H\)</span>, então:</p>
+<p><span class="math display">\[
+n_h = n \times \frac {N_h S_{h,y}} {\displaystyle \sum_{k=1}^{H} N_k S_{k,y}}
+\]</span>
+gerando a chamada <em>Alocação (Ótima) de Neyman</em>.</p>
+<p>Esta alocação é muito usada em pesquisas de estabelecimentos quando os desvios padrões <span class="math inline">\(S_{h,y}\)</span> crescem com o tamanho das unidades, ou seja, a variável de interesse tem maior variação em estabelecimentos maiores.</p>
+</div>
+<div id="tamanho-da-amostra-estratificada---caso-geral" class="section level3">
+<h3><span class="header-section-number">11.3.3</span> Tamanho da amostra estratificada - caso geral</h3>
+<p>Dado um tipo de alocação e fixando a variância que se deseja para a estimativa da média populacional, por exemplo, é possível determinar o tamanho total da amostra estratificada necessária, a partir da Expressão <a href="estrat.html#eq:eqest17">(11.17)</a>.</p>
+<p>Seja uma alocação <span class="math inline">\(a_h\)</span> e um valor fixado para a variância da média populacional máximo de <span class="math inline">\(V\)</span>. Tem-se, então:</p>
+<p><span class="math display">\[
+V\le V_{AES} \left( \overline y_{AES} \right) = \displaystyle \sum_{h=1}^{H} W_h^2 S_{h,y}^2 \left( \frac{1}{n_h} - \frac{1}{N_h} \right) = \frac1n\sum_{h=1}^{H} \frac {W_h^2 S_{h,y}^2}{a_h} - \frac1N\sum_{h=1}^{H}{ W_h S_{h,y}^2}
+\]</span>
+Logo:</p>
+<p><span class="math display" id="eq:eqest19">\[
+n \ge \frac {\sum_{h=1}^{H} \frac {W_h^2 S_{h,y}^2}{a_h}}{V+\frac1N\sum_{h=1}^{H}{ W_h S_{h,y}^2}}\;\;\tag{11.19}
+\]</span></p>
+<p>Para obter a expressão para uma alocação particular basta substituir <span class="math inline">\(a_h\)</span> de forma adequada. Por exemplo, no caso da alocação proporcional basta substituir <span class="math inline">\(a_h\)</span> por <span class="math inline">\(W_h\)</span> e obter a expressão para o cálculo do tamanho da amostra.</p>
+</div>
+<div id="tamanho-da-amostra-sob-alocação-ótima" class="section level3">
+<h3><span class="header-section-number">11.3.4</span> Tamanho da amostra sob alocação ótima</h3>
+<p>Para um custo fixado <span class="math inline">\(C\)</span> basta substituir o valor de <span class="math inline">\(n_h\)</span>, dado pela Expressão <a href="estrat.html#eq:eqest18">(11.18)</a>, na função de custo linear, Expressão <a href="estrat.html#eq:eqest16">(11.16)</a>, para se obter o tamanho total da amostra sob <em>amostragem estratificada simples com alocação ótima - AESO</em>:</p>
+<p><span class="math display" id="eq:eqest20">\[
+n_{AESO} = \left( C - c_0 \right) \times \frac{\displaystyle \sum_{h=1}^{H} N_h S_{h,y} / \sqrt c_h} {\displaystyle \sum_{h=1}^{H} N_h S_{h,y} \sqrt c_h} \,\,\, \tag{11.20}
+\]</span></p>
+<p>Se <em>amostragem estratificada simples com alocação de Neyman - AESN</em> é usada, então o valor da variância minimizada para o estimador da média populacional é dado por:</p>
+<p><span class="math display" id="eq:eqest21">\[
+V_{AESN} \left( \overline y_{AES} \right) = \frac{1}{n} \left( \displaystyle \sum_{h=1}^{H} W_h S_{h,y} \right)^2 - \frac{1}{N} \left( \sum_{h=1}^{H }W_h S_{h,y}^2 \right) \,\,\, \tag{11.21}
+\]</span>
+O segundo termo à direita corresponde à <em>correção de população finita</em>.</p>
+<p>A Expressão <a href="estrat.html#eq:eqest21">(11.21)</a> é obtida pela substituição de <span class="math inline">\(n_h\)</span> na Expressão <a href="estrat.html#eq:eqest8">(11.8)</a> pela expressão do <span class="math inline">\(n_h\)</span> da alocação de Neyman.</p>
+<p>As soluções aqui apresentadas para alocação ótima ou de Neyman são aproximadas, pois ignoram restrições do tipo <span class="math inline">\(1 \le n_h \le N_h\)</span> e <span class="math inline">\(n_h\)</span> inteiro, <span class="math inline">\(\forall \, h\)</span>. Soluções exatas para o problema de alocação devem ter em conta estas restrições e a literatura tem várias propostas. <span class="citation">Brito et al. (2015)</span> oferecem uma solução exata para este problema de otimização utilizando uma formulação de <em>Programação Inteira Binária</em>. Um pacote denominado <em>stratbr</em> para o R foi desenvolvido onde esta solução está disponível - ver <span class="citation">Brito, Veiga, e Silva (2019)</span> para detalhes.</p>
+</div>
+<div id="comparação-de-alternativas-de-alocação-da-amostra" class="section level3">
+<h3><span class="header-section-number">11.3.5</span> Comparação de alternativas de alocação da amostra</h3>
+<p>Usando a partição da soma de quadrados total em parcelas devidas à variação dentro e entre estratos e ignorando termos de ordem <span class="math inline">\(1/N_h\)</span>, então sob <em>alocação de Neyman</em>, isto é, com <span class="math inline">\(n_h \propto N_h S_{h,y}\)</span> pode-se mostrar que (<span class="citation">Cochran (1977)</span>, página 99):</p>
+<p><span class="math display">\[
+V_{AESN} \left( \overline y_{AES} \right) \le V_{AESP} \left( \overline y_{AES} \right) \le V_{AAS} \left( \overline y \right)
+\]</span></p>
+<p>ou seja, AES com alocação de Neyman é mais eficiente que AES com alocação proporcional, ambas superando AAS como plano amostral para um mesmo tamanho especificado de amostra.</p>
+</div>
+<div id="alocação-potência" class="section level3">
+<h3><span class="header-section-number">11.3.6</span> Alocação potência</h3>
+<p>Este método de alocação da amostra foi proposto por <span class="citation">Bankier (1988)</span> num contexto em que a alocação da amostra em <em>estratos naturais</em> tem que satisfazer simultaneamente dois objetivos distintos:</p>
+<ul>
+<li>Permitir estimar para a população como um todo com precisão controlada.<br />
+</li>
+<li>Permitir estimar para os estratos naturais com uma precisão controlada.</li>
+</ul>
+<p>A alocação proposta é dada por:</p>
+<p><span class="math display" id="eq:eqest22">\[
+n_{AESPo} = n \times \frac{ X_h^q (S_{h,y} / \overline {Y_h})} {\displaystyle \sum_{k=1}^{H} X_k^q (S_{k,y} / \overline Y_k) } \,\,\, \tag{11.22}
+\]</span>
+onde <span class="math inline">\(X_h = \sum_{i \in U_h} x_i\)</span> é o total de alguma variável de tamanho das unidades do estrato <span class="math inline">\(h\)</span>, e <span class="math inline">\(0 \le q \le 1\)</span> é uma potência a ser escolhida pelo responsável pelo planejamento da pesquisa. As quantidades <span class="math inline">\(S_{h,y} / \overline {Y_h}\)</span> representam os <em>coeficientes de variação</em> da variável de interesse dentro de cada um dos estratos definidos. Em muitas aplicações práticas, os estratos são construídos tentando fazer com que estes coeficientes de variação fiquem aproximadamente iguais ao longo dos vários estratos definidos. Nesse caso, a alocação potência se resumirá à forma simplificada:</p>
+<p><span class="math display" id="eq:eqest23">\[
+n_{AESPo} = n \times \frac{ X_h^q } {\displaystyle \sum_{k=1}^{H} X_k^q } \,\,\, \tag{11.23}
+\]</span></p>
+<p>Um caso particular de interesse ocorre quando o número de unidades no estrato <span class="math inline">\(h\)</span> é usado como medida de tamanho, resultando na alocação:</p>
+<p><span class="math display" id="eq:eqest24">\[
+n_{AESPo} = n \times \frac{ N_h^q } {\displaystyle \sum_{k=1}^{H} N_k^q } \,\,\, \tag{11.24}
+\]</span></p>
+<p>Quando se faz <span class="math inline">\(q=1\)</span> nesta última expressão, obtem-se a <em>alocação proporcional</em>, que pode assim ser vista como um caso particular da <em>alocação potência</em>.</p>
+</div>
+<div id="alguns-problemas-com-alocação-ótima" class="section level3">
+<h3><span class="header-section-number">11.3.7</span> Alguns problemas com alocação ótima</h3>
+<p>A implementação de amostragem estratificada simples com alocação ótima pode apresentar dificuldades em algumas situações práticas.</p>
+<ol style="list-style-type: decimal">
+<li>Em geral, os valores de <span class="math inline">\(S_{h,y},\, h=1,...,H\)</span>, são desconhecidos.<br />
+As solucões usadas na prática incluem as seguintes alternativas:
+<ol style="list-style-type: lower-alpha">
+<li>Usar informações de uma variável auxiliar <span class="math inline">\(x\)</span>, usando <span class="math inline">\(S_{h,x}\)</span> em lugar de <span class="math inline">\(S_{h,y}\)</span> na Expressão <a href="estrat.html#eq:eqest20">(11.20)</a>.<br />
+</li>
+<li>Predizer <span class="math inline">\(y_i\)</span> usando informações auxiliares <span class="math inline">\(x_i\)</span>, e então estimar <span class="math inline">\(S_{h,y}\)</span> a partir dos valores preditos.<br />
+</li>
+<li>Usar o total ou a amplitude da variável auxiliar <span class="math inline">\(x\)</span> no estrato <span class="math inline">\(h\)</span> como proxy para <span class="math inline">\(S_{h,y}\)</span>.<br />
+</li>
+<li>Selecionar pequena amostra piloto (preliminar) e usar dados desta amostra para estimar <span class="math inline">\(S_{y,h}\)</span>.<br />
+</li>
+</ol></li>
+<li>Pode haver muitas variáveis de pesquisa <span class="math inline">\(y\)</span>.<br />
+Caso se tenha informações sobre as diversas variáveis de interesse da pesquisa para fazer alocações alternativas da amostra, isto pode ser feito usando um dos métodos de alocação descritos acima. Entretanto, tomar cada variável como guia para a alocação geralmente levaria a ter alocações ótimas diferentes. Nesses casos, os métodos mais simples buscam soluções de compromisso considerando as diversas alocações alternativas:
+<ol style="list-style-type: lower-alpha">
+<li>Usar a média das alocações alternativas em cada estrato.<br />
+</li>
+<li>Escolher uma ou duas variáveis principais; com duas variáveis, usar a média das alocações alternativas.<br />
+</li>
+<li>Construir um ‘índice’ das variáveis de pesquisa e usar este índice para definir a alocação.<br />
+</li>
+<li>Usar alocação proporcional.</li>
+</ol>
+Todas as soluções acima são saídas simplificadoras, que na verdade não enfrentam o problema existente. <span class="citation">Brito et al. (2015)</span> oferece uma abordagem para <em>alocação ótima multivariada</em>, usando formulações de programação inteira binária para obter soluções exatas do problema, que inclusive reconhecem que os tamanhos de amostra nos estratos têm que ser inteiros e limitados abaixo por 1 (ou outro valor especificado) e acima (por <span class="math inline">\(N_h\)</span>). O pacote <em>stratbr</em> do R implementa duas soluções: uma delas permite minimizar o custo ou tamanho amostral para limites de precisão especificados; a outra permite minimizar uma função de variância dado um orçamento ou tamanho amostral total especificado.<br />
+</li>
+<li>Se <span class="math inline">\(n_h &gt; N_h\)</span> para algum estrato.<br />
+Fazer <span class="math inline">\(n_h = N_h\)</span>, tornando esse estrato um <em>estrato certo</em> ou <em>estrato censitário</em> para os estratos em que <span class="math inline">\(n_h &gt; N_h\)</span>. Em seguida, refazer a alocação ótima nos demais estratos, após ajustar o tamanho da amostra disponível para seleção nestes outros estratos.<br />
+</li>
+<li>Se <span class="math inline">\(n_h &lt; 2\)</span> para algum estrato.<br />
+Se a estimação de variâncias for importante, então forçar <span class="math inline">\(n_h \geq 2\)</span> para todos os estratos. Na prática, costuma-se fazer <span class="math inline">\(n_h \geq 5\)</span> devido à possibilidade de ocorrência de não resposta. Para estimação sem viés do total ou média, é essencial que <span class="math inline">\(n_h \geq 2\)</span> para todos os estratos. Quando ocorrem situações de estratos com <span class="math inline">\(n_h = 1\)</span>, é necessário utilizar métodos aproximados para estimação de variâncias, tais como agregação de estratos ou similares (ver <span class="citation">Cochran (1977)</span>, seção 5A.12).<br />
+</li>
+<li>Ganhos de eficiência podem ser modestos, particularmente para estimação de proporções.<br />
+<span class="citation">Cochran (1977)</span>, página 99, mostra que: <span class="math display">\[V_{AESN} \left( \overline y_{AES} \right) \le V_{AESP} \left( \overline y_{AES} \right) \le V_{AAS} \left( \overline y \right)\]</span>
+Os ganhos de precisão possíveis dependem da relação entre a(s) variável(is) de estratificação e as variáveis de pesquisa. Em geral, os ganhos são pequenos para amostras de pessoas e variáveis ligadas a atitudes, opiniões, comportamentos, etc. Para pesquisas amostrais de estabelecimentos ou instituições, os ganhos podem ser maiores.<br />
+Quando os ganhos de precisão alcançados com a estratificação não são grandes, o responsável pelo planejamento da pesquisa precisa avaliar se a estratificação proposta vale a pena ou se pode ser melhorada. Caso possa ser melhorada, o trabalho de alocação deve ser refeito após a redefinição.</li>
+</ol>
+</div>
+</div>
+<div id="definição-dos-limites-dos-estratos" class="section level2">
+<h2><span class="header-section-number">11.4</span> Definição dos limites dos estratos</h2>
+<p>Conforme já dito anteriormente, a determinação dos limites dos estratos influencia na eficiência na amostragem estratificada. Para definir estratos num contexto de <em>estratificação estatística</em>, se estiver disponível uma variável auxiliar <span class="math inline">\(x\)</span> correlacionada positivamente com a variável de interesse <span class="math inline">\(y\)</span>, seus valores podem ser usados para formar estratos. Surge então a pergunta de como formar os estratos de maneira a tirar proveito dessa variável para aumentar a eficiência da amostragem estratificada simples na estimação de parâmetros da variável de pesquisa <span class="math inline">\(y\)</span>? Este problema é conhecido como problema da <em>delimitação ótima dos estratos</em>.</p>
+<p>O primeiro passo é a escolha do valor de <span class="math inline">\(H\)</span>, o número total de estratos. Quanto maior for a correlação entre a variável auxiliar <span class="math inline">\(x\)</span> disponível e a variável de pesquisa <span class="math inline">\(y\)</span>, maior pode ser o número de estratos formados, até um certo limite. Evidências empíricas sugerem, entretanto, que valores no intervalo <span class="math inline">\(5 \le H \le 10\)</span> são suficientes para alcançar grande parte dos ganhos de eficiência decorrentes da estratificação.</p>
+<p>Quando <span class="math inline">\(H = 2\)</span>, há um par de métodos disponíveis para obter soluções ‘exatas’ do problema de delimitação ótima dos estratos. <span class="citation">Glasser (1962)</span> descreve um algoritmo para delimitar estratos de modo a minimizar a variância do estimador de total, supondo que num dos estratos formados será feito um censo (levantamento exaustivo), e no outro será feita amostragem aleatória simples. Este é um exemplo de <em>amostragem estratificada por corte - AEC</em>, onde o valor que delimita a partir de que ponto as maiores unidades devem ser incluídas num <em>estrato certo</em> é escolhido pelo algoritmo. <span class="citation">Hidiroglou (1986)</span> apresenta um algoritmo alternativo também considerando AEC, mas onde o ponto de corte da estratificação é escolhido de modo a minimizar o tamanho total da amostra, para um valor especificado da variância do estimador de total aplicado à variável auxiliar <span class="math inline">\(x\)</span>.</p>
+<p>Para valores de <span class="math inline">\(H \ge 3\)</span>, há uma variedade de soluções disponíveis na literatura. <span class="citation">Brito, Veiga, e Silva (2019)</span> apresenta uma revisão da literatura sobre estes métodos, mas também apresenta um algoritmo de otimização estocástica para resolver o problema. Este algoritmo está implementado no pacote <em>stratbr</em> do sistema R. A Figura <a href="estrat.html#fig:numeroestratos">11.1</a> lista as principais referências que tratam do tema.</p>
+<center>
+<div class="figure"><span id="fig:numeroestratos"></span>
+<img src="Figuras/numeroestratos.png" alt="Soluções sobre escolha de número de estratos" width="100%" />
+<p class="caption">
+Figura 11.1: Soluções sobre escolha de número de estratos
+</p>
+</div>
+</center>
+</div>
+<div id="número-de-estratos-na-amostragem-estratificada-simples" class="section level2">
+<h2><span class="header-section-number">11.5</span> Número de estratos na amostragem estratificada simples</h2>
+<p>Quando a estratificação tem por objetivo viabilizar a estimação em domínios pré-definidos, recomenda-se utilizar tantos <em>estratos naturais</em> quantos sejam os domínios de interesse. Nesse caso, não cabe muita análise técnica, a não ser que o orçamento disponível para realização da pesquisa não permita obter amostras de tamanhos suficientes em todos os domínios de interesse. Quando tal situação ocorrer, o caminho deve ser a negociação do ajuste dos limites orçamentários e da definição dos domínios de interesse junto aos demandantes ou principais usuários da pesquisa.</p>
+<p>Quando se trata de <em>estratificação estatística</em>, não há interesse na estimação de parâmetros dos estratos a serem definidos, e o objetivo é a estimação do total ou da média global, <span class="citation">Cochran (1977)</span>, seção 5A.8, recomenda usar até <span class="math inline">\(H=6\)</span> (seis) estratos. A justificativa para essa recomendação se baseia na análise descrita a seguir.</p>
+<p>Considere as hipóteses aqui indicadas:</p>
+<ul>
+<li><span class="math inline">\(N\)</span> é grande e <span class="math inline">\(f=n/N\)</span> é pequena.<br />
+</li>
+<li>O modelo <span class="math inline">\(y_i = a + b x_i + \varepsilon_i\)</span> para <span class="math inline">\(i \in U\)</span> descreve bem a relação entre a variável de pesquisa <span class="math inline">\(y\)</span> e a variável de estratificação <span class="math inline">\(x\)</span> na população.<br />
+</li>
+<li>É usada <em>delimitação ótima</em> dos estratos com base em <span class="math inline">\(x\)</span>.<br />
+</li>
+<li>É usada <em>alocação igual</em> da amostra nos estratos (<span class="math inline">\(n_h = n/H\)</span>).</li>
+</ul>
+<p>Sob as hipóteses enumeradas, pode-se mostrar que:</p>
+<p><span class="math display">\[
+EPA \left( \overline y_{AES} \, ; \, \overline y \right) = V_{AES} \left( \overline y_{AES} \right) / V_{AAS} \left( \overline y \right) \doteq \rho_{x,y}^2 / H^2 + \left( 1 - \rho_{x,y}^2 \right)
+\]</span></p>
+<p>onde <span class="math inline">\(\rho_{x,y}\)</span> é correlação entre <span class="math inline">\(x\)</span> e <span class="math inline">\(y\)</span> conforme o modelo linear assumido para a população.</p>
+<p>A Tabela <a href="estrat.html#tab:tabestr2">11.2</a> apresenta valores de <span class="math inline">\(EPA\left(\overline y_{AES} \, ; \,\overline y \right)\)</span> para alguns valores de <span class="math inline">\(H\)</span> e de <span class="math inline">\(\rho_{x,y}\)</span>.</p>
+<table>
+<caption>
+<span id="tab:tabestr2">Tabela 11.2: </span>Valores de <span class="math inline">\(EPA\)</span> para valores variados de <span class="math inline">\(H\)</span> e de correlação
+</caption>
+</table>
+<center>
+<table style="width:100%;">
+<colgroup>
+<col width="26%" />
+<col width="10%" />
+<col width="10%" />
+<col width="10%" />
+<col width="10%" />
+<col width="10%" />
+<col width="19%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Valores de <span class="math inline">\(\rho\)</span></th>
+<th align="center"><span class="math inline">\(H=2\)</span></th>
+<th align="center"><span class="math inline">\(H=3\)</span></th>
+<th align="center"><span class="math inline">\(H=4\)</span></th>
+<th align="center"><span class="math inline">\(H=5\)</span></th>
+<th align="center"><span class="math inline">\(H=6\)</span></th>
+<th align="center"><span class="math inline">\(H=\infty\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><span class="math inline">\(\rho=0,85\)</span></td>
+<td align="center">0,458</td>
+<td align="center">0,358</td>
+<td align="center">0,323</td>
+<td align="center">0,306</td>
+<td align="center">0,298</td>
+<td align="center">0,277</td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(\rho=0,95\)</span></td>
+<td align="center">0,323</td>
+<td align="center">0,198</td>
+<td align="center">0,154</td>
+<td align="center">0,134</td>
+<td align="center">0,123</td>
+<td align="center">0,098</td>
+</tr>
+</tbody>
+</table>
+</center>
+<p>A análise dos resultados acima evidencia que ganhos adicionais de eficiência para casos com mais de seis estratos seriam modestos. Na Figura <a href="estrat.html#fig:precisaovsestratos">11.2</a> temos o gráfico dos ganhos de precisão versus número de estratos para <span class="math inline">\(\rho_{x,y}=0,85\)</span> e <span class="math inline">\(\rho_{x,y}=0,95\)</span>.</p>
+<center>
+<div class="figure"><span id="fig:precisaovsestratos"></span>
+<img src="Figuras/precisaovsestratos.png" alt="Ganhos de precisão versus número de estratos" width="310" />
+<p class="caption">
+Figura 11.2: Ganhos de precisão versus número de estratos
+</p>
+</div>
+</center>
+</div>
+<div id="exercícios" class="section level2">
+<h2><span class="header-section-number">11.6</span> Exercícios</h2>
+<p><strong>Exercício 11.1 </strong> Mostre que a média amostral global <span class="math inline">\(\overline y=\displaystyle\frac{1}{n}\displaystyle\sum_{h=1}^{H}\sum_{i \in s_h}y_{hi}\)</span> pode ser escrita como <span class="math inline">\(\overline y=\displaystyle\sum_{h=1}^{H}\frac{n_h}{n}\overline y_h\ne \sum_{h=1}^{H}\frac{N_h}{N}\overline y_h=\overline y_{AES}\)</span>, a menos que <span class="math inline">\(\displaystyle\frac{n_h}{n}=\frac{N_h}{N}, \,\, \forall\, h=1,\dots,H\)</span> ou seja, a menos que se adote amostragem estratificada simples proporcional ou equiponderada.</p>
+<p><strong>Exercício 11.2 </strong> Quais são as probabilidades de inclusão de primeira e segunda ordem para unidades na população sob AES? Que valores estas probabilidades assumem em caso de um plano AES proporcional ou equiponderada?</p>
+<p><strong>Exercício 11.3 </strong> Seja uma população fictícia, de tamanho <span class="math inline">\(N=6\)</span>, onde são conhecidos os valores para uma variável <span class="math inline">\(y\)</span>, sendo <span class="math inline">\(Y=\{2, 4, 9, 2, 10, 11\}\)</span>.</p>
+<ol style="list-style-type: lower-alpha">
+<li>Selecione todas as possíveis amostra de tamanho <span class="math inline">\(n=4\)</span> usando AAS.</li>
+<li>Calcule as estimativas da média populacional para cada uma das amostras AAS possíveis.</li>
+<li>Calcule a variância da estimativa da média populacional com AAS.</li>
+<li>Selecione todas as amostras possíveis de tamanho <span class="math inline">\(n=4\)</span> usando AES, estratificando a população em dois estratos formados pelas unidades onde <span class="math inline">\(y_i&lt;5\)</span> e <span class="math inline">\(y_i\ge 5\)</span>, com alocação proporcional.</li>
+<li>Calcule as estimativas da média populacional para cada uma das amostras AES possíveis.</li>
+<li>Calcule a variância da estimativa da média populacional com AES.</li>
+<li>Compare e comente os resultados encontrados.</li>
+</ol>
+<p><strong>Exercício 11.4 </strong> Em uma determinada localidade formada por 500 domicílios deseja-se fazer um estudo sobre o hábito de fumar entre as pessoas maiores de 16 anos. A população foi estratificada em 2 estratos: domicílios com renda alta (estrato 1), onde foram classificados 200 domicílios; e domicílios com renda mais baixa (estrato 2), onde foram classificados os outros 300 domicílios. É conhecido que o número de pessoas com mais de 16 anos no estrato 1 é 520 e no estrato 2 é 1.230. De cada um dos estratos foi selecionada e pesquisada uma amostra aleatória simples de 5 domicílios, apresentando os resultados mostrados na Tabela <a href="estrat.html#tab:tabestr3">11.3</a>:</p>
+<center>
+<table>
+<caption>
+<span id="tab:tabestr3">Tabela 11.3: </span>Dados observados na amostra, por estrato
+</caption>
+</table>
+<table style="width:99%;">
+<colgroup>
+<col width="43%" />
+<col width="27%" />
+<col width="27%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">  </th>
+<th align="center">Estrato 1</th>
+<th align="center">Estrato 2</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><strong>Domicílios na amostra</strong></td>
+<td align="center"><strong>1  2  3  4  5</strong></td>
+<td align="center"><strong>1  2  3  4  5</strong></td>
+</tr>
+<tr class="even">
+<td align="left">Moradores com mais de 16 anos</td>
+<td align="center">4  3  2  1  2</td>
+<td align="center">5  6  4  4  3</td>
+</tr>
+<tr class="odd">
+<td align="left">Fumantes com mais de 16 anos</td>
+<td align="center">1  1  0  1  1</td>
+<td align="center">3  3  1  2  2</td>
+</tr>
+</tbody>
+</table>
+</center>
+<p>Estime o total de fumantes e o intervalo de 95% de confiança, entre as pessoas maiores de 16 anos na localidade, utilizando o estimador simples da amostragem estratificada.</p>
+<p><strong>Exercício 11.5 </strong> Um pesquisador pretende realizar uma pesquisa por amostragem para estimar a produção de soja numa determinada região. Ele tem acesso a uma lista das fazendas produtoras de soja localizadas na região, compilada por ocasião do último censo agropecuário, realizado menos de 1 ano atrás. Usando essa lista, que contém a informação sobre área plantada com soja na ocasião do censo em cada fazenda, o pesquisador dividiu as fazendas da população em dois grupos: fazendas grandes (área plantada com soja maior que 50 hectares) e fazendas pequenas (todas as demais). A Tabela <a href="estrat.html#tab:tabestr4">11.4</a> contém as informações compiladas pelo pesquisador usando a lista.</p>
+<center>
+<table>
+<caption>
+<span id="tab:tabestr4">Tabela 11.4: </span>Informações da estratificação das fazendas de soja
+</caption>
+</table>
+<table style="width:67%;">
+<colgroup>
+<col width="15%" />
+<col width="11%" />
+<col width="26%" />
+<col width="13%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Grupo</th>
+<th align="right"><span class="math inline">\(N_h\)</span></th>
+<th align="right"><span class="math inline">\(\overline {Y_h}\)</span></th>
+<th align="right"><span class="math inline">\(S^2_h\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Pequenas</td>
+<td align="right">2.400</td>
+<td align="right">10</td>
+<td align="right">100</td>
+</tr>
+<tr class="even">
+<td align="left">Grandes</td>
+<td align="right">100</td>
+<td align="right">80</td>
+<td align="right">1.600</td>
+</tr>
+</tbody>
+</table>
+</center>
+<p>Determine a alocação de uma amostra de 200 fazendas usando:</p>
+<ol style="list-style-type: lower-alpha">
+<li>A alocação Proporcional.</li>
+<li>A alocação de Neyman.</li>
+<li>A alocação Ótima, supondo que o custo de coleta de uma unidade entre as grandes fazendas é metade do custo da coleta de uma unidade entre as pequenas.</li>
+<li>Amostragem Estratificada por Corte.</li>
+</ol>
+<p><strong>Exercício 11.6 </strong> Para estimar o total de uma variável de interesse <span class="math inline">\(y\)</span>, uma população foi estratificada em quatro estratos. Algumas informações sobre a variável <span class="math inline">\(y\)</span> e sua distribuição nos estratos, obtidas de um censo recente, estão disponíveis na Tabela <a href="estrat.html#tab:tabestr5">11.5</a>.</p>
+<center>
+<table>
+<caption>
+<span id="tab:tabestr5">Tabela 11.5: </span>Informações censitárias sobre a variável de interesse
+</caption>
+</table>
+<table style="width:67%;">
+<colgroup>
+<col width="13%" />
+<col width="9%" />
+<col width="26%" />
+<col width="16%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="center">Estrato</th>
+<th align="right"><span class="math inline">\(N_h\)</span></th>
+<th align="right"><span class="math inline">\(\overline {Y_h}\)</span></th>
+<th align="right"><span class="math inline">\(S^2_h(y)\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">1</td>
+<td align="right">44</td>
+<td align="right">17,18</td>
+<td align="right">18,48</td>
+</tr>
+<tr class="even">
+<td align="center">2</td>
+<td align="right">168</td>
+<td align="right">20,14</td>
+<td align="right">24,55</td>
+</tr>
+<tr class="odd">
+<td align="center">3</td>
+<td align="right">56</td>
+<td align="right">27,59</td>
+<td align="right">34,60</td>
+</tr>
+<tr class="even">
+<td align="center">4</td>
+<td align="right">16</td>
+<td align="right">38,56</td>
+<td align="right">122,93</td>
+</tr>
+</tbody>
+</table>
+</center>
+<p>Uma amostra estratificada simples de tamanho 40 será usada para pesquisar essa população visando estimar o total da variável de interesse <span class="math inline">\(y\)</span>.</p>
+<ol style="list-style-type: lower-alpha">
+<li>Determine a alocação proporcional da amostra nos estratos.</li>
+<li>Determine a alocação de Neyman da amostra nos estratos.</li>
+<li>Compare a eficiencia da AES, com as alocações utilizadas nos itens anteriores, em relação a uma AAS de mesmo tamanho.</li>
+</ol>
+<p><strong>Exercício 11.7 </strong> As 2.120 lojas de uma certa localidade foram estratificadas pelo número de empregados (única variável relativa ao tamanho da empresa encontrada no cadastro) numa pesquisa para estimar o faturamento total. A Tabela <a href="estrat.html#tab:tabestr6">11.6</a> contém as informações da variável número de empregados, <span class="math inline">\(x\)</span>, utilizadas no planejamento da amostra e os resultados sobre o faturamento das lojas, <span class="math inline">\(y\)</span>, obtidos da coleta dos dados na amostra .</p>
+<center>
+<table>
+<caption>
+<span id="tab:tabestr6">Tabela 11.6: </span>Estratificação das lojas e resultados da amostra
+</caption>
+</table>
+<table>
+<colgroup>
+<col width="24%" />
+<col width="10%" />
+<col width="13%" />
+<col width="13%" />
+<col width="21%" />
+<col width="15%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="center">Limites dos estratos</th>
+<th align="right"><span class="math inline">\(N_h\)</span></th>
+<th align="right"><span class="math inline">\(Y_h(x)\)</span></th>
+<th align="right"><span class="math inline">\(S^2_h(x)\)</span></th>
+<th align="right"><span class="math inline">\(\overline y_h(y)\)</span></th>
+<th align="right"><span class="math inline">\(s^2_h(y)\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">5-14</td>
+<td align="right">1.100</td>
+<td align="right">9.020</td>
+<td align="right">8,30</td>
+<td align="right">3</td>
+<td align="right">2,53</td>
+</tr>
+<tr class="even">
+<td align="center">15-49</td>
+<td align="right">500</td>
+<td align="right">13.500</td>
+<td align="right">102,08</td>
+<td align="right">17</td>
+<td align="right">66,59</td>
+</tr>
+<tr class="odd">
+<td align="center">50-99</td>
+<td align="right">250</td>
+<td align="right">17.750</td>
+<td align="right">207,00</td>
+<td align="right">52</td>
+<td align="right">411,28</td>
+</tr>
+<tr class="even">
+<td align="center">100-199</td>
+<td align="right">130</td>
+<td align="right">17.329</td>
+<td align="right">840,10</td>
+<td align="right">170</td>
+<td align="right">1.953,64</td>
+</tr>
+<tr class="odd">
+<td align="center">200-499</td>
+<td align="right">120</td>
+<td align="right">36.600</td>
+<td align="right">7.500,00</td>
+<td align="right">350</td>
+<td align="right">16.770,25</td>
+</tr>
+<tr class="even">
+<td align="center">500 e mais</td>
+<td align="right">20</td>
+<td align="right">14.280</td>
+<td align="right">20.805,00</td>
+<td align="right">7.000</td>
+<td align="right">3.062.500,00</td>
+</tr>
+<tr class="odd">
+<td align="center"><strong>Totais</strong></td>
+<td align="right"><strong>2.120</strong></td>
+<td align="right"><strong>108.479</strong></td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right"></td>
+</tr>
+</tbody>
+</table>
+</center>
+<ol style="list-style-type: lower-alpha">
+<li>Dimensione, utilizando os dados referentes a <span class="math inline">\(x\)</span>, a amostra necessária para estimar o numero total de empregados com um erro máximo admissível de 2% e com um nível de confiança de 95%, supondo alocação de Neyman.</li>
+<li>Suponha que a amostra alocada no item anterior tenha sido efetivamente selecionada fornecendo os resultados apresentados para <span class="math inline">\(y\)</span>. Com estas informações estime o faturamento total, <span class="math inline">\(Y\)</span>, e o coeficiente de variação desta estimativa.</li>
+</ol>
+<p><strong>Exercício 11.8 </strong> (<span class="citation">Thompson (2012)</span>) A Tabela <a href="estrat.html#tab:tabestr7">11.7</a> mostra os resultados observados numa amostra estratificada:</p>
+<center>
+<table>
+<caption>
+<span id="tab:tabestr7">Tabela 11.7: </span>Resultados observados na amostra
+</caption>
+</table>
+<table style="width:69%;">
+<colgroup>
+<col width="13%" />
+<col width="9%" />
+<col width="9%" />
+<col width="23%" />
+<col width="12%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="center">Estrato</th>
+<th align="right"><span class="math inline">\(N_h\)</span></th>
+<th align="right"><span class="math inline">\(n_h\)</span></th>
+<th align="right"><span class="math inline">\(\overline y_h\)</span></th>
+<th align="right"><span class="math inline">\(s^2_h\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">1</td>
+<td align="right">50</td>
+<td align="right">50</td>
+<td align="right">20</td>
+<td align="right">700</td>
+</tr>
+<tr class="even">
+<td align="center">2</td>
+<td align="right">100</td>
+<td align="right">50</td>
+<td align="right">10</td>
+<td align="right">2.800</td>
+</tr>
+<tr class="odd">
+<td align="center">3</td>
+<td align="right">300</td>
+<td align="right">50</td>
+<td align="right">30</td>
+<td align="right">600</td>
+</tr>
+</tbody>
+</table>
+</center>
+<ol style="list-style-type: lower-alpha">
+<li>Qual o tipo de estratificação utilizado?</li>
+<li>Estime a média populacional.</li>
+<li>Construa o intervalo de 95% de confiança para a média populacional.</li>
+</ol>
+<p><strong>Exercício 11.9 </strong> (Adaptado de <span class="citation">Scheaffer et al. (2011)</span>) Uma empresa deseja estimar o total de faltas ao trabalho, num determinado mês, entre todos os funcionários. Como técnicos, administrativos e trabalhadores sem formação específica têm taxas distintas de faltas, esses grupos devem ser tratados como estratos. A Tabela <a href="estrat.html#tab:tabestr8">11.8</a> dá as informações populacionais, para cada um dos estratos, sobre o total de trabalhadores e a variância do número de faltas.</p>
+<center>
+<table>
+<caption>
+<span id="tab:tabestr8">Tabela 11.8: </span>Tamanho e variância por estrato
+</caption>
+</table>
+<table style="width:49%;">
+<colgroup>
+<col width="23%" />
+<col width="11%" />
+<col width="13%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Trabalhadores</th>
+<th align="right"><span class="math inline">\(N_h\)</span></th>
+<th align="right"><span class="math inline">\(S^2_h\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Técnicos</td>
+<td align="right">92</td>
+<td align="right">25</td>
+</tr>
+<tr class="even">
+<td align="left">Administrativos</td>
+<td align="right">27</td>
+<td align="right">9</td>
+</tr>
+<tr class="odd">
+<td align="left">Sem formação</td>
+<td align="right">132</td>
+<td align="right">36</td>
+</tr>
+</tbody>
+</table>
+</center>
+<ol style="list-style-type: lower-alpha">
+<li>Supondo <span class="math inline">\(n=30\)</span>, determine a alocação de Neyman da amostra estratificada simples.</li>
+<li>Usando os dados da Tabela <a href="estrat.html#tab:tabestr9">11.9</a>, estime o número total de faltas e estime um limite superior para o erro de estimativa, com 95% de confiança.</li>
+<li>Qual seria a estimativa do total e o limite superior para o erro de estimativa, com 95% de confiança, se essa mesma amostra tivesse sido selecionada por uma AAS, sem considerar a estratificação.</li>
+<li>Compare os resultados e comente-os.</li>
+</ol>
+<center>
+<table>
+<caption>
+<span id="tab:tabestr9">Tabela 11.9: </span>Falta no mês para cada trabalhador selecionado
+</caption>
+</table>
+<table style="width:42%;">
+<colgroup>
+<col width="23%" />
+<col width="18%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Trabalhadores</th>
+<th align="left">Faltas</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Técnicos</td>
+<td align="left">2, 0, 3, 1, 0, 3, 8, 5, 1, 3</td>
+</tr>
+<tr class="even">
+<td align="left">Administrativos</td>
+<td align="left">1, 3</td>
+</tr>
+<tr class="odd">
+<td align="left">Sem formação</td>
+<td align="left">4, 0, 2, 2, 3, 6, 8, 4, 0, 1, 1, 0, 0, 7, 4, 2, 0, 0</td>
+</tr>
+</tbody>
+</table>
+</center>
+<p><strong>Exercício 11.10 </strong> (Adaptado de <span class="citation">Scheaffer et al. (2011)</span>) Uma empresa tem suas divisões localizadas em três continentes distintos: América, Europa e Ásia. Deseja-se realizar uma pesquisa sobre um de seus produtos através de uma amostra de clientes a serem entrevistados por telefone a partir da divisão localizada na América. O custo das ligações é diferente para cada uma das divisões. A Tabela <a href="estrat.html#tab:tabestr11">11.10</a> tem as informações do custo, em dólares, de cada ligação/entrevista para cada uma das divisões, além da variância das taxas de satisfação e o número total de clientes em cada estrato. Calcule o tamanho total da amostra a ser selecionada e a alocação apropriada para essa amostra, sabendo que se deseja que a variância da estimativa da média populacional seja <span class="math inline">\(V_{AES}(\overline y_{AES})\le 0,1\)</span>.</p>
+<center>
+<table>
+<caption>
+<span id="tab:tabestr11">Tabela 11.10: </span>Informações populacionais dos clientes
+</caption>
+</table>
+<table style="width:49%;">
+<colgroup>
+<col width="12%" />
+<col width="11%" />
+<col width="12%" />
+<col width="12%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Estrato</th>
+<th align="right"><span class="math inline">\(N_h\)</span></th>
+<th align="right"><span class="math inline">\(S^2_h\)</span></th>
+<th align="right"><span class="math inline">\(c_h\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">América</td>
+<td align="right">112</td>
+<td align="right">2,25</td>
+<td align="right">9</td>
+</tr>
+<tr class="even">
+<td align="left">Europa</td>
+<td align="right">68</td>
+<td align="right">3,24</td>
+<td align="right">25</td>
+</tr>
+<tr class="odd">
+<td align="left">Ásia</td>
+<td align="right">39</td>
+<td align="right">3,24</td>
+<td align="right">36</td>
+</tr>
+</tbody>
+</table>
+</center>
+<p><strong>Exercício 11.11 </strong> Raramente é necessário estimar a variância global <span class="math inline">\(S_y^2\)</span>. Se fosse necessário, e considerando que seria usada <em>amostragem estratificada simples</em>, como você faria isso?</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="ppt.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="cong.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

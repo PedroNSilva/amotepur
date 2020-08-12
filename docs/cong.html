@@ -1,0 +1,2231 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xml:lang="pt-BR">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Capítulo 12 Amostragem Conglomerada | Amostragem: Teoria e Prática Usando R</title>
+  <meta name="description" content="Este é o livro de Amostragem elaborado pelos autores." />
+  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Capítulo 12 Amostragem Conglomerada | Amostragem: Teoria e Prática Usando R" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Este é o livro de Amostragem elaborado pelos autores." />
+  <meta name="github-repo" content="PedroNSilva/amotepur" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Capítulo 12 Amostragem Conglomerada | Amostragem: Teoria e Prática Usando R" />
+  
+  <meta name="twitter:description" content="Este é o livro de Amostragem elaborado pelos autores." />
+  
+
+<meta name="author" content="Pedro Luis do Nascimento Silva, Zélia Magalhães Bianchini e Antonio José Ribeiro Dias" />
+
+
+<meta name="date" content="2020-08-12" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="estrat.html"/>
+<link rel="next" href="calib.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+
+
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Prefácio</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#agradecimentos"><i class="fa fa-check"></i>Agradecimentos</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="lista-de-siglas.html"><a href="lista-de-siglas.html"><i class="fa fa-check"></i>Lista de Siglas</a></li>
+<li class="chapter" data-level="" data-path="lista-de-tabelas.html"><a href="lista-de-tabelas.html"><i class="fa fa-check"></i>Lista de Tabelas</a></li>
+<li class="chapter" data-level="" data-path="lista-de-figuras.html"><a href="lista-de-figuras.html"><i class="fa fa-check"></i>Lista de Figuras</a></li>
+<li class="chapter" data-level="1" data-path="introduc.html"><a href="introduc.html"><i class="fa fa-check"></i><b>1</b> Introdução</a><ul>
+<li class="chapter" data-level="1.1" data-path="introduc.html"><a href="introduc.html#motivação"><i class="fa fa-check"></i><b>1.1</b> Motivação</a></li>
+<li class="chapter" data-level="1.2" data-path="introduc.html"><a href="introduc.html#objetivos-do-livro"><i class="fa fa-check"></i><b>1.2</b> Objetivos do livro</a></li>
+<li class="chapter" data-level="1.3" data-path="introduc.html"><a href="introduc.html#estrutura-do-livro"><i class="fa fa-check"></i><b>1.3</b> Estrutura do livro</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="conceitos.html"><a href="conceitos.html"><i class="fa fa-check"></i><b>2</b> Conceitos e Cadastros</a><ul>
+<li class="chapter" data-level="2.1" data-path="conceitos.html"><a href="conceitos.html#fontes-de-dados-e-tipos-de-pesquisas"><i class="fa fa-check"></i><b>2.1</b> Fontes de dados e tipos de pesquisas</a></li>
+<li class="chapter" data-level="2.2" data-path="conceitos.html"><a href="conceitos.html#alguns-conceitos-fundamentais"><i class="fa fa-check"></i><b>2.2</b> Alguns conceitos fundamentais</a></li>
+<li class="chapter" data-level="2.3" data-path="conceitos.html"><a href="conceitos.html#abordalt"><i class="fa fa-check"></i><b>2.3</b> Abordagens alternativas para pesquisas por amostragem</a></li>
+<li class="chapter" data-level="2.4" data-path="conceitos.html"><a href="conceitos.html#planejamento-e-execução-de-pesquisas-por-amostragem"><i class="fa fa-check"></i><b>2.4</b> Planejamento e execução de pesquisas por amostragem</a><ul>
+<li class="chapter" data-level="2.4.1" data-path="conceitos.html"><a href="conceitos.html#especificação-das-necessidades-da-pesquisa"><i class="fa fa-check"></i><b>2.4.1</b> Especificação das necessidades da pesquisa</a></li>
+<li class="chapter" data-level="2.4.2" data-path="conceitos.html"><a href="conceitos.html#planejamento-da-pesquisa"><i class="fa fa-check"></i><b>2.4.2</b> Planejamento da pesquisa</a></li>
+<li class="chapter" data-level="2.4.3" data-path="conceitos.html"><a href="conceitos.html#elaboração-dos-instrumentos-de-coleta-e-dos-sistemas"><i class="fa fa-check"></i><b>2.4.3</b> Elaboração dos instrumentos de coleta e dos sistemas</a></li>
+<li class="chapter" data-level="2.4.4" data-path="conceitos.html"><a href="conceitos.html#coleta-dos-dados"><i class="fa fa-check"></i><b>2.4.4</b> Coleta dos dados</a></li>
+<li class="chapter" data-level="2.4.5" data-path="conceitos.html"><a href="conceitos.html#processamento-da-pesquisa"><i class="fa fa-check"></i><b>2.4.5</b> Processamento da pesquisa</a></li>
+<li class="chapter" data-level="2.4.6" data-path="conceitos.html"><a href="conceitos.html#análise-dos-dados-da-pesquisa"><i class="fa fa-check"></i><b>2.4.6</b> Análise dos dados da pesquisa</a></li>
+<li class="chapter" data-level="2.4.7" data-path="conceitos.html"><a href="conceitos.html#disseminação-dos-resultados-da-pesquisa"><i class="fa fa-check"></i><b>2.4.7</b> Disseminação dos resultados da pesquisa</a></li>
+<li class="chapter" data-level="2.4.8" data-path="conceitos.html"><a href="conceitos.html#arquivamento-das-informações-da-pesquisa"><i class="fa fa-check"></i><b>2.4.8</b> Arquivamento das informações da pesquisa</a></li>
+<li class="chapter" data-level="2.4.9" data-path="conceitos.html"><a href="conceitos.html#avaliação-da-pesquisa"><i class="fa fa-check"></i><b>2.4.9</b> Avaliação da pesquisa</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="conceitos.html"><a href="conceitos.html#cadastros"><i class="fa fa-check"></i><b>2.5</b> Cadastros</a><ul>
+<li class="chapter" data-level="2.5.1" data-path="conceitos.html"><a href="conceitos.html#cadIBGE"><i class="fa fa-check"></i><b>2.5.1</b> Cadastros importantes no IBGE</a></li>
+<li class="chapter" data-level="2.5.2" data-path="conceitos.html"><a href="conceitos.html#defeitos-de-cadastros"><i class="fa fa-check"></i><b>2.5.2</b> Defeitos de cadastros</a></li>
+<li class="chapter" data-level="2.5.3" data-path="conceitos.html"><a href="conceitos.html#regras-de-associação-das-unidades-da-população-à-unidade-cadastral"><i class="fa fa-check"></i><b>2.5.3</b> Regras de associação das unidades da população à unidade cadastral</a></li>
+</ul></li>
+<li class="chapter" data-level="2.6" data-path="conceitos.html"><a href="conceitos.html#exercícios"><i class="fa fa-check"></i><b>2.6</b> Exercícios</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="visger.html"><a href="visger.html"><i class="fa fa-check"></i><b>3</b> Visão Geral da Amostragem e Estimação</a><ul>
+<li class="chapter" data-level="3.1" data-path="visger.html"><a href="visger.html#definições-e-notação-para-população-de-pesquisa-e-parâmetros-selecionados"><i class="fa fa-check"></i><b>3.1</b> Definições e notação para população de pesquisa e parâmetros selecionados</a></li>
+<li class="chapter" data-level="3.2" data-path="visger.html"><a href="visger.html#amostra"><i class="fa fa-check"></i><b>3.2</b> Amostra</a></li>
+<li class="chapter" data-level="3.3" data-path="visger.html"><a href="visger.html#amostragem-probabilística"><i class="fa fa-check"></i><b>3.3</b> Amostragem probabilística</a></li>
+<li class="chapter" data-level="3.4" data-path="visger.html"><a href="visger.html#estatísticas-estimadores-e-estimativas"><i class="fa fa-check"></i><b>3.4</b> Estatísticas, estimadores e estimativas</a></li>
+<li class="chapter" data-level="3.5" data-path="visger.html"><a href="visger.html#a-distribuição-de-aleatorização"><i class="fa fa-check"></i><b>3.5</b> A distribuição de aleatorização</a></li>
+<li class="chapter" data-level="3.6" data-path="visger.html"><a href="visger.html#estimadores-não-viciados-para-o-total-populacional"><i class="fa fa-check"></i><b>3.6</b> Estimadores não viciados para o total populacional</a></li>
+<li class="chapter" data-level="3.7" data-path="visger.html"><a href="visger.html#teoria-básica"><i class="fa fa-check"></i><b>3.7</b> Teoria básica</a><ul>
+<li class="chapter" data-level="3.7.1" data-path="visger.html"><a href="visger.html#estimador-linear-de-total"><i class="fa fa-check"></i><b>3.7.1</b> Estimador linear de total</a></li>
+<li class="chapter" data-level="3.7.2" data-path="visger.html"><a href="visger.html#propHT"><i class="fa fa-check"></i><b>3.7.2</b> Propriedades do estimador de Horvitz-Thompson</a></li>
+<li class="chapter" data-level="3.7.3" data-path="visger.html"><a href="visger.html#estimação-da-média-populacional"><i class="fa fa-check"></i><b>3.7.3</b> Estimação da média populacional</a></li>
+</ul></li>
+<li class="chapter" data-level="3.8" data-path="conceitos.html"><a href="conceitos.html#exercícios"><i class="fa fa-check"></i><b>3.8</b> Exercícios</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="aas.html"><a href="aas.html"><i class="fa fa-check"></i><b>4</b> Amostragem Aleatória Simples</a><ul>
+<li class="chapter" data-level="4.1" data-path="aas.html"><a href="aas.html#planos-amostrais-e-algoritmos-de-seleção"><i class="fa fa-check"></i><b>4.1</b> Planos amostrais e algoritmos de seleção</a></li>
+<li class="chapter" data-level="4.2" data-path="aas.html"><a href="aas.html#amostragem-aleatória-simples-com-reposição"><i class="fa fa-check"></i><b>4.2</b> Amostragem aleatória simples com reposição</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="aas.html"><a href="aas.html#estimação-do-total-e-média-populacionais-sob-aasc"><i class="fa fa-check"></i><b>4.2.1</b> Estimação do total e média populacionais sob AASC</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="aas.html"><a href="aas.html#amostragem-aleatória-simples-sem-reposição"><i class="fa fa-check"></i><b>4.3</b> Amostragem aleatória simples sem reposição</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="aas.html"><a href="aas.html#algoritmo-convencional-para-selecionar-uma-aas"><i class="fa fa-check"></i><b>4.3.1</b> Algoritmo “convencional” para selecionar uma AAS</a></li>
+<li class="chapter" data-level="4.3.2" data-path="aas.html"><a href="aas.html#Hajek"><i class="fa fa-check"></i><b>4.3.2</b> Algoritmo de Hàjek para selecionar AAS</a></li>
+<li class="chapter" data-level="4.3.3" data-path="aas.html"><a href="aas.html#algoritmo-de-fan-muller-e-rezucha-para-selecionar-aas"><i class="fa fa-check"></i><b>4.3.3</b> Algoritmo de Fan, Muller e Rezucha para selecionar AAS</a></li>
+<li class="chapter" data-level="4.3.4" data-path="aas.html"><a href="aas.html#probabilidades-de-inclusão-sob-aas"><i class="fa fa-check"></i><b>4.3.4</b> Probabilidades de inclusão sob AAS</a></li>
+<li class="chapter" data-level="4.3.5" data-path="aas.html"><a href="aas.html#estimador-não-viciado-do-total-e-média-populacionais-sob-aas"><i class="fa fa-check"></i><b>4.3.5</b> Estimador não viciado do total e média populacionais sob AAS</a></li>
+<li class="chapter" data-level="4.3.6" data-path="aas.html"><a href="aas.html#distribuição-da-média-amostral"><i class="fa fa-check"></i><b>4.3.6</b> Distribuição da média amostral</a></li>
+<li class="chapter" data-level="4.3.7" data-path="aas.html"><a href="aas.html#comparação-dos-planos-de-amostragem-aleatória-simples-com-e-sem-reposição"><i class="fa fa-check"></i><b>4.3.7</b> Comparação dos planos de amostragem aleatória simples com e sem reposição</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="aas.html"><a href="aas.html#determinação-do-tamanho-da-amostra"><i class="fa fa-check"></i><b>4.4</b> Determinação do tamanho da amostra</a><ul>
+<li class="chapter" data-level="4.4.1" data-path="aas.html"><a href="aas.html#tamanho-amostral-para-custo-fixado"><i class="fa fa-check"></i><b>4.4.1</b> Tamanho amostral para custo fixado</a></li>
+<li class="chapter" data-level="4.4.2" data-path="aas.html"><a href="aas.html#tamanho-amostral-para-precisão-fixada"><i class="fa fa-check"></i><b>4.4.2</b> Tamanho amostral para precisão fixada</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="conceitos.html"><a href="conceitos.html#exercícios"><i class="fa fa-check"></i><b>4.5</b> Exercícios</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="proporc.html"><a href="proporc.html"><i class="fa fa-check"></i><b>5</b> Estimação de Proporções</a><ul>
+<li class="chapter" data-level="5.1" data-path="proporc.html"><a href="proporc.html#parâmetros-populacionais"><i class="fa fa-check"></i><b>5.1</b> Parâmetros populacionais</a></li>
+<li class="chapter" data-level="5.2" data-path="proporc.html"><a href="proporc.html#estimação-sob-amostragem-aleatória-simples-com-reposição"><i class="fa fa-check"></i><b>5.2</b> Estimação sob amostragem aleatória simples com reposição</a></li>
+<li class="chapter" data-level="5.3" data-path="proporc.html"><a href="proporc.html#estimação-sob-amostragem-aleatória-simples-sem-reposição"><i class="fa fa-check"></i><b>5.3</b> Estimação sob amostragem aleatória simples sem reposição</a></li>
+<li class="chapter" data-level="5.4" data-path="proporc.html"><a href="proporc.html#distribuição-amostral-exata-de-estimadores-de-proporção-sob-aasc-e-aas"><i class="fa fa-check"></i><b>5.4</b> Distribuição amostral exata de estimadores de proporção sob AASC e AAS</a></li>
+<li class="chapter" data-level="5.5" data-path="proporc.html"><a href="proporc.html#intervalos-de-confiança-para-proporções-na-amostragem-aleatória-simples"><i class="fa fa-check"></i><b>5.5</b> Intervalos de confiança para proporções na amostragem aleatória simples</a></li>
+<li class="chapter" data-level="5.6" data-path="proporc.html"><a href="proporc.html#intervalos-de-confiança-utilizando-a-aproximação-normal"><i class="fa fa-check"></i><b>5.6</b> Intervalos de confiança utilizando a aproximação normal</a></li>
+<li class="chapter" data-level="5.7" data-path="proporc.html"><a href="proporc.html#cálculo-do-tamanho-da-amostra"><i class="fa fa-check"></i><b>5.7</b> Cálculo do tamanho da amostra</a><ul>
+<li class="chapter" data-level="5.7.1" data-path="proporc.html"><a href="proporc.html#cálculo-do-n-utilizando-outras-formas-de-representar-o-erro-amostral"><i class="fa fa-check"></i><b>5.7.1</b> Cálculo do <span class="math inline">\(n\)</span> utilizando outras formas de representar o erro amostral</a></li>
+</ul></li>
+<li class="chapter" data-level="5.8" data-path="proporc.html"><a href="proporc.html#estimação-de-proporções-para-variáveis-com-mais-de-duas-categorias"><i class="fa fa-check"></i><b>5.8</b> Estimação de proporções para variáveis com mais de duas categorias</a></li>
+<li class="chapter" data-level="5.9" data-path="conceitos.html"><a href="conceitos.html#exercícios"><i class="fa fa-check"></i><b>5.9</b> Exercícios</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="razao.html"><a href="razao.html"><i class="fa fa-check"></i><b>6</b> Estimação de Razões e Funções de Totais</a><ul>
+<li class="chapter" data-level="6.1" data-path="razao.html"><a href="razao.html#razões-populacionais-como-parâmetros-de-interesse"><i class="fa fa-check"></i><b>6.1</b> Razões populacionais como parâmetros de interesse</a></li>
+<li class="chapter" data-level="6.2" data-path="razao.html"><a href="razao.html#razão-de-médias-versus-média-de-razões"><i class="fa fa-check"></i><b>6.2</b> Razão de médias <em>versus</em> média de razões</a></li>
+<li class="chapter" data-level="6.3" data-path="razao.html"><a href="razao.html#outras-funções-de-totais"><i class="fa fa-check"></i><b>6.3</b> Outras funções de totais</a></li>
+<li class="chapter" data-level="6.4" data-path="razao.html"><a href="razao.html#estimadores-de-razões-de-totais"><i class="fa fa-check"></i><b>6.4</b> Estimadores de razões de totais</a></li>
+<li class="chapter" data-level="6.5" data-path="razao.html"><a href="razao.html#estoft"><i class="fa fa-check"></i><b>6.5</b> Estimadores para outras funções de totais</a></li>
+<li class="chapter" data-level="6.6" data-path="razao.html"><a href="razao.html#vicioraz"><i class="fa fa-check"></i><b>6.6</b> Análise do o vício do estimador da razão</a></li>
+<li class="chapter" data-level="6.7" data-path="razao.html"><a href="razao.html#erro-quadrático-médio-de-widehatr"><i class="fa fa-check"></i><b>6.7</b> Erro quadrático médio de <span class="math inline">\(\widehat{R}\)</span></a></li>
+<li class="chapter" data-level="6.8" data-path="conceitos.html"><a href="conceitos.html#exercícios"><i class="fa fa-check"></i><b>6.8</b> Exercícios</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="domin.html"><a href="domin.html"><i class="fa fa-check"></i><b>7</b> Estimação para Domínios de Estudo</a><ul>
+<li class="chapter" data-level="7.1" data-path="domin.html"><a href="domin.html#domin1"><i class="fa fa-check"></i><b>7.1</b> Domínios de estudo</a></li>
+<li class="chapter" data-level="7.2" data-path="domin.html"><a href="domin.html#domin2"><i class="fa fa-check"></i><b>7.2</b> Parâmetros de interesse para domínios</a></li>
+<li class="chapter" data-level="7.3" data-path="domin.html"><a href="domin.html#estimação-de-parâmetros-para-domínios-sob-aas"><i class="fa fa-check"></i><b>7.3</b> Estimação de parâmetros para domínios sob AAS</a></li>
+<li class="chapter" data-level="7.4" data-path="domin.html"><a href="domin.html#intervalos-de-confiança-para-os-parâmetros-para-o-domínio"><i class="fa fa-check"></i><b>7.4</b> Intervalos de confiança para os parâmetros para o domínio</a></li>
+<li class="chapter" data-level="7.5" data-path="domin.html"><a href="domin.html#propriedades-condicionais-fixando-n_c"><i class="fa fa-check"></i><b>7.5</b> Propriedades condicionais (fixando <span class="math inline">\(n_c\)</span>)</a></li>
+<li class="chapter" data-level="7.6" data-path="domin.html"><a href="domin.html#estimação-do-total-no-domínio-quando-tamanho-do-domínio-é-conhecido"><i class="fa fa-check"></i><b>7.6</b> Estimação do total no domínio quando tamanho do domínio é conhecido</a></li>
+<li class="chapter" data-level="7.7" data-path="domin.html"><a href="domin.html#comparação-da-eficiência-dos-estimadores-de-total-no-domínio"><i class="fa fa-check"></i><b>7.7</b> Comparação da eficiência dos estimadores de total no domínio</a></li>
+<li class="chapter" data-level="7.8" data-path="domin.html"><a href="domin.html#estimação-de-proporções-dentro-do-domínio"><i class="fa fa-check"></i><b>7.8</b> Estimação de proporções dentro do domínio</a></li>
+<li class="chapter" data-level="7.9" data-path="conceitos.html"><a href="conceitos.html#exercícios"><i class="fa fa-check"></i><b>7.9</b> Exercícios</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="AS.html"><a href="AS.html"><i class="fa fa-check"></i><b>8</b> Amostragem Sistemática Simples</a><ul>
+<li class="chapter" data-level="8.1" data-path="AS.html"><a href="AS.html#ideia-básica"><i class="fa fa-check"></i><b>8.1</b> Ideia básica</a></li>
+<li class="chapter" data-level="8.2" data-path="AS.html"><a href="AS.html#método-de-seleção-da-amostra"><i class="fa fa-check"></i><b>8.2</b> Método de seleção da amostra</a></li>
+<li class="chapter" data-level="8.3" data-path="AS.html"><a href="AS.html#composição-das-amostras-sistemáticas-simples"><i class="fa fa-check"></i><b>8.3</b> Composição das amostras sistemáticas simples</a></li>
+<li class="chapter" data-level="8.4" data-path="AS.html"><a href="AS.html#probabilidades-de-inclusão-na-amostragem-sistemática-simples"><i class="fa fa-check"></i><b>8.4</b> Probabilidades de inclusão na amostragem sistemática simples</a></li>
+<li class="chapter" data-level="8.5" data-path="AS.html"><a href="AS.html#variáveis-aleatórias-indicadoras---propriedades"><i class="fa fa-check"></i><b>8.5</b> Variáveis aleatórias indicadoras - propriedades</a></li>
+<li class="chapter" data-level="8.6" data-path="AS.html"><a href="AS.html#estimação-de-totais-sob-amostragem-sistemática-simples"><i class="fa fa-check"></i><b>8.6</b> Estimação de totais sob amostragem sistemática simples</a></li>
+<li class="chapter" data-level="8.7" data-path="AS.html"><a href="AS.html#estimação-de-médias-sob-amostragem-sistemática-simples"><i class="fa fa-check"></i><b>8.7</b> Estimação de médias sob amostragem sistemática simples</a></li>
+<li class="chapter" data-level="8.8" data-path="AS.html"><a href="AS.html#estimação-de-uma-proporção-na-amostragem-sistemática-simples"><i class="fa fa-check"></i><b>8.8</b> Estimação de uma proporção na amostragem sistemática simples</a></li>
+<li class="chapter" data-level="8.9" data-path="AS.html"><a href="AS.html#variância-dos-estimadores-sob-amostragem-sistemática-simples"><i class="fa fa-check"></i><b>8.9</b> Variância dos estimadores sob amostragem sistemática simples</a></li>
+<li class="chapter" data-level="8.10" data-path="AS.html"><a href="AS.html#estimação-de-variâncias-dos-estimadores-na-amostragem-sistemática-simples"><i class="fa fa-check"></i><b>8.10</b> Estimação de variâncias dos estimadores na amostragem sistemática simples</a></li>
+<li class="chapter" data-level="8.11" data-path="AS.html"><a href="AS.html#alternativas-para-seleção-com-amostragem-sistemática-simples"><i class="fa fa-check"></i><b>8.11</b> Alternativas para seleção com amostragem sistemática simples</a></li>
+<li class="chapter" data-level="8.12" data-path="conceitos.html"><a href="conceitos.html#exercícios"><i class="fa fa-check"></i><b>8.12</b> Exercícios</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="outros-métodos-de-amostragem-com-equiprobabilidade.html"><a href="outros-métodos-de-amostragem-com-equiprobabilidade.html"><i class="fa fa-check"></i><b>9</b> Outros Métodos de Amostragem com Equiprobabilidade</a><ul>
+<li class="chapter" data-level="9.1" data-path="outros-métodos-de-amostragem-com-equiprobabilidade.html"><a href="outros-métodos-de-amostragem-com-equiprobabilidade.html#binom"><i class="fa fa-check"></i><b>9.1</b> Amostragem binomial ou de Bernoulli</a><ul>
+<li class="chapter" data-level="9.1.1" data-path="AS.html"><a href="AS.html#método-de-seleção-da-amostra"><i class="fa fa-check"></i><b>9.1.1</b> Método de seleção da amostra</a></li>
+<li class="chapter" data-level="9.1.2" data-path="outros-métodos-de-amostragem-com-equiprobabilidade.html"><a href="outros-métodos-de-amostragem-com-equiprobabilidade.html#probabilidades-de-inclusão-na-amostragem-binomial"><i class="fa fa-check"></i><b>9.1.2</b> Probabilidades de inclusão na amostragem binomial</a></li>
+<li class="chapter" data-level="9.1.3" data-path="outros-métodos-de-amostragem-com-equiprobabilidade.html"><a href="outros-métodos-de-amostragem-com-equiprobabilidade.html#estimação-de-totais-sob-amostragem-binomial"><i class="fa fa-check"></i><b>9.1.3</b> Estimação de totais sob amostragem binomial</a></li>
+<li class="chapter" data-level="9.1.4" data-path="outros-métodos-de-amostragem-com-equiprobabilidade.html"><a href="outros-métodos-de-amostragem-com-equiprobabilidade.html#estimação-de-médias-sob-amostragem-binomial"><i class="fa fa-check"></i><b>9.1.4</b> Estimação de médias sob amostragem binomial</a></li>
+<li class="chapter" data-level="9.1.5" data-path="outros-métodos-de-amostragem-com-equiprobabilidade.html"><a href="outros-métodos-de-amostragem-com-equiprobabilidade.html#exemplos-de-aplicação-da-amostragem-binomial"><i class="fa fa-check"></i><b>9.1.5</b> Exemplos de aplicação da amostragem binomial</a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="outros-métodos-de-amostragem-com-equiprobabilidade.html"><a href="outros-métodos-de-amostragem-com-equiprobabilidade.html#inversa"><i class="fa fa-check"></i><b>9.2</b> Amostragem inversa simples</a><ul>
+<li class="chapter" data-level="9.2.1" data-path="outros-métodos-de-amostragem-com-equiprobabilidade.html"><a href="outros-métodos-de-amostragem-com-equiprobabilidade.html#método-de-seleção-da-amostra-inversa-simples"><i class="fa fa-check"></i><b>9.2.1</b> Método de seleção da amostra inversa simples</a></li>
+<li class="chapter" data-level="9.2.2" data-path="outros-métodos-de-amostragem-com-equiprobabilidade.html"><a href="outros-métodos-de-amostragem-com-equiprobabilidade.html#amostragem-inversa-simples-para-varredura-por-amostragem"><i class="fa fa-check"></i><b>9.2.2</b> Amostragem inversa simples para varredura por amostragem</a></li>
+<li class="chapter" data-level="9.2.3" data-path="outros-métodos-de-amostragem-com-equiprobabilidade.html"><a href="outros-métodos-de-amostragem-com-equiprobabilidade.html#exemplos-de-aplicação-da-amostragem-inversa-simples"><i class="fa fa-check"></i><b>9.2.3</b> Exemplos de aplicação da amostragem inversa simples</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="conceitos.html"><a href="conceitos.html#exercícios"><i class="fa fa-check"></i><b>9.3</b> Exercícios</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="ppt.html"><a href="ppt.html"><i class="fa fa-check"></i><b>10</b> Amostragem com Probabilidades Proporcionais ao Tamanho</a><ul>
+<li class="chapter" data-level="10.1" data-path="ppt.html"><a href="ppt.html#justificativa-para-amostragem-ppt"><i class="fa fa-check"></i><b>10.1</b> Justificativa para amostragem PPT</a><ul>
+<li class="chapter" data-level="10.1.1" data-path="ppt.html"><a href="ppt.html#estimação-do-total-populacional"><i class="fa fa-check"></i><b>10.1.1</b> Estimação do total populacional</a></li>
+</ul></li>
+<li class="chapter" data-level="10.2" data-path="ppt.html"><a href="ppt.html#amostragem-ppt-com-reposição"><i class="fa fa-check"></i><b>10.2</b> Amostragem PPT com reposição</a></li>
+<li class="chapter" data-level="10.3" data-path="ppt.html"><a href="ppt.html#amostragem-ppt-de-poisson"><i class="fa fa-check"></i><b>10.3</b> Amostragem PPT de Poisson</a></li>
+<li class="chapter" data-level="10.4" data-path="ppt.html"><a href="ppt.html#amostragem-sequencial-de-poisson"><i class="fa fa-check"></i><b>10.4</b> Amostragem sequencial de Poisson</a></li>
+<li class="chapter" data-level="10.5" data-path="ppt.html"><a href="ppt.html#amostragem-sistemática-com-ppt"><i class="fa fa-check"></i><b>10.5</b> Amostragem sistemática com PPT</a></li>
+<li class="chapter" data-level="10.6" data-path="ppt.html"><a href="ppt.html#amostragem-ppt-de-pareto"><i class="fa fa-check"></i><b>10.6</b> Amostragem PPT de Pareto</a></li>
+<li class="chapter" data-level="10.7" data-path="conceitos.html"><a href="conceitos.html#exercícios"><i class="fa fa-check"></i><b>10.7</b> Exercícios</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="estrat.html"><a href="estrat.html"><i class="fa fa-check"></i><b>11</b> Amostragem Estratificada</a><ul>
+<li class="chapter" data-level="11.1" data-path="estrat.html"><a href="estrat.html#o-método-geral"><i class="fa fa-check"></i><b>11.1</b> O método geral</a></li>
+<li class="chapter" data-level="11.2" data-path="estrat.html"><a href="estrat.html#amostragem-estratificada-simples"><i class="fa fa-check"></i><b>11.2</b> Amostragem estratificada simples</a><ul>
+<li class="chapter" data-level="11.2.1" data-path="estrat.html"><a href="estrat.html#método-de-seleção"><i class="fa fa-check"></i><b>11.2.1</b> Método de seleção</a></li>
+<li class="chapter" data-level="11.2.2" data-path="proporc.html"><a href="proporc.html#parâmetros-populacionais"><i class="fa fa-check"></i><b>11.2.2</b> Parâmetros populacionais</a></li>
+<li class="chapter" data-level="11.2.3" data-path="estrat.html"><a href="estrat.html#estimação-do-total-e-da-média-populacional"><i class="fa fa-check"></i><b>11.2.3</b> Estimação do total e da média populacional</a></li>
+<li class="chapter" data-level="11.2.4" data-path="estrat.html"><a href="estrat.html#intervalos-de-confiança"><i class="fa fa-check"></i><b>11.2.4</b> Intervalos de confiança</a></li>
+</ul></li>
+<li class="chapter" data-level="11.3" data-path="estrat.html"><a href="estrat.html#alocação-da-amostra-nos-estratos"><i class="fa fa-check"></i><b>11.3</b> Alocação da amostra nos estratos</a><ul>
+<li class="chapter" data-level="11.3.1" data-path="estrat.html"><a href="estrat.html#alocação-proporcional"><i class="fa fa-check"></i><b>11.3.1</b> Alocação proporcional</a></li>
+<li class="chapter" data-level="11.3.2" data-path="estrat.html"><a href="estrat.html#alocação-ótima"><i class="fa fa-check"></i><b>11.3.2</b> Alocação ótima</a></li>
+<li class="chapter" data-level="11.3.3" data-path="estrat.html"><a href="estrat.html#tamanho-da-amostra-estratificada---caso-geral"><i class="fa fa-check"></i><b>11.3.3</b> Tamanho da amostra estratificada - caso geral</a></li>
+<li class="chapter" data-level="11.3.4" data-path="estrat.html"><a href="estrat.html#tamanho-da-amostra-sob-alocação-ótima"><i class="fa fa-check"></i><b>11.3.4</b> Tamanho da amostra sob alocação ótima</a></li>
+<li class="chapter" data-level="11.3.5" data-path="estrat.html"><a href="estrat.html#comparação-de-alternativas-de-alocação-da-amostra"><i class="fa fa-check"></i><b>11.3.5</b> Comparação de alternativas de alocação da amostra</a></li>
+<li class="chapter" data-level="11.3.6" data-path="estrat.html"><a href="estrat.html#alocação-potência"><i class="fa fa-check"></i><b>11.3.6</b> Alocação potência</a></li>
+<li class="chapter" data-level="11.3.7" data-path="estrat.html"><a href="estrat.html#alguns-problemas-com-alocação-ótima"><i class="fa fa-check"></i><b>11.3.7</b> Alguns problemas com alocação ótima</a></li>
+</ul></li>
+<li class="chapter" data-level="11.4" data-path="estrat.html"><a href="estrat.html#definição-dos-limites-dos-estratos"><i class="fa fa-check"></i><b>11.4</b> Definição dos limites dos estratos</a></li>
+<li class="chapter" data-level="11.5" data-path="estrat.html"><a href="estrat.html#número-de-estratos-na-amostragem-estratificada-simples"><i class="fa fa-check"></i><b>11.5</b> Número de estratos na amostragem estratificada simples</a></li>
+<li class="chapter" data-level="11.6" data-path="conceitos.html"><a href="conceitos.html#exercícios"><i class="fa fa-check"></i><b>11.6</b> Exercícios</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="cong.html"><a href="cong.html"><i class="fa fa-check"></i><b>12</b> Amostragem Conglomerada</a><ul>
+<li class="chapter" data-level="12.1" data-path="cong.html"><a href="cong.html#conceituação-básica"><i class="fa fa-check"></i><b>12.1</b> Conceituação básica</a></li>
+<li class="chapter" data-level="12.2" data-path="cong.html"><a href="cong.html#amostragem-de-áreas"><i class="fa fa-check"></i><b>12.2</b> Amostragem de áreas</a></li>
+<li class="chapter" data-level="12.3" data-path="cong.html"><a href="cong.html#definições-básicas-e-notação"><i class="fa fa-check"></i><b>12.3</b> Definições básicas e notação</a></li>
+<li class="chapter" data-level="12.4" data-path="cong.html"><a href="cong.html#amostragem-conglomerada-em-um-estágio"><i class="fa fa-check"></i><b>12.4</b> Amostragem conglomerada em um estágio</a></li>
+<li class="chapter" data-level="12.5" data-path="cong.html"><a href="cong.html#amostragem-conglomerada-em-vários-estágios"><i class="fa fa-check"></i><b>12.5</b> Amostragem conglomerada em vários estágios</a></li>
+<li class="chapter" data-level="12.6" data-path="cong.html"><a href="cong.html#notação-na-amostragem-conglomerada-em-um-estágio"><i class="fa fa-check"></i><b>12.6</b> Notação na amostragem conglomerada em um estágio</a></li>
+<li class="chapter" data-level="12.7" data-path="cong.html"><a href="cong.html#amostragem-conglomerada-em-um-estágio-simples"><i class="fa fa-check"></i><b>12.7</b> Amostragem conglomerada em um estágio simples</a><ul>
+<li class="chapter" data-level="12.7.1" data-path="cong.html"><a href="cong.html#estimação-do-total-sob-ac1s"><i class="fa fa-check"></i><b>12.7.1</b> Estimação do total sob AC1S</a></li>
+<li class="chapter" data-level="12.7.2" data-path="cong.html"><a href="cong.html#estimação-da-média-sob-ac1s"><i class="fa fa-check"></i><b>12.7.2</b> Estimação da média sob AC1S</a></li>
+</ul></li>
+<li class="chapter" data-level="12.8" data-path="cong.html"><a href="cong.html#efeito-do-plano-amostral"><i class="fa fa-check"></i><b>12.8</b> Efeito do plano amostral</a></li>
+<li class="chapter" data-level="12.9" data-path="cong.html"><a href="cong.html#amostragem-conglomerada-com-probabilidade-proporcional-ao-tamanho-em-um-estágio"><i class="fa fa-check"></i><b>12.9</b> Amostragem Conglomerada com Probabilidade Proporcional ao Tamanho em um estágio</a></li>
+<li class="chapter" data-level="12.10" data-path="cong.html"><a href="cong.html#amostragem-conglomerada-em-dois-estágios"><i class="fa fa-check"></i><b>12.10</b> Amostragem conglomerada em dois estágios</a><ul>
+<li class="chapter" data-level="12.10.1" data-path="cong.html"><a href="cong.html#plano-amostral-ac2-com-aas-nos-2-estágios"><i class="fa fa-check"></i><b>12.10.1</b> Plano amostral AC2 com AAS nos 2 estágios</a></li>
+<li class="chapter" data-level="12.10.2" data-path="cong.html"><a href="cong.html#plano-amostral-com-ppt-com-reposição-no-primeiro-estágio-e-aas-no-segundo-estágio"><i class="fa fa-check"></i><b>12.10.2</b> Plano amostral com PPT com reposição no primeiro estágio e AAS no segundo estágio</a></li>
+<li class="chapter" data-level="12.10.3" data-path="cong.html"><a href="cong.html#amostra-conglomerada-com-ppt-de-poisson-sequencial-no-primeiro-e-aas-no-segundo-estágio"><i class="fa fa-check"></i><b>12.10.3</b> Amostra conglomerada com PPT de Poisson sequencial no primeiro e AAS no segundo estágio</a></li>
+</ul></li>
+<li class="chapter" data-level="12.11" data-path="cong.html"><a href="cong.html#ideias-básicas-na-escolha-de-unidades-compostas"><i class="fa fa-check"></i><b>12.11</b> Ideias básicas na escolha de unidades compostas</a></li>
+<li class="chapter" data-level="12.12" data-path="cong.html"><a href="cong.html#determinando-tamanhos-de-amostra-com-ac2pc"><i class="fa fa-check"></i><b>12.12</b> Determinando tamanhos de amostra com AC2PC</a></li>
+<li class="chapter" data-level="12.13" data-path="conceitos.html"><a href="conceitos.html#exercícios"><i class="fa fa-check"></i><b>12.13</b> Exercícios</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="calib.html"><a href="calib.html"><i class="fa fa-check"></i><b>13</b> Estimadores de Calibração</a><ul>
+<li class="chapter" data-level="13.1" data-path="calib.html"><a href="calib.html#motivação-melhorar-a-precisão-com-informações-auxiliares"><i class="fa fa-check"></i><b>13.1</b> Motivação: melhorar a precisão com informações auxiliares</a></li>
+<li class="chapter" data-level="13.2" data-path="calib.html"><a href="calib.html#problema"><i class="fa fa-check"></i><b>13.2</b> O problema</a></li>
+<li class="chapter" data-level="13.3" data-path="calib.html"><a href="calib.html#estreg"><i class="fa fa-check"></i><b>13.3</b> Estimadores de regressão como estimadores de calibração</a></li>
+<li class="chapter" data-level="13.4" data-path="calib.html"><a href="calib.html#razões-para-calibração"><i class="fa fa-check"></i><b>13.4</b> Razões para calibração</a></li>
+<li class="chapter" data-level="13.5" data-path="calib.html"><a href="calib.html#propriedades-dos-estimadores-para-grandes-amostras"><i class="fa fa-check"></i><b>13.5</b> Propriedades dos estimadores para grandes amostras</a></li>
+<li class="chapter" data-level="13.6" data-path="calib.html"><a href="calib.html#razCS"><i class="fa fa-check"></i><b>13.6</b> Estimadores de razão como casos particulares da calibração</a><ul>
+<li class="chapter" data-level="13.6.1" data-path="calib.html"><a href="calib.html#estimador-de-razão-combinada-sob-aes"><i class="fa fa-check"></i><b>13.6.1</b> Estimador de razão combinada sob AES</a></li>
+<li class="chapter" data-level="13.6.2" data-path="calib.html"><a href="calib.html#estimador-de-razão-separada-sob-aes"><i class="fa fa-check"></i><b>13.6.2</b> Estimador de razão separada sob AES</a></li>
+<li class="chapter" data-level="13.6.3" data-path="calib.html"><a href="calib.html#comparação-dos-estimadores-de-razão-combinada-e-separada"><i class="fa fa-check"></i><b>13.6.3</b> Comparação dos estimadores de razão combinada e separada</a></li>
+</ul></li>
+<li class="chapter" data-level="13.7" data-path="calib.html"><a href="calib.html#alguns-problemas-práticos-com-calibração"><i class="fa fa-check"></i><b>13.7</b> Alguns problemas práticos com calibração</a><ul>
+<li class="chapter" data-level="13.7.1" data-path="calib.html"><a href="calib.html#tamanhos-de-amostra-pequenos"><i class="fa fa-check"></i><b>13.7.1</b> Tamanhos de amostra pequenos</a></li>
+<li class="chapter" data-level="13.7.2" data-path="calib.html"><a href="calib.html#pesos-negativos-ou-extremos"><i class="fa fa-check"></i><b>13.7.2</b> Pesos negativos ou extremos</a></li>
+<li class="chapter" data-level="13.7.3" data-path="calib.html"><a href="calib.html#grande-número-de-variáveis-de-pesquisa-ou-de-grupos-de-modelagem"><i class="fa fa-check"></i><b>13.7.3</b> Grande número de variáveis de pesquisa ou de ‘grupos de modelagem’</a></li>
+<li class="chapter" data-level="13.7.4" data-path="calib.html"><a href="calib.html#gvaraux"><i class="fa fa-check"></i><b>13.7.4</b> Grande número de variáveis auxiliares</a></li>
+<li class="chapter" data-level="13.7.5" data-path="calib.html"><a href="calib.html#não-resposta-e-calibração"><i class="fa fa-check"></i><b>13.7.5</b> Não resposta e calibração</a></li>
+</ul></li>
+<li class="chapter" data-level="13.8" data-path="calib.html"><a href="calib.html#seleção-de-variáveis-para-calibração-com-não-resposta"><i class="fa fa-check"></i><b>13.8</b> Seleção de variáveis para calibração com não resposta</a></li>
+<li class="chapter" data-level="13.9" data-path="calib.html"><a href="calib.html#indicadores-de-qualidade-da-calibração"><i class="fa fa-check"></i><b>13.9</b> Indicadores de qualidade da calibração</a></li>
+<li class="chapter" data-level="13.10" data-path="calib.html"><a href="calib.html#um-guia-para-aplicação-de-calibração"><i class="fa fa-check"></i><b>13.10</b> Um guia para aplicação de calibração</a></li>
+<li class="chapter" data-level="13.11" data-path="calib.html"><a href="calib.html#observações-finais"><i class="fa fa-check"></i><b>13.11</b> Observações finais</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="referências.html"><a href="referências.html"><i class="fa fa-check"></i>Referências</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Amostragem: Teoria e Prática Usando R</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="cong" class="section level1">
+<h1><span class="header-section-number">Capítulo 12</span> Amostragem Conglomerada</h1>
+<div id="conceituação-básica" class="section level2">
+<h2><span class="header-section-number">12.1</span> Conceituação básica</h2>
+<p>Todos os métodos de amostragem já apresentados nos capítulos <a href="aas.html#aas">4</a> até <a href="estrat.html#estrat">11</a> têm alguns aspectos em comum: requerem cadastros de unidades elementares para permitir selecionar a amostra; a seleção da amostra é feita num único estágio ou etapa; as unidades de referência são iguais às unidades de amostragem; e o tamanho total da população é conhecido com base no cadastro.</p>
+<p>Se tal cadastro não existir ou não puder ser construído, ou se o custo de construí-lo ou atualizá-lo for muito elevado, a solução pode ser através do uso de <em>amostragem conglomerada</em>, onde grupos de unidades chamados de <em>conglomerados</em> são selecionados com probabilidades conhecidas, utilizando um dos métodos de seleção anteriormente apresentados. Este tipo de plano amostral é requerido também sempre que a regra de associação do cadastro for dos tipos vários para um ou hierarquia com vários níveis (ver capítulo <a href="conceitos.html#conceitos">2</a>).</p>
+<p>A <em>amostragem conglomerada</em> consiste num esquema de amostragem em estágios, sendo que em cada estágio a unidade amostral é formada por grupos ou subconjuntos (<em>conglomerados</em>) de unidades populacionais. A formação de conglomerados pode ser:</p>
+<ul>
+<li><p>Natural (exemplos: turma de alunos, edifício de apartamentos, quarteirão, município).</p></li>
+<li><p>Planejada, quando os grupos são definidos pelo estatístico de acordo com o objetivo da pesquisa (exemplos: grupos de seis alunos que sentam na mesma fileira numa sala de aula, grupos de dez peças industriais do mesmo tipo saindo de uma linha de produção, grupos de cinco endereços residenciais no mesmo setor censitário, etc.).</p></li>
+</ul>
+<p>A unidade populacional depende da análise que está sendo feita e é determinada pelo propósito da pesquisa e não pelo plano amostral. Pode acontecer de mais de uma unidade populacional estar envolvida na pesquisa quando, por exemplo, características de domicílios e de pessoas são investigadas no mesmo levantamento.</p>
+<p>Não há uma definição fixa para grupos que podem ou não ser considerados como conglomerados. Por exemplo, turmas de alunos tanto podem ser unidades populacionais de referência (se estivermos interessados em investigar o número de alunos por turma como variável resposta), como podem ser conglomerados de alunos (se estivermos interessados em investigar o aproveitamento individual dos alunos). Para exemplificar, a Tabela <a href="cong.html#tab:tabcong1">12.1</a> apresenta algumas ilustrações de possíveis conglomerados associados com a população, a variável de interesse e a unidade de referência para análise.</p>
+<center>
+<table>
+<caption>
+<span id="tab:tabcong1">Tabela 12.1: </span>Exemplos de possíveis conglomerados
+</caption>
+</table>
+<table>
+<colgroup>
+<col width="33%" />
+<col width="30%" />
+<col width="22%" />
+<col width="14%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">População</th>
+<th align="left">Variáveis de interesse</th>
+<th align="left">Unidade de Referência</th>
+<th align="left">Conglomerados</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Turmas de alunos A</td>
+<td align="left">lunos por turma Tu</td>
+<td align="left">rma Esc</td>
+<td align="left">olas</td>
+</tr>
+<tr class="even">
+<td align="left">Estudantes de escolas de 2º grau A</td>
+<td align="left">proveitamento dos estudantes E</td>
+<td align="left">studante Tu</td>
+<td align="left">rmas</td>
+</tr>
+<tr class="odd">
+<td align="left">Visitantes de parques nacionais</td>
+<td align="left">Facilidades do parque</td>
+<td align="left">Visitante</td>
+<td align="left">Veículos de visitantes</td>
+</tr>
+<tr class="even">
+<td align="left">Passageiros de avião P</td>
+<td align="left">ropósito da viagem P</td>
+<td align="left">assageiro L</td>
+<td align="left">otação do voo</td>
+</tr>
+<tr class="odd">
+<td align="left">Domicílios C</td>
+<td align="left">aracterísticas de domicílio Do</td>
+<td align="left">micílio Set</td>
+<td align="left">ores censitários</td>
+</tr>
+<tr class="even">
+<td align="left">Moradores em favelas do Rio</td>
+<td align="left">Características de pessoas M</td>
+<td align="left">orador D</td>
+<td align="left">omicílios de favelas do Rio</td>
+</tr>
+</tbody>
+</table>
+</center>
+Conforme ilustrado na Figura <a href="cong.html#fig:hierar1">12.1</a>, temos regras de associação com a hieraquia com vários níveis (vários para um), considerando o cadastro de setores, os domicílios como nível 1 e a população de moradores.<br />
+
+<center>
+<div class="figure"><span id="fig:hierar1"></span>
+<img src="Figuras/hierarquia.png" alt="Ilustração da hierarquia com vários níveis (vários para um)" width="100%" />
+<p class="caption">
+Figura 12.1: Ilustração da hierarquia com vários níveis (vários para um)
+</p>
+</div>
+</center>
+<p>Cabe registrar que os vários métodos de amostragem discutidos anteriormente podem ser aplicados para implementar a amostragem conglomerada, onde os conglomerados passam a ser as unidades amostrais a serem objeto de seleção pelos diferentes métodos.</p>
+</div>
+<div id="amostragem-de-áreas" class="section level2">
+<h2><span class="header-section-number">12.2</span> Amostragem de áreas</h2>
+<p>O cadastro ou sistema de referência da pesquisa é a fonte que serve de guia e permite identificar a população a ser coberta para a seleção de amostras. Os métodos probabilísticos propostos para seleção de amostras pressupõem a existência de uma lista completa das unidades da população a ser pesquisada. Porém, como já foi dito, tais listas podem não estar disponíveis, ou estar desatualizadas, ou o custo de preparar uma lista atualizada pode ser proibitivo. Além disso, uma amostra selecionada de uma população dispersa geograficamente provavelmente será também muito dispersa.</p>
+<p>Para reduzir custos, é muito frequente o uso de amostragem conglomerada, onde os conglomerados são áreas geográficas com limites naturais ou artificiais bem definidos. Neste caso, a amostra resultante pode ser concentrada dentro de um número limitado de áreas geográficas.</p>
+<p>A utilização de amostragem de áreas se dá quando não existe um cadastro de boa qualidade disponível e/ou quando a população for muito dispersa e o fator custo de deslocamento for preponderante. Neste caso, a necessidade de uma lista atualizada das unidades para as quais se requer a informação é restrita às áreas (<em>conglomerados</em>) que forem selecionadas para a amostra. Portanto, a grande vantagem da amostragem conglomerada é a sua conveniência operacional vinculada a possíveis reduções de custo.</p>
+<p>Num levantamento de uma população humana, por exemplo, é operacionalmente mais conveniente pesquisar todas as pessoas numa amostra de domicílios do que selecionar o mesmo número de pessoas espalhadas por toda a população. Também é mais conveniente pesquisar todos os domicílios numa amostra de áreas (por exemplo, setores censitários) do que selecionar aleatoriamente uma amostra do mesmo número de domicílios numa lista de todos os domicílios da região de interesse da pesquisa. Por um lado, tal lista nem sempre está disponível e, por outro, seu preparo tornaria a pesquisa bem mais cara.</p>
+<p>Suponha que uma AAS de <span class="math inline">\(n=400\)</span> domicílios deva ser selecionada de uma população de <span class="math inline">\(N=10.000\)</span> domicílios de uma cidade. Como não dispomos de uma lista atualizada com todos os domicílios, optamos por uma amostra de domicílios localizados dentro de uma amostra de quarteirões. Isto pode ser feito dividindo a área da cidade em quarteirões e selecionando 1/25 dos quarteirões. A probabilidade de selecionar um domicílio na cidade é a probabilidade de selecionar um quarteirão, ou seja, <span class="math inline">\(1/25 = 400/10.000\)</span>. Neste caso, o tamanho da amostra de domicílios será uma variável aleatória que depende dos quarteirões selecionados para a amostra, sendo o seu valor esperado igual ao <span class="math inline">\(n\)</span> desejado.</p>
+<p>Nesse exemplo, as unidades amostrais são os quarteirões da cidade, que poderiam ser listados para formar o cadastro de seleção. A seleção da amostra de quarteirões determina a seleção dos domicílios que estão localizados nos quarteirões. Se todos os domicílios de cada quarteirão são pesquisados, então a amostra é conglomerada em um estágio.</p>
+<p>Mesmo que a lista de todos os domicílios esteja disponível, reduções do custo podem ser observadas na amostra conglomerada, pois a localização e identificação dos 400 domicílios espalhados aumenta o custo de transporte, bem como demanda maior tempo para a coleta, em comparação com a localização dos quarteirões selecionados e visita a todos os domicílios destes quarteirões. Por outro lado, para um dado tamanho de amostra, a amostragem direta dos domicílios dá resultados mais precisos do que a amostragem conglomerada de domicílios.</p>
+<p>Se comparamos uma amostra conglomerada com uma amostra de unidades elementares do mesmo número de unidades elementares, em geral, na amostra conglomerada espera-se que:</p>
+<ul>
+<li>O custo por unidade elementar seja mais baixo, devido ao mais baixo custo de listagem, de localização das unidades ou de ambos.<br />
+</li>
+<li>A variância de estimativas amostrais seja maior, dependendo do grau de homogeneidade das unidades agrupadas em conglomerados.</li>
+</ul>
+<p>Então verifica-se que a amostragem conglomerada impõe vantagens (menor custo) e desvantagens (menor precisão). Levando em conta os aspectos operacionais e a redução de custos que a amostragem conglomerada proporciona, em muitas situações práticas, a perda de eficiência amostral é mais que compensada por essa vantagem. Além disso, a redução de custos proporcionada pode permitir selecionar amostras maiores, compensando assim a perda de precisão em relação a amostras não conglomeradas.</p>
+<p>Uma aplicação importante de amostragem (conglomerada) de áreas se dá nas pesquisas domiciliares do IBGE, através da utilização da <em>Base Operacional Geográfica - BOG</em> que tem como suas menores áreas os setores censitários, conforme descrito em <a href="conceitos.html#cadIBGE">2.5.1</a>.</p>
+</div>
+<div id="definições-básicas-e-notação" class="section level2">
+<h2><span class="header-section-number">12.3</span> Definições básicas e notação</h2>
+<p>A população de unidades <span class="math inline">\(U\)</span> é particionada em <span class="math inline">\(M\)</span> grupos <em>mutuamente exclusivos e exaustivos</em>, chamados <em>conglomerados</em>, denotados <span class="math inline">\(C_1, ..., C_i, ..., C_M\)</span>, de modo que:</p>
+<p><span class="math display">\[
+U = C_1\cup C_2\cup \dots \cup C_M = \displaystyle \bigcup_{i=1}^{M}C_i \;\text{  e }\;C_i\cap C_k=\phi, \,\,i\ne k
+\]</span></p>
+<p>Aqui é necessário indexar as unidades populacionais dentro de cada conglomerado, e portanto, as unidades passam a ser identificadas por dois índices <span class="math inline">\(i,j\)</span>, onde <span class="math inline">\(i\)</span> designa o conglomerado e <span class="math inline">\(j\)</span> designa o rótulo da unidade dentro do conglomerado. Então <span class="math inline">\(C_i = \{ (i,1), (i,2), \dots, (i,j), \dots, (i,N_i) \}\)</span>, para <span class="math inline">\(i=1,2,...,M\)</span>, onde <span class="math inline">\(N_i\)</span> é o tamanho do conglomerado <span class="math inline">\(C_i\)</span>. Então <span class="math inline">\(N = N_1 + N_2 + \dots + N_M\)</span>, é o tamanho total da população.</p>
+<p>Selecione uma amostra <span class="math inline">\(a=\{i_1,\dots,i_m\}\)</span> de tamanho <span class="math inline">\(m\,\, (m&gt;0)\)</span>, entre os rótulos de <span class="math inline">\(C = \{1, ..., M\}\)</span> para selecionar os conglomerados, segundo um plano amostral <span class="math inline">\(p(a)\)</span>.</p>
+<p>Observe que, de um ponto de vista matemático, a definição da particição da população em conglomerados apresentada é muito semelhante à definição da partição em estratos, vista no Capítulo <a href="estrat.html#estrat">11</a>. A diferença fundamental entre amostragem <em>estratificada</em> e <em>conglomerada</em> é que, na primeira, selecionamos diretamente amostras de unidades elementares dentro de cada um dos <span class="math inline">\(H\)</span> grupos (estratos) formados, enquanto que, na segunda, selecionamos uma amostra de grupos (conglomerados) entre os <span class="math inline">\(M\)</span> grupos formados, tratando então os grupos como unidades de amostragem, e investigando apenas unidades elementares dentro dos conglomerados selecionados.</p>
+<p>Outra diferença importante se dá no processo da formação dos grupos. Para alcançar eficiência, quando estamos definindo grupos para servirem como estratos, o ideal é que estes sejam internamente homogêneos, cada um formado por unidades parecidas entre si. Já quando vamos usar os grupos como unidades de amostragem (conglomerados), então idealmente devem ser internamente heterogêneos, cada um formado por unidades que representem o melhor possível a diversidade da população. Em termos de variabilidade, uma boa estratificação é aquela onde a variância <em>dentro</em> dos estratos é pequena e a variância <em>entre</em> os estratos é grande, enquanto que na amostragem conglomerada busca-se o contrário, com a variância <em>dentro</em> dos conglomerados <em>grande</em> e a variância <em>entre</em> eles pequena.</p>
+<p><strong>Exemplo 12.1 </strong> Os setores censitários da Base Operacional Geográfica do IBGE</p>
+<p>Um exemplo que ilustra bem a diferenciação do papel que estruturas de grupos de unidades populacionais podem ter no planejamento amostral é dado pelos setores censitários da Base Operacional Geográfica do IBGE. Estes setores são formados por áreas delimitadas no mapa do território brasileiro, e podem ser vistos como grupos de domicílios e seus moradores. Na maioria das pesquisas amostrais do IBGE, tais como a PNAD Contínua - ver, por exemplo, <span class="citation">Freitas e Antonaci (2014)</span> - ou a POF - ver mais informações no link - <a href="https://www.ibge.gov.br/estatisticas/sociais/rendimento-despesa-e-consumo/9050-pesquisa-de-orcamentos-familiares.html?=&amp;t=conceitos-e-metodos" class="uri">https://www.ibge.gov.br/estatisticas/sociais/rendimento-despesa-e-consumo/9050-pesquisa-de-orcamentos-familiares.html?=&amp;t=conceitos-e-metodos</a> - os setores censitários são usados como conglomerados para seleção da amostra de domicílios e pessoas que serão alvo da pesquisa.</p>
+<p>Essa mesma estrutura de grupos serve como estratos no caso da seleção de domicílios do Censo Demográfico que vão responder ao questionário mais longo, denominado de questionário da amostra. Nessa operação, em cada setor censitário, uma amostra de domicílios é selecionada dentro de cada um dos setores censitários, dando a eles então este papel de estratos, e não de conglomerados - ver <span class="citation">IBGE (2016a)</span> para detalhes.</p>
+</div>
+<div id="amostragem-conglomerada-em-um-estágio" class="section level2">
+<h2><span class="header-section-number">12.4</span> Amostragem conglomerada em um estágio</h2>
+<p>Num plano de <em>Amostragem Conglomerada em em estágio - AC1</em>, são incluídas na amostra da pesquisa todas as unidades de <span class="math inline">\(U\)</span> encontradas nos conglomerados selecionados em <span class="math inline">\(a\)</span>. A amostra <span class="math inline">\(s\)</span> de unidades da população <span class="math inline">\(U\)</span> que serão pesquisadas é dada por:</p>
+<p><span class="math display">\[
+s = C_{i_1} \cup C_{i_2} \cup \dots \cup C_{i_m} = \bigcup_{k=1}^{m}C_{i_k}
+\]</span></p>
+<p>Portanto, a amostragem do tipo AC1 é caracterizada pelos seguintes aspectos:</p>
+<ul>
+<li>As unidades populacionais são reunidas em <em>grupos</em> denominados <em>conglomerados</em>.<br />
+</li>
+<li>Uma amostra de unidades é obtida selecionando uma <em>amostra de conglomerados</em> e <em>incluindo na amostra todas as unidades</em> pertencentes aos conglomerados selecionados.</li>
+</ul>
+<p>Segue ilustração utilizando um baralho que pode ser observado na Figura <a href="cong.html#fig:baralho">12.2</a>. Cada grupo de um mesmo número ou letra (A, 2, …, 7, J, Q, K) representa um conglomerado de cartas dos quatro diferentes naipes (paus, ouros, copas e espadas).</p>
+<center>
+<div class="figure"><span id="fig:baralho"></span>
+<img src="Figuras/baralho.png" alt="Ilustração de unidades elementares “naturalmente” agrupadas" width="80%" />
+<p class="caption">
+Figura 12.2: Ilustração de unidades elementares “naturalmente” agrupadas
+</p>
+</div>
+</center>
+<p>Na ilustração da Figura <a href="cong.html#fig:baralhoAC1">12.3</a> temos uma amostra selecionada por amostragem do tipo AC1, onde os conglomerados foram formados com as quatro cartas de cada número ou letra.</p>
+<center>
+<div class="figure"><span id="fig:baralhoAC1"></span>
+<img src="Figuras/baralhoAC1.png" alt="Ilustração da seleção de amostragem conglomerada em um estágio" width="80%" />
+<p class="caption">
+Figura 12.3: Ilustração da seleção de amostragem conglomerada em um estágio
+</p>
+</div>
+</center>
+<p>Na ilustração foram selecionados, utilizando um dos métodos de seleção vistos anteriormente, dois conglomerados, no caso os de número 3 e 7, resultando numa amostra de 8 cartas do baralho: 3 de paus, 3 de ouros, 3 de copas, 3 de espadas, 7 de paus, 7 de ouros, 7 de copas e 7 de espadas.</p>
+</div>
+<div id="amostragem-conglomerada-em-vários-estágios" class="section level2">
+<h2><span class="header-section-number">12.5</span> Amostragem conglomerada em vários estágios</h2>
+<p>A <em>amostragem conglomerada em vários estágios</em> é caracterizada por unidades populacionais arranjadas em grupos conforme uma hierarquia, com seleção de grupos nos vários níveis da hierarquia até chegar às unidades elementares (de referência) da pesquisa que serão investigadas.</p>
+<p>Na amostragem conglomerada em três estágios, por exemplo, adota-se a seguinte terminologia, onde cada estágio da amostragem considera um tipo de unidade: Unidades Primárias de Amostragem - UPAs; Unidades Secundárias de Amostragem - USAs; e unidades elementares.</p>
+<p>Tal estratégia consiste no arranjo da população em UPAs, as quais são divididas em USAs, que contém as unidades elementares, formando os 3 estágios sucessivos.</p>
+<p>Para selecionar uma amostra de unidades elementares que serão investigadas, deve-se proceder da seguinte forma:</p>
+<ul>
+<li><strong>Estágio 1</strong>: selecionar uma amostra de UPAs.</li>
+<li><strong>Estágio 2</strong>: selecionar uma amostra de USAs em cada uma das UPAs selecionadas no primeiro estágio.</li>
+<li><strong>Estágio 3</strong>: selecionar uma amostra de unidades elementares em cada uma das USAs selecionadas no segundo estágio, que irão compor a amostra, <span class="math inline">\(s\)</span>, de unidades elementares a serem investigadas.</li>
+</ul>
+<p><strong>Exemplo 12.2 </strong> Considere o caso em que é preciso selecionar uma amostra de domicílios para uma pesquisa numa determinada região. Não há uma listagem atualizada e disponível dos domicílios existentes na região, mas é possível obter a lista dos municípios que a formam, e o IBGE disponibiliza um cadastro dos setores censitários existentes em cada um desses municípios. É possivel, então, selecionar uma amostra conglomerada em 3 estágios de domicílios mediante as seguintes etapas:</p>
+<ul>
+<li><strong>Estágio 1</strong>: selecionar uma amostra de municípios, que neste caso serão as UPAs.</li>
+<li><strong>Estágio 2</strong>: selecionar uma amostra de setores censitários - USAs - em cada um dos municípios selecionados no primeiro estágio.</li>
+<li><strong>Estágio 3</strong>: selecionar uma amostra de domicílios em cada um dos setores selecionados.</li>
+</ul>
+<p>A amostra de domicílios a serem investigados na região será formada pela união das amostras de domicílios selecionadas em cada um dos setores selecionados. Provavelmente será necessário fazer uma atualização da lista dos domicílios para cada um dos setores selecionados no segundo estágio antes de selecionar os domicílios, porém essa atualização só será necessária para os setores selecionados, e não para todos os setores da região, como seria necessário se a amostra fosse selecionada diretamente na região sem considerar os estágios referentes aos municípios e setores.</p>
+<p>Fica como exercício para o leitor definir o tipo de seleção que poderia ser utilizado em cada um dos estágios.</p>
+<p><strong>Notas</strong></p>
+<ol style="list-style-type: decimal">
+<li>Sem USAs, o esquema acima se torna amostragem conglomerada em dois estágios, ou amostragem conglomerada com subamostragem.<br />
+</li>
+<li>O processo acima pode ser estendido para quatro ou mais estágios.<br />
+</li>
+<li>Na prática, é raro ver planos com mais de três ou quatro estágios de seleção.</li>
+</ol>
+<p>Segue ilustração na Figura <a href="cong.html#fig:baralhoAC2">12.4</a> de amostragem conglomerada em dois estágios - AC2, utilizando o baralho com os grupamentos definidos anteriormente.</p>
+<center>
+<div class="figure"><span id="fig:baralhoAC2"></span>
+<img src="Figuras/baralhoAC2.png" alt="Ilustração da seleção de amostragem conglomerada em 2 estágios " width="80%" />
+<p class="caption">
+Figura 12.4: Ilustração da seleção de amostragem conglomerada em 2 estágios
+</p>
+</div>
+</center>
+<p>Foram selecionados os conglomerados - UPAs, 3, 7 e J (Valete) e, em cada um destes três conglomerados, selecionadas duas cartas, resultando numa amostra de seis cartas do baralho: 3 de ouros, 3 de copas, 7 de paus, 7 de copas, Valete de copas e Valete de espadas.</p>
+<p>Populações humanas em geral são organizadas segundo uma hierarquia definida por regiões, estados, municípios, bairros, endereços, domicílios, famílias e pessoas. Além disso, existem hierarquias que podem ser utilizadas em amostragem conglomerada para investigação de unidades institucionais, nas áreas de agricultura, educação, negócios, saúde, cultura, etc.</p>
+<p><strong>Exemplo 12.3 </strong> Como outros exemplos de estruturas com hierarquia, considere:</p>
+<ol style="list-style-type: lower-alpha">
+<li>Conglomerados = áreas num mapa; e unidades elementares = estabelecimentos agropecuários.<br />
+</li>
+<li>UPAs = hospitais; USAs = enfermarias; e unidades elementares = pacientes.<br />
+</li>
+<li>UPAs = escolas; USAs = turmas; e unidades elementares = crianças/estudantes.<br />
+</li>
+<li>Conglomerados = veículos cruzando um posto de pedágio; e unidades elementares = passageiros nos veículos.<br />
+</li>
+<li>UPAs = empresas industriais; e unidades elementares = unidades locais.</li>
+</ol>
+<p><strong>Exemplo 12.4 </strong> Plano amostral da <em>Pesquisa Mensal de Emprego - PME</em> - na Região Metropolitana de São Paulo realizada pelo IBGE</p>
+<p>O plano amostral empregado na PME da RM de São Paulo era amostragem conglomerada em dois estágios, onde os setores censitários da Região Metroplitana de São Paulo eram as UPAs, e os domícilios particulares eram as USAs. Em cada domicílio selecionado para a pesquisa, as unidades elementares eram os moradores. Todos os moradores dos domicílios selecionados eram pesquisados, sendo que somente os que tinham 10 anos ou mais de idade preenchiam a parte referente às características de ocupação e rendimento. O plano é dito em dois estágios porque não havia sorteio de moradores dentro dos domicílios selecionados.</p>
+<p>A amostra era de cerca de 430 setores por mês, com média de aproximadamente 18 domicílios selecionados em cada setor da amostra, resultando em aproximadamente 7.800 domicílios na amostra por mês.</p>
+<p>A PME foi encerrada em março de 2016, com a divulgação dos resultados referentes ao mês de fevereiro de 2016, tendo sido substituída, com metodologia atualizada, pela Pesquisa Nacional por Amostra de Domicílios Contínua - PNAD Contínua, que abrange todo o País. Detalhes sobre a PME podem ser vistos em <a href="https://www.ibge.gov.br/estatisticas/sociais/trabalho/9180-pesquisa-mensal-de-emprego.html?=&amp;t=o-que-e" class="uri">https://www.ibge.gov.br/estatisticas/sociais/trabalho/9180-pesquisa-mensal-de-emprego.html?=&amp;t=o-que-e</a>.</p>
+<p><strong>Exemplo 12.5 </strong> Amostra da <em>Pesquisa Nacional de Saúde do Escolar - PeNSE</em></p>
+<p>Outra pesquisa, por amostra conglomerada, realizada pelo IBGE, em conjunto com o Ministério da Saúde, é a PeNSE que busca estudar aspectos como “a maior exposição a fatores de risco para a saúde, como uso de tabaco, consumo de álcool, alimentação inadequada e sedentarismo” em uma amostra de adolescentes que frequentam aulas em escolas públicas e privadas no território nacional. Trata-se de um plano amostral complexo que envolve estratificação, conglomeração, seleção de amostras com probabilidades desiguais, que pode ser visto com mais detalhes em <span class="citation">IBGE (2016b)</span>. Em relação à amostragem conglomerada, são utilizados três estágios de seleção em cada um dos estratos definidos:</p>
+<ul>
+<li><strong>Estágio 1</strong>: UPAs - Municípios em cada um dos estratos.</li>
+<li><strong>Estágio 2</strong>: USAs - Escolas com turmas de alunos nas etapas de ensino de interesse em cada município selecionado.</li>
+<li><strong>Estágio 3</strong>: UTAs - Turmas de alunos nas etapas de ensino de interesse em cada escola selecionada.</li>
+</ul>
+<p>Seria possível implementar um quarto estágio selecionando apenas uma parte dos alunos de cada turma selecionada para responderem ao questionário da pesquisa, porém por facilidades operacionais foi decidido pela inclusão de todos os alunos, de cada turma selecionada, na amostra final.</p>
+<p>A amostragem conglomerada em um ou mais estágios deve ser adotada sempre que:</p>
+<ol style="list-style-type: decimal">
+<li><em>Não existe cadastro</em> de unidades elementares, mas existe (ou se pode construir) um cadastro de UPAs e, sendo necessário, cadastros de USAs, etc.<br />
+</li>
+<li><em>Concentrar a coleta</em> de dados em umas poucas localidades ou grupos de unidades reduz o custo de deslocamento entre unidades elementares.<br />
+</li>
+<li>O <em>acesso</em> às unidades elementares pode depender de pontos de passagem controlados nalgum nível da hierarquia.<br />
+</li>
+<li>A maior capacidade de supervisão do trabalho em grupos de unidades pode resultar em melhor qualidade dos dados a serem coletados.</li>
+</ol>
+</div>
+<div id="notação-na-amostragem-conglomerada-em-um-estágio" class="section level2">
+<h2><span class="header-section-number">12.6</span> Notação na amostragem conglomerada em um estágio</h2>
+<p>A Tabela <a href="cong.html#tab:tabcong2">12.2</a> apresenta a notação para os tamanhos populacionais e da amostra na AC1 para uma dada população.</p>
+<table>
+<caption>
+<span id="tab:tabcong2">Tabela 12.2: </span>Definição dos tamanhos da população e da amostra na AC1
+</caption>
+</table>
+<center>
+<table style="width:100%;">
+<colgroup>
+<col width="27%" />
+<col width="36%" />
+<col width="36%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Definição</th>
+<th align="left">População</th>
+<th align="left">Amostra</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Conglomerados</td>
+<td align="left"><span class="math inline">\(M\)</span></td>
+<td align="left"><span class="math inline">\(m\)</span></td>
+</tr>
+<tr class="even">
+<td align="left">Unidades no conglomerado <span class="math inline">\(i\)</span></td>
+<td align="left"><span class="math inline">\(N_i\)</span></td>
+<td align="left"><span class="math inline">\(N_i\)</span></td>
+</tr>
+<tr class="odd">
+<td align="left">Tamanho da população/amostra</td>
+<td align="left"><span class="math inline">\(N = \displaystyle\sum_{i\in C}N_i\)</span></td>
+<td align="left"><span class="math inline">\(n = \displaystyle \sum_{i \in a} N_i\)</span></td>
+</tr>
+</tbody>
+</table>
+</center>
+<p>A Tabela <a href="cong.html#tab:tabcong3">12.3</a> apresenta os parâmetros populacionais total e média por conglomerado e na população como um todo.</p>
+<table>
+<caption>
+<span id="tab:tabcong3">Tabela 12.3: </span>Definição de parâmetros populacionais nos conglomerados e na população
+</caption>
+</table>
+<center>
+<table>
+<colgroup>
+<col width="53%" />
+<col width="46%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Definição</th>
+<th align="left">Parâmetro</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Valor da variável de pesquisa para unidade <span class="math inline">\(j\)</span> do conglomerado <span class="math inline">\(i\)</span></td>
+<td align="left"><span class="math inline">\(y_{ij}\)</span></td>
+</tr>
+<tr class="even">
+<td align="left">Total no conglomerado <span class="math inline">\(i\)</span></td>
+<td align="left"><span class="math inline">\(Y_i = \displaystyle \sum_{j \in C_i} y_{ij}\)</span></td>
+</tr>
+<tr class="odd">
+<td align="left">Média no conglomerado <span class="math inline">\(i\)</span></td>
+<td align="left"><span class="math inline">\(\overline {Y_i} = {Y_i}/{N_i} = \displaystyle \frac 1 N_i \sum_{j \in C_i} y_{ij}\)</span></td>
+</tr>
+<tr class="even">
+<td align="left">Total populacional</td>
+<td align="left"><span class="math inline">\(Y = \displaystyle \sum_{i=1}^{M} Y_i = \sum_{i \in C} Y_i\)</span></td>
+</tr>
+<tr class="odd">
+<td align="left">Média populacional por conglomerado</td>
+<td align="left"><span class="math inline">\(\overline {Y_C} = Y / M = \displaystyle \frac 1 M \sum_{i \in C} Y_i\)</span></td>
+</tr>
+<tr class="even">
+<td align="left">Média populacional por unidade</td>
+<td align="left"><span class="math inline">\(\overline Y = Y / N = \displaystyle \frac 1 N \sum_{i \in C} Y_i\)</span></td>
+</tr>
+</tbody>
+</table>
+</center>
+</div>
+<div id="amostragem-conglomerada-em-um-estágio-simples" class="section level2">
+<h2><span class="header-section-number">12.7</span> Amostragem conglomerada em um estágio simples</h2>
+<p>O método de seleção de uma amostra por <em>Amostragem Conglomerada em um estágio simples -AC1S</em> consiste nos seguintes passos:</p>
+<ol style="list-style-type: decimal">
+<li>Selecione uma amostra <span class="math inline">\(a\)</span> de <span class="math inline">\(m\)</span> conglomerados dentre os <span class="math inline">\(M\)</span> existentes na população <span class="math inline">\(C\)</span> de UPAs por AAS.<br />
+</li>
+<li>Pesquise cada uma das unidades elementares presentes nos conglomerados selecionados da amostra <span class="math inline">\(a\)</span>.</li>
+</ol>
+<p>A amostra desejada é formada por todas as unidades elementares existentes nos <span class="math inline">\(m\)</span> conglomerados selecionados.</p>
+<p>A Tabela <a href="cong.html#tab:tabcong4">12.4</a> apresenta as informações amostrais nos conglomerados selecionados e em toda amostra.</p>
+<table>
+<caption>
+<span id="tab:tabcong4">Tabela 12.4: </span>Descrição das informações amostrais na AC1S
+</caption>
+</table>
+<center>
+<table>
+<colgroup>
+<col width="61%" />
+<col width="38%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Descrição</th>
+<th align="left">Valores amostrais</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Valor da variável de pesquisa para unidade <span class="math inline">\(j\)</span> do conglomerado selecionado <span class="math inline">\(i\)</span></td>
+<td align="left"><span class="math inline">\(y_{ij} \,\,\,\, \forall\, j=1, \dots, N_i\)</span>,<br />
+<span class="math inline">\(i \in a = \{{ i_1,\dots,i_m \}}\)</span></td>
+</tr>
+<tr class="even">
+<td align="left">Total no conglomerado <span class="math inline">\(i\)</span> da amostra <span class="math inline">\(i \in a = \{{ i_1, \dots, i_m} \}\)</span></td>
+<td align="left"><span class="math inline">\(Y_i = \displaystyle \sum_{j \in C_i} y_{ij}\)</span></td>
+</tr>
+<tr class="odd">
+<td align="left">Média no conglomerado <span class="math inline">\(i\)</span> da amostra <span class="math inline">\(i \in a = \{{ i_1, \dots, i_m} \}\)</span></td>
+<td align="left"><span class="math inline">\(\overline {Y_i} = {Y_i}/{N_i}\)</span></td>
+</tr>
+<tr class="even">
+<td align="left">Total amostral</td>
+<td align="left"><span class="math inline">\(t = \displaystyle \sum_{i \in a} Y_i\)</span></td>
+</tr>
+<tr class="odd">
+<td align="left">Média por conglomerado</td>
+<td align="left"><span class="math inline">\(\displaystyle \overline y_C = t/m = \displaystyle \frac 1 m \sum_{i \in a} Y_i\)</span></td>
+</tr>
+<tr class="even">
+<td align="left">Média por unidade</td>
+<td align="left"><span class="math inline">\(\displaystyle \overline y = t/n = \displaystyle \sum_{i \in a} Y_i \Big/ \displaystyle \sum_{i \in a} N_i\)</span></td>
+</tr>
+<tr class="odd">
+<td align="left">Probabilidade de inclusão dos conglomerados (qualquer um)</td>
+<td align="left"><span class="math inline">\(m/M\)</span></td>
+</tr>
+<tr class="even">
+<td align="left">Probabilidade de inclusão das unidades elementares (todas)</td>
+<td align="left"><span class="math inline">\(m/M\)</span></td>
+</tr>
+</tbody>
+</table>
+</center>
+<div id="estimação-do-total-sob-ac1s" class="section level3">
+<h3><span class="header-section-number">12.7.1</span> Estimação do total sob AC1S</h3>
+<p>O estimador natural (de Horvitz-Thompson) do total populacional sob plano amostral da AC1S é dado por:</p>
+<p><span class="math display" id="eq:eqcong1">\[
+\displaystyle \widehat Y_{AC1S/HT} = \frac{M}{m} \displaystyle \sum_{i \in a} Y_i = M \overline y_C = \displaystyle \sum_{i \in a} \sum_{j \in C_i} d_{ij} y_{ij}\,\,\tag{12.1}
+\]</span></p>
+<p>onde <span class="math inline">\(d_{ij} = M/m\)</span> são os pesos individuais básicos sob AC1S.</p>
+<p>A variância do estimador natural do total populacional é dada por:</p>
+<p><span class="math display" id="eq:eqcong2">\[
+\displaystyle V_{AC1S} \left( \widehat Y_{AC1S/HT} \right) = M^2 \frac {1-f} {m} S_e^2=M^2 \left(\frac1m-\frac1M\right)S_e^2 \tag{12.2}
+\]</span></p>
+<p>onde <span class="math inline">\(f = m/M\)</span> e <span class="math inline">\(\displaystyle S_e^2 = \frac {1} {M-1} \displaystyle \sum_{i \in C} \left(Y_i - \overline {Y_C} \right)^2\)</span> é a <em>variância entre</em> os totais dos conglomerados.</p>
+<p>Um estimador não viciado para a variância do estimador natural do total populacional é dado por:</p>
+<p><span class="math display" id="eq:eqcong3">\[
+\displaystyle \widehat V_{AC1S} \left( \widehat Y_{AC1S/HT} \right) = M^2 \frac {1-f} {m} s_e^2 \,\, \tag{12.3}
+\]</span></p>
+<p>onde <span class="math inline">\(s_e^2 = \displaystyle \frac {1} {m-1} \displaystyle \sum_{i \in a} \left(Y_i - \overline y_C \right)^2\)</span>.</p>
+<p>Quando todos os conglomerados têm tamanhos iguais, isto é, <span class="math inline">\(N_i = \overline N, \, \, \forall\, i \in C\)</span>, o estimador natural é a única opção de estimador simples para o total. Quando os tamanhos dos conglomerados variam, este estimador pode ser pouco eficiente. Nesse caso, um estimador que ajuda a reduzir o efeito da variação dos tamanhos dos conglomerados na precisão é um estimador tipo razão baseado no tamanho dos conglomerados. Este estimador é dado por:</p>
+<p><span class="math display" id="eq:eqcong4">\[
+\displaystyle \widehat Y_{AC1S/R} = \frac {N} {n} \displaystyle \sum_{i \in a} Y_i = N \overline y = \displaystyle \sum_{i \in a} \sum_{j \in C_i} w_{ij}^R y_{ij} \,\, \tag{12.4}
+\]</span></p>
+<p>onde <span class="math inline">\(w_{ij}^R = N/n\)</span> são pesos amostrais ajustados ou ‘calibrados’, no sentido de que seu uso aplicado a uma variável de contagem <span class="math inline">\((y_{ij}=1, \, \,\forall\, i,j)\)</span> levaria a obter uma estimativa para o tamanho da população igual ao tamanho total <span class="math inline">\(N\)</span>.</p>
+<p>Note que este estimador requer que o tamanho total da população <span class="math inline">\((N)\)</span> seja conhecido. Portanto, em muitas situações este estimador não é viável.</p>
+<p>A variância aproximada do estimador tipo razão do total é dada por:</p>
+<p><span class="math display" id="eq:eqcong5">\[
+\displaystyle V_{AC1S} \left( \widehat Y_{AC1S/R} \right) \doteq M^2 \left( \frac 1 m - \frac 1 M \right) \frac {1} {M-1} \displaystyle \sum_{i \in C} N_i^2 \left( \overline {Y_i} - \overline Y \right)^2 \,\, \tag{12.5}
+\]</span></p>
+<p>Esta aproximação requer que o número de conglomerados na amostra <span class="math inline">\((m)\)</span> seja grande.</p>
+<p>O estimador da variância do estimador tipo razão do total pode ser obtido por:</p>
+<p><span class="math display" id="eq:eqcong6">\[
+\displaystyle \widehat V_{AC1S} \left( \widehat Y_{AC1S/R} \right) = M^2 \left( \frac 1 m - \frac 1 M \right) \frac {1} {m-1} \displaystyle \sum_{i \in a} N_i^2 \left( \overline {Y_i} - \overline y \right)^2 \,\,\tag{12.6}
+\]</span></p>
+<p>Comparando os estimadores natural e tipo razão para o total populacional, sob o plano amostral de AC1S, tem-se:</p>
+<ol style="list-style-type: decimal">
+<li>Se os conglomerados tiverem todos o mesmo tamanho, ou seja:<br />
+<span class="math display">\[
+N_i=N/M=\overline N,\;\;\forall \,i=1,\dots,M
+\]</span>
+então:<br />
+<span class="math display">\[
+\widehat Y_{AC1S/R} = \widehat Y_{AC1S/HT}
+\]</span></li>
+<li>Somente o estimador natural, <span class="math inline">\(\widehat Y_{AC1S/HT}\)</span>, pode ser utilizado quando <span class="math inline">\(N\)</span> for desconhecido.<br />
+</li>
+<li>O estimador <span class="math inline">\(\widehat Y_{AC1S/HT}\)</span> é exatamente não viciado.<br />
+</li>
+<li>O estimador <span class="math inline">\(\widehat Y_{AC1S/R}\)</span> é apenas aproximadamente não viciado, para grandes amostras.<br />
+</li>
+<li>O estimador tipo razão, <span class="math inline">\(\widehat Y_{AC1S/R}\)</span>, pode ser muito mais preciso que <span class="math inline">\(\widehat Y_{AC1S/HT}\)</span> em certos casos, pois se:
+<span class="math display">\[
+ \overline {Y_i} \doteq \overline Y, \,\, \forall \,i
+ \]</span><br />
+então:
+<span class="math display">\[
+ V_{AC1S} \left( \widehat Y_{AC1S/R} \right) \doteq 0
+ \]</span>
+enquanto que:
+<span class="math display">\[
+ V_{AC1S} \left( \widehat Y_{AC1S/HT} \right) \propto \displaystyle \sum_{i \in C} \left( Y_i - \overline Y_C \right)^2 = \displaystyle \sum_{i \in C} \left( N_i \overline {Y_i} - \overline N \overline Y \right)^2 \doteq \overline Y^2 \displaystyle \sum_{i \in C} \left( N_i - \overline N \right)^2
+ \]</span></li>
+</ol>
+<p>Isto é, a variância do estimador natural incorpora parcela devida à variação dos tamanhos dos conglomerados e, portanto, a ocorrência de variabilidade nos tamanhos dos conglomerados causa acentuada perda de precisão nesse estimador sob amostragem conglomerada em um estágio simples. Essa perda será maior quando maior for a variabilidade dos tamanhos dos conglomerados.</p>
+<p>Na prática, as médias <span class="math inline">\(\overline {Y_i}\)</span> são menos variáveis entre conglomerados que os totais <span class="math inline">\(Y_i\)</span>, e portanto:</p>
+<p><span class="math display">\[
+V_{AC1S} \left( \widehat Y_{AC1S/R} \right) &lt; V_{AC1S} \left( \widehat Y_{AC1S/HT} \right)
+\]</span></p>
+<p>Os ganhos de precisão do estimador tipo razão podem ser grandes quando:</p>
+<ul>
+<li>For grande a variação dos tamanhos <span class="math inline">\(N_i\)</span>.<br />
+</li>
+<li>For pequena a variação entre as médias <span class="math inline">\(\overline {Y_i}\)</span> dos conglomerados.</li>
+</ul>
+<p>Na prática, a formação de conglomerados com tamanhos iguais para controlar a variação de tamanho na variância do estimador e, também, na variação do tamanho final da amostra, nem sempre é possível, sendo a ocorrência de conglomerados com tamanhos iguais pouco comum.</p>
+<p>Assim, ao invés de tentar construir artificialmente conglomerados de tamanhos iguais, é possível manter os conglomerados com tamanhos desiguais e utilizar métodos de seleção de amostra e estimadores adequados na expectativa de redução da variância e de menor perda de precisão com o uso da amostragem conglomerada.</p>
+<p>Os métodos usuais para reduzir o efeito da variabilidade dos tamanhos dos conglomerados são:</p>
+<ol style="list-style-type: lower-alpha">
+<li>Selecionar os conglomerados com probabilidades proporcionais ao tamanho.<br />
+</li>
+<li>Estratificar os conglomerados, utilizando o tamanho como variável de estratificação.<br />
+</li>
+<li>Usar estimadores tipo razão, com a variável auxiliar sendo o tamanho do conglomerado.</li>
+</ol>
+<p><strong>Recomendações</strong></p>
+<ul>
+<li>Em geral, prefira <span class="math inline">\(\widehat Y_{AC1S/R}\)</span> a menos que <span class="math inline">\(N\)</span> seja desconhecido.<br />
+</li>
+<li>Se <span class="math inline">\(\widehat Y_{AC1S/HT}\)</span> tiver que ser usado: <em>estratifique os conglomerados</em> por tamanho ou <em>use amostragem conglomerada com PPT</em>. Em termos de eficiência não parece haver vantagem nítida de qualquer das duas alternativas, sendo bastante semelhantes os resultados obtidos com ambas as técnicas em termos da precisão final das estimativas.</li>
+</ul>
+</div>
+<div id="estimação-da-média-sob-ac1s" class="section level3">
+<h3><span class="header-section-number">12.7.2</span> Estimação da média sob AC1S</h3>
+<p>O estimador de Horvitz-Thompson da média por unidade, <span class="math inline">\(\overline Y\)</span>, sob plano amostral da AC1S é dado por:</p>
+<p><span class="math display" id="eq:eqcong7">\[
+\displaystyle \overline y_{AC1S/HT} = \frac {\widehat Y_{AC1S/HT}} {N} = \frac {M} {N} \frac {1} {m} \displaystyle \sum_{i\in a} Y_i = \overline y_C / \overline N \,\, \tag{12.7}
+\]</span></p>
+<p>A variância do estimador HT da média é dada por:</p>
+<p><span class="math display" id="eq:eqcong8">\[
+\displaystyle V_{AC1S} \left( \overline y_{AC1/HT} \right) = \frac {M^2} {N^2} \left( \frac 1 m - \frac 1 M \right) S_e^2 = \frac {1} {\overline N^2} \left( \frac 1 m - \frac 1 M \right) S_e^2 \,\, \tag{12.8}
+\]</span></p>
+<p>O estimador da variância do estimador HT da média é dado por:</p>
+<p><span class="math display" id="eq:eqcong9">\[
+\displaystyle \widehat V_{AC1S} \left( \overline y_{AC1S/HT} \right) = \frac {M^2} {N^2} \left( \frac 1 m - \frac 1 M \right) s_e^2 = \frac {1} {\overline N^2} \left( \frac 1 m - \frac 1 M \right) s_e^2 \,\, \tag{12.9}
+\]</span></p>
+<p>Um estimador tipo razão da média por unidade <span class="math inline">\(\overline Y\)</span> sob o plano amostral da AC1S é dado por:</p>
+<p><span class="math display" id="eq:eqcong10">\[
+\displaystyle \overline y_{AC1S/R} = \frac {\widehat Y_{AC1S/R}} {N} = \frac {1} {n} \displaystyle \sum_{i \in a} Y_i = \overline y_C / \overline n = \overline y \,\, \tag{12.10}
+\]</span></p>
+<p>onde <span class="math inline">\(\displaystyle \overline n = \frac {1} {m} \displaystyle \sum_{i \in a} N_i = \frac {n} {m}\)</span>.</p>
+<p>A variância aproximada do estimador de razão da média é dado por:</p>
+<p><span class="math display" id="eq:eqcong11">\[
+\displaystyle V_{AC1S} \left( \overline y_{AC1S/R} \right) \doteq \frac {1} {\overline N^2} \left( \frac 1 m - \frac 1 M \right) \frac {1} {M-1} \displaystyle \sum_{i \in C} N_i^2 \left( \overline {Y_i} - \overline Y \right)^2 \,\, \tag{12.11}
+\]</span></p>
+<p>Esta aproximação é válida somente para amostras grandes, isto é, com <span class="math inline">\(m\)</span> grande.</p>
+<p>O estimador da variância do estimador tipo razão da média é dado por:</p>
+<p><span class="math display" id="eq:eqcong12">\[
+\displaystyle \widehat V_{AC1S} \left( \overline y_{AC1S/R} \right) = \frac {1} {\overline n^2} \left( \frac 1 m - \frac 1 M \right) \frac {1} {m-1} \displaystyle \sum_{i \in a} N_i^2 \left( \overline {Y_i} - \overline y \right)^2  \,\, \tag{12.12}
+\]</span></p>
+<p>com <span class="math inline">\(\overline n\)</span> em lugar de <span class="math inline">\(\overline N\)</span> quando este for desconhecido.</p>
+<p><strong>Notas</strong></p>
+<ol style="list-style-type: decimal">
+<li>Se <span class="math inline">\(N\)</span> (ou <span class="math inline">\(\overline N\)</span>) for desconhecido, só podemos usar <span class="math inline">\(\overline y_{AC1S/R}\)</span>.<br />
+</li>
+<li>As comparações de vício e variância feitas para o caso dos estimadores de total seguem válidas para os estimadores da média.<br />
+</li>
+<li>Quase sempre é preferível usar <span class="math inline">\(\overline y_{AC1S/R} = \overline y\)</span>, a média simples por unidade elementar.</li>
+</ol>
+<p>A Tabela <a href="cong.html#tab:tabcong5">12.5</a> apresenta um resumo da estimação de parâmetros média e total da variável <span class="math inline">\(y\)</span> sob AC1S.</p>
+<table>
+<caption>
+<span id="tab:tabcong5">Tabela 12.5: </span>Estimadores dos parâmetros média e total populacional sob AC1S
+</caption>
+</table>
+<strong>PROPOSTA 1</strong>
+<center>
+<table>
+<colgroup>
+<col width="100%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Estimador</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><span class="math inline">\(\displaystyle \overline y_{AC1S/HT} = \frac {\widehat Y_{AC1S/HT}}{N} = \frac {M} {N} \frac {1} {m} \displaystyle \sum_{i \in a} Y_i = \overline y_C / \overline N\)</span></td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(\displaystyle\overline y_{AC1S/R}=\frac{\widehat Y_{AC1S/R}} {N}=\displaystyle\frac{1}{n}\sum_{i\in a}Y_i=\overline y_C/\overline n=\overline y\)</span></td>
+</tr>
+<tr class="odd">
+<td align="left"><span class="math inline">\(\displaystyle \widehat Y_{AC1S/HT} = \frac {M}{m} \displaystyle \sum_{i \in a} Y_i = M \overline y_C = \displaystyle \sum_{i \in a} \sum_{j \in C_i} d_{ij} y_{ij}\)</span></td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(\displaystyle \widehat Y_{AC1S/R} = \frac {N} {n} \displaystyle \sum_{i \in a} Y_i = N \overline y = \displaystyle \sum_{i \in a} \sum_{j\in C_i} w_{ij}^R y_{ij}\)</span></td>
+</tr>
+<tr class="odd">
+<td align="left"><span class="math inline">\(\displaystyle \widehat V_{AC1S} \left( \overline y_{AC1S/HT} \right) = \frac {1} {\overline N^2} \left( \frac 1 m - \frac 1 M \right) s_e^2\)</span></td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(\widehat V_{AC1S}\left(\overline y_{AC1S/R}\right)=\displaystyle\frac{1}{\overline n^2}\left(\frac1 m -\frac 1 M\right)\frac{1}{m-1}\displaystyle\sum_{i\in a}N_i^2\left(\overline {Y_i} -\overline y\right)^2\)</span></td>
+</tr>
+<tr class="odd">
+<td align="left"><span class="math inline">\(\displaystyle \widehat V_{AC1S} \left( \widehat Y_{AC1S/HT}\right)= M^2 \left( \frac 1 m - \frac 1 M \right) s_e^2\)</span></td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(\widehat V_{AC1S}\left(\widehat Y_{AC1S/R}\right) = M^2\left(\displaystyle\frac 1 m-\frac 1 M \right)\displaystyle\frac {1} {m-1}\displaystyle\sum_{i\in a} N_i^2(\overline {Y_i}-\overline y)^2\)</span></td>
+</tr>
+</tbody>
+</table>
+</center>
+<strong>PROPOSTA 2</strong>
+<center>
+<table>
+<colgroup>
+<col width="80%" />
+<col width="19%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Parâmetro</th>
+<th align="left">Estimador</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><span class="math inline">\(\scriptstyle\overline Y = Y / N =\frac{1}{N}\sum_{i\in C} Y_i\)</span></td>
+<td align="left"><span class="math inline">\(\scriptstyle \overline y_{AC1S/HT} = \frac {\widehat Y_{AC1S/HT}}{N} = \frac {M} {N} \frac {1} {m}\sum_{i \in a} Y_i = \overline y_C / \overline N \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\)</span> <span class="math inline">\(\scriptstyle\overline y_{AC1S/R}= \frac{\widehat Y_{AC1S/R}} {N}=\frac{1}{n} \sum_{i\in a}Y_i=\overline y_C/\overline n=\overline y\)</span></td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(\scriptstyle Y = N \overline Y= \sum_{i\in C} Y_i\)</span></td>
+<td align="left"><span class="math inline">\(\scriptstyle \widehat Y_{AC1S/HT} = \frac {M}{m}\sum_{i \in a} Y_i = M \overline y_C =\sum_{i \in a} \sum_{j \in C_i} d_{ij} y_{ij}\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\)</span>
+<span class="math inline">\(\scriptstyle\widehat Y_{AC1S/R} = \frac {N} {n}\sum_{i \in a} Y_i = N \overline y = \sum_{i \in a} \sum_{j\in C_i} w_{ij}^R y_{ij}\)</span></td>
+</tr>
+<tr class="odd">
+<td align="left"><span class="math inline">\(\scriptstyle V_{AC1S}\left(\overline y_{AC1S/HT}\right)=\frac{M^2}{N^2}\left(\frac1m-\frac1M\right)S_e^2=\frac1{\overline N^2}\left(\frac1m-\frac1M\right)S_e^2\)</span></td>
+<td align="left"><span class="math inline">\(\scriptstyle\widehat V_{AC1S} \left( \overline y_{AC1S/HT} \right) = \frac {1} {\overline N^2} \left( \frac 1 m - \frac 1 M \right) s_e^2\)</span></td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(\scriptstyle V_{AC1S}\left(\overline y_{AC1S/R}\right)\doteq\frac1{\overline N^2}\left(\frac1m-\frac1M\right)\frac1{M-1}\sum_{i\in C}N_i^2\left(\overline{Y_i}-\overline Y\right)^2\)</span></td>
+<td align="left"><span class="math inline">\(\scriptstyle\widehat V_{AC1S} \left(\overline y_{AC1S/R}\right)=\frac{1}{\overline n^2}\left(\frac1 m -\frac 1 M\right)\frac{1}{m-1}\sum_{i\in a}N_i^2\left(\overline {Y_i} -\overline y\right)^2\)</span></td>
+</tr>
+<tr class="odd">
+<td align="left"><span class="math inline">\(\scriptstyle V_{AC1S}\left(\widehat Y_{AC1S/HT}\right)=M^2\frac{1-f}{m}S_e^2=M^2\left(\frac1m-\frac1M\right)S_e^2\)</span></td>
+<td align="left"><span class="math inline">\(\scriptstyle \widehat V_{AC1S} \left( \widehat Y_{AC1S/HT}\right)= M^2 \left( \frac 1 m - \frac 1 M \right) s_e^2\)</span></td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(\scriptstyle V_{AC1S}\left(\widehat Y_{AC1S/R}\right)\doteq M^2\left(\frac1m-\frac1M\right)\frac{1}{M-1}\sum_{i\in C}N_i^2\left(\overline{Y_i}-\overline Y\right)^2\)</span></td>
+<td align="left"><span class="math inline">\(\scriptstyle\widehat V_{AC1S}\left(\widehat Y_{AC1S/R}\right) = M^2\left(\frac1m-\frac1M \right)\frac {1} {m-1}\sum_{i\in a} N_i^2(\overline {Y_i}-\overline y)^2\)</span></td>
+</tr>
+</tbody>
+</table>
+</center>
+<p>Aqui não foi tratado explicitamente do problema da estimação de proporções. Porém, lembrando que proporção é equivalente à média de uma variável do tipo indicadora, que só pode assumir valores <span class="math inline">\(0\)</span> (não possui a característica de interesse) ou <span class="math inline">\(1\)</span> (possui a característica de interesse) e, recorrendo ao exposto no Capítulo <a href="proporc.html#proporc">5</a>, é fácil derivar as expressões para estimar proporções e avaliar a precisão das estimativas a partir das expressões para estimação de média fornecidas aqui.</p>
+</div>
+</div>
+<div id="efeito-do-plano-amostral" class="section level2">
+<h2><span class="header-section-number">12.8</span> Efeito do plano amostral</h2>
+<p>O <em>Efeito do Plano Amostral - EPA</em> é uma medida para comparar a <em>eficiência</em> de duas estratégias, <span class="math inline">\(E_1\)</span> e <span class="math inline">\(E_2,\)</span> formadas pelas combinações de <em>plano amostral e estimador</em>, para um mesmo tamanho de amostra.</p>
+<p><span class="math display" id="eq:eqcong13">\[
+EPA(E_1;\,E_2) = V_{E_1} (\widehat \theta_1) / V_{E_2} (\widehat \theta_2) \,\,\tag{12.13}
+\]</span></p>
+<p>O termo original em inglês é <em>Design Effect - DEFF</em> e foi sugerido por <span class="citation">Kish (1965)</span>.</p>
+<p>Outra medida que dá uma indicação semelhante ao EPA é o <em>Fator do Plano Amostral - FPA</em>, que vem do inglês <em>Design Factor</em>, definido como:</p>
+<p><span class="math display">\[
+FPA(E_1;\,E_2)  = \sqrt{EPA(E_1;\,E_2) } = DP_{E_1} (\widehat \theta_1) / DP_{E_2} (\widehat \theta_2)
+\]</span></p>
+<p>O <span class="math inline">\(FPA\)</span> compara diretamente o <em>desvio padrão</em> dos estimadores sob duas estratégias diferentes de amostragem. É mais comum o uso do EPA que do FPA, sendo o FPA mais diretamente relacionado com a margem de erro das estimativas, enquanto o uso do EPA é mais conveniente quando se trata de planejar e dimensionar amostras.</p>
+<p><strong>Exemplo 12.6 </strong> Efeito do plano amostral ao estimar a média populacional por unidade elementar, através do estimador HT com amostragem conglomerada simples em um estágio, em relação ao uso de uma AAS de igual tamanho.</p>
+<p>Neste caso, as duas estratégias cuja eficiência se quer comparar são:</p>
+<ul>
+<li><em>Estratégia 1</em>: Amostragem conglomerada em um estágio simples - AC1S, com o estimador natural <span class="math inline">\(\overline y_{AC1S/HT}\)</span><br />
+</li>
+<li><em>Estratégia 2</em>: Amostragem aleatória simples - AAS de mesmo tamanho total <span class="math inline">\((n)\)</span>, com o estimador usual de média <span class="math inline">\(\displaystyle \overline y = \frac 1 n \sum_{i \in s} y_i\)</span>.</li>
+</ul>
+<p>O efeito do plano amostral (neste caso, conglomeração) ao estimar a média populacional por unidade elementar é:</p>
+<p><span class="math display" id="eq:eqcong14">\[
+EPA(AC1S/HT;\,AAS) = \frac {V_{AC1S} (\overline y_{AC1S/HT})} {V_{AAS} (\overline y)} \,\, \tag{12.14} 
+\]</span></p>
+<p>O EPA mede o quanto a variância do estimador é maior (ou menor) por usar, neste caso, AC1S em lugar de AAS.</p>
+<ul>
+<li><span class="math inline">\(EPA &lt; 1 \Rightarrow\)</span> <em>ganho de precisão</em>, devido ao uso de amostragem conglomerada.</li>
+<li><span class="math inline">\(EPA = 1 \Rightarrow\)</span> <em>mesma precisão</em>, não há diferença de precisão, pode-se optar pelo plano operacionalmente mais vantajoso.</li>
+<li><span class="math inline">\(EPA &gt; 1 \Rightarrow\)</span> <em>perda de precisão</em>, devido ao uso de amostragem conglomerada.</li>
+</ul>
+<p>Um valor de <span class="math inline">\(EPA=5\)</span>, por exemplo, indicaria que a variância sob amostragem conglomerada seria cinco vezes maior que a variância de uma AAS de igual tamanho total.</p>
+<p><strong>Exemplo 12.7 </strong> Efeito do plano amostral ao estimar a média populacional por unidade elementar, através do estimador tipo razão com AC1S em relação ao uso da AAS.</p>
+<ul>
+<li><em>Estratégia 1</em>: Amostragem conglomerada em um estágio simples - AC1S, com estimador tipo razão <span class="math inline">\(\overline y_{AC1S/R} =\displaystyle \frac {1} {n} \sum_{i \in a} Y_i\)</span> para a<br />
+</li>
+<li><em>Estratégia 2</em>: Amostragem aleatória simples - AAS de mesmo tamanho total <span class="math inline">\((n)\)</span>, com o estimador usual de média <span class="math inline">\(\overline y = \displaystyle \frac 1 n \sum_{i \in s} y_i\)</span>.</li>
+</ul>
+<p>O efeito do plano amostral (neste caso, conglomeração) ao estimar a média populacional por unidade elementar é:</p>
+<p><span class="math display" id="eq:eqcong15">\[
+EPA(AC1S/R;\,AAS) = \frac {V_{AC1S} (\overline y_{AC1S/R})} {V_{AAS} (\overline y)} \,\,\tag{12.15} 
+\]</span></p>
+<p><strong>Nota:</strong> Os estimadores pontuais são idênticos; somente os planos amostrais (e as variâncias) são diferentes.</p>
+<p>Se os tamanhos dos conglomerados forem todos <em>iguais</em>, isto é, se <span class="math inline">\(N_i = \overline N, \,\, \forall\, i = 1, \dots, M\)</span>, então, de acordo com <span class="citation">Cochran (1977)</span>, página 242, tem-se:</p>
+<p><span class="math display" id="eq:eqcong16">\[
+EPA(AC1S/R;\,AAS) \doteq 1 + (\overline N - 1) \rho \,\, \tag{12.16} 
+\]</span></p>
+<p>onde:</p>
+<p><span class="math display">\[\displaystyle \rho = \frac {\displaystyle \sum_{i \in C} \sum_{j \in C_i} \sum_{k \ne j \in C_i} \left( y_{ij} - \overline Y \right) \left( y_{ik} - \overline Y \right)} {\left( \overline N - 1 \right) \left( M \overline N - 1 \right) S_y^2} \doteq 1 - \displaystyle \frac {S_d^2} {S_y^2}
+\]</span></p>
+<p>é o coeficiente de correlação intraconglomerado ou intraclasse; e <span class="math inline">\(S_d^2\)</span> é a medida da variância <em>dentro</em> dos conglomerados, dada por:</p>
+<p><span class="math display">\[
+\displaystyle S_d^2 = \frac {1} {M} \displaystyle \sum_{i \in C} \frac {1} {\overline N - 1} \sum_{j \in C_i} \left (y_{ij} - \overline {Y_i} \right)^2 = \frac {1} {M} \sum_{i \in C} S_i^2
+\]</span>
+com:<br />
+<span class="math display">\[
+\displaystyle S_i^2 = \frac {1} {\overline N - 1} \sum_{j \in C_i} \left( y_{ij} - \overline {Y_i} \right)^2
+\]</span></p>
+<p><span class="math inline">\(S_y^2\)</span> é a variância <em>total</em>, dada por:</p>
+<p><span class="math display">\[
+\displaystyle S_y^2 = \frac {1} {N - 1} \sum_{i \in C} \sum_{j \in C_i} \left( y_{ij} - \overline Y \right)^2
+\]</span></p>
+<p>A variância <em>total</em> também pode ser expressa em função das variâncias <em>entre</em> conglomerados, <span class="math inline">\(S_e^2\)</span>, e <em>dentro</em> dos conglomerados, <span class="math inline">\(S_d^2\)</span>, através da expressão:</p>
+<p><span class="math display">\[
+S_y^2 = \displaystyle \frac {(\overline N - 1) M S_d^2 + \overline N (M-1) \overline S_e^2} {M \overline N - 1}
+\]</span>
+onde, <span class="math inline">\(\displaystyle \overline S_e^2 = \frac {S_e^2} {\overline N}\)</span>.</p>
+<p>A expressão para o <span class="math inline">\(EPA(AC1S/R;\,AAS)\)</span> resulta do uso das expressões de acordo com <span class="citation">Cochran (1977)</span>, página 241:</p>
+<p><span class="math display" id="eq:eqcong17">\[
+\displaystyle V_{AC1S} (\overline y_{AC1S/R}) \doteq \left( \frac 1 {m \overline N} - \frac 1 {M \overline N} \right) S_y^2[1 + (\overline N - 1) \rho] \,\,\tag{12.17} 
+\]</span></p>
+<p><span class="math display" id="eq:eqcong18">\[
+V_{AAS} (\overline y) = \displaystyle \left( \frac 1 {m \overline N} - \frac 1 {M \overline N} \right)S_y^2 \,\, \tag{12.18} 
+\]</span></p>
+<p>Cabem algumas considerações relacionadas com a variação do <span class="math inline">\(EPA\)</span> para AC1S:</p>
+<ol style="list-style-type: decimal">
+<li>Se os conglomerados tiverem variância dentro grande, isto é, se <span class="math inline">\(\displaystyle S_d^2 \doteq S_y^2\)</span>, então <span class="math inline">\(\rho \doteq 0\)</span> e portanto, <span class="math inline">\(EPA(AC1S/R;\,AAS) \doteq 1 + (\overline N - 1) \times 0 = 1\)</span>.<br />
+Nesse caso, não ocorreria perda de precisão devido ao uso de amostragem conglomerada.<br />
+</li>
+<li>Pode ser demonstrado que <span class="math inline">\(\displaystyle - \left( \frac {M-1} {N-M} \right) \le \rho \le 1\)</span>, ou ainda, de forma aproximada, que <span class="math inline">\(\displaystyle \frac {-1} {\overline N - 1} \le \rho \le1\)</span>.<br />
+Em muitas aplicações práticas, <span class="math inline">\(\rho &gt; 0\)</span>, porque os conglomerados tendem a ser mais homogêneos internamente do que a população em geral.<br />
+“Birds of a feather flock together!”<br />
+Consequência: <span class="math inline">\(EPA(AC1S/R;\,AAS) &gt; 1\)</span> na maioria das vezes.<br />
+</li>
+<li>Raramente <span class="math inline">\(\rho&lt; 0\)</span>, caso em que AC1S seria mais eficiente que AAS.<br />
+</li>
+<li>Num caso extremo, <span class="math inline">\(\rho = 1\)</span> e portanto <span class="math inline">\(EPA(AC1S/R;\,AAS) = \overline N\)</span> e<br />
+<span class="math inline">\(\displaystyle V_{AC1S} (\overline y_{AC1S/R}) = EPA(AC1S/R;\,AAS)\, V_{AAS} (\overline y) \doteq \overline N \frac {S_y^2} {m \overline N} = \frac{S_y^2}{m}\)</span><br />
+Nesse caso, a precisão da amostra conglomerada de tamanho total igual a <span class="math inline">\(m \overline N\)</span> é equivalente apenas àquela obtida com uma amostra aleatória simples de tamanho <span class="math inline">\(m\)</span>!!!</li>
+</ol>
+<p>A Tabela <a href="cong.html#tab:tabcong6">12.6</a> apresenta efeitos de plano amostral sob AC1S de acordo com valores selecionados dos tamanhos dos conglomerados e do coeficiente de correlação intraclasse.</p>
+<table>
+<caption>
+<span id="tab:tabcong6">Tabela 12.6: </span>Efeitos de plano amostral sob AC1S por tamanho do conglomerado e valor do coeficiente de correlação intraclasse
+</caption>
+</table>
+<center>
+<table>
+<colgroup>
+<col width="6%" />
+<col width="7%" />
+<col width="7%" />
+<col width="7%" />
+<col width="7%" />
+<col width="7%" />
+<col width="7%" />
+<col width="49%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="center">Tamanho</th>
+<th align="right"><span class="math inline">\(\rho=0,01\)</span></th>
+<th align="right"><span class="math inline">\(\rho=0,05\)</span></th>
+<th align="right"><span class="math inline">\(\rho=0,1\)</span></th>
+<th align="right"><span class="math inline">\(\rho=0,2\)</span></th>
+<th align="right"><span class="math inline">\(\rho=0,3\)</span></th>
+<th align="right"><span class="math inline">\(\rho=0,5\)</span></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">2</td>
+<td align="right">1</td>
+<td align="right">1</td>
+<td align="right">1</td>
+<td align="right">1</td>
+<td align="right">1</td>
+<td align="right">2</td>
+<td></td>
+</tr>
+<tr class="even">
+<td align="center">5</td>
+<td align="right">1</td>
+<td align="right">1</td>
+<td align="right">1</td>
+<td align="right">2</td>
+<td align="right">2</td>
+<td align="right">3</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td align="center">11</td>
+<td align="right">1</td>
+<td align="right">2</td>
+<td align="right">2</td>
+<td align="right">3</td>
+<td align="right">4</td>
+<td align="right">6</td>
+<td></td>
+</tr>
+<tr class="even">
+<td align="center">21</td>
+<td align="right">1</td>
+<td align="right">2</td>
+<td align="right">3</td>
+<td align="right">5</td>
+<td align="right">7</td>
+<td align="right">11</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td align="center">31</td>
+<td align="right">1</td>
+<td align="right">3</td>
+<td align="right">4</td>
+<td align="right">7</td>
+<td align="right">10</td>
+<td align="right">16</td>
+<td></td>
+</tr>
+<tr class="even">
+<td align="center">51</td>
+<td align="right">2</td>
+<td align="right">4</td>
+<td align="right">6</td>
+<td align="right">11</td>
+<td align="right">16</td>
+<td align="right">26</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td align="center">101</td>
+<td align="right">2</td>
+<td align="right">6</td>
+<td align="right">11</td>
+<td align="right">21</td>
+<td align="right">31</td>
+<td align="right">51</td>
+<td></td>
+</tr>
+<tr class="even">
+<td align="center">201</td>
+<td align="right">3</td>
+<td align="right">11</td>
+<td align="right">21</td>
+<td align="right">41</td>
+<td align="right">61</td>
+<td align="right">101</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td align="center">301</td>
+<td align="right">4</td>
+<td align="right">16</td>
+<td align="right">31</td>
+<td align="right">61</td>
+<td align="right">91</td>
+<td align="right">151</td>
+<td></td>
+</tr>
+<tr class="even">
+<td align="center">501</td>
+<td align="right">6</td>
+<td align="right">26</td>
+<td align="right">51</td>
+<td align="right">101</td>
+<td align="right">151</td>
+<td align="right">251</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</center>
+<p>Observe que quando aumenta o tamanho do conglomerado, aumenta a perda de precisão da AC1S em relação à AAS. Note também que à medida que aumenta o coeficiente de correlação intraclasse diminui a eficiência da AC1S em comparação com a AAS.</p>
+</div>
+<div id="amostragem-conglomerada-com-probabilidade-proporcional-ao-tamanho-em-um-estágio" class="section level2">
+<h2><span class="header-section-number">12.9</span> Amostragem Conglomerada com Probabilidade Proporcional ao Tamanho em um estágio</h2>
+<p>A ocorrência de variabilidade nos tamanhos dos conglomerados causa acentuada perda de precisão nos estimadores naturais com amostragem conglomerada em um estágio simples.</p>
+<p><em>Amostragem Conglomerada com Probabilidade Proporcional ao Tamanho em um estágio - AC1P</em> se caracteriza por:</p>
+<ol style="list-style-type: decimal">
+<li>Ser útil para controlar os efeitos da variação nos tamanhos dos conglomerados.<br />
+</li>
+<li>Poder ser adotada na etapa de seleção da amostra, enquanto que estimadores tipo razão somente podem ser considerados na etapa de estimação.<br />
+</li>
+<li>Selecionar conglomerados com probabilidades proporcionais ao seu tamanho (número de unidades subordinadas ou outra medida de tamanho).</li>
+</ol>
+<p>A seguir, o estimador não viciado do total <span class="math inline">\(Y\)</span> com AC1P, no caso de usar amostragem PPT com reposição para a seleção dos conglomerados.</p>
+<p><span class="math display" id="eq:eqcong19">\[
+\widehat Y_{AC1PC} = \displaystyle \frac {1} {m} \sum_{i \in a} f_i \frac {Y_i} {p_i} \,\, \tag{12.19} 
+\]</span></p>
+<p>onde <span class="math inline">\(f_i\)</span> é o número de vezes que o conglomerado <span class="math inline">\(i\)</span> foi incluído na amostra <span class="math inline">\(a\)</span>; e</p>
+<p><span class="math inline">\(p_i = N_i / N\)</span> é a probabilidade de seleção do conglomerado <span class="math inline">\(i\)</span> num único sorteio.</p>
+<p>Um estimador HT não viciado do total <span class="math inline">\(Y\)</span> com AC1P, no caso de emprego de amostragem PPT sem reposição para sorteio dos conglomerados, é dado por:</p>
+<p><span class="math display" id="eq:eqcong20">\[
+\widehat Y_{AC1P}= \displaystyle \sum_{i \in a} \frac {Y_i} {\pi_i} \,\, \tag{12.20} 
+\]</span></p>
+<p>onde <span class="math inline">\(\pi_i\)</span> a probabilidade de inclusão do conglomerado <span class="math inline">\(i\)</span> na amostra <span class="math inline">\(a\)</span>.</p>
+<p>As respectivas variâncias de <span class="math inline">\(\widehat Y_{AC1PC}\)</span> e <span class="math inline">\(\widehat Y_{AC1P}\)</span> são dadas por:</p>
+<p><span class="math display" id="eq:eqcong21">\[
+V_{AC1PC} (\widehat Y_{AC1PC}) = \displaystyle \frac {1} {m} \sum_{i \in C} \left( \frac {Y_i} {p_i} - {Y} \right)^2 p_i \,\, \tag{12.21} 
+\]</span></p>
+<p><span class="math display" id="eq:eqcong22">\[
+V_{AC1P} (\widehat Y_{AC1P}) = \displaystyle \sum_{i \in C} \sum_{k \in C} \left( \frac {d_i d_k} {d_{ik}} - 1 \right) Y_i Y_k \,\, \tag{12.22} 
+\]</span></p>
+<p>Os respectivos estimadores das variâncias de <span class="math inline">\(\widehat Y_{AC1PC}\)</span> e <span class="math inline">\(\widehat Y_{AC1P}\)</span> são dados por:</p>
+<p><span class="math display" id="eq:eqcong23">\[
+\widehat V_{AC1PC} (\widehat Y_{AC1PC}) = \displaystyle \frac {1} {m (m-1)} \sum_{i \in a} f_i \left( \frac {Y_i} {p_i} - {\widehat Y_{AC1PC}} \right)^2 \,\, \tag{12.23} 
+\]</span></p>
+<p><span class="math display" id="eq:eqcong24">\[
+\widehat V_{AC1P} (\widehat Y_{AC1P}) = \displaystyle \sum_{i \in a} \sum_{k \in a} \left( {d_i d_k} - {d_{ik}} \right) Y_i Y_k \,\, \tag{12.24} 
+\]</span></p>
+<p><strong>Notas:</strong></p>
+<ol style="list-style-type: lower-alpha">
+<li><span class="math inline">\(\widehat Y_{AC1PC}\)</span> é <em>mais preciso</em> que o estimador não viciado do total <span class="math inline">\(\widehat Y\)</span> com AC1S, quando as médias dos conglomerados não são relacionadas com os tamanhos dos conglomerados.<br />
+</li>
+<li><span class="math inline">\(\widehat Y_{AC1PC}\)</span> <em>não se beneficia</em> do fator de correção de população finita.<br />
+</li>
+<li>Métodos para amostragem conglomerada com <em>PPT sem reposição</em> estão disponíveis e podem ser usados em lugar de PPTC.<br />
+</li>
+<li>Para planos AC1P ou AC1PC, os tamanhos precisam ser conhecidos para cada conglomerado da população, antes de selecionar a amostra. Caso contrário, podem ser usadas medidas aproximadas de tamanho.<br />
+</li>
+<li><span class="math inline">\(\widehat Y_{AC1PC}\)</span> tem desempenho similar ao estimador de razão do total sob AC1S, <span class="math inline">\(\widehat Y_{AC1S/R}\)</span>. Quando não for feita amostragem PPT de conglomerados, usar <span class="math inline">\(\widehat Y_{AC1S/R}\)</span> sempre que<br />
+</li>
+<li><span class="math inline">\(\widehat Y_{AC1PC}\)</span> possui propriedades exatas (é não viciado, possui expressão exata para a variância e estimador não viciado para a variância) que valem também para amostras pequenas.</li>
+</ol>
+</div>
+<div id="amostragem-conglomerada-em-dois-estágios" class="section level2">
+<h2><span class="header-section-number">12.10</span> Amostragem conglomerada em dois estágios</h2>
+<p>O plano de <em>Amostragem Conglomerada em dois estágios - AC2</em> se caracteriza pela seleção de uma amostra de conglomerados com subamostragem, assim definida:</p>
+<ul>
+<li><strong>Estágio 1</strong>: selecione uma amostra <span class="math inline">\(a\)</span> de <span class="math inline">\(m\)</span> UPAs (conglomerados).</li>
+<li><strong>Estágio 2</strong>: para cada UPA <span class="math inline">\(C_i\)</span> da amostra de primeiro estágio, selecione amostra <span class="math inline">\(s_i\)</span> de <span class="math inline">\(n_i\)</span> unidades secundárias das <span class="math inline">\(N_i\)</span> unidades existentes nessa UPA.</li>
+</ul>
+<p>A amostra completa de unidades selecionadas é dada por: <span class="math inline">\(s = s_{i_1}\cup s_{i_2} \cup \dots \cup s_{i_m}= \bigcup_{k=1}^{m} s_{i_k}\)</span></p>
+<p>O tamanho total da amostra é <span class="math inline">\(n = \displaystyle \sum_{i \in a} n_i\)</span>.</p>
+<p>As principais razões para adotar amostragem conglomerada em dois estágios são as seguintes:</p>
+<ol style="list-style-type: decimal">
+<li>Geralmente não é prático pesquisar todas as unidades nos conglomerados selecionados: <em>conglomerados</em> muito <em>grandes</em>, <em>carga de trabalho variável</em> por entrevistador, etc.<br />
+</li>
+<li>Constatou-se que a perda de precisão da AC1S em relação à AAS para amostras de mesmo tamanho é tanto maior quanto maior for o tamanho do conglomerado. A adoção de AC2 vem reduzir a influência do tamanho dos conglomerados na eficiência da amostragem conglomerada, permitindo ao amostrista controlar melhor a precisão do estimador resultante, ao manejar o número de unidades que são selecionadas em cada conglomerado. Na AC1 isso não está sob controle do amostrista, pois uma vez selecionado um conglomerado, todas as suas unidades devem ser pesquisadas.<br />
+</li>
+<li>Se a variância dentro dos conglomerados for pequena, as médias por conglomerados <span class="math inline">\(\overline {Y_i}\)</span> podem ser bem estimadas por amostragem.<br />
+</li>
+<li><em>Amostragem em dois estágios</em> é mais complexa, porém <em>mais flexível</em>.</li>
+</ol>
+<p>Na estimação sob AC2, cujo plano amostral compreende <em>dois estágios de seleção</em>, para encontrar médias e variâncias de estimadores, devem ser calculadas médias considerando todas as possíveis amostras sob o plano amostral.</p>
+<p>Isto requer considerar todas as possíveis amostras no primeiro estágio e, todas as possíveis amostras no segundo estágio, dentro de cada amostra de UPAs do primeiro estágio.</p>
+<p>Tudo fica mais fácil se usarmos os resultados de <span class="citation">Cochran (1977)</span>, Expressão 10.1 da página 275 e Expressão 10.2 da página 276, respectivamente:</p>
+<p><span class="math display" id="eq:eqcong25">\[
+E[\widehat \theta] = E_1[ E_2( \widehat \theta)] \,\,\tag{12.25} 
+\]</span></p>
+<p><span class="math display" id="eq:eqcong26">\[
+V[\widehat \theta] = V_1[ E_2(\widehat \theta)] + E_1[ V_2(\widehat \theta)] \,\,\tag{12.26} 
+\]</span></p>
+<p><span class="math inline">\(E_2\)</span>, <span class="math inline">\(V_2\)</span> denotam, respectivamente, valor esperado e variância considerando todas as possíveis amostras de unidades dentro de um conjunto fixado de UPAs (estágio 2).</p>
+<p><span class="math inline">\(E_1\)</span>, <span class="math inline">\(V_1\)</span> denotam, respectivamente, valor esperado e variância considerando todas as possíveis amostras de UPAs (estágio 1).</p>
+<p><span class="math inline">\(\widehat \theta\)</span> é algum estimador para um parâmetro <span class="math inline">\(\theta\)</span>.</p>
+<p>Resultados similares podem ser estendidos para planos em três ou mais estágios (ver <span class="citation">Cochran (1977)</span>, seção 10.8).</p>
+<p>O estimador não viciado de Horvitz-Thompson do total <span class="math inline">\(Y\)</span> sob AC2 é dado por:</p>
+<p><span class="math display" id="eq:eqcong27">\[
+\widehat Y_{AC2/HT} = \displaystyle \sum_{i\in a} \frac{\widehat Y_i}{\pi_i} = \sum_{i \in a} \frac {1} {\pi_i} \sum_{j \in s_i} \frac {y_{ij}} {\pi_{j|i}} = \sum_{i \in a} \sum_{j \in s_i}d_{ij} y_{ij} \,\,\tag{12.27} 
+\]</span></p>
+<p>onde:</p>
+<p><span class="math inline">\(\pi_i\)</span> é a probabilidade de inclusão da UPA <span class="math inline">\(i\)</span>;</p>
+<p><span class="math inline">\(s_i\)</span> é a amostra de unidades selecionadas dentro da UPA <span class="math inline">\(i\)</span>;</p>
+<p><span class="math inline">\(\widehat Y_i = \displaystyle \sum_{j \in s_i} \frac {y_{ij}} {\pi_{j|i}}\)</span> é um estimador HT do total <span class="math inline">\(Y_i\)</span> da UPA <span class="math inline">\(i\)</span>;</p>
+<p><span class="math inline">\(\pi_{j|i} = P(j \in s_i \, | \, i \in a)\)</span> é a probabilidade de inclusão da unidade <span class="math inline">\(j\)</span> dado que a UPA <span class="math inline">\(i\)</span> está na amostra <span class="math inline">\(a\)</span>; e</p>
+<p><span class="math inline">\(d_{ij} = \pi_{ij}^{-1} = \pi_i^{-1} \pi_{j|i}^{-1}\)</span> é o peso associado à unidade <span class="math inline">\(j\)</span> da UPA <span class="math inline">\(i\)</span>.</p>
+<p>A variância de <span class="math inline">\(\widehat Y_{AC2/HT}\)</span> sob AC2 é dada por:</p>
+<p><span class="math display" id="eq:eqcong28">\[
+\begin{eqnarray}\hspace{-1.5cm}
+V_{AC2} \left( \widehat Y_{AC2/HT} \right) &amp; = &amp; V_1 \left[E_2 \left( \displaystyle \sum_{i \in a} \frac {\widehat Y_i} {\pi_i} \right) \right] + E_1 \left[ V_2 \left(\sum_{i \in a} \frac {\widehat Y_i} {\pi_i} \right) \right] \\ &amp; = &amp; V_1 \left[ \displaystyle \sum_{i \in U} \delta_i E_2 \left( \widehat Y_i \right) \big/ \pi_i \right] + E_1 \left[ \sum_{i \in U} \delta_i V_2 \left( {\widehat Y_i} \right) \big/ {\pi_i}^2 \right] \\ &amp; = &amp; V_1 \left( \displaystyle \sum_{i \in a} {Y_i} \big/ \pi_i \right) + \sum_{i \in U} V_2 \left( \widehat Y_i \right) \big/ \pi_i \\
+&amp; = &amp; V_{UPA} + V_{USA} 
+\end{eqnarray}\tag{12.28} 
+\]</span></p>
+<p>onde:</p>
+<p><span class="math inline">\(\delta_i\)</span> é a variável indicadora da presença da unidade <span class="math inline">\(i\)</span> na amostra;</p>
+<p><span class="math inline">\(V_{UPA}\)</span> é a componente de variância de <span class="math inline">\(\widehat Y_{AC2/HT}\)</span> proveniente da amostragem de UPAs (estágio 1), isto é, variância caso amostragem conglomerada em um estágio fosse usada (sem fazer subamostragem); e</p>
+<p><span class="math inline">\(V_{USA}\)</span> é a componente de variância de <span class="math inline">\(\widehat Y_{AC2/HT}\)</span> proveniente da amostragem de USAs (amostragem no estágio 2).</p>
+<p>Um estimador não viciado (de Horvitz-Thompson) da média por unidade <span class="math inline">\(\overline Y\)</span> é dado por:</p>
+<p><span class="math display" id="eq:eqcong29">\[
+\overline y_{AC2/HT} = \frac {\widehat Y_{AC2/HT}} N = \frac 1 N \left( \displaystyle \sum_{i \in a} \frac {\widehat Y_i} {\pi_i} \right) \,\, \tag{12.29} 
+\]</span></p>
+<p>Se <span class="math inline">\(N\)</span> for conhecido, um estimador tipo razão para estimar o total <span class="math inline">\(Y\)</span> é dado por:</p>
+<p><span class="math display" id="eq:eqcong30">\[
+\widehat Y_{AC2/R} = N \left( \displaystyle \sum_{i \in a} \frac {\widehat Y_i} {\pi_i} \right) \Big/ \left( \displaystyle \sum_{i \in a} \frac {N_i} {\pi_i} \right) \,\,\tag{12.30} 
+\]</span></p>
+<p>Um estimador tipo razão da média por unidade é dado por:</p>
+<p><span class="math display" id="eq:eqcong31">\[
+\overline y_{AC2/R} = \left( \displaystyle \sum_{i \in a} \frac {\widehat Y_i} {\pi_i} \right) \Big/ \left( \displaystyle \sum_{i \in a} \frac {N_i} {\pi_i} \right) \,\,\tag{12.31} 
+\]</span></p>
+<p>Este estimador de razão da média pode ser calculado mesmo quando <span class="math inline">\(N\)</span> for desconhecido.</p>
+<div id="plano-amostral-ac2-com-aas-nos-2-estágios" class="section level3">
+<h3><span class="header-section-number">12.10.1</span> Plano amostral AC2 com AAS nos 2 estágios</h3>
+<p>Tratamos agora do <em>Plano amostral AC2 com AAS nos 2 estágios - AC2S</em>, ou seja:</p>
+<ul>
+<li><strong>Estágio 1</strong>: selecione amostra de <span class="math inline">\(m\)</span> UPAs usando AAS.</li>
+<li><strong>Estágio 2</strong>: para cada UPA <span class="math inline">\(i\)</span> da amostra de primeiro estágio, selecione <span class="math inline">\(n_i\)</span> unidades secundárias das <span class="math inline">\(N_i\)</span> unidades existentes usando AAS.</li>
+</ul>
+<p>Para esse plano, a probabilidade de inclusão da unidade <span class="math inline">\(j\)</span> da UPA <span class="math inline">\(i\)</span> é dada por:</p>
+<p><span class="math display" id="eq:eqcong32">\[
+\pi_{ij} = P(i \in a \, , \, j \in s) = P(i \in a) P(j \in s \, | \, i\in a) = \frac {m} {M} \frac {n_i} {N_i} \,\, \tag{12.32} 
+\]</span></p>
+<p>Planos amostrais são mais simples quando as probabilidades de inclusão são constantes, isto é, <span class="math inline">\(\pi_{ij} = n / N, \,\, \forall\,\,i\,\,\text{e}\,\, \forall j\)</span>. Nestas condições, o plano amostral é dito <em>equiponderado</em> ou <em>autoponderado</em>.</p>
+<p>Com o plano amostral AC2S, isto pode ser conseguido tomando <span class="math inline">\(n_i \propto N_i\)</span>.</p>
+<p>Uma desvantagem importante desse tipo de plano seria a geração de <em>cargas de trabalho desiguais</em> por UPA ou por entrevistador, caso cada UPA seja alocada a um só entrevistador.</p>
+<p>De acordo com <span class="citation">Cochran (1977)</span>, Expressão (11.21), o estimador não viciado do total sob o Plano AC2S é dado por:</p>
+<p><span class="math display" id="eq:eqcong33">\[
+\widehat Y_{AC2S} = \displaystyle \frac {M} {m} \sum_{i \in a} \widehat Y_i \,\,\tag{12.33} 
+\]</span></p>
+<p>com <span class="math inline">\(\widehat Y_i = \displaystyle \frac {N_i} {n_i} \sum_{j \in s_i} y_{ij}\)</span> para toda UPA <span class="math inline">\(i\)</span>.</p>
+<p>De acordo com <span class="citation">Cochran (1977)</span>, Expressão (11.22), a variância do estimador não viciado do total sob o Plano AC2S é dada por:</p>
+<p><span class="math display" id="eq:eqcong34">\[
+\begin{eqnarray}
+V_{AC2S} \left( \widehat Y_{AC2S} \right) &amp; = &amp; \displaystyle M^2 \left( \frac {1} {m} - \frac {1} {M} \right) \frac {1} {M-1} \sum_{i \in C} \left( Y_i - \overline {Y_C} \right)^2 \\&amp;  &amp; + \frac{M} {m} \sum_{i \in C} N_i^2 \left( \frac {1} {n_i} - \frac {1} {N_i} \right) S_i^2 
+\end{eqnarray}\tag{12.34}
+\]</span></p>
+<p>onde as parcelas do segundo membro representam as componentes da variância devidas ao 1º e ao 2º estágios de seleção, respectivamente, sendo:
+<span class="math display">\[
+S_i^2 = \displaystyle \frac {1} {N_i - 1} \sum_{j \in C_i} \left( y_{ij} - \overline {Y_i} \right)^2
+\]</span>
+a variância dentro da UPA <span class="math inline">\(i\)</span>.</p>
+<p>Note que:</p>
+<ol style="list-style-type: lower-roman">
+<li>Se <span class="math inline">\(m = M\)</span> então, a 1ª componente da variância é nula, ou seja:<br />
+<span class="math inline">\(V_{AC2S} \left( \widehat Y_{AC2S} \right) = \displaystyle\sum_{i \in C} N_i^2 \left( \frac {1} {n_i} - \frac {1} {N_i} \right) S_i^2 = V_{AES} \left( \widehat Y_{AES} \right)\)</span><br />
+e este plano equivaleria ao de uma amostra estratificada, em que os conglomerados se tornaram estratos!<br />
+</li>
+<li>Se <span class="math inline">\(n_i = N_i \,\, (\forall\, i = 1, 2, \dots, n)\)</span> então, a 2ª componente da variância é nula, ou seja:<br />
+<span class="math inline">\(V_{AC2S} \left( \widehat Y_{AC2S} \right) = \displaystyle M^2 \left( \frac {1} {m} - \frac {1} {M} \right) \frac {1} {M-1} \sum_{i \in C} \left( Y_i - \overline {Y_C} \right)^2 = V_{AC1S} \left( \widehat Y \right)\)</span><br />
+e este plano amostral equivaleria ao de uma amostra de conglomerados em um estágio simples.</li>
+</ol>
+<p>De acordo com <span class="citation">Cochran (1977)</span>, Expressão (11.24), um estimador não viciado da variância do estimador HT do total sob o Plano AC2S é dado por:</p>
+<p><span class="math display" id="eq:eqcong35">\[
+\begin{eqnarray}\hspace{-2.0cm}
+\widehat V_{AC2S} \left( \widehat Y_{AC2S} \right) &amp; = &amp; \displaystyle M^2 \left( \frac {1} {m} - \frac {1} {M} \right) \frac {1} {m-1} \sum_{i \in a} \left( \widehat Y_i - \overline y_C \right)^2 +\\&amp; &amp; + \frac {M} {m} \sum_{i \in a} N_i^2 \left( \frac {1} {n_i} - \frac {1} {N_i} \right) \widehat S_i^2 \\ \hfill \tag{12.35} 
+\end{eqnarray} 
+\]</span></p>
+<p>onde:</p>
+<p><span class="math inline">\(\overline y_C = \displaystyle \frac {1} {m} \sum_{i \in a} \widehat Y_i\)</span> estima a média por conglomerado <span class="math inline">\(\overline {Y_C}\)</span>; e</p>
+<p><span class="math inline">\(\widehat S_i^2 = \displaystyle \frac {1} {n_i-1} \sum_{j \in s_i} \left( y_{ij} - \overline {Y_i} \right)^2\)</span> estima a variância dentro da UPA <span class="math inline">\(i\)</span>.</p>
+<p>Um estimador não viciado da média por unidade sob o Plano AC2S é dado por:</p>
+<p><span class="math display" id="eq:eqcong36">\[
+\overline y_{AC2S} = \frac {\widehat Y_{AC2S}} {N} = \displaystyle \frac {M} {mN} \sum_{i \in a} \widehat Y_i = \displaystyle \frac {M} {mN} \sum_{i \in a} \displaystyle \frac {N_i} {n_i} \sum_{j \in s_i} y_{ij} \,\, \tag{12.36} 
+\]</span></p>
+<p>A variância do estimador não viciado da média por unidade sob o Plano AC2S é dada por:</p>
+<p><span class="math display" id="eq:eqcong37">\[
+V_{AC2S} \left( \overline y_{AC2S} \right) = \frac {1} {N^2} V_{AC2S} \left( \widehat Y_{AC2S} \right) \,\, \tag{12.37} 
+\]</span></p>
+<p>Um estimador não viciado da variância do estimador HT da média por unidade sob o Plano AC2S é dado por:</p>
+<p><span class="math display" id="eq:eqcong38">\[
+\widehat V_{AC2S} \left( \overline y_{AC2S} \right) = \frac {1} {N^2} \widehat V_{AC2S} \left( \widehat Y_{AC2S} \right) \,\, \tag{12.38} 
+\]</span></p>
+</div>
+<div id="plano-amostral-com-ppt-com-reposição-no-primeiro-estágio-e-aas-no-segundo-estágio" class="section level3">
+<h3><span class="header-section-number">12.10.2</span> Plano amostral com PPT com reposição no primeiro estágio e AAS no segundo estágio</h3>
+<p>Tratamos agora do <em>Plano amostral AC2 com seleção PPT com reposição no primeiro estágio e seleção por AAS no segundo estágio - AC2PC</em>.</p>
+<ul>
+<li><strong>Estágio 1</strong>: selecione amostra de <span class="math inline">\(m\)</span> UPAs com reposição, usando probabilidades proporcionais a uma medida de tamanho <span class="math inline">\(x_i\)</span>.</li>
+<li><strong>Estágio 2</strong>: para cada UPA <span class="math inline">\(i\)</span> da amostra de primeiro estágio, selecione <span class="math inline">\(n_i\)</span> unidades secundárias das <span class="math inline">\(N_i\)</span> unidades existentes usando AAS.</li>
+</ul>
+<p>Para o plano amostral AC2PC, a probabilidade de inclusão da unidade <span class="math inline">\(j\)</span> da UPA <span class="math inline">\(i\)</span> é dada por:</p>
+<p><span class="math display" id="eq:eqcong39">\[ \hspace{-1.0cm}
+\pi_{ij}=P(i\in a, j\in s)=P(i\in a) P(j\in s\,| \,i\in a)=\left[1 - \left(1 - p_i\right)^m \right] \frac {n_i} {N_i} \tag{12.39} 
+\]</span></p>
+<p>onde <span class="math inline">\(p_i = \displaystyle\frac {x_i} {X}\)</span> é a probabilidade de seleção da UPA <span class="math inline">\(i\)</span> num único sorteio.</p>
+<p>De acordo com <span class="citation">Cochran (1977)</span>, Expressão (11.31), um estimador não viciado do total sob o Plano AC2PC é dado por:</p>
+<p><span class="math display" id="eq:eqcong40">\[
+\widehat Y_{AC2PC} = \displaystyle \frac {1} {m} \sum_{i \in a} f_i \frac {\widehat Y_i} {p_i}  \,\, \tag{12.40} 
+\]</span></p>
+<p>onde <span class="math inline">\(f_i\)</span> é a frequência com que a UPA <span class="math inline">\(i\)</span> foi selecionada na amostra <span class="math inline">\(a\)</span>.</p>
+<p>A variância de <span class="math inline">\(\widehat Y_{AC2PC}\)</span>, conforme <span class="citation">Cochran (1977)</span>, Expressão (11.33), é dada por:</p>
+<p><span class="math display" id="eq:eqcong41">\[
+\begin{eqnarray}\hspace{-2.2cm}
+V_{AC2PC} \left( \widehat Y_{AC2PC} \right) &amp; = &amp; V_1 \left[ E_2 \left( \widehat Y_{AC2PC} \right) \right] + E_1 \left[ V_2 \left( \widehat Y_{AC2PC} \right) \right] \\
+&amp; = &amp; \frac{1} {m} \displaystyle \sum_{i \in C} \left( \frac {Y_i} {p_i} - Y \right)^2 p_i + \frac {1} {m} \sum_{i \in C} \frac {1} {p_i} N_i^2 \left( \frac {1} {n_i} - \frac {1} {N_i} \right) S_i^2 
+\end{eqnarray}\tag{12.41} 
+\]</span></p>
+<p>Um estimador não viciado da variância de <span class="math inline">\(\widehat Y_{AC2PC}\)</span>, de acordo com <span class="citation">Cochran (1977)</span>, Expressão (11.35), é dado por:</p>
+<p><span class="math display" id="eq:eqcong42">\[
+\hspace{-0.5cm}\widehat V_{AC2PC} \left( \widehat Y_{AC2PC} \right) = \frac {1} {m(m-1)} \displaystyle \sum_{i \in a} f_i \left( \frac {\widehat Y_i} {p_i} - \widehat Y_{AC2PC} \right)^2 \tag{12.42} 
+\]</span></p>
+</div>
+<div id="amostra-conglomerada-com-ppt-de-poisson-sequencial-no-primeiro-e-aas-no-segundo-estágio" class="section level3">
+<h3><span class="header-section-number">12.10.3</span> Amostra conglomerada com PPT de Poisson sequencial no primeiro e AAS no segundo estágio</h3>
+<p>Este é um plano de <em>Amostragem Conglomerada com PPT Poisson Sequencial no primeiro e AAS no segundo estágio - AC2PS</em>, com <span class="math inline">\(n_i\)</span> USAs nas UPAs selecionadas.</p>
+<p>Um estimador não viciado do total <span class="math inline">\(Y\)</span> sob o Plano AC2PS é dado por:</p>
+<p><span class="math display" id="eq:eqcong43">\[ 
+\widehat Y_{AC2PS} = \displaystyle \frac 1 m \sum_{i \in a} \frac {\widehat Y_i} {p_i} \,\, \tag{12.43} 
+\]</span></p>
+<p>A variância de <span class="math inline">\(\widehat Y_{AC2PS}\)</span> é dada por:</p>
+<p><span class="math display" id="eq:eqcong44">\[
+\begin{eqnarray}\hspace{-1.8cm}
+V_{AC2PS} \left( \widehat Y_{AC2PS} \right) &amp; = &amp; V_1 \left[ E_2 \left( \widehat Y_{AC2PS} \right) \right] + E_1 \left[ V_2 \left( \widehat Y_{AC2PS} \right) \right] \\ &amp; = &amp; \frac {1} {m} \frac {M} {M-1} \displaystyle \sum_{i \in C} \left( \frac {Y_i} {p_i} - Y \right)^2 (1 - m p_i) p_i +\\&amp;&amp;+ \sum_{i \in C} \frac {1} {m p_i} N_i^2 \left( \frac {1} {n_i} - \frac {1} {N_i} \right) S_i^2 
+\end{eqnarray}\tag{12.44} 
+\]</span></p>
+<p>Um estimador da variância de <span class="math inline">\(\widehat Y_{AC2PS}\)</span> é dado por:</p>
+<p><span class="math display" id="eq:eqcong45">\[
+\begin{eqnarray}\hspace{-2.2cm}
+\widehat V_{AC2PS} \left( \widehat Y_{AC2PS} \right) &amp; = &amp;  \frac {1} {m} \frac {M} {M-1} \displaystyle \sum_{i \in a} \left( \frac {\widehat Y_i} {p_i} - \widehat Y_{AC2PS} \right)^2 (1 - m p_i) p_i+ \\ 
+&amp; &amp; + \displaystyle \sum_{i \in a} \frac {1} {m p_i} N_i^2 \left( \frac {1} {n_i} - \frac {1} {N_i} \right) \widehat S_i^2
+\end{eqnarray}\tag{12.45} 
+\]</span></p>
+<p>A Tabela <a href="cong.html#tab:tabcong7">12.7</a> apresenta um resumo da estimação do parâmetro do total da variável <span class="math inline">\(y\)</span> sob os Planos AC2S, AC2PC e AC2PS.</p>
+<table>
+<caption>
+<span id="tab:tabcong7">Tabela 12.7: </span>Estimadores do total populacional e de sua variância sob os Planos AC2S, AC2PC e AC2PS
+</caption>
+</table>
+<strong>Proposta 1</strong>
+<center>
+<table>
+<colgroup>
+<col width="100%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Estimador</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><span class="math inline">\(\small\widehat Y_{AC2S} = \displaystyle \frac {M} {m} \sum_{i \in a} \widehat Y_i\)</span></td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(\small\widehat Y_{AC2PC} = \displaystyle \frac {1} {m} \displaystyle \sum_{i \in a} f_i \frac {\widehat Y_i} {p_i}\)</span></td>
+</tr>
+<tr class="odd">
+<td align="left"><span class="math inline">\(\small\widehat Y_{AC2PS} = \displaystyle \frac {1} {m} \displaystyle \sum_{i \in a} \frac {\widehat Y_i} {p_i}\)</span></td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(\small\widehat V_{AC2S} \left( \widehat Y_{AC2S} \right) = M^2 \left( \displaystyle \frac {1} {m} - \frac {1} {M} \right)\displaystyle \frac {1} {m-1} \displaystyle \sum_{i \in a} \left( \widehat Y_i - \overline y_C \right)^2 + \displaystyle\frac{M} {m} \displaystyle \sum_{i \in a} N_i^2 \left( \frac {1} {n_i} - \frac {1} {N_i} \right) \widehat S_i^2\)</span></td>
+</tr>
+<tr class="odd">
+<td align="left"><span class="math inline">\(\small\widehat V_{AC2PC} \left( \widehat Y_{AC2PC} \right) = \displaystyle \frac {1} {m(m-1)} \displaystyle \sum_{i \in a} f_i\left( \frac {\widehat Y_i} {p_i} - \widehat Y_{AC2PC} \right)^2\)</span></td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(\small\widehat V_{AC2PS} \left( \widehat Y_{AC2PS} \right) = \displaystyle\frac {1} {m}\frac {M}{M-1} \displaystyle\sum_{i\in a}\left(\frac{\widehat Y_i}{p_i}-\widehat Y_{AC2PS}\right)^2(1 -m p_i)p_i+\displaystyle\sum_{i \in a} \frac {N_i^2} {m p_i} \left( \frac {1} {n_i} - \frac {1} {N_i} \right) \widehat S_i^2\)</span></td>
+</tr>
+</tbody>
+</table>
+</center>
+<p><strong>Proposta 2</strong></p>
+<center>
+<table>
+<colgroup>
+<col width="43%" />
+<col width="56%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Parâmetro</th>
+<th align="left">Estimador</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><span class="math inline">\(\small Y=\displaystyle\sum_{i \in C} Y_i\)</span></td>
+<td align="left"><span class="math inline">\(\small\widehat Y_{AC2S} =\displaystyle\frac {M} {m} \sum_{i \in a} \widehat Y_i \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\, \,\,\,\,\,\,\,\,\, \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\)</span>
+<span class="math inline">\(\small\widehat Y_{AC2PC} =\displaystyle\frac {1} {m} \sum_{i \in a} f_i \frac {\widehat Y_i} {p_i} \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\, \,\, \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\)</span>
+<span class="math inline">\(\small\widehat Y_{AC2PS} = \displaystyle \frac {1} {m}\sum_{i \in a} \frac {\widehat Y_i} {p_i} \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\, \, \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\)</span></td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(\small V_{AC2S} \left( \widehat Y_{AC2S} \right)\)</span></td>
+<td align="left"><span class="math inline">\(\small\widehat V_{AC2S} \left(\widehat Y_{AC2S}\right)=\small M^2 \left(\displaystyle \frac {1} {m} - \frac {1} {M} \right) \displaystyle\frac {1} {m-1} \small\displaystyle\sum_{i \in a} \left( \widehat Y_i - \overline y_C \right)^2+\frac{M} {m}\sum_{i \in a} N_i^2 \left( \frac {1} {n_i} - \frac {1} {N_i} \right) \widehat S_i^2\)</span></td>
+</tr>
+<tr class="odd">
+<td align="left"><span class="math inline">\(\small V_{AC2PC} \left( \widehat Y_{AC2PC} \right)\)</span></td>
+<td align="left"><span class="math inline">\(\small\widehat V_{AC2PC} \left(\widehat Y_{AC2PC} \right) = \small\displaystyle\frac {1} {m(m-1)} \displaystyle\sum_{i \in a} f_i\left( \frac {\widehat Y_i} {p_i} - \widehat Y_{AC2PC} \right)^2\)</span></td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(\small V_{AC2PS} \left( \widehat Y_{AC2PS} \right)\)</span></td>
+<td align="left"><span class="math inline">\(\small\widehat V_{AC2PS} \left( \widehat Y_{AC2PS} \right) = \small\displaystyle\frac {1} {m}\frac {M}{M-1}\displaystyle\sum_{i\in a}\left(\frac{\widehat Y_i}{p_i}-\widehat Y_{AC2PS} \right)^2(1 -m p_i)p_i +\)</span> <span class="math inline">\(\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\small+\displaystyle\sum_{i \in a} \frac {1} {m p_i} N_i^2 \left( \frac {1} {n_i} - \frac {1} {N_i} \right) \widehat S_i^2\)</span></td>
+</tr>
+</tbody>
+</table>
+</center>
+<p><strong>Proposta 3</strong></p>
+<center>
+<table>
+<colgroup>
+<col width="49%" />
+<col width="50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Parâmetro</th>
+<th align="left">Estimador</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><span class="math inline">\(\scriptstyle Y=\sum_{i=1}^{M} Y_i = \sum_{i \in C} Y_i\)</span></td>
+<td align="left"><span class="math inline">\(\scriptstyle\widehat Y_{AC2S} =\frac {M} {m} \sum_{i \in a} \widehat Y_i \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\, \,\,\,\,\,\,\,\,\, \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\)</span>
+<span class="math inline">\(\scriptstyle\widehat Y_{AC2PC} =\frac {1} {m} \sum_{i \in a} f_i \frac {\widehat Y_i} {p_i} \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\, \,\, \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\)</span>
+<span class="math inline">\(\scriptstyle\widehat Y_{AC2PS} = \frac {1} {m}\sum_{i \in a} \frac {\widehat Y_i} {p_i} \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\, \, \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\)</span></td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(\scriptstyle V_{AC2S} \left( \widehat Y_{AC2S} \right)\)</span></td>
+<td align="left"><span class="math inline">\(\scriptstyle\widehat V_{AC2S} \left(\widehat Y_{AC2S}\right)=\scriptstyle M^2 \left( \frac {1} {m} - \frac {1} {M} \right) \frac {1} {m-1} \scriptstyle\sum_{i \in a} \left( \widehat Y_i - \overline y_C \right)^2+\frac{M} {m}\sum_{i \in a} N_i^2 \left( \frac {1} {n_i} - \frac {1} {N_i} \right) \widehat S_i^2\)</span></td>
+</tr>
+<tr class="odd">
+<td align="left"><span class="math inline">\(\scriptstyle V_{AC2PC} \left( \widehat Y_{AC2PC} \right)\)</span></td>
+<td align="left"><span class="math inline">\(\scriptstyle\widehat V_{AC2PC} \left(\widehat Y_{AC2PC} \right) = \scriptstyle\frac {1} {m(m-1)} \sum_{i \in a} f_i\left( \frac {\widehat Y_i} {p_i} - \widehat Y_{AC2PC} \right)^2\)</span></td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(\scriptstyle V_{AC2PS} \left( \widehat Y_{AC2PS} \right)\)</span></td>
+<td align="left"><span class="math inline">\(\scriptstyle\widehat V_{AC2PS} \left( \widehat Y_{AC2PS} \right) = \scriptstyle\frac {1} {m}\frac {M}{M-1}\sum_{i\in a}\left(\frac{\widehat Y_i}{p_i}-\widehat Y_{AC2PS} \right)^2(1 -m p_i)p_i + \sum_{i \in a} \frac {1} {m p_i} N_i^2 \left( \frac {1} {n_i} - \frac {1} {N_i} \right) \widehat S_i^2\)</span></td>
+</tr>
+</tbody>
+</table>
+</center>
+<p><strong>Proposta 4</strong></p>
+<center>
+<table>
+<colgroup>
+<col width="82%" />
+<col width="17%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Parâmetro</th>
+<th align="left">Estimador</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><span class="math inline">\(\scriptstyle Y=\sum_{i=1}^{M} Y_i = \sum_{i \in C} Y_i\)</span></td>
+<td align="left"><span class="math inline">\(\scriptstyle\widehat Y_{AC2S} =\frac {M} {m} \sum_{i \in a} \widehat Y_i \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\)</span>
+<span class="math inline">\(\scriptstyle\widehat Y_{AC2PC} =\frac {1} {m} \sum_{i \in a} f_i \frac {\widehat Y_i} {p_i} \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\)</span>
+<span class="math inline">\(\scriptstyle\widehat Y_{AC2PS} = \frac {1} {m}\sum_{i \in a} \frac {\widehat Y_i} {p_i} \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\)</span></td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(\scriptstyle V_{AC2S}\left(\widehat Y_{AC2S}\right)=\scriptstyle M^2\left(\frac{1}{m}-\frac{1}{M}\right)\frac{1}{M-1}\sum_{i\in C}\left(Y_i-\overline{Y_C}\right)^2+\\\scriptstyle \;\;\;\;\;\;\;\;\;\;\;\;\;\;\; \;\;\;\;\;\;\;+\frac{M}{m}\sum_{i\in C}N_i^2 \left( \frac{1}{n_i}-\frac {1}{N_i}\right) S_i^2\)</span> $</td>
+<td align="left">riptstyleV_{AC2S}(Y_{AC2S})=M^2(- frac{1}{M} )<em>{ia}(Y_i-y_C)^2+\;;;;;;;;;;;;;;;;;;;;;;; +</em>{i in a}N_i^2(-) S_i^2$</td>
+</tr>
+<tr class="odd">
+<td align="left"><span class="math inline">\(\scriptstyle V_{AC2PC}\left(\widehat Y_{AC2PC}\right)=\frac{1}{m}\sum_{i\in C}\left(\frac {Y_i}{p_i}-Y\right)^2p_i+\\\scriptstyle\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;+\frac{1}{m}\sum_{i\in C}\frac{1}{p_i}N_i^2\left(\frac{1}{n_i}-\frac{1}{N_i}\right)S_i^2\)</span>
+<span class="math inline">\(\scriptstyle V_{AC2PS}\left(\widehat Y_{AC2PS}\right)=\frac{1}{m}\frac{M}{M-1}\sum_{i\in C}\left(\frac{Y_i}{p_i}-Y\right)^2\times\\\scriptstyle\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\; \;\;\;\times(1-mp_i)p_i+\sum_{i\in C}\frac{1}{m p_i}N_i^2\left(\frac{1}{n_i}-\frac{1}{N_i}\right) S_i^2\)</span></td>
+<td align="left"><span class="math inline">\(\scriptstyle\widehat V_{AC2PC} \left(\widehat Y_{AC2PC} \right) = \scriptstyle\frac {1} {m(m-1)} \sum_{i \in a} f_i\left( \frac {\widehat Y_i} {p_i} - \widehat Y_{AC2PC} \right)^2\)</span>
+<span class="math inline">\(\scriptstyle\widehat V_{AC2PS} \left( \widehat Y_{AC2PS} \right) = \scriptstyle\frac {1} {m}\frac {M}{M-1}\sum_{i\in a}\left(\frac{\widehat Y_i}{p_i}-\widehat Y_{AC2PS} \right)^2\times\\\scriptstyle\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\times(1 -m p_i)p_i+ \sum_{i \in a} \frac {1} {m p_i} N_i^2 \left( \frac {1} {n_i} - \frac {1} {N_i} \right) \widehat S_i^2\)</span></td>
+</tr>
+</tbody>
+</table>
+</center>
+<p>Para obtenção dos estimadores da média populacional basta dividir os estimadores do total por <span class="math inline">\(N\)</span> e, para estimar a variância do estimador da média, divir os estimadores da variância do total por <span class="math inline">\(N^2\)</span>.</p>
+</div>
+</div>
+<div id="ideias-básicas-na-escolha-de-unidades-compostas" class="section level2">
+<h2><span class="header-section-number">12.11</span> Ideias básicas na escolha de unidades compostas</h2>
+<p>A seguir são apresentadas algumas ideias básicas a serem adotadas na escolha de unidades compostas em termos da definição das unidades e do plano amostral, das medidas de tamanho e informação auxiliar, da escolha dos tamanhos das UPAs e do número de unidades a serem selecionadas em cada estágio.</p>
+<p>Definição das unidades e do plano amostral no caso de pesquisas domiciliares:</p>
+<ol style="list-style-type: lower-alpha">
+<li>Usar unidades claramente definidas, com mapeamento preciso, para evitar omissões e dupla contagem.<br />
+</li>
+<li>Garantir que o cadastro tenha boa cobertura em relação ao objetivo da pesquisa, para evitar omissão de unidades.<br />
+</li>
+<li>Definir procedimentos precisos para operações de listagem ou cadastramento de unidades, quando necessário.<br />
+</li>
+<li>Definir um plano amostral simples de implementar.<br />
+</li>
+<li>Preferir cadastros ou listas disponíveis em computador.</li>
+</ol>
+<p>Em termos de medidas de tamanho e informação auxiliar:</p>
+<ol start="6" style="list-style-type: lower-alpha">
+<li>Medidas de tamanho devem ser tão precisas quanto possível.<br />
+</li>
+<li>Informações auxiliares são necessárias para estratificar UPAs, para selecionar unidades com PPT, para usar na estimação, etc.</li>
+</ol>
+<p>Em termos da escolha dos tamanhos das UPAs, considerar que:</p>
+<ol start="8" style="list-style-type: lower-alpha">
+<li>UPAs menores geralmente apresentam menores custos de listagem e de deslocamento entre unidades; porém UPAs menores são mais homogêneas e podem aumentar a variância.<br />
+</li>
+<li>Geralmente adotam-se UPAs do maior tamanho possível, tal que uma UPA possa ser coberta por apenas um entrevistador durante a operação de coleta.<br />
+</li>
+<li>UPAs de tamanhos parecidos reduzem a variância.</li>
+</ol>
+<p>Em termos da escolha de <span class="math inline">\(m\)</span> e <span class="math inline">\(n_i\)</span>, considerar que:</p>
+<ol start="11" style="list-style-type: lower-alpha">
+<li>Geralmente, utiliza-se uma das opções equiponderadas dos Planos AC2S e AC2PS, para manter a simplicidade.</li>
+</ol>
+<ul>
+<li>Sob o Plano AC2S, escolher: <span class="math inline">\(f_1 = m / M\)</span>, a fração amostral do primeiro estágio; e <span class="math inline">\(f_{2i} = n_i / N_i = \overline n / \overline N\)</span>, as frações amostrais do segundo estágio iguais para todos os conglomerados da amostra;<br />
+</li>
+<li>Sob o Plano AC2PS, escolher: <span class="math inline">\(f_1 = m / M\)</span> e <span class="math inline">\(\overline n\)</span> (tamanho amostral fixo no segundo estágio, quando as probabilidades de sorteio no primeiro estágio são <span class="math inline">\(p_i \propto N_i\)</span>).</li>
+</ul>
+<ol start="12" style="list-style-type: lower-alpha">
+<li>Em cada caso, há duas quantidades de interesse a especificar para definir completamente o plano amostral. Restrições orçamentárias geralmente permitem reduzir a escolha a apenas uma dessas quantidades.</li>
+</ol>
+<p>Algumas vezes, para o Plano AC2PS, determinamos primeiro o valor para <span class="math inline">\(\overline n\)</span>, que define a carga de trabalho por entrevistador em cada UPA.</p>
+<p>Em geral, para tamanhos totais de amostra fixados, pode-se escolher entre:</p>
+<ul>
+<li>Aumentar <span class="math inline">\(m\)</span> e reduzir <span class="math inline">\(\overline n\)</span>, o que aumenta a precisão mas aumenta o custo.<br />
+</li>
+<li>Reduzir <span class="math inline">\(m\)</span> e aumentar <span class="math inline">\(\overline n\)</span>, o que reduz a precisão mas também reduz o custo.</li>
+</ul>
+<p>Um compromisso é necessário! Um guia importante é considerar:</p>
+<p><span class="math display" id="eq:eqcong46">\[
+EPA(AC2S;\,AAS)  \doteq 1 + (\overline n - 1) \rho \,\, \tag{12.46} 
+\]</span></p>
+<p>Da Expressão <a href="cong.html#eq:eqcong46">(12.46)</a> segue-se de imediato que:</p>
+<ol style="list-style-type: lower-roman">
+<li>Se <span class="math inline">\(\rho &gt; 0 \Rightarrow [1 + (\overline n - 1) \rho] &lt;&lt; [1 + (\overline N - 1) \rho]\)</span>, que é o efeito de conglomeração na AC1S. Logo, do ponto de vista de melhoria da precisão das estimativas, é interessante manter <span class="math inline">\(\overline n\)</span> pequeno, o que implica ter mais UPAs na amostra, mas com subamostras menores em cada UPA.<br />
+</li>
+<li>Se <span class="math inline">\(\rho &lt; 0 \Rightarrow [1 + (\overline n - 1) \rho] &gt; [1 + (\overline N - 1) \rho]\)</span>. Logo, nesse caso a melhor alternativa é fazer <span class="math inline">\(\overline n = \overline N\)</span>, isto é fazer AC1, selecionando menos UPAs. Vale destacar que são muito raras situações como essa na prática.</li>
+</ol>
+<p>Vale registrar que, se a fração amostral do primeiro estágio cresce, como em geral o custo de adicionar uma unidade primária é maior que o de adicionar uma unidade secundária, então o fator custo não deve ser ignorado na determinação dos tamanhos da amostra dos diferentes estágios.</p>
+</div>
+<div id="determinando-tamanhos-de-amostra-com-ac2pc" class="section level2">
+<h2><span class="header-section-number">12.12</span> Determinando tamanhos de amostra com AC2PC</h2>
+<p><em>Passo 1</em>: Determine o tamanho amostral requerido para estimar a média populacional <span class="math inline">\(\overline Y\)</span> por uma AAS com a margem de erro aceitável <span class="math inline">\(D\)</span> especificada de comum acordo com o cliente:</p>
+<p><span class="math display" id="eq:eqcong47">\[ 
+n_{AAS} = \frac {N z_{\alpha/2}^2 S_y^2} {N D^2 + z_{\alpha/2}^2 S_y^2} \,\,\tag{12.47} 
+\]</span></p>
+<p>Note que <span class="math inline">\(n_{AAS}\)</span> é solução da seguinte expressão:</p>
+<p><span class="math display" id="eq:eqcong48">\[
+V_{AAS} (\overline y) = \left( \frac {1} {n} - \frac {1} {N} \right) S_y^2 = \left( \frac {D} {z_{\alpha/2}} \right)^2 \,\,\tag{12.48} 
+\]</span></p>
+<p><em>Passo 2</em>: Note que, de acordo com <span class="citation">Silva e Moura (1990)</span>, página 31, se o número de unidades a serem investigadas no segundo estágio é constante para qualquer conglomerado (<span class="math inline">\(n_i=\overline n,\,\forall\, i\)</span>), tem-se:</p>
+<p><span class="math display" id="eq:eqcong49">\[\hspace{-1.0cm}
+EPA(AC2PC; \, AAS) = \displaystyle \frac {V_{AC2PC} (\overline y_{AC2PC})} {V_{AAS} (\overline y)} \doteq 1 + (\overline n - 1) \rho_c \tag{12.49} 
+\]</span>
+onde: <span class="math inline">\(\rho_c\)</span> é uma medida de correlação intraclasse, no caso em que os conglomerados possuem tamanhos diferentes, dada por:</p>
+<p><span class="math display">\[\rho_c= 1-\frac{\displaystyle\sum_{i\in C}N_iS_i^2}{S_y^2(N-1)}\]</span>
+Da Expressão <a href="cong.html#eq:eqcong49">(12.49)</a> segue-se que:</p>
+<p><span class="math display">\[ 
+V_{AAS} (\overline y) = \frac{V_{AC2PC}(\overline y_{AC2PC})}{EPA(AC2PC; \, AAS)}
+\]</span></p>
+<p>Então pode-se escrever:</p>
+<p><span class="math display" id="eq:eqcong50">\[ 
+\displaystyle \frac {V_{AC2PC} (\overline y_{AC2PC})} {EPA(AC2PC; \, AAS)} = \left( \frac {1} {n} - \frac {1} {N} \right) S_y^2=\frac1n{S^2_y}-\frac1N{S^2_y}\,\, \tag{12.50} 
+\]</span></p>
+<p>Daí segue-se que:</p>
+<p><span class="math display">\[
+\frac 1 n S_y^2 = \displaystyle \frac {V_{AC2PC} (\overline y_{AC2PC})} {EPA(AC2PC; \, AAS)} +\frac {1} {N} S_y^2 \,\,\Longrightarrow 
+\]</span></p>
+<p><span class="math display">\[
+\frac 1 n  =  \displaystyle \frac {V_{AC2PC} (\overline y_{AC2PC})} { S_y^2EPA(AC2PC; \, AAS)} +\frac {1} {N} \,\,\Longrightarrow
+\]</span></p>
+<p><span class="math display" id="eq:eqcong51">\[
+n = \frac{ NS_y^2EPA(AC2PC; \, AAS)}{NV_{AC2PC} (\overline y_{AC2PC})+S_y^2EPA(AC2PC; \, AAS)}\tag{12.51}
+\]</span></p>
+<p>Mas deseja-se com o Plano AC2PC obter a mesma margem de erro admissível <span class="math inline">\(D\)</span> da AAS, logo segue que:</p>
+<p><span class="math display" id="eq:eqcong52">\[
+V_{AC2PC} (\overline y_{AC2PC}) = \left( \frac {D} {z_{\alpha/2}} \right)^2 \,\, \tag{12.52}
+\]</span></p>
+<p>Levando a Expressão <a href="cong.html#eq:eqcong52">(12.52)</a> na Expressão <a href="cong.html#eq:eqcong51">(12.51)</a>, segue-se que:</p>
+<p><span class="math display">\[
+n_{AC2PC} = \frac{NS_y^2EPA(AC2PC; \, AAS)} {N\left(\frac D{z_{\alpha/2}}\right)^2+S_y^2EPA(AC2PC; \, AAS)}
+\]</span></p>
+<p>Que leva à seguinte solução:</p>
+<p><span class="math display">\[
+n_{AC2PC} = \displaystyle \frac {EPA(AC2PC; \, AAS) N z_{\alpha/2}^2 S_y^2} {N D^2 + EPA(AC2PC; \, AAS) z_{\alpha/2}^2 S_y^2}\Longrightarrow 
+\]</span></p>
+<p><span class="math display">\[
+n_{AC2PC}\doteq \displaystyle \frac { N z_{\alpha/2}^2 S_y^2} {N D^2 + z_{\alpha/2}^2 S_y^2}EPA(AC2PC; \, AAS)
+\]</span></p>
+<p><span class="math display" id="eq:eqcong53">\[ 
+n_{AC2PC} \doteq n_{AAS}\, EPA(AC2PC; AAS) \,\, \tag{12.53}
+\]</span></p>
+<p>Ou alternativamente:</p>
+<p><span class="math display" id="eq:eqcong54">\[
+n_{AC2PC} \doteq n_{AAS} \,\, [1 + (\overline n - 1) \rho_c] \,\,\tag{12.54}
+\]</span></p>
+<p>A relação mostrada na Expressão <a href="cong.html#eq:eqcong53">(12.53)</a> pode ser utilizada como referência para determinação do tamanho desejado de amostra para outros planos que utilizem amostragem conglomerada.</p>
+</div>
+<div id="exercícios" class="section level2">
+<h2><span class="header-section-number">12.13</span> Exercícios</h2>
+<p><strong>Exercício 12.1 </strong> Considere uma população de <span class="math inline">\(M=100\)</span> conglomerados de mesmo tamanho <span class="math inline">\(\overline N\)</span>, cada um formado por 4 pessoas, em que a proporção de pessoas com um determinado atributo é <span class="math inline">\(p=0,5\)</span>. Em uma amostra de 5 conglomerados tipo AC1S foram obtidos os resultados da Tabela <a href="cong.html#tab:tabcong8">12.8</a>:</p>
+<center>
+<table>
+<caption>
+<span id="tab:tabcong8">Tabela 12.8: </span>Resultados obtidos para a amostra
+</caption>
+</table>
+<table style="width:62%;">
+<colgroup>
+<col width="33%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="6%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Conglomerado <span class="math inline">\(i\)</span></th>
+<th align="center">1</th>
+<th align="center">2</th>
+<th align="center">3</th>
+<th align="center">4</th>
+<th align="center">5</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Pessoas com o atributo</td>
+<td align="center">2</td>
+<td align="center">3</td>
+<td align="center">1</td>
+<td align="center">2</td>
+<td align="center">1</td>
+</tr>
+</tbody>
+</table>
+</center>
+<p>Estime a eficiência da amostragem conglomerada em relação à de uma amostra aleatória simples de igual tamanho, para estimar a proporção.</p>
+<p><strong>Exercício 12.2 </strong> Seja uma população de <span class="math inline">\(N=20\)</span> unidades, cujos valores associados a certa característica <span class="math inline">\(y\)</span> são relacionados na Tabela <a href="cong.html#tab:tabcong9">12.9</a>:</p>
+<center>
+<table>
+<caption>
+<span id="tab:tabcong9">Tabela 12.9: </span>Valores populacionais
+</caption>
+</table>
+<table style="width:65%;">
+<colgroup>
+<col width="11%" />
+<col width="11%" />
+<col width="18%" />
+<col width="11%" />
+<col width="13%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left"><span class="math inline">\(U_i\)</span></th>
+<th align="center"><span class="math inline">\(y_i\)</span></th>
+<th align="left">           </th>
+<th align="center"><span class="math inline">\(U_i\)</span></th>
+<th align="right"><span class="math inline">\(y_i\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">1</td>
+<td align="center">60</td>
+<td align="left"></td>
+<td align="center">11</td>
+<td align="right">94</td>
+</tr>
+<tr class="even">
+<td align="left">2</td>
+<td align="center">70</td>
+<td align="left">           </td>
+<td align="center">12</td>
+<td align="right">51</td>
+</tr>
+<tr class="odd">
+<td align="left">3</td>
+<td align="center">37</td>
+<td align="left">           </td>
+<td align="center">13</td>
+<td align="right">85</td>
+</tr>
+<tr class="even">
+<td align="left">4</td>
+<td align="center">56</td>
+<td align="left">           </td>
+<td align="center">14</td>
+<td align="right">65</td>
+</tr>
+<tr class="odd">
+<td align="left">5</td>
+<td align="center">61</td>
+<td align="left">           </td>
+<td align="center">15</td>
+<td align="right">92</td>
+</tr>
+<tr class="even">
+<td align="left">6</td>
+<td align="center">38</td>
+<td align="left">           </td>
+<td align="center">16</td>
+<td align="right">94</td>
+</tr>
+<tr class="odd">
+<td align="left">7</td>
+<td align="center">55</td>
+<td align="left">           </td>
+<td align="center">17</td>
+<td align="right">10</td>
+</tr>
+<tr class="even">
+<td align="left">8</td>
+<td align="center">5</td>
+<td align="left">           </td>
+<td align="center">18</td>
+<td align="right">87</td>
+</tr>
+<tr class="odd">
+<td align="left">9</td>
+<td align="center">23</td>
+<td align="left">           </td>
+<td align="center">19</td>
+<td align="right">31</td>
+</tr>
+<tr class="even">
+<td align="left">10</td>
+<td align="center">47</td>
+<td align="left">           </td>
+<td align="center">20</td>
+<td align="right">2</td>
+</tr>
+</tbody>
+</table>
+</center>
+<p>As unidades foram agrupadas em 4 conglomerados como descrito na Tabela <a href="cong.html#tab:tabcong10">12.10</a>:</p>
+<center>
+<table>
+<caption>
+<span id="tab:tabcong10">Tabela 12.10: </span>Conglomerados e respectivas unidades formadoras
+</caption>
+</table>
+<table style="width:58%;">
+<colgroup>
+<col width="20%" />
+<col width="37%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="center">Conglomerado</th>
+<th align="center">Unidades</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center"><span class="math inline">\(C_1\)</span></td>
+<td align="center"><span class="math inline">\(U_1\)</span>, <span class="math inline">\(U_{6}\)</span>, <span class="math inline">\(U_{11}\)</span>, <span class="math inline">\(U_{16}\)</span> e <span class="math inline">\(U_{20}\)</span></td>
+</tr>
+<tr class="even">
+<td align="center"><span class="math inline">\(C_2\)</span></td>
+<td align="center"><span class="math inline">\(U_2\)</span>, <span class="math inline">\(U_3\)</span>, <span class="math inline">\(U_7\)</span>, <span class="math inline">\(U_8\)</span> e <span class="math inline">\(U_{19}\)</span></td>
+</tr>
+<tr class="odd">
+<td align="center"><span class="math inline">\(C_3\)</span></td>
+<td align="center"><span class="math inline">\(U_4\)</span>, <span class="math inline">\(U_5\)</span>, <span class="math inline">\(U_{14}\)</span>, <span class="math inline">\(U_{15}\)</span> e <span class="math inline">\(U_{18}\)</span></td>
+</tr>
+<tr class="even">
+<td align="center"><span class="math inline">\(C_4\)</span></td>
+<td align="center"><span class="math inline">\(U_9\)</span>, <span class="math inline">\(U_{10}\)</span>, <span class="math inline">\(U_{12}\)</span>, <span class="math inline">\(U_{13}\)</span> e <span class="math inline">\(U_{17}\)</span></td>
+</tr>
+</tbody>
+</table>
+</center>
+<p>Calcule o coeficiente de correlação intraclasse, <span class="math inline">\(\rho\)</span>. Com base no resultado, comente sobre a eficiência da amostragem conglomerada AC1S em comparação com uma AAS com tamanho total igual a 5 unidades.</p>
+<p><strong>Exercício 12.3 </strong> A Tabela <a href="cong.html#tab:tabcong11">12.11</a> contém os dados de uma amostra de <span class="math inline">\(m=20\)</span> quarteirões selecionados aleatoriamente e sem reposição, entre os 270 quarteirões de uma localidade que tem, no total, 6.786 domicílios. A unidade de investigação da pesquisa foi o domicílio.</p>
+<center>
+<table>
+<caption>
+<span id="tab:tabcong11">Tabela 12.11: </span>Número de domicílios e domicílios alugados na amostra de 20 quarteirões
+</caption>
+</table>
+<table>
+<colgroup>
+<col width="17%" />
+<col width="12%" />
+<col width="16%" />
+<col width="8%" />
+<col width="17%" />
+<col width="12%" />
+<col width="16%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="center">Quarteirão</th>
+<th align="right">Número
+de dom.</th>
+<th align="right">Domicílios
+alugados</th>
+<th align="left">    </th>
+<th align="center">Quarteirão</th>
+<th align="right">Número
+de dom.</th>
+<th align="right">Domicílios
+alugados</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">1</td>
+<td align="right">5</td>
+<td align="right">3  </td>
+<td align="left">   </td>
+<td align="center">11 2</td>
+<td align="right">9</td>
+<td align="right">17</td>
+</tr>
+<tr class="even">
+<td align="center">2</td>
+<td align="right">9</td>
+<td align="right">5  </td>
+<td align="left">   </td>
+<td align="center">12 31</td>
+<td align="right"></td>
+<td align="right">14</td>
+</tr>
+<tr class="odd">
+<td align="center">3</td>
+<td align="right">18</td>
+<td align="right">5</td>
+<td align="left">    </td>
+<td align="center">13</td>
+<td align="right">5</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="center">4</td>
+<td align="right">68</td>
+<td align="right">52</td>
+<td align="left">    </td>
+<td align="center">14</td>
+<td align="right">2</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="center">5</td>
+<td align="right">32</td>
+<td align="right">21</td>
+<td align="left">    </td>
+<td align="center">15</td>
+<td align="right">4</td>
+<td align="right">2</td>
+</tr>
+<tr class="even">
+<td align="center">6</td>
+<td align="right">48</td>
+<td align="right">34</td>
+<td align="left">    </td>
+<td align="center">16 1</td>
+<td align="right">02</td>
+<td align="right">54</td>
+</tr>
+<tr class="odd">
+<td align="center">7</td>
+<td align="right">11</td>
+<td align="right">3</td>
+<td align="left">    </td>
+<td align="center">17</td>
+<td align="right">20</td>
+<td align="right">11</td>
+</tr>
+<tr class="even">
+<td align="center">8</td>
+<td align="right">1</td>
+<td align="right">0</td>
+<td align="left">    </td>
+<td align="center">18</td>
+<td align="right">15</td>
+<td align="right">11</td>
+</tr>
+<tr class="odd">
+<td align="center">9</td>
+<td align="right">1</td>
+<td align="right">0</td>
+<td align="left">    </td>
+<td align="center">19</td>
+<td align="right">1</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="center">10</td>
+<td align="right">4</td>
+<td align="right">0</td>
+<td align="left">    </td>
+<td align="center">20</td>
+<td align="right">29</td>
+<td align="right">23</td>
+</tr>
+</tbody>
+</table>
+</center>
+<ol style="list-style-type: lower-alpha">
+<li>Estime a proporção de domicílios alugados na localidade, utilizando o estimador natural, e construa um <span class="math inline">\(IC_{95\%}\)</span> para essa proporção.</li>
+<li>Repita o item a, utilizando o estimador tipo razão, tendo como variável auxiliar o tamanho dos conglomerados.</li>
+<li>Qual dos dois estimadores você escolheria? Por quê?</li>
+</ol>
+<p><strong>Exercício 12.4 </strong> É dada uma população com <span class="math inline">\(N\)</span> unidades distribuídas em <span class="math inline">\(M\)</span> conglomerados de tamanhos desiguais. Deseja-se selecionar uma amostra de <span class="math inline">\(m\)</span> conglomerados para estimar o total de uma determinada característica. Quais as medidas que devem ser tomadas na definição do plano amostral para controlar a variação do tamanho dos conglomerados:</p>
+<ol style="list-style-type: lower-alpha">
+<li>Se o tamanho de cada conglomerado for conhecido?</li>
+<li>Se o tamanho de cada conglomerado não for conhecido?</li>
+</ol>
+<p><strong>Exercício 12.5 </strong> Os habitantes de um bairro estão distribuídos em 170 quarteirões, onde se sabe que há um total de 8.500 domicílios. Uma amostra aleatória simples de 500 domicílios foi selecionada e forneceu uma precisão de cerca de 10% (em termos do coeficiente de variação) para estimar o total de domicílios alugados e o coeficiente de correlação intraclasse, estimado na mesma amostra, é de aproximadamente 0,30. Usando a fórmula aproximada que relaciona a variância da amostra aleatória simples e da amostra de conglomerados em 1 estágio simples, supondo conglomerados de igual tamanho:</p>
+<ol style="list-style-type: lower-alpha">
+<li>Estime a precisão que seria obtida para estimar o total de domicílios alugados se fosse selecionada uma amostra de quarteirões correspondente ao mesmo número de domicílios que a amostra aleatória simples.</li>
+<li>Determine o tamanho de amostra de quarteirões necessário para estimar o total de domicílios alugados no bairro em questão, com a mesma precisão da amostra aleatória simples.</li>
+</ol>
+<p><strong>Exercício 12.6 </strong> Compare as 2 amostras seguintes, cada uma delas baseada em 3.600 unidades elementares selecionadas de uma população com 1.800.000 unidades.</p>
+<ol style="list-style-type: decimal">
+<li>Uma amostra aleatória simples de 3.600 unidades elementares resultando em <span class="math inline">\(\overline y = 513\)</span> e <span class="math inline">\(\widehat V_{AAS} (\overline y) = 10,89\)</span>.</li>
+<li>Uma amostra aleatória de 180 conglomerados selecionados dentre 90.000 conglomerados, com cada conglomerado contendo <span class="math inline">\(N=20\)</span> unidades elementares, com <span class="math inline">\(\overline y_{AC1S/HT} = 524\)</span> e <span class="math inline">\(\widehat{V}_{AC1S} (\overline y_{AC1S/HT}) = 102,01\)</span>.</li>
+</ol>
+<p>Note que a variância estimada para estimar a média da característica <span class="math inline">\(y\)</span> para a segunda amostra é quase 10 vezes maior que a da primeira amostra.</p>
+<p>Em cada uma das afirmativas abaixo, complete com (V) se a afirmativa for verdadeira e (F) se for falsa, justificando sua escolha em cada caso.</p>
+<ol style="list-style-type: lower-alpha">
+<li>( ) O coeficiente de correlação intraclasse dos 90.000 conglomerados é maior que zero.</li>
+<li>( ) Todos os elementos dentro de cada conglomerado são iguais <span class="math inline">\((y_{ij} = y_{ik},\,\forall\,\, j\,\,\text{e}\,\,k)\)</span>.</li>
+<li>( ) A estimativa da variância da segunda amostra pode ser reduzida, para atingir o valor da variância estimada com a primeira amostra, aumentando em menos de 1.000 o número de conglomerados na segunda amostra.</li>
+<li>( ) Se a primeira amostra for reduzida para 1.200 unidades elementares, ela teria a mesma precisão estimada para a média da característica <span class="math inline">\(y\)</span> que a segunda amostra.</li>
+</ol>
+<p><strong>Exercício 12.7 </strong> De uma população com 10.000 conglomerados e 50.000 unidades elementares, uma amostra aleatória simples sem reposição de 10 conglomerados foi selecionada. Desses conglomerados, temos as informações mostradas na Tabela <a href="cong.html#tab:tabcong12">12.12</a>:</p>
+<center>
+<table>
+<caption>
+<span id="tab:tabcong12">Tabela 12.12: </span>Valores observados para os conglomerados da amostra
+</caption>
+</table>
+<table style="width:50%;">
+<colgroup>
+<col width="26%" />
+<col width="11%" />
+<col width="12%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="center">Conglomerado <span class="math inline">\(i\)</span></th>
+<th align="right"><span class="math inline">\(Y_i\)</span></th>
+<th align="right"><span class="math inline">\(N_i\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center"><span class="math inline">\(C_1\)</span></td>
+<td align="right">80</td>
+<td align="right">3</td>
+</tr>
+<tr class="even">
+<td align="center"><span class="math inline">\(C_2\)</span></td>
+<td align="right">110</td>
+<td align="right">4</td>
+</tr>
+<tr class="odd">
+<td align="center"><span class="math inline">\(C_3\)</span></td>
+<td align="right">95</td>
+<td align="right">5</td>
+</tr>
+<tr class="even">
+<td align="center"><span class="math inline">\(C_4\)</span></td>
+<td align="right">55</td>
+<td align="right">3</td>
+</tr>
+<tr class="odd">
+<td align="center"><span class="math inline">\(C_5\)</span></td>
+<td align="right">150</td>
+<td align="right">5</td>
+</tr>
+<tr class="even">
+<td align="center"><span class="math inline">\(C_6\)</span></td>
+<td align="right">120</td>
+<td align="right">6</td>
+</tr>
+<tr class="odd">
+<td align="center"><span class="math inline">\(C_7\)</span></td>
+<td align="right">175</td>
+<td align="right">7</td>
+</tr>
+<tr class="even">
+<td align="center"><span class="math inline">\(C_8\)</span></td>
+<td align="right">90</td>
+<td align="right">4</td>
+</tr>
+<tr class="odd">
+<td align="center"><span class="math inline">\(C_9\)</span></td>
+<td align="right">50</td>
+<td align="right">3</td>
+</tr>
+<tr class="even">
+<td align="center"><span class="math inline">\(C_{10}\)</span></td>
+<td align="right">100</td>
+<td align="right">5</td>
+</tr>
+<tr class="odd">
+<td align="center">Total</td>
+<td align="right">1.025</td>
+<td align="right">45</td>
+</tr>
+</tbody>
+</table>
+</center>
+<ol style="list-style-type: lower-alpha">
+<li>Dê duas estimativas da média por unidade elementar.</li>
+<li>Qual estimativa é, provavelmente, melhor? Justifique.</li>
+</ol>
+<p><strong>Exercício 12.8 </strong> Uma cadeia de supermercados tem lojas em 32 cidades. Um órgão de fiscalização deseja estimar a proporção das lojas da cadeia que não seguem determinados padrões especificados de higiene. Amostra de conglomerados é desejável no caso, devido aos altos custos de locomoção entre as cidades; assim foi decidido por uma amostra de conglomerados em dois estágios, com equiprobabilidade nos dois estágios de seleção, contendo aproximadamente metade das lojas de 4 cidades amostradas. Os dados amostrais aparecem na Tabela <a href="cong.html#tab:tabcong13">12.13</a>:</p>
+<center>
+<table>
+<caption>
+<span id="tab:tabcong13">Tabela 12.13: </span>Valores observados para a amostra
+</caption>
+</table>
+<table style="width:90%;">
+<colgroup>
+<col width="12%" />
+<col width="15%" />
+<col width="15%" />
+<col width="33%" />
+<col width="13%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="center">Cidade</th>
+<th align="center">Total
+de lojas</th>
+<th align="center">Lojas na
+amostra</th>
+<th align="center">Não atendem critérios
+de higiene</th>
+<th align="center"><span class="math inline">\(s^2_i\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">1</td>
+<td align="center">25</td>
+<td align="center">13</td>
+<td align="center">3</td>
+<td align="center">0,1923</td>
+</tr>
+<tr class="even">
+<td align="center">2</td>
+<td align="center">10</td>
+<td align="center">5</td>
+<td align="center">1</td>
+<td align="center">0,2000</td>
+</tr>
+<tr class="odd">
+<td align="center">3</td>
+<td align="center">18</td>
+<td align="center">9</td>
+<td align="center">4</td>
+<td align="center">0,2778</td>
+</tr>
+<tr class="even">
+<td align="center">4</td>
+<td align="center">16</td>
+<td align="center">8</td>
+<td align="center">2</td>
+<td align="center">0,2143</td>
+</tr>
+</tbody>
+</table>
+</center>
+<ol style="list-style-type: lower-alpha">
+<li>Estime a proporção, na cadeia de supermercados, de lojas que não atendem aos critérios de higiene, levando em conta que os tamanhos dos conglomerados são diferentes.</li>
+<li>Estime a margem de erro com nível de confiança de 95% e dê o intervalo de confiança correspondente.</li>
+</ol>
+<p><strong>Exercício 12.9 </strong> Uma população é composta de 100 conglomerados, cada um deles composto de 5 unidades elementares. Deseja-se selecionar uma amostra de 50 unidades dessa população. São conhecidos os seguintes parâmetros populacionais: <span class="math inline">\(S^2_d = 100\)</span> e <span class="math inline">\(S^2_e = 1.500\)</span>.</p>
+<ol style="list-style-type: lower-alpha">
+<li>Calcule a variância do estimador do total para o caso de uma AAS de 50 unidades elementares.</li>
+<li>Calcule a variância do estimador do total caso seja utilizada uma AC1S que resulte em 50 unidades elementares.</li>
+<li>Calcule a variância do estimador do total caso seja utilizada uma AC2S com fração amostral no segundo estágio igual a 2/5 em cada uma das UPAs selecionadas, de modo que se tenha uma amostra com 50 unidades elementares.</li>
+<li>Qual dos três planos amostrais seria mais indicado? Justifique sua resposta.</li>
+<li>Calcule o coeficiente de correlação intraclasse e comente se o resultado é coerente com o item d.</li>
+</ol>
+<p><strong>Exercício 12.10 </strong> Uma fábrica produz placas eletrônicas que possuem 12 microchips cada uma. Uma amostra de 10 placas é selecionada aleatoriamente para o controle de qualidade, de um determinado lote de placas fabricadas, e verifica-se o número de microchips defeituosos em cada uma: 2, 0, 1, 3, 2, 0, 0, 1, 3 e 4.</p>
+<ol style="list-style-type: lower-alpha">
+<li>Supondo que o número total de placas é desconhecido, mas <em>“grande”</em>, estime o total de microchips defeituosos na população e o erro padrão dessa estimativa.</li>
+<li>Supondo que o número total de placas é 50, estime o total de microchips defeituosos na população e seu erro padrão.</li>
+</ol>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="estrat.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="calib.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

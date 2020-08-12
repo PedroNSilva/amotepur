@@ -1,0 +1,1817 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xml:lang="pt-BR">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Capítulo 8 Amostragem Sistemática Simples | Amostragem: Teoria e Prática Usando R</title>
+  <meta name="description" content="Este é o livro de Amostragem elaborado pelos autores." />
+  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Capítulo 8 Amostragem Sistemática Simples | Amostragem: Teoria e Prática Usando R" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Este é o livro de Amostragem elaborado pelos autores." />
+  <meta name="github-repo" content="PedroNSilva/amotepur" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Capítulo 8 Amostragem Sistemática Simples | Amostragem: Teoria e Prática Usando R" />
+  
+  <meta name="twitter:description" content="Este é o livro de Amostragem elaborado pelos autores." />
+  
+
+<meta name="author" content="Pedro Luis do Nascimento Silva, Zélia Magalhães Bianchini e Antonio José Ribeiro Dias" />
+
+
+<meta name="date" content="2020-08-12" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="domin.html"/>
+<link rel="next" href="outros-métodos-de-amostragem-com-equiprobabilidade.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+
+
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Prefácio</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#agradecimentos"><i class="fa fa-check"></i>Agradecimentos</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="lista-de-siglas.html"><a href="lista-de-siglas.html"><i class="fa fa-check"></i>Lista de Siglas</a></li>
+<li class="chapter" data-level="" data-path="lista-de-tabelas.html"><a href="lista-de-tabelas.html"><i class="fa fa-check"></i>Lista de Tabelas</a></li>
+<li class="chapter" data-level="" data-path="lista-de-figuras.html"><a href="lista-de-figuras.html"><i class="fa fa-check"></i>Lista de Figuras</a></li>
+<li class="chapter" data-level="1" data-path="introduc.html"><a href="introduc.html"><i class="fa fa-check"></i><b>1</b> Introdução</a><ul>
+<li class="chapter" data-level="1.1" data-path="introduc.html"><a href="introduc.html#motivação"><i class="fa fa-check"></i><b>1.1</b> Motivação</a></li>
+<li class="chapter" data-level="1.2" data-path="introduc.html"><a href="introduc.html#objetivos-do-livro"><i class="fa fa-check"></i><b>1.2</b> Objetivos do livro</a></li>
+<li class="chapter" data-level="1.3" data-path="introduc.html"><a href="introduc.html#estrutura-do-livro"><i class="fa fa-check"></i><b>1.3</b> Estrutura do livro</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="conceitos.html"><a href="conceitos.html"><i class="fa fa-check"></i><b>2</b> Conceitos e Cadastros</a><ul>
+<li class="chapter" data-level="2.1" data-path="conceitos.html"><a href="conceitos.html#fontes-de-dados-e-tipos-de-pesquisas"><i class="fa fa-check"></i><b>2.1</b> Fontes de dados e tipos de pesquisas</a></li>
+<li class="chapter" data-level="2.2" data-path="conceitos.html"><a href="conceitos.html#alguns-conceitos-fundamentais"><i class="fa fa-check"></i><b>2.2</b> Alguns conceitos fundamentais</a></li>
+<li class="chapter" data-level="2.3" data-path="conceitos.html"><a href="conceitos.html#abordalt"><i class="fa fa-check"></i><b>2.3</b> Abordagens alternativas para pesquisas por amostragem</a></li>
+<li class="chapter" data-level="2.4" data-path="conceitos.html"><a href="conceitos.html#planejamento-e-execução-de-pesquisas-por-amostragem"><i class="fa fa-check"></i><b>2.4</b> Planejamento e execução de pesquisas por amostragem</a><ul>
+<li class="chapter" data-level="2.4.1" data-path="conceitos.html"><a href="conceitos.html#especificação-das-necessidades-da-pesquisa"><i class="fa fa-check"></i><b>2.4.1</b> Especificação das necessidades da pesquisa</a></li>
+<li class="chapter" data-level="2.4.2" data-path="conceitos.html"><a href="conceitos.html#planejamento-da-pesquisa"><i class="fa fa-check"></i><b>2.4.2</b> Planejamento da pesquisa</a></li>
+<li class="chapter" data-level="2.4.3" data-path="conceitos.html"><a href="conceitos.html#elaboração-dos-instrumentos-de-coleta-e-dos-sistemas"><i class="fa fa-check"></i><b>2.4.3</b> Elaboração dos instrumentos de coleta e dos sistemas</a></li>
+<li class="chapter" data-level="2.4.4" data-path="conceitos.html"><a href="conceitos.html#coleta-dos-dados"><i class="fa fa-check"></i><b>2.4.4</b> Coleta dos dados</a></li>
+<li class="chapter" data-level="2.4.5" data-path="conceitos.html"><a href="conceitos.html#processamento-da-pesquisa"><i class="fa fa-check"></i><b>2.4.5</b> Processamento da pesquisa</a></li>
+<li class="chapter" data-level="2.4.6" data-path="conceitos.html"><a href="conceitos.html#análise-dos-dados-da-pesquisa"><i class="fa fa-check"></i><b>2.4.6</b> Análise dos dados da pesquisa</a></li>
+<li class="chapter" data-level="2.4.7" data-path="conceitos.html"><a href="conceitos.html#disseminação-dos-resultados-da-pesquisa"><i class="fa fa-check"></i><b>2.4.7</b> Disseminação dos resultados da pesquisa</a></li>
+<li class="chapter" data-level="2.4.8" data-path="conceitos.html"><a href="conceitos.html#arquivamento-das-informações-da-pesquisa"><i class="fa fa-check"></i><b>2.4.8</b> Arquivamento das informações da pesquisa</a></li>
+<li class="chapter" data-level="2.4.9" data-path="conceitos.html"><a href="conceitos.html#avaliação-da-pesquisa"><i class="fa fa-check"></i><b>2.4.9</b> Avaliação da pesquisa</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="conceitos.html"><a href="conceitos.html#cadastros"><i class="fa fa-check"></i><b>2.5</b> Cadastros</a><ul>
+<li class="chapter" data-level="2.5.1" data-path="conceitos.html"><a href="conceitos.html#cadIBGE"><i class="fa fa-check"></i><b>2.5.1</b> Cadastros importantes no IBGE</a></li>
+<li class="chapter" data-level="2.5.2" data-path="conceitos.html"><a href="conceitos.html#defeitos-de-cadastros"><i class="fa fa-check"></i><b>2.5.2</b> Defeitos de cadastros</a></li>
+<li class="chapter" data-level="2.5.3" data-path="conceitos.html"><a href="conceitos.html#regras-de-associação-das-unidades-da-população-à-unidade-cadastral"><i class="fa fa-check"></i><b>2.5.3</b> Regras de associação das unidades da população à unidade cadastral</a></li>
+</ul></li>
+<li class="chapter" data-level="2.6" data-path="conceitos.html"><a href="conceitos.html#exercícios"><i class="fa fa-check"></i><b>2.6</b> Exercícios</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="visger.html"><a href="visger.html"><i class="fa fa-check"></i><b>3</b> Visão Geral da Amostragem e Estimação</a><ul>
+<li class="chapter" data-level="3.1" data-path="visger.html"><a href="visger.html#definições-e-notação-para-população-de-pesquisa-e-parâmetros-selecionados"><i class="fa fa-check"></i><b>3.1</b> Definições e notação para população de pesquisa e parâmetros selecionados</a></li>
+<li class="chapter" data-level="3.2" data-path="visger.html"><a href="visger.html#amostra"><i class="fa fa-check"></i><b>3.2</b> Amostra</a></li>
+<li class="chapter" data-level="3.3" data-path="visger.html"><a href="visger.html#amostragem-probabilística"><i class="fa fa-check"></i><b>3.3</b> Amostragem probabilística</a></li>
+<li class="chapter" data-level="3.4" data-path="visger.html"><a href="visger.html#estatísticas-estimadores-e-estimativas"><i class="fa fa-check"></i><b>3.4</b> Estatísticas, estimadores e estimativas</a></li>
+<li class="chapter" data-level="3.5" data-path="visger.html"><a href="visger.html#a-distribuição-de-aleatorização"><i class="fa fa-check"></i><b>3.5</b> A distribuição de aleatorização</a></li>
+<li class="chapter" data-level="3.6" data-path="visger.html"><a href="visger.html#estimadores-não-viciados-para-o-total-populacional"><i class="fa fa-check"></i><b>3.6</b> Estimadores não viciados para o total populacional</a></li>
+<li class="chapter" data-level="3.7" data-path="visger.html"><a href="visger.html#teoria-básica"><i class="fa fa-check"></i><b>3.7</b> Teoria básica</a><ul>
+<li class="chapter" data-level="3.7.1" data-path="visger.html"><a href="visger.html#estimador-linear-de-total"><i class="fa fa-check"></i><b>3.7.1</b> Estimador linear de total</a></li>
+<li class="chapter" data-level="3.7.2" data-path="visger.html"><a href="visger.html#propHT"><i class="fa fa-check"></i><b>3.7.2</b> Propriedades do estimador de Horvitz-Thompson</a></li>
+<li class="chapter" data-level="3.7.3" data-path="visger.html"><a href="visger.html#estimação-da-média-populacional"><i class="fa fa-check"></i><b>3.7.3</b> Estimação da média populacional</a></li>
+</ul></li>
+<li class="chapter" data-level="3.8" data-path="conceitos.html"><a href="conceitos.html#exercícios"><i class="fa fa-check"></i><b>3.8</b> Exercícios</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="aas.html"><a href="aas.html"><i class="fa fa-check"></i><b>4</b> Amostragem Aleatória Simples</a><ul>
+<li class="chapter" data-level="4.1" data-path="aas.html"><a href="aas.html#planos-amostrais-e-algoritmos-de-seleção"><i class="fa fa-check"></i><b>4.1</b> Planos amostrais e algoritmos de seleção</a></li>
+<li class="chapter" data-level="4.2" data-path="aas.html"><a href="aas.html#amostragem-aleatória-simples-com-reposição"><i class="fa fa-check"></i><b>4.2</b> Amostragem aleatória simples com reposição</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="aas.html"><a href="aas.html#estimação-do-total-e-média-populacionais-sob-aasc"><i class="fa fa-check"></i><b>4.2.1</b> Estimação do total e média populacionais sob AASC</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="aas.html"><a href="aas.html#amostragem-aleatória-simples-sem-reposição"><i class="fa fa-check"></i><b>4.3</b> Amostragem aleatória simples sem reposição</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="aas.html"><a href="aas.html#algoritmo-convencional-para-selecionar-uma-aas"><i class="fa fa-check"></i><b>4.3.1</b> Algoritmo “convencional” para selecionar uma AAS</a></li>
+<li class="chapter" data-level="4.3.2" data-path="aas.html"><a href="aas.html#Hajek"><i class="fa fa-check"></i><b>4.3.2</b> Algoritmo de Hàjek para selecionar AAS</a></li>
+<li class="chapter" data-level="4.3.3" data-path="aas.html"><a href="aas.html#algoritmo-de-fan-muller-e-rezucha-para-selecionar-aas"><i class="fa fa-check"></i><b>4.3.3</b> Algoritmo de Fan, Muller e Rezucha para selecionar AAS</a></li>
+<li class="chapter" data-level="4.3.4" data-path="aas.html"><a href="aas.html#probabilidades-de-inclusão-sob-aas"><i class="fa fa-check"></i><b>4.3.4</b> Probabilidades de inclusão sob AAS</a></li>
+<li class="chapter" data-level="4.3.5" data-path="aas.html"><a href="aas.html#estimador-não-viciado-do-total-e-média-populacionais-sob-aas"><i class="fa fa-check"></i><b>4.3.5</b> Estimador não viciado do total e média populacionais sob AAS</a></li>
+<li class="chapter" data-level="4.3.6" data-path="aas.html"><a href="aas.html#distribuição-da-média-amostral"><i class="fa fa-check"></i><b>4.3.6</b> Distribuição da média amostral</a></li>
+<li class="chapter" data-level="4.3.7" data-path="aas.html"><a href="aas.html#comparação-dos-planos-de-amostragem-aleatória-simples-com-e-sem-reposição"><i class="fa fa-check"></i><b>4.3.7</b> Comparação dos planos de amostragem aleatória simples com e sem reposição</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="aas.html"><a href="aas.html#determinação-do-tamanho-da-amostra"><i class="fa fa-check"></i><b>4.4</b> Determinação do tamanho da amostra</a><ul>
+<li class="chapter" data-level="4.4.1" data-path="aas.html"><a href="aas.html#tamanho-amostral-para-custo-fixado"><i class="fa fa-check"></i><b>4.4.1</b> Tamanho amostral para custo fixado</a></li>
+<li class="chapter" data-level="4.4.2" data-path="aas.html"><a href="aas.html#tamanho-amostral-para-precisão-fixada"><i class="fa fa-check"></i><b>4.4.2</b> Tamanho amostral para precisão fixada</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="conceitos.html"><a href="conceitos.html#exercícios"><i class="fa fa-check"></i><b>4.5</b> Exercícios</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="proporc.html"><a href="proporc.html"><i class="fa fa-check"></i><b>5</b> Estimação de Proporções</a><ul>
+<li class="chapter" data-level="5.1" data-path="proporc.html"><a href="proporc.html#parâmetros-populacionais"><i class="fa fa-check"></i><b>5.1</b> Parâmetros populacionais</a></li>
+<li class="chapter" data-level="5.2" data-path="proporc.html"><a href="proporc.html#estimação-sob-amostragem-aleatória-simples-com-reposição"><i class="fa fa-check"></i><b>5.2</b> Estimação sob amostragem aleatória simples com reposição</a></li>
+<li class="chapter" data-level="5.3" data-path="proporc.html"><a href="proporc.html#estimação-sob-amostragem-aleatória-simples-sem-reposição"><i class="fa fa-check"></i><b>5.3</b> Estimação sob amostragem aleatória simples sem reposição</a></li>
+<li class="chapter" data-level="5.4" data-path="proporc.html"><a href="proporc.html#distribuição-amostral-exata-de-estimadores-de-proporção-sob-aasc-e-aas"><i class="fa fa-check"></i><b>5.4</b> Distribuição amostral exata de estimadores de proporção sob AASC e AAS</a></li>
+<li class="chapter" data-level="5.5" data-path="proporc.html"><a href="proporc.html#intervalos-de-confiança-para-proporções-na-amostragem-aleatória-simples"><i class="fa fa-check"></i><b>5.5</b> Intervalos de confiança para proporções na amostragem aleatória simples</a></li>
+<li class="chapter" data-level="5.6" data-path="proporc.html"><a href="proporc.html#intervalos-de-confiança-utilizando-a-aproximação-normal"><i class="fa fa-check"></i><b>5.6</b> Intervalos de confiança utilizando a aproximação normal</a></li>
+<li class="chapter" data-level="5.7" data-path="proporc.html"><a href="proporc.html#cálculo-do-tamanho-da-amostra"><i class="fa fa-check"></i><b>5.7</b> Cálculo do tamanho da amostra</a><ul>
+<li class="chapter" data-level="5.7.1" data-path="proporc.html"><a href="proporc.html#cálculo-do-n-utilizando-outras-formas-de-representar-o-erro-amostral"><i class="fa fa-check"></i><b>5.7.1</b> Cálculo do <span class="math inline">\(n\)</span> utilizando outras formas de representar o erro amostral</a></li>
+</ul></li>
+<li class="chapter" data-level="5.8" data-path="proporc.html"><a href="proporc.html#estimação-de-proporções-para-variáveis-com-mais-de-duas-categorias"><i class="fa fa-check"></i><b>5.8</b> Estimação de proporções para variáveis com mais de duas categorias</a></li>
+<li class="chapter" data-level="5.9" data-path="conceitos.html"><a href="conceitos.html#exercícios"><i class="fa fa-check"></i><b>5.9</b> Exercícios</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="razao.html"><a href="razao.html"><i class="fa fa-check"></i><b>6</b> Estimação de Razões e Funções de Totais</a><ul>
+<li class="chapter" data-level="6.1" data-path="razao.html"><a href="razao.html#razões-populacionais-como-parâmetros-de-interesse"><i class="fa fa-check"></i><b>6.1</b> Razões populacionais como parâmetros de interesse</a></li>
+<li class="chapter" data-level="6.2" data-path="razao.html"><a href="razao.html#razão-de-médias-versus-média-de-razões"><i class="fa fa-check"></i><b>6.2</b> Razão de médias <em>versus</em> média de razões</a></li>
+<li class="chapter" data-level="6.3" data-path="razao.html"><a href="razao.html#outras-funções-de-totais"><i class="fa fa-check"></i><b>6.3</b> Outras funções de totais</a></li>
+<li class="chapter" data-level="6.4" data-path="razao.html"><a href="razao.html#estimadores-de-razões-de-totais"><i class="fa fa-check"></i><b>6.4</b> Estimadores de razões de totais</a></li>
+<li class="chapter" data-level="6.5" data-path="razao.html"><a href="razao.html#estoft"><i class="fa fa-check"></i><b>6.5</b> Estimadores para outras funções de totais</a></li>
+<li class="chapter" data-level="6.6" data-path="razao.html"><a href="razao.html#vicioraz"><i class="fa fa-check"></i><b>6.6</b> Análise do o vício do estimador da razão</a></li>
+<li class="chapter" data-level="6.7" data-path="razao.html"><a href="razao.html#erro-quadrático-médio-de-widehatr"><i class="fa fa-check"></i><b>6.7</b> Erro quadrático médio de <span class="math inline">\(\widehat{R}\)</span></a></li>
+<li class="chapter" data-level="6.8" data-path="conceitos.html"><a href="conceitos.html#exercícios"><i class="fa fa-check"></i><b>6.8</b> Exercícios</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="domin.html"><a href="domin.html"><i class="fa fa-check"></i><b>7</b> Estimação para Domínios de Estudo</a><ul>
+<li class="chapter" data-level="7.1" data-path="domin.html"><a href="domin.html#domin1"><i class="fa fa-check"></i><b>7.1</b> Domínios de estudo</a></li>
+<li class="chapter" data-level="7.2" data-path="domin.html"><a href="domin.html#domin2"><i class="fa fa-check"></i><b>7.2</b> Parâmetros de interesse para domínios</a></li>
+<li class="chapter" data-level="7.3" data-path="domin.html"><a href="domin.html#estimação-de-parâmetros-para-domínios-sob-aas"><i class="fa fa-check"></i><b>7.3</b> Estimação de parâmetros para domínios sob AAS</a></li>
+<li class="chapter" data-level="7.4" data-path="domin.html"><a href="domin.html#intervalos-de-confiança-para-os-parâmetros-para-o-domínio"><i class="fa fa-check"></i><b>7.4</b> Intervalos de confiança para os parâmetros para o domínio</a></li>
+<li class="chapter" data-level="7.5" data-path="domin.html"><a href="domin.html#propriedades-condicionais-fixando-n_c"><i class="fa fa-check"></i><b>7.5</b> Propriedades condicionais (fixando <span class="math inline">\(n_c\)</span>)</a></li>
+<li class="chapter" data-level="7.6" data-path="domin.html"><a href="domin.html#estimação-do-total-no-domínio-quando-tamanho-do-domínio-é-conhecido"><i class="fa fa-check"></i><b>7.6</b> Estimação do total no domínio quando tamanho do domínio é conhecido</a></li>
+<li class="chapter" data-level="7.7" data-path="domin.html"><a href="domin.html#comparação-da-eficiência-dos-estimadores-de-total-no-domínio"><i class="fa fa-check"></i><b>7.7</b> Comparação da eficiência dos estimadores de total no domínio</a></li>
+<li class="chapter" data-level="7.8" data-path="domin.html"><a href="domin.html#estimação-de-proporções-dentro-do-domínio"><i class="fa fa-check"></i><b>7.8</b> Estimação de proporções dentro do domínio</a></li>
+<li class="chapter" data-level="7.9" data-path="conceitos.html"><a href="conceitos.html#exercícios"><i class="fa fa-check"></i><b>7.9</b> Exercícios</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="AS.html"><a href="AS.html"><i class="fa fa-check"></i><b>8</b> Amostragem Sistemática Simples</a><ul>
+<li class="chapter" data-level="8.1" data-path="AS.html"><a href="AS.html#ideia-básica"><i class="fa fa-check"></i><b>8.1</b> Ideia básica</a></li>
+<li class="chapter" data-level="8.2" data-path="AS.html"><a href="AS.html#método-de-seleção-da-amostra"><i class="fa fa-check"></i><b>8.2</b> Método de seleção da amostra</a></li>
+<li class="chapter" data-level="8.3" data-path="AS.html"><a href="AS.html#composição-das-amostras-sistemáticas-simples"><i class="fa fa-check"></i><b>8.3</b> Composição das amostras sistemáticas simples</a></li>
+<li class="chapter" data-level="8.4" data-path="AS.html"><a href="AS.html#probabilidades-de-inclusão-na-amostragem-sistemática-simples"><i class="fa fa-check"></i><b>8.4</b> Probabilidades de inclusão na amostragem sistemática simples</a></li>
+<li class="chapter" data-level="8.5" data-path="AS.html"><a href="AS.html#variáveis-aleatórias-indicadoras---propriedades"><i class="fa fa-check"></i><b>8.5</b> Variáveis aleatórias indicadoras - propriedades</a></li>
+<li class="chapter" data-level="8.6" data-path="AS.html"><a href="AS.html#estimação-de-totais-sob-amostragem-sistemática-simples"><i class="fa fa-check"></i><b>8.6</b> Estimação de totais sob amostragem sistemática simples</a></li>
+<li class="chapter" data-level="8.7" data-path="AS.html"><a href="AS.html#estimação-de-médias-sob-amostragem-sistemática-simples"><i class="fa fa-check"></i><b>8.7</b> Estimação de médias sob amostragem sistemática simples</a></li>
+<li class="chapter" data-level="8.8" data-path="AS.html"><a href="AS.html#estimação-de-uma-proporção-na-amostragem-sistemática-simples"><i class="fa fa-check"></i><b>8.8</b> Estimação de uma proporção na amostragem sistemática simples</a></li>
+<li class="chapter" data-level="8.9" data-path="AS.html"><a href="AS.html#variância-dos-estimadores-sob-amostragem-sistemática-simples"><i class="fa fa-check"></i><b>8.9</b> Variância dos estimadores sob amostragem sistemática simples</a></li>
+<li class="chapter" data-level="8.10" data-path="AS.html"><a href="AS.html#estimação-de-variâncias-dos-estimadores-na-amostragem-sistemática-simples"><i class="fa fa-check"></i><b>8.10</b> Estimação de variâncias dos estimadores na amostragem sistemática simples</a></li>
+<li class="chapter" data-level="8.11" data-path="AS.html"><a href="AS.html#alternativas-para-seleção-com-amostragem-sistemática-simples"><i class="fa fa-check"></i><b>8.11</b> Alternativas para seleção com amostragem sistemática simples</a></li>
+<li class="chapter" data-level="8.12" data-path="conceitos.html"><a href="conceitos.html#exercícios"><i class="fa fa-check"></i><b>8.12</b> Exercícios</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="outros-métodos-de-amostragem-com-equiprobabilidade.html"><a href="outros-métodos-de-amostragem-com-equiprobabilidade.html"><i class="fa fa-check"></i><b>9</b> Outros Métodos de Amostragem com Equiprobabilidade</a><ul>
+<li class="chapter" data-level="9.1" data-path="outros-métodos-de-amostragem-com-equiprobabilidade.html"><a href="outros-métodos-de-amostragem-com-equiprobabilidade.html#binom"><i class="fa fa-check"></i><b>9.1</b> Amostragem binomial ou de Bernoulli</a><ul>
+<li class="chapter" data-level="9.1.1" data-path="AS.html"><a href="AS.html#método-de-seleção-da-amostra"><i class="fa fa-check"></i><b>9.1.1</b> Método de seleção da amostra</a></li>
+<li class="chapter" data-level="9.1.2" data-path="outros-métodos-de-amostragem-com-equiprobabilidade.html"><a href="outros-métodos-de-amostragem-com-equiprobabilidade.html#probabilidades-de-inclusão-na-amostragem-binomial"><i class="fa fa-check"></i><b>9.1.2</b> Probabilidades de inclusão na amostragem binomial</a></li>
+<li class="chapter" data-level="9.1.3" data-path="outros-métodos-de-amostragem-com-equiprobabilidade.html"><a href="outros-métodos-de-amostragem-com-equiprobabilidade.html#estimação-de-totais-sob-amostragem-binomial"><i class="fa fa-check"></i><b>9.1.3</b> Estimação de totais sob amostragem binomial</a></li>
+<li class="chapter" data-level="9.1.4" data-path="outros-métodos-de-amostragem-com-equiprobabilidade.html"><a href="outros-métodos-de-amostragem-com-equiprobabilidade.html#estimação-de-médias-sob-amostragem-binomial"><i class="fa fa-check"></i><b>9.1.4</b> Estimação de médias sob amostragem binomial</a></li>
+<li class="chapter" data-level="9.1.5" data-path="outros-métodos-de-amostragem-com-equiprobabilidade.html"><a href="outros-métodos-de-amostragem-com-equiprobabilidade.html#exemplos-de-aplicação-da-amostragem-binomial"><i class="fa fa-check"></i><b>9.1.5</b> Exemplos de aplicação da amostragem binomial</a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="outros-métodos-de-amostragem-com-equiprobabilidade.html"><a href="outros-métodos-de-amostragem-com-equiprobabilidade.html#inversa"><i class="fa fa-check"></i><b>9.2</b> Amostragem inversa simples</a><ul>
+<li class="chapter" data-level="9.2.1" data-path="outros-métodos-de-amostragem-com-equiprobabilidade.html"><a href="outros-métodos-de-amostragem-com-equiprobabilidade.html#método-de-seleção-da-amostra-inversa-simples"><i class="fa fa-check"></i><b>9.2.1</b> Método de seleção da amostra inversa simples</a></li>
+<li class="chapter" data-level="9.2.2" data-path="outros-métodos-de-amostragem-com-equiprobabilidade.html"><a href="outros-métodos-de-amostragem-com-equiprobabilidade.html#amostragem-inversa-simples-para-varredura-por-amostragem"><i class="fa fa-check"></i><b>9.2.2</b> Amostragem inversa simples para varredura por amostragem</a></li>
+<li class="chapter" data-level="9.2.3" data-path="outros-métodos-de-amostragem-com-equiprobabilidade.html"><a href="outros-métodos-de-amostragem-com-equiprobabilidade.html#exemplos-de-aplicação-da-amostragem-inversa-simples"><i class="fa fa-check"></i><b>9.2.3</b> Exemplos de aplicação da amostragem inversa simples</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="conceitos.html"><a href="conceitos.html#exercícios"><i class="fa fa-check"></i><b>9.3</b> Exercícios</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="ppt.html"><a href="ppt.html"><i class="fa fa-check"></i><b>10</b> Amostragem com Probabilidades Proporcionais ao Tamanho</a><ul>
+<li class="chapter" data-level="10.1" data-path="ppt.html"><a href="ppt.html#justificativa-para-amostragem-ppt"><i class="fa fa-check"></i><b>10.1</b> Justificativa para amostragem PPT</a><ul>
+<li class="chapter" data-level="10.1.1" data-path="ppt.html"><a href="ppt.html#estimação-do-total-populacional"><i class="fa fa-check"></i><b>10.1.1</b> Estimação do total populacional</a></li>
+</ul></li>
+<li class="chapter" data-level="10.2" data-path="ppt.html"><a href="ppt.html#amostragem-ppt-com-reposição"><i class="fa fa-check"></i><b>10.2</b> Amostragem PPT com reposição</a></li>
+<li class="chapter" data-level="10.3" data-path="ppt.html"><a href="ppt.html#amostragem-ppt-de-poisson"><i class="fa fa-check"></i><b>10.3</b> Amostragem PPT de Poisson</a></li>
+<li class="chapter" data-level="10.4" data-path="ppt.html"><a href="ppt.html#amostragem-sequencial-de-poisson"><i class="fa fa-check"></i><b>10.4</b> Amostragem sequencial de Poisson</a></li>
+<li class="chapter" data-level="10.5" data-path="ppt.html"><a href="ppt.html#amostragem-sistemática-com-ppt"><i class="fa fa-check"></i><b>10.5</b> Amostragem sistemática com PPT</a></li>
+<li class="chapter" data-level="10.6" data-path="ppt.html"><a href="ppt.html#amostragem-ppt-de-pareto"><i class="fa fa-check"></i><b>10.6</b> Amostragem PPT de Pareto</a></li>
+<li class="chapter" data-level="10.7" data-path="conceitos.html"><a href="conceitos.html#exercícios"><i class="fa fa-check"></i><b>10.7</b> Exercícios</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="estrat.html"><a href="estrat.html"><i class="fa fa-check"></i><b>11</b> Amostragem Estratificada</a><ul>
+<li class="chapter" data-level="11.1" data-path="estrat.html"><a href="estrat.html#o-método-geral"><i class="fa fa-check"></i><b>11.1</b> O método geral</a></li>
+<li class="chapter" data-level="11.2" data-path="estrat.html"><a href="estrat.html#amostragem-estratificada-simples"><i class="fa fa-check"></i><b>11.2</b> Amostragem estratificada simples</a><ul>
+<li class="chapter" data-level="11.2.1" data-path="estrat.html"><a href="estrat.html#método-de-seleção"><i class="fa fa-check"></i><b>11.2.1</b> Método de seleção</a></li>
+<li class="chapter" data-level="11.2.2" data-path="proporc.html"><a href="proporc.html#parâmetros-populacionais"><i class="fa fa-check"></i><b>11.2.2</b> Parâmetros populacionais</a></li>
+<li class="chapter" data-level="11.2.3" data-path="estrat.html"><a href="estrat.html#estimação-do-total-e-da-média-populacional"><i class="fa fa-check"></i><b>11.2.3</b> Estimação do total e da média populacional</a></li>
+<li class="chapter" data-level="11.2.4" data-path="estrat.html"><a href="estrat.html#intervalos-de-confiança"><i class="fa fa-check"></i><b>11.2.4</b> Intervalos de confiança</a></li>
+</ul></li>
+<li class="chapter" data-level="11.3" data-path="estrat.html"><a href="estrat.html#alocação-da-amostra-nos-estratos"><i class="fa fa-check"></i><b>11.3</b> Alocação da amostra nos estratos</a><ul>
+<li class="chapter" data-level="11.3.1" data-path="estrat.html"><a href="estrat.html#alocação-proporcional"><i class="fa fa-check"></i><b>11.3.1</b> Alocação proporcional</a></li>
+<li class="chapter" data-level="11.3.2" data-path="estrat.html"><a href="estrat.html#alocação-ótima"><i class="fa fa-check"></i><b>11.3.2</b> Alocação ótima</a></li>
+<li class="chapter" data-level="11.3.3" data-path="estrat.html"><a href="estrat.html#tamanho-da-amostra-estratificada---caso-geral"><i class="fa fa-check"></i><b>11.3.3</b> Tamanho da amostra estratificada - caso geral</a></li>
+<li class="chapter" data-level="11.3.4" data-path="estrat.html"><a href="estrat.html#tamanho-da-amostra-sob-alocação-ótima"><i class="fa fa-check"></i><b>11.3.4</b> Tamanho da amostra sob alocação ótima</a></li>
+<li class="chapter" data-level="11.3.5" data-path="estrat.html"><a href="estrat.html#comparação-de-alternativas-de-alocação-da-amostra"><i class="fa fa-check"></i><b>11.3.5</b> Comparação de alternativas de alocação da amostra</a></li>
+<li class="chapter" data-level="11.3.6" data-path="estrat.html"><a href="estrat.html#alocação-potência"><i class="fa fa-check"></i><b>11.3.6</b> Alocação potência</a></li>
+<li class="chapter" data-level="11.3.7" data-path="estrat.html"><a href="estrat.html#alguns-problemas-com-alocação-ótima"><i class="fa fa-check"></i><b>11.3.7</b> Alguns problemas com alocação ótima</a></li>
+</ul></li>
+<li class="chapter" data-level="11.4" data-path="estrat.html"><a href="estrat.html#definição-dos-limites-dos-estratos"><i class="fa fa-check"></i><b>11.4</b> Definição dos limites dos estratos</a></li>
+<li class="chapter" data-level="11.5" data-path="estrat.html"><a href="estrat.html#número-de-estratos-na-amostragem-estratificada-simples"><i class="fa fa-check"></i><b>11.5</b> Número de estratos na amostragem estratificada simples</a></li>
+<li class="chapter" data-level="11.6" data-path="conceitos.html"><a href="conceitos.html#exercícios"><i class="fa fa-check"></i><b>11.6</b> Exercícios</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="cong.html"><a href="cong.html"><i class="fa fa-check"></i><b>12</b> Amostragem Conglomerada</a><ul>
+<li class="chapter" data-level="12.1" data-path="cong.html"><a href="cong.html#conceituação-básica"><i class="fa fa-check"></i><b>12.1</b> Conceituação básica</a></li>
+<li class="chapter" data-level="12.2" data-path="cong.html"><a href="cong.html#amostragem-de-áreas"><i class="fa fa-check"></i><b>12.2</b> Amostragem de áreas</a></li>
+<li class="chapter" data-level="12.3" data-path="cong.html"><a href="cong.html#definições-básicas-e-notação"><i class="fa fa-check"></i><b>12.3</b> Definições básicas e notação</a></li>
+<li class="chapter" data-level="12.4" data-path="cong.html"><a href="cong.html#amostragem-conglomerada-em-um-estágio"><i class="fa fa-check"></i><b>12.4</b> Amostragem conglomerada em um estágio</a></li>
+<li class="chapter" data-level="12.5" data-path="cong.html"><a href="cong.html#amostragem-conglomerada-em-vários-estágios"><i class="fa fa-check"></i><b>12.5</b> Amostragem conglomerada em vários estágios</a></li>
+<li class="chapter" data-level="12.6" data-path="cong.html"><a href="cong.html#notação-na-amostragem-conglomerada-em-um-estágio"><i class="fa fa-check"></i><b>12.6</b> Notação na amostragem conglomerada em um estágio</a></li>
+<li class="chapter" data-level="12.7" data-path="cong.html"><a href="cong.html#amostragem-conglomerada-em-um-estágio-simples"><i class="fa fa-check"></i><b>12.7</b> Amostragem conglomerada em um estágio simples</a><ul>
+<li class="chapter" data-level="12.7.1" data-path="cong.html"><a href="cong.html#estimação-do-total-sob-ac1s"><i class="fa fa-check"></i><b>12.7.1</b> Estimação do total sob AC1S</a></li>
+<li class="chapter" data-level="12.7.2" data-path="cong.html"><a href="cong.html#estimação-da-média-sob-ac1s"><i class="fa fa-check"></i><b>12.7.2</b> Estimação da média sob AC1S</a></li>
+</ul></li>
+<li class="chapter" data-level="12.8" data-path="cong.html"><a href="cong.html#efeito-do-plano-amostral"><i class="fa fa-check"></i><b>12.8</b> Efeito do plano amostral</a></li>
+<li class="chapter" data-level="12.9" data-path="cong.html"><a href="cong.html#amostragem-conglomerada-com-probabilidade-proporcional-ao-tamanho-em-um-estágio"><i class="fa fa-check"></i><b>12.9</b> Amostragem Conglomerada com Probabilidade Proporcional ao Tamanho em um estágio</a></li>
+<li class="chapter" data-level="12.10" data-path="cong.html"><a href="cong.html#amostragem-conglomerada-em-dois-estágios"><i class="fa fa-check"></i><b>12.10</b> Amostragem conglomerada em dois estágios</a><ul>
+<li class="chapter" data-level="12.10.1" data-path="cong.html"><a href="cong.html#plano-amostral-ac2-com-aas-nos-2-estágios"><i class="fa fa-check"></i><b>12.10.1</b> Plano amostral AC2 com AAS nos 2 estágios</a></li>
+<li class="chapter" data-level="12.10.2" data-path="cong.html"><a href="cong.html#plano-amostral-com-ppt-com-reposição-no-primeiro-estágio-e-aas-no-segundo-estágio"><i class="fa fa-check"></i><b>12.10.2</b> Plano amostral com PPT com reposição no primeiro estágio e AAS no segundo estágio</a></li>
+<li class="chapter" data-level="12.10.3" data-path="cong.html"><a href="cong.html#amostra-conglomerada-com-ppt-de-poisson-sequencial-no-primeiro-e-aas-no-segundo-estágio"><i class="fa fa-check"></i><b>12.10.3</b> Amostra conglomerada com PPT de Poisson sequencial no primeiro e AAS no segundo estágio</a></li>
+</ul></li>
+<li class="chapter" data-level="12.11" data-path="cong.html"><a href="cong.html#ideias-básicas-na-escolha-de-unidades-compostas"><i class="fa fa-check"></i><b>12.11</b> Ideias básicas na escolha de unidades compostas</a></li>
+<li class="chapter" data-level="12.12" data-path="cong.html"><a href="cong.html#determinando-tamanhos-de-amostra-com-ac2pc"><i class="fa fa-check"></i><b>12.12</b> Determinando tamanhos de amostra com AC2PC</a></li>
+<li class="chapter" data-level="12.13" data-path="conceitos.html"><a href="conceitos.html#exercícios"><i class="fa fa-check"></i><b>12.13</b> Exercícios</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="calib.html"><a href="calib.html"><i class="fa fa-check"></i><b>13</b> Estimadores de Calibração</a><ul>
+<li class="chapter" data-level="13.1" data-path="calib.html"><a href="calib.html#motivação-melhorar-a-precisão-com-informações-auxiliares"><i class="fa fa-check"></i><b>13.1</b> Motivação: melhorar a precisão com informações auxiliares</a></li>
+<li class="chapter" data-level="13.2" data-path="calib.html"><a href="calib.html#problema"><i class="fa fa-check"></i><b>13.2</b> O problema</a></li>
+<li class="chapter" data-level="13.3" data-path="calib.html"><a href="calib.html#estreg"><i class="fa fa-check"></i><b>13.3</b> Estimadores de regressão como estimadores de calibração</a></li>
+<li class="chapter" data-level="13.4" data-path="calib.html"><a href="calib.html#razões-para-calibração"><i class="fa fa-check"></i><b>13.4</b> Razões para calibração</a></li>
+<li class="chapter" data-level="13.5" data-path="calib.html"><a href="calib.html#propriedades-dos-estimadores-para-grandes-amostras"><i class="fa fa-check"></i><b>13.5</b> Propriedades dos estimadores para grandes amostras</a></li>
+<li class="chapter" data-level="13.6" data-path="calib.html"><a href="calib.html#razCS"><i class="fa fa-check"></i><b>13.6</b> Estimadores de razão como casos particulares da calibração</a><ul>
+<li class="chapter" data-level="13.6.1" data-path="calib.html"><a href="calib.html#estimador-de-razão-combinada-sob-aes"><i class="fa fa-check"></i><b>13.6.1</b> Estimador de razão combinada sob AES</a></li>
+<li class="chapter" data-level="13.6.2" data-path="calib.html"><a href="calib.html#estimador-de-razão-separada-sob-aes"><i class="fa fa-check"></i><b>13.6.2</b> Estimador de razão separada sob AES</a></li>
+<li class="chapter" data-level="13.6.3" data-path="calib.html"><a href="calib.html#comparação-dos-estimadores-de-razão-combinada-e-separada"><i class="fa fa-check"></i><b>13.6.3</b> Comparação dos estimadores de razão combinada e separada</a></li>
+</ul></li>
+<li class="chapter" data-level="13.7" data-path="calib.html"><a href="calib.html#alguns-problemas-práticos-com-calibração"><i class="fa fa-check"></i><b>13.7</b> Alguns problemas práticos com calibração</a><ul>
+<li class="chapter" data-level="13.7.1" data-path="calib.html"><a href="calib.html#tamanhos-de-amostra-pequenos"><i class="fa fa-check"></i><b>13.7.1</b> Tamanhos de amostra pequenos</a></li>
+<li class="chapter" data-level="13.7.2" data-path="calib.html"><a href="calib.html#pesos-negativos-ou-extremos"><i class="fa fa-check"></i><b>13.7.2</b> Pesos negativos ou extremos</a></li>
+<li class="chapter" data-level="13.7.3" data-path="calib.html"><a href="calib.html#grande-número-de-variáveis-de-pesquisa-ou-de-grupos-de-modelagem"><i class="fa fa-check"></i><b>13.7.3</b> Grande número de variáveis de pesquisa ou de ‘grupos de modelagem’</a></li>
+<li class="chapter" data-level="13.7.4" data-path="calib.html"><a href="calib.html#gvaraux"><i class="fa fa-check"></i><b>13.7.4</b> Grande número de variáveis auxiliares</a></li>
+<li class="chapter" data-level="13.7.5" data-path="calib.html"><a href="calib.html#não-resposta-e-calibração"><i class="fa fa-check"></i><b>13.7.5</b> Não resposta e calibração</a></li>
+</ul></li>
+<li class="chapter" data-level="13.8" data-path="calib.html"><a href="calib.html#seleção-de-variáveis-para-calibração-com-não-resposta"><i class="fa fa-check"></i><b>13.8</b> Seleção de variáveis para calibração com não resposta</a></li>
+<li class="chapter" data-level="13.9" data-path="calib.html"><a href="calib.html#indicadores-de-qualidade-da-calibração"><i class="fa fa-check"></i><b>13.9</b> Indicadores de qualidade da calibração</a></li>
+<li class="chapter" data-level="13.10" data-path="calib.html"><a href="calib.html#um-guia-para-aplicação-de-calibração"><i class="fa fa-check"></i><b>13.10</b> Um guia para aplicação de calibração</a></li>
+<li class="chapter" data-level="13.11" data-path="calib.html"><a href="calib.html#observações-finais"><i class="fa fa-check"></i><b>13.11</b> Observações finais</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="referências.html"><a href="referências.html"><i class="fa fa-check"></i>Referências</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Amostragem: Teoria e Prática Usando R</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="AS" class="section level1">
+<h1><span class="header-section-number">Capítulo 8</span> Amostragem Sistemática Simples</h1>
+<div id="ideia-básica" class="section level2">
+<h2><span class="header-section-number">8.1</span> Ideia básica</h2>
+<p>A <em>Amostragem Sistemática Simples - AS</em> é um método para selecionar com <em>equiprobabilidade</em> unidades de uma população de pesquisa para compor a amostra desejada. Por sua simplicidade, trata-se de uma alternativa à AAS bastante utilizada na prática. Um dos motivos para justificar sua utilização é que o método pode ser aplicado mesmo quando não existe cadastro prévio da população de pesquisa, podendo este cadastro ser construído ao mesmo tempo em que é feita a seleção da amostra.</p>
+<p>O método consiste em selecionar cada <span class="math inline">\(K\)</span>-ésima unidade da população a ser amostrada, começando de uma <em>partida aleatória</em> <span class="math inline">\(r\)</span> sorteada ao acaso entre os números inteiros de <span class="math inline">\(1\)</span> a <span class="math inline">\(K\)</span>. A amostra resultante é <em>sem reposição</em>, e todas as unidades da população têm a mesma chance <span class="math inline">\((1/K)\)</span> de serem selecionadas, como se verá adiante.</p>
+<p>Seja <span class="math inline">\(U = \{{ 1 , 2 , ..., N }\}\)</span> a população de pesquisa, de tamanho <span class="math inline">\(N = nK+c\)</span>, com <span class="math inline">\(0 \le c &lt; K\)</span>. O número inteiro <span class="math inline">\(K\)</span> é que define o chamado <em>intervalo de seleção</em>, <span class="math inline">\(n=[N/K]\)</span> é igual à parte inteira da divisão de <span class="math inline">\(N\)</span> por <span class="math inline">\(K\)</span> e <span class="math inline">\(c\)</span> é o resto dessa mesma divisão.</p>
+<p>AS pode ser utilizada para selecionar uma amostra de um cadastro de unidades da população mediante um algoritmo de processamento sequencial de lista. Na ausência de um cadastro prévio, o método também pode ser implementado, bastando para isso especificar um mecanismo para cadastramento sequencial das unidades populacionais e definir o valor de <span class="math inline">\(K\)</span>. Feito isso, deve ser selecionada a <em>partida aleatória</em> e iniciado o cadastramento sequencial das unidades da população tal como especificado. O algoritmo de seleção das unidades da amostra pode ser facilmente implementado em ambos os casos (cadastro prévio ou construído durante a operação de pesquisa).</p>
+<p><strong>Exemplo 8.1 </strong> Suponha que se deseja aplicar um questionário a uma amostra dos espectadores de uma peça teatral sendo encenada em determinado teatro, num determinado dia. Nesse caso não estaria disponível uma lista das pessoas que irão ao teatro naquela data. Pode-se selecionar uma AS utilizando os passos indicados a seguir.</p>
+<ol style="list-style-type: decimal">
+<li>Definir o valor de <span class="math inline">\(K\)</span>. Por exemplo, seja <span class="math inline">\(K=10\)</span> significando que ao final a amostra será composta por aproximadamente um de cada dez, ou 10% dos espectadores da noite.<br />
+</li>
+<li>Selecionar a <em>partida aleatória</em> entre 1 e 10. Suponha que o número escolhido seja 3.<br />
+</li>
+<li>Iniciar o processo de cadastramento sequencial dos espectadores de acordo com a ordem de chegada (ou de saída) ao teatro, numerando cada espectador cadastrado.<br />
+</li>
+<li>Entrevistar os espectadores selecionados por AS, começando pelo de número 3 e seguindo com os de números de chegada (ou saída) iguais a 13, 23, 33, etc.</li>
+</ol>
+<p>Duas características funcionam como um apelo para a adoção da AS como método de seleção da amostra: sua simplicidade, já que ao selecionar a primeira unidade a ser incluída na amostra, todas as demais estarão automaticamente escolhidas; e a possibilidade de aplicação mesmo quando não se tem disponível um cadastro prévio da população.</p>
+<p>Essas características foram determinantes, por exemplo, para adoção de AS para a seleção, em cada setor censitário, dos domicílios que deveriam responder ao questionário da amostra nos Censos Demográficos realizados pelo IBGE de 1960 até 2000. Para implementar o método, cada recenseador utilizava um formulário denominado <em>Folha de coleta do setor</em> para cadastrar os domicílios que ia encontrando ao percorrer um setor censitário que lhe fora atribuído. Este formulário servia para cadastrar as unidades da população (domicílios) encontradas em cada setor, e de instrumento para a seleção da amostra sistemática. Linhas marcadas em sombreado indicavam ao recenseador em que domicílios devia aplicar o questionário mais longo, denominado da amostra, em lugar do questionário simplificado (denominado básico), que era aplicado aos demais domicílios não incluídos na amostra.</p>
+<p>Ao terminar de percorrer o setor censitário, o recenseador teria elaborado um cadastro dos domicílios de seu setor, e selecionado a amostra correspondente. O cadastro de domicílios assim construído era utilizado como base para o trabalho de campo das outras pesquisas por amostragem realizadas pelo IBGE ao longo da década subsequente ao Censo. Ver, por exemplo, <span class="citation">Albieri e Bianchini (2015)</span>.</p>
+<p>Nos censos de 1960, 1970 e 1980 o intervalo de seleção usado pelo IBGE foi sempre com <span class="math inline">\(K=4\)</span>. Começando no Censo de 1991, o IBGE passou a usar valores de <span class="math inline">\(K\)</span> que podiam variar conforme o tamanho do município em que a amostra estava sendo selecionada. Maiores detalhes sobre a amostragem nos Censos de 2000 e 2010 podem ser vistos em <span class="citation">IBGE (2003b)</span> e <span class="citation">IBGE (2016a)</span>, respectivamente. Uma revisão dos aspectos de amostragem dos Censos Demográficos brasileiros desde 1960 pode ser encontrada em <span class="citation">Albieri e Dias (2017)</span>.</p>
+</div>
+<div id="método-de-seleção-da-amostra" class="section level2">
+<h2><span class="header-section-number">8.2</span> Método de seleção da amostra</h2>
+<p>O método de seleção de uma <em>amostra sistemática simples</em> pode ser generalizado a partir do Exemplo <a href="#exm:exmsis1">8.1</a>, consistindo nos seguintes passos:</p>
+<ol style="list-style-type: decimal">
+<li>Defina o valor de <span class="math inline">\(K\)</span>, que determina o <em>intervalo de seleção</em> da AS.</li>
+<li>Selecione a <em>partida aleatória</em> <span class="math inline">\(r\)</span>, igual a um número inteiro sorteado entre <span class="math inline">\(1\)</span> e <span class="math inline">\(K\)</span> com probabilidades iguais a <span class="math inline">\(1/K\)</span> para todos os inteiros no intervalo; sendo assim, <span class="math inline">\(r\)</span> tem distribuição Uniforme Discreta de parâmetro <span class="math inline">\(K\)</span>, ou seja, <span class="math inline">\(r \sim UD(K)\)</span>.</li>
+<li>Inclua na amostra sistemática <span class="math inline">\(s_r\)</span> todas as unidades que satisfazem a regra indicada abaixo.</li>
+</ol>
+<p><span class="math display" id="eq:eqsis1">\[
+ s_r = \{{ i : i = r + l K \le N;\,\,\, l = 0, ..., n }\}  \, \, \tag{8.1}
+\]</span></p>
+<p>Em consequência desse método, há exatamente <span class="math inline">\(K\)</span> <em>amostras sistemáticas</em> distintas possíveis. Todas têm igual probabilidade de ser a amostra selecionada, logo:</p>
+<p><span class="math display" id="eq:eqsis2">\[
+ p(s) = \left\{\begin{array}{ll} 1/K,\,\text{se} \,\,\, s=s_r \,\,\text{para} \,\,r=1,\,\,\,2,\,\,\,...,\,\,\,K \\ 0, \,\,\, \textrm{caso contrário}   \end{array} \right.
+ \tag{8.2}
+\]</span></p>
+<p>O <em>tamanho efetivo</em> da amostra selecionada por AS, aqui denotado por <span class="math inline">\(n_r\)</span>, não é fixado a priori, pois depende do valor da <em>partida aleatória</em> <span class="math inline">\(r\)</span> selecionada, e pode tomar dois valores possíveis:</p>
+<p><span class="math display">\[
+n_r=\left\{\begin{array}{ll} n+1, \,\, \textrm{quando} \,\,\,r \le c \\ n, \,\, \textrm{quando}\,\,\,r&gt;c\end{array}\right.
+\]</span></p>
+<p>O <em>tamanho efetivo</em> da amostra será <span class="math inline">\(n+1\)</span> com probabilidade <span class="math inline">\(c/K\)</span> e <span class="math inline">\(n\)</span> com probabilidade <span class="math inline">\(1-(c/K)\)</span>.</p>
+<p><strong>Exemplo 8.2 </strong> Considere uma população de <span class="math inline">\(N=20\)</span> unidades, da qual se quer selecionar uma amostra sistemática simples com intervalo de seleção definido com <span class="math inline">\(K=5\)</span>. Nesse caso, existem 5 amostras distintas, todas de tamanho <span class="math inline">\(n=4\)</span>. Pode-se utilizar o pacote R para realizar a tarefa.</p>
+<div class="sourceCode" id="cb225"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb225-1"><a href="AS.html#cb225-1"></a><span class="co"># Alterando o separador de decimais para vírgula</span></span>
+<span id="cb225-2"><a href="AS.html#cb225-2"></a><span class="kw">options</span>(<span class="dt">OutDec=</span><span class="st">&quot;,&quot;</span>)</span>
+<span id="cb225-3"><a href="AS.html#cb225-3"></a><span class="co"># Fixa semente para geração de números aleatórios</span></span>
+<span id="cb225-4"><a href="AS.html#cb225-4"></a><span class="kw">set.seed</span>(<span class="dv">867</span>)</span>
+<span id="cb225-5"><a href="AS.html#cb225-5"></a><span class="co"># Tamanho da população</span></span>
+<span id="cb225-6"><a href="AS.html#cb225-6"></a>N=<span class="dv">20</span></span>
+<span id="cb225-7"><a href="AS.html#cb225-7"></a><span class="kw">print</span>(<span class="kw">paste</span>(<span class="st">&quot;Tamanho da população N:&quot;</span>, N), <span class="dt">quote=</span><span class="ot">FALSE</span>)</span></code></pre></div>
+<pre><code>## [1] Tamanho da população N: 20</code></pre>
+<div class="sourceCode" id="cb227"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb227-1"><a href="AS.html#cb227-1"></a><span class="co"># Intervalo de seleção</span></span>
+<span id="cb227-2"><a href="AS.html#cb227-2"></a>K=<span class="dv">5</span></span>
+<span id="cb227-3"><a href="AS.html#cb227-3"></a><span class="kw">print</span>(<span class="kw">paste</span>(<span class="st">&quot;Intervalo de seleção K:&quot;</span>, K), <span class="dt">quote=</span><span class="ot">FALSE</span>)</span></code></pre></div>
+<pre><code>## [1] Intervalo de seleção K: 5</code></pre>
+<div class="sourceCode" id="cb229"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb229-1"><a href="AS.html#cb229-1"></a><span class="co"># Cálculo do valor de n (tamanho desejado da amostra) </span></span>
+<span id="cb229-2"><a href="AS.html#cb229-2"></a>n=<span class="kw">trunc</span>(N<span class="op">/</span>K)</span>
+<span id="cb229-3"><a href="AS.html#cb229-3"></a><span class="kw">print</span>(<span class="kw">paste</span>(<span class="st">&quot;Tamanho da amostra n:&quot;</span>, n), <span class="dt">quote=</span><span class="ot">FALSE</span>)</span></code></pre></div>
+<pre><code>## [1] Tamanho da amostra n: 4</code></pre>
+<div class="sourceCode" id="cb231"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb231-1"><a href="AS.html#cb231-1"></a><span class="co"># Calculo do valor de c</span></span>
+<span id="cb231-2"><a href="AS.html#cb231-2"></a>c=N<span class="op">-</span>n<span class="op">*</span>K</span>
+<span id="cb231-3"><a href="AS.html#cb231-3"></a><span class="kw">print</span>(<span class="kw">paste</span>(<span class="st">&quot;Valor de c:&quot;</span>, c), <span class="dt">quote=</span><span class="ot">FALSE</span>)</span></code></pre></div>
+<pre><code>## [1] Valor de c: 0</code></pre>
+<div class="sourceCode" id="cb233"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb233-1"><a href="AS.html#cb233-1"></a><span class="co"># Geração da partida aleatória</span></span>
+<span id="cb233-2"><a href="AS.html#cb233-2"></a>r=<span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span>K,<span class="dv">1</span>)</span>
+<span id="cb233-3"><a href="AS.html#cb233-3"></a><span class="kw">print</span>(<span class="kw">paste</span>(<span class="st">&quot;Partida aleatória r:&quot;</span>, r), <span class="dt">quote=</span><span class="ot">FALSE</span>)</span></code></pre></div>
+<pre><code>## [1] Partida aleatória r: 4</code></pre>
+<div class="sourceCode" id="cb235"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb235-1"><a href="AS.html#cb235-1"></a><span class="co"># Geração da lista das unidades da população U</span></span>
+<span id="cb235-2"><a href="AS.html#cb235-2"></a>U=<span class="dv">1</span><span class="op">:</span>N                  </span>
+<span id="cb235-3"><a href="AS.html#cb235-3"></a><span class="co"># Determinação das unidades da amostra s</span></span>
+<span id="cb235-4"><a href="AS.html#cb235-4"></a>s_r =<span class="st"> </span><span class="kw">subset</span>(U, (U<span class="op">%%</span>K)<span class="op">==</span>r)</span>
+<span id="cb235-5"><a href="AS.html#cb235-5"></a><span class="kw">print</span>(<span class="st">&quot;Amostra sistemática selecionada s_r:&quot;</span>, <span class="dt">quote=</span><span class="ot">FALSE</span>)</span></code></pre></div>
+<pre><code>## [1] Amostra sistemática selecionada s_r:</code></pre>
+<div class="sourceCode" id="cb237"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb237-1"><a href="AS.html#cb237-1"></a><span class="kw">print</span>(s_r)</span></code></pre></div>
+<pre><code>## [1]  4  9 14 19</code></pre>
+<div class="sourceCode" id="cb239"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb239-1"><a href="AS.html#cb239-1"></a><span class="co"># Alterando o separador de decimais para ponto</span></span>
+<span id="cb239-2"><a href="AS.html#cb239-2"></a><span class="kw">options</span>(<span class="dt">OutDec=</span><span class="st">&quot;.&quot;</span>)</span></code></pre></div>
+</div>
+<div id="composição-das-amostras-sistemáticas-simples" class="section level2">
+<h2><span class="header-section-number">8.3</span> Composição das amostras sistemáticas simples</h2>
+<p>A Tabela <a href="AS.html#tab:tabsis1">8.1</a> a seguir, representa uma população de onde se pretende selecionar uma amostra sistemática com intervalo definido por <span class="math inline">\(K\)</span>. Os índices das unidades populacionais estão dispostos na forma de uma matriz com <span class="math inline">\(K\)</span> linhas e <span class="math inline">\(n\)</span> colunas, onde <span class="math inline">\(n\)</span> é o maior tamanho de amostra possível para o <span class="math inline">\(K\)</span> definido. Assim cada linha, <span class="math inline">\(r\)</span>, da tabela é formada por uma das possíveis amostras, <span class="math inline">\(s_r\)</span>. No caso de <span class="math inline">\(N\ne nK\)</span>, algumas das últimas células da tabela são vazias, e o tamanho efetivo da amostra é <span class="math inline">\(n\)</span> ou <span class="math inline">\(n-1\)</span>, dependendo do valor de <span class="math inline">\(r\)</span> selecionado.</p>
+<center>
+<table>
+<caption>
+<span id="tab:tabsis1">Tabela 8.1: </span>Unidades que compõem as possíveis <span class="math inline">\(K\)</span> amostras sistemáticas, <span class="math inline">\(s_1,   s_2,   ...,s_r,   ...,   s_K\)</span>, com partida aleatória <span class="math inline">\(r\)</span> no intervalo <span class="math inline">\([1; K]\)</span>
+</caption>
+</table>
+<table>
+<colgroup>
+<col width="15%" />
+<col width="15%" />
+<col width="15%" />
+<col width="21%" />
+<col width="15%" />
+<col width="16%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="center">Possíveis
+amostras</th>
+<th align="center"> </th>
+<th align="center"> </th>
+<th align="center">Índices das
+unidades <span class="math inline">\(U_i\)</span></th>
+<th align="center"> </th>
+<th align="center"> </th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center"></td>
+<td align="center"><strong><span class="math inline">\(c_1\)</span></strong></td>
+<td align="center"><strong><span class="math inline">\(c_2\)</span></strong></td>
+<td align="center"><strong><span class="math inline">\(c_3\)</span></strong></td>
+<td align="center"><strong><span class="math inline">\(...\)</span></strong></td>
+<td align="center"><strong><span class="math inline">\(c_n\)</span></strong></td>
+</tr>
+<tr class="even">
+<td align="center"><strong><span class="math inline">\(s_1\)</span></strong></td>
+<td align="center">1</td>
+<td align="center">K+1</td>
+<td align="center">2K+1</td>
+<td align="center">…</td>
+<td align="center">(n-1)K+1</td>
+</tr>
+<tr class="odd">
+<td align="center"><strong><span class="math inline">\(s_2\)</span></strong></td>
+<td align="center">2</td>
+<td align="center">K+2</td>
+<td align="center">2K+2</td>
+<td align="center">…</td>
+<td align="center">(n-1)K+2</td>
+</tr>
+<tr class="even">
+<td align="center"><strong><span class="math inline">\(...\)</span></strong></td>
+<td align="center">…</td>
+<td align="center">…</td>
+<td align="center">…</td>
+<td align="center">…</td>
+<td align="center">…</td>
+</tr>
+<tr class="odd">
+<td align="center"><strong><span class="math inline">\(s_r\)</span></strong></td>
+<td align="center">r</td>
+<td align="center">K+r</td>
+<td align="center">2K+r</td>
+<td align="center">…</td>
+<td align="center">(n-1)K+r</td>
+</tr>
+<tr class="even">
+<td align="center"><strong><span class="math inline">\(...\)</span></strong></td>
+<td align="center">…</td>
+<td align="center">…</td>
+<td align="center">…</td>
+<td align="center">…</td>
+<td align="center">…</td>
+</tr>
+<tr class="odd">
+<td align="center"><strong><span class="math inline">\(s_K\)</span></strong></td>
+<td align="center">K</td>
+<td align="center">2K</td>
+<td align="center">3k</td>
+<td align="center">…</td>
+<td align="center">-</td>
+</tr>
+</tbody>
+</table>
+</center>
+<p>Examinando a Tabela <a href="AS.html#tab:tabsis1">8.1</a> conclui-se que unidades em diferentes amostras sistemáticas simples possíveis nunca podem aparecer juntas na mesma amostra! Outra constatação importante é que o conjunto de amostras possíveis é bem pequeno, e de tamanho <span class="math inline">\(K\)</span>, em contraste com o que ocorre com os planos de amostragem AAS e AASC, discutidos até agora.</p>
+<p><strong>Exemplo 8.3 </strong> Identifique as amostras sistemáticas simples possíveis quando a população tem <span class="math inline">\(N=19\)</span> unidades e o tamanho desejado da amostra é de <span class="math inline">\(n=4\)</span> unidades.</p>
+<p>Como <span class="math inline">\(N = 19 = 4 \times 4 + 3\)</span>, temos que <span class="math inline">\(K=4\)</span> e <span class="math inline">\(c=3\)</span>. Logo, as quatro amostras sistemáticas possíveis nesse caso são:</p>
+<p><span class="math inline">\(s_1 = \{{ 1 ; 5 ; 9 ; 13 ; 17 }\}\)</span> com <span class="math inline">\(n_1=5\)</span>;</p>
+<p><span class="math inline">\(s_2 = \{{ 2 ; 6 ; 10 ; 14 ; 18 }\}\)</span> com <span class="math inline">\(n_2=5\)</span>;</p>
+<p><span class="math inline">\(s_3 = \{{ 3 ; 7 ; 11 ; 15 ; 19 }\}\)</span> com <span class="math inline">\(n_3=5\)</span>;</p>
+<p><span class="math inline">\(s_4 = \{{ 4 ; 8 ; 12 ; 16 }\}\)</span> com <span class="math inline">\(n_4=4\)</span>.</p>
+<p>Podemos utilizar o pacote R para realizar a mesma tarefa.</p>
+<div class="sourceCode" id="cb240"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb240-1"><a href="AS.html#cb240-1"></a><span class="co"># Alterando o separador de decimais para vírgula</span></span>
+<span id="cb240-2"><a href="AS.html#cb240-2"></a><span class="kw">options</span>(<span class="dt">OutDec=</span><span class="st">&quot;,&quot;</span>)</span>
+<span id="cb240-3"><a href="AS.html#cb240-3"></a><span class="co"># Tamanho da População</span></span>
+<span id="cb240-4"><a href="AS.html#cb240-4"></a>N=<span class="dv">19</span></span>
+<span id="cb240-5"><a href="AS.html#cb240-5"></a><span class="kw">print</span>(<span class="kw">paste</span>(<span class="st">&quot;Tamanho da população N:&quot;</span>, N), <span class="dt">quote=</span><span class="ot">FALSE</span>)</span></code></pre></div>
+<pre><code>## [1] Tamanho da população N: 19</code></pre>
+<div class="sourceCode" id="cb242"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb242-1"><a href="AS.html#cb242-1"></a><span class="co"># Tamanho desejado da amostra</span></span>
+<span id="cb242-2"><a href="AS.html#cb242-2"></a>n=<span class="dv">4</span></span>
+<span id="cb242-3"><a href="AS.html#cb242-3"></a><span class="kw">print</span>(<span class="kw">paste</span>(<span class="st">&quot;Tamanho desejado da amostra n:&quot;</span>, n), <span class="dt">quote=</span><span class="ot">FALSE</span>)</span></code></pre></div>
+<pre><code>## [1] Tamanho desejado da amostra n: 4</code></pre>
+<div class="sourceCode" id="cb244"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb244-1"><a href="AS.html#cb244-1"></a><span class="co"># Cálculo do intervalo de seleção</span></span>
+<span id="cb244-2"><a href="AS.html#cb244-2"></a>K=<span class="kw">trunc</span>(N<span class="op">/</span>n)</span>
+<span id="cb244-3"><a href="AS.html#cb244-3"></a><span class="kw">print</span>(<span class="kw">paste</span>(<span class="st">&quot;Intervalo de seleção K:&quot;</span>, K), <span class="dt">quote=</span><span class="ot">FALSE</span>)</span></code></pre></div>
+<pre><code>## [1] Intervalo de seleção K: 4</code></pre>
+<div class="sourceCode" id="cb246"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb246-1"><a href="AS.html#cb246-1"></a><span class="co"># Cálculo da constante c</span></span>
+<span id="cb246-2"><a href="AS.html#cb246-2"></a>c=N<span class="op">-</span>n<span class="op">*</span>K</span>
+<span id="cb246-3"><a href="AS.html#cb246-3"></a><span class="kw">print</span>(<span class="kw">paste</span>(<span class="st">&quot;Constante c:&quot;</span>, c), <span class="dt">quote=</span><span class="ot">FALSE</span>)</span></code></pre></div>
+<pre><code>## [1] Constante c: 3</code></pre>
+<div class="sourceCode" id="cb248"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb248-1"><a href="AS.html#cb248-1"></a><span class="co"># Vetor para guardar nomes das amostras possíveis</span></span>
+<span id="cb248-2"><a href="AS.html#cb248-2"></a>nomes_amostras =<span class="st"> </span><span class="kw">paste0</span>(<span class="st">&quot;s_&quot;</span>, <span class="dv">1</span><span class="op">:</span>K)</span>
+<span id="cb248-3"><a href="AS.html#cb248-3"></a><span class="co"># Matriz para guardar os índices das unidades das amostras possíveis</span></span>
+<span id="cb248-4"><a href="AS.html#cb248-4"></a>amostras_possiveis=<span class="kw">matrix</span>(<span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span>N,<span class="ot">NA</span>),K,n<span class="op">+</span><span class="dv">1</span>,<span class="dt">byrow=</span><span class="ot">FALSE</span>)</span>
+<span id="cb248-5"><a href="AS.html#cb248-5"></a><span class="co"># Monta arquivo com resultado das amostras possíveis</span></span>
+<span id="cb248-6"><a href="AS.html#cb248-6"></a>amostras_possiveis =<span class="st"> </span><span class="kw">as.data.frame</span>(<span class="kw">cbind</span>(nomes_amostras, amostras_possiveis))</span>
+<span id="cb248-7"><a href="AS.html#cb248-7"></a><span class="kw">colnames</span>(amostras_possiveis) =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Amostra&quot;</span>, <span class="kw">paste</span>(<span class="st">&quot;Unidade&quot;</span>, <span class="dv">1</span><span class="op">:</span>(n<span class="op">+</span><span class="dv">1</span>)))</span>
+<span id="cb248-8"><a href="AS.html#cb248-8"></a>amostras_possiveis</span></code></pre></div>
+<pre><code>##   Amostra Unidade 1 Unidade 2 Unidade 3 Unidade 4 Unidade 5
+## 1     s_1         1         5         9        13        17
+## 2     s_2         2         6        10        14        18
+## 3     s_3         3         7        11        15        19
+## 4     s_4         4         8        12        16      &lt;NA&gt;</code></pre>
+<div class="sourceCode" id="cb250"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb250-1"><a href="AS.html#cb250-1"></a><span class="co"># Alterando o separador de decimais para ponto</span></span>
+<span id="cb250-2"><a href="AS.html#cb250-2"></a><span class="kw">options</span>(<span class="dt">OutDec=</span><span class="st">&quot;.&quot;</span>)</span></code></pre></div>
+<p><strong>Exemplo 8.4 </strong> Calcule o tamanho efetivo da amostra resultante da seleção sistemática em uma população com <span class="math inline">\(N=149\)</span> unidades, quando o tamanho desejado da amostra sistemática simples é de <span class="math inline">\(n=60\)</span> unidades. Como <span class="math inline">\(N = 149 = 60 \times 2 + 29\)</span>, resulta que <span class="math inline">\(K=2\)</span> com <span class="math inline">\(n=74\)</span> e <span class="math inline">\(c=1\)</span>. Sendo assim as duas únicas amostras possíveis são:</p>
+<p><span class="math inline">\(s_1 = \{\textrm{números ímpares até 149, inclusive}\}\)</span> com <span class="math inline">\(n_1=75\)</span>.</p>
+<p><span class="math inline">\(s_2 = \{\textrm{números pares até 148, inclusive }\}\)</span> com <span class="math inline">\(n_2=74\)</span>.</p>
+<p>Nesse caso, verifica-se que o tamanho efetivo da amostra poderá ser 74 ou 75, um pouco maiores que o tamanho desejado de 60.</p>
+</div>
+<div id="probabilidades-de-inclusão-na-amostragem-sistemática-simples" class="section level2">
+<h2><span class="header-section-number">8.4</span> Probabilidades de inclusão na amostragem sistemática simples</h2>
+<p>É fácil notar que a probabilidade de inclusão na amostra de uma unidade <span class="math inline">\(i\)</span> qualquer é dada por:
+<span class="math display">\[
+\pi_i=\frac1K,\,\,i=1,\,\dots,\,\,N
+\]</span>
+Foi visto na Expressão <a href="AS.html#eq:eqsis1">(8.1)</a> que a primeira unidade a ser incluída na amostra é a unidade <span class="math inline">\(r\)</span>, que é um inteiro selecionado com equiprobabilidade no intervalo <span class="math inline">\([1;\: K]\)</span>. Como há <span class="math inline">\(K\)</span> números inteiros nesse intervalo, segue-se que a probabilidade de sortear um qualquer desses números é <span class="math inline">\(1/K\)</span>.</p>
+<p>As demais unidades selecionadas são obtidas somando a <span class="math inline">\(r\)</span> os múltiplos <span class="math inline">\(l K\)</span>, com <span class="math inline">\(l\)</span> variando de <span class="math inline">\(1\)</span> a <span class="math inline">\(n\)</span>, enquanto <span class="math inline">\(lK+r \le nK+c\)</span>, varrendo assim os intervalos de seleção subsequentes. Dessa forma, ao selecionar <span class="math inline">\(r\)</span>, todas as unidades amostrais ficam definidas, implicando que a probabilidade de selecionar uma unidade qualquer da população é igual à de selecionar a partida aleatória que determina qual das amostras <span class="math inline">\(s_r\)</span> será observada.</p>
+<p>A probabilidade de inclusão das unidades <span class="math inline">\(i \ne j\)</span> na amostra é dada por:
+<span class="math display">\[\pi_{ij}=\left\{\begin{array}{ll} 1/K, \,\,\textrm{se }i \ne j \,\in s_r\,\,\,\text{para}\,\,\  r=1,\,\dots,\,K\\\ 0,\,\,\, \textrm{caso contrário} \end{array}\right.\,\,\,\]</span></p>
+</div>
+<div id="variáveis-aleatórias-indicadoras---propriedades" class="section level2">
+<h2><span class="header-section-number">8.5</span> Variáveis aleatórias indicadoras - propriedades</h2>
+<p>Note que ao escolher <span class="math inline">\(r,\, 1\le r\le K\)</span>, selecionamos a amostra inteira. Sejam as variáveis indicadoras associadas às amostras possíveis <span class="math inline">\(s_r\)</span>:
+<span class="math display">\[
+ I(r)=\left\{\begin{array}{ll} 1,\,\,\textrm{se a amostra é}\,s_r\,\ \textrm {para}\,\,1\le r\le K \\ 0,\,\, \textrm{caso contrário} \end{array}\right.\,\,\,
+ \]</span></p>
+<p>Então o valor esperado de <span class="math inline">\(I(r)\)</span> é
+<span class="math display">\[
+E_{AS}[I(r)]=1/K\,,\,\,r=1,\,\dots,\,K 
+\]</span>
+A variância é dada por:
+<span class="math display">\[
+V_{AS}[I(r)]=E_{AS}\{[I(r)]^2\}-\{E_{AS}[I(r)]\}^2=\displaystyle\frac1{K}-\frac1{K^2}=\frac{1}{K}\left(1-\frac{1}{K}\right)
+\]</span>
+E a covariância entre <span class="math inline">\(I(r)\)</span> e <span class="math inline">\(I(q)\)</span> quando <span class="math inline">\(r \ne q\)</span> é:
+<span class="math display">\[
+COV_{AS}[I(r),I(q)]=E_{AS}[I(r)I(q)]-E_{AS}[I(r)]E_{AS}[I(r)]=\displaystyle 0-\frac{1}{K^2}=-\frac{1}{K^2}
+\]</span>
+já que apenas uma das duas partidas <span class="math inline">\(r\)</span> ou <span class="math inline">\(q\)</span> pode ser selecionada.</p>
+</div>
+<div id="estimação-de-totais-sob-amostragem-sistemática-simples" class="section level2">
+<h2><span class="header-section-number">8.6</span> Estimação de totais sob amostragem sistemática simples</h2>
+<p>Para apresentar o estimador tipo Horvitz-Thompson do total sob AS, denotamos por <span class="math inline">\(t_r\)</span> a soma amostral dos valores observados da variável <span class="math inline">\(y\)</span> para a amostra <span class="math inline">\(s_r\)</span>, definida como:
+<span class="math display">\[
+t_r = \sum_{i \in s_r} y_i
+\]</span>
+Como a probabilidade de inclusão de uma amostra sistemática simples <span class="math inline">\(s_r\)</span> qualquer é <span class="math inline">\(1/K\)</span>, o peso amostral das unidades dessa amostra é sempre igual a <span class="math inline">\(d_i = 1 / \pi_i = K\)</span>. Sendo assim, sob AS o estimador de Horvitz-Thompson para o total é dado por:</p>
+<p><span class="math display" id="eq:eqsis3">\[
+\widehat{Y}_{AS} = K t_r = K \sum_{i \in s_r} y_i \tag{8.3}
+\]</span>
+Com base nas propriedades do estimador de Horvitz-Thompson para o total, já sabemos que este estimador é não viciado para o total populacional. Mas vamos aqui demonstrar esse resultado também para o caso particular da AS, pois a prova nos ajudará com a obtenção posterior de expressão para a variância do estimador sob esse plano amostral. Note então que:
+<span class="math display">\[
+\begin{array}{ll}
+E_{AS}(\widehat{Y}_{AS}) &amp; = E_{AS} \left[ K t_r \right] = K E_{AS} \left[ \displaystyle \sum_{r=1}^{K} I(r) t_r \right] \\ &amp;= \displaystyle K\sum_{r=1}^{K}E_{AS} \left [I(r) \right] t_r = K \sum_{r=1}^{K} \frac{1}{K} t_r = \sum_{r=1}^{K} t_r = Y
+\end{array}
+\]</span></p>
+<p>provando, portanto, que <span class="math inline">\(\widehat{Y}_{AS}\)</span> é não viciado para o total populacional <span class="math inline">\(Y\)</span>.</p>
+<p>Quando o tamanho populacional <span class="math inline">\(N\)</span> for desconhecido, pode também ser estimado sem vício usando uma variável <span class="math inline">\(y\)</span> útil para contagens, tomando o valor <span class="math inline">\(1\)</span> para todas as unidades da população e usando a Expressão <a href="AS.html#eq:eqsis3">(8.3)</a>:
+<span class="math display">\[
+\widehat{N}_{AS} = K n_r
+\]</span>
+Um estimador do total de unidades da população pode ser útil em situações nas quais não há cadastro prévio, e o mesmo é construído durante a operação de pesquisa.</p>
+<p><strong>Exemplo 8.5 </strong> Considere a população composta de <span class="math inline">\(N=19\)</span> unidades, cujos dados da variável de interesse <span class="math inline">\(y\)</span> são mostrados na Tabela <a href="AS.html#tab:tabsis2">8.2</a> , da qual se deseja retirar uma amostra sistemática simples com intervalo de seleção com <span class="math inline">\(K=4\)</span> para estimar o total populacional. Verifique numericamente que o estimador <span class="math inline">\(\widehat Y_{AS}\)</span> é não viciado.</p>
+<center>
+<table>
+<caption>
+<span id="tab:tabsis2">Tabela 8.2: </span>Dados das amostras sistemáticas possíveis, numa população com <span class="math inline">\(N=19\)</span> e intervalo de seleção com <span class="math inline">\(K=4\)</span>
+</caption>
+</table>
+<table style="width:35%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+<col width="9%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><span class="math inline">\(s_1\)</span></th>
+<th><span class="math inline">\(s_2\)</span></th>
+<th><span class="math inline">\(s_3\)</span></th>
+<th><span class="math inline">\(s_4\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>99</td>
+<td>54 9</td>
+<td>6 5</td>
+<td>4</td>
+</tr>
+<tr class="even">
+<td>85</td>
+<td>88 5</td>
+<td>5 8</td>
+<td>3</td>
+</tr>
+<tr class="odd">
+<td>62</td>
+<td>85 9</td>
+<td>6 5</td>
+<td>5</td>
+</tr>
+<tr class="even">
+<td>91</td>
+<td>92 6</td>
+<td>7 6</td>
+<td>8</td>
+</tr>
+<tr class="odd">
+<td>54</td>
+<td>79 7</td>
+<td>6  </td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</center>
+<p>Para mostrar que o estimador é não viciado, basta verificar que a média dos seus valores possíveis é igual ao parâmetro populacional a ser estimado. No caso, basta calcular as estimativas de total para cada uma das possíveis amostras (cada coluna da Tabela <a href="AS.html#tab:tabsis2">8.2</a>) e calcular a média dessas estimativas. A comparação com o total populacional, dado pela soma de todos os valores da tabela, mostra o resultado desejado. Pode-se utilizar o pacote R para realizar a tarefa, como ilustrado a seguir.</p>
+<div class="sourceCode" id="cb251"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb251-1"><a href="AS.html#cb251-1"></a><span class="co"># Alterando o separador de decimais para vírgula</span></span>
+<span id="cb251-2"><a href="AS.html#cb251-2"></a><span class="kw">options</span>(<span class="dt">OutDec=</span><span class="st">&quot;,&quot;</span>)</span>
+<span id="cb251-3"><a href="AS.html#cb251-3"></a><span class="co"># Intervalo de seleção</span></span>
+<span id="cb251-4"><a href="AS.html#cb251-4"></a>K=<span class="dv">4</span></span>
+<span id="cb251-5"><a href="AS.html#cb251-5"></a><span class="kw">print</span>(<span class="kw">paste</span>(<span class="st">&quot;Intervalo de seleção K:&quot;</span>, K), <span class="dt">quote=</span><span class="ot">FALSE</span>)</span></code></pre></div>
+<pre><code>## [1] Intervalo de seleção K: 4</code></pre>
+<div class="sourceCode" id="cb253"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb253-1"><a href="AS.html#cb253-1"></a><span class="co"># Carregando os valores populacionais da variável y</span></span>
+<span id="cb253-2"><a href="AS.html#cb253-2"></a>pop=<span class="kw">matrix</span>(<span class="kw">c</span>(<span class="dv">99</span>,<span class="dv">54</span>,<span class="dv">96</span>,<span class="dv">54</span>,<span class="dv">85</span>,<span class="dv">88</span>,<span class="dv">55</span>,<span class="dv">83</span>,<span class="dv">62</span>,<span class="dv">85</span>,<span class="dv">96</span>,<span class="dv">55</span>,<span class="dv">91</span>,<span class="dv">92</span>,<span class="dv">67</span>,<span class="dv">68</span>,<span class="dv">54</span>,<span class="dv">79</span>,<span class="dv">76</span>,<span class="ot">NA</span>),<span class="dv">5</span>,K,<span class="dt">byrow=</span>T)</span>
+<span id="cb253-3"><a href="AS.html#cb253-3"></a><span class="kw">print</span>(<span class="st">&quot;Dados populacionais&quot;</span>, <span class="dt">quote=</span><span class="ot">FALSE</span>)</span></code></pre></div>
+<pre><code>## [1] Dados populacionais</code></pre>
+<div class="sourceCode" id="cb255"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb255-1"><a href="AS.html#cb255-1"></a><span class="kw">print</span>(pop)</span></code></pre></div>
+<pre><code>##      [,1] [,2] [,3] [,4]
+## [1,]   99   54   96   54
+## [2,]   85   88   55   83
+## [3,]   62   85   96   55
+## [4,]   91   92   67   68
+## [5,]   54   79   76   NA</code></pre>
+<div class="sourceCode" id="cb257"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb257-1"><a href="AS.html#cb257-1"></a><span class="co"># Calculando a estimativa do total para cada uma das AS possíveis</span></span>
+<span id="cb257-2"><a href="AS.html#cb257-2"></a>Yhatr=<span class="ot">NULL</span></span>
+<span id="cb257-3"><a href="AS.html#cb257-3"></a><span class="cf">for</span>(l <span class="cf">in</span> (<span class="dv">1</span><span class="op">:</span>K)) Yhatr[l] =<span class="st"> </span>K<span class="op">*</span><span class="kw">sum</span>(pop[,l],<span class="dt">na.rm=</span>T)</span>
+<span id="cb257-4"><a href="AS.html#cb257-4"></a><span class="kw">print</span>(<span class="st">&quot;Valores possíveis do estimador de total&quot;</span>, <span class="dt">quote=</span><span class="ot">FALSE</span>)</span></code></pre></div>
+<pre><code>## [1] Valores possíveis do estimador de total</code></pre>
+<div class="sourceCode" id="cb259"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb259-1"><a href="AS.html#cb259-1"></a><span class="kw">print</span>(Yhatr)</span></code></pre></div>
+<pre><code>## [1] 1564 1592 1560 1040</code></pre>
+<div class="sourceCode" id="cb261"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb261-1"><a href="AS.html#cb261-1"></a><span class="co"># Calculando a média das estimativas de total</span></span>
+<span id="cb261-2"><a href="AS.html#cb261-2"></a>EYhat=<span class="kw">mean</span>(Yhatr)</span>
+<span id="cb261-3"><a href="AS.html#cb261-3"></a><span class="kw">print</span>(<span class="kw">paste</span>(<span class="st">&quot;Média das estimativas possíveis do total:&quot;</span>, EYhat), <span class="dt">quote=</span><span class="ot">FALSE</span>)</span></code></pre></div>
+<pre><code>## [1] Média das estimativas possíveis do total: 1439</code></pre>
+<div class="sourceCode" id="cb263"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb263-1"><a href="AS.html#cb263-1"></a><span class="co"># Calculando o total populacional Y</span></span>
+<span id="cb263-2"><a href="AS.html#cb263-2"></a>Y=<span class="kw">sum</span>(pop,<span class="dt">na.rm=</span>T)</span>
+<span id="cb263-3"><a href="AS.html#cb263-3"></a><span class="kw">print</span>(<span class="kw">paste</span>(<span class="st">&quot;Total populacional Y:&quot;</span>, Y), <span class="dt">quote=</span><span class="ot">FALSE</span>)</span></code></pre></div>
+<pre><code>## [1] Total populacional Y: 1439</code></pre>
+<div class="sourceCode" id="cb265"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb265-1"><a href="AS.html#cb265-1"></a><span class="co"># Alterando o separador de decimais para ponto</span></span>
+<span id="cb265-2"><a href="AS.html#cb265-2"></a><span class="kw">options</span>(<span class="dt">OutDec=</span><span class="st">&quot;.&quot;</span>)</span></code></pre></div>
+</div>
+<div id="estimação-de-médias-sob-amostragem-sistemática-simples" class="section level2">
+<h2><span class="header-section-number">8.7</span> Estimação de médias sob amostragem sistemática simples</h2>
+<p>A média populacional <span class="math inline">\(\overline Y=Y/N\)</span> pode ser vista como uma razão entre o total da variável <span class="math inline">\(y\)</span> e o total de unidades populacionais:
+<span class="math display">\[
+\overline Y = \frac Y N = \displaystyle \frac {\sum_{r=1}^{K} t_r} {\sum_{r=1}^{K} n_r}
+\]</span>
+Para estimá-la deve-se considerar duas situações: quando o tamanho <span class="math inline">\(N\)</span> da população é conhecido, ou quando esse valor é desconhecido. Um estimador não viciado para a média quando <span class="math inline">\(N\)</span> é conhecido é dado por:</p>
+<p><span class="math display" id="eq:eqsis4">\[
+\overline y_{AS} = \frac {\widehat Y_{AS}} N = \frac {K t_r}{N}  \tag{8.4}
+\]</span>
+Este estimador é não viciado para <span class="math inline">\(\overline Y\)</span>, pois foi visto que <span class="math inline">\(\widehat Y_{AS}\)</span> é não viciado para o total populacional <span class="math inline">\(Y\)</span>. Também é interessante observar que este estimador não é igual à média amostral, a menos no caso em que <span class="math inline">\(N = nK\)</span>.</p>
+<p><strong>Exemplo 8.6 </strong> Considerando a mesma população do Exemplo <a href="#exm:exmsis5">8.5</a> pode-se verificar que <span class="math inline">\(\overline y_{AS}\)</span> é não viciado para a média populacional <span class="math inline">\(\overline Y\)</span>. Neste caso, basta calcular a estimativa da média para cada coluna (amostra sistemática possível) da Tabela <a href="AS.html#tab:tabsis2">8.2</a>, calcular o valor médio das estimativas e comparar com média populacional. Pode-se utilizar o R para realizar a tarefa.</p>
+<div class="sourceCode" id="cb266"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb266-1"><a href="AS.html#cb266-1"></a><span class="co"># Alterando o separador de decimais para vírgula</span></span>
+<span id="cb266-2"><a href="AS.html#cb266-2"></a><span class="kw">options</span>(<span class="dt">OutDec=</span><span class="st">&quot;,&quot;</span>)</span>
+<span id="cb266-3"><a href="AS.html#cb266-3"></a><span class="co"># Intervalo de seleção e tamanho da população conhecido</span></span>
+<span id="cb266-4"><a href="AS.html#cb266-4"></a>K=<span class="dv">4</span></span>
+<span id="cb266-5"><a href="AS.html#cb266-5"></a><span class="kw">print</span>(<span class="kw">paste</span>(<span class="st">&quot;Intervalo de seleção K:&quot;</span>, K), <span class="dt">quote=</span><span class="ot">FALSE</span>)</span></code></pre></div>
+<pre><code>## [1] Intervalo de seleção K: 4</code></pre>
+<div class="sourceCode" id="cb268"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb268-1"><a href="AS.html#cb268-1"></a><span class="co"># Carregando os valores populacionais da variável y</span></span>
+<span id="cb268-2"><a href="AS.html#cb268-2"></a>pop=<span class="kw">matrix</span>(<span class="kw">c</span>(<span class="dv">99</span>,<span class="dv">54</span>,<span class="dv">96</span>,<span class="dv">54</span>,<span class="dv">85</span>,<span class="dv">88</span>,<span class="dv">55</span>,<span class="dv">83</span>,<span class="dv">62</span>,<span class="dv">85</span>,<span class="dv">96</span>,<span class="dv">55</span>,<span class="dv">91</span>,<span class="dv">92</span>,<span class="dv">67</span>,<span class="dv">68</span>,<span class="dv">54</span>,<span class="dv">79</span>,<span class="dv">76</span>,<span class="ot">NA</span>),<span class="dv">5</span>,K,<span class="dt">byrow=</span>T)</span>
+<span id="cb268-3"><a href="AS.html#cb268-3"></a><span class="kw">print</span>(<span class="st">&quot;Dados populacionais&quot;</span>, <span class="dt">quote=</span><span class="ot">FALSE</span>)</span></code></pre></div>
+<pre><code>## [1] Dados populacionais</code></pre>
+<div class="sourceCode" id="cb270"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb270-1"><a href="AS.html#cb270-1"></a><span class="kw">print</span>(pop)</span></code></pre></div>
+<pre><code>##      [,1] [,2] [,3] [,4]
+## [1,]   99   54   96   54
+## [2,]   85   88   55   83
+## [3,]   62   85   96   55
+## [4,]   91   92   67   68
+## [5,]   54   79   76   NA</code></pre>
+<div class="sourceCode" id="cb272"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb272-1"><a href="AS.html#cb272-1"></a><span class="co"># Calcula tamanho da população</span></span>
+<span id="cb272-2"><a href="AS.html#cb272-2"></a>N=<span class="kw">sum</span>(<span class="op">!</span><span class="kw">is.na</span>(pop))</span>
+<span id="cb272-3"><a href="AS.html#cb272-3"></a><span class="kw">print</span>(<span class="kw">paste</span>(<span class="st">&quot;Tamanho da população N:&quot;</span>, N), <span class="dt">quote=</span><span class="ot">FALSE</span>)</span></code></pre></div>
+<pre><code>## [1] Tamanho da população N: 19</code></pre>
+<div class="sourceCode" id="cb274"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb274-1"><a href="AS.html#cb274-1"></a><span class="co"># Calculando a estimativa da média para cada uma das AS possíveis</span></span>
+<span id="cb274-2"><a href="AS.html#cb274-2"></a>ybarAS.r=<span class="ot">NULL</span></span>
+<span id="cb274-3"><a href="AS.html#cb274-3"></a><span class="cf">for</span>(i <span class="cf">in</span> (<span class="dv">1</span><span class="op">:</span>K)) ybarAS.r[i] =<span class="st"> </span>K<span class="op">*</span><span class="kw">sum</span>(pop[,i],<span class="dt">na.rm=</span>T)<span class="op">/</span>N</span>
+<span id="cb274-4"><a href="AS.html#cb274-4"></a><span class="kw">print</span>(<span class="st">&quot;Valores possíveis do estimador não viciado da média&quot;</span>, <span class="dt">quote=</span><span class="ot">FALSE</span>)</span></code></pre></div>
+<pre><code>## [1] Valores possíveis do estimador não viciado da média</code></pre>
+<div class="sourceCode" id="cb276"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb276-1"><a href="AS.html#cb276-1"></a><span class="kw">print</span>(ybarAS.r)</span></code></pre></div>
+<pre><code>## [1] 82,31579 83,78947 82,10526 54,73684</code></pre>
+<div class="sourceCode" id="cb278"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb278-1"><a href="AS.html#cb278-1"></a><span class="co"># Calculando a média das estimativas</span></span>
+<span id="cb278-2"><a href="AS.html#cb278-2"></a>EybarAS=<span class="kw">mean</span>(ybarAS.r)</span>
+<span id="cb278-3"><a href="AS.html#cb278-3"></a><span class="kw">print</span>(<span class="kw">paste</span>(<span class="st">&quot;Média das estimativas possíveis da média:&quot;</span>, EybarAS), <span class="dt">quote=</span><span class="ot">FALSE</span>)</span></code></pre></div>
+<pre><code>## [1] Média das estimativas possíveis da média: 75,7368421052632</code></pre>
+<div class="sourceCode" id="cb280"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb280-1"><a href="AS.html#cb280-1"></a><span class="co"># Calculando a média populacional</span></span>
+<span id="cb280-2"><a href="AS.html#cb280-2"></a>Ybar=<span class="kw">mean</span>(pop,<span class="dt">na.rm=</span>T)</span>
+<span id="cb280-3"><a href="AS.html#cb280-3"></a><span class="kw">print</span>(<span class="kw">paste</span>(<span class="st">&quot;Média populacional:&quot;</span>, Ybar), <span class="dt">quote=</span><span class="ot">FALSE</span>)</span></code></pre></div>
+<pre><code>## [1] Média populacional: 75,7368421052632</code></pre>
+<div class="sourceCode" id="cb282"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb282-1"><a href="AS.html#cb282-1"></a><span class="co"># Alterando o separador de decimais para ponto</span></span>
+<span id="cb282-2"><a href="AS.html#cb282-2"></a><span class="kw">options</span>(<span class="dt">OutDec=</span><span class="st">&quot;.&quot;</span>)</span></code></pre></div>
+<p><strong>Exemplo 8.7 </strong> Utilizando a mesma população, pode-se verificar que o estimador média amostral simples <span class="math inline">\((\overline y)\)</span> para a média populacional de <span class="math inline">\(y\)</span> não coincide com o estimador <span class="math inline">\(\overline y_{AS}\)</span> e, além disso, é viciado.</p>
+<div class="sourceCode" id="cb283"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb283-1"><a href="AS.html#cb283-1"></a><span class="co"># Alterando o separador de decimais para vírgula</span></span>
+<span id="cb283-2"><a href="AS.html#cb283-2"></a><span class="kw">options</span>(<span class="dt">OutDec=</span><span class="st">&quot;,&quot;</span>)</span>
+<span id="cb283-3"><a href="AS.html#cb283-3"></a><span class="co"># Intervalo de seleção e tamanho da população conhecido</span></span>
+<span id="cb283-4"><a href="AS.html#cb283-4"></a>K=<span class="dv">4</span></span>
+<span id="cb283-5"><a href="AS.html#cb283-5"></a><span class="co"># Carregando os valores populacionais da variável y</span></span>
+<span id="cb283-6"><a href="AS.html#cb283-6"></a>pop=<span class="kw">matrix</span>(<span class="kw">c</span>(<span class="dv">99</span>,<span class="dv">54</span>,<span class="dv">96</span>,<span class="dv">54</span>,<span class="dv">85</span>,<span class="dv">88</span>,<span class="dv">55</span>,<span class="dv">83</span>,<span class="dv">62</span>,<span class="dv">85</span>,<span class="dv">96</span>,<span class="dv">55</span>,<span class="dv">91</span>,<span class="dv">92</span>,<span class="dv">67</span>,<span class="dv">68</span>,<span class="dv">54</span>,<span class="dv">79</span>,<span class="dv">76</span>,<span class="ot">NA</span>),<span class="dv">5</span>,K,<span class="dt">byrow=</span>T)</span>
+<span id="cb283-7"><a href="AS.html#cb283-7"></a><span class="co"># Calculando a média amostral simples para cada uma das AS possíveis</span></span>
+<span id="cb283-8"><a href="AS.html#cb283-8"></a>ybar.r=<span class="ot">NULL</span></span>
+<span id="cb283-9"><a href="AS.html#cb283-9"></a><span class="cf">for</span>(i <span class="cf">in</span> (<span class="dv">1</span><span class="op">:</span>K)) ybar.r[i] =<span class="st"> </span><span class="kw">mean</span>(pop[,i],<span class="dt">na.rm=</span>T)</span>
+<span id="cb283-10"><a href="AS.html#cb283-10"></a>ybar.r</span></code></pre></div>
+<pre><code>## [1] 78,2 79,6 78,0 65,0</code></pre>
+<div class="sourceCode" id="cb285"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb285-1"><a href="AS.html#cb285-1"></a><span class="co"># Calculando a média das estimativas</span></span>
+<span id="cb285-2"><a href="AS.html#cb285-2"></a>Eybar=<span class="kw">mean</span>(ybar.r)</span>
+<span id="cb285-3"><a href="AS.html#cb285-3"></a><span class="kw">print</span>(<span class="kw">paste</span>(<span class="st">&quot;Média das estimativas possíveis da média:&quot;</span>, Eybar), <span class="dt">quote=</span><span class="ot">FALSE</span>)</span></code></pre></div>
+<pre><code>## [1] Média das estimativas possíveis da média: 75,2</code></pre>
+<div class="sourceCode" id="cb287"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb287-1"><a href="AS.html#cb287-1"></a><span class="co"># Alterando o separador de decimais para ponto</span></span>
+<span id="cb287-2"><a href="AS.html#cb287-2"></a><span class="kw">options</span>(<span class="dt">OutDec=</span><span class="st">&quot;.&quot;</span>)</span></code></pre></div>
+<p>Quando <span class="math inline">\(N\)</span> é desconhecido, um estimador alternativo para a média é dado pela razão entre os estimadores do total e do tamanho populacionais:</p>
+<p><span class="math display" id="eq:eqsis5">\[
+\overline y_{AS}=\frac {\widehat Y_{AS}}{\widehat N_{AS}}=\frac {Kt_r}{Kn_r}=\frac {t_r}{n_r}=\overline y_r=\overline y\tag{8.5}
+\]</span>
+que é a média amostral.</p>
+<p>Verifica-se assim que a média amostral simples é um estimador para uma razão, sendo portanto viciado para estimar a média populacional. Tal estimador só será exatamente não viciado quando <span class="math inline">\(N=nK\)</span>, pois:</p>
+<p><span class="math display">\[
+\begin{align} E_{AS}(\overline{y}_{AS})&amp;=  E_{AS}(\overline y)= E_{AS} \left[\sum_{r=1} ^{K}I(r) \overline y_r \right] \\ &amp;= \frac{1}{K} \sum_{r=1}^{K}\overline y_r = \frac{1}{K} \sum_{r=1}^{K}\frac {t_r}{n_r} \\&amp;\neq \frac {\sum_{r=1}^{K}t_r} {\sum_{r=1}^{K}n_r} = \overline Y \end{align}
+\]</span></p>
+<p>O vício desse estimador (quando <span class="math inline">\(N \ne nK\)</span>) é o preço pago quando não se conhece o tamanho <span class="math inline">\(N\)</span> da população!</p>
+</div>
+<div id="estimação-de-uma-proporção-na-amostragem-sistemática-simples" class="section level2">
+<h2><span class="header-section-number">8.8</span> Estimação de uma proporção na amostragem sistemática simples</h2>
+<p>Como já foi visto no Capítulo <a href="proporc.html#proporc">5</a>, muitas vezes o interesse é estimar a proporção de unidades da população que possuem uma determinada característica de interesse. Nesse caso, para as unidades com a característica de interesse presente, a variável <span class="math inline">\(y\)</span> recebe o valor <span class="math inline">\(1\)</span> e para as demais unidades, <span class="math inline">\(y\)</span> recebe o valor <span class="math inline">\(0\)</span>.</p>
+<p>Como já foi visto que a proporção equivale à média de uma variável do tipo indicadora, quando o tamanho total da população, <span class="math inline">\(N\)</span>, for conhecido um estimador não viciado para a proporção é dado por:</p>
+<p><span class="math display" id="eq:eqsis6">\[
+\widehat p_{AS} = \frac K N \sum_{i \in s_r} y_i = \frac K N t_r = \frac K N n_a \tag{8.6}
+\]</span>
+onde <span class="math inline">\(n_a\)</span> denota o número de unidades na amostra que têm a característica de interesse.</p>
+<p><strong>Exemplo 8.8 </strong> Utilizando o R pode-se ver numericamente que o estimador <span class="math inline">\(\widehat p_{AS}\)</span> para a proporção <span class="math inline">\(p\)</span> é não viciado quando <span class="math inline">\(N\)</span> é conhecido.</p>
+<div class="sourceCode" id="cb288"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb288-1"><a href="AS.html#cb288-1"></a><span class="co"># Alterando o separador de decimais para vírgula</span></span>
+<span id="cb288-2"><a href="AS.html#cb288-2"></a><span class="kw">options</span>(<span class="dt">OutDec=</span><span class="st">&quot;,&quot;</span>)</span>
+<span id="cb288-3"><a href="AS.html#cb288-3"></a><span class="co"># Intervalo de seleção e tamanho da população conhecido</span></span>
+<span id="cb288-4"><a href="AS.html#cb288-4"></a>K=<span class="dv">4</span></span>
+<span id="cb288-5"><a href="AS.html#cb288-5"></a><span class="kw">print</span>(<span class="kw">paste</span>(<span class="st">&quot;Intervalo de seleção K:&quot;</span>, K), <span class="dt">quote=</span><span class="ot">FALSE</span>)</span></code></pre></div>
+<pre><code>## [1] Intervalo de seleção K: 4</code></pre>
+<div class="sourceCode" id="cb290"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb290-1"><a href="AS.html#cb290-1"></a><span class="co"># Carregando os valores populacionais da variável y</span></span>
+<span id="cb290-2"><a href="AS.html#cb290-2"></a>(<span class="dt">pop=</span><span class="kw">matrix</span>(<span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="ot">NA</span>),<span class="dv">5</span>,K,<span class="dt">byrow=</span>T))</span></code></pre></div>
+<pre><code>##      [,1] [,2] [,3] [,4]
+## [1,]    0    1    0    1
+## [2,]    1    1    0    0
+## [3,]    0    0    1    0
+## [4,]    0    0    1    1
+## [5,]    1    0    1   NA</code></pre>
+<div class="sourceCode" id="cb292"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb292-1"><a href="AS.html#cb292-1"></a><span class="co"># Calcula tamanho da população</span></span>
+<span id="cb292-2"><a href="AS.html#cb292-2"></a>N=<span class="kw">sum</span>(<span class="op">!</span><span class="kw">is.na</span>(pop))</span>
+<span id="cb292-3"><a href="AS.html#cb292-3"></a><span class="kw">print</span>(<span class="kw">paste</span>(<span class="st">&quot;Tamanho da população N:&quot;</span>, N), <span class="dt">quote=</span><span class="ot">FALSE</span>)</span></code></pre></div>
+<pre><code>## [1] Tamanho da população N: 19</code></pre>
+<div class="sourceCode" id="cb294"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb294-1"><a href="AS.html#cb294-1"></a><span class="co"># Calcula estimativas da proporção para cada uma das AS possíveis</span></span>
+<span id="cb294-2"><a href="AS.html#cb294-2"></a>p_AS=<span class="ot">NULL</span></span>
+<span id="cb294-3"><a href="AS.html#cb294-3"></a><span class="cf">for</span>(i <span class="cf">in</span> (<span class="dv">1</span><span class="op">:</span>K)) p_AS[i] =<span class="st"> </span>K<span class="op">*</span><span class="kw">sum</span>(pop[,i],<span class="dt">na.rm=</span>T)<span class="op">/</span>N</span>
+<span id="cb294-4"><a href="AS.html#cb294-4"></a><span class="kw">print</span>(<span class="st">&quot;Valores possíveis do estimador não viciado da proporção&quot;</span>, <span class="dt">quote=</span><span class="ot">FALSE</span>)</span></code></pre></div>
+<pre><code>## [1] Valores possíveis do estimador não viciado da proporção</code></pre>
+<div class="sourceCode" id="cb296"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb296-1"><a href="AS.html#cb296-1"></a><span class="kw">print</span>(p_AS)</span></code></pre></div>
+<pre><code>## [1] 0,4210526 0,4210526 0,6315789 0,4210526</code></pre>
+<div class="sourceCode" id="cb298"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb298-1"><a href="AS.html#cb298-1"></a><span class="co"># Calculando a média das estimativas</span></span>
+<span id="cb298-2"><a href="AS.html#cb298-2"></a>Ep_AS=<span class="kw">mean</span>(p_AS)</span>
+<span id="cb298-3"><a href="AS.html#cb298-3"></a><span class="kw">print</span>(<span class="kw">paste</span>(<span class="st">&quot;Média das estimativas possíveis da proporção:&quot;</span>, Ep_AS), <span class="dt">quote=</span><span class="ot">FALSE</span>)</span></code></pre></div>
+<pre><code>## [1] Média das estimativas possíveis da proporção: 0,473684210526316</code></pre>
+<div class="sourceCode" id="cb300"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb300-1"><a href="AS.html#cb300-1"></a><span class="co"># Calculando proporção populacional p</span></span>
+<span id="cb300-2"><a href="AS.html#cb300-2"></a>p=<span class="kw">mean</span>(pop,<span class="dt">na.rm=</span><span class="ot">TRUE</span>)</span>
+<span id="cb300-3"><a href="AS.html#cb300-3"></a><span class="kw">print</span>(<span class="kw">paste</span>(<span class="st">&quot;Proporção na população p:&quot;</span>, p), <span class="dt">quote=</span><span class="ot">FALSE</span>)</span></code></pre></div>
+<pre><code>## [1] Proporção na população p: 0,473684210526316</code></pre>
+<div class="sourceCode" id="cb302"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb302-1"><a href="AS.html#cb302-1"></a><span class="co"># Alterando o separador de decimais para ponto</span></span>
+<span id="cb302-2"><a href="AS.html#cb302-2"></a><span class="kw">options</span>(<span class="dt">OutDec=</span><span class="st">&quot;.&quot;</span>)</span></code></pre></div>
+<p>No caso em que o tamanho <span class="math inline">\(N\)</span> da população é desconhecido, pode-se utilizar o estimador tipo razão que, nesse caso, é igual à proporção amostral:
+<span class="math display">\[
+\widehat p_{AS} = \frac {n_a} {n_r}
+\]</span>
+Este estimador é viciado, a menos que <span class="math inline">\(N=nK\)</span>, como já foi visto.</p>
+</div>
+<div id="variância-dos-estimadores-sob-amostragem-sistemática-simples" class="section level2">
+<h2><span class="header-section-number">8.9</span> Variância dos estimadores sob amostragem sistemática simples</h2>
+<p>A variância de <span class="math inline">\(\widehat Y_{AS}\)</span> sob amostragem sistemática simples é dada por:</p>
+<p><span class="math display" id="eq:eqsis7">\[
+\begin{array}{ll}\hspace{-0,6cm}
+V_{AS}(\widehat{Y}_{AS})&amp;=&amp;V_{AS}\left[K\sum_{r=1}^{K}I(r)t_r\right]\\&amp;=&amp;K^2\left[{\sum_{r=1}^{K}{t_r}^2 V_{AS}[I(r)]}+\sum_{r\neq K}COV_{AS}[I(r),I(q)]t_rt_q\right]\\&amp;=&amp; K^2\left[\sum_{r=1}^{K}{t_r}^2\frac{1}{K}\left(1-\frac{1}{K}\right)+\sum_{r\neq K}t_rt_q\left(-\frac{1}{K^2}\right)\right]\\&amp;=&amp; K^2\left[\frac{1}{K}\sum_{r=1}^{K}{t_r}^2 - \frac{1}{K^2}\left(\sum_{r=1}^{K}{t_r}^2+\sum_{r\neq K}t_rt_q\right)\right]\\&amp;=&amp;K\left[\sum_{r=1}^{K}{t_r}^2 - \left(\sum_{r=1}^{K}{t_r}\right)^2/K\right]\\&amp;=&amp;K\sum_{r=1}^{K}(t_r-\overline t)^2 \tag{8.7}
+\end{array}
+\]</span></p>
+<p>onde: <span class="math inline">\(\overline t = \displaystyle \frac 1 K \sum_{r=1}^{K} t_r = \frac Y K\)</span></p>
+<p>Portanto a variância é calculada a partir da soma de quadrados dos desvios entre totais das amostras possíveis em relacão à média destes totais.</p>
+<p>Quando <span class="math inline">\(N\)</span> é conhecido, a variância do estimador da média populacional é dada por:</p>
+<p><span class="math display">\[
+V_{AS}(\overline y_{AS}) = \frac1{N^2} V_{AS}(\widehat Y_{AS})
+\]</span></p>
+<p>Um problema que ocorre com a amostragem sistemática simples é o fato da ordenação da população em relação aos valores da variável de interesse afetar a variância (precisão) dos estimadores. Para demonstrar esse problema, pode-se utilizar a população apresentada nos exemplos acima, alterando a ordem de suas unidades, para mostrar como isso afeta a composição das possíveis amostras sistemáticas.</p>
+<p>Em primeiro lugar, consideramos a população ordenada tal como foi apresentada na Tabela <a href="AS.html#tab:tabsis2">8.2</a> e calculamos a variância do estimador do total considerando as possíveis amostras listadas no Exemplo <a href="#exm:exmsis5">8.5</a>. Em seguida, ordenamos a população em ordem crescente (ou decrescente) dos valores de <span class="math inline">\(y\)</span> e repetimos o cálculo da variância. Observa-se que a variância do estimador do total com a população ordenada diminui consideravelmente em comparação com o caso em que não havíamos reordenado a população.</p>
+<p>Embora este seja um exemplo extremo, pois na prática não teríamos como ordenar a população pelos valores da variável de interesse, ele mostra bem o efeito que a ordenação pode ter na precisão dos estimadores baseados em amostras sistemáticas simples. Na sequência, ilustramos estes cálculos usando o pacote R.</p>
+<div class="sourceCode" id="cb303"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb303-1"><a href="AS.html#cb303-1"></a><span class="co"># Alterando o separador de decimais para vírgula</span></span>
+<span id="cb303-2"><a href="AS.html#cb303-2"></a><span class="kw">options</span>(<span class="dt">OutDec=</span><span class="st">&quot;,&quot;</span>)</span>
+<span id="cb303-3"><a href="AS.html#cb303-3"></a><span class="co"># Intervalo de seleção e tamanho da população conhecido</span></span>
+<span id="cb303-4"><a href="AS.html#cb303-4"></a>K=<span class="dv">4</span></span>
+<span id="cb303-5"><a href="AS.html#cb303-5"></a><span class="kw">print</span>(<span class="kw">paste</span>(<span class="st">&quot;Intervalo de seleção K:&quot;</span>, K), <span class="dt">quote=</span><span class="ot">FALSE</span>)</span></code></pre></div>
+<pre><code>## [1] Intervalo de seleção K: 4</code></pre>
+<div class="sourceCode" id="cb305"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb305-1"><a href="AS.html#cb305-1"></a><span class="co"># População na ordem natural</span></span>
+<span id="cb305-2"><a href="AS.html#cb305-2"></a><span class="co"># Carregando os valores populacionais da variável y</span></span>
+<span id="cb305-3"><a href="AS.html#cb305-3"></a>pop=<span class="kw">matrix</span>(<span class="kw">c</span>(<span class="dv">99</span>,<span class="dv">54</span>,<span class="dv">96</span>,<span class="dv">54</span>,<span class="dv">85</span>,<span class="dv">88</span>,<span class="dv">55</span>,<span class="dv">83</span>,<span class="dv">62</span>,<span class="dv">85</span>,<span class="dv">96</span>,<span class="dv">55</span>,<span class="dv">91</span>,<span class="dv">92</span>,<span class="dv">67</span>,<span class="dv">68</span>,<span class="dv">54</span>,<span class="dv">79</span>,<span class="dv">76</span>,<span class="ot">NA</span>),<span class="dv">5</span>,K,<span class="dt">byrow=</span>T)</span>
+<span id="cb305-4"><a href="AS.html#cb305-4"></a><span class="kw">print</span>(<span class="st">&quot;Dados populacionais&quot;</span>, <span class="dt">quote=</span><span class="ot">FALSE</span>)</span></code></pre></div>
+<pre><code>## [1] Dados populacionais</code></pre>
+<div class="sourceCode" id="cb307"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb307-1"><a href="AS.html#cb307-1"></a><span class="kw">print</span>(pop)</span></code></pre></div>
+<pre><code>##      [,1] [,2] [,3] [,4]
+## [1,]   99   54   96   54
+## [2,]   85   88   55   83
+## [3,]   62   85   96   55
+## [4,]   91   92   67   68
+## [5,]   54   79   76   NA</code></pre>
+<div class="sourceCode" id="cb309"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb309-1"><a href="AS.html#cb309-1"></a><span class="co"># Calcula tamanho da população</span></span>
+<span id="cb309-2"><a href="AS.html#cb309-2"></a>N=<span class="kw">sum</span>(<span class="op">!</span><span class="kw">is.na</span>(pop))</span>
+<span id="cb309-3"><a href="AS.html#cb309-3"></a><span class="co"># Calculando a estimativa do total para cada uma das AS possíveis</span></span>
+<span id="cb309-4"><a href="AS.html#cb309-4"></a>tr=<span class="ot">NULL</span></span>
+<span id="cb309-5"><a href="AS.html#cb309-5"></a><span class="cf">for</span>(i <span class="cf">in</span> (<span class="dv">1</span><span class="op">:</span>K)) tr[i] =<span class="st"> </span><span class="kw">sum</span>(pop[,i],<span class="dt">na.rm=</span>T)</span>
+<span id="cb309-6"><a href="AS.html#cb309-6"></a><span class="co"># Calculando a variância do estimador do total</span></span>
+<span id="cb309-7"><a href="AS.html#cb309-7"></a>V_YhatAS=<span class="st"> </span>K<span class="op">*</span>(<span class="kw">var</span>(tr)<span class="op">*</span>(K<span class="dv">-1</span>))</span>
+<span id="cb309-8"><a href="AS.html#cb309-8"></a><span class="kw">print</span>(<span class="kw">paste</span>(<span class="st">&quot;Variância do estimador de total - ordem natural:&quot;</span>, V_YhatAS), <span class="dt">quote=</span><span class="ot">FALSE</span>)</span></code></pre></div>
+<pre><code>## [1] Variância do estimador de total - ordem natural: 53219</code></pre>
+<div class="sourceCode" id="cb311"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb311-1"><a href="AS.html#cb311-1"></a><span class="co"># Ordenando a população em ordem crescente de y</span></span>
+<span id="cb311-2"><a href="AS.html#cb311-2"></a>pop_ord =<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">sort</span>(pop,<span class="dt">na.last=</span>T),<span class="dv">5</span>,K,<span class="dt">byrow=</span>T)</span>
+<span id="cb311-3"><a href="AS.html#cb311-3"></a><span class="kw">print</span>(<span class="st">&quot;Dados populacionais ordenados&quot;</span>, <span class="dt">quote=</span><span class="ot">FALSE</span>)</span></code></pre></div>
+<pre><code>## [1] Dados populacionais ordenados</code></pre>
+<div class="sourceCode" id="cb313"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb313-1"><a href="AS.html#cb313-1"></a><span class="kw">print</span>(pop_ord)</span></code></pre></div>
+<pre><code>##      [,1] [,2] [,3] [,4]
+## [1,]   54   54   54   55
+## [2,]   55   62   67   68
+## [3,]   76   79   83   85
+## [4,]   85   88   91   92
+## [5,]   96   96   99   NA</code></pre>
+<div class="sourceCode" id="cb315"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb315-1"><a href="AS.html#cb315-1"></a><span class="co"># Calculando a estimativa do total para cada uma das AS possíveis</span></span>
+<span id="cb315-2"><a href="AS.html#cb315-2"></a>tr=<span class="ot">NULL</span></span>
+<span id="cb315-3"><a href="AS.html#cb315-3"></a><span class="cf">for</span>(i <span class="cf">in</span> (<span class="dv">1</span><span class="op">:</span>K)) tr[i] =<span class="st"> </span><span class="kw">sum</span>(pop_ord[,i],<span class="dt">na.rm=</span>T)</span>
+<span id="cb315-4"><a href="AS.html#cb315-4"></a><span class="co"># Calculando a variância do estimador do total</span></span>
+<span id="cb315-5"><a href="AS.html#cb315-5"></a>V_YhatAS=K<span class="op">*</span>(<span class="kw">var</span>(tr)<span class="op">*</span>(K<span class="dv">-1</span>))</span>
+<span id="cb315-6"><a href="AS.html#cb315-6"></a><span class="kw">print</span>(<span class="kw">paste</span>(<span class="st">&quot;Variância do estimador de total - ordem crescente:&quot;</span>, V_YhatAS), <span class="dt">quote=</span><span class="ot">FALSE</span>)</span></code></pre></div>
+<pre><code>## [1] Variância do estimador de total - ordem crescente: 20611</code></pre>
+<div class="sourceCode" id="cb317"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb317-1"><a href="AS.html#cb317-1"></a><span class="co"># Alterando o separador de decimais para ponto</span></span>
+<span id="cb317-2"><a href="AS.html#cb317-2"></a><span class="kw">options</span>(<span class="dt">OutDec=</span><span class="st">&quot;.&quot;</span>)</span></code></pre></div>
+<p>Fica como exercício para o leitor verificar que o mesmo não ocorre quando se utiliza uma AAS ou AASC, pois nestes casos a ordenação dos valores de <span class="math inline">\(y\)</span> na população não tem influência na precisão das estimativas.</p>
+<p><strong>Notas</strong></p>
+<ol style="list-style-type: decimal">
+<li>Como <span class="math inline">\(r\)</span> pode tomar apenas um valor, <span class="math inline">\(V_{AS}(\widehat Y_{AS})\)</span> não pode ser diretamente estimada a partir da amostra.<br />
+</li>
+<li>Em <span class="citation">Cochran (1977)</span> é apresentada uma boa discussão sobre como a ordenação dos valores da variável de pesquisa para unidades populacionais pode afetar a eficiência de amostras sistemáticas. Para uma definição de eficiência ver a Expressão <a href="domin.html#eq:eqdom24">(7.24)</a>.<br />
+</li>
+<li>Para populações em ‘ordem aleatória’, o desempenho da amostragem sistemática simples é semelhante ao da amostragem aleatória simples sem reposição (<span class="citation">Cochran (1977)</span>, seção 8.5).<br />
+</li>
+<li>Para populações com tendência linear, amostragem sistemática simples é melhor que AAS (<span class="citation">Cochran (1977)</span>, seção 8.6).<br />
+</li>
+<li>Para populações periódicas, amostragem sistemática simples com intervalo de seleção em sincronia com o período é um desastre (<span class="citation">Cochran (1977)</span>, página 218).</li>
+</ol>
+<p><strong>Considere o caso especial onde <span class="math inline">\(N = nK\)</span></strong></p>
+<p>Da Tabela 8.2 do <span class="citation">Cochran (1977)</span>, página 207, é fácil ver que <span class="math inline">\(\overline y_r = t_r/n_r\)</span> é um estimador não viciado para <span class="math inline">\(\overline Y\)</span>. Como</p>
+<p><span class="math display">\[
+\displaystyle \sum_{r=1}^{K} \sum_{i \in s_r} (y_i - \overline Y)^2 = n \sum_{r=1}^{K} (\overline y_r - \overline Y)^2 + \sum_{r=1}^{K} \sum_{i \in s_r} (y_i - \overline y_r)^2
+\]</span></p>
+<p>tem-se que:
+<span class="math display">\[
+(N-1) S_y^2 = n K V_{AS}(\overline y_{AS}) + K (n-1) S_D^2
+\]</span></p>
+<p>onde <span class="math inline">\(S_y^2\)</span> é a variância populacional total, <span class="math inline">\(S_D^2\)</span> é a variância <em>dentro</em> das amostras sistemáticas e <span class="math inline">\(V_{AS}(\overline y_{AS})\)</span> é a variância de <span class="math inline">\(\overline y_{AS}\)</span> sob amostragem sistemática simples.</p>
+<p>Portanto, conforme <span class="citation">Cochran (1977)</span>, página 208, o estimador de média é mais eficiente sob amostragem sistemática que sob AAS se e somente se <span class="math inline">\(S_D^2 &gt; S_y^2\)</span>.</p>
+<p><strong>Uma expressão alternativa para <span class="math inline">\(V_{AS}(\overline y_{AS})\)</span> quando <span class="math inline">\(N = nK\)</span></strong></p>
+<p>De acordo com o Teorema 8.2 de <span class="citation">Cochran (1977)</span>, página 209, tem-se:</p>
+<p><span class="math display" id="eq:eqsis8">\[
+\begin{array}{ll}
+V_{AS}(\overline y_{AS}) &amp; = &amp; \displaystyle\left( \frac {N-1} {N} \right) [1 + (n-1) \rho \,] \frac {S_y^2} {n} 
+\\&amp; \doteq  &amp; \displaystyle\left[ 1 + (n-1)\rho \right] \frac {S_y^2} {n} \, \,  \tag{8.8}
+\end{array}
+\]</span></p>
+<p>onde:</p>
+<p><span class="math display" id="eq:eqsis9">\[
+\rho = \frac {1} {(n-1) (N-1) S_y^2} \displaystyle \sum_{r=1}^{K} \sum_{i \neq j \in s_r} (y_i - \overline Y) (y_j - \overline Y) \tag{8.9}
+\]</span></p>
+<p>é a <em>correlação intraclasse</em> das amostras sistemáticas possíveis.</p>
+<p>Este resultado mostra que a correlação positiva entre unidades de uma mesma amostra aumenta a variância da média amostral sob seleção sistemática simples quando comparada com a variãncia da média amostral sob seleção AAS.</p>
+<p>Lembrando que sob AAS, <span class="math inline">\(V_{AAS}(\overline y_{AAS}) = \displaystyle \left( 1 - \frac {n} {N} \right) \frac {S_y^2} {n}\)</span>.</p>
+<p>Então, tem-se a relação aproximada:</p>
+<p><span class="math display" id="eq:eqsis10">\[
+\frac {V_{AS}(\overline y_{AS})} {V_{AAS}(\overline y_{AAS})} = 1 + (n-1) \rho \, \left\{\begin{array}{lll} &lt; 1, &amp; \textrm{se} \,\,\, \rho&lt;0\, \\ = 1, &amp; \textrm{se} \,\,\,\rho=0 \,\\ &gt; 1, &amp; \textrm{se} \,\,\, \rho&gt;0 \, \end{array} \right. \tag{8.10}
+\]</span></p>
+<p>Cabe notar que razões do tipo <span class="math inline">\(V_{AS}(\overline y_{AS})/V_{AAS}(\overline y_{AAS})\)</span> são chamadas de <em>Efeito do Plano Amostral (EPA)</em>. Em inglês, usa-se o termo <em>design effect</em>, abreviado como <em>deff</em>.</p>
+</div>
+<div id="estimação-de-variâncias-dos-estimadores-na-amostragem-sistemática-simples" class="section level2">
+<h2><span class="header-section-number">8.10</span> Estimação de variâncias dos estimadores na amostragem sistemática simples</h2>
+<p>Quando se usa amostragem sistemática simples não há um estimador não viciado para a variância dos estimadores do total e da média. O que se faz é utilizar estimadores mais adequados de acordo com a ordenação da população.</p>
+<p>No caso de se poder supor que não há uma ordenação ou que a população esteja espalhada aleatoriamente no cadastro de seleção em relação à(s) variável(eis) de interesse, de modo que as médias dentro de cada intervalo de seleção sejam pelo menos aproximadamente iguais <span class="math inline">\((\overline Y_r \doteq constante)\)</span>, o que se pode fazer é utilizar um estimador para a variância da média equivalente ao usado quando se tem uma AAS, dado pela expressão:</p>
+<p><span class="math display" id="eq:eqsis11">\[
+\widehat V_{1AS} (\overline y_{AS}) = \left( \frac {1}{n} - \frac 1 {N} \right) \frac {1}{n-1} \sum_{i \in s_r} (y_i - \overline y_{AS})^2 \tag{8.11}
+\]</span>
+Esse estimador serve para o caso de <span class="math inline">\(N\)</span> conhecido e será não viciado caso a suposição de ordenação aleatória das unidades na população esteja correta. No caso de não se conhecer <span class="math inline">\(N\)</span>, pode-se utilizar as alternativas dadas pelos estimadores de razão.</p>
+<p>No caso de <span class="math inline">\(N\)</span> conhecido e não houver ordenação das unidades da população, um estimador para a variância do estimador do total é dado por:</p>
+<p><span class="math display" id="eq:eqsis12">\[
+\widehat V_{1AS} (\widehat Y_{AS}) =  N^2\widehat V_{1AS} (\overline y_{AS})\tag{8.12}
+\]</span>
+No caso em que a população esteja ordenada segundo uma “estratificação” de modo que as médias em cada intervalo de seleção variem (p.ex.: a população é ordenada segundo os valores de <span class="math inline">\(y\)</span>), <span class="citation">Cochran (1977)</span> sugere, para estimar a variancia do estimador da média, a expressão:</p>
+<p><span class="math display" id="eq:eqsis13">\[
+ \widehat V_{2AS}(\overline y_{AS}) = \left( \frac {1}{n} - \frac 1 {N} \right) \frac {1}{2(n-1)} \sum_{i \in s_r} (y_i - y_{i+K})^2 \tag{8.13}
+\]</span>
+Neste caso, um estimador para a variância do estimador do total é dado por:</p>
+<p><span class="math display" id="eq:eqsis14">\[
+\widehat V_{2AS} (\widehat Y_{AS}) =  N^2\widehat V_{2AS} (\overline y_{AS})\tag{8.14}
+\]</span></p>
+<p>Alternativamente e independentemente da ordenação da população, pode-se usar um estimador do tipo replicação, onde são selecionadas <span class="math inline">\(q\)</span> amostras sistemáticas de tamanhos <span class="math inline">\(n/q\)</span> cada uma, tomando a variância das estimativas dadas por cada uma das amostras. Essa técnica, também chamada <em>amostra sistemática repetida</em>, está descrita em <span class="citation">Scheaffer et al. (2011)</span>.</p>
+<p>Quando a seleção de uma AS for realizada a partir de um cadastro conhecido, é sempre possível reordenar as unidades aleatóriamente antes proceder a seleção. Esse é um artifício muito útil e que permite que se utilizem os estimadores equivalentes aos da AAS para estimar a variância dos estimadores. Se por um lado essa técnica viabiliza o emprego de estimadores simplificados de variância, por outro se espera que acabe resultando em menor precisão para a estimação pontual.</p>
+<p>Pode-se encontrar boas discussões sobre a estimação da variância sob amostragem sistemática simples em <span class="citation">Cochran (1977)</span> ou <span class="citation">Thompson (2012)</span>.</p>
+<p>A Tabela <a href="AS.html#tab:tabsis3">8.3</a> apresenta os estimadores do total, média e respectivas variâncias sob AS.</p>
+<center>
+<table>
+<caption>
+<span id="tab:tabsis3">Tabela 8.3: </span>Estimadores do total, média e respectivas variâncias sob AS
+</caption>
+</table>
+<table style="width:49%;">
+<colgroup>
+<col width="48%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Estimador</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><span class="math inline">\(\widehat{Y}_{AS}=Kt_r=K \displaystyle \sum_{r=1}^{K}I(r)t_r\)</span></td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(\displaystyle \overline {y}_{AS}=\frac KNt_r,\,\,\text{ se } N \text{ é conhecido }\\ \displaystyle \overline{y}_{AS}= \frac {t_r}{n_r}=\overline y,\,\,\text{ se }N \text{ é desconhecido }\)</span></td>
+</tr>
+<tr class="odd">
+<td align="left"><span class="math inline">\(\widehat V_{1AS} (\widehat Y_{AS}) = N^2\widehat V_{1AS} (\overline y_{AS}),\,\,\text{se}\, N\text{ é conhecido}\)</span><br />
+<span class="math inline">\(\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\text{e não houver ordenação das unidades na população}\)</span> <span class="math inline">\(\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\)</span> <span class="math inline">\(\widehat V_{2AS}(\widehat Y_{AS}) = N^2\widehat V_{2AS}(\overline y_{AS}),\,\,\text{se}\, N\text{ é conhecido}\)</span>
+<span class="math inline">\(\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\text{e houver ordenação das unidades na população}\)</span></td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(\widehat V_{1AS} (\overline y_{AS}) = \displaystyle\left(\frac {1}{n} - \frac 1 {N} \right) \frac {1}{n-1}\displaystyle \sum_{i \in s_r} (y_i - \overline y_{AS})^2,\,\, \text{ se  } N \text{ é conhecido }\)</span>
+<span class="math inline">\(\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\text{e não houver ordenação das unidades na população}\)</span>  <span class="math inline">\(\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\)</span> <span class="math inline">\(\widehat V_{2AS}(\overline y_{AS}) = \displaystyle\left( \frac {1}{n} - \frac 1 {N} \right) \frac {1}{2(n-1)} \displaystyle\sum_{i \in s_r} (y_i - y_{i+K})^2,\,\, \text{ se  } N \text{ é conhecido }\)</span>
+<span class="math inline">\(\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\text{e houver ordenação das unidades na população}\)</span></td>
+</tr>
+</tbody>
+</table>
+</center>
+</div>
+<div id="alternativas-para-seleção-com-amostragem-sistemática-simples" class="section level2">
+<h2><span class="header-section-number">8.11</span> Alternativas para seleção com amostragem sistemática simples</h2>
+<p>Como foi visto, existem dificuldades quando o tamanho da população, <span class="math inline">\(N\)</span>, não é um múltiplo de <span class="math inline">\(K\)</span>, ou seja, quando <span class="math inline">\(N \ne n K\)</span>. Neste caso, o estimador simples da média tem vício. <span class="citation">Cochran (1977)</span> indica que esse vício pode ser considerado desprezível quando se trabalha com tamanhos de amostra razoavelmente grandes, podendo-se considerar como tal amostras com tamanhos iguais ou maiores que <span class="math inline">\(n=50\)</span>.</p>
+<p>Há também alternativas que podem ser utilizadas quando a seleção da amostra sistemática for feita a partir de um cadastro ou lista das unidades populacionais. <span class="citation">Murthy (1967)</span>, página 139, recomenda usar um método de seleção ‘circular’ proposto por Lahiri em 1952, para obter uma amostra sistemática. Esse método consiste em:</p>
+<ol style="list-style-type: decimal">
+<li>Tomar como <span class="math inline">\(K\)</span> o inteiro mais próximo de <span class="math inline">\(N/n\)</span>, ou <span class="math inline">\(K=round(N/n)\)</span>.</li>
+<li>Selecionar como partida aleatória um número inteiro <span class="math inline">\(r \in[1;\: N]\)</span>.</li>
+<li>Tomar como primeira unidade da amostra a unidade <span class="math inline">\(r\)</span>.</li>
+<li>Em seguida, selecionar as unidades seguintes sempre somando <span class="math inline">\(K\)</span> ao índice da última unidade selecionada; quando <span class="math inline">\(r+jK &gt; N\)</span>, subtrair <span class="math inline">\(N\)</span> e continuar o processo até obter as <span class="math inline">\(n\)</span> unidades amostrais desejadas.</li>
+</ol>
+<p><strong>Exemplo 8.9 </strong> Seja uma população de <span class="math inline">\(N=21\)</span> unidades da qual se deseja selecionar uma amostra sistemática de exatamente <span class="math inline">\(n=5\)</span> unidades. O <em>script</em> a seguir seleciona uma amostra sistemática circular com o tamanho desejado. Note que nesse caso <span class="math inline">\(K=4\)</span>.</p>
+<div class="sourceCode" id="cb318"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb318-1"><a href="AS.html#cb318-1"></a><span class="co"># Alterando o separador de decimais para vírgula</span></span>
+<span id="cb318-2"><a href="AS.html#cb318-2"></a><span class="kw">options</span>(<span class="dt">OutDec=</span><span class="st">&quot;,&quot;</span>)</span>
+<span id="cb318-3"><a href="AS.html#cb318-3"></a><span class="co"># Definindo a semente para permitir replicação</span></span>
+<span id="cb318-4"><a href="AS.html#cb318-4"></a><span class="kw">set.seed</span>(<span class="dv">77099</span>)</span>
+<span id="cb318-5"><a href="AS.html#cb318-5"></a><span class="co"># Tamanho da população</span></span>
+<span id="cb318-6"><a href="AS.html#cb318-6"></a>N=<span class="dv">21</span></span>
+<span id="cb318-7"><a href="AS.html#cb318-7"></a><span class="co"># Tamanho exato da amostra desejada</span></span>
+<span id="cb318-8"><a href="AS.html#cb318-8"></a>n=<span class="dv">5</span></span>
+<span id="cb318-9"><a href="AS.html#cb318-9"></a><span class="co"># Passo 1: calculando o valor de K</span></span>
+<span id="cb318-10"><a href="AS.html#cb318-10"></a>(<span class="dt">K=</span><span class="kw">round</span>(N<span class="op">/</span>n))</span></code></pre></div>
+<pre><code>## [1] 4</code></pre>
+<div class="sourceCode" id="cb320"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb320-1"><a href="AS.html#cb320-1"></a><span class="co"># Passo 2: selecionando a partida aleatória r</span></span>
+<span id="cb320-2"><a href="AS.html#cb320-2"></a>r=<span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span>N,<span class="dv">1</span>)</span>
+<span id="cb320-3"><a href="AS.html#cb320-3"></a><span class="co"># Definindo a primeira unidade amostral</span></span>
+<span id="cb320-4"><a href="AS.html#cb320-4"></a>sr=<span class="ot">NULL</span></span>
+<span id="cb320-5"><a href="AS.html#cb320-5"></a>sr[<span class="dv">1</span>]=r</span>
+<span id="cb320-6"><a href="AS.html#cb320-6"></a><span class="co"># Definindo as demais unidades amostrais</span></span>
+<span id="cb320-7"><a href="AS.html#cb320-7"></a><span class="cf">for</span>(i <span class="cf">in</span> (<span class="dv">2</span><span class="op">:</span>n)){</span>
+<span id="cb320-8"><a href="AS.html#cb320-8"></a>  sr[i]=sr[i<span class="dv">-1</span>]<span class="op">+</span>K</span>
+<span id="cb320-9"><a href="AS.html#cb320-9"></a>  <span class="cf">if</span>(sr[i]<span class="op">&gt;</span>N) sr[i]=sr[i]<span class="op">-</span>N</span>
+<span id="cb320-10"><a href="AS.html#cb320-10"></a>}</span>
+<span id="cb320-11"><a href="AS.html#cb320-11"></a><span class="co"># Exibindo a partida</span></span>
+<span id="cb320-12"><a href="AS.html#cb320-12"></a>r</span></code></pre></div>
+<pre><code>## [1] 18</code></pre>
+<div class="sourceCode" id="cb322"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb322-1"><a href="AS.html#cb322-1"></a><span class="co"># Exibindo a amostra selecionada</span></span>
+<span id="cb322-2"><a href="AS.html#cb322-2"></a>sr</span></code></pre></div>
+<pre><code>## [1] 18  1  5  9 13</code></pre>
+<div class="sourceCode" id="cb324"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb324-1"><a href="AS.html#cb324-1"></a><span class="co"># Alterando o separador de decimais para ponto</span></span>
+<span id="cb324-2"><a href="AS.html#cb324-2"></a><span class="kw">options</span>(<span class="dt">OutDec=</span><span class="st">&quot;.&quot;</span>)</span></code></pre></div>
+<p>Note que com uma <em>Amostra Sistemática circular - ASc</em>, o número de amostras possíveis é <span class="math inline">\(N\)</span> e pode-se definir estimadores não viciados para a média e o total da variável de interesse <span class="math inline">\(y\)</span>, como:</p>
+<p><span class="math display" id="eq:eqsis15">\[
+\overline y_{ASc}=\overline y=\frac 1n \sum_{i=1}^n y_i \tag{8.15}
+\]</span></p>
+<p>e</p>
+<p><span class="math display" id="eq:eqsis16">\[
+\widehat Y_{ASc}=N\overline y_{ASc} \tag{8.16}
+\]</span></p>
+<p>Neste método a seleção é feita com equiprobabilidade e sem reposição, como na AS tradicional, porém é necessário que <span class="math inline">\(N\)</span> seja conhecido e a seleção é um pouco mais trabalhosa. A vantagem é que os estimadores são sempre não viciados.</p>
+<p>Fica para o leitor verificar que os estimadores para a média e total são não viciados.</p>
+</div>
+<div id="exercícios" class="section level2">
+<h2><span class="header-section-number">8.12</span> Exercícios</h2>
+<p><strong>Exercício 8.1 </strong> Identifique as outras 4 amostras possíveis referidas no Exemplo <a href="#exm:exmsis1">8.1</a>.</p>
+<p><strong>Exercício 8.2 </strong> (Transcrito de <span class="citation">Cochran (1977)</span>, Exercício 8.4) A Tabela <a href="AS.html#tab:tabsis4">8.4</a> mostra a listagem dos moradores dos 13 domicílios de uma rua. As pessoas foram listadas de acordo com a seguinte regra: H=homem adulto, M=mulher adulta, h=homem criança e m=mulher criança. Cada coluna da tabela representa um dos domicílios da rua.</p>
+<center>
+<table>
+<caption>
+<span id="tab:tabsis4">Tabela 8.4: </span>Composição dos domicílios da rua
+</caption>
+</table>
+<table style="width:78%;">
+<colgroup>
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="6%" />
+<col width="6%" />
+<col width="6%" />
+<col width="6%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="center">1</th>
+<th align="center">2</th>
+<th align="center">3</th>
+<th align="center">4</th>
+<th align="center">5</th>
+<th align="center">6</th>
+<th align="center">7</th>
+<th align="center">8</th>
+<th align="center">9</th>
+<th align="center">10</th>
+<th align="center">11</th>
+<th align="center">12</th>
+<th align="center">13</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">H</td>
+<td align="center">H</td>
+<td align="center">H</td>
+<td align="center">H</td>
+<td align="center">H</td>
+<td align="center">H</td>
+<td align="center">H</td>
+<td align="center">H</td>
+<td align="center">H</td>
+<td align="center">H</td>
+<td align="center">H</td>
+<td align="center">H</td>
+<td align="center">H</td>
+</tr>
+<tr class="even">
+<td align="center">M</td>
+<td align="center">M</td>
+<td align="center">M</td>
+<td align="center">M</td>
+<td align="center">M</td>
+<td align="center">M</td>
+<td align="center">M</td>
+<td align="center">M</td>
+<td align="center">M</td>
+<td align="center">M</td>
+<td align="center">M</td>
+<td align="center">M</td>
+<td align="center">M</td>
+</tr>
+<tr class="odd">
+<td align="center">m</td>
+<td align="center">m</td>
+<td align="center">h</td>
+<td align="center"> </td>
+<td align="center">h</td>
+<td align="center">m</td>
+<td align="center">m</td>
+<td align="center">h</td>
+<td align="center">h</td>
+<td align="center">h</td>
+<td align="center">m</td>
+<td align="center">m</td>
+<td align="center"> </td>
+</tr>
+<tr class="even">
+<td align="center">h</td>
+<td align="center">h</td>
+<td align="center">m</td>
+<td align="center"> </td>
+<td align="center">h</td>
+<td align="center">h</td>
+<td align="center">m</td>
+<td align="center">m</td>
+<td align="center"> </td>
+<td align="center">m</td>
+<td align="center">h</td>
+<td align="center"> </td>
+<td align="center"> </td>
+</tr>
+<tr class="odd">
+<td align="center">m</td>
+<td align="center">m</td>
+<td align="center"> </td>
+<td align="center"> </td>
+<td align="center">m</td>
+<td align="center"> </td>
+<td align="center">h</td>
+<td align="center"> </td>
+<td align="center"> </td>
+<td align="center"> </td>
+<td align="center"> </td>
+<td align="center"> </td>
+<td align="center"> </td>
+</tr>
+</tbody>
+</table>
+</center>
+<ol style="list-style-type: lower-alpha">
+<li>Calcule a variância do estimador da proporção de homens adultos usando AS de 1 em cada 5 pessoas.</li>
+<li>Calcule a variância do estimador da proporção de homens adultos usando AAS com fração amostral de 20%.</li>
+<li>Repita os itens a e b para a proporção de crianças.</li>
+<li>Em que casos a AS é mais indicada que a AAS? Por quê?</li>
+</ol>
+<p><strong>Dica:</strong> para selecionar a amostra sistemática, numere as pessoas sequencialmente a partir do homem adulto do domicílio 1, descendo na coluna e passando para o topo da coluna seguinte.</p>
+<p><strong>Exercício 8.3 </strong> Para estimar o número de erros de digitação num livro de 207 páginas, uma amostra sistemática foi retirada selecionando-se, em primeiro lugar, um número aleatório entre 1 e 10, incluindo na amostra todas as décimas páginas subsequentes. O número aleatório selecionado foi 9. Os números de erros nas páginas selecionadas foram, respectivamente: 1, 1, 3, 0, 0, 0, 2, 3, 0, 2, 2, 1, 1, 2, 2, 2, 2, 2, 3 e 3.</p>
+<ol style="list-style-type: lower-alpha">
+<li>Quais foram as páginas selecionadas?</li>
+<li>Dê uma estimativa não viciada do total de erros de digitação no livro.</li>
+<li>Uma pessoa usou os dados da amostra e calculou uma estimativa para o total de erros da seguinte maneira: calculou o número médio de erros por página da amostra e multiplicou por 207, resultando 331,20 erros. Esta é uma estimativa não viciada considerando o plano amostral utilizado? Justifique sua resposta?</li>
+<li>A variância do estimador foi estimada por 207 <span class="math inline">\(\times\)</span> (207-20) <span class="math inline">\(\times\)</span> 1,09/20, onde 1,09 é a variância amostral dos 20 valores observados. Essa estimativa é não viciada? Justifique sua resposta?</li>
+</ol>
+<p><strong>Exercício 8.4 </strong> A Tabela <a href="AS.html#tab:tabsis5">8.5</a> mostra o número de sementes germinadas em cada canteiro de um viveiro de mudas com um total de 200 canteiros. Suponha que se deseja estimar a média de sementes por canteiro, através de uma amostra de tamanho 10. (<strong>Dica:</strong> As linhas, <span class="math inline">\(i\)</span>, são as possíveis amostras sistemáticas e as colunas, <span class="math inline">\(h\)</span>, representam uma estratificação dos canteiros)</p>
+<center>
+<table>
+<caption>
+<span id="tab:tabsis5">Tabela 8.5: </span>Número de sementes germinadas por canteiro
+</caption>
+</table>
+<table style="width:78%;">
+<colgroup>
+<col width="9%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="12%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>i \ h</th>
+<th align="right">1</th>
+<th align="right">2</th>
+<th align="right">3</th>
+<th align="right">4</th>
+<th align="right">5</th>
+<th align="right">6</th>
+<th align="right">7</th>
+<th align="right">8</th>
+<th align="right">9</th>
+<th align="right">10</th>
+<th align="right">Totais</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td align="right">8</td>
+<td align="right">20</td>
+<td align="right">26</td>
+<td align="right">34</td>
+<td align="right">31</td>
+<td align="right">24</td>
+<td align="right">18</td>
+<td align="right">16</td>
+<td align="right">36</td>
+<td align="right">10</td>
+<td align="right">223</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td align="right">6</td>
+<td align="right">19</td>
+<td align="right">26</td>
+<td align="right">21</td>
+<td align="right">23</td>
+<td align="right">19</td>
+<td align="right">13</td>
+<td align="right">12</td>
+<td align="right">8</td>
+<td align="right">35</td>
+<td align="right">182</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td align="right">6</td>
+<td align="right">25</td>
+<td align="right">10</td>
+<td align="right">27</td>
+<td align="right">41</td>
+<td align="right">28</td>
+<td align="right">7</td>
+<td align="right">8</td>
+<td align="right">29</td>
+<td align="right">7</td>
+<td align="right">188</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td align="right">23</td>
+<td align="right">11</td>
+<td align="right">41</td>
+<td align="right">25</td>
+<td align="right">18</td>
+<td align="right">18</td>
+<td align="right">9</td>
+<td align="right">10</td>
+<td align="right">33</td>
+<td align="right">9</td>
+<td align="right">197</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td align="right">25</td>
+<td align="right">31</td>
+<td align="right">30</td>
+<td align="right">32</td>
+<td align="right">15</td>
+<td align="right">29</td>
+<td align="right">11</td>
+<td align="right">12</td>
+<td align="right">14</td>
+<td align="right">12</td>
+<td align="right">211</td>
+</tr>
+<tr class="even">
+<td>6</td>
+<td align="right">16</td>
+<td align="right">26</td>
+<td align="right">55</td>
+<td align="right">43</td>
+<td align="right">21</td>
+<td align="right">24</td>
+<td align="right">20</td>
+<td align="right">20</td>
+<td align="right">13</td>
+<td align="right">7</td>
+<td align="right">245</td>
+</tr>
+<tr class="odd">
+<td>7</td>
+<td align="right">28</td>
+<td align="right">29</td>
+<td align="right">34</td>
+<td align="right">33</td>
+<td align="right">8</td>
+<td align="right">33</td>
+<td align="right">16</td>
+<td align="right">17</td>
+<td align="right">18</td>
+<td align="right">6</td>
+<td align="right">222</td>
+</tr>
+<tr class="even">
+<td>8</td>
+<td align="right">21</td>
+<td align="right">19</td>
+<td align="right">56</td>
+<td align="right">45</td>
+<td align="right">22</td>
+<td align="right">37</td>
+<td align="right">9</td>
+<td align="right">12</td>
+<td align="right">20</td>
+<td align="right">14</td>
+<td align="right">255</td>
+</tr>
+<tr class="odd">
+<td>9</td>
+<td align="right">22</td>
+<td align="right">17</td>
+<td align="right">39</td>
+<td align="right">23</td>
+<td align="right">11</td>
+<td align="right">32</td>
+<td align="right">14</td>
+<td align="right">7</td>
+<td align="right">13</td>
+<td align="right">12</td>
+<td align="right">190</td>
+</tr>
+<tr class="even">
+<td>10</td>
+<td align="right">18</td>
+<td align="right">28</td>
+<td align="right">41</td>
+<td align="right">27</td>
+<td align="right">3</td>
+<td align="right">26</td>
+<td align="right">15</td>
+<td align="right">17</td>
+<td align="right">24</td>
+<td align="right">15</td>
+<td align="right">214</td>
+</tr>
+<tr class="odd">
+<td>11</td>
+<td align="right">26</td>
+<td align="right">16</td>
+<td align="right">27</td>
+<td align="right">37</td>
+<td align="right">4</td>
+<td align="right">36</td>
+<td align="right">20</td>
+<td align="right">21</td>
+<td align="right">29</td>
+<td align="right">18</td>
+<td align="right">234</td>
+</tr>
+<tr class="even">
+<td>12</td>
+<td align="right">28</td>
+<td align="right">9</td>
+<td align="right">20</td>
+<td align="right">14</td>
+<td align="right">5</td>
+<td align="right">20</td>
+<td align="right">21</td>
+<td align="right">26</td>
+<td align="right">18</td>
+<td align="right">4</td>
+<td align="right">165</td>
+</tr>
+<tr class="odd">
+<td>13</td>
+<td align="right">11</td>
+<td align="right">22</td>
+<td align="right">25</td>
+<td align="right">14</td>
+<td align="right">11</td>
+<td align="right">43</td>
+<td align="right">15</td>
+<td align="right">16</td>
+<td align="right">16</td>
+<td align="right">4</td>
+<td align="right">177</td>
+</tr>
+<tr class="even">
+<td>14</td>
+<td align="right">16</td>
+<td align="right">26</td>
+<td align="right">39</td>
+<td align="right">24</td>
+<td align="right">9</td>
+<td align="right">27</td>
+<td align="right">14</td>
+<td align="right">18</td>
+<td align="right">20</td>
+<td align="right">9</td>
+<td align="right">202</td>
+</tr>
+<tr class="odd">
+<td>15</td>
+<td align="right">7</td>
+<td align="right">17</td>
+<td align="right">24</td>
+<td align="right">18</td>
+<td align="right">25</td>
+<td align="right">20</td>
+<td align="right">13</td>
+<td align="right">11</td>
+<td align="right">6</td>
+<td align="right">8</td>
+<td align="right">149</td>
+</tr>
+<tr class="even">
+<td>16</td>
+<td align="right">22</td>
+<td align="right">39</td>
+<td align="right">25</td>
+<td align="right">17</td>
+<td align="right">16</td>
+<td align="right">21</td>
+<td align="right">9</td>
+<td align="right">19</td>
+<td align="right">15</td>
+<td align="right">8</td>
+<td align="right">191</td>
+</tr>
+<tr class="odd">
+<td>17</td>
+<td align="right">44</td>
+<td align="right">21</td>
+<td align="right">18</td>
+<td align="right">14</td>
+<td align="right">13</td>
+<td align="right">18</td>
+<td align="right">25</td>
+<td align="right">27</td>
+<td align="right">4</td>
+<td align="right">9</td>
+<td align="right">193</td>
+</tr>
+<tr class="even">
+<td>18</td>
+<td align="right">26</td>
+<td align="right">14</td>
+<td align="right">44</td>
+<td align="right">38</td>
+<td align="right">22</td>
+<td align="right">19</td>
+<td align="right">17</td>
+<td align="right">29</td>
+<td align="right">8</td>
+<td align="right">10</td>
+<td align="right">227</td>
+</tr>
+<tr class="odd">
+<td>19</td>
+<td align="right">31</td>
+<td align="right">40</td>
+<td align="right">55</td>
+<td align="right">36</td>
+<td align="right">18</td>
+<td align="right">24</td>
+<td align="right">7</td>
+<td align="right">31</td>
+<td align="right">8</td>
+<td align="right">5</td>
+<td align="right">255</td>
+</tr>
+<tr class="even">
+<td>20</td>
+<td align="right">26</td>
+<td align="right">30</td>
+<td align="right">39</td>
+<td align="right">29</td>
+<td align="right">9</td>
+<td align="right">30</td>
+<td align="right">30</td>
+<td align="right">29</td>
+<td align="right">10</td>
+<td align="right">3</td>
+<td align="right">235</td>
+</tr>
+<tr class="odd">
+<td>Totais</td>
+<td align="right">410</td>
+<td align="right">459</td>
+<td align="right">674</td>
+<td align="right">551</td>
+<td align="right">325</td>
+<td align="right">528</td>
+<td align="right">303</td>
+<td align="right">358</td>
+<td align="right">342</td>
+<td align="right">205</td>
+<td align="right">4.155</td>
+</tr>
+</tbody>
+</table>
+</center>
+<ol style="list-style-type: lower-alpha">
+<li>Calcule a variância do estimador da média se for utilizada uma amostra sistemática.</li>
+<li>Calcule a variância do estimador da média usando uma AAS de mesmo tamanho.</li>
+<li>Comente os resultados.</li>
+</ol>
+<p><strong>Exercício 8.5 </strong> A administração do Parque da Tijuca precisou estimar o número médio de ocupantes nos carros que visitaram o parque num determinado dia. Para isso foi feita uma amostra, usando a seguinte estratégia:</p>
+<ul>
+<li><p>Na hora da abertura da cabine de cobrança foi selecionado um número aleatório entre 1 e 10.<br />
+</p></li>
+<li><p>A partir do veículo com esse número, por ordem de chegada, foram contados os ocupantes de todos os décimos veículos.</p>
+<p>No final do dia passaram pela cancela 105 veículos e os selecionados para a amostra tinham, por ordem de passagem, 3, 5, 7, 2, 3, 4, 5, 4, 4 e 2 ocupantes (incluindo o motorista).</p></li>
+</ul>
+<ol style="list-style-type: lower-alpha">
+<li>Defina qual o tipo de plano amostral utilizado e dê os seus parâmetros.</li>
+<li>Liste os números de ordem dos veículos pesquisados, sabendo que o número aleatório selecionado foi 8.</li>
+<li>Estime a média de ocupantes por veículo no dia da pesquisa.</li>
+<li>Supondo que a distribuição do número de ocupantes é aleatória, estime um intervalo de 95% de confiança para a média de ocupantes por veículo.</li>
+</ol>
+<p><strong>Exercício 8.6 </strong> (Adaptado de <span class="citation">Scheaffer, Mendenhall, e Ott (1990)</span>, Exercício 7.6) O departamento de controle de qualidade de uma indústria alimentícia utiliza amostragem sistemática para estimar a média da quantidade de determinado alimento colocada em cada lata na linha de produção. A Tabela <a href="AS.html#tab:tabsis6">8.6</a> relaciona a amostra selecionada de 1 em cada 50 latas num dia, quando a produção diária foi de 1.820 latas.</p>
+<center>
+<table>
+<caption>
+<span id="tab:tabsis6">Tabela 8.6: </span>Quantidade de alimento, em onças, por lata na AS
+</caption>
+</table>
+<table style="width:50%;">
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td>12,00</td>
+<td>11,97</td>
+<td>12,01</td>
+<td>12,03</td>
+<td>12,01</td>
+<td>11,80</td>
+</tr>
+<tr class="even">
+<td>11,91</td>
+<td>11,98</td>
+<td>12,03</td>
+<td>11,98</td>
+<td>12,00</td>
+<td>11,83</td>
+</tr>
+<tr class="odd">
+<td>11,87</td>
+<td>12,01</td>
+<td>11,98</td>
+<td>11,87</td>
+<td>11,90</td>
+<td>11,88</td>
+</tr>
+<tr class="even">
+<td>11,75</td>
+<td>11,93</td>
+<td>11,95</td>
+<td>11,97</td>
+<td>11,93</td>
+<td>12,05</td>
+</tr>
+<tr class="odd">
+<td>11,85</td>
+<td>11,98</td>
+<td>11,87</td>
+<td>12,05</td>
+<td>12,02</td>
+<td>12,04</td>
+</tr>
+<tr class="even">
+<td>12,05</td>
+<td>11,87</td>
+<td>11,91</td>
+<td>11,93</td>
+<td>11,94</td>
+<td>11,89</td>
+</tr>
+</tbody>
+</table>
+</center>
+<ol style="list-style-type: lower-alpha">
+<li>Estime a média da quantidade de alimento por lata.</li>
+<li>Estime a variância da estimativa da média e dê um intervalo de 95% de confiança para a média.</li>
+<li>Quais as suposições feitas para escolher o estimador de variância utilizado?</li>
+</ol>
+<p><strong>Exercício 8.7 </strong> A Tabela <a href="AS.html#tab:tabsis7">8.7</a> abaixo, apresenta os valores de uma variável <span class="math inline">\(y\)</span> para toda a população em estudo:</p>
+<center>
+<table>
+<caption>
+<span id="tab:tabsis7">Tabela 8.7: </span>Valores da variável <span class="math inline">\(y\)</span> para a população
+</caption>
+</table>
+<table style="width:69%;">
+<colgroup>
+<col width="13%" />
+<col width="6%" />
+<col width="6%" />
+<col width="8%" />
+<col width="6%" />
+<col width="6%" />
+<col width="6%" />
+<col width="12%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">   </th>
+<th align="right">1</th>
+<th align="right">2</th>
+<th align="right">3</th>
+<th align="right">4</th>
+<th align="right">5</th>
+<th align="right">6</th>
+<th align="right">Total</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><strong>I</strong></td>
+<td align="right">30</td>
+<td align="right">95</td>
+<td align="right">53</td>
+<td align="right">63</td>
+<td align="right">58</td>
+<td align="right">29</td>
+<td align="right">328</td>
+</tr>
+<tr class="even">
+<td align="left"><strong>II</strong></td>
+<td align="right">63</td>
+<td align="right">24</td>
+<td align="right">39</td>
+<td align="right">38</td>
+<td align="right">79</td>
+<td align="right">36</td>
+<td align="right">279</td>
+</tr>
+<tr class="odd">
+<td align="left"><strong>III</strong></td>
+<td align="right">29</td>
+<td align="right">24</td>
+<td align="right">62</td>
+<td align="right">25</td>
+<td align="right">99</td>
+<td align="right">84</td>
+<td align="right">323</td>
+</tr>
+<tr class="even">
+<td align="left"><strong>IV</strong></td>
+<td align="right">76</td>
+<td align="right">76</td>
+<td align="right">53 5</td>
+<td align="right">2 5</td>
+<td align="right">5 5</td>
+<td align="right">2</td>
+<td align="right">364</td>
+</tr>
+<tr class="odd">
+<td align="left"><strong>V</strong></td>
+<td align="right">54</td>
+<td align="right">55</td>
+<td align="right">73</td>
+<td align="right">37</td>
+<td align="right">96</td>
+<td align="right">79</td>
+<td align="right">394</td>
+</tr>
+</tbody>
+</table>
+</center>
+<p>Caso não fossem conhecidos os valores da variável representada na tabela, qual seria a melhor alternativa para estimar o total populacional:</p>
+<ol style="list-style-type: lower-alpha">
+<li>Uma amostra sistemática com <span class="math inline">\(K=5\)</span>?</li>
+<li>Uma AAS de tamanho <span class="math inline">\(n=6\)</span>?</li>
+</ol>
+<p>Em cada caso calcule a variância do estimador do total populacional para sustentar sua resposta.</p>
+<p><strong>Exercício 8.8 </strong> Numa determinada região, há 3 comunidades consistindo, respectivamente, de pessoas de descendência Anglo-saxã, Polonesa e Italiana. Está disponível um cadastro atualizado, no qual as pessoas de cada domicílio estão listadas na seguinte ordem: esposo, esposa, filhos por idade e outros residentes. Os domicílios estão listados em ordem em cada rua. O número médio de pessoas por domicílio é 5. Você pode escolher entre uma amostra sistemática com <span class="math inline">\(K=5\)</span> ou uma AAS com fração amostral de 20%. Para quais das seguintes variáveis você espera, e qual a razão, que a amostragem sistemática seja mais precisa?</p>
+<ol style="list-style-type: lower-alpha">
+<li>Proporção de pessoas descendentes de Poloneses.</li>
+<li>Proporção de homens.</li>
+<li>Proporção de filhos.</li>
+</ol>
+<p><strong>Exercício 8.9 </strong> Um censo foi realizado numa comunidade. A cada 20 domicílios, a partir da seleção aleatória de uma partida entre 1 e 20, foi perguntado o número de anos que a família residia naquele imóvel. Os resultados sumarizados da amostra são dados a seguir:</p>
+<p><span class="math display">\[
+n=115;\:\:N=2.300;\:\:\sum_{i=1}^ny_i=407,1\:\:\text{e}\:\:\sum_{i=1}^ny_i^2=2.011,15
+\]</span></p>
+<ol style="list-style-type: lower-alpha">
+<li>Descreva o plano amostral utilizado e seus parâmetros.</li>
+<li>Estime o número médio de anos de moradia das famílias nos domicílios.</li>
+<li>Estime a variância do estimador da média, citando a suposição feita sobre a distribuição da variável de interesse na população.</li>
+</ol>
+<p><strong>Exercício 8.10 </strong> Os dirigentes de uma associação profissional querem estimar a proporção de membros que são a favor de algumas propostas de alterações no estatuto da entidade. Uma AS foi feita a partir da lista dos associados, selecionando uma partida aleatória entre 1 e 10 e tomando todos os décimos associados da lista, a partir do número sorteado. Foram selecionados 65 sócios no total de 654 existentes. Os sócios da amostra favoráveis às mudanças foram assinalados com <span class="math inline">\(y_i=1\)</span> e os contrários com <span class="math inline">\(y_i=0\)</span>. Ao final da pesquisa obteve-se <span class="math inline">\(\sum_{i=1}^{65}y_i=48\)</span>.</p>
+<ol style="list-style-type: lower-alpha">
+<li>Estime a proporção, <span class="math inline">\(p\)</span>, de sócios favoráveis às mudanças no estatuto.</li>
+<li>Estime a margem de erro, com 95% de confiança, para a estimativa de <span class="math inline">\(p\)</span>.</li>
+</ol>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="domin.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="outros-métodos-de-amostragem-com-equiprobabilidade.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

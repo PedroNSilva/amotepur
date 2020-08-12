@@ -1,0 +1,1763 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xml:lang="pt-BR">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Capítulo 13 Estimadores de Calibração | Amostragem: Teoria e Prática Usando R</title>
+  <meta name="description" content="Este é o livro de Amostragem elaborado pelos autores." />
+  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Capítulo 13 Estimadores de Calibração | Amostragem: Teoria e Prática Usando R" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Este é o livro de Amostragem elaborado pelos autores." />
+  <meta name="github-repo" content="PedroNSilva/amotepur" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Capítulo 13 Estimadores de Calibração | Amostragem: Teoria e Prática Usando R" />
+  
+  <meta name="twitter:description" content="Este é o livro de Amostragem elaborado pelos autores." />
+  
+
+<meta name="author" content="Pedro Luis do Nascimento Silva, Zélia Magalhães Bianchini e Antonio José Ribeiro Dias" />
+
+
+<meta name="date" content="2020-08-12" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="cong.html"/>
+<link rel="next" href="referências.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+
+
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Prefácio</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#agradecimentos"><i class="fa fa-check"></i>Agradecimentos</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="lista-de-siglas.html"><a href="lista-de-siglas.html"><i class="fa fa-check"></i>Lista de Siglas</a></li>
+<li class="chapter" data-level="" data-path="lista-de-tabelas.html"><a href="lista-de-tabelas.html"><i class="fa fa-check"></i>Lista de Tabelas</a></li>
+<li class="chapter" data-level="" data-path="lista-de-figuras.html"><a href="lista-de-figuras.html"><i class="fa fa-check"></i>Lista de Figuras</a></li>
+<li class="chapter" data-level="1" data-path="introduc.html"><a href="introduc.html"><i class="fa fa-check"></i><b>1</b> Introdução</a><ul>
+<li class="chapter" data-level="1.1" data-path="introduc.html"><a href="introduc.html#motivação"><i class="fa fa-check"></i><b>1.1</b> Motivação</a></li>
+<li class="chapter" data-level="1.2" data-path="introduc.html"><a href="introduc.html#objetivos-do-livro"><i class="fa fa-check"></i><b>1.2</b> Objetivos do livro</a></li>
+<li class="chapter" data-level="1.3" data-path="introduc.html"><a href="introduc.html#estrutura-do-livro"><i class="fa fa-check"></i><b>1.3</b> Estrutura do livro</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="conceitos.html"><a href="conceitos.html"><i class="fa fa-check"></i><b>2</b> Conceitos e Cadastros</a><ul>
+<li class="chapter" data-level="2.1" data-path="conceitos.html"><a href="conceitos.html#fontes-de-dados-e-tipos-de-pesquisas"><i class="fa fa-check"></i><b>2.1</b> Fontes de dados e tipos de pesquisas</a></li>
+<li class="chapter" data-level="2.2" data-path="conceitos.html"><a href="conceitos.html#alguns-conceitos-fundamentais"><i class="fa fa-check"></i><b>2.2</b> Alguns conceitos fundamentais</a></li>
+<li class="chapter" data-level="2.3" data-path="conceitos.html"><a href="conceitos.html#abordalt"><i class="fa fa-check"></i><b>2.3</b> Abordagens alternativas para pesquisas por amostragem</a></li>
+<li class="chapter" data-level="2.4" data-path="conceitos.html"><a href="conceitos.html#planejamento-e-execução-de-pesquisas-por-amostragem"><i class="fa fa-check"></i><b>2.4</b> Planejamento e execução de pesquisas por amostragem</a><ul>
+<li class="chapter" data-level="2.4.1" data-path="conceitos.html"><a href="conceitos.html#especificação-das-necessidades-da-pesquisa"><i class="fa fa-check"></i><b>2.4.1</b> Especificação das necessidades da pesquisa</a></li>
+<li class="chapter" data-level="2.4.2" data-path="conceitos.html"><a href="conceitos.html#planejamento-da-pesquisa"><i class="fa fa-check"></i><b>2.4.2</b> Planejamento da pesquisa</a></li>
+<li class="chapter" data-level="2.4.3" data-path="conceitos.html"><a href="conceitos.html#elaboração-dos-instrumentos-de-coleta-e-dos-sistemas"><i class="fa fa-check"></i><b>2.4.3</b> Elaboração dos instrumentos de coleta e dos sistemas</a></li>
+<li class="chapter" data-level="2.4.4" data-path="conceitos.html"><a href="conceitos.html#coleta-dos-dados"><i class="fa fa-check"></i><b>2.4.4</b> Coleta dos dados</a></li>
+<li class="chapter" data-level="2.4.5" data-path="conceitos.html"><a href="conceitos.html#processamento-da-pesquisa"><i class="fa fa-check"></i><b>2.4.5</b> Processamento da pesquisa</a></li>
+<li class="chapter" data-level="2.4.6" data-path="conceitos.html"><a href="conceitos.html#análise-dos-dados-da-pesquisa"><i class="fa fa-check"></i><b>2.4.6</b> Análise dos dados da pesquisa</a></li>
+<li class="chapter" data-level="2.4.7" data-path="conceitos.html"><a href="conceitos.html#disseminação-dos-resultados-da-pesquisa"><i class="fa fa-check"></i><b>2.4.7</b> Disseminação dos resultados da pesquisa</a></li>
+<li class="chapter" data-level="2.4.8" data-path="conceitos.html"><a href="conceitos.html#arquivamento-das-informações-da-pesquisa"><i class="fa fa-check"></i><b>2.4.8</b> Arquivamento das informações da pesquisa</a></li>
+<li class="chapter" data-level="2.4.9" data-path="conceitos.html"><a href="conceitos.html#avaliação-da-pesquisa"><i class="fa fa-check"></i><b>2.4.9</b> Avaliação da pesquisa</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="conceitos.html"><a href="conceitos.html#cadastros"><i class="fa fa-check"></i><b>2.5</b> Cadastros</a><ul>
+<li class="chapter" data-level="2.5.1" data-path="conceitos.html"><a href="conceitos.html#cadIBGE"><i class="fa fa-check"></i><b>2.5.1</b> Cadastros importantes no IBGE</a></li>
+<li class="chapter" data-level="2.5.2" data-path="conceitos.html"><a href="conceitos.html#defeitos-de-cadastros"><i class="fa fa-check"></i><b>2.5.2</b> Defeitos de cadastros</a></li>
+<li class="chapter" data-level="2.5.3" data-path="conceitos.html"><a href="conceitos.html#regras-de-associação-das-unidades-da-população-à-unidade-cadastral"><i class="fa fa-check"></i><b>2.5.3</b> Regras de associação das unidades da população à unidade cadastral</a></li>
+</ul></li>
+<li class="chapter" data-level="2.6" data-path="conceitos.html"><a href="conceitos.html#exercícios"><i class="fa fa-check"></i><b>2.6</b> Exercícios</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="visger.html"><a href="visger.html"><i class="fa fa-check"></i><b>3</b> Visão Geral da Amostragem e Estimação</a><ul>
+<li class="chapter" data-level="3.1" data-path="visger.html"><a href="visger.html#definições-e-notação-para-população-de-pesquisa-e-parâmetros-selecionados"><i class="fa fa-check"></i><b>3.1</b> Definições e notação para população de pesquisa e parâmetros selecionados</a></li>
+<li class="chapter" data-level="3.2" data-path="visger.html"><a href="visger.html#amostra"><i class="fa fa-check"></i><b>3.2</b> Amostra</a></li>
+<li class="chapter" data-level="3.3" data-path="visger.html"><a href="visger.html#amostragem-probabilística"><i class="fa fa-check"></i><b>3.3</b> Amostragem probabilística</a></li>
+<li class="chapter" data-level="3.4" data-path="visger.html"><a href="visger.html#estatísticas-estimadores-e-estimativas"><i class="fa fa-check"></i><b>3.4</b> Estatísticas, estimadores e estimativas</a></li>
+<li class="chapter" data-level="3.5" data-path="visger.html"><a href="visger.html#a-distribuição-de-aleatorização"><i class="fa fa-check"></i><b>3.5</b> A distribuição de aleatorização</a></li>
+<li class="chapter" data-level="3.6" data-path="visger.html"><a href="visger.html#estimadores-não-viciados-para-o-total-populacional"><i class="fa fa-check"></i><b>3.6</b> Estimadores não viciados para o total populacional</a></li>
+<li class="chapter" data-level="3.7" data-path="visger.html"><a href="visger.html#teoria-básica"><i class="fa fa-check"></i><b>3.7</b> Teoria básica</a><ul>
+<li class="chapter" data-level="3.7.1" data-path="visger.html"><a href="visger.html#estimador-linear-de-total"><i class="fa fa-check"></i><b>3.7.1</b> Estimador linear de total</a></li>
+<li class="chapter" data-level="3.7.2" data-path="visger.html"><a href="visger.html#propHT"><i class="fa fa-check"></i><b>3.7.2</b> Propriedades do estimador de Horvitz-Thompson</a></li>
+<li class="chapter" data-level="3.7.3" data-path="visger.html"><a href="visger.html#estimação-da-média-populacional"><i class="fa fa-check"></i><b>3.7.3</b> Estimação da média populacional</a></li>
+</ul></li>
+<li class="chapter" data-level="3.8" data-path="conceitos.html"><a href="conceitos.html#exercícios"><i class="fa fa-check"></i><b>3.8</b> Exercícios</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="aas.html"><a href="aas.html"><i class="fa fa-check"></i><b>4</b> Amostragem Aleatória Simples</a><ul>
+<li class="chapter" data-level="4.1" data-path="aas.html"><a href="aas.html#planos-amostrais-e-algoritmos-de-seleção"><i class="fa fa-check"></i><b>4.1</b> Planos amostrais e algoritmos de seleção</a></li>
+<li class="chapter" data-level="4.2" data-path="aas.html"><a href="aas.html#amostragem-aleatória-simples-com-reposição"><i class="fa fa-check"></i><b>4.2</b> Amostragem aleatória simples com reposição</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="aas.html"><a href="aas.html#estimação-do-total-e-média-populacionais-sob-aasc"><i class="fa fa-check"></i><b>4.2.1</b> Estimação do total e média populacionais sob AASC</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="aas.html"><a href="aas.html#amostragem-aleatória-simples-sem-reposição"><i class="fa fa-check"></i><b>4.3</b> Amostragem aleatória simples sem reposição</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="aas.html"><a href="aas.html#algoritmo-convencional-para-selecionar-uma-aas"><i class="fa fa-check"></i><b>4.3.1</b> Algoritmo “convencional” para selecionar uma AAS</a></li>
+<li class="chapter" data-level="4.3.2" data-path="aas.html"><a href="aas.html#Hajek"><i class="fa fa-check"></i><b>4.3.2</b> Algoritmo de Hàjek para selecionar AAS</a></li>
+<li class="chapter" data-level="4.3.3" data-path="aas.html"><a href="aas.html#algoritmo-de-fan-muller-e-rezucha-para-selecionar-aas"><i class="fa fa-check"></i><b>4.3.3</b> Algoritmo de Fan, Muller e Rezucha para selecionar AAS</a></li>
+<li class="chapter" data-level="4.3.4" data-path="aas.html"><a href="aas.html#probabilidades-de-inclusão-sob-aas"><i class="fa fa-check"></i><b>4.3.4</b> Probabilidades de inclusão sob AAS</a></li>
+<li class="chapter" data-level="4.3.5" data-path="aas.html"><a href="aas.html#estimador-não-viciado-do-total-e-média-populacionais-sob-aas"><i class="fa fa-check"></i><b>4.3.5</b> Estimador não viciado do total e média populacionais sob AAS</a></li>
+<li class="chapter" data-level="4.3.6" data-path="aas.html"><a href="aas.html#distribuição-da-média-amostral"><i class="fa fa-check"></i><b>4.3.6</b> Distribuição da média amostral</a></li>
+<li class="chapter" data-level="4.3.7" data-path="aas.html"><a href="aas.html#comparação-dos-planos-de-amostragem-aleatória-simples-com-e-sem-reposição"><i class="fa fa-check"></i><b>4.3.7</b> Comparação dos planos de amostragem aleatória simples com e sem reposição</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="aas.html"><a href="aas.html#determinação-do-tamanho-da-amostra"><i class="fa fa-check"></i><b>4.4</b> Determinação do tamanho da amostra</a><ul>
+<li class="chapter" data-level="4.4.1" data-path="aas.html"><a href="aas.html#tamanho-amostral-para-custo-fixado"><i class="fa fa-check"></i><b>4.4.1</b> Tamanho amostral para custo fixado</a></li>
+<li class="chapter" data-level="4.4.2" data-path="aas.html"><a href="aas.html#tamanho-amostral-para-precisão-fixada"><i class="fa fa-check"></i><b>4.4.2</b> Tamanho amostral para precisão fixada</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="conceitos.html"><a href="conceitos.html#exercícios"><i class="fa fa-check"></i><b>4.5</b> Exercícios</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="proporc.html"><a href="proporc.html"><i class="fa fa-check"></i><b>5</b> Estimação de Proporções</a><ul>
+<li class="chapter" data-level="5.1" data-path="proporc.html"><a href="proporc.html#parâmetros-populacionais"><i class="fa fa-check"></i><b>5.1</b> Parâmetros populacionais</a></li>
+<li class="chapter" data-level="5.2" data-path="proporc.html"><a href="proporc.html#estimação-sob-amostragem-aleatória-simples-com-reposição"><i class="fa fa-check"></i><b>5.2</b> Estimação sob amostragem aleatória simples com reposição</a></li>
+<li class="chapter" data-level="5.3" data-path="proporc.html"><a href="proporc.html#estimação-sob-amostragem-aleatória-simples-sem-reposição"><i class="fa fa-check"></i><b>5.3</b> Estimação sob amostragem aleatória simples sem reposição</a></li>
+<li class="chapter" data-level="5.4" data-path="proporc.html"><a href="proporc.html#distribuição-amostral-exata-de-estimadores-de-proporção-sob-aasc-e-aas"><i class="fa fa-check"></i><b>5.4</b> Distribuição amostral exata de estimadores de proporção sob AASC e AAS</a></li>
+<li class="chapter" data-level="5.5" data-path="proporc.html"><a href="proporc.html#intervalos-de-confiança-para-proporções-na-amostragem-aleatória-simples"><i class="fa fa-check"></i><b>5.5</b> Intervalos de confiança para proporções na amostragem aleatória simples</a></li>
+<li class="chapter" data-level="5.6" data-path="proporc.html"><a href="proporc.html#intervalos-de-confiança-utilizando-a-aproximação-normal"><i class="fa fa-check"></i><b>5.6</b> Intervalos de confiança utilizando a aproximação normal</a></li>
+<li class="chapter" data-level="5.7" data-path="proporc.html"><a href="proporc.html#cálculo-do-tamanho-da-amostra"><i class="fa fa-check"></i><b>5.7</b> Cálculo do tamanho da amostra</a><ul>
+<li class="chapter" data-level="5.7.1" data-path="proporc.html"><a href="proporc.html#cálculo-do-n-utilizando-outras-formas-de-representar-o-erro-amostral"><i class="fa fa-check"></i><b>5.7.1</b> Cálculo do <span class="math inline">\(n\)</span> utilizando outras formas de representar o erro amostral</a></li>
+</ul></li>
+<li class="chapter" data-level="5.8" data-path="proporc.html"><a href="proporc.html#estimação-de-proporções-para-variáveis-com-mais-de-duas-categorias"><i class="fa fa-check"></i><b>5.8</b> Estimação de proporções para variáveis com mais de duas categorias</a></li>
+<li class="chapter" data-level="5.9" data-path="conceitos.html"><a href="conceitos.html#exercícios"><i class="fa fa-check"></i><b>5.9</b> Exercícios</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="razao.html"><a href="razao.html"><i class="fa fa-check"></i><b>6</b> Estimação de Razões e Funções de Totais</a><ul>
+<li class="chapter" data-level="6.1" data-path="razao.html"><a href="razao.html#razões-populacionais-como-parâmetros-de-interesse"><i class="fa fa-check"></i><b>6.1</b> Razões populacionais como parâmetros de interesse</a></li>
+<li class="chapter" data-level="6.2" data-path="razao.html"><a href="razao.html#razão-de-médias-versus-média-de-razões"><i class="fa fa-check"></i><b>6.2</b> Razão de médias <em>versus</em> média de razões</a></li>
+<li class="chapter" data-level="6.3" data-path="razao.html"><a href="razao.html#outras-funções-de-totais"><i class="fa fa-check"></i><b>6.3</b> Outras funções de totais</a></li>
+<li class="chapter" data-level="6.4" data-path="razao.html"><a href="razao.html#estimadores-de-razões-de-totais"><i class="fa fa-check"></i><b>6.4</b> Estimadores de razões de totais</a></li>
+<li class="chapter" data-level="6.5" data-path="razao.html"><a href="razao.html#estoft"><i class="fa fa-check"></i><b>6.5</b> Estimadores para outras funções de totais</a></li>
+<li class="chapter" data-level="6.6" data-path="razao.html"><a href="razao.html#vicioraz"><i class="fa fa-check"></i><b>6.6</b> Análise do o vício do estimador da razão</a></li>
+<li class="chapter" data-level="6.7" data-path="razao.html"><a href="razao.html#erro-quadrático-médio-de-widehatr"><i class="fa fa-check"></i><b>6.7</b> Erro quadrático médio de <span class="math inline">\(\widehat{R}\)</span></a></li>
+<li class="chapter" data-level="6.8" data-path="conceitos.html"><a href="conceitos.html#exercícios"><i class="fa fa-check"></i><b>6.8</b> Exercícios</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="domin.html"><a href="domin.html"><i class="fa fa-check"></i><b>7</b> Estimação para Domínios de Estudo</a><ul>
+<li class="chapter" data-level="7.1" data-path="domin.html"><a href="domin.html#domin1"><i class="fa fa-check"></i><b>7.1</b> Domínios de estudo</a></li>
+<li class="chapter" data-level="7.2" data-path="domin.html"><a href="domin.html#domin2"><i class="fa fa-check"></i><b>7.2</b> Parâmetros de interesse para domínios</a></li>
+<li class="chapter" data-level="7.3" data-path="domin.html"><a href="domin.html#estimação-de-parâmetros-para-domínios-sob-aas"><i class="fa fa-check"></i><b>7.3</b> Estimação de parâmetros para domínios sob AAS</a></li>
+<li class="chapter" data-level="7.4" data-path="domin.html"><a href="domin.html#intervalos-de-confiança-para-os-parâmetros-para-o-domínio"><i class="fa fa-check"></i><b>7.4</b> Intervalos de confiança para os parâmetros para o domínio</a></li>
+<li class="chapter" data-level="7.5" data-path="domin.html"><a href="domin.html#propriedades-condicionais-fixando-n_c"><i class="fa fa-check"></i><b>7.5</b> Propriedades condicionais (fixando <span class="math inline">\(n_c\)</span>)</a></li>
+<li class="chapter" data-level="7.6" data-path="domin.html"><a href="domin.html#estimação-do-total-no-domínio-quando-tamanho-do-domínio-é-conhecido"><i class="fa fa-check"></i><b>7.6</b> Estimação do total no domínio quando tamanho do domínio é conhecido</a></li>
+<li class="chapter" data-level="7.7" data-path="domin.html"><a href="domin.html#comparação-da-eficiência-dos-estimadores-de-total-no-domínio"><i class="fa fa-check"></i><b>7.7</b> Comparação da eficiência dos estimadores de total no domínio</a></li>
+<li class="chapter" data-level="7.8" data-path="domin.html"><a href="domin.html#estimação-de-proporções-dentro-do-domínio"><i class="fa fa-check"></i><b>7.8</b> Estimação de proporções dentro do domínio</a></li>
+<li class="chapter" data-level="7.9" data-path="conceitos.html"><a href="conceitos.html#exercícios"><i class="fa fa-check"></i><b>7.9</b> Exercícios</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="AS.html"><a href="AS.html"><i class="fa fa-check"></i><b>8</b> Amostragem Sistemática Simples</a><ul>
+<li class="chapter" data-level="8.1" data-path="AS.html"><a href="AS.html#ideia-básica"><i class="fa fa-check"></i><b>8.1</b> Ideia básica</a></li>
+<li class="chapter" data-level="8.2" data-path="AS.html"><a href="AS.html#método-de-seleção-da-amostra"><i class="fa fa-check"></i><b>8.2</b> Método de seleção da amostra</a></li>
+<li class="chapter" data-level="8.3" data-path="AS.html"><a href="AS.html#composição-das-amostras-sistemáticas-simples"><i class="fa fa-check"></i><b>8.3</b> Composição das amostras sistemáticas simples</a></li>
+<li class="chapter" data-level="8.4" data-path="AS.html"><a href="AS.html#probabilidades-de-inclusão-na-amostragem-sistemática-simples"><i class="fa fa-check"></i><b>8.4</b> Probabilidades de inclusão na amostragem sistemática simples</a></li>
+<li class="chapter" data-level="8.5" data-path="AS.html"><a href="AS.html#variáveis-aleatórias-indicadoras---propriedades"><i class="fa fa-check"></i><b>8.5</b> Variáveis aleatórias indicadoras - propriedades</a></li>
+<li class="chapter" data-level="8.6" data-path="AS.html"><a href="AS.html#estimação-de-totais-sob-amostragem-sistemática-simples"><i class="fa fa-check"></i><b>8.6</b> Estimação de totais sob amostragem sistemática simples</a></li>
+<li class="chapter" data-level="8.7" data-path="AS.html"><a href="AS.html#estimação-de-médias-sob-amostragem-sistemática-simples"><i class="fa fa-check"></i><b>8.7</b> Estimação de médias sob amostragem sistemática simples</a></li>
+<li class="chapter" data-level="8.8" data-path="AS.html"><a href="AS.html#estimação-de-uma-proporção-na-amostragem-sistemática-simples"><i class="fa fa-check"></i><b>8.8</b> Estimação de uma proporção na amostragem sistemática simples</a></li>
+<li class="chapter" data-level="8.9" data-path="AS.html"><a href="AS.html#variância-dos-estimadores-sob-amostragem-sistemática-simples"><i class="fa fa-check"></i><b>8.9</b> Variância dos estimadores sob amostragem sistemática simples</a></li>
+<li class="chapter" data-level="8.10" data-path="AS.html"><a href="AS.html#estimação-de-variâncias-dos-estimadores-na-amostragem-sistemática-simples"><i class="fa fa-check"></i><b>8.10</b> Estimação de variâncias dos estimadores na amostragem sistemática simples</a></li>
+<li class="chapter" data-level="8.11" data-path="AS.html"><a href="AS.html#alternativas-para-seleção-com-amostragem-sistemática-simples"><i class="fa fa-check"></i><b>8.11</b> Alternativas para seleção com amostragem sistemática simples</a></li>
+<li class="chapter" data-level="8.12" data-path="conceitos.html"><a href="conceitos.html#exercícios"><i class="fa fa-check"></i><b>8.12</b> Exercícios</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="outros-métodos-de-amostragem-com-equiprobabilidade.html"><a href="outros-métodos-de-amostragem-com-equiprobabilidade.html"><i class="fa fa-check"></i><b>9</b> Outros Métodos de Amostragem com Equiprobabilidade</a><ul>
+<li class="chapter" data-level="9.1" data-path="outros-métodos-de-amostragem-com-equiprobabilidade.html"><a href="outros-métodos-de-amostragem-com-equiprobabilidade.html#binom"><i class="fa fa-check"></i><b>9.1</b> Amostragem binomial ou de Bernoulli</a><ul>
+<li class="chapter" data-level="9.1.1" data-path="AS.html"><a href="AS.html#método-de-seleção-da-amostra"><i class="fa fa-check"></i><b>9.1.1</b> Método de seleção da amostra</a></li>
+<li class="chapter" data-level="9.1.2" data-path="outros-métodos-de-amostragem-com-equiprobabilidade.html"><a href="outros-métodos-de-amostragem-com-equiprobabilidade.html#probabilidades-de-inclusão-na-amostragem-binomial"><i class="fa fa-check"></i><b>9.1.2</b> Probabilidades de inclusão na amostragem binomial</a></li>
+<li class="chapter" data-level="9.1.3" data-path="outros-métodos-de-amostragem-com-equiprobabilidade.html"><a href="outros-métodos-de-amostragem-com-equiprobabilidade.html#estimação-de-totais-sob-amostragem-binomial"><i class="fa fa-check"></i><b>9.1.3</b> Estimação de totais sob amostragem binomial</a></li>
+<li class="chapter" data-level="9.1.4" data-path="outros-métodos-de-amostragem-com-equiprobabilidade.html"><a href="outros-métodos-de-amostragem-com-equiprobabilidade.html#estimação-de-médias-sob-amostragem-binomial"><i class="fa fa-check"></i><b>9.1.4</b> Estimação de médias sob amostragem binomial</a></li>
+<li class="chapter" data-level="9.1.5" data-path="outros-métodos-de-amostragem-com-equiprobabilidade.html"><a href="outros-métodos-de-amostragem-com-equiprobabilidade.html#exemplos-de-aplicação-da-amostragem-binomial"><i class="fa fa-check"></i><b>9.1.5</b> Exemplos de aplicação da amostragem binomial</a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="outros-métodos-de-amostragem-com-equiprobabilidade.html"><a href="outros-métodos-de-amostragem-com-equiprobabilidade.html#inversa"><i class="fa fa-check"></i><b>9.2</b> Amostragem inversa simples</a><ul>
+<li class="chapter" data-level="9.2.1" data-path="outros-métodos-de-amostragem-com-equiprobabilidade.html"><a href="outros-métodos-de-amostragem-com-equiprobabilidade.html#método-de-seleção-da-amostra-inversa-simples"><i class="fa fa-check"></i><b>9.2.1</b> Método de seleção da amostra inversa simples</a></li>
+<li class="chapter" data-level="9.2.2" data-path="outros-métodos-de-amostragem-com-equiprobabilidade.html"><a href="outros-métodos-de-amostragem-com-equiprobabilidade.html#amostragem-inversa-simples-para-varredura-por-amostragem"><i class="fa fa-check"></i><b>9.2.2</b> Amostragem inversa simples para varredura por amostragem</a></li>
+<li class="chapter" data-level="9.2.3" data-path="outros-métodos-de-amostragem-com-equiprobabilidade.html"><a href="outros-métodos-de-amostragem-com-equiprobabilidade.html#exemplos-de-aplicação-da-amostragem-inversa-simples"><i class="fa fa-check"></i><b>9.2.3</b> Exemplos de aplicação da amostragem inversa simples</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="conceitos.html"><a href="conceitos.html#exercícios"><i class="fa fa-check"></i><b>9.3</b> Exercícios</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="ppt.html"><a href="ppt.html"><i class="fa fa-check"></i><b>10</b> Amostragem com Probabilidades Proporcionais ao Tamanho</a><ul>
+<li class="chapter" data-level="10.1" data-path="ppt.html"><a href="ppt.html#justificativa-para-amostragem-ppt"><i class="fa fa-check"></i><b>10.1</b> Justificativa para amostragem PPT</a><ul>
+<li class="chapter" data-level="10.1.1" data-path="ppt.html"><a href="ppt.html#estimação-do-total-populacional"><i class="fa fa-check"></i><b>10.1.1</b> Estimação do total populacional</a></li>
+</ul></li>
+<li class="chapter" data-level="10.2" data-path="ppt.html"><a href="ppt.html#amostragem-ppt-com-reposição"><i class="fa fa-check"></i><b>10.2</b> Amostragem PPT com reposição</a></li>
+<li class="chapter" data-level="10.3" data-path="ppt.html"><a href="ppt.html#amostragem-ppt-de-poisson"><i class="fa fa-check"></i><b>10.3</b> Amostragem PPT de Poisson</a></li>
+<li class="chapter" data-level="10.4" data-path="ppt.html"><a href="ppt.html#amostragem-sequencial-de-poisson"><i class="fa fa-check"></i><b>10.4</b> Amostragem sequencial de Poisson</a></li>
+<li class="chapter" data-level="10.5" data-path="ppt.html"><a href="ppt.html#amostragem-sistemática-com-ppt"><i class="fa fa-check"></i><b>10.5</b> Amostragem sistemática com PPT</a></li>
+<li class="chapter" data-level="10.6" data-path="ppt.html"><a href="ppt.html#amostragem-ppt-de-pareto"><i class="fa fa-check"></i><b>10.6</b> Amostragem PPT de Pareto</a></li>
+<li class="chapter" data-level="10.7" data-path="conceitos.html"><a href="conceitos.html#exercícios"><i class="fa fa-check"></i><b>10.7</b> Exercícios</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="estrat.html"><a href="estrat.html"><i class="fa fa-check"></i><b>11</b> Amostragem Estratificada</a><ul>
+<li class="chapter" data-level="11.1" data-path="estrat.html"><a href="estrat.html#o-método-geral"><i class="fa fa-check"></i><b>11.1</b> O método geral</a></li>
+<li class="chapter" data-level="11.2" data-path="estrat.html"><a href="estrat.html#amostragem-estratificada-simples"><i class="fa fa-check"></i><b>11.2</b> Amostragem estratificada simples</a><ul>
+<li class="chapter" data-level="11.2.1" data-path="estrat.html"><a href="estrat.html#método-de-seleção"><i class="fa fa-check"></i><b>11.2.1</b> Método de seleção</a></li>
+<li class="chapter" data-level="11.2.2" data-path="proporc.html"><a href="proporc.html#parâmetros-populacionais"><i class="fa fa-check"></i><b>11.2.2</b> Parâmetros populacionais</a></li>
+<li class="chapter" data-level="11.2.3" data-path="estrat.html"><a href="estrat.html#estimação-do-total-e-da-média-populacional"><i class="fa fa-check"></i><b>11.2.3</b> Estimação do total e da média populacional</a></li>
+<li class="chapter" data-level="11.2.4" data-path="estrat.html"><a href="estrat.html#intervalos-de-confiança"><i class="fa fa-check"></i><b>11.2.4</b> Intervalos de confiança</a></li>
+</ul></li>
+<li class="chapter" data-level="11.3" data-path="estrat.html"><a href="estrat.html#alocação-da-amostra-nos-estratos"><i class="fa fa-check"></i><b>11.3</b> Alocação da amostra nos estratos</a><ul>
+<li class="chapter" data-level="11.3.1" data-path="estrat.html"><a href="estrat.html#alocação-proporcional"><i class="fa fa-check"></i><b>11.3.1</b> Alocação proporcional</a></li>
+<li class="chapter" data-level="11.3.2" data-path="estrat.html"><a href="estrat.html#alocação-ótima"><i class="fa fa-check"></i><b>11.3.2</b> Alocação ótima</a></li>
+<li class="chapter" data-level="11.3.3" data-path="estrat.html"><a href="estrat.html#tamanho-da-amostra-estratificada---caso-geral"><i class="fa fa-check"></i><b>11.3.3</b> Tamanho da amostra estratificada - caso geral</a></li>
+<li class="chapter" data-level="11.3.4" data-path="estrat.html"><a href="estrat.html#tamanho-da-amostra-sob-alocação-ótima"><i class="fa fa-check"></i><b>11.3.4</b> Tamanho da amostra sob alocação ótima</a></li>
+<li class="chapter" data-level="11.3.5" data-path="estrat.html"><a href="estrat.html#comparação-de-alternativas-de-alocação-da-amostra"><i class="fa fa-check"></i><b>11.3.5</b> Comparação de alternativas de alocação da amostra</a></li>
+<li class="chapter" data-level="11.3.6" data-path="estrat.html"><a href="estrat.html#alocação-potência"><i class="fa fa-check"></i><b>11.3.6</b> Alocação potência</a></li>
+<li class="chapter" data-level="11.3.7" data-path="estrat.html"><a href="estrat.html#alguns-problemas-com-alocação-ótima"><i class="fa fa-check"></i><b>11.3.7</b> Alguns problemas com alocação ótima</a></li>
+</ul></li>
+<li class="chapter" data-level="11.4" data-path="estrat.html"><a href="estrat.html#definição-dos-limites-dos-estratos"><i class="fa fa-check"></i><b>11.4</b> Definição dos limites dos estratos</a></li>
+<li class="chapter" data-level="11.5" data-path="estrat.html"><a href="estrat.html#número-de-estratos-na-amostragem-estratificada-simples"><i class="fa fa-check"></i><b>11.5</b> Número de estratos na amostragem estratificada simples</a></li>
+<li class="chapter" data-level="11.6" data-path="conceitos.html"><a href="conceitos.html#exercícios"><i class="fa fa-check"></i><b>11.6</b> Exercícios</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="cong.html"><a href="cong.html"><i class="fa fa-check"></i><b>12</b> Amostragem Conglomerada</a><ul>
+<li class="chapter" data-level="12.1" data-path="cong.html"><a href="cong.html#conceituação-básica"><i class="fa fa-check"></i><b>12.1</b> Conceituação básica</a></li>
+<li class="chapter" data-level="12.2" data-path="cong.html"><a href="cong.html#amostragem-de-áreas"><i class="fa fa-check"></i><b>12.2</b> Amostragem de áreas</a></li>
+<li class="chapter" data-level="12.3" data-path="cong.html"><a href="cong.html#definições-básicas-e-notação"><i class="fa fa-check"></i><b>12.3</b> Definições básicas e notação</a></li>
+<li class="chapter" data-level="12.4" data-path="cong.html"><a href="cong.html#amostragem-conglomerada-em-um-estágio"><i class="fa fa-check"></i><b>12.4</b> Amostragem conglomerada em um estágio</a></li>
+<li class="chapter" data-level="12.5" data-path="cong.html"><a href="cong.html#amostragem-conglomerada-em-vários-estágios"><i class="fa fa-check"></i><b>12.5</b> Amostragem conglomerada em vários estágios</a></li>
+<li class="chapter" data-level="12.6" data-path="cong.html"><a href="cong.html#notação-na-amostragem-conglomerada-em-um-estágio"><i class="fa fa-check"></i><b>12.6</b> Notação na amostragem conglomerada em um estágio</a></li>
+<li class="chapter" data-level="12.7" data-path="cong.html"><a href="cong.html#amostragem-conglomerada-em-um-estágio-simples"><i class="fa fa-check"></i><b>12.7</b> Amostragem conglomerada em um estágio simples</a><ul>
+<li class="chapter" data-level="12.7.1" data-path="cong.html"><a href="cong.html#estimação-do-total-sob-ac1s"><i class="fa fa-check"></i><b>12.7.1</b> Estimação do total sob AC1S</a></li>
+<li class="chapter" data-level="12.7.2" data-path="cong.html"><a href="cong.html#estimação-da-média-sob-ac1s"><i class="fa fa-check"></i><b>12.7.2</b> Estimação da média sob AC1S</a></li>
+</ul></li>
+<li class="chapter" data-level="12.8" data-path="cong.html"><a href="cong.html#efeito-do-plano-amostral"><i class="fa fa-check"></i><b>12.8</b> Efeito do plano amostral</a></li>
+<li class="chapter" data-level="12.9" data-path="cong.html"><a href="cong.html#amostragem-conglomerada-com-probabilidade-proporcional-ao-tamanho-em-um-estágio"><i class="fa fa-check"></i><b>12.9</b> Amostragem Conglomerada com Probabilidade Proporcional ao Tamanho em um estágio</a></li>
+<li class="chapter" data-level="12.10" data-path="cong.html"><a href="cong.html#amostragem-conglomerada-em-dois-estágios"><i class="fa fa-check"></i><b>12.10</b> Amostragem conglomerada em dois estágios</a><ul>
+<li class="chapter" data-level="12.10.1" data-path="cong.html"><a href="cong.html#plano-amostral-ac2-com-aas-nos-2-estágios"><i class="fa fa-check"></i><b>12.10.1</b> Plano amostral AC2 com AAS nos 2 estágios</a></li>
+<li class="chapter" data-level="12.10.2" data-path="cong.html"><a href="cong.html#plano-amostral-com-ppt-com-reposição-no-primeiro-estágio-e-aas-no-segundo-estágio"><i class="fa fa-check"></i><b>12.10.2</b> Plano amostral com PPT com reposição no primeiro estágio e AAS no segundo estágio</a></li>
+<li class="chapter" data-level="12.10.3" data-path="cong.html"><a href="cong.html#amostra-conglomerada-com-ppt-de-poisson-sequencial-no-primeiro-e-aas-no-segundo-estágio"><i class="fa fa-check"></i><b>12.10.3</b> Amostra conglomerada com PPT de Poisson sequencial no primeiro e AAS no segundo estágio</a></li>
+</ul></li>
+<li class="chapter" data-level="12.11" data-path="cong.html"><a href="cong.html#ideias-básicas-na-escolha-de-unidades-compostas"><i class="fa fa-check"></i><b>12.11</b> Ideias básicas na escolha de unidades compostas</a></li>
+<li class="chapter" data-level="12.12" data-path="cong.html"><a href="cong.html#determinando-tamanhos-de-amostra-com-ac2pc"><i class="fa fa-check"></i><b>12.12</b> Determinando tamanhos de amostra com AC2PC</a></li>
+<li class="chapter" data-level="12.13" data-path="conceitos.html"><a href="conceitos.html#exercícios"><i class="fa fa-check"></i><b>12.13</b> Exercícios</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="calib.html"><a href="calib.html"><i class="fa fa-check"></i><b>13</b> Estimadores de Calibração</a><ul>
+<li class="chapter" data-level="13.1" data-path="calib.html"><a href="calib.html#motivação-melhorar-a-precisão-com-informações-auxiliares"><i class="fa fa-check"></i><b>13.1</b> Motivação: melhorar a precisão com informações auxiliares</a></li>
+<li class="chapter" data-level="13.2" data-path="calib.html"><a href="calib.html#problema"><i class="fa fa-check"></i><b>13.2</b> O problema</a></li>
+<li class="chapter" data-level="13.3" data-path="calib.html"><a href="calib.html#estreg"><i class="fa fa-check"></i><b>13.3</b> Estimadores de regressão como estimadores de calibração</a></li>
+<li class="chapter" data-level="13.4" data-path="calib.html"><a href="calib.html#razões-para-calibração"><i class="fa fa-check"></i><b>13.4</b> Razões para calibração</a></li>
+<li class="chapter" data-level="13.5" data-path="calib.html"><a href="calib.html#propriedades-dos-estimadores-para-grandes-amostras"><i class="fa fa-check"></i><b>13.5</b> Propriedades dos estimadores para grandes amostras</a></li>
+<li class="chapter" data-level="13.6" data-path="calib.html"><a href="calib.html#razCS"><i class="fa fa-check"></i><b>13.6</b> Estimadores de razão como casos particulares da calibração</a><ul>
+<li class="chapter" data-level="13.6.1" data-path="calib.html"><a href="calib.html#estimador-de-razão-combinada-sob-aes"><i class="fa fa-check"></i><b>13.6.1</b> Estimador de razão combinada sob AES</a></li>
+<li class="chapter" data-level="13.6.2" data-path="calib.html"><a href="calib.html#estimador-de-razão-separada-sob-aes"><i class="fa fa-check"></i><b>13.6.2</b> Estimador de razão separada sob AES</a></li>
+<li class="chapter" data-level="13.6.3" data-path="calib.html"><a href="calib.html#comparação-dos-estimadores-de-razão-combinada-e-separada"><i class="fa fa-check"></i><b>13.6.3</b> Comparação dos estimadores de razão combinada e separada</a></li>
+</ul></li>
+<li class="chapter" data-level="13.7" data-path="calib.html"><a href="calib.html#alguns-problemas-práticos-com-calibração"><i class="fa fa-check"></i><b>13.7</b> Alguns problemas práticos com calibração</a><ul>
+<li class="chapter" data-level="13.7.1" data-path="calib.html"><a href="calib.html#tamanhos-de-amostra-pequenos"><i class="fa fa-check"></i><b>13.7.1</b> Tamanhos de amostra pequenos</a></li>
+<li class="chapter" data-level="13.7.2" data-path="calib.html"><a href="calib.html#pesos-negativos-ou-extremos"><i class="fa fa-check"></i><b>13.7.2</b> Pesos negativos ou extremos</a></li>
+<li class="chapter" data-level="13.7.3" data-path="calib.html"><a href="calib.html#grande-número-de-variáveis-de-pesquisa-ou-de-grupos-de-modelagem"><i class="fa fa-check"></i><b>13.7.3</b> Grande número de variáveis de pesquisa ou de ‘grupos de modelagem’</a></li>
+<li class="chapter" data-level="13.7.4" data-path="calib.html"><a href="calib.html#gvaraux"><i class="fa fa-check"></i><b>13.7.4</b> Grande número de variáveis auxiliares</a></li>
+<li class="chapter" data-level="13.7.5" data-path="calib.html"><a href="calib.html#não-resposta-e-calibração"><i class="fa fa-check"></i><b>13.7.5</b> Não resposta e calibração</a></li>
+</ul></li>
+<li class="chapter" data-level="13.8" data-path="calib.html"><a href="calib.html#seleção-de-variáveis-para-calibração-com-não-resposta"><i class="fa fa-check"></i><b>13.8</b> Seleção de variáveis para calibração com não resposta</a></li>
+<li class="chapter" data-level="13.9" data-path="calib.html"><a href="calib.html#indicadores-de-qualidade-da-calibração"><i class="fa fa-check"></i><b>13.9</b> Indicadores de qualidade da calibração</a></li>
+<li class="chapter" data-level="13.10" data-path="calib.html"><a href="calib.html#um-guia-para-aplicação-de-calibração"><i class="fa fa-check"></i><b>13.10</b> Um guia para aplicação de calibração</a></li>
+<li class="chapter" data-level="13.11" data-path="calib.html"><a href="calib.html#observações-finais"><i class="fa fa-check"></i><b>13.11</b> Observações finais</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="referências.html"><a href="referências.html"><i class="fa fa-check"></i>Referências</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Amostragem: Teoria e Prática Usando R</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="calib" class="section level1">
+<h1><span class="header-section-number">Capítulo 13</span> Estimadores de Calibração</h1>
+<div id="motivação-melhorar-a-precisão-com-informações-auxiliares" class="section level2">
+<h2><span class="header-section-number">13.1</span> Motivação: melhorar a precisão com informações auxiliares</h2>
+<p>Em Amostragem, há várias maneiras de aproveitar <em>informações auxiliares</em> disponíveis para melhorar a precisão de estimativas de interesse em uma pesquisa amostral.
+As duas maneiras mais conhecidas são: <em>estratificação</em> e <em>amostragem com probabilidades proporcionais ao tamanho (PPT)</em>.
+Nos dois casos, a informação auxiliar é utilizada durante a etapa de planejamento amostral, portanto deve estar disponível <em>antes da seleção da amostra</em> para a realização de uma pesquisa.</p>
+<p>Nem sempre se consegue aproveitar toda a informação auxiliar existente nesta etapa da pesquisa. Por exemplo, quando existem muitas variáveis auxiliares, pode não ser possível usar todas na estratificação.
+Por outro lado, num plano PPT, só podemos usar uma <em>medida de tamanho</em> para definir as <em>probabilidades de inclusão</em>. Em consequência, pode não ser possível obter ganhos de eficiência para algumas variáveis de pesquisa.</p>
+<p>Uma ideia complementar é considerar o uso da informação auxiliar também na <em>etapa de estimação da pesquisa</em>, usando <em>estimação de calibração</em>.</p>
+<p>Este capítulo aborda <em>quando</em> usar estimadores de calibração; estimadores de calibração; estimadores de regressão como calibração; <em>porque</em> calibrar; <em>como</em> fazer calibração clássica; <em>quanta</em> calibração é necessária; <em>indicadores de qualidade</em> da calibração. Apresenta uma revisão da literatura sobre métodos de calibração usados na ponderação e estimação de pesquisas por amostragem, aponta referências bibliográficas relevantes, discute questões importantes que surgem quando os métodos de calibração são usados em situações reais de pesquisa e aponta critérios que podem ser usados para avaliar se sua utilização foi bem sucedida ou se ocorreram dificuldades que demandem revisão dos resultados.</p>
+</div>
+<div id="problema" class="section level2">
+<h2><span class="header-section-number">13.2</span> O problema</h2>
+<p>Seja uma <em>população finita</em> <span class="math inline">\(U\)</span> de <em>tamanho</em> <span class="math inline">\(N\)</span>, que pode ser representada pelo conjunto de rótulos <span class="math inline">\({1, 2, ..., i, ..., N}\)</span>. Seja <span class="math inline">\({\bf y}_i=(y_{i1},y_{i2},\dots,y_{iJ})&#39;\)</span> um vetor com os valores de <span class="math inline">\(J\)</span> <em>variáveis de pesquisa</em> para a unidade <span class="math inline">\(i \in U\)</span>.</p>
+<p>Uma <em>amostra aleatória</em> <span class="math inline">\(s\subset U\)</span> é selecionada, e os valores de <span class="math inline">\({\bf y}_i\)</span> para <span class="math inline">\(i \in s\)</span> são observados para fazer inferência sobre alguns <em>parâmetros populacionais</em> de interesse. Suponha por hora que seja possível observar as <em>respostas</em> <span class="math inline">\({\bf y}_i\)</span> para <em>todas</em> as unidades da amostra selecionada (resposta completa).</p>
+<p>O <em>alvo de inferência</em> que vamos considerar inicialmente é o <em>total populacional</em> definido como:</p>
+<p><span class="math display" id="eq:eqcal1">\[
+{\bf T}_y = \sum_{i \in U}{\bf y}_i\,\,\tag{13.1}
+\]</span></p>
+<p>Um estimador ‘padrão’ para este total é o estimador HT (<span class="citation">Horvitz e Thompson (1952)</span>) definido por:</p>
+<p><span class="math display" id="eq:eqcal2">\[
+{\bf\widehat T}_y = \sum_{i \in s}d_i{\bf y}_i\,\,\tag{13.2}
+\]</span></p>
+<p>onde <span class="math inline">\(d_i\)</span> são <em>pesos amostrais do desenho</em> dados por <span class="math inline">\(d_i = \pi_i^{-1}\)</span>, sendo <span class="math inline">\(\pi_i = P(i \in s)\)</span> a <em>probabilidade de inclusão</em> da unidade <span class="math inline">\(i\)</span> na amostra <span class="math inline">\(s\)</span>.</p>
+<p>Seja <span class="math inline">\({\bf x}_i = (x_{i1}, x_{i2}, \dots, x_{iQ})&#39;\)</span> um vetor com os valores de <span class="math inline">\(Q\)</span> <em>variáveis auxiliares</em> para a unidade <span class="math inline">\(i\)</span>.</p>
+<p>Quando os <em>totais populacionais</em> das variáveis auxiliares <span class="math inline">\({\bf T}_x\)</span> são <em>conhecidos exatamente</em>, isto é, quando sabemos o valor de <span class="math inline">\({\bf T}_x = \sum_{i \in U}{\bf x}_i\)</span> podemos usar esta informação para obter estimadores mais eficientes que <span class="math inline">\({\bf \widehat T}_y\)</span> para o total das variáveis de pesquisa <span class="math inline">\({\bf T}_y\)</span>. Trata-se do uso de informações auxiliares na etapa de estimação da pesquisa.</p>
+<p>O estimador HT para o total das variáveis auxiliares dado por <span class="math inline">\({\bf \widehat T}_x = \sum_{i \in s} d_i {\bf x}_i\)</span> vai diferir do total populacional conhecido <span class="math inline">\({\bf T}_x = \sum_{i \in U} {\bf x}_i\)</span>. Esta diferença é o chamado <em>erro de calibração</em>.</p>
+<p>Na <em>estimação de calibração</em>, a ideia básica é que as estimativas amostrais do total populacional das variáveis auxiliares podem ser <em>calibradas</em> para igualarem os totais populacionais conhecidos <span class="math inline">\({\bf T}_x\)</span>, de tal forma que o <em>erro de calibração</em> seja eliminado.</p>
+<p>Isto pode ser feito modificando os pesos amostrais <span class="math inline">\(d_i\)</span> usados no estimador HT usando um <em>estimador calibrado</em> tal que os <em>novos pesos</em> <span class="math inline">\((w_i)\)</span> permitam reproduzir exatamente os totais populacionais conhecidos, definido por:</p>
+<p><span class="math display" id="eq:eqcal3">\[
+{\bf \widehat T}_x^C = \sum_{i \in s} w_i {\bf x}_i = {\bf T}_x \,\, \tag{13.3}
+\]</span></p>
+<p>onde <span class="math inline">\({w_i,\, i \in s,}\)</span> são <em>pesos calibrados</em> satisfazendo:</p>
+<p><span class="math display" id="eq:eqcal4">\[
+{\bf \widehat T}_x^C - {\bf T}_x = \sum_{i \in s} w_i {\bf x}_i - {\bf T}_x = 0 \,\, \tag{13.4}
+\]</span></p>
+<p>As condições da Expressão <a href="calib.html#eq:eqcal4">(13.4)</a> são chamadas de <em>restrições de calibração</em>. A ideia é que, se os <em>pesos calibrados</em> <span class="math inline">\({w_i, \,i \in s},\)</span> tiverem sucesso em reduzir ou evitar erros ao ‘estimar’ os totais <span class="math inline">\(x\)</span>, eles também podem reduzir o erro ao estimar os totais <span class="math inline">\(y\)</span>, usando o estimador de calibração:</p>
+<p><span class="math display" id="eq:eqcal5">\[
+{\bf \widehat T}_y^C = \sum_{i \in s}w_i{\bf y}_i \,\,\tag{13.5}
+\]</span></p>
+<p>Os pesos calibrados <span class="math inline">\({w_i,\, i \in s},\)</span> podem depender de todas as informações disponíveis sobre as variáveis auxiliares <span class="math inline">\(x\)</span>, mas não das variáveis de pesquisa <span class="math inline">\(y\)</span>. Se este for o caso, então <span class="math inline">\({\bf \widehat T}_y^C\)</span> é um estimador linear de <span class="math inline">\({\bf T}_y\)</span>.</p>
+<p>Neste capítulo, nos concentramos nos estimadores de <em>calibração para total</em> da forma da Expressão <a href="calib.html#eq:eqcal5">(13.5)</a>, ou seja, estimadores lineares definidos por conjuntos de pesos <span class="math inline">\({w_i, \,i \in s},\)</span> satisfazendo as <em>restrições de calibração para totais</em> dadas pela Expressão <a href="calib.html#eq:eqcal4">(13.4)</a>.</p>
+<p>Outras formas de restrições de calibração podem ser consideradas, como calibração para momentos de ordem mais alta ou até mesmo para a função de distribuição de população finita das variáveis auxiliares - ver a discussão na seção 10 em <span class="citation">Chambers (1997)</span>. Entretanto, essas outras formas de estimadores de calibração não são consideradas aqui e, por simplicidade, seguiremos a denominação simples predominante dos estimadores definidos por <a href="calib.html#eq:eqcal5">(13.5)</a> com pesos que satisfazem a Expressão <a href="calib.html#eq:eqcal4">(13.4)</a> como <em>estimadores de calibração</em>.</p>
+<p>Um grande número de conjuntos de pesos <span class="math inline">\(\{w_i,\, i \in s\}\)</span> pode satisfazer as restrições de calibração. Uma maneira de selecionar aqueles que levam a conjuntos de pesos ‘razoáveis’ a serem usados para estimar totais para as variáveis <span class="math inline">\(y\)</span> é pensar nos pesos de calibração <span class="math inline">\(w_i\)</span> como modificações nos pesos do desenho <span class="math inline">\(d_i\)</span> que <em>não diferem muito</em> dos pesos originais. Isso se justifica porque o uso dos pesos originais de desenho <span class="math inline">\(d_i\)</span> dados pelo estimador HT assegura propriedades desejáveis, como <em>estimação não viciada e consistente</em> do total (no sentido de que, à medida que o tamanho da amostra aumenta, o estimador HT do total converge em probabilidade em direção ao alvo correto <span class="math inline">\({\bf T}_y\)</span>).</p>
+</div>
+<div id="estreg" class="section level2">
+<h2><span class="header-section-number">13.3</span> Estimadores de regressão como estimadores de calibração</h2>
+<p>Em <span class="citation">Särndal, Swensson, e Wretman (1992)</span> foi definida uma família de estimadores de calibração ‘clássica’ para <span class="math inline">\({\bf T}_y\)</span>, onde os pesos <span class="math inline">\(w_i\)</span> são escolhidos de tal forma que as funções de distância especificadas que medem a distância entre o <span class="math inline">\(w_i\)</span> e <span class="math inline">\(d_i\)</span> são minimizadas.</p>
+<p>A ideia é resolver o problema de encontrar <em>novos pesos</em> <span class="math inline">\(\{w_i,\, i \in s\}\)</span> que <em>minimizem a distância</em> para os pesos originais:</p>
+<p><span class="math display" id="eq:eqcal6">\[
+D({\bf w};{\bf d}) = \sum_{i \in s} G_i(w_i,d_i) \,\, \tag{13.6}
+\]</span>
+tal que os totais estimados das variáveis auxiliares com os novos pesos <span class="math inline">\(w_i\)</span> satisfaçam as <em>restrições de calibração</em> definidas em <a href="calib.html#eq:eqcal4">(13.4)</a>, isto é, tal que não ocorra <em>erro de calibração</em>.</p>
+<p>Os <em>estimadores de regressão como estimadores de calibração</em> são definidos quando:</p>
+<p><span class="math display" id="eq:eqcal7">\[
+G_i(w_i,d_i) = \frac{(w_i - d_i)^2}{q_i d_i}, \,\, \forall\, i \in s \,\, \tag{13.7}
+\]</span>
+para algumas constantes conhecidas <span class="math inline">\(q_i &gt; 0, \, i \in s\)</span>. Neste caso, <em>a solução</em> do problema é dada por:</p>
+<p><span class="math display" id="eq:eqcal8">\[
+w_i = d_i \times g_i \,\, \tag{13.8}
+\]</span>
+onde:
+<span class="math display" id="eq:eqcal9">\[
+g_i = 1 + ({\bf T}_x -{\bf \widehat T}_x)&#39; \left( \sum_{i \in s} d_i q_i {\bf x}_i {\bf x}_i&#39; \right)^{-1} q_i {\bf x}_i \,\, \tag{13.9}
+\]</span>
+Os pesos dados por <a href="calib.html#eq:eqcal8">(13.8)</a> e <a href="calib.html#eq:eqcal9">(13.9)</a> são exatamente os obtidos quando se emprega um <em>estimador de regressão generalizado (‘Generalized Regression’ - GREG)</em> motivado pelo seguinte <em>modelo de superpopulação</em>:</p>
+<p><span class="math display" id="eq:eqcal10">\[
+\xi \begin{cases} y_{ij} = {\bf x&#39;}_i{\bf B}_j + E_{ij} \\
+V_{\xi} \left( E_{ij} \right) = \sigma_j^2/q_i \end{cases} \,\, i \in U;\, j=1,\dots,J \,\, \tag{13.10}
+\]</span>
+com os coeficientes de regressão da população definidos por:
+<span class="math display" id="eq:eqcal11">\[
+{\bf B}_j = \left( \sum_{i \in U} q_i {\bf x}_i {\bf x}&#39;_i \right)^{-1} \left( \sum_{i \in U} q_i {\bf x}_i y_{ij} \right) \,\, \tag{13.11}
+\]</span>
+e <span class="math inline">\(E_{ij}\)</span> como sendo o erro do modelo de regressão <span class="math inline">\(\xi\)</span> para a variável de pesquisa <span class="math inline">\(y_j\)</span>. Os erros do modelo são supostos independentes para unidades <span class="math inline">\(i \ne k \in U\)</span>.</p>
+<p>Sob o modelo definido em <a href="calib.html#eq:eqcal10">(13.10)</a>, o <em>estimador GREG</em> para o total da variável <span class="math inline">\(y_j\)</span>, de acordo com <span class="citation">Särndal, Swensson, e Wretman (1992)</span>, página 234, pode ser escrito como:</p>
+<p><span class="math display" id="eq:eqcal12">\[
+\widehat T_{y_j}^C = \sum_{i \in s} w_i y_{ij} = \sum_{i \in s} d_i g_i y_{ij} = \widehat T_{y_j} + \left( {\bf T}_x - {\bf \widehat T}_x \right)&#39; {\bf\widehat  B}_j \,\, \tag{13.12}
+\]</span>
+onde os <em>coeficientes do modelo</em> são estimados por:
+<span class="math display" id="eq:eqcal13">\[
+{\bf \widehat B}_j = \left(\sum_{i \in s} d_i q_i {\bf x}_i {\bf x}&#39;_i \right)^{-1} \left(\sum_{i \in s} d_i q_i {\bf x}_i y_{ij} \right) \,\, \tag{13.13}
+\]</span>
+Uma questão prática importante é a <em>escolha das constantes</em> <span class="math inline">\(\{ q_i,\, i \in s \}\)</span> que serão usadas para obter os pesos <span class="math inline">\(\{ w_i, \,i \in s \}\)</span>. Na prática, é comum adotar o <em>mesmo conjunto de constantes</em> <span class="math inline">\(\{ q_i,\, i \in s \}\)</span> <em>para todas as variáveis de pesquisa</em>, de modo a ter um <em>único conjunto de pesos</em> <span class="math inline">\(\{ w_i,\, i \in s \}\)</span> para cada pesquisa. Se os mesmos pesos <span class="math inline">\(\{ w_i, \,i \in s \}\)</span> propostos forem usados para <em>todas</em> as variáveis de pesquisa, então as mesmas constantes <span class="math inline">\(\{ q_i, \,i \in s \}\)</span> serão usadas para todas as variáveis. Em muitas aplicações, isso não seria um problema, já que uma escolha comum é tornar todas essas constantes iguais, ou seja, <span class="math inline">\(q_ i= 1, \,\,\forall i\, \in s\)</span>.</p>
+<p>Em alguns casos, as diferentes variáveis <span class="math inline">\(y\)</span> podem ter resíduos da regressão linear da população nas variáveis auxiliares que mostram diferentes padrões de heteroscedasticidade. Nestes casos, os diferentes conjuntos de valores para as constantes <span class="math inline">\(q_i\)</span> necessários para representarem adequadamente esses padrões podem levar a diferentes conjuntos de pesos calibrados, para cada conjunto específico de uma ou mais variáveis de pesquisa. Por um lado, usar <em>pesos distintos para cada variável</em> pode ser justificado com base em maior eficiência resultante de modelos mais aderentes para estimar o total de cada variável de pesquisa <span class="math inline">\(y_j\)</span>. Por outro lado, isso levaria a possíveis problemas de coerência na estimação de certos parâmetros populacionais. Por exemplo, para estimar razões de totais, sempre que os pesos usados para estimar o total do numerador fossem distintos dos pesos usados para estimar o total do denominador. Outra incoerência surge quando estimativas ponderadas de partes de uma soma podem não corresponder à estimativa ponderada do total para a soma das partes.</p>
+<p>Portanto, a ideia de usar diferentes conjuntos de pesos para diferentes variáveis <span class="math inline">\(y\)</span> é pouco atraente e raramente aplicada na prática. Embora isso não seja um requisito para a definição de estimadores de calibração, assumimos a partir de agora que a derivação dos pesos de calibração é feita com o objetivo de usar um único conjunto de pesos calibrados <span class="math inline">\(\{ w_i,\, i \in s \}\)</span> para estimar totais de todas as variáveis de pesquisa.</p>
+</div>
+<div id="razões-para-calibração" class="section level2">
+<h2><span class="header-section-number">13.4</span> Razões para calibração</h2>
+<p>Os estimadores de calibração possuem algumas boas propriedades. Primeiro, os pesos de calibração de acordo com a Expressão <a href="calib.html#eq:eqcal4">(13.4)</a> fornecem estimativas amostrais para os totais das variáveis auxiliares que correspondem exatamente aos totais populacionais conhecidos para essas variáveis. Portanto, se os totais populacionais das variáveis auxiliares tiverem sido publicados antes que os resultados da pesquisa sejam produzidos, a calibração garantirá que as estimativas da pesquisa sejam <em>coerentes</em> com as já existentes no domínio público. Essa propriedade, embora não seja essencial, é uma das razões dominantes pelas quais a calibração é usada com frequência na prática de pesquisa.</p>
+<p>A segunda propriedade é a sua <em>simplicidade</em>, ou seja, o fato de que o estimador de calibração é linear. Isso significa que cada registro de pesquisa pode ter um único peso a ser usado para estimar todas as variáveis da pesquisa. O cálculo das estimativas para totais, médias, proporções e muitos outros parâmetros é simples, usando um <em>software</em> estatístico padrão. No caso das funções de distância definidas pelas Expressões <a href="calib.html#eq:eqcal6">(13.6)</a> e <a href="calib.html#eq:eqcal7">(13.7)</a>, os pesos calibrados são dados em uma expressão de forma fechada e são fáceis de calcular usando um <em>software</em> estatístico padrão.</p>
+<p>A terceira propriedade de tais estimadores de calibração é sua <em>flexibilidade</em> para incorporar informações auxiliares que podem incluir variáveis contínuas, categóricas ou de ambos os tipos ao mesmo tempo. Se os totais auxiliares representam contagens dos números de unidades populacionais em certas classes de variáveis categóricas (discretas), então os valores das variáveis <span class="math inline">\(x\)</span> são simplesmente indicadores de que as unidades são membros das classes correspondentes. A classificação cruzada de duas ou mais variáveis categóricas também pode ser facilmente acomodada pela definição de variáveis indicadoras para as respectivas combinações de categorias.</p>
+<p>Os estimadores de calibração também conferem algum grau de <em>integração</em> aos processos de estimação, no sentido de que vários estimadores amplamente usados são casos particulares. Por exemplo, estimadores de razão, de regressão, de pós-estratificação (ver capítulo 7 de <span class="citation">Särndal, Swensson, e Wretman (1992)</span>), bem como de <em>raking</em> ou de pós-estratificação multivariada incompleta (ver <span class="citation">Bethlehem e Keller (1987)</span>) podem todos ser obtidos como casos particulares da família de estimadores de calibração definida aqui.</p>
+<p>Os estimadores de calibração, sob certas hipóteses, também podem oferecer alguma proteção contra o <em>vício de não resposta</em> e permitir a obtenção de <em>estimativas mais precisas</em> de totais. Ver, por exemplo, <span class="citation">Särndal e Lundström (2005)</span>.</p>
+<p>A pós-estratificação e a estimação de regressão são amplamente usadas para tentar reduzir o vício de não resposta em pesquisas por amostragem. O estimador de regressão (calibração) será aproximadamente não viciado quando o modelo de regressão definido em <a href="calib.html#eq:eqcal10">(13.10)</a> for adequado e o mecanismo combinado de amostragem e resposta for ignorável, dado o conjunto de variáveis <span class="math inline">\(x\)</span> para as quais informações populacionais auxiliares estão disponíveis (ver, por exemplo, <span class="citation">Bethlehem (1988)</span>, <span class="citation">Särndal e Lundström (1999)</span>, o capítulo 15 de <span class="citation">Särndal, Swensson, e Wretman (1992)</span>, e <span class="citation">Särndal e Lundström (2005)</span>).</p>
+<p>Todas essas razões são argumentos poderosos para usar a calibração. No entanto, ao fazer isso, os usuários também devem estar cientes de alguns problemas ou dificuldades que podem ser encontrados. Primeiro, notamos que os estimadores de calibração não são exatamente não viciados. De fato, o vício do estimador de calibração é dado por:</p>
+<p><span class="math display" id="eq:eqcal14">\[
+E({\bf \widehat T}_{y}^C - {\bf T}_y) = E \left[\sum_{i \in s} (w_i - d_i) {\bf y}_i \right] \,\, \tag{13.14}
+\]</span></p>
+<p>A Tabela <a href="calib.html#tab:tabcalib1">13.1</a> apresenta uma comparação dos estimadores HT e de calibração.</p>
+<table>
+<caption>
+<span id="tab:tabcalib1">Tabela 13.1: </span>Comparação dos estimadores HT e de calibração
+</caption>
+</table>
+<center>
+<table>
+<colgroup>
+<col width="9%" />
+<col width="2%" />
+<col width="41%" />
+<col width="46%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Descrição</th>
+<th></th>
+<th align="left">Estimador HT</th>
+<th align="left">Estimador de Calibração</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Pesos</td>
+<td></td>
+<td align="left"><span class="math inline">\(\{d_i,\, i \in s\}\)</span></td>
+<td align="left"><span class="math inline">\(\{w_i, \,i \in s\}\)</span></td>
+</tr>
+<tr class="even">
+<td align="left">Vício</td>
+<td></td>
+<td align="left">0</td>
+<td align="left"><span class="math inline">\(E\left( \displaystyle \sum_{i \in s} (w_i - d_i) y_{ij} \right)\)</span></td>
+</tr>
+<tr class="odd">
+<td align="left">Variância</td>
+<td></td>
+<td align="left"><span class="math inline">\(\displaystyle V_p \left(\sum_{i\in s}d_i y_{ij}\right)\)</span></td>
+<td align="left"><span class="math inline">\(V_p \left( \displaystyle \sum_{i \in s} w_i E_{ij} \right)\)</span></td>
+</tr>
+</tbody>
+</table>
+</center>
+<p>Se os pesos calibrados estiverem ‘próximos’ dos pesos básicos do desenho para todas as amostras, então o vício será insignificante ou próximo de zero. Isto sustenta o critério usado para definir os pesos de calibração <span class="math inline">\(w_i\)</span>, que requer que sua distância aos pesos <span class="math inline">\(d_i\)</span> seja minimizada. No entanto, para amostras pequenas ou moderadas, é preciso estar ciente da possibilidade de enfrentar uma certa quantidade de vício.</p>
+<p>Se os erros <span class="math inline">\(E_{ij}\)</span> do modelo definido em <a href="calib.html#eq:eqcal10">(13.10)</a> forem ‘menos espalhados’ que os valores <span class="math inline">\(y_{ij}\)</span>, então:</p>
+<p><span class="math display" id="eq:eqcal15">\[
+V_p \left( \displaystyle \sum_{i \in s} w_i E_{ij} \right) &lt; V_p \left( \displaystyle \sum_{i \in s} d_i y_{ij} \right) \,\, \tag{13.15}
+\]</span></p>
+<p>Podemos então observar que o estimador de calibração (regressão) terá um bom desempenho em termos de precisão quando a variância dos resíduos do modelo de regressão definido pela Expressão <a href="calib.html#eq:eqcal10">(13.10)</a> for pequena em comparação com a da variável <span class="math inline">\(y\)</span> original. Este será o caso quando a relação linear especificada em <span class="math inline">\(\xi\)</span> for uma boa aproximação para a regressão de <span class="math inline">\(y\)</span> em <span class="math inline">\(\bf x\)</span> e as variáveis <span class="math inline">\(\bf x\)</span> no estimador de regressão tiverem bom poder preditivo para <span class="math inline">\(y\)</span>. Os dois gráficos da Figura <a href="calib.html#fig:figcalib1">13.1</a> ilustram essa ideia. Neste exemplo, os resíduos do estimador de regressão para o modelo <span class="math inline">\(E_{\xi}(y_j) = {\bf x&#39; B}_j\)</span> têm variância menor do que a variável <span class="math inline">\(y_j\)</span> original (modelo implícito <span class="math inline">\(E_{\xi}(y_j) = {\bf B}_j\)</span>), levando ao estimador de regressão com menor variância aproximada do que a variância do estimador de HT para amostras do mesmo tamanho.</p>
+<center>
+<div class="figure"><span id="fig:figcalib1"></span>
+<img src="Figuras/Figcalib1.PNG" alt="Residuos para o modelo de regressão da população para os estimadores de HT (esquerda) e de calibração (direita)" width="100%" />
+<p class="caption">
+Figura 13.1: Residuos para o modelo de regressão da população para os estimadores de HT (esquerda) e de calibração (direita)
+</p>
+</div>
+</center>
+<p><strong>Exemplo 13.1 </strong> Considere o gráfico que ilustra, para a população de fazendas de cana-de-açúcar, a relação entre a quantidade produzida, <span class="math inline">\(y\)</span>, e a área plantada, <span class="math inline">\(x\)</span>.</p>
+<center>
+<div class="figure"><span id="fig:figcalib2"></span>
+<img src="Figuras/Figcalib2.PNG" alt="Regressão linear para a população de fazendas de cana-de-açúcar" width="60%" />
+<p class="caption">
+Figura 13.2: Regressão linear para a população de fazendas de cana-de-açúcar
+</p>
+</div>
+</center>
+<p>Usando uma amostra aleatória simples com <span class="math inline">\(n=50\)</span> fazendas, estimamos os totais populacionais das variáveis Quant, Receita e Despesa para as fazendas de cana-de-açúcar por dois métodos: estimador HT e estimador de regressão (GREG) considerando a variável Area como variável auxiliar. A Tabela <a href="calib.html#tab:tabcalib2">13.2</a> apresenta as estimativas dos totais e dos respectivos erros padrão e coeficientes de variação (CV).</p>
+<table>
+<caption><span id="tab:tabcalib2">Tabela 13.2: </span>Estimativas de totais, erros padrão e coeficientes de variação (CV) usando os estimadores HT e de regressão (GREG) para variáveis selecionadas</caption>
+<thead>
+<tr class="header">
+<th align="left">Variável</th>
+<th align="right">Total HT</th>
+<th align="right">Total GREG</th>
+<th align="right">Erro Padrão HT</th>
+<th align="right">Erro Padrão GREG</th>
+<th align="right">CV HT</th>
+<th align="right">CV GREG</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Área</td>
+<td align="right">18.015</td>
+<td align="right">20.364</td>
+<td align="right">1.699</td>
+<td align="right">0</td>
+<td align="right">9,43</td>
+<td align="right">0,00</td>
+</tr>
+<tr class="even">
+<td align="left">Quantidade</td>
+<td align="right">1.236.046</td>
+<td align="right">1.375.931</td>
+<td align="right">111.997</td>
+<td align="right">55.658</td>
+<td align="right">9,06</td>
+<td align="right">4,05</td>
+</tr>
+<tr class="odd">
+<td align="left">Receita</td>
+<td align="right">29.957.792</td>
+<td align="right">33.915.479</td>
+<td align="right">3.123.624</td>
+<td align="right">1.439.641</td>
+<td align="right">10,43</td>
+<td align="right">4,24</td>
+</tr>
+<tr class="even">
+<td align="left">Despesa</td>
+<td align="right">18.480.035</td>
+<td align="right">20.785.241</td>
+<td align="right">1.835.615</td>
+<td align="right">866.154</td>
+<td align="right">9,93</td>
+<td align="right">4,17</td>
+</tr>
+</tbody>
+</table>
+<p>Os resultados mostram a superioridade do estimador de regressão usando Area como variável auxiliar, com redução substancial dos erros padrão (ou CVs).</p>
+<p>Comandos relevantes do R</p>
+<blockquote>
+<p>fazendas.plano = svydesign(data=fazendas.amo, id=~1, fpc=~CPF)</p>
+</blockquote>
+<blockquote>
+<p>Totais.HT = svytotal(design=fazendas.plano, ~Area + Quant + Receita + Despesa)</p>
+</blockquote>
+<blockquote>
+<p>fazendas.calib1 = calibrate(fazendas.plano, formula=~Area, population=Totais.pop)</p>
+</blockquote>
+<blockquote>
+<p>Totais.GREG = svytotal(design=fazendas.calib1, ~Area + Quant + Receita + Despesa)</p>
+</blockquote>
+<p><strong>Exemplo 13.2 </strong> Usando a mesma amostra aleatória simples com <span class="math inline">\(n=50\)</span> fazendas, e considerando agora a Regiao como variável auxiliar, estimamos novamente os totais populacionais usando agora os estimadores HT e de pós-estratificação (PS-Região). A Tabela <a href="calib.html#tab:tabcalib3">13.3</a> apresenta as estimativas de total e dos respectivos erros padrão e coeficientes de variação (CV).</p>
+<table>
+<caption><span id="tab:tabcalib3">Tabela 13.3: </span>Estimativas de totais, erros padrão e coeficientes de variação (CV) usando os estimadores HT e pós-estratificação (PS-Região) para variáveis selecionadas</caption>
+<colgroup>
+<col width="11%" />
+<col width="11%" />
+<col width="17%" />
+<col width="15%" />
+<col width="23%" />
+<col width="6%" />
+<col width="13%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Variável</th>
+<th align="right">Total HT</th>
+<th align="right">Total PS-Região</th>
+<th align="right">Erro Padrão HT</th>
+<th align="right">Erro Padrão PS-Região</th>
+<th align="right">CV HT</th>
+<th align="right">CV PS-Região</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Área</td>
+<td align="right">18.015</td>
+<td align="right">18.059</td>
+<td align="right">1.699</td>
+<td align="right">1.501</td>
+<td align="right">9,43</td>
+<td align="right">8,31</td>
+</tr>
+<tr class="even">
+<td align="left">Quantidade</td>
+<td align="right">1.236.046</td>
+<td align="right">1.234.739</td>
+<td align="right">111.997</td>
+<td align="right">104.861</td>
+<td align="right">9,06</td>
+<td align="right">8,49</td>
+</tr>
+<tr class="odd">
+<td align="left">Receita</td>
+<td align="right">29.957.792</td>
+<td align="right">29.719.944</td>
+<td align="right">3.123.624</td>
+<td align="right">2.788.930</td>
+<td align="right">10,43</td>
+<td align="right">9,38</td>
+</tr>
+<tr class="even">
+<td align="left">Despesa</td>
+<td align="right">18.480.035</td>
+<td align="right">18.690.411</td>
+<td align="right">1.835.615</td>
+<td align="right">1.715.898</td>
+<td align="right">9,93</td>
+<td align="right">9,18</td>
+</tr>
+</tbody>
+</table>
+<p>Os resultados mostram pequena redução do CV para o estimador de pós-estratificação por Regiao quando comparado com o estimador HT. Portanto, concluímos que a variável auxiliar Area leva a estimativas mais precisas, com ganhos de eficiência bem maiores que os alcançados com uso da pós-estratificação por Regiao.</p>
+</div>
+<div id="propriedades-dos-estimadores-para-grandes-amostras" class="section level2">
+<h2><span class="header-section-number">13.5</span> Propriedades dos estimadores para grandes amostras</h2>
+<p>Para grandes amostras, os estimadores de calibração definidos pelos pesos de regressão <a href="calib.html#eq:eqcal8">(13.8)</a> e <a href="calib.html#eq:eqcal9">(13.9)</a> são <em>assintoticamente não viciados</em> sob o plano amostral, ou seja:</p>
+<p><span class="math display" id="eq:eqcal16">\[
+\text{Vício}\left(\widehat T_{y_j}^C\right) = E\left[\sum_{i \in s}(w_i - d_i)y_{kj}\right]\longrightarrow 0, \,\,\text{quando}\,\,n\rightarrow\infty\,\,\tag{13.16}
+\]</span></p>
+<p>e têm variância assintótica aproximada (ver <span class="citation">Särndal, Swensson, e Wretman (1992)</span>, página 235) dada por:</p>
+<p><span class="math display" id="eq:eqcal17">\[
+V_p \left( \widehat T_{y_j}^C \right) \doteq \displaystyle \sum_{i \in U} \sum_{k \in U} \left( \frac{d_i d_k}{d_{ik}} - 1 \right) {E_{ij}} {E_{kj}} \,\, \tag{13.17}
+\]</span></p>
+<p>Se o vício for desprezível, podemos comparar essa variância aproximada com a do estimador HT, dada por:</p>
+<p><span class="math display" id="eq:eqcal18">\[
+V_p \left( \widehat T_{y_j} \right) = \displaystyle \sum_{i \in U} \sum_{k \in U} \left( \frac{d_i d_k} {d_{ik}} - 1 \right) {y_{ij}} {y_{kj}} \,\, \tag{13.18}
+\]</span></p>
+<p>Os estimadores de calibração são mais <em>eficientes</em> que o estimador HT sempre que:</p>
+<p><span class="math display" id="eq:eqcal19">\[
+V_p \left( \widehat T_{y_j}^C \right) &lt; V_p \left( \widehat T_{y_j} \right) \,\, \tag{13.19}
+\]</span></p>
+<p>Dois estimadores de variância relativamente diretos estão disponíveis para uso com o estimador de regressão. <span class="citation">Särndal, Swensson, e Wretman (1992)</span>, página 235, recomendam usar o estimador da <em>variância</em> do estimador de calibração:</p>
+<p><span class="math display" id="eq:eqcal20">\[
+\widehat V_g \left( \widehat T_{y_j}^C \right) = \sum_{i \in s} \sum_{k \in s} \left( {d_i d_k} - {d_{ik}} \right) \left(g_i e_{ij} \right) \left(g_k e_{kj} \right) \,\, \tag{13.20}
+\]</span>
+A Expressão <a href="calib.html#eq:eqcal20">(13.20)</a> é similar à do estimador da variância do estimador HT, porém emprega os <em>resíduos</em> <span class="math inline">\(e_{ij} = y_{ij} -{\bf x}&#39;_i {\bf \widehat B}_j\)</span> em lugar dos valores originais da variável <span class="math inline">\((y_{ij})\)</span>, e também emprega os <em>fatores de calibração</em> <span class="math inline">\(g_i\)</span> como multiplicadores dos resíduos.</p>
+<p>Um estimador de variância ainda mais simples que não requer os <em>fatores de calibração</em> é dado por:</p>
+<p><span class="math display" id="eq:eqcal21">\[
+\tilde V_p\left(\widehat T_{y_j}^C\right) = \sum_{i \in s} \sum_{k \in s} \left( {d_i d_k} - {d_{ik}} \right) e_{ij} e_{kj} \,\,\tag{13.21}
+\]</span></p>
+<p>Ambos os estimadores de variância são assintoticamente não viciados de primeira ordem sob o desenho para a variância aproximada do estimador de regressão, mas o estimador da Expressão <a href="calib.html#eq:eqcal20">(13.20)</a> também é aproximadamente não viciado sob o modelo <span class="math inline">\(\xi\)</span> - ver <span class="citation">Särndal, Swensson, e Wretman (1989)</span>.</p>
+<p>Sob <em>Amostragem Aleatória Simples</em> tem-se os dois resultados simplificados:</p>
+<p><span class="math display" id="eq:eqcal22">\[
+V_{AAS} \left( \widehat T_{y_j}^C \right) = N^2 \left( \frac{1}{n} - \frac{1}{N} \right) \frac{1}{N-1} \sum_{i \in U} \left( E_{ij} \right)^2 \,\, \tag{13.22}
+\]</span></p>
+<p>e o correspondente estimador</p>
+<p><span class="math display" id="eq:eqcal23">\[
+\widehat V_{AAS, g} \left( \widehat T_{y_j}^C \right) = N^2 \left( \frac{1}{n} - \frac{1}{N} \right) \frac{1}{n-1} \sum_{i \in s} \left(g_i e_{ij} \right)^2 \,\, \tag{13.23}
+\]</span></p>
+<p><span class="citation">Silva (1996)</span> mostrou que o estimador em <a href="calib.html#eq:eqcal23">(13.23)</a> tem vício de ordem <span class="math inline">\(n^{-5/2}\)</span> para estimar a variância correspondente, enquanto o vício de <a href="calib.html#eq:eqcal21">(13.21)</a> adaptado ao caso da AAS seria de ordem <span class="math inline">\((n-2)\)</span>. Por isso o estimador da Expressão <a href="calib.html#eq:eqcal23">(13.23)</a> deve ser preferido ao derivado da <a href="calib.html#eq:eqcal21">(13.21)</a>. <span class="citation">Holmes e Skinner (2000)</span> apoiam esta visão com base nos resultados de um estudo empírico realizado para comparar estimadores alternativos de variância para a pesquisa sobre a força de trabalho do Reino Unido (<em>UK Labour Force Survey</em>) - UK-LFS.</p>
+</div>
+<div id="razCS" class="section level2">
+<h2><span class="header-section-number">13.6</span> Estimadores de razão como casos particulares da calibração</h2>
+<p>No capítulo <a href="razao.html#razao">6</a> foi apresentado o <em>estimador da razão de totais</em> <span class="math inline">\(\widehat R\)</span> para o caso de uma amostra aleatória simples sem reposição de tamanho <span class="math inline">\(n\)</span>. Aquele estimador é um caso particular do estimador da razão de totais mais geral dado por:</p>
+<p><span class="math display" id="eq:eqcal24">\[
+{\widehat R} = \frac {\widehat Y} {\widehat X}  = \frac {\sum_{i \in s} d_i y_i} {\sum_{i \in s} d_i x_i} \,\, \tag{13.24}
+\]</span>
+onde <span class="math inline">\(\widehat Y\)</span> e <span class="math inline">\(\widehat X\)</span> são os estimadores de Horvitz-Thompson para os totais de variáveis <span class="math inline">\(y\)</span> e <span class="math inline">\(x\)</span>, respectivamente.</p>
+<p>Quando a variável <span class="math inline">\(x\)</span> é estritamente positiva <span class="math inline">\((x_i &gt; 0, \,\, \forall \,i \in U)\)</span>, e seu total populacional <span class="math inline">\(X = \sum_{i \in U} x_i\)</span> é conhecido, pode-se empregar o <em>estimador tipo razão</em> do total <span class="math inline">\(Y\)</span> dado por:</p>
+<p><span class="math display" id="eq:eqcal25">\[
+{\widehat Y}^R = X \times \widehat R = \frac X {\widehat X} \, {\widehat Y} = \sum_{i \in s} w_i y_i \,\, \tag{13.25}
+\]</span>
+para estimar o total populacional <span class="math inline">\(Y\)</span>, onde <span class="math inline">\(w_i = d_i \times X / {\widehat X}\)</span>.</p>
+<p>O <em>estimador tipo razão</em> do total <span class="math inline">\({\widehat Y}^R\)</span> pode ser obtido como caso particular do <em>estimador de calibração</em> e também do <em>estimador de regressão</em> quando se considera no vetor de variáveis auxiliares apenas uma variável auxiliar <span class="math inline">\(x\)</span> de valores estritamente positivos, cujos totais conhecido e estimado aparecem no estimador, e definindo as constantes <span class="math inline">\(q_i = 1/x_i\)</span> em função dessa variável - ver o Exemplo 1 em <span class="citation">Deville e Särndal (1992)</span>. Esta definição das constantes corresponde a um caso particular do modelo de regressão <span class="math inline">\(\xi\)</span> sem intercepto, onde <span class="math inline">\(x\)</span> é a única variável preditora e a variância dos erros é proporcional a <span class="math inline">\(x_i\)</span> - ver a Seção 7.3 de <span class="citation">Särndal, Swensson, e Wretman (1992)</span>.</p>
+<p>Estimadores tipo razão são frequentemente usados em amostragem, pois permitem ganhos de eficiência em comparação com o estimador de Horvitz-Thompson em muitas situações práticas. Os casos onde os ganhos de eficiência são maiores ocorrem quando a regressão de <span class="math inline">\(y\)</span> tendo a variável auxiliar <span class="math inline">\(x\)</span> como única preditora passa pela origem e tem bom poder preditivo.</p>
+<p>No caso da <em>amostragem estratificada</em>, há dois estimadores tipo razão usuais para o total populacional <span class="math inline">\((Y)\)</span>:</p>
+<ul>
+<li><p><em>estimador de razão combinada</em>; e</p></li>
+<li><p><em>estimador de razão separada</em>.</p></li>
+</ul>
+<p>Considere então, o problema de estimar o total <span class="math inline">\(Y\)</span> a partir de uma amostra estratificada simples selecionada de uma população com <span class="math inline">\(H\)</span> estratos de tamanhos <span class="math inline">\(N_h\)</span> <span class="math inline">\((h=1,\dots,L)\)</span>, tendo sido selecionadas <span class="math inline">\(n_h\)</span> unidades e investigadas as variáveis <span class="math inline">\(x\)</span> e <span class="math inline">\(y\)</span> em cada unidade da amostra de cada estrato.</p>
+<div id="estimador-de-razão-combinada-sob-aes" class="section level3">
+<h3><span class="header-section-number">13.6.1</span> Estimador de razão combinada sob AES</h3>
+<p>O <em>estimador de razão combinada</em> <span class="math inline">\(\widehat Y_{AES}^{RC}\)</span> para o total populacional <span class="math inline">\(Y\)</span> sob AES é definido por:</p>
+<p><span class="math display" id="eq:eqcal26">\[
+{\widehat Y}_{AES}^{RC} = \frac{X}{\widehat X_{AES}} \times \widehat Y_{AES} \tag{13.26}
+\]</span>
+Como já discutido no capítulo <a href="razao.html#razao">6</a>, estimadores tipo razão têm vício técnico, mas este desaparece com amostras grandes. Apesar disso, em muitos casos o estimador tipo razão é preferível ao estimador de Horvitz-Thompson por que tem melhor precisão. Entretanto, esta afirmação só é verdadeira quando se consegue tornar desprezível o vício do estimador de razão. De acordo com <span class="citation">Cochran (1977)</span>, é usual considerar o vício desprezível quando <span class="math inline">\(CV(\widehat X_{AES}) \leq 0,10\)</span>.</p>
+<p>Não se dispõe de uma expressão exata para a variância do estimador de razão combinada. Porém, se a amostra for de tamanho suficientemente grande para tornar o vício desprezível, pode-se usar a expressão aproximada para a variância de <span class="math inline">\({\widehat Y}_{AES/RC}\)</span> dada por <span class="citation">Cochran (1977)</span>, página 166:</p>
+<p><span class="math display" id="eq:eqcal27">\[
+V({\widehat Y}_{AES}^{RC}) \doteq \displaystyle \sum_{h=1}^{H} N_h^2 \left( \frac {1}{n_h} -  \frac {1}{N_h} \right) S_{h,r}^2 \tag{13.27}
+\]</span></p>
+<p>onde <span class="math inline">\(r_i = y_i - R x_i\)</span>, <span class="math inline">\(R = {Y}/{X}\)</span>, <span class="math inline">\(S_{h,r}^2 = \displaystyle \frac{1}{N_h-1} \displaystyle \sum_{i \in U_h} (r_i - \overline R_h)^2\)</span> e <span class="math inline">\(\overline R_h = \displaystyle\frac{1}{N_h}\sum_{i \in U_h} r_i\)</span>.</p>
+<p>Um estimador consistente da variância aproximada <span class="math inline">\(V({\widehat Y}_{AES}^{RC})\)</span> é dado por:</p>
+<p><span class="math display" id="eq:eqcal28">\[
+\widehat V({\widehat Y}_{AES}^{RC}) = \displaystyle \sum_{h=1}^{H} N_h^2 \left( \frac {1}{n_h} -  \frac {1}{N_h} \right) s_{h,r}^2 \tag{13.28}
+\]</span>
+onde <span class="math inline">\(s_{h,r}^2 = \displaystyle \frac{1}{n_h-1} \displaystyle \sum_{i \in s_h} (\widehat r_i - \overline r_h)^2\)</span>, <span class="math inline">\(\widehat r_i = y_i - \widehat R x_i\)</span>, <span class="math inline">\(\widehat R = \widehat Y_{AES}/\widehat X_{AES}\)</span> e <span class="math inline">\(\overline r_h = \displaystyle\frac{1}{n_h} \sum_{i \in s_h} \widehat r_i\)</span>.</p>
+</div>
+<div id="estimador-de-razão-separada-sob-aes" class="section level3">
+<h3><span class="header-section-number">13.6.2</span> Estimador de razão separada sob AES</h3>
+<p>Uma outra forma de utilizar estimadores tipo razão para conseguir maior precisão sob amostragem estratificada simples é através do chamado <em>estimador de razão separada</em> <span class="math inline">\(\widehat Y_{AES}^{RS}\)</span> para estimar o total populacional <span class="math inline">\(Y\)</span> dado por:</p>
+<p><span class="math display" id="eq:eqcal29">\[
+\widehat Y_{AES}^{RS} = \displaystyle \sum_{h=1}^{H} \frac{X_h}{\widehat X_h} \widehat Y_h \tag{13.29}
+\]</span></p>
+<p>sendo <span class="math inline">\(X_h = \displaystyle \sum_{i \in U_h} x_i\)</span> o total conhecido da variável <span class="math inline">\(x\)</span> no estrato <span class="math inline">\(h\)</span>, <span class="math inline">\(\widehat X_h = \displaystyle \frac{N_h}{n_h} \sum_{i \in s_h} x_i\)</span> e <span class="math inline">\(\widehat Y_h = \displaystyle \frac{N_h}{n_h} \sum_{i \in s_h} y_i\)</span>.</p>
+<p>A principal diferença do estimador de razão separada para o estimador de razão combinada está no nível em que se faz o uso da estimação por razão: no estimador de razão separada são feitas razões em cada um dos estratos, enquanto no estimador de razão combinada uma única razão é feita para o estimador de total.</p>
+<p>Quanto ao vício, este estimador precisa ser analisado com maior cuidado, porque depende de razões construídas em cada um dos estratos. Se os tamanhos de amostra em cada estrato <span class="math inline">\((n_h)\)</span> forem suficientemente grandes, pode-se admitir que o vício de <span class="math inline">\(\widehat Y_{AES}^{RS}\)</span> é desprezível. Caso isto não aconteça o uso deste estimador não é aconselhável.</p>
+<p>De acordo com <span class="citation">Cochran (1977)</span>, página 165, o uso do estimador de razão separada deve ser evitado sempre que:</p>
+<p><span class="math display">\[
+\sqrt H\, max_h [{CV_{AES}(\widehat X_h)}] &gt; 0,30
+\]</span></p>
+<p>Supondo que os tamanhos de amostra em cada estrato <span class="math inline">\(n_h\)</span> são suficientemente grandes, a variância de <span class="math inline">\(\widehat Y_{AES}^{RS}\)</span> pode ser aproximada por:</p>
+<p><span class="math display" id="eq:eqcal30">\[
+V(\widehat Y_{AES}^{RS}) \doteq \displaystyle \sum_{h=1}^{H} \sum_{h=1}^{H} N_h^2 \left( \frac {1}{n_h} -  \frac {1}{N_h} \right) S_{h,r}^2 \tag{13.30}
+\]</span></p>
+<p>onde agora <span class="math inline">\(r_i = y_i - R_h x_i\)</span>, <span class="math inline">\(R_h = {Y_h}/{X_h}\)</span> e <span class="math inline">\(S_{h,r}^2 = \displaystyle \frac{1}{N_h-1} \displaystyle \sum_{i \in U_h} (r_i - \overline R_h)^2\)</span>.</p>
+<p>Um estimador de <span class="math inline">\(V(\widehat Y_{AES}^{RS})\)</span> é dado por:</p>
+<p><span class="math display" id="eq:eqcal31">\[
+\widehat V(\widehat Y_{AES}^{RS}) = \displaystyle \sum_{h=1}^{H} N_h^2 \left( \frac {1}{n_h} -  \frac {1}{N_h} \right)s_{h,r}^2 \tag{13.31}
+\]</span>
+com <span class="math inline">\(\widehat r_i = y_i - \widehat R_h x_i\)</span>, <span class="math inline">\(\widehat R_h = \widehat Y_h / \widehat X_h\)</span> e <span class="math inline">\(s_{h,r}^2 = \displaystyle \frac{1}{n_h-1} \displaystyle \sum_{i \in s_h} r_i^2\)</span>.</p>
+</div>
+<div id="comparação-dos-estimadores-de-razão-combinada-e-separada" class="section level3">
+<h3><span class="header-section-number">13.6.3</span> Comparação dos estimadores de razão combinada e separada</h3>
+<p>Em geral, para amostras de tamanhos idênticos, o <em>estimador de razão combinada</em> deve ter vício menor que o <em>estimador de razão separada</em>. Em ambos os casos, os tamanhos de amostra que garantam um vício desprezível podem ser determinados examinando-se a precisão estimada para os totais da variável usada no denominador da razão.</p>
+<p>Os dois estimadores serão igualmente precisos se <span class="math inline">\(R_h = R, \,\, \forall\, h\)</span>, para todos os estratos. A medida que os <span class="math inline">\(R_h\)</span> sejam mais distantes de <span class="math inline">\(R\)</span>, o estimador de razão separada tende a dar maior precisão, inclusive por se basear num conhecimento mais detalhado dos dados do universo da variável <span class="math inline">\(x\)</span>. Então, sempre que for desprezível o vício do estimador de razão separada, este deve ter precisão melhor. Mas com tamanhos de amostra pequenos nos estratos, o estimador de razão combinada deve ser preferido.</p>
+</div>
+</div>
+<div id="alguns-problemas-práticos-com-calibração" class="section level2">
+<h2><span class="header-section-number">13.7</span> Alguns problemas práticos com calibração</h2>
+<p>Enquanto os estimadores de calibração possuem um número de propriedades atraentes, eles não estão livres de problemas quando se trata de aplicações práticas. Nesta seção, revisamos alguns dos problemas que afetam os estimadores de calibração e algumas das abordagens que foram desenvolvidas para resolvê-los. Antes de uma discussão detalhada, no entanto, pode ser útil ter uma lista rápida dos problemas que devem ser motivo de preocupação ao realizar a estimaçãp calibração na prática.</p>
+<ol style="list-style-type: decimal">
+<li><em>Amostras</em> são finitas, podendo ser <em>pequenas</em> em certos estratos.<br />
+</li>
+<li><em>Pesos calibrados</em> podem ser <em>negativos</em> (ou menores que 1) ou <em>extremos</em> (muito grandes). Ambos os casos são situações indesejáveis que também têm implicações sobre a variância do estimador de calibração.<br />
+</li>
+<li>Pode haver <em>grande número de variáveis de pesquisa</em> <span class="math inline">\((y)\)</span> ou de ‘grupos de modelagem’ para os quais é necessário ajustar os modelos de regressão que amparam o estimador de calibração.<br />
+</li>
+<li>Pode haver <em>grande número de variáveis auxiliares</em> <span class="math inline">\((\bf x)\)</span>.<br />
+</li>
+<li>Pesquisas são geralmente afetadas por <em>não resposta</em>, e os pesos calibrados precisam também ajudar a compensar os efeitos nocivos da não resposta.<br />
+</li>
+<li><em>Erros de medida</em> ou <em>totais populacionais conhecidos</em> apenas <em>aproximadamente</em>.</li>
+</ol>
+<p>A última questão nesta lista (erros de medida e seus efeitos na calibração), apesar de sua importância, não será discutida aqui. Os leitores podem encontrar alguma discussão em <span class="citation">Skinner (1999)</span>. Todas as outras questões serão tratadas nas seções a seguir.</p>
+<div id="tamanhos-de-amostra-pequenos" class="section level3">
+<h3><span class="header-section-number">13.7.1</span> Tamanhos de amostra pequenos</h3>
+<p>O problema com os estimadores de calibração quando os tamanhos das amostras são pequenos vem do fato de que seu vício pode se tornar importante, em relação à sua variância. É bem conhecido, por exemplo, que os estimadores de razão são tendenciosos e que o vício é da ordem <span class="math inline">\((n-1)\)</span> (ver <span class="citation">Cochran (1977)</span>, páginas 160-162). Como já mencionado, o estimador de razão é um caso especial do estimador de calibração quando o vetor <span class="math inline">\(\bf x\)</span> inclui uma única variável contínua <span class="math inline">\(x\)</span>, nenhum termo de intercepto é incluído no modelo <span class="math inline">\(\xi\)</span>, e as constantes <span class="math inline">\(q_i\)</span> são definidas como <span class="math inline">\(q_i = 1 / x_i\)</span> (assumindo que <span class="math inline">\(x_i &gt; 0, \, \forall\, i\)</span>).</p>
+<p>Recomenda-se que os estimadores de razão sejam usados somente para amostras de tamanhos grandes o suficiente para que o seu vício seja desprezível. <span class="citation">Särndal, Swensson, e Wretman (1992)</span>, página 251, sugerem que amostras de tamanho 20 ou mais devem ser suficientes para que isso aconteça. <span class="citation">Cochran (1977)</span>, página 162, sugere que o coeficiente de variação do estimador de HT do total da variável <span class="math inline">\(x\)</span>, <span class="math inline">\(CV(\widehat T_x\)</span>), deve ser menor que 10% para que o vício do estimador de razão possa ser ignorado ou considerado pequeno em comparação com o seu erro padrão.</p>
+<p>Apesar dessas conhecidas ‘regras práticas’ ou limitações que recomendam evitar que os estimadores de razão sejam usados com amostras muito pequenas, software moderno torna fácil usar estimadores de razão e outros estimadores de calibração para amostras de qualquer tamanho, muitas vezes sem qualquer aviso de que os tamanhos de amostra podem ser insuficientes para garantir a utilização segura. Isso deixa espaço para aplicações em que nem mesmo precauções mínimas são tomadas, como essa de verificar se o tamanho da amostra é adequado.</p>
+<p>Nos casos em que os tamanhos das amostras são muito pequenos, as estimativas de calibração podem estar sujeitas não apenas a grande variabilidade (como esperado devido ao pequeno tamanho da amostra), mas também a um vício perceptível. Os usuários de estimadores de calibração são encorajados a evitar a aplicação da técnica quando os tamanhos das amostras são muito pequenos. Até o momento, não foram desenvolvidas regras simples de segurança em relação ao tamanho mínimo das amostras para a família geral de estimadores de calibração. No entanto, pode-se pelo menos sugerir que as mesmas regras aplicáveis a estimadores de razão simples devem ser satisfeitas antes de aplicar alguma outra forma de estimação de calibração. Tal precaução deve ser redobrada caso a calibração vá considerar conjuntos com muitas variáveis auxiliares <span class="math inline">\(\bf x\)</span>.</p>
+<p>Diante de pequenas amostras, uma ideia alternativa é adotar <em>métodos dependentes de modelos</em>, e abandonar a inferência guiada somente pela distribuição de aleatorização induzida pelo plano amostral. As dificuldades a enfrentar neste caso surgem quando: há grande número de variáveis de pesquisa; e há grande número de ‘grupos de modelagem’. Em consequência, tarefas de <em>ajuste e validação de modelos</em> podem se tornar muito onerosas e demoradas, implicando em modelos distintos geralmente requeridos para variáveis de pesquisa distintas, levando a diferentes conjuntos de pesos e às consequências advindas dos problemas de coerência. Portanto, calibração é para amostras moderadas / grandes!</p>
+</div>
+<div id="pesos-negativos-ou-extremos" class="section level3">
+<h3><span class="header-section-number">13.7.2</span> Pesos negativos ou extremos</h3>
+<p>Outro conjunto de problemas compreende as situações que surgem quando os pesos de calibração são em algum sentido considerados extremos ou não representativos. Um caso importante ocorre quando a calibração resulta em pesos negativos, isto é, em ter alguns pesos <span class="math inline">\(w_i &lt;0\)</span> (ou <span class="math inline">\(g_i &lt;0\)</span>). Esta situação não representa nenhum problema do ponto de vista estritamente teórico, mas leva a duas dificuldades do ponto de vista prático.</p>
+<p>Primeiro, a interpretação usual dos pesos dos casos como o número de unidades populacionais representadas pela unidade de amostra correspondente é perdida para esses casos, e a liberação de tais pesos seria uma decisão muito desconfortável para muitos órgãos produtores de estatísticas públicas. O segundo problema é que os pesos negativos podem eventualmente gerar estimativas negativas para alguns domínios com tamanhos de amostra pequenos, o que não é um resultado aceitável para a maioria das aplicações práticas de pesquisa quando as variáveis da pesquisa são intrinsecamente não-negativas. Pesos negativos também podem ser uma indicação de algum problema com a tentativa de calibração que precisa de atenção do estatístico responsável.</p>
+<p>Para resolver esse problema da possibilidade de pesos negativos, várias abordagens foram desenvolvidas. Uma abordagem que é implementada em pacotes de software desenvolvidos por algumas agências de estatística é calcular os pesos de ajuste de calibração que minimizam:</p>
+<p><span class="math display" id="eq:eqcal32">\[
+\sum_{i \in s} (w_i - d_i)^2 / (q_i d_i) = \sum_{i \in s} (d_i g_i - d_i)^2 / (q_i d_i) = \sum_{i \in s} d_i (g_i - 1)^2 / q_i \,\, \tag{13.32}
+\]</span></p>
+<p>tal que não haja <em>erros de calibração</em>, ou seja, sujeito às restrições de calibração</p>
+<p><span class="math display" id="eq:eqcal33">\[
+{\bf \widehat T}_x^C - {\bf T}_x = \sum_{i \in s} g_i d_i {\bf x}_i - {\bf T}_x = 0 \,\, \tag{13.33}
+\]</span></p>
+<p>e que os fatores de calibração sejam limitados abaixo e acima por limites especificados</p>
+<p><span class="math display" id="eq:eqcal34">\[
+LI \le g_i \le LS, \,\, \forall \,i \in s,\,\, \text{com} \,\, 0 &lt; LI &lt; 1 &lt; LS \,\, \tag{13.34}
+\]</span></p>
+<p>Esta é a abordagem adotada no desenvolvimento do <em>Generalized Estimation System - GES</em> pelo Statistics Canada (ver <span class="citation">Estevao e Hidiroglou (1995)</span>).</p>
+<p>Este problema corresponde à minimização de uma função quadrática <a href="calib.html#eq:eqcal32">(13.32)</a> sob restrições lineares <a href="calib.html#eq:eqcal33">(13.33)</a> e não lineares <a href="calib.html#eq:eqcal34">(13.34)</a>. A solução do problema é tentada / obtida por <em>métodos não lineares de otimização</em>.</p>
+<p>O sistema <em>GES</em> tenta resolver esse problema usando um algoritmo eficiente, mas <em>nem sempre existe uma solução</em> garantida, dependendo dos limites epecificados e da configuração dos dados. A probabilidade de encontrar uma solução tende para 1 quando a amostra cresce (ver <span class="citation">Deville e Särndal (1992)</span>).</p>
+<p>O sistema <em>GES</em> inclui, além da determinação dos pesos de calibração, estimação de totais, médias e razões, global e para domínios, juntamente com suas correspondentes variâncias para planos de amostragem estratificada ou conglomerada com um único estágio.</p>
+<p>Os estatísticos que procuram uma ferramenta computacional para implementar a calibração devem dar a devida consideração a este pacote. Uma desvantagem é a sua dependência do software estatístico <em>Statistical Analysis System - SAS</em>, o que torna esta uma opção razoavelmente cara. Se o SAS já estiver disponível, o licenciamento de GES pelo Statistics Canada não é proibitivo para a maioria das agências de estatística, e custaria muito menos do que o desenvolvimento de um software equivalente.</p>
+<p>Outra implementação da abordagem acima está disponível no <em>BASCULA</em>, que é um sistema desenvolvido pelo Statistics Netherlands (ver <span class="citation">Nieuwenbroek e Boonstra (2002)</span>). A principal diferença entre o GES e o BASCULA é o algoritmo usado para calcular os pesos de calibração.</p>
+<p>O BASCULA adota um algoritmo iterativo proposto por <span class="citation">Huang e Fuller (1978)</span> para calcular pesos calibrados que satisfazem as restrições de limites. Como é o caso do GES, o BASCULA também nem sempre garante encontrar uma solução que satisfaça todas as restrições especificadas. O sistema trata separadamente casos especiais: pós-estratificação, estimação de razão e estimação tipo <em>raking</em>.</p>
+<p>O BASCULA é um programa autônomo (standalone), mas funciona bem com o sistema BLAISE para coleta apoiada por computador. Também requer licenciamento junto ao desenvolvedor e pode ser mais barato obter do que o GES se a organização ainda não for usuária do SAS.</p>
+<p>Outra abordagem proposta para resolver o problema de pesos negativos é devida a <span class="citation">Deville e Särndal (1992)</span>, que definiram a família de estimadores de calibração. Na abordagem anterior, a função de distância padrão, levando aos pesos de regressão, foi mantida e as condições de limites foram impostas como restrições adicionais. A abordagem proposta por <span class="citation">Deville e Särndal (1992)</span> consiste em modificar a função de distância a ser utilizada no cálculo dos pesos calibrados, de forma a evitar a possibilidade de pesos negativos desde o início. Por isso, a ideia é definir pesos de calibração que <em>minimizem a distância</em> <span class="math inline">\(D({\bf w};\bf d)\)</span> definida em <a href="calib.html#eq:eqcal6">(13.6)</a> para cada amostra <span class="math inline">\(s\)</span>, sujeita às restrições de calibração <a href="calib.html#eq:eqcal33">(13.33)</a>, mas com a <em>função de distância</em> <span class="math inline">\(G_i\)</span> definida como um dos tipos de funções apresentados na Tabela <a href="calib.html#tab:tabcalib4">13.4</a>.</p>
+<table>
+<caption>
+<span id="tab:tabcalib4">Tabela 13.4: </span>Funções de distância para estimação de calibração propostas em <span class="citation">Deville e Särndal (1992)</span>
+</caption>
+</table>
+<center>
+<table>
+<colgroup>
+<col width="7%" />
+<col width="92%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="center">Tipo</th>
+<th align="left">Funções de Distância <span class="math inline">\(q_i G_i (w_i, d_i)\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">1</td>
+<td align="left"><span class="math inline">\((w_i - d_i)^2/(2d_i)\)</span></td>
+</tr>
+<tr class="even">
+<td align="center">2</td>
+<td align="left"><span class="math inline">\(w_i[log(w_i/d_i)-1]+d_i\)</span></td>
+</tr>
+<tr class="odd">
+<td align="center">3</td>
+<td align="left"><span class="math inline">\(2(\sqrt {w_i} - \sqrt {d_i} \,)^2\)</span></td>
+</tr>
+<tr class="even">
+<td align="center">4</td>
+<td align="left"><span class="math inline">\(w_i - d_i[log(w_i/d_i) + 1]\)</span></td>
+</tr>
+<tr class="odd">
+<td align="center">5</td>
+<td align="left"><span class="math inline">\((w_i - d_i)^2/(2w_i)\)</span></td>
+</tr>
+<tr class="even">
+<td align="center">6</td>
+<td align="left"><span class="math inline">\(\displaystyle (g_i - LI) log \left( \frac {g_i-LI} {1-LI} \right) + (LS-g_i) log \left( \frac {LS-g_i} {LS-1} \right)\text{com}\,\,g_i = w_i / d_i, \, 0 &lt; LI &lt; 1 &lt; LS\)</span></td>
+</tr>
+</tbody>
+</table>
+</center>
+<p>Todas as funções de distância <span class="math inline">\(G\)</span> consideradas na Tabela <a href="calib.html#tab:tabcalib4">13.4</a> satisfazem algumas condições de regularidade, ou seja, para cada valor fixo <span class="math inline">\(d&gt;0\)</span>:</p>
+<ol style="list-style-type: lower-alpha">
+<li><p><span class="math inline">\(G_i(w,d)\geq 0\)</span> e <span class="math inline">\(G(d,d)=0\)</span>.</p></li>
+<li><p><span class="math inline">\(G_i(w,d)\)</span> é definida num intervalo <span class="math inline">\(D_i\)</span> que contém <span class="math inline">\(d\)</span>.</p></li>
+<li><p><span class="math inline">\(G_i(w,d)\)</span> é estritamente convexa e duas vezes diferenciável em <span class="math inline">\(w\)</span>.</p></li>
+<li><p><span class="math inline">\(\partial G_i(w,d)/\partial w\)</span> é contínua e mapeia <span class="math inline">\(D_i\)</span> sobre um intervalo <span class="math inline">\(Im_i (d)\)</span> de forma biunívoca (um para um).</p></li>
+</ol>
+<p>A solução para o problema de <em>minimizar a distância</em> <span class="math inline">\(D(w;d)\)</span> pode ser obtida usando o método dos multiplicadores de Lagrange, sob as restrições definidas em <a href="calib.html#eq:eqcal33">(13.33)</a>. A solução é encontrada resolvendo:</p>
+<p><span class="math display" id="eq:eqcal35">\[
+\partial G_i(w_i,d_i)/\partial w_i - {\bf {x}}&#39;_i \lambda = 0, \,\,\,\forall\, i \in s\,\,\tag{13.35}
+\]</span></p>
+<p>Se uma solução existir, sob algumas das condições de regularidade ela será única e dada por:</p>
+<p><span class="math display" id="eq:eqcal36">\[
+w_i = d_ig_i \,\,\text{com}\,\, g_i = F(q_i{\bf x}&#39;_i{\bf λ})\,\,\tag{13.36}
+\]</span></p>
+<p>onde <span class="math inline">\(F(.)\)</span> é a inversa de <span class="math inline">\(\partial G_i(w_i,d_i)/\partial w_i\)</span> e <span class="math inline">\({\bf λ}\)</span> é um <em>multiplicador de Lagrange</em> que resolve as equações:</p>
+<p><span class="math display" id="eq:eqcal37">\[
+\sum_{i \in s} d_i\left[F(q_i{\bf x}&#39;_i{\bf λ}) - 1\right]{\bf x}_i = {\bf T}_x - {\bf \widehat T}_x\,\,\tag{13.37}
+\]</span></p>
+<p>O estimador de calibração resultante é então dado por:</p>
+<p><span class="math display" id="eq:eqcal38">\[
+{\bf \widehat T}_{y}^C = \sum_{i \in s}d_i g_i {\bf y}_i \,\,\tag{13.38}
+\]</span></p>
+<p>com os fatores de ajuste de calibração <span class="math inline">\(g_i\)</span> definidos por uma das funções de calibração <span class="math inline">\(F(·)\)</span>, correspondentes a alguma função de distância, propostas em <span class="citation">Deville e Särndal (1992)</span> e descritas na Tabela <a href="calib.html#tab:tabcalib5">13.5</a>.</p>
+<table>
+<caption>
+<span id="tab:tabcalib5">Tabela 13.5: </span>Funções de calibração propostas em <span class="citation">Deville e Särndal (1992)</span>
+</caption>
+</table>
+<center>
+<table>
+<colgroup>
+<col width="6%" />
+<col width="93%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="center">Tipo</th>
+<th align="left">Funções de Calibração <span class="math inline">\(F(q_iu) \:\,\text{com}\:\, 0 &lt; LI &lt; 1 &lt; LS\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">1</td>
+<td align="left"><span class="math inline">\(1 + q_i u\)</span></td>
+</tr>
+<tr class="even">
+<td align="center">2</td>
+<td align="left"><span class="math inline">\(exp(q_i u)\)</span></td>
+</tr>
+<tr class="odd">
+<td align="center">3</td>
+<td align="left"><span class="math inline">\((1 - q_i u/2)^{-2}\)</span></td>
+</tr>
+<tr class="even">
+<td align="center">4</td>
+<td align="left"><span class="math inline">\((1 - q_i u)^{-1}\)</span></td>
+</tr>
+<tr class="odd">
+<td align="center">5</td>
+<td align="left"><span class="math inline">\((1 - 2 q_i u)^{-1/2}\)</span></td>
+</tr>
+<tr class="even">
+<td align="center">6</td>
+<td align="left"><span class="math inline">\(\displaystyle \frac {LI(LS-1) + LS(1-LI)exp(A q_i u)} {(LS-1)+(1-LI)exp(A q_i u)} \:\:\, \text{com} \:\:\, A = \frac {LS-LI} {(1-LI)(LS-1)}\)</span></td>
+</tr>
+<tr class="odd">
+<td align="center">7</td>
+<td align="left"><span class="math inline">\(LI\:\:\:\:\:\:\:\:\:\:\:\:\: \text{se} \ u&lt;(LI-1)/q_i\:\:\:\:\:\:\:\:\:\:\:\:\:\:\:\:\:\:\)</span>
+<span class="math inline">\(1+q_i u\:\:\:\:\: \text{se} \: (LI-1)/q_i\le u\le(LS-1)/q_i\:\:\:\:\:\:\:\:\:\:\:\:\:\:\:\:\:\:\)</span>
+<span class="math inline">\(LS\:\:\:\:\:\:\:\:\:\:\:\:\: \text{se} \: u&gt;(LS-1)/q_i\:\:\:\:\:\:\:\:\:\:\:\:\:\:\:\:\:\:\)</span></td>
+</tr>
+</tbody>
+</table>
+</center>
+<p>Observe que a função de calibração 7 corresponde à função número 1 da Tabela <a href="calib.html#tab:tabcalib5">13.5</a>, mas com limites especificados para os pesos de calibração.</p>
+<p>Um algoritmo para calcular os pesos de calibração proposto por <span class="citation">Deville e Särndal (1992)</span> pode ser especificado com a seguinte sequência de etapas.</p>
+<p><em>Passo 1:</em> Calcule os erros de calibração para o estimador de HT para as variáveis auxiliares consideradas: <span class="math inline">\({\bf T}_x - {\bf \widehat T}_x\)</span>.<br />
+<em>Passo 2:</em> Para a função de calibração <span class="math inline">\(F(·)\)</span> escolhida, resolva as Expressões <a href="calib.html#eq:eqcal37">(13.37)</a> requeridas para determinar o <em>multiplicador de Lagrange</em> <span class="math inline">\({\bf λ}\)</span>.</p>
+<p>Isto pode ser feito aplicando o método de Newton. Defina:</p>
+<p><span class="math display" id="eq:eqcal39">\[
+{\bf H}_s({\bf λ}) = \sum_{i \in s} d_i\left[F(q_i{\bf x}&#39;_i{\bf λ}) - 1\right]{\bf x}_i \,\,\tag{13.39}
+\]</span></p>
+<p>Então o passo 2 do algoritmo requer achar o valor de <span class="math inline">\(\bf λ\)</span> tal que:</p>
+<p><span class="math display" id="eq:eqcal40">\[
+{\bf H}_s ({\bf λ}) = {\bf T}_x - {\bf \widehat T}_x \,\,\tag{13.40}
+\]</span></p>
+<p>Primeiro obtenha um valor inicial para <span class="math inline">\({\bf λ}\)</span> como:</p>
+<p><span class="math display" id="eq:eqcal41">\[
+{\bf λ}_1 = \left( \sum_{i \in s} q_i d_i {\bf x}_i {\bf x}&#39;_i \right)^{-1} [{\bf T}_x - {\bf \widehat T}_x] \,\, \tag{13.41}
+\]</span></p>
+<p>Em seguida, realize iterações do método de Newton, calculando a cada iteração <span class="math inline">\(r = 2, 3,...\)</span> o valor atualizado para <span class="math inline">\({\bf λ}\)</span> como:</p>
+<p><span class="math display" id="eq:eqcal42">\[
+{\bf λ}_{r+1} = {\bf λ}_r + \left[ {\bf H}&#39;_s({\bf λ}_r) \right]^{-1} \left[ {\bf T}_x - {\bf \widehat T}_x - {\bf H}_s({\bf λ}_r) \right] \,\, \tag{13.42}
+\]</span></p>
+<p>onde:</p>
+<p><span class="math display" id="eq:eqcal43">\[
+{\bf H}&#39;_s({\bf λ}_r) = \partial {\bf H}_s ({\bf λ}) / \partial {\bf λ}|_{{\bf λ} = {\bf λ}_r} \,\, \tag{13.43}
+\]</span></p>
+<p>As iterações devem prosseguir até convergência (até um limite de tolerância especificado ser satisfeito) ou até o número máximo de iterações ser realizado sem haver convergência.</p>
+<p><em>Passo 3:</em> Com a solução obtida para o valor de <span class="math inline">\({\bf λ}\)</span>, calcule os pesos de calibração como:</p>
+<p><span class="math display" id="eq:eqcal44">\[
+w_i = d_i F(q_i {\bf x}&#39;_i{\bf λ}) \,\, \tag{13.44}
+\]</span></p>
+<p>Os pesos de calibração e estimadores correspondentes obtidos como resultado deste algoritmo preservam todas as propriedades desejáveis que discutimos em conexão com os estimadores de regressão (seções <a href="calib.html#problema">13.2</a> e <a href="calib.html#estreg">13.3</a>).</p>
+<p>• <em>Simplicidade:</em> o <em>estimador é linear</em> e calculável de forma bem simples, uma vez calculados os pesos calibrados.<br />
+• <em>Flexibilidade</em> para incorporar informação auxiliar: tanto para variáveis categóricas, contínuas, ou ambas.<br />
+• Os <em>totais são calibrados</em> para as variáveis auxiliares: <span class="math inline">\({\bf T}_x - {\bf \widehat T}_x = \bf 0\)</span><br />
+• <em>Integração</em>: os estimadores de pós-estratificação, razão, GREG e <em>raking</em> (como os usados para ponderar pessoas na <em>UK-LFS</em>) são todos casos particulares de estimadores de calibração.</p>
+<p><span class="citation">Deville e Särndal (1992)</span> demonstraram que membros dessa classe de estimadores de calibração possuem propriedades assintóticas idênticas àquelas dos estimadores GREG baseados no mesmo conjunto de variáveis auxiliares. Portanto, os estimadores de calibração definidos por uma das funções de distância acima são assintoticamente <em>não viciados</em>, com <em>variância</em> assintótica <em>igual à do estimador GREG</em> dada pela Expressão <a href="calib.html#eq:eqcal17">(13.17)</a>. Além disso, sua <em>variância</em> também pode ser <em>estimada</em> por uma das Expressões <a href="calib.html#eq:eqcal20">(13.20)</a> ou <a href="calib.html#eq:eqcal21">(13.21)</a>.</p>
+<p>O estimador de calibração resultante do algoritmo <em>não é mais eficiente</em> que o estimador GREG, mas oferece <em>flexibilidade</em> para lidar com pesos extremos.</p>
+<p>Os estimadores de calibração deste tipo foram implementados na Macro <em>CALMAR</em> em SAS do INSEE (ver <span class="citation">Sautory (2003)</span>). Este programa executa apenas o cálculo de peso, mas uma variante denominada CALJACK foi desenvolvida no Statistics Canada (ver <span class="citation">Bernier e Lavallée (1994)</span>) que inclui a estimação de variâncias pelo método de Jackknife para totais, médias, razões e diferenças destes. O CALMAR também requer o SAS, mas uma implementação mais recente (mas limitada) do método está disponível: a Macro <em>g-CALIB-S</em>, desenvolvida no Statistics Belgium, é implementada no SPSS <span class="citation">Vanderhoeft (2000)</span>. As funções <em>calibrate, postStratify</em> e <em>rake</em> do pacote <em>survey</em> do sistema <span class="math inline">\(R\)</span> (ver <span class="citation">Lumley (2010)</span>) também têm o método implementado, e são as melhores alternativas disponíveis no momento.</p>
+<p>A estimação por calibração como agora estendida fornece as ferramentas para tentar <em>resolver o problema de pesos negativos</em>, o que pode ser evitado escolhendo as funções de calibração 2 a 7 na Tabela <a href="calib.html#tab:tabcalib5">13.5</a>. Também dá algum <em>controle sobre o problema de pesos extremos ou pesos menores que 1</em>, o que pode ser evitado escolhendo as funções de calibração 6 ou 7, usando <span class="math inline">\(LI=1/\min \{d_i,\,\,i \in s\}\)</span> e especificando algum <span class="math inline">\(LS\)</span> adequado.</p>
+<p>No entanto, vários dos problemas discutidos anteriormente permanecem sem solução.</p>
+<p>Primeiro, para amostras pequenas e moderadas, o <em>vício</em> pode ser um problema e agora, a <em>escolha da função de distância</em> pode se tornar importante nesse aspecto. Segundo, embora o método seja voltado para evitar pesos negativos ou extremos, a computação dos pesos pode ser demorada (requer <em>métodos iterativos</em> de solução) e <em>pode não haver solução</em> para as equações de calibração. <span class="citation">Deville e Särndal (1992)</span> provaram que a probabilidade de encontrar uma solução para <span class="math inline">\(\bf λ\)</span> no passo 2 do algoritmo tende para 1 quando <span class="math inline">\(n\)</span> aumenta. No entanto, não é 1 com amostras finitas. Portanto, em algumas aplicações, o método pode não convergir dependendo das opções de <span class="math inline">\(F(·)\)</span>, <span class="math inline">\(LI\)</span> e <span class="math inline">\(LS\)</span>. Quando esse for o caso, os usuários do método devem tentar investigar as causas por trás da falha em encontrar uma solução.</p>
+<p>Pode ser devido a <em>amostras pequenas</em> ou ‘extremas’, no sentido de que os pesos de calibração resultantes podem precisar ser mais extremos do que estamos preparados para permitir quando especificamos as restrições de limite <span class="math inline">\(LI\)</span> e <span class="math inline">\(LS\)</span>. Isso também pode acontecer porque <em>grande número de variáveis auxiliares</em> são consideradas para calibração, o que pode levar a problemas de colinearidade, uma questão que discutiremos na seção <a href="calib.html#gvaraux">13.7.4</a>.</p>
+</div>
+<div id="grande-número-de-variáveis-de-pesquisa-ou-de-grupos-de-modelagem" class="section level3">
+<h3><span class="header-section-number">13.7.3</span> Grande número de variáveis de pesquisa ou de ‘grupos de modelagem’</h3>
+<p>Outra fonte de dificuldades para o uso de estimadores de regressão (ou calibração) é o fato de que eles são aplicados separadamente para vários ‘grupos de modelagem’, definidos como grupos de unidades para os quais informações de participação de amostra e de população auxiliar estão disponíveis. Esses grupos de modelagem podem coincidir com estratos de amostragem pré-definidos, ou podem ser formados após a seleção da amostra, caso em que desempenharão o papel de pós-estratos. Quando esses grupos de modelos são numerosos, pequenos tamanhos de amostra podem resultar em alguns (ou por vezes muitos) deles.</p>
+<p>O problema muitas vezes é agravado pelo fato de que o número de variáveis de pesquisa também pode ser grande. Neste caso, embora o cálculo dos pesos de calibração seja realizado apenas uma vez (os pesos não dependem das variáveis <span class="math inline">\(y\)</span>), a adequação dos modelos subjacentes que fornecem as condições para que os estimadores de calibração tenham um bom desempenho (no sentido de fornecer resíduos com pequena variação) deve ser verificada. Em alguns casos, essa tarefa pode se tornar grande demais para ser viável dentro de cronogramas apertados de produção que as pesquisas típicas devem cumprir. Por esse motivo, os usuários são alertados contra a tentativa de executar a calibração em níveis detalhados demais no sentido de envolver muitos grupos de modelagem. Quanto mais grupos de modelagem forem considerados para a calibração, mais recursos deverão ser dedicados à validação dos modelos ajustados e análise das estimativas de calibração resultantes.</p>
+<p>Essa discussão se assemelha à comparação de estimadores de razão separada e combinada. Estimadores de razão separada são estimadores de calibração onde a calibração é realizada para os totais conhecidos no nível do estrato (grupo de modelagem). Os estimadores de razão combinada envolvem a calibração apenas no nível agregado (para a amostra como um todo ou para alguns grupos mais amplos formados a partir de conjuntos de estratos agrupados). <span class="citation">Cochran (1977)</span>, página 167, argumenta que ‘o uso de uma estimativa de razão separada em cada estrato provavelmente será mais preciso se a amostra em cada estrato for grande o suficiente para que a fórmula aproximada para a variância do estimador de razão separada seja válida, e o vício cumulativo que pode afetar o estimador de razão separada seja insignificante. Com apenas uma pequena amostra em cada estrato, o estimador de razão combinada deve ser recomendado, a menos que exista uma boa evidência empírica em contrário.’ Sugerimos que esse conselho também seja seguido quanto ao uso de estimadores de calibração em geral.</p>
+</div>
+<div id="gvaraux" class="section level3">
+<h3><span class="header-section-number">13.7.4</span> Grande número de variáveis auxiliares</h3>
+<p>Um problema que as abordagens discutidas acima não trataram é o que fazer quando um grande número de potenciais variáveis <span class="math inline">\(x\)</span> está disponível para serem consideradas para calibração. Uma opção simplista é considerar cada uma das potenciais variáveis <span class="math inline">\(x\)</span> na calibração. Isso pode parecer desejável do ponto de vista prático, porque o erro de calibração seria zero para todos os totais populacionais conhecidos. No entanto, essa opção também pode causar vários problemas.</p>
+<p>Primeiro, pode ser mais difícil resolver o sistema de equações de calibração necessárias para determinar <span class="math inline">\({\bf λ}\)</span> no passo 2 do algoritmo, porque seu tamanho aumenta com o número de variáveis <span class="math inline">\(x\)</span>, e o cálculo pode ser demorado.</p>
+<p>Segundo, números maiores de variáveis <span class="math inline">\(x\)</span> podem levar a problemas de <em>dependência linear</em> que afetem a solução das equações de calibração. <span class="citation">Bankier (1989)</span> e <span class="citation">Sautory (2003)</span> propuseram o <em>descarte de variáveis auxiliares</em> linearmente dependentes antes de tentar a solução das equações de calibração na etapa 2 do algoritmo. Essa solução é bastante fácil de implementar e não leva à perda de calibração para nenhuma variável <span class="math inline">\(x\)</span>, sempre que as variáveis descartadas forem combinações lineares exatas de variáveis mantidas na calibração, já que os estimadores de calibração são lineares. Uma solução alternativa usando <em>inversa generalizada</em> de matrizes foi implementada no programa g-CALIB-S (ver <span class="citation">Vanderhoeft (2000)</span>).</p>
+<p><span class="citation">Bankier (1989)</span> e <span class="citation">Bankier, Rathwel, e Majkowski (1992)</span> também propuseram o descarte de variáveis auxiliares <em>quase linearmente dependentes</em> para controlar a variação dos pesos, mantendo a função de distância padrão do tipo 1. Essa solução leva à perda de calibração nos totais das variáveis <span class="math inline">\(x\)</span> descartadas, bem como não permite controlar sobre quais variáveis <span class="math inline">\(x\)</span> se manteria calibração.</p>
+<p>Um problema adicional encontrado quando um número muito grande de variáveis auxiliares são consideradas na calibração é o aumento potencial do erro quadrático médio - EQM do estimador de calibração resultante.</p>
+<p><span class="citation">Silva (1996)</span>, capítulo 4, e <span class="citation">Silva e Skinner (1997)</span> mostraram que, às vezes, um grande número de variáveis auxiliares pode na verdade reduzir a eficiência do estimador de calibração (regressão) para tamanhos de amostra pequenos a moderados. Por exemplo, em amostragem aleatória simples sem reposição (AAS) e assumindo o modelo <span class="math inline">\(\xi\)</span> definido em <a href="calib.html#eq:eqcal10">(13.10)</a> com <span class="math inline">\(q_i = 1\)</span> para cada <span class="math inline">\(i\)</span>, <span class="citation">Silva (1996)</span>, página 45, mostrou que:</p>
+<p><span class="math display" id="eq:eqcal45">\[
+EQM_{AAS+\xi} (\widehat T_{y_j}^C/N) = \left( \frac{1}{n} - \frac{1}{N} \right) \sigma_j^2 \left( 1 + \frac{Q}{n} \right) + O \left( n^{-5/2} \right) \,\, \tag{13.45}
+\]</span></p>
+<p>onde <span class="math inline">\(\sigma_j^2\)</span> é a variância dos resíduos da regressão de <span class="math inline">\(y_j\)</span> em <span class="math inline">\(\bf x\)</span>, e <span class="math inline">\(Q\)</span> é o número de variáveis <span class="math inline">\(\bf x\)</span> consideradas.</p>
+<p>Essa expressão revela que o <span class="math inline">\(EQM\)</span> do estimador de regressão pode aumentar à medida que o número de variáveis <span class="math inline">\(\bf x\)</span> aumenta, se o aumento no termo de segunda ordem <span class="math inline">\(Q/n\)</span> compensar a diminuição na variância dos resíduos <span class="math inline">\(\sigma_j^2\)</span>. Naturalmente, isso não é um problema se a amostra for grande, mas para amostras pequenas a moderadas, o número de variáveis auxiliares pode ter algum efeito perceptível no <span class="math inline">\(EQM\)</span> do estimador de regressão.</p>
+<p>Como uma ilustração do problema, a Figura <a href="calib.html#fig:figcalib3">13.3</a> plota o <span class="math inline">\(EQM\)</span> do estimador de regressão para o aumento de conjuntos de variáveis auxiliares, assumindo amostragem aleatória simples com <span class="math inline">\(n = 100\)</span> de uma população de chefes de domicílios para os quais os dados foram coletados como parte do Censo Demográfico Experimental de Limeira, São Paulo, Brasil, 1988.</p>
+<center>
+<div class="figure"><span id="fig:figcalib3"></span>
+<img src="Figuras/Figcalib3.PNG" alt="$EQM$ do estimador de regressão versus número de variáveis $x$" width="60%" />
+<p class="caption">
+Figura 13.3: <span class="math inline">\(EQM\)</span> do estimador de regressão versus número de variáveis <span class="math inline">\(x\)</span>
+</p>
+</div>
+</center>
+<p><span class="citation">Silva e Skinner (1997)</span> mostraram, em um exercício de simulação limitado, que estimadores de regressão <em>após seleção de subconjuntos de variáveis auxiliares</em> podem ser mais eficientes do que estimadores de regressão que consideram todas as variáveis auxiliares disponíveis <em>(modelo saturado)</em>, para amostras de tamanhos moderados <span class="math inline">\((n = 100 \,\, \text{e} \,\, Q = 5; 10)\)</span>. Achados semelhantes são relatados por <span class="citation">Clark (2002)</span> para <span class="math inline">\(n = 100; 250\,\, \text{e} \,\, Q = 24; 40\)</span>. Ambas as fontes relataram também que a incidência de pesos negativos foi menor após a seleção de subconjuntos do que quando a calibração usou o conjunto saturado de variáveis <span class="math inline">\(x\)</span>. Isso sugere que parte do problema com pesos negativos vem da calibração ‘excessiva’.</p>
+<p>Embora a ideia de aplicar alguma forma de procedimento de <em>seleção de variáveis</em> auxiliares <span class="math inline">\(x\)</span> <em>para calibração</em> possa levar a estimadores mais eficientes para algumas variáveis <span class="math inline">\(y\)</span> especificadas, essa abordagem não é livre de problemas. Primeiro, leva à <em>perda de calibração</em> para variáveis <span class="math inline">\(x\)</span> descartadas. Segundo, a abordagem é intrinsecamente <em>univariada</em>, no sentido de que a seleção de covariáveis é específica para cada variável de pesquisa <span class="math inline">\(y\)</span>, implicando que pesos distintos deveriam ser usados para diferentes variáveis <span class="math inline">\(y\)</span>. Além disso, a <em>estimação de variância se torna mais difícil</em> após a seleção de variáveis, como observado em <span class="citation">Silva e Skinner (1997)</span>.</p>
+<p>No entanto, a mensagem emergente desses estudos é que realizar a estimação de calibração ou regressão ‘automaticamente’ com todas as variáveis auxiliares disponíveis pode não ser uma estratégia eficiente, particularmente para amostras com tamanhos pequenos a moderados ou quando o número de variáveis auxiliares é grande em relação ao tamanho da amostra. Nesses casos, recomenda-se dedicar alguma atenção à seleção de subconjuntos adequados das variáveis disponíveis, mesmo que não se esteja preparado para usar procedimentos formais de seleção de modelos, como os descritos por <span class="citation">Silva e Skinner (1997)</span>. Em pesquisas repetidas, por exemplo, pode-se dedicar esforços nas primeiras rodadas da pesquisa para estabelecer um conjunto adequado de variáveis para calibrar e, em seguida, usar o subconjunto fixo para calibração nas rodadas subsequentes da pesquisa.</p>
+<p>Algumas outras abordagens foram propostas para lidar com o caso de pesos negativos ou extremos. <span class="citation">Chambers (1997)</span> propôs os chamados estimadores de calibração tipo <em>ridge</em>, onde a ideia básica é minimizar a função de distância modificada dada por:</p>
+<p><span class="math display" id="eq:eqcal46">\[
+\sum_{i \in s}(w_i-d_i)^2/q_id_i + \frac{1}{\gamma}({\bf T}_x - {\bf \widehat T}_x^C)&#39;\Delta({\bf T}_x - {\bf \widehat T}_x^C)\,\,\tag{13.46}
+\]</span></p>
+<p>onde <span class="math inline">\(\Delta\)</span> é uma matriz diagonal de custos de erro de calibração e <span class="math inline">\(\gamma\)</span> é um parâmetro escalar a ser especificado. Nesta abordagem, não há restrições a serem satisfeitas. Os pesos resultantes são dados por:</p>
+<p><span class="math display" id="eq:eqcal47">\[
+w_i = d_i\left[1 + q_i\left({\bf T}_x - {\bf \widehat T}_x^C\right)&#39;\left(\gamma\Delta^{-1} +\sum_{i \in s}q_id_i{\bf x}_i{\bf x}_i&#39;\right)^{-1}{\bf x}_i\right]\,\,\tag{13.47}
+\]</span></p>
+<p>Observe que, nessa abordagem, uma medida da quantidade de erro de calibração é incorporada como o segundo termo da função de distância. No entanto, como não há restrições de calibração vinculadas, não é mais garantido que os pesos e estimadores resultantes evitem totalmente o erro de calibração. Alguma escolha de <span class="math inline">\(γ\)</span> tal que todos os pesos ‘ridge-calibrated’ definidos em <a href="calib.html#eq:eqcal47">(13.47)</a> sejam positivos é sempre possível. Uma ideia pode ser escolher o menor <span class="math inline">\(γ\)</span> que satisfaz essa condição.</p>
+<p>Outras abordagens para a escolha de <span class="math inline">\(γ\)</span> são discutidas por <span class="citation">Chambers (1997)</span>. A especificação cuidadosa da ‘matriz de custo do erro de calibração’ permite a seleção flexível de subconjuntos de variáveis auxiliares para as quais o erro de calibração deve ser eliminado. Para isso, basta usar elementos diagonais muito grandes nessa matriz, correspondentes às variáveis auxiliares para as quais o erro de calibração deve ser zero. A abordagem é uma melhoria em relação aos procedimentos que descartam completamente variáveis auxiliares, no sentido de que algum controle sobre a quantidade de erro de calibração pode ser mantido para todas as variáveis <span class="math inline">\(x\)</span>.</p>
+<p><span class="citation">Chambers (1997)</span> considerou outras versões de estimadores de calibração tipo <em>ridge</em> que têm como ponto de partida pesos derivados sob uma abordagem baseada em modelos ou abordagem baseada em modelos não paramétricos. Também considerou modificações robustas dessa abordagem que podem ajudar nos casos em que os valores discrepantes das variáveis <span class="math inline">\(y\)</span> são motivo de preocupação.</p>
+<p><span class="citation">Rao e Singh (2009)</span> propuseram uma outra abordagem em linhas similares, que é chamada de calibração <em>ridge-shrinkage</em>. Novamente, a ideia é minimizar uma função de distância modificada, mas desta vez, sob restrições de limite. O procedimento é semelhante à calibração de <span class="citation">Chambers (1997)</span> se a solução inicial satisfaz as restrições de limite. Se não, essas restrições de limite são relaxadas e o procedimento itera entre modificar adaptativamente a matriz de custo de erro de calibração e as restrições de intervalo desejadas até a convergência.</p>
+<p><span class="citation">Hedlin et al. (2001)</span> também discutiram o problema de pesos de calibração extremos. Este artigo explorou o comportamento dos estimadores de calibração <span class="math inline">\((GREG)\)</span> quando os modelos subjacentes foram especificados de forma incorreta, e propôs algumas medidas de diagnóstico para avaliar a adequação do modelo para uma dada situação de pesquisa. Parte dos diagnósticos considerou a ideia de que os pesos-<span class="math inline">\(g\)</span> definidos pela Expressão <a href="calib.html#eq:eqcal9">(13.9)</a> são funções de medidas de influência bem conhecidas de uma unidade de amostra no ajuste de modelos de regressão linear. Os diagnósticos foram usados para localizar os pesos-<span class="math inline">\(g\)</span> mais extremos e para propor soluções que envolviam, por exemplo, a estratificação da amostra e o uso de estimadores de regressão ou calibração somente para aquelas unidades amostrais para as quais os pesos-<span class="math inline">\(g\)</span> não são extremos e usando estimador de expansão simples para o pós-estrato formado com as unidades com pesos-<span class="math inline">\(g\)</span> extremos.</p>
+<p>A mensagem, novamente, é que o mero cálculo automático dos pesos de calibração não é uma boa prática, e alguma atenção deve ser dedicada para analisar os pesos resultantes para avaliar se o uso de estimadores de calibração ou regressão é ‘seguro’ e eficiente. Uma maneira simples de fazer isso é executar a análise de dados dos pesos-<span class="math inline">\(g\)</span> e tentar sinalizar aqueles que são extremos em algum sentido. Os casos mais óbvios são os pesos-<span class="math inline">\(g\)</span> negativos ou pequenos (aqueles que levam a pesos calibrados finais menores que 1 ou os pesos-<span class="math inline">\(g\)</span> muito grandes (digamos, com <span class="math inline">\(g_i&gt; LS\)</span>). O ponto de corte <span class="math inline">\(LS\)</span> pode ser determinado arbitrariamente (digamos, fazer <span class="math inline">\(LS=5 \,\,\text{ou}\,\, 10\)</span>), ou por métodos dependentes de dados (LS&gt; Q3 + 1,5 (Q3-Q1)), onde Q1 e Q3 denotam os quartis amostrais de <span class="math inline">\(g_i, \, i \in s\)</span>.</p>
+</div>
+<div id="não-resposta-e-calibração" class="section level3">
+<h3><span class="header-section-number">13.7.5</span> Não resposta e calibração</h3>
+<p>Até agora, discutimos a estimação de calibração sob a hipótese de observação completa da amostra selecionada. No entanto, a não resposta é um problema comum. Na prática, a maioria das pesquisas terá alguma quantidade de não resposta, apesar de incorporar métodos e procedimentos para evitar a não resposta.</p>
+<p>Quando a não resposta é ‘<em>ignorável</em>’ ou ‘<em>completamente ao acaso</em>’, o seu efeito sobre estimadores é <em>aumentar a variância</em> devido à redução do tamanho efetivo da amostra. Neste caso, a <em>compensação da não resposta</em> costuma ser feita por ajustamentos simples dos pesos usados para estimação. Porém, na prática, não resposta nunca é ‘completamente ao acaso’.</p>
+<p>Uma importante nova questão trazida pela não resposta é a do vício. Os estimadores HT usuais <em>serão viciados</em> a menos que a não resposta seja completamente aleatória, e mesmo nesta situação improvável, a estimação dos totais requer pelo menos algum ajuste simples para compensar a perda de unidades da amostra devido a não resposta.</p>
+<p>A calibração é uma abordagem útil para tentar <em>reduzir o vício</em> causado pela não resposta. <span class="citation">Lundström (1997)</span>, <span class="citation">Särndal e Lundström (1999)</span> e <span class="citation">Särndal e Lundström (2005)</span> até sugerem a ‘calibração como um método padrão para o tratamento da não resposta’. Os estimadores de calibração são aproximadamente não viciados se houver resposta completa, para qualquer escolha fixa de variáveis auxiliares. Sob a não resposta, no entanto, os estimadores de calibração podem ser viciados, mesmo com grandes amostras.</p>
+<p>Um novo critério para avaliar eficiência de estimadores é necessário quando o <em>vício</em> dos estimadores <em>não é desprezível</em> quando ocorre não resposta. A ideia básica é considerar:</p>
+<p><span class="math display" id="eq:eqcal48">\[
+EQM\left(\widehat T_{y_j}^C\right) = V\left(\widehat T_{y_j}^C\right) + B^2\left(\widehat T_{y_j}^C\right)\,\,\tag{13.48}
+\]</span></p>
+<p>Para avaliar este novo critério, é essencial adotar um <em>modelo</em> para o <em>mecanismo de resposta</em>.</p>
+<p>Suponha que a unidade <span class="math inline">\(i \in U\)</span> responde com probabilidade <span class="math inline">\(r_i &gt; 0\)</span>. Sob a <em>distribuição conjunta</em> do plano amostral e do modelo de resposta, o estimador de regressão tem vício aproximado dado por:</p>
+<p><span class="math display" id="eq:eqcal49">\[
+B \left( \widehat T_{y_j}^R \right) \doteq N^{-1} \displaystyle \sum_{i \in U} \left( y_{ij} - {\bf x&#39;}_i {\bf C}_j \right) \,\, \tag{13.49}
+\]</span></p>
+<p>onde:</p>
+<p><span class="math display" id="eq:eqcal50">\[
+{\bf C}_j = \left( \displaystyle \sum_{i \in U} r_i q_i {\bf x}_i&#39;{\bf x}_i \right)^{-1} \left( \sum_{ i \in U} r_i q_i {\bf x}_i&#39; y_{ij} \right) \doteq E \left( \widehat {\bf B}_j \right) \,\, \tag{13.50}
+\]</span></p>
+<p>A <em>redução de vício</em> pretendida com uso de calibração somente será alcançada, no entanto, se o mecanismo combinado de resposta e amostragem for <em>ignorável</em> dadas as variáveis <span class="math inline">\(\bf x\)</span> consideradas para calibração, isto é, a seleção dos respondentes é condicionalmente independente de <span class="math inline">\(y_{ij}|{\bf {x}_i}, \,\, \forall \, i \in U\)</span>. Alternativamente, o vício se anula quando <span class="math inline">\({\bf c}&#39;{\bf x}_i = {1/r_i},\,\, \forall \, i\, \in U\)</span>, sendo <span class="math inline">\({\bf c}\)</span> um vetor de constantes.</p>
+<p>Isto sugere que a escolha das variáveis <span class="math inline">\(\bf x\)</span> a serem consideradas para a calibração deve levar em conta os prováveis efeitos da não resposta e, em particular, deve-se incorporar todas as variáveis <span class="math inline">\(x\)</span> para as quais dados populacionais auxiliares estão disponíveis e que contêm informações sobre as probabilidades desconhecidas de responder à pesquisa. Sob um modelo simplificado onde <span class="math inline">\(\delta_i\)</span> denota a probabilidade de que uma unidade responderá à pesquisa, dado que ela é selecionada na amostra, e a resposta é independente para unidades distintas, uma condição para o estimador de calibração ser aproximadamente não viciado sob a distribuição de aleatorização e a distribuição de resposta é que <span class="math inline">\(\delta_i^{-1}=1+q_i{\bf x}_i{\bf λ}\)</span>, para todo <span class="math inline">\(k\)</span> e algum vetor de constantes <span class="math inline">\({\bf λ}\)</span> (ver <span class="citation">Lundström (1997)</span>, página 46). No entanto, como os pesos de calibração <span class="math inline">\(w_i\)</span> são sempre da forma <span class="math inline">\(w_i=d_iF(q_i{\bf x}_i{\bf λ})\)</span> (ver Expressão <a href="calib.html#eq:eqcal44">(13.44)</a>). É fácil ver que a calibração levará a estimativas aproximadamente não viciadas quando <span class="math inline">\(w_i=d_i\delta_i^{-1}\)</span>, uma condição que depende tanto da escolha das variáveis <span class="math inline">\(x\)</span> quanto da forma da função de distância (ou calibração) usada para obter os pesos de calibração.</p>
+<p><strong>Exemplo 13.3 </strong> Um exemplo em que esta questão pode ser bem ilustrada vem da ponderação realizada para a pesquisa de força de trabalho do Reino Unido (UK-LFS) (ver <span class="citation">Statistics (2001)</span>, seção 9). A não resposta foi da ordem de 22% na primavera de 1998, sendo 16% de recusas e 6% de ‘falhas de contacto’. Há evidência de <em>não resposta diferencial detectada</em> usando estudo de ligação com dados do Censo de 1991 (<span class="citation">Statistics (2001)</span>). A tabela <a href="calib.html#tab:tabcalib6">13.6</a> ilustra grupos sub-representados e super-representados na UK-LFS.</p>
+<table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:tabcalib6">Tabela 13.6: </span>Identificação dos grupos sub-representados e super-representados na pesquisa de força de trabalho do Reino Unido
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+Grupos sub-representados
+</th>
+<th style="text-align:left;">
+Grupos super-representados
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Moradores de Londres
+</td>
+<td style="text-align:left;">
+Domicílios com 3 ou mais crianças
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Locatários de associações imobiliárias ou empregados
+</td>
+<td style="text-align:left;">
+Domicílios com criança mais jovem entre 0 e 4 anos de idade
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Moradores de habitações compartilhadas ou convertidas
+</td>
+<td style="text-align:left;">
+Chefes com escolaridade superior ou qualificação equivalente
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Moradores em domicílios com 3 ou mais automóveis disponíveis
+</td>
+<td style="text-align:left;">
+Domicílios com 2 adultos e crianças
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Domicílios unipessoais com 1 adulto de idade entre 16 e 19 anos
+</td>
+<td style="text-align:left;">
+Casais com crianças dependentes
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Chefes com idades entre 16 e 24 anos
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Chefes solteiros
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Chefes nascidos em países da ‘New Commonwealth’
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+</tbody>
+</table>
+<p>A não resposta diferencial na UK-LFS depende de características como: composição do domicílio; situação ocupacional; condição de ocupação do domicílio; tipo de acomodação; situação socioeconômica; região de residência; região de origem; estado civil, idade e escolaridade do chefe.</p>
+<p>Nesta pesquisa, a ponderação leva em conta a <em>região de residência</em> (17 Regiões ou 454 Autoridades Locais), a <em>idade</em> (11 faixas etárias para jovens e 17 faixas de 5 anos) e o <em>sexo</em> dos indivíduos amostrados. Estas são variáveis para as quais há informações disponíveis de qualidade aceitável para os totais populacionais.</p>
+<p>O número de variáveis <span class="math inline">\(x\)</span> usadas para a calibração é razoavelmente grande (1.002) e a função de distância escolhida é do tipo 2 na Tabela <a href="calib.html#tab:tabcalib4">13.4</a>, correspondendo aos pesos obtidos pelo ‘raking ratio estimator’. No entanto, um estudo sobre a incidência de não resposta nesta pesquisa mostrou que a não resposta não é completamente aleatória, conforme indicado na tabela da página 43 do UK-LFS User Guide (<span class="citation">Statistics (2001)</span>).</p>
+<p>Claramente, então, pode-se ver que a calibração apenas na idade, sexo e região, como é atualmente o caso, não pode esperar eliminar todo o vício devido à não resposta. Não é o número de variáveis <span class="math inline">\(\bf x\)</span> que importa, mas sim usar as variáveis <span class="math inline">\(\bf x\)</span> corretas! Claro que isso é mais fácil falar do que fazer, e no caso da UK-LFS, claramente há dificuldades. Por exemplo, se a não resposta for dependente da situação ocupacional, pode-se tentar testar e calibrar informações externas fornecidas por fontes baseadas em registros, como a ‘claimant count’. Para muitas das outras variáveis, no entanto, informações auxiliares confiáveis dos totais populacionais podem não estar disponíveis, ou serem de obtenção difícil ou custosa.</p>
+<p>A mensagem aqui é que não é suficiente calibrar usando ‘tudo o que está disponível’ para estar livre de vícios. <span class="citation">Gambino (1999)</span> sugere que, em alguns casos, a calibração pode até piorar, e argumenta que ‘é bem sabido que, em muitas pesquisas, os jovens do sexo masculino tendem a não ser entrevistados proporcionalmente. Como as estimativas demográficas por idade-sexo são normalmente usadas na calibração, o efeito é aumentar os pesos dos jovens do sexo masculino que respondem à pesquisa. Se, para algumas variáveis de interesse, os jovens do sexo masculino que tendem a se tornar respondentes diferem substancialmente dos jovens do sexo masculino que tendem a não responder …, então o efeito da calibração é dar mais peso a um componente não representativo da amostra’.</p>
+<p>Suponhamos que soubéssemos que os jovens do sexo masculino que mais tarde seriam não investigados são aqueles que moram sozinhos, e aqueles que são mais propensos a responder são aqueles que vivem com os pais ou a família. Portanto, a ponderação deve ter como objetivo aumentar os pesos daqueles no primeiro grupo (jovens do sexo masculino vivendo sozinhos), mas não daqueles do segundo grupo (vivendo com a família). A informação crucial que precisaríamos fazer seria o total da população por idade e sexo e composição do domicílio (domicílios de uma única pessoa versus outros domicílios). Se esta informação não estiver disponível, ainda há algum recurso limitado a ser usado. A ponderação pode ser realizada ao nível do domicílio e não ao nível individual. Portanto, os jovens do sexo masculino que moram sozinhos teriam pesos que dependem do tipo de domicílio em que vivem, mas essa não seria a correção de vício que estaríamos almejando, apenas o melhor substituto dada a disponibilidade dos dados.</p>
+<p>O exemplo acima ilustra as questões que se deve abordar em relação ao uso da calibração para compensar a não resposta. Se o mecanismo de resposta depende das das características dos domicílios (além da região de residência), como o seu tamanho e composição, bem como as do chefe, então talvez o domicílio seja a unidade para a qual os pesos devem ser calculados, com todos os membros individuais recebendo o mesmo peso do domicílio.</p>
+<p><span class="citation">Skinner (1999)</span> discute calibração na presença da não resposta. Entre as consequências e problemas, destacam-se:</p>
+<p>• Pesos negativos ou extremos podem ocorrer com muito mais frequência.<br />
+• Pesos calibrados <span class="math inline">\((w_i)\)</span> podem não convergir para os pesos originais <span class="math inline">\((d_i)\)</span> do desenho.<br />
+• A variância do estimador de calibração depende da escolha da função de distância adotada na calibração (função <span class="math inline">\(G\)</span> ou <span class="math inline">\(F\)</span>).<br />
+• Calibração pode mascarar efeitos da não resposta ou falhas de cobertura.</p>
+<p>Ver, também, <span class="citation">Lundström (1997)</span>, <span class="citation">Särndal e Lundström (1999)</span> e <span class="citation">Särndal e Lundström (2005)</span>.</p>
+<p><span class="citation">Gambino (1999)</span> adverte que, para o ajuste de não resposta, ‘a má escolha de variáveis ou classes de ajuste pode piorar’, e conclui que ‘é nosso dever como estatísticos trabalhar com os usuários para garantir que as ferramentas de calibração sejam usadas com sabedoria’. Uma razão pela qual a calibração pode piorar é porque ela pode mascarar os efeitos da não resposta. Por exemplo, usando pesos amostrais não ajustados para estimar as contagens da população por idade e sexo, pode-se localizar as células para as quais as estimativas estão abaixo do nível esperado por um valor que é muito grande para ser devido ao erro de amostragem. Estas são as células cujos elementos têm maior probabilidade de não responderem à pesquisa.</p>
+<p>Tais estimativas poderiam então ser usadas para detectar as células para as quais os efeitos prováveis da não resposta são mais altos. Mas se as estimativas são calculadas apenas com pesos calibrados, tais desvios das contagens esperadas ou conhecidas não aparecerão. Seria necessário esforço extra para calcular as estimativas de pré-calibração necessárias para analisar os efeitos prováveis da não resposta, o que só seria possível caso os pesos <span class="math inline">\(d_i\)</span> fossem disponibilizados juntamente com os dados da pesquisa e os pesos calibrados <span class="math inline">\(w_i\)</span>. Logo, a escolha das variáveis auxiliares que serão usadas para calibração é tarefa importante e que deve merecer atenção cuidadosa dos estatísticos responsáveis.</p>
+</div>
+</div>
+<div id="seleção-de-variáveis-para-calibração-com-não-resposta" class="section level2">
+<h2><span class="header-section-number">13.8</span> Seleção de variáveis para calibração com não resposta</h2>
+<p><span class="citation">Silva e Skinner (1997)</span> propõem procedimento de seleção passo a passo para inclusão de variáveis na calibração, levando em conta a não resposta. Tal critério de seleção é baseado em estimativas do <span class="math inline">\(EQM.\)</span></p>
+<p><span class="citation">Särndal e Lundström (2008)</span> propõem critério para seleção das variáveis de calibração baseado apenas no vício.</p>
+<p>Em muitas aplicações práticas, as variáveis auxiliares são categóricas, e são usadas para <em>pós-estratificação da amostra</em>.</p>
+<p>Nesse caso, quando são conhecidas as contagens populacionais numa tabela cruzada definida pelas variáveis auxiliares, o número de pós-estratos pode crescer muito rapidamente.</p>
+<p><strong>Exemplo 13.4 </strong> <span class="citation">Bethlehem e Keller (1987)</span> consideraram um caso em que cinco variáveis auxiliares estavam disponíveis: sexo (2 categorias), idade (10 categorias), estado civil (4 categorias), região (11 categorias) e grau de urbanização (6 categorias).</p>
+<p>Cruzando todas as 5 variáveis para definir os pós-estratos, o número de celas na tabela resultante seria de 5.280. Em termos do modelo de regressão, isto significaria ter que estimar 5.280 parâmetros! Neste exemplo, o <em>modelo saturado</em> é representado como: sexo x idade x estado civil x região x grau de urbanização.</p>
+<p>Em casos como este, uma ideia atraente é a de considerar <em>calibração nas marginais</em>, o que levará a modelos com menor número de parâmetros. Como alternativa, os autores propõem considerar a ideia de <em>pós-estratificação multivariada incompleta</em>, considerando apenas classificações incompletas, similares ao caso do ajuste de modelos log-lineares para representar as tabelas de contingência.</p>
+<p>Um exemplo citado pelos autores considera o modelo: (sexo x idade x estado civil)+(região x grau de urbanização). Neste exemplo, o modelo conteria ‘somente’ 80 + 66 = 146 parâmetros. Uma consequência natural é que a amostra não será calibrada para as 5.280 contagens conhecidas, mas somente para as 146 contagens consideradas no modelo simplificado considerando as marginais incompletas. Mas os autores sugerem que, na prática, o modelo incompleto funcionaria quase tão bem quanto o modelo completo em muitos casos.</p>
+<p><span class="citation">Silva e Skinner (1997)</span> se inspiraram neste artigo para desenvolver o procedimento de seleção de variáveis para uso com estimadores de regressão. A Tabela <a href="calib.html#tab:tabcalib7">13.7</a> mostra uma análise feita por <span class="citation">Bethlehem e Keller (1987)</span> sobre a aplicação da ideia a uma pesquisa domiciliar holandesa realizada em 1977/1978, onde <span class="math inline">\(LI\)</span> e <span class="math inline">\(LS\)</span> representam os limites inferior e superior, respectivamente, dos intervalos com 95% de confiança; e a variável “Mar” representa o estado conjugal.</p>
+<table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:tabcalib7">Tabela 13.7: </span>Estimativas do rendimento médio domiciliar por esquema de ponderação da pesquisa domiciliar da Holanda 1977/1978
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+Variáveis de calibração
+</th>
+<th style="text-align:right;">
+Número de parâmetros
+</th>
+<th style="text-align:right;">
+Estimativa
+</th>
+<th style="text-align:right;">
+Erro Padrão
+</th>
+<th style="text-align:right;">
+<span class="math inline">\(LI\)</span>
+</th>
+<th style="text-align:right;">
+<span class="math inline">\(LS\)</span>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Nenhuma
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+23.494
+</td>
+<td style="text-align:right;">
+182
+</td>
+<td style="text-align:right;">
+23.137
+</td>
+<td style="text-align:right;">
+23.852
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Sexo
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+23.613
+</td>
+<td style="text-align:right;">
+182
+</td>
+<td style="text-align:right;">
+23.137
+</td>
+<td style="text-align:right;">
+23.852
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Idade
+</td>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+23.990
+</td>
+<td style="text-align:right;">
+170
+</td>
+<td style="text-align:right;">
+23.657
+</td>
+<td style="text-align:right;">
+24.323
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Mar
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+23.624
+</td>
+<td style="text-align:right;">
+161
+</td>
+<td style="text-align:right;">
+23.308
+</td>
+<td style="text-align:right;">
+23.940
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Sexo x Idade
+</td>
+<td style="text-align:right;">
+12
+</td>
+<td style="text-align:right;">
+24.012
+</td>
+<td style="text-align:right;">
+167
+</td>
+<td style="text-align:right;">
+23.684
+</td>
+<td style="text-align:right;">
+24.340
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Sexo + Idade
+</td>
+<td style="text-align:right;">
+7
+</td>
+<td style="text-align:right;">
+24.065
+</td>
+<td style="text-align:right;">
+168
+</td>
+<td style="text-align:right;">
+23.736
+</td>
+<td style="text-align:right;">
+24.349
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Sexo x Mar
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+23.809
+</td>
+<td style="text-align:right;">
+160
+</td>
+<td style="text-align:right;">
+23.496
+</td>
+<td style="text-align:right;">
+24.123
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Sexo + Mar
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+23.675
+</td>
+<td style="text-align:right;">
+160
+</td>
+<td style="text-align:right;">
+23.361
+</td>
+<td style="text-align:right;">
+23.990
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Idade x Mar
+</td>
+<td style="text-align:right;">
+12
+</td>
+<td style="text-align:right;">
+23.987
+</td>
+<td style="text-align:right;">
+153
+</td>
+<td style="text-align:right;">
+23.687
+</td>
+<td style="text-align:right;">
+24.287
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Idade + Mar
+</td>
+<td style="text-align:right;">
+7
+</td>
+<td style="text-align:right;">
+24.071
+</td>
+<td style="text-align:right;">
+154
+</td>
+<td style="text-align:right;">
+23.769
+</td>
+<td style="text-align:right;">
+24.374
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Sexo + Idade + Mar
+</td>
+<td style="text-align:right;">
+8
+</td>
+<td style="text-align:right;">
+24.104
+</td>
+<td style="text-align:right;">
+154
+</td>
+<td style="text-align:right;">
+23.802
+</td>
+<td style="text-align:right;">
+24.405
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+(Sexo x Mar) + Idade
+</td>
+<td style="text-align:right;">
+9
+</td>
+<td style="text-align:right;">
+24.172
+</td>
+<td style="text-align:right;">
+153
+</td>
+<td style="text-align:right;">
+23.871
+</td>
+<td style="text-align:right;">
+24.472
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+(Sexo x Idade) + Mar
+</td>
+<td style="text-align:right;">
+13
+</td>
+<td style="text-align:right;">
+24.078
+</td>
+<td style="text-align:right;">
+153
+</td>
+<td style="text-align:right;">
+23.777
+</td>
+<td style="text-align:right;">
+24.379
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+(Idade x Mar) + Sexo
+</td>
+<td style="text-align:right;">
+13
+</td>
+<td style="text-align:right;">
+24.004
+</td>
+<td style="text-align:right;">
+152
+</td>
+<td style="text-align:right;">
+23.705
+</td>
+<td style="text-align:right;">
+24.302
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+(Sexo x Idade) + (Sexo x Mar)
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:right;">
+24.149
+</td>
+<td style="text-align:right;">
+153
+</td>
+<td style="text-align:right;">
+23.849
+</td>
+<td style="text-align:right;">
+24.449
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+(Idade x Mar) + (Sexo x Mar)
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:right;">
+24.076
+</td>
+<td style="text-align:right;">
+152
+</td>
+<td style="text-align:right;">
+23.778
+</td>
+<td style="text-align:right;">
+24.374
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+(Sexo x Idade) + (Idade x Mar)
+</td>
+<td style="text-align:right;">
+18
+</td>
+<td style="text-align:right;">
+23.985
+</td>
+<td style="text-align:right;">
+152
+</td>
+<td style="text-align:right;">
+23.687
+</td>
+<td style="text-align:right;">
+24.283
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+(Sexo x Idade) + (Idade x Mar)+(Sexo x Mar)
+</td>
+<td style="text-align:right;">
+19
+</td>
+<td style="text-align:right;">
+24.054
+</td>
+<td style="text-align:right;">
+152
+</td>
+<td style="text-align:right;">
+23.757
+</td>
+<td style="text-align:right;">
+24.352
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Sexo x Idade x Mar
+</td>
+<td style="text-align:right;">
+24
+</td>
+<td style="text-align:right;">
+24.048
+</td>
+<td style="text-align:right;">
+152
+</td>
+<td style="text-align:right;">
+23.751
+</td>
+<td style="text-align:right;">
+24.345
+</td>
+</tr>
+</tbody>
+</table>
+<p>O exemplo considerado mostra que os erros padrão para a estimativa da média se reduzem à medida que os modelos considerados vão ficando maiores (em termos do número de parâmetros requeridos). Mostra também que os erros padrão são muito similares para vários modelos incompletos em comparação com o mínimo atingido considerando o modelo saturado. Por exemplo, seria possível estimar com a mesma precisão usando modelos com 13 parâmetros que aquela obtida pelo modelo saturado, que tem 24.</p>
+</div>
+<div id="indicadores-de-qualidade-da-calibração" class="section level2">
+<h2><span class="header-section-number">13.9</span> Indicadores de qualidade da calibração</h2>
+<p>Um componente importante de qualquer análise estatística ou trabalho de estimação é a avaliação de quão bem os procedimentos adotados foram executados na aplicação em questão. Com as aplicações de estimadores de calibração, além da estimação usual de variância que deve ser realizada rotineiramente, sugerimos que também é importante avaliar vários outros aspectos do resultado. Isso é importante para verificar os objetivos pretendidos com a calibração foram atingidos e para verificar os possíveis problemas que podem afetar o resultado.</p>
+<p>Portanto, o emprego de estimadores de calibração deve ser acompanhado da obtenção de alguns <em>indicadores de qualidade</em>, que ajudem a avaliar o resultado da calibração numa aplicação (ver <span class="citation">Silva (2004)</span>).</p>
+<p>Como primeira medida, sugerimos examinar a quantidade de erro de calibração restante para o conjunto completo de variáveis <span class="math inline">\(x\)</span> que foram inicialmente selecionadas para calibração. Portanto, um primeiro indicador útil é o <em>erro absoluto médio</em> de calibração para os totais estimados das variáveis auxiliares <span class="math inline">\(x\)</span>, <em>expresso em porcentagem</em>, dado por:</p>
+<p><span class="math display" id="eq:eqcal51">\[
+IQ1 = 100 \times \frac{1}{Q} \sum_{q=1}^{Q} \big{|} {\widehat T}_{x_q}^C - T_{x_q} \big{|} / T_{x_q} \,\, \tag{13.51}
+\]</span></p>
+<p>Num cenário ideal este indicador terá valor nulo, quando a calibração for bem sucedida em eliminar os erros de calibração para todas as variáveis auxiliares. Mas isto pode não ocorrer se algumas das variáveis <span class="math inline">\(x\)</span> forem descartadas durante o processo de determinação dos pesos de calibração ou se alguma das abordagens que não levam à calibração exata foi adotada.</p>
+<p>Um segundo indicador que pode ajudar a avaliar o potencial de vício do estimador de calibração é a média dos coeficientes de variação dos estimadores HT para totais das variáveis auxiliares <span class="math inline">\(x\)</span>, a saber:</p>
+<p><span class="math display" id="eq:eqcal52">\[
+IQ2 = 100 \times \frac{1}{Q} \sum_{q=1}^{Q} \left[ {\widehat V}_p \left( {\widehat T}_{x_q} \right) \right]^{1/2} / {\widehat T}_{x_q} \,\, \tag{13.52}
+\]</span></p>
+<p>onde <span class="math inline">\({\widehat V}_p\left({\widehat T}_{x_q}\right)\)</span> é uma estimativa da variância do estimador HT para o total da <span class="math inline">\(q\)</span>-ésima variável auxiliar, obtida por</p>
+<p><span class="math display" id="eq:eqcal53">\[
+{\widehat V}_p \left( {\widehat T}_{x_q} \right) = \sum_{i \in s} \sum_{k \in s} \left( {d_i d_k} - {d_{ik}} \right) x_{iq} x_{kq} \,\, \tag{13.53}
+\]</span></p>
+<p>Três outros indicadores que podem ser de interesse são baseados na distribuição dos fatores de ajuste dos pesos. Dois deles são as proporções de pesos <em>g</em> extremos (pequenos ou grandes), em que é necessário definir valores de limites inferior <span class="math inline">\((LI)\)</span> e superior <span class="math inline">\((LS)\)</span> aceitáveis para os fatores de ajuste dos pesos. Valores típicos são 1/5 e 5, respectivamente.</p>
+<p>Porcentagem de pesos <span class="math inline">\(g\)</span> <em>muito pequenos</em>:</p>
+<p><span class="math display" id="eq:eqcal54">\[
+IQ3 = 100 \times \frac{1}{n} \sum_{i \in s} I \left( g_i &lt; LI \right) \,\, \tag{13.54}
+\]</span></p>
+<p>Porcentagem de pesos <span class="math inline">\(g\)</span> <em>muito grandes</em>:</p>
+<p><span class="math display" id="eq:eqcal55">\[
+IQ4 = 100 \times \frac{1}{n} \sum_{i \in s} I \left( g_i &gt; LS \right) \,\, \tag{13.55}
+\]</span></p>
+<p><em>Coeficiente de variação</em> dos pesos <span class="math inline">\(g\)</span>:</p>
+<p><span class="math display" id="eq:eqcal56">\[
+IQ5 = 100 \times \left[\sum_{i \in s} \left( g_i - \overline g \right)^2 \big/ (n-1) \right]^{-1/2} \big / {\overline g} \,\, \tag{13.56}
+\]</span></p>
+<p>onde <span class="math inline">\(\overline g = \displaystyle \sum_{i \in s} g_i \big /n\)</span> é o fator de ajuste médio (que deve ficar próximo de 1).</p>
+<p>Outro indicador útil é a <em>distância</em> entre os pesos ajustados e os pesos básicos, dada por:</p>
+<p><span class="math display" id="eq:eqcal57">\[
+IQ6 = \frac{1}{n-Q} \sum_{i \in s} \left( w_i - d_i \right)^2 \big/ (q_i d_i) = \frac{1}{n-Q} \sum_{i \in s} d_i (g_i - 1)^2 / q_i \,\, \tag{13.57}
+\]</span></p>
+<p>Observe que normalizamos essa distância dividindo a função de distância de calibração pelo tamanho da amostra menos o número de variáveis <span class="math inline">\(\bf x\)</span> consideradas, o que permitirá levar em conta que podem ser usados conjuntos de variáveis auxiliares de tamanhos diferentes. Sugerimos que a função de distância qui-quadrado seja usada mesmo quando a função de distância que foi minimizada para obter os pesos de calibração tiver sido uma das outras funções na Tabela <a href="calib.html#tab:tabcalib4">13.4</a>. O motivo é a maior facilidade de interpretação dos valores dessa distância.</p>
+<p>Também é de interesse avaliar a <em>eficiência média</em> obtida em comparação com o estimador HT para algum conjunto de variáveis de pesquisa. Isso pode ser feito comparando a eficiência média de um conjunto especificado de variáveis <span class="math inline">\(y\)</span>, dadas por:</p>
+<p><span class="math display" id="eq:eqcal58">\[
+IQ7 = 100 \times \frac{1}{J} \sum_{j=1}^{J} {\widehat V}_g \left( {\widehat T}_{y_j}^C \right) / {\widehat V}_p \left( {\widehat T}_{y_j} \right) \,\, \tag{13.58}
+\]</span>
+onde as variâncias são estimadas usando
+<span class="math display" id="eq:eqcal59">\[
+{\widehat V}_g \left( {\widehat T}_{y_j}^C \right) = \sum_{i \in s} \sum_{k \in s} \left( d_i d_k - d_{ik} \right) \left( g_i e_{ij} \right) \left( g_k e_{kj} \right) \,\, \tag{13.59}
+\]</span></p>
+<p><span class="math display" id="eq:eqcal60">\[
+{\widehat V}_p\left({\widehat T}_{y_j}\right) = \sum_{i \in s} \sum_{k \in s} \left( d_i d_k - d_{ik} \right) y_{ij} y_{kj} \,\,\tag{13.60}
+\]</span>
+<span class="citation">Sarndal e Lundström (2010)</span> sugerem usar indicadores relacionados com a redução do vício no contexto em que os estimadores de calibração são empregados para compensar vício causado por não resposta:</p>
+<p><span class="math display" id="eq:eqcal61">\[
+IQ8 = 100 \times \left({\widehat T}_{y_j}^C - {\widehat T}_{y_j}\right)\big /{\widehat T}_{y_j}^C\,\,\tag{13.61}
+\]</span></p>
+<p>Usar esse conjunto de indicadores e quaisquer outras medidas que possam fornecer informações sobre os mesmos aspectos é altamente recomendável para usuários de estimadores de calibração.</p>
+</div>
+<div id="um-guia-para-aplicação-de-calibração" class="section level2">
+<h2><span class="header-section-number">13.10</span> Um guia para aplicação de calibração</h2>
+<p>Comece por identificar claramente que variáveis auxiliares estão disponíveis para calibração, e obtendo todas as informações requeridas sobre estas variáveis.</p>
+<p>Os passos seguintes podem ser distintos, dependendo do objetivo principal estabelecido para a calibração. Decida PORQUE calibração é necessária ou desejável.</p>
+<ul>
+<li>Para redução de variância:<br />
+- Escolha o(s) principal(is) alvo(s) de inferência.<br />
+- Guie a escolha de variáveis auxiliares considerando os alvos de inferência escolhidos.<br />
+- Se houver muitas variáveis auxiliares, considere um procedimento de seleção de variáveis guiado por estimativas da variância do estimador de calibração.<br />
+- Comece considerando o estimador de regressão, sem limites para os fatores de ajuste.<br />
+- Lembre que nem sempre usar o maior número de variáveis auxiliares leva a menor variância.<br />
+- Avalie os resultados da calibração usando os indicadores de qualidade sugeridos.<br />
+</li>
+<li>Para redução de vício devido a não resposta:<br />
+- Concentre-se na inclusão de variáveis auxiliares que ajudem a explicar o mecanismo de resposta.<br />
+- Se houver muitas variáveis auxiliares, considere um procedimento de seleção de variáveis guiado por estimativas do <span class="math inline">\(EQM\)</span> ou do vício do estimador de calibração.<br />
+- Comece considerando o estimador de regressão, sem limites para os fatores de ajuste.<br />
+- Avalie os resultados da calibração usando os indicadores de qualidade sugeridos.<br />
+</li>
+<li>Ideias aplicáveis nos dois casos:
+<ul>
+<li>Para variáveis auxiliares categóricas, considere subconjuntos baseados em <em>calibrar nas marginais</em>, em vez de classificações cruzadas (<em>pós-estratificação multivariada incompleta</em>).<br />
+</li>
+<li>Para pesquisas que empreguem amostragem conglomerada, considere adicionar restrições de que os pesos sejam iguais para todas as unidades elementares de um conglomerado. Por exemplo: considere o emprego de ‘<em>ponderação integrada por domicílios</em>’.<br />
+</li>
+<li>Para pesquisas repetidas, pode ser útil considerar o <em>tempo na pesquisa</em> para a calibração.</li>
+</ul></li>
+</ul>
+<p><strong>Exemplo 13.5 </strong> Uso de calibração nos <em>Censos Demográficos</em> brasileiros</p>
+<p>Os <em>Censos Demográficos</em> realizados pelo IBGE utilizam dois tipos de questionários, sendo que um deles, o <em>Questionário Básico</em>, contém um pequeno subconjunto dos quesitos da pesquisa que devem ser investigados em todos os domicílios do país e seus respectivos moradores, enquanto que o outro, o <em>Questionário da Amostra</em>, contém esses mesmos quesitos além de um número relativamente maior de quesitos, é aplicado somente numa amostra de domicílios e respectivos moradores, em cada um dos municípios brasileiros.</p>
+<p>No Censo 2010, por exemplo, o <em>Questionário Básico</em> continha 37 quesitos distribuídos entre os seguintes temas:</p>
+<ul>
+<li>Características do domicílio - oito quesitos.<br />
+</li>
+<li>Emigração Internacional - seis quesitos.<br />
+</li>
+<li>Responsabilidade pelo domicílio - dois quesitos.<br />
+</li>
+<li>Lista de moradores - três quesitos.<br />
+</li>
+<li>Características do morador - 13 quesitos.<br />
+</li>
+<li>Mortalidade - cinco quesitos.</li>
+</ul>
+<p>O <em>Questionário da Amostra</em> continha os mesmos temas do <em>Questionário Básico</em>, sendo alguns deles com maior detalhamento, além de outros temas investigados apenas na amostra. No total o questionário foi composto por 108 quesitos, ressaltando-se que os moradores não necessáriamente tinham de responder a todos eles, pois havia saltos dependendo de características como sexo e idade. Os quesitos foram distribuídos pelos seguintes temas:</p>
+<ul>
+<li>Características do domicílio - 22 quesitos.<br />
+</li>
+<li>Emigração internacional - seis quesitos.<br />
+</li>
+<li>Responsabilidade pelo domicílio - dois quesitos.<br />
+</li>
+<li>Lista de moradores - três quesitos.<br />
+</li>
+<li>Características do morador - 70 quesitos;<br />
+</li>
+<li>Mortalidade - cinco quesitos.</li>
+</ul>
+<p>Desta forma as questões abordadas no <em>Questionário Básico</em> formam, efetivamente, um conjunto de informações pesquisadas de forma censitária e, portanto, seus totais são conhecidos para toda a população de domicílios e pessoas do país. Os pesos amostrais, relativos às informações pesquisadas apenas no <em>Questionário da Amostra</em>, são calibrados, desde o <em>Censo 1960</em>, dentro de uma determinada área geográfica denominada área de ponderação, utilizando-se como <em>informações auxiliares</em> aquelas variáveis que são pesquisadas em ambos os questionários. Até o <em>Censo 1980</em> foi utilizado um processo de pós-estratificação com adaptações necessárias em cada Censo. A partir do <em>Censo 1991</em> passou-se a utilizar processos baseados em estimadores de regressão - ver <span class="citation">Bankier, Rathwel, e Majkowski (1992)</span>.</p>
+<p>Detalhes da utilização de calibração nos censos brasileiros de 2000 e 2010, bem como outros aspectos dessas pesquisas, podem ser vistos em <span class="citation">IBGE (2003a)</span> e <span class="citation">IBGE (2016a)</span>. O cálculo dos pesos calibrados foi baseado no método dos Mínimos Quadrados Generalizados - MQG, porém com a imposição de limites nos pesos finais, para evitar pesos muito pequenos ou muito grandes. Como as amostras dos censos demográficos são do tipo conglomerada, onde se selecionam domicílios e todos seus moradores são pesquisados, a calibração foi feita no nível do domicílio e o peso calibrado foi atribuído a cada um dos seus moradores, de acordo com uma das recomendações listadas anteriormente.</p>
+<p><strong>Exemplo 13.6 </strong> Uso de calibração na PNAD Contínua</p>
+<p>A Pesquisa Nacional por Amostragem de Domicílios Contínua - PNAD Contínua - do IBGE é uma pesquisa repetida trimestral que emprega estimadores de calibração tipo pós-estratificação na ponderação de suas amostras. A calibração leva em conta pós-estratos que são definidos com base na localização geográfica das unidades da amostra. Conforme <span class="citation">IBGE (2020)</span>,</p>
+<p>“Os domínios de estimação da Pesquisa são os seguintes: Todos os Municípios das Capitais e Distrito Federal; 20 Regiões Metropolitanas que contêm municípios das capitais: Manaus, Belém, Macapá, São Luís, Fortaleza, Natal, João Pessoa, Recife, Maceió, Aracaju, Salvador, Belo Horizonte, Vitória, Rio de Janeiro, São Paulo, Curitiba, Florianópolis, Porto Alegre, Vale do Rio Cuiabá, e Goiânia; Região Integrada de Desenvolvimento da Grande Teresina; e os demais municípios que não fazem parte desses domínios em cada uma das Unidades da Federação, totalizando 77 domínios. Para a composição das Regiões Metropolitanas e Regiões Integradas de Desenvolvimento, manteve-se como referência a divisão político administrativa vigente em 01/08/2010.”</p>
+<p>São usados para calibração os totais da população estimada para cada um dos pós-estratos, obtidos mediante as projeções populacionais elaboradas pelo próprio IBGE usando modelos e métodos demográficos. Uma descrição resumida de como estes totais de população são obtidos para cada rodada trimestral da pesquisa pode ser encontrada no Anexo 1 de <span class="citation">IBGE (2020)</span>.</p>
+<p>Esta calibração feita na PNAD Contínua assegura que os totais populacionais ali estimados fiquem coerentes com as projeções de população divulgadas pelo IBGE, e além disso, também fiquem coerentes com totais estimados por outras pesquisas domiciliares que adotem calibração para os mesmos totais populacionais. Esta é uma das principais razões que justificam calibração como essa feita na PNAD Contínua.</p>
+<p>Uma consequência dessa estratégia é que cada vez que as projeções populacionais do IBGE são revisadas, seja por atualização de dados que elas utilizam como fonte (por exemplo, na ocorrência de novo censo de população), seja por revisões nos modelos e métodos de projeção, toda a série de estimativas já divulgadas costuma ser revisada. Isto é necessário para permitir que comparações de estimativas dos novos períodos pós-revisão possam ser feitas diretamente com as estimativas pré-revisão de maneira direta, sem que as estimativas de diferenças sejam afetadas pelos efeitos da revisão das projeções.</p>
+<p>Uma outra consequência é que, ao analisar os microdados da pesquisa, os usuários devem levar em conta não só os efeitos da estratificação e conglomeração iniciais da amostra, mas também da calibração de pesos das observações. O IBGE tem tentado facilitar a realização de análises corretas mediante elaboração e disseminação do pacote <em>PNADcIBGE</em> da linguagem R - “<a href="https://CRAN.R-project.org/package=PNADcIBGE" class="uri">https://CRAN.R-project.org/package=PNADcIBGE</a>”. Esse pacote permite fazer a importação dos dados de um (ou vários) trimestre(s), e criar os objetos necessários para analisar os dados da maneira correta.</p>
+</div>
+<div id="observações-finais" class="section level2">
+<h2><span class="header-section-number">13.11</span> Observações finais</h2>
+<p>Neste capítulo, revisamos a literatura sobre estimação de calibração e tentamos transmitir a mensagem de que é uma abordagem flexível, poderosa e conveniente para ponderação e estimação em pesquisas amostrais. Ao mesmo tempo, apontamos algumas das dificuldades que os usuários da técnica podem enfrentar em aplicações práticas, além de fornecer algumas orientações sobre como elas podem ser detectadas e contornadas.</p>
+<p>O valor da estimação de calibração para situações práticas de pesquisa é claramente demonstrado pelo número crescente de pacotes de software desenvolvidos para sua aplicação, bem como pelo número de pesquisas importantes em vários países que dependem de calibração para sua ponderação e estimação. Em países como o Canadá, os Estados Unidos, o Reino Unido e a França, a estimação de calibração é usada para as pesquisas sobre força de trabalho. No Brasil e no Canadá, também é utilizado para as amostras coletadas com o questionário ampliado como parte dos Censos de População.</p>
+<p>Embora seu valor e utilidade sejam reconhecidos, incentivamos os usuários a criticar o resultado da ponderação de calibração e enfatizamos a importância de uma verificação cuidadosa dos pesos e estimativas resultantes, para verificar se eles atendem aos critérios de desempenho e altos padrões de qualidade e confiabilidade que são esperados das pesquisas por amostragem.</p>
+<p>A calibração não deve ser usada para ‘disfarçar’ resultados de pesquisas com viés, nos quais a cobertura e o vício de não resposta são ‘encobertos’ por meio de calibração simples para os totais de população conhecidos. Os usuários da técnica devem, acima de tudo, procurar ser transparentes sobre a aplicação da metodologia e da avaliação de seu sucesso, a fim de proporcionar aos usuários dos resultados da pesquisa a possibilidade de exercer uma avaliação crítica da adequação à finalidade do resultado das estatísticas produzidas com estimadores de calibração.</p>
+<p>Finalmente, encorajamos os produtores de dados que optarem por adotar a estimação de calibração em pesquisas, que publiquem os arquivos de microdados anonimizados, fornecendo aos usuários as informações necessárias para que eles possam fazer uso adequado dos dados, no sentido de serem capazes de calcular as estimativas da variância corretamente. Isso é muito mais desafiador do que quando os estimadores HT são usados, diante do fato que as informações sobre o conjunto completo de variáveis <span class="math inline">\(\bf x\)</span> usadas para calibração também devem ser liberadas juntamente com os pesos básicos <span class="math inline">\(d\)</span> e os pesos calibrados <span class="math inline">\(w\)</span> para cada registro da amostra da pesquisa. Uma investigação cuidadosa ainda é necessária sobre a melhor forma de atingir esse objetivo sem sacrificar as restrições necessárias para a proteção da confidencialidade. No momento da redação deste livro, a melhor solução disponível seria oferecer arquivos de microdados na forma de objetos criados pelas funções de calibração do pacote <em>survey</em> do sistema R.</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="cong.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="referências.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

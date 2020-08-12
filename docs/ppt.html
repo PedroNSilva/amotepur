@@ -1,0 +1,1042 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xml:lang="pt-BR">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Capítulo 10 Amostragem com Probabilidades Proporcionais ao Tamanho | Amostragem: Teoria e Prática Usando R</title>
+  <meta name="description" content="Este é o livro de Amostragem elaborado pelos autores." />
+  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Capítulo 10 Amostragem com Probabilidades Proporcionais ao Tamanho | Amostragem: Teoria e Prática Usando R" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Este é o livro de Amostragem elaborado pelos autores." />
+  <meta name="github-repo" content="PedroNSilva/amotepur" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Capítulo 10 Amostragem com Probabilidades Proporcionais ao Tamanho | Amostragem: Teoria e Prática Usando R" />
+  
+  <meta name="twitter:description" content="Este é o livro de Amostragem elaborado pelos autores." />
+  
+
+<meta name="author" content="Pedro Luis do Nascimento Silva, Zélia Magalhães Bianchini e Antonio José Ribeiro Dias" />
+
+
+<meta name="date" content="2020-08-12" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="outros-métodos-de-amostragem-com-equiprobabilidade.html"/>
+<link rel="next" href="estrat.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+
+
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Prefácio</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#agradecimentos"><i class="fa fa-check"></i>Agradecimentos</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="lista-de-siglas.html"><a href="lista-de-siglas.html"><i class="fa fa-check"></i>Lista de Siglas</a></li>
+<li class="chapter" data-level="" data-path="lista-de-tabelas.html"><a href="lista-de-tabelas.html"><i class="fa fa-check"></i>Lista de Tabelas</a></li>
+<li class="chapter" data-level="" data-path="lista-de-figuras.html"><a href="lista-de-figuras.html"><i class="fa fa-check"></i>Lista de Figuras</a></li>
+<li class="chapter" data-level="1" data-path="introduc.html"><a href="introduc.html"><i class="fa fa-check"></i><b>1</b> Introdução</a><ul>
+<li class="chapter" data-level="1.1" data-path="introduc.html"><a href="introduc.html#motivação"><i class="fa fa-check"></i><b>1.1</b> Motivação</a></li>
+<li class="chapter" data-level="1.2" data-path="introduc.html"><a href="introduc.html#objetivos-do-livro"><i class="fa fa-check"></i><b>1.2</b> Objetivos do livro</a></li>
+<li class="chapter" data-level="1.3" data-path="introduc.html"><a href="introduc.html#estrutura-do-livro"><i class="fa fa-check"></i><b>1.3</b> Estrutura do livro</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="conceitos.html"><a href="conceitos.html"><i class="fa fa-check"></i><b>2</b> Conceitos e Cadastros</a><ul>
+<li class="chapter" data-level="2.1" data-path="conceitos.html"><a href="conceitos.html#fontes-de-dados-e-tipos-de-pesquisas"><i class="fa fa-check"></i><b>2.1</b> Fontes de dados e tipos de pesquisas</a></li>
+<li class="chapter" data-level="2.2" data-path="conceitos.html"><a href="conceitos.html#alguns-conceitos-fundamentais"><i class="fa fa-check"></i><b>2.2</b> Alguns conceitos fundamentais</a></li>
+<li class="chapter" data-level="2.3" data-path="conceitos.html"><a href="conceitos.html#abordalt"><i class="fa fa-check"></i><b>2.3</b> Abordagens alternativas para pesquisas por amostragem</a></li>
+<li class="chapter" data-level="2.4" data-path="conceitos.html"><a href="conceitos.html#planejamento-e-execução-de-pesquisas-por-amostragem"><i class="fa fa-check"></i><b>2.4</b> Planejamento e execução de pesquisas por amostragem</a><ul>
+<li class="chapter" data-level="2.4.1" data-path="conceitos.html"><a href="conceitos.html#especificação-das-necessidades-da-pesquisa"><i class="fa fa-check"></i><b>2.4.1</b> Especificação das necessidades da pesquisa</a></li>
+<li class="chapter" data-level="2.4.2" data-path="conceitos.html"><a href="conceitos.html#planejamento-da-pesquisa"><i class="fa fa-check"></i><b>2.4.2</b> Planejamento da pesquisa</a></li>
+<li class="chapter" data-level="2.4.3" data-path="conceitos.html"><a href="conceitos.html#elaboração-dos-instrumentos-de-coleta-e-dos-sistemas"><i class="fa fa-check"></i><b>2.4.3</b> Elaboração dos instrumentos de coleta e dos sistemas</a></li>
+<li class="chapter" data-level="2.4.4" data-path="conceitos.html"><a href="conceitos.html#coleta-dos-dados"><i class="fa fa-check"></i><b>2.4.4</b> Coleta dos dados</a></li>
+<li class="chapter" data-level="2.4.5" data-path="conceitos.html"><a href="conceitos.html#processamento-da-pesquisa"><i class="fa fa-check"></i><b>2.4.5</b> Processamento da pesquisa</a></li>
+<li class="chapter" data-level="2.4.6" data-path="conceitos.html"><a href="conceitos.html#análise-dos-dados-da-pesquisa"><i class="fa fa-check"></i><b>2.4.6</b> Análise dos dados da pesquisa</a></li>
+<li class="chapter" data-level="2.4.7" data-path="conceitos.html"><a href="conceitos.html#disseminação-dos-resultados-da-pesquisa"><i class="fa fa-check"></i><b>2.4.7</b> Disseminação dos resultados da pesquisa</a></li>
+<li class="chapter" data-level="2.4.8" data-path="conceitos.html"><a href="conceitos.html#arquivamento-das-informações-da-pesquisa"><i class="fa fa-check"></i><b>2.4.8</b> Arquivamento das informações da pesquisa</a></li>
+<li class="chapter" data-level="2.4.9" data-path="conceitos.html"><a href="conceitos.html#avaliação-da-pesquisa"><i class="fa fa-check"></i><b>2.4.9</b> Avaliação da pesquisa</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="conceitos.html"><a href="conceitos.html#cadastros"><i class="fa fa-check"></i><b>2.5</b> Cadastros</a><ul>
+<li class="chapter" data-level="2.5.1" data-path="conceitos.html"><a href="conceitos.html#cadIBGE"><i class="fa fa-check"></i><b>2.5.1</b> Cadastros importantes no IBGE</a></li>
+<li class="chapter" data-level="2.5.2" data-path="conceitos.html"><a href="conceitos.html#defeitos-de-cadastros"><i class="fa fa-check"></i><b>2.5.2</b> Defeitos de cadastros</a></li>
+<li class="chapter" data-level="2.5.3" data-path="conceitos.html"><a href="conceitos.html#regras-de-associação-das-unidades-da-população-à-unidade-cadastral"><i class="fa fa-check"></i><b>2.5.3</b> Regras de associação das unidades da população à unidade cadastral</a></li>
+</ul></li>
+<li class="chapter" data-level="2.6" data-path="conceitos.html"><a href="conceitos.html#exercícios"><i class="fa fa-check"></i><b>2.6</b> Exercícios</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="visger.html"><a href="visger.html"><i class="fa fa-check"></i><b>3</b> Visão Geral da Amostragem e Estimação</a><ul>
+<li class="chapter" data-level="3.1" data-path="visger.html"><a href="visger.html#definições-e-notação-para-população-de-pesquisa-e-parâmetros-selecionados"><i class="fa fa-check"></i><b>3.1</b> Definições e notação para população de pesquisa e parâmetros selecionados</a></li>
+<li class="chapter" data-level="3.2" data-path="visger.html"><a href="visger.html#amostra"><i class="fa fa-check"></i><b>3.2</b> Amostra</a></li>
+<li class="chapter" data-level="3.3" data-path="visger.html"><a href="visger.html#amostragem-probabilística"><i class="fa fa-check"></i><b>3.3</b> Amostragem probabilística</a></li>
+<li class="chapter" data-level="3.4" data-path="visger.html"><a href="visger.html#estatísticas-estimadores-e-estimativas"><i class="fa fa-check"></i><b>3.4</b> Estatísticas, estimadores e estimativas</a></li>
+<li class="chapter" data-level="3.5" data-path="visger.html"><a href="visger.html#a-distribuição-de-aleatorização"><i class="fa fa-check"></i><b>3.5</b> A distribuição de aleatorização</a></li>
+<li class="chapter" data-level="3.6" data-path="visger.html"><a href="visger.html#estimadores-não-viciados-para-o-total-populacional"><i class="fa fa-check"></i><b>3.6</b> Estimadores não viciados para o total populacional</a></li>
+<li class="chapter" data-level="3.7" data-path="visger.html"><a href="visger.html#teoria-básica"><i class="fa fa-check"></i><b>3.7</b> Teoria básica</a><ul>
+<li class="chapter" data-level="3.7.1" data-path="visger.html"><a href="visger.html#estimador-linear-de-total"><i class="fa fa-check"></i><b>3.7.1</b> Estimador linear de total</a></li>
+<li class="chapter" data-level="3.7.2" data-path="visger.html"><a href="visger.html#propHT"><i class="fa fa-check"></i><b>3.7.2</b> Propriedades do estimador de Horvitz-Thompson</a></li>
+<li class="chapter" data-level="3.7.3" data-path="visger.html"><a href="visger.html#estimação-da-média-populacional"><i class="fa fa-check"></i><b>3.7.3</b> Estimação da média populacional</a></li>
+</ul></li>
+<li class="chapter" data-level="3.8" data-path="conceitos.html"><a href="conceitos.html#exercícios"><i class="fa fa-check"></i><b>3.8</b> Exercícios</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="aas.html"><a href="aas.html"><i class="fa fa-check"></i><b>4</b> Amostragem Aleatória Simples</a><ul>
+<li class="chapter" data-level="4.1" data-path="aas.html"><a href="aas.html#planos-amostrais-e-algoritmos-de-seleção"><i class="fa fa-check"></i><b>4.1</b> Planos amostrais e algoritmos de seleção</a></li>
+<li class="chapter" data-level="4.2" data-path="aas.html"><a href="aas.html#amostragem-aleatória-simples-com-reposição"><i class="fa fa-check"></i><b>4.2</b> Amostragem aleatória simples com reposição</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="aas.html"><a href="aas.html#estimação-do-total-e-média-populacionais-sob-aasc"><i class="fa fa-check"></i><b>4.2.1</b> Estimação do total e média populacionais sob AASC</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="aas.html"><a href="aas.html#amostragem-aleatória-simples-sem-reposição"><i class="fa fa-check"></i><b>4.3</b> Amostragem aleatória simples sem reposição</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="aas.html"><a href="aas.html#algoritmo-convencional-para-selecionar-uma-aas"><i class="fa fa-check"></i><b>4.3.1</b> Algoritmo “convencional” para selecionar uma AAS</a></li>
+<li class="chapter" data-level="4.3.2" data-path="aas.html"><a href="aas.html#Hajek"><i class="fa fa-check"></i><b>4.3.2</b> Algoritmo de Hàjek para selecionar AAS</a></li>
+<li class="chapter" data-level="4.3.3" data-path="aas.html"><a href="aas.html#algoritmo-de-fan-muller-e-rezucha-para-selecionar-aas"><i class="fa fa-check"></i><b>4.3.3</b> Algoritmo de Fan, Muller e Rezucha para selecionar AAS</a></li>
+<li class="chapter" data-level="4.3.4" data-path="aas.html"><a href="aas.html#probabilidades-de-inclusão-sob-aas"><i class="fa fa-check"></i><b>4.3.4</b> Probabilidades de inclusão sob AAS</a></li>
+<li class="chapter" data-level="4.3.5" data-path="aas.html"><a href="aas.html#estimador-não-viciado-do-total-e-média-populacionais-sob-aas"><i class="fa fa-check"></i><b>4.3.5</b> Estimador não viciado do total e média populacionais sob AAS</a></li>
+<li class="chapter" data-level="4.3.6" data-path="aas.html"><a href="aas.html#distribuição-da-média-amostral"><i class="fa fa-check"></i><b>4.3.6</b> Distribuição da média amostral</a></li>
+<li class="chapter" data-level="4.3.7" data-path="aas.html"><a href="aas.html#comparação-dos-planos-de-amostragem-aleatória-simples-com-e-sem-reposição"><i class="fa fa-check"></i><b>4.3.7</b> Comparação dos planos de amostragem aleatória simples com e sem reposição</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="aas.html"><a href="aas.html#determinação-do-tamanho-da-amostra"><i class="fa fa-check"></i><b>4.4</b> Determinação do tamanho da amostra</a><ul>
+<li class="chapter" data-level="4.4.1" data-path="aas.html"><a href="aas.html#tamanho-amostral-para-custo-fixado"><i class="fa fa-check"></i><b>4.4.1</b> Tamanho amostral para custo fixado</a></li>
+<li class="chapter" data-level="4.4.2" data-path="aas.html"><a href="aas.html#tamanho-amostral-para-precisão-fixada"><i class="fa fa-check"></i><b>4.4.2</b> Tamanho amostral para precisão fixada</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="conceitos.html"><a href="conceitos.html#exercícios"><i class="fa fa-check"></i><b>4.5</b> Exercícios</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="proporc.html"><a href="proporc.html"><i class="fa fa-check"></i><b>5</b> Estimação de Proporções</a><ul>
+<li class="chapter" data-level="5.1" data-path="proporc.html"><a href="proporc.html#parâmetros-populacionais"><i class="fa fa-check"></i><b>5.1</b> Parâmetros populacionais</a></li>
+<li class="chapter" data-level="5.2" data-path="proporc.html"><a href="proporc.html#estimação-sob-amostragem-aleatória-simples-com-reposição"><i class="fa fa-check"></i><b>5.2</b> Estimação sob amostragem aleatória simples com reposição</a></li>
+<li class="chapter" data-level="5.3" data-path="proporc.html"><a href="proporc.html#estimação-sob-amostragem-aleatória-simples-sem-reposição"><i class="fa fa-check"></i><b>5.3</b> Estimação sob amostragem aleatória simples sem reposição</a></li>
+<li class="chapter" data-level="5.4" data-path="proporc.html"><a href="proporc.html#distribuição-amostral-exata-de-estimadores-de-proporção-sob-aasc-e-aas"><i class="fa fa-check"></i><b>5.4</b> Distribuição amostral exata de estimadores de proporção sob AASC e AAS</a></li>
+<li class="chapter" data-level="5.5" data-path="proporc.html"><a href="proporc.html#intervalos-de-confiança-para-proporções-na-amostragem-aleatória-simples"><i class="fa fa-check"></i><b>5.5</b> Intervalos de confiança para proporções na amostragem aleatória simples</a></li>
+<li class="chapter" data-level="5.6" data-path="proporc.html"><a href="proporc.html#intervalos-de-confiança-utilizando-a-aproximação-normal"><i class="fa fa-check"></i><b>5.6</b> Intervalos de confiança utilizando a aproximação normal</a></li>
+<li class="chapter" data-level="5.7" data-path="proporc.html"><a href="proporc.html#cálculo-do-tamanho-da-amostra"><i class="fa fa-check"></i><b>5.7</b> Cálculo do tamanho da amostra</a><ul>
+<li class="chapter" data-level="5.7.1" data-path="proporc.html"><a href="proporc.html#cálculo-do-n-utilizando-outras-formas-de-representar-o-erro-amostral"><i class="fa fa-check"></i><b>5.7.1</b> Cálculo do <span class="math inline">\(n\)</span> utilizando outras formas de representar o erro amostral</a></li>
+</ul></li>
+<li class="chapter" data-level="5.8" data-path="proporc.html"><a href="proporc.html#estimação-de-proporções-para-variáveis-com-mais-de-duas-categorias"><i class="fa fa-check"></i><b>5.8</b> Estimação de proporções para variáveis com mais de duas categorias</a></li>
+<li class="chapter" data-level="5.9" data-path="conceitos.html"><a href="conceitos.html#exercícios"><i class="fa fa-check"></i><b>5.9</b> Exercícios</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="razao.html"><a href="razao.html"><i class="fa fa-check"></i><b>6</b> Estimação de Razões e Funções de Totais</a><ul>
+<li class="chapter" data-level="6.1" data-path="razao.html"><a href="razao.html#razões-populacionais-como-parâmetros-de-interesse"><i class="fa fa-check"></i><b>6.1</b> Razões populacionais como parâmetros de interesse</a></li>
+<li class="chapter" data-level="6.2" data-path="razao.html"><a href="razao.html#razão-de-médias-versus-média-de-razões"><i class="fa fa-check"></i><b>6.2</b> Razão de médias <em>versus</em> média de razões</a></li>
+<li class="chapter" data-level="6.3" data-path="razao.html"><a href="razao.html#outras-funções-de-totais"><i class="fa fa-check"></i><b>6.3</b> Outras funções de totais</a></li>
+<li class="chapter" data-level="6.4" data-path="razao.html"><a href="razao.html#estimadores-de-razões-de-totais"><i class="fa fa-check"></i><b>6.4</b> Estimadores de razões de totais</a></li>
+<li class="chapter" data-level="6.5" data-path="razao.html"><a href="razao.html#estoft"><i class="fa fa-check"></i><b>6.5</b> Estimadores para outras funções de totais</a></li>
+<li class="chapter" data-level="6.6" data-path="razao.html"><a href="razao.html#vicioraz"><i class="fa fa-check"></i><b>6.6</b> Análise do o vício do estimador da razão</a></li>
+<li class="chapter" data-level="6.7" data-path="razao.html"><a href="razao.html#erro-quadrático-médio-de-widehatr"><i class="fa fa-check"></i><b>6.7</b> Erro quadrático médio de <span class="math inline">\(\widehat{R}\)</span></a></li>
+<li class="chapter" data-level="6.8" data-path="conceitos.html"><a href="conceitos.html#exercícios"><i class="fa fa-check"></i><b>6.8</b> Exercícios</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="domin.html"><a href="domin.html"><i class="fa fa-check"></i><b>7</b> Estimação para Domínios de Estudo</a><ul>
+<li class="chapter" data-level="7.1" data-path="domin.html"><a href="domin.html#domin1"><i class="fa fa-check"></i><b>7.1</b> Domínios de estudo</a></li>
+<li class="chapter" data-level="7.2" data-path="domin.html"><a href="domin.html#domin2"><i class="fa fa-check"></i><b>7.2</b> Parâmetros de interesse para domínios</a></li>
+<li class="chapter" data-level="7.3" data-path="domin.html"><a href="domin.html#estimação-de-parâmetros-para-domínios-sob-aas"><i class="fa fa-check"></i><b>7.3</b> Estimação de parâmetros para domínios sob AAS</a></li>
+<li class="chapter" data-level="7.4" data-path="domin.html"><a href="domin.html#intervalos-de-confiança-para-os-parâmetros-para-o-domínio"><i class="fa fa-check"></i><b>7.4</b> Intervalos de confiança para os parâmetros para o domínio</a></li>
+<li class="chapter" data-level="7.5" data-path="domin.html"><a href="domin.html#propriedades-condicionais-fixando-n_c"><i class="fa fa-check"></i><b>7.5</b> Propriedades condicionais (fixando <span class="math inline">\(n_c\)</span>)</a></li>
+<li class="chapter" data-level="7.6" data-path="domin.html"><a href="domin.html#estimação-do-total-no-domínio-quando-tamanho-do-domínio-é-conhecido"><i class="fa fa-check"></i><b>7.6</b> Estimação do total no domínio quando tamanho do domínio é conhecido</a></li>
+<li class="chapter" data-level="7.7" data-path="domin.html"><a href="domin.html#comparação-da-eficiência-dos-estimadores-de-total-no-domínio"><i class="fa fa-check"></i><b>7.7</b> Comparação da eficiência dos estimadores de total no domínio</a></li>
+<li class="chapter" data-level="7.8" data-path="domin.html"><a href="domin.html#estimação-de-proporções-dentro-do-domínio"><i class="fa fa-check"></i><b>7.8</b> Estimação de proporções dentro do domínio</a></li>
+<li class="chapter" data-level="7.9" data-path="conceitos.html"><a href="conceitos.html#exercícios"><i class="fa fa-check"></i><b>7.9</b> Exercícios</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="AS.html"><a href="AS.html"><i class="fa fa-check"></i><b>8</b> Amostragem Sistemática Simples</a><ul>
+<li class="chapter" data-level="8.1" data-path="AS.html"><a href="AS.html#ideia-básica"><i class="fa fa-check"></i><b>8.1</b> Ideia básica</a></li>
+<li class="chapter" data-level="8.2" data-path="AS.html"><a href="AS.html#método-de-seleção-da-amostra"><i class="fa fa-check"></i><b>8.2</b> Método de seleção da amostra</a></li>
+<li class="chapter" data-level="8.3" data-path="AS.html"><a href="AS.html#composição-das-amostras-sistemáticas-simples"><i class="fa fa-check"></i><b>8.3</b> Composição das amostras sistemáticas simples</a></li>
+<li class="chapter" data-level="8.4" data-path="AS.html"><a href="AS.html#probabilidades-de-inclusão-na-amostragem-sistemática-simples"><i class="fa fa-check"></i><b>8.4</b> Probabilidades de inclusão na amostragem sistemática simples</a></li>
+<li class="chapter" data-level="8.5" data-path="AS.html"><a href="AS.html#variáveis-aleatórias-indicadoras---propriedades"><i class="fa fa-check"></i><b>8.5</b> Variáveis aleatórias indicadoras - propriedades</a></li>
+<li class="chapter" data-level="8.6" data-path="AS.html"><a href="AS.html#estimação-de-totais-sob-amostragem-sistemática-simples"><i class="fa fa-check"></i><b>8.6</b> Estimação de totais sob amostragem sistemática simples</a></li>
+<li class="chapter" data-level="8.7" data-path="AS.html"><a href="AS.html#estimação-de-médias-sob-amostragem-sistemática-simples"><i class="fa fa-check"></i><b>8.7</b> Estimação de médias sob amostragem sistemática simples</a></li>
+<li class="chapter" data-level="8.8" data-path="AS.html"><a href="AS.html#estimação-de-uma-proporção-na-amostragem-sistemática-simples"><i class="fa fa-check"></i><b>8.8</b> Estimação de uma proporção na amostragem sistemática simples</a></li>
+<li class="chapter" data-level="8.9" data-path="AS.html"><a href="AS.html#variância-dos-estimadores-sob-amostragem-sistemática-simples"><i class="fa fa-check"></i><b>8.9</b> Variância dos estimadores sob amostragem sistemática simples</a></li>
+<li class="chapter" data-level="8.10" data-path="AS.html"><a href="AS.html#estimação-de-variâncias-dos-estimadores-na-amostragem-sistemática-simples"><i class="fa fa-check"></i><b>8.10</b> Estimação de variâncias dos estimadores na amostragem sistemática simples</a></li>
+<li class="chapter" data-level="8.11" data-path="AS.html"><a href="AS.html#alternativas-para-seleção-com-amostragem-sistemática-simples"><i class="fa fa-check"></i><b>8.11</b> Alternativas para seleção com amostragem sistemática simples</a></li>
+<li class="chapter" data-level="8.12" data-path="conceitos.html"><a href="conceitos.html#exercícios"><i class="fa fa-check"></i><b>8.12</b> Exercícios</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="outros-métodos-de-amostragem-com-equiprobabilidade.html"><a href="outros-métodos-de-amostragem-com-equiprobabilidade.html"><i class="fa fa-check"></i><b>9</b> Outros Métodos de Amostragem com Equiprobabilidade</a><ul>
+<li class="chapter" data-level="9.1" data-path="outros-métodos-de-amostragem-com-equiprobabilidade.html"><a href="outros-métodos-de-amostragem-com-equiprobabilidade.html#binom"><i class="fa fa-check"></i><b>9.1</b> Amostragem binomial ou de Bernoulli</a><ul>
+<li class="chapter" data-level="9.1.1" data-path="AS.html"><a href="AS.html#método-de-seleção-da-amostra"><i class="fa fa-check"></i><b>9.1.1</b> Método de seleção da amostra</a></li>
+<li class="chapter" data-level="9.1.2" data-path="outros-métodos-de-amostragem-com-equiprobabilidade.html"><a href="outros-métodos-de-amostragem-com-equiprobabilidade.html#probabilidades-de-inclusão-na-amostragem-binomial"><i class="fa fa-check"></i><b>9.1.2</b> Probabilidades de inclusão na amostragem binomial</a></li>
+<li class="chapter" data-level="9.1.3" data-path="outros-métodos-de-amostragem-com-equiprobabilidade.html"><a href="outros-métodos-de-amostragem-com-equiprobabilidade.html#estimação-de-totais-sob-amostragem-binomial"><i class="fa fa-check"></i><b>9.1.3</b> Estimação de totais sob amostragem binomial</a></li>
+<li class="chapter" data-level="9.1.4" data-path="outros-métodos-de-amostragem-com-equiprobabilidade.html"><a href="outros-métodos-de-amostragem-com-equiprobabilidade.html#estimação-de-médias-sob-amostragem-binomial"><i class="fa fa-check"></i><b>9.1.4</b> Estimação de médias sob amostragem binomial</a></li>
+<li class="chapter" data-level="9.1.5" data-path="outros-métodos-de-amostragem-com-equiprobabilidade.html"><a href="outros-métodos-de-amostragem-com-equiprobabilidade.html#exemplos-de-aplicação-da-amostragem-binomial"><i class="fa fa-check"></i><b>9.1.5</b> Exemplos de aplicação da amostragem binomial</a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="outros-métodos-de-amostragem-com-equiprobabilidade.html"><a href="outros-métodos-de-amostragem-com-equiprobabilidade.html#inversa"><i class="fa fa-check"></i><b>9.2</b> Amostragem inversa simples</a><ul>
+<li class="chapter" data-level="9.2.1" data-path="outros-métodos-de-amostragem-com-equiprobabilidade.html"><a href="outros-métodos-de-amostragem-com-equiprobabilidade.html#método-de-seleção-da-amostra-inversa-simples"><i class="fa fa-check"></i><b>9.2.1</b> Método de seleção da amostra inversa simples</a></li>
+<li class="chapter" data-level="9.2.2" data-path="outros-métodos-de-amostragem-com-equiprobabilidade.html"><a href="outros-métodos-de-amostragem-com-equiprobabilidade.html#amostragem-inversa-simples-para-varredura-por-amostragem"><i class="fa fa-check"></i><b>9.2.2</b> Amostragem inversa simples para varredura por amostragem</a></li>
+<li class="chapter" data-level="9.2.3" data-path="outros-métodos-de-amostragem-com-equiprobabilidade.html"><a href="outros-métodos-de-amostragem-com-equiprobabilidade.html#exemplos-de-aplicação-da-amostragem-inversa-simples"><i class="fa fa-check"></i><b>9.2.3</b> Exemplos de aplicação da amostragem inversa simples</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="conceitos.html"><a href="conceitos.html#exercícios"><i class="fa fa-check"></i><b>9.3</b> Exercícios</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="ppt.html"><a href="ppt.html"><i class="fa fa-check"></i><b>10</b> Amostragem com Probabilidades Proporcionais ao Tamanho</a><ul>
+<li class="chapter" data-level="10.1" data-path="ppt.html"><a href="ppt.html#justificativa-para-amostragem-ppt"><i class="fa fa-check"></i><b>10.1</b> Justificativa para amostragem PPT</a><ul>
+<li class="chapter" data-level="10.1.1" data-path="ppt.html"><a href="ppt.html#estimação-do-total-populacional"><i class="fa fa-check"></i><b>10.1.1</b> Estimação do total populacional</a></li>
+</ul></li>
+<li class="chapter" data-level="10.2" data-path="ppt.html"><a href="ppt.html#amostragem-ppt-com-reposição"><i class="fa fa-check"></i><b>10.2</b> Amostragem PPT com reposição</a></li>
+<li class="chapter" data-level="10.3" data-path="ppt.html"><a href="ppt.html#amostragem-ppt-de-poisson"><i class="fa fa-check"></i><b>10.3</b> Amostragem PPT de Poisson</a></li>
+<li class="chapter" data-level="10.4" data-path="ppt.html"><a href="ppt.html#amostragem-sequencial-de-poisson"><i class="fa fa-check"></i><b>10.4</b> Amostragem sequencial de Poisson</a></li>
+<li class="chapter" data-level="10.5" data-path="ppt.html"><a href="ppt.html#amostragem-sistemática-com-ppt"><i class="fa fa-check"></i><b>10.5</b> Amostragem sistemática com PPT</a></li>
+<li class="chapter" data-level="10.6" data-path="ppt.html"><a href="ppt.html#amostragem-ppt-de-pareto"><i class="fa fa-check"></i><b>10.6</b> Amostragem PPT de Pareto</a></li>
+<li class="chapter" data-level="10.7" data-path="conceitos.html"><a href="conceitos.html#exercícios"><i class="fa fa-check"></i><b>10.7</b> Exercícios</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="estrat.html"><a href="estrat.html"><i class="fa fa-check"></i><b>11</b> Amostragem Estratificada</a><ul>
+<li class="chapter" data-level="11.1" data-path="estrat.html"><a href="estrat.html#o-método-geral"><i class="fa fa-check"></i><b>11.1</b> O método geral</a></li>
+<li class="chapter" data-level="11.2" data-path="estrat.html"><a href="estrat.html#amostragem-estratificada-simples"><i class="fa fa-check"></i><b>11.2</b> Amostragem estratificada simples</a><ul>
+<li class="chapter" data-level="11.2.1" data-path="estrat.html"><a href="estrat.html#método-de-seleção"><i class="fa fa-check"></i><b>11.2.1</b> Método de seleção</a></li>
+<li class="chapter" data-level="11.2.2" data-path="proporc.html"><a href="proporc.html#parâmetros-populacionais"><i class="fa fa-check"></i><b>11.2.2</b> Parâmetros populacionais</a></li>
+<li class="chapter" data-level="11.2.3" data-path="estrat.html"><a href="estrat.html#estimação-do-total-e-da-média-populacional"><i class="fa fa-check"></i><b>11.2.3</b> Estimação do total e da média populacional</a></li>
+<li class="chapter" data-level="11.2.4" data-path="estrat.html"><a href="estrat.html#intervalos-de-confiança"><i class="fa fa-check"></i><b>11.2.4</b> Intervalos de confiança</a></li>
+</ul></li>
+<li class="chapter" data-level="11.3" data-path="estrat.html"><a href="estrat.html#alocação-da-amostra-nos-estratos"><i class="fa fa-check"></i><b>11.3</b> Alocação da amostra nos estratos</a><ul>
+<li class="chapter" data-level="11.3.1" data-path="estrat.html"><a href="estrat.html#alocação-proporcional"><i class="fa fa-check"></i><b>11.3.1</b> Alocação proporcional</a></li>
+<li class="chapter" data-level="11.3.2" data-path="estrat.html"><a href="estrat.html#alocação-ótima"><i class="fa fa-check"></i><b>11.3.2</b> Alocação ótima</a></li>
+<li class="chapter" data-level="11.3.3" data-path="estrat.html"><a href="estrat.html#tamanho-da-amostra-estratificada---caso-geral"><i class="fa fa-check"></i><b>11.3.3</b> Tamanho da amostra estratificada - caso geral</a></li>
+<li class="chapter" data-level="11.3.4" data-path="estrat.html"><a href="estrat.html#tamanho-da-amostra-sob-alocação-ótima"><i class="fa fa-check"></i><b>11.3.4</b> Tamanho da amostra sob alocação ótima</a></li>
+<li class="chapter" data-level="11.3.5" data-path="estrat.html"><a href="estrat.html#comparação-de-alternativas-de-alocação-da-amostra"><i class="fa fa-check"></i><b>11.3.5</b> Comparação de alternativas de alocação da amostra</a></li>
+<li class="chapter" data-level="11.3.6" data-path="estrat.html"><a href="estrat.html#alocação-potência"><i class="fa fa-check"></i><b>11.3.6</b> Alocação potência</a></li>
+<li class="chapter" data-level="11.3.7" data-path="estrat.html"><a href="estrat.html#alguns-problemas-com-alocação-ótima"><i class="fa fa-check"></i><b>11.3.7</b> Alguns problemas com alocação ótima</a></li>
+</ul></li>
+<li class="chapter" data-level="11.4" data-path="estrat.html"><a href="estrat.html#definição-dos-limites-dos-estratos"><i class="fa fa-check"></i><b>11.4</b> Definição dos limites dos estratos</a></li>
+<li class="chapter" data-level="11.5" data-path="estrat.html"><a href="estrat.html#número-de-estratos-na-amostragem-estratificada-simples"><i class="fa fa-check"></i><b>11.5</b> Número de estratos na amostragem estratificada simples</a></li>
+<li class="chapter" data-level="11.6" data-path="conceitos.html"><a href="conceitos.html#exercícios"><i class="fa fa-check"></i><b>11.6</b> Exercícios</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="cong.html"><a href="cong.html"><i class="fa fa-check"></i><b>12</b> Amostragem Conglomerada</a><ul>
+<li class="chapter" data-level="12.1" data-path="cong.html"><a href="cong.html#conceituação-básica"><i class="fa fa-check"></i><b>12.1</b> Conceituação básica</a></li>
+<li class="chapter" data-level="12.2" data-path="cong.html"><a href="cong.html#amostragem-de-áreas"><i class="fa fa-check"></i><b>12.2</b> Amostragem de áreas</a></li>
+<li class="chapter" data-level="12.3" data-path="cong.html"><a href="cong.html#definições-básicas-e-notação"><i class="fa fa-check"></i><b>12.3</b> Definições básicas e notação</a></li>
+<li class="chapter" data-level="12.4" data-path="cong.html"><a href="cong.html#amostragem-conglomerada-em-um-estágio"><i class="fa fa-check"></i><b>12.4</b> Amostragem conglomerada em um estágio</a></li>
+<li class="chapter" data-level="12.5" data-path="cong.html"><a href="cong.html#amostragem-conglomerada-em-vários-estágios"><i class="fa fa-check"></i><b>12.5</b> Amostragem conglomerada em vários estágios</a></li>
+<li class="chapter" data-level="12.6" data-path="cong.html"><a href="cong.html#notação-na-amostragem-conglomerada-em-um-estágio"><i class="fa fa-check"></i><b>12.6</b> Notação na amostragem conglomerada em um estágio</a></li>
+<li class="chapter" data-level="12.7" data-path="cong.html"><a href="cong.html#amostragem-conglomerada-em-um-estágio-simples"><i class="fa fa-check"></i><b>12.7</b> Amostragem conglomerada em um estágio simples</a><ul>
+<li class="chapter" data-level="12.7.1" data-path="cong.html"><a href="cong.html#estimação-do-total-sob-ac1s"><i class="fa fa-check"></i><b>12.7.1</b> Estimação do total sob AC1S</a></li>
+<li class="chapter" data-level="12.7.2" data-path="cong.html"><a href="cong.html#estimação-da-média-sob-ac1s"><i class="fa fa-check"></i><b>12.7.2</b> Estimação da média sob AC1S</a></li>
+</ul></li>
+<li class="chapter" data-level="12.8" data-path="cong.html"><a href="cong.html#efeito-do-plano-amostral"><i class="fa fa-check"></i><b>12.8</b> Efeito do plano amostral</a></li>
+<li class="chapter" data-level="12.9" data-path="cong.html"><a href="cong.html#amostragem-conglomerada-com-probabilidade-proporcional-ao-tamanho-em-um-estágio"><i class="fa fa-check"></i><b>12.9</b> Amostragem Conglomerada com Probabilidade Proporcional ao Tamanho em um estágio</a></li>
+<li class="chapter" data-level="12.10" data-path="cong.html"><a href="cong.html#amostragem-conglomerada-em-dois-estágios"><i class="fa fa-check"></i><b>12.10</b> Amostragem conglomerada em dois estágios</a><ul>
+<li class="chapter" data-level="12.10.1" data-path="cong.html"><a href="cong.html#plano-amostral-ac2-com-aas-nos-2-estágios"><i class="fa fa-check"></i><b>12.10.1</b> Plano amostral AC2 com AAS nos 2 estágios</a></li>
+<li class="chapter" data-level="12.10.2" data-path="cong.html"><a href="cong.html#plano-amostral-com-ppt-com-reposição-no-primeiro-estágio-e-aas-no-segundo-estágio"><i class="fa fa-check"></i><b>12.10.2</b> Plano amostral com PPT com reposição no primeiro estágio e AAS no segundo estágio</a></li>
+<li class="chapter" data-level="12.10.3" data-path="cong.html"><a href="cong.html#amostra-conglomerada-com-ppt-de-poisson-sequencial-no-primeiro-e-aas-no-segundo-estágio"><i class="fa fa-check"></i><b>12.10.3</b> Amostra conglomerada com PPT de Poisson sequencial no primeiro e AAS no segundo estágio</a></li>
+</ul></li>
+<li class="chapter" data-level="12.11" data-path="cong.html"><a href="cong.html#ideias-básicas-na-escolha-de-unidades-compostas"><i class="fa fa-check"></i><b>12.11</b> Ideias básicas na escolha de unidades compostas</a></li>
+<li class="chapter" data-level="12.12" data-path="cong.html"><a href="cong.html#determinando-tamanhos-de-amostra-com-ac2pc"><i class="fa fa-check"></i><b>12.12</b> Determinando tamanhos de amostra com AC2PC</a></li>
+<li class="chapter" data-level="12.13" data-path="conceitos.html"><a href="conceitos.html#exercícios"><i class="fa fa-check"></i><b>12.13</b> Exercícios</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="calib.html"><a href="calib.html"><i class="fa fa-check"></i><b>13</b> Estimadores de Calibração</a><ul>
+<li class="chapter" data-level="13.1" data-path="calib.html"><a href="calib.html#motivação-melhorar-a-precisão-com-informações-auxiliares"><i class="fa fa-check"></i><b>13.1</b> Motivação: melhorar a precisão com informações auxiliares</a></li>
+<li class="chapter" data-level="13.2" data-path="calib.html"><a href="calib.html#problema"><i class="fa fa-check"></i><b>13.2</b> O problema</a></li>
+<li class="chapter" data-level="13.3" data-path="calib.html"><a href="calib.html#estreg"><i class="fa fa-check"></i><b>13.3</b> Estimadores de regressão como estimadores de calibração</a></li>
+<li class="chapter" data-level="13.4" data-path="calib.html"><a href="calib.html#razões-para-calibração"><i class="fa fa-check"></i><b>13.4</b> Razões para calibração</a></li>
+<li class="chapter" data-level="13.5" data-path="calib.html"><a href="calib.html#propriedades-dos-estimadores-para-grandes-amostras"><i class="fa fa-check"></i><b>13.5</b> Propriedades dos estimadores para grandes amostras</a></li>
+<li class="chapter" data-level="13.6" data-path="calib.html"><a href="calib.html#razCS"><i class="fa fa-check"></i><b>13.6</b> Estimadores de razão como casos particulares da calibração</a><ul>
+<li class="chapter" data-level="13.6.1" data-path="calib.html"><a href="calib.html#estimador-de-razão-combinada-sob-aes"><i class="fa fa-check"></i><b>13.6.1</b> Estimador de razão combinada sob AES</a></li>
+<li class="chapter" data-level="13.6.2" data-path="calib.html"><a href="calib.html#estimador-de-razão-separada-sob-aes"><i class="fa fa-check"></i><b>13.6.2</b> Estimador de razão separada sob AES</a></li>
+<li class="chapter" data-level="13.6.3" data-path="calib.html"><a href="calib.html#comparação-dos-estimadores-de-razão-combinada-e-separada"><i class="fa fa-check"></i><b>13.6.3</b> Comparação dos estimadores de razão combinada e separada</a></li>
+</ul></li>
+<li class="chapter" data-level="13.7" data-path="calib.html"><a href="calib.html#alguns-problemas-práticos-com-calibração"><i class="fa fa-check"></i><b>13.7</b> Alguns problemas práticos com calibração</a><ul>
+<li class="chapter" data-level="13.7.1" data-path="calib.html"><a href="calib.html#tamanhos-de-amostra-pequenos"><i class="fa fa-check"></i><b>13.7.1</b> Tamanhos de amostra pequenos</a></li>
+<li class="chapter" data-level="13.7.2" data-path="calib.html"><a href="calib.html#pesos-negativos-ou-extremos"><i class="fa fa-check"></i><b>13.7.2</b> Pesos negativos ou extremos</a></li>
+<li class="chapter" data-level="13.7.3" data-path="calib.html"><a href="calib.html#grande-número-de-variáveis-de-pesquisa-ou-de-grupos-de-modelagem"><i class="fa fa-check"></i><b>13.7.3</b> Grande número de variáveis de pesquisa ou de ‘grupos de modelagem’</a></li>
+<li class="chapter" data-level="13.7.4" data-path="calib.html"><a href="calib.html#gvaraux"><i class="fa fa-check"></i><b>13.7.4</b> Grande número de variáveis auxiliares</a></li>
+<li class="chapter" data-level="13.7.5" data-path="calib.html"><a href="calib.html#não-resposta-e-calibração"><i class="fa fa-check"></i><b>13.7.5</b> Não resposta e calibração</a></li>
+</ul></li>
+<li class="chapter" data-level="13.8" data-path="calib.html"><a href="calib.html#seleção-de-variáveis-para-calibração-com-não-resposta"><i class="fa fa-check"></i><b>13.8</b> Seleção de variáveis para calibração com não resposta</a></li>
+<li class="chapter" data-level="13.9" data-path="calib.html"><a href="calib.html#indicadores-de-qualidade-da-calibração"><i class="fa fa-check"></i><b>13.9</b> Indicadores de qualidade da calibração</a></li>
+<li class="chapter" data-level="13.10" data-path="calib.html"><a href="calib.html#um-guia-para-aplicação-de-calibração"><i class="fa fa-check"></i><b>13.10</b> Um guia para aplicação de calibração</a></li>
+<li class="chapter" data-level="13.11" data-path="calib.html"><a href="calib.html#observações-finais"><i class="fa fa-check"></i><b>13.11</b> Observações finais</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="referências.html"><a href="referências.html"><i class="fa fa-check"></i>Referências</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Amostragem: Teoria e Prática Usando R</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="ppt" class="section level1">
+<h1><span class="header-section-number">Capítulo 10</span> Amostragem com Probabilidades Proporcionais ao Tamanho</h1>
+<p>A <em>Amostragem com Probabilidades Proporcionais ao Tamanho - PPT</em> agrega alguns métodos de seleção de amostra onde as unidades da população têm probabilidades distintas de seleção, proporcionais a uma medida de tamanho associada a cada unidade.</p>
+<div id="justificativa-para-amostragem-ppt" class="section level2">
+<h2><span class="header-section-number">10.1</span> Justificativa para amostragem PPT</h2>
+<p>Como já indicado no capítulo <a href="visger.html#visger">3</a>, a <em>Amostragem Probabilística</em> contempla o emprego de métodos de amostragem que levam a ter probabilidades de inclusão na amostra desiguais, isto é, <span class="math inline">\(\pi_i \ne \pi_j\)</span> para algum par de unidades distintas <span class="math inline">\(i \ne j \in U\)</span>. A teoria apresentada no capítulo <a href="visger.html#visger">3</a> cobre o caso geral, mas não indica quando o recurso de usar probabilidades desiguais de inclusão na amostra seria vantajoso. Neste capítulo tratamos justamente dessa questão, indicando estratégias que se pode usar para tirar proveito do emprego de amostragem com probabilidades desiguais para aumentar a eficiência dos estimadores de totais e médias.</p>
+<p>A ideia central já mencionada na seção <a href="visger.html#propHT">3.7.2</a> é fazer com que as probabilidades de inclusão fiquem proporcionais aos valores da(s) variável(is) de estudo <span class="math inline">\(y\)</span>. É claro que não podemos conseguir isso de forma exata, já que os valores da variável <span class="math inline">\(y\)</span> são desconhecidos antes da seleção da amostra. Mas em muitas situações práticas é possível contar com cadastros que contenham valores de uma variável auxiliar <span class="math inline">\(x\)</span> indicativa do tamanho das unidades populacionais. Sempre que a variação dos tamanhos das unidades for grande, a informação auxiliar disponível sobre os tamanhos for precisa e o tamanho for positivamente correlacionado com as variáveis de interesse, podemos empregar métodos de seleção que usam probabilidades proporcionais ao tamanho. Tais métodos permitem aumentar a eficiência na estimação de totais e médias, em comparação com métodos de amostragem com probabilidades iguais, para tamanhos de amostra idênticos.</p>
+<div id="estimação-do-total-populacional" class="section level3">
+<h3><span class="header-section-number">10.1.1</span> Estimação do total populacional</h3>
+<p>Considere o caso em que os valores de uma variável auxiliar <span class="math inline">\(x\)</span> são conhecidos para todas as unidades da população <span class="math inline">\(U\)</span> mediante um cadastro. Se <span class="math inline">\(x_i&gt;0, \,\, \forall \, i \in U\)</span>, então podemos usar esta variável como uma <em>medida de tamanho</em> das unidades populacionais. Por enquanto, vamos supor que é possível selecionar amostras de acordo com um plano amostral tal que: <span class="math inline">\(\pi_i \propto x_i, \,\,\forall\, i \in U\)</span>. Mais adiante, apresentamos diversos métodos para implementar essa ideia.</p>
+<p>Conforme já mostrado no capítulo <a href="visger.html#visger">3</a>, sabemos que o estimador HT para estimar o total populacional <span class="math inline">\(Y = \sum_{i \in U} y_i\)</span> é dado por:</p>
+<p><span class="math display" id="eq:eqppt1">\[
+\widehat Y_{HT} = \displaystyle \sum_{i \in s} \frac{y_i}{\pi_i} = \displaystyle \sum_{i \in s} d_i y_i \,\, \tag{10.1}
+\]</span>
+onde cada unidade da amostra tem um peso amostral igual ao inverso da respectiva probabilidade de inclusão, dado por <span class="math inline">\(d_i = 1 / \pi_i, \,\, \forall \, i \in U\)</span>.</p>
+<p>Quando a probabilidade de inclusão na amostra é proporcional ao tamanho, temos:
+<span class="math inline">\(\pi_i = n{x_i} / {X}\)</span>
+onde <span class="math inline">\(X = \sum_{i \in U} x_i\)</span> é o total populacional da variável <span class="math inline">\(x\)</span> e <span class="math inline">\(n\)</span> é o tamanho da amostra.</p>
+<p>Sendo assim, o peso amostral da unidade <span class="math inline">\(i\)</span> é dado por <span class="math inline">\(d_i = X / (n x_i)\)</span>. Substituindo na equação <a href="ppt.html#eq:eqppt1">(10.1)</a>, o estimador HT do total <span class="math inline">\(Y\)</span> fica dado por:</p>
+<p><span class="math display" id="eq:eqppt2">\[
+\widehat Y_{HT/PPT} = \displaystyle X\frac{1}{n} \sum_{i \in s} \frac{y_i}{x_i}  \,\, \tag{10.2}
+\]</span>
+Verifica-se então que, para amostras extraídas com probabilidades de inclusão exatamente proporcionais ao tamanho, o estimador de total depende de estimar a <em>média das razões</em> entre a variável de interesse <span class="math inline">\(y\)</span> e a medida de tamanho <span class="math inline">\(x\)</span>, e depois multiplicar essa estimativa pelo total conhecido da medida de tamanho na população. Essa forma de apresentar o estimador de total sugere que sempre que as razões <span class="math inline">\({y_i}/{x_i}\)</span> forem aproximadamente constantes, a média amostral delas será um estimador preciso da correspondente média populacional, e o estimador de total terá variância pequena.</p>
+<p>Uma forma de ver isto mais diretamente requer lembrar da expressão alternativa para a variância do estimador HT, válida para planos amostrais de tamanhos fixos, a chamada forma SYG (Sen-Yates-Grundy) da variância, dada por:</p>
+<p><span class="math display" id="eq:eqppt3">\[
+\begin{align} V_{SYG} \left( \widehat Y_{HT/PPT} \right) &amp; = \displaystyle \sum_{i \in U} \sum_{j&gt;i} (\pi_i \pi_j - \pi_{ij}) \left( \frac{y_i}{\pi_i} - \frac{y_j}{\pi_j} \right)^2 \\
+&amp; = \displaystyle X^2 \frac{1}{n^2} \sum_{i \in U} \sum_{j&gt;i} (\pi_i \pi_j - \pi_{ij}) \left( \frac{y_i}{x_i} - \frac{y_j}{x_j} \right)^2 \end{align} \,\, \tag{10.3}
+\]</span></p>
+<p>Da expressão <a href="ppt.html#eq:eqppt3">(10.3)</a> podemos observar que a variância do estimador de total seria nula caso <span class="math inline">\(y_i/x_i = y_j/x_j\)</span> para todo <span class="math inline">\(i \neq j \in U\)</span>. Portanto, se <span class="math inline">\(y_i \propto x_i \,\,\forall\, i \in U\)</span>, então <span class="math inline">\(V_{SYG}\left( \widehat Y_{HT} \right) = 0\)</span>. Isto sugere que se <span class="math inline">\(y\)</span> e <span class="math inline">\(x\)</span> forem aproximadamente proporcionais (logo, alta e positivamente correlacionadas), então a variância do estimador HT do total será pequena.</p>
+<p>Também se pode notar que a variância deveria ser pequena quando <span class="math inline">\(\pi_{ij} \doteq \pi_i \pi_j, \,\, \forall \, i \neq j \in U\)</span>. Acontece que <span class="math inline">\(\pi_{ij} = \pi_i \pi_j, \,\, \forall \, i \neq j \in U\)</span> implica em indicadores de inclusão das unidades <span class="math inline">\(i\)</span> e <span class="math inline">\(j\)</span> independentes. Um plano amostral satisfazendo essa propriedade é a <em>Amostragem de Poisson</em> que estudaremos adiante. Entretanto, <em>Amostragem de Poisson</em> não é eficiente, como veremos, devido à variabilidade do tamanho amostral efetivo, e também não podemos usar a expressão de variância na forma SYG para esse plano amostral, justamente porque não tem tamanho amostral fixo.</p>
+<p>Sendo assim, a chave para alcançar eficiência através da amostragem PPT é ter medidas de tamanho <span class="math inline">\((x)\)</span> alta e positivamente correlacionadas com a(s) resposta(s) de interesse na pesquisa <span class="math inline">\((y)\)</span>. Essa situação é muitas vezes encontrada ao realizar pesquisas de estabelecimentos ou instituições, onde as principais variáveis de estudo da pesquisa são bem correlacionadas com medidas de tamanho frequentemente disponíveis nos cadastros empregados para seleção das respectivas amostras.</p>
+<p>A seleção de amostras com PPT pode ser feita com ou sem reposição. O sorteio de amostras com reposição é pouco usado na prática, devido à perda de eficiência em comparação com métodos de sorteio sem reposição e também ao problema prático do que fazer em caso de repetição de unidades selecionadas. Apesar disso, é importante conhecer este método e suas propriedades, pois com frequência é usado como aproximação para obter estimativas simplificadas de variância. Já na amostragem PPT sem reposição há vários métodos de seleção, trazendo mais complexidade e dificuldades na estimação da precisão. Porém a eficiência é maior e se justifica o emprego de métodos mais complexos.</p>
+<p>Na sequência apresentamos os principais métodos de sorteio de amostras PPT, com e sem reposição. Para um tratamento mais completo dos métodos disponíveis, consultar <span class="citation">Brewer e Hanif (1983)</span>.</p>
+</div>
+</div>
+<div id="amostragem-ppt-com-reposição" class="section level2">
+<h2><span class="header-section-number">10.2</span> Amostragem PPT com reposição</h2>
+<p>O algoritmo para seleção de amostra com <em>Probabilidades Proporcionais ao Tamanho com Reposição - PPTC</em> é denominado <em>método dos totais cumulativos</em> e consiste nos seguintes passos:</p>
+<ol style="list-style-type: decimal">
+<li><p>Acumule as medidas de tamanho na população, isto é, faça <span class="math inline">\(X_{(0)} = 0\)</span> e calcule <span class="math inline">\(X_{(i)} = \displaystyle \sum_{k=1}^{i} x_k\)</span> para <span class="math inline">\(i=1,...,N\)</span>.</p></li>
+<li><p>Determine <em>intervalos de seleção</em> com base no tamanho de cada unidade. Assim, o intervalo de seleção para a unidade <span class="math inline">\(i\)</span> será dado por <span class="math inline">\((X_{(i-1)} ; X_{(i)}]\)</span>, sendo o limite superior incluído, para <span class="math inline">\(i=1,...,N\)</span>.</p></li>
+<li><p>Selecione um número aleatório <span class="math inline">\(r\)</span> com distribuição uniforme entre 0 e <span class="math inline">\(X_{(N)} = X\)</span>, a soma dos tamanhos na população.</p></li>
+<li><p>Selecione a unidade correspondente ao intervalo no qual cai o número aleatório <span class="math inline">\(r\)</span>, isto é, selecione <span class="math inline">\(i\)</span> tal que <span class="math inline">\(r \in (X_{(i-1)} ; X_{(i)}]\)</span>.</p></li>
+<li><p>Repita os passos 3 e 4 tantas vezes quantas forem necessárias para obter a amostra do tamanho <span class="math inline">\(n\)</span> desejado.</p></li>
+</ol>
+<p>A <em>Amostra selecionada</em> <span class="math inline">\(s\)</span> é constituída pelas unidades <span class="math inline">\(i_1, ..., i_l, ..., i_n\)</span> cujos rótulos foram sorteados nas várias iterações do passo 4.</p>
+<p>Amostragem PPT com reposição é um método muito simples de implementar, mas que pode implicar seleção repetida de unidades. O tamanho efetivo da amostra (número de unidades distintas na amostra) é aleatório, podendo ser menor que o tamanho total desejado <span class="math inline">\((n)\)</span>. O exemplo a seguir ilustra o emprego do método com uma pequena população para ajudar a compreensão.</p>
+<p><strong>Exemplo 10.1 </strong> Considere a população de <span class="math inline">\(N=6\)</span> fazendas com as respectivas áreas, conforme apresentada na Tabela <a href="ppt.html#tab:tabppt1">10.1</a>. Este exemplo mostra como extrair uma amostra de <span class="math inline">\(n=3\)</span> fazendas usando PPT com reposição, tomando a variável Área como medida de tamanho, usando o <em>método dos totais cumulativos</em>.</p>
+<center>
+<table>
+<caption>
+<span id="tab:tabppt1">Tabela 10.1: </span>Informações das áreas de uma população de <span class="math inline">\(N=6\)</span> fazendas
+</caption>
+</table>
+<table>
+<colgroup>
+<col width="10%" />
+<col width="7%" />
+<col width="19%" />
+<col width="31%" />
+<col width="31%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="center">Fazenda</th>
+<th align="right">Área</th>
+<th align="right">Tamanho Acumulado</th>
+<th align="right">Limite inferior do intervalo</th>
+<th align="right">Limite superior do intervalo</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">1</td>
+<td align="right">50</td>
+<td align="right">50</td>
+<td align="right">0</td>
+<td align="right">50</td>
+</tr>
+<tr class="even">
+<td align="center">2</td>
+<td align="right">1.000</td>
+<td align="right">1.050</td>
+<td align="right">51</td>
+<td align="right">1.050</td>
+</tr>
+<tr class="odd">
+<td align="center">3</td>
+<td align="right">125</td>
+<td align="right">1.175</td>
+<td align="right">1.051</td>
+<td align="right">1.175</td>
+</tr>
+<tr class="even">
+<td align="center">4</td>
+<td align="right">300</td>
+<td align="right">1.475</td>
+<td align="right">1.176</td>
+<td align="right">1.475</td>
+</tr>
+<tr class="odd">
+<td align="center">5</td>
+<td align="right">500</td>
+<td align="right">1.975</td>
+<td align="right">1.476</td>
+<td align="right">1.975</td>
+</tr>
+<tr class="even">
+<td align="center">6</td>
+<td align="right">25</td>
+<td align="right">2.000</td>
+<td align="right">1.976</td>
+<td align="right">2.000</td>
+</tr>
+</tbody>
+</table>
+</center>
+<p>Caso os 3 números aleatórios sorteados de forma independente e com distribuição Uniforme entre 0 e 2.000 fossem 654, 1.230 e 1.555, então as fazendas selecionadas seriam as de números 2, 4 e 5. Caso os 3 números aleatórios entre 0 e 2.000 fossem 122, 754 e 1.980, então as fazendas 2 e 6 seriam as selecionadas, com a fazenda 2 sendo selecionada duas vezes.</p>
+<p><strong>Estimação do total sob amostragem PPT com reposição</strong></p>
+<p>Um estimador não viciado do total sob amostragem PPT com reposição é dado por:</p>
+<p><span class="math display" id="eq:eqppt4">\[
+\widehat Y_{PPTC} = \frac{1}{n} \sum_{i \in s} \frac{f_i y_i}{p_i} \,\, \tag{10.4} 
+\]</span></p>
+<p>onde <span class="math inline">\(f_i\)</span> representa o número de vezes que a unidade <span class="math inline">\(i\)</span> foi incluída na amostra <span class="math inline">\(s\)</span>, e <span class="math inline">\(p_i = x_i / X\)</span> é o tamanho relativo da unidade <span class="math inline">\(i\)</span>. Note que o número de unidades distintas no conjunto <span class="math inline">\(s\)</span> pode ser menor que <span class="math inline">\(n\)</span>, e também que <span class="math inline">\(\sum_{i \in s} f_i = \sum_{i \in U} f_i = n\)</span>.</p>
+<p>Note que o estimador não viciado para o total da expressão <a href="ppt.html#eq:eqppt4">(10.4)</a> não é o estimador tipo HT. Este estimador foi proposto por <span class="citation">Hansen e Hurwitz (1943)</span>, por isso é chamado de estimador de Hansen-Hurwitz - HH, e é também não viciado. O estimador HT também pode ser empregado com este plano amostral, mas precisaria do cálculo das probabilidades de inclusão de primeira ordem das unidades populacionais, dadas por:</p>
+<p><span class="math display">\[
+\pi_i = 1 - (1  -p_i)^n
+\]</span>
+A principal vantagem do estimador HH aqui apresentado é a simplicidade referente à estimação de variâncias. Não há resultados genéricos indicando em que situações a variância do estimador HH seria menor que a do estimador HT.</p>
+<p>A variância de <span class="math inline">\(\widehat Y_{PPTC}\)</span> e o seu respectivo estimador não viciado são dados por:</p>
+<p><span class="math display" id="eq:eqppt5">\[
+V_{PPTC}\left(\widehat  Y_{PPTC}\right) = \frac{1}{n} \displaystyle \sum_{i \in U} \left( \frac{y_i}{p_i} - Y \right)^2 p_i \,\, \tag{10.5} 
+\]</span></p>
+<p><span class="math display" id="eq:eqppt6">\[
+\widehat V_{PPTC} \left(\widehat Y_{PPTC}\right) = \frac{1}{n(n-1)} \displaystyle \sum_{i \in s} f_i \left( \frac{y_i}{p_i} - \widehat Y_{PPTC} \right)^2 \,\,\tag{10.6}
+\]</span></p>
+<p>Como já discutido anteriormente, métodos de seleção com reposição raramente são empregados na prática, pois sempre é possível aplicar métodos sem reposição de maior eficiência para o mesmo custo. Por esse motivo, passamos agora a discutir alguns dos muitos métodos disponíveis para sorteio de amostras com <em>PPT sem reposição</em>. Nossa seleção de métodos a apresentar se guiou fortemente pela relevância da aplicação destes métodos em pesquisas conduzidas no Brasil, que vamos citar como exemplos ao longo da discussão.</p>
+</div>
+<div id="amostragem-ppt-de-poisson" class="section level2">
+<h2><span class="header-section-number">10.3</span> Amostragem PPT de Poisson</h2>
+<p>O método de <em>Amostragem PPT de Poisson - PO</em> ou, simplesmente, <em>Amostragem de Poisson - PO</em> para seleção de amostras com PPT sem reposição é implementado mediante a realização de uma prova de Bernoulli independente para cada unidade da população, que determina se a unidade é incluída (ou não) na amostra com uma probabilidade proporcional ao seu tamanho. Caso todas as probabilidades de inclusão na amostra sejam iguais, este método se reduz à <em>Amostragem Binomial</em> e, portanto, este método é uma generalização daquele método.</p>
+<p>Um algoritmo baseado em processamento sequencial de lista para implementar o método PPT de Poisson para selecionar uma amostra de tamanho <span class="math inline">\(n\)</span> da população <span class="math inline">\(U\)</span> de tamanho <span class="math inline">\(N\)</span> consiste nos seguintes passos:</p>
+<ol style="list-style-type: decimal">
+<li><p>Para cada unidade populacional <span class="math inline">\(i\)</span>, determine o valor da probabilidade de inclusão <span class="math inline">\(\pi_i = n x_i / X = n p_i\)</span>.</p></li>
+<li><p>Para cada unidade da população selecione, de forma independente, um número aleatório <span class="math inline">\(A_i\)</span> com distribuição uniforme no intervalo [0;1].</p></li>
+<li><p>Inclua a unidade <span class="math inline">\(i\)</span> na amostra se <span class="math inline">\(A_i \le \pi_i\)</span>.</p></li>
+</ol>
+<p>O conjunto <span class="math inline">\(s\)</span> de unidades selecionadas por este algoritmo não terá unidades repetidas, e terá um tamanho efetivo aleatório, de valor esperado igual a <span class="math inline">\(n\)</span>.</p>
+<p>Alguns cuidados devem ser observados ao implementar a <em>Amostragem PPT de Poisson</em>. Em primeiro lugar, verifique se nenhuma unidade tem tamanho relativo <span class="math inline">\(x_i / X\)</span> maior que <span class="math inline">\(1/n\)</span>. Se isto ocorrer, a ‘probabilidade de inclusão’ desta unidade seria maior que 1, o que é impossível. Caso alguma unidade seja tão grande que <span class="math inline">\(x_i / X &gt; 1/n\)</span>, inclua esta unidade com certeza (isto é, faça <span class="math inline">\(\pi_i = 1\)</span>). Em seguida, refaça os cálculos dos <span class="math inline">\(\pi_i\)</span> com o tamanho desta unidade excluído do total <span class="math inline">\(X\)</span>, e o tamanho de amostra diminuído de uma unidade. Repita a verificação até que nenhuma unidade tenha tamanho relativo maior que 1 sobre o tamanho residual da amostra.</p>
+<p>A <em>Amostragem PPT de Poisson</em> é pouco usada na prática devido à variabilidade do tamanho efetivo da amostra. É um método menos eficiente que outros métodos de seleção PPT sem reposição. Um método moderno que corrige este defeito é <em>Amostragem Sequencial de Poisson (ASP)</em> - veja <span class="citation">Ohlsson (1998)</span> - descrito na seção seguinte.</p>
+<p><strong>Estimação HT do total sob Amostragem de Poisson</strong></p>
+<p>O estimador HT do total sob Amostragem de Poisson é dado por:</p>
+<p><span class="math display" id="eq:eqppt7">\[
+\widehat Y_{PO} = \sum_{i \in s} \frac{y_i} {\pi_i} =  \frac{1}{n} \sum_{i \in s} \frac{y_i}{p_i} \,\,\tag{10.7}
+\]</span></p>
+<p>A variância de <span class="math inline">\(\widehat Y_{PO}\)</span> e um estimador não viciado desta variância são dados por:</p>
+<p><span class="math display" id="eq:eqppt8">\[
+V_{PO} \left( \widehat Y_{PO} \right) = \displaystyle \sum_{i \in U} \pi_i (1 - \pi_i) \left( \frac{y_i}{\pi_i} \right)^2 = \displaystyle \sum_{i \in U} \frac{(1 - \pi_i)}{\pi_i} y_i^2 \,\, \tag{10.8} 
+\]</span></p>
+<p><span class="math display" id="eq:eqppt9">\[
+\widehat V_{PO} \left( \widehat Y_{PO} \right) = \displaystyle \sum_{i \in s} (1 - \pi_i) \left( \frac{y_i}{\pi_i} \right)^2 = \displaystyle \sum_{i \in s} \frac{(1 - \pi_i)}{\pi_i^2} y_i^2 \,\, \tag{10.9} 
+\]</span></p>
+<p>Como ocorre na <em>Amostragem Binominal</em>, devido ao tamanho efetivo da amostra ser variável, também é possível usar um estimador de total tipo razão sob <em>Amostragem de Poisson</em>. Tal estimador é mais eficiente do que o estimador HT. Este estimador tipo razão é dado por:</p>
+<p><span class="math display" id="eq:eqppt10">\[
+\widehat Y_{PO}^R = \frac{N}{\widehat N} \sum_{i \in s} d_i {y_i} = N \frac{\sum_{i \in s} d_i {y_i}}{\sum_{i \in s} d_i } \,\,\tag{10.10}
+\]</span></p>
+<p>A variância aproximada de <span class="math inline">\(\widehat Y_{PO}^R\)</span> e um estimador consistente desta variância são dados por:</p>
+<p><span class="math display" id="eq:eqppt11">\[
+V_{PO}\left(\widehat  Y_{PO}^R \right) \doteq \frac {N}{N-1} \frac{1}{n} \displaystyle \sum_{i \in U} (1 - n p_i) \left( \frac{y_i}{p_i} - Y \right)^2 p_i \,\, \tag{10.11} 
+\]</span>
+e</p>
+<p><span class="math display" id="eq:eqppt12">\[
+\widehat V_{PO}\left(\widehat Y_{PO}^R \right) = \frac{1}{n(m-1)} \displaystyle \sum_{i \in s} (1 - n p_i) \left( \frac{y_i}{p_i} - \widehat Y_{PO}^R \right)^2 \,\, \tag{10.12} 
+\]</span>
+onde <span class="math inline">\(m\)</span> é o tamanho efetivo da amostra selecionada. Para mais detalhes sobre a estimação da variância, veja <span class="citation">Ohlsson (1998)</span>.</p>
+</div>
+<div id="amostragem-sequencial-de-poisson" class="section level2">
+<h2><span class="header-section-number">10.4</span> Amostragem sequencial de Poisson</h2>
+<p>O método de <em>Amostragem Sequencial de Poisson - ASP</em>, proposto por <span class="citation">Ohlsson (1998)</span>, é uma modificação do método de <em>Amostragem de Poisson</em> que elimina a variabilidade do tamanho efetivo da amostra. O custo dessa modificação é um procedimento de amostragem um pouco mais complexo e que requer uso de resultados aproximados para a estimação tanto do total como de sua variância.</p>
+<p>Um algoritmo baseado em processamento sequencial de lista para implementar o método para selecionar uma amostra de tamanho <span class="math inline">\(n\)</span> da população <span class="math inline">\(U\)</span> consiste nos seguintes passos.</p>
+<ol style="list-style-type: decimal">
+<li><p>Gere um número aleatório uniforme independente <span class="math inline">\(A_i\)</span> para cada unidade <span class="math inline">\(i\)</span> da população.</p></li>
+<li><p>Calcule a medida de tamanho relativo <span class="math inline">\(p_i = x_i / X\)</span> para cada unidade <span class="math inline">\(i\)</span> da população.</p></li>
+<li><p>Calcule o <em>número aleatório modificado</em> <span class="math inline">\(C_i = A_i / p_i\)</span>.</p></li>
+<li><p>Ordene as unidades crescentemente segundo os valores dos números aleatórios modificados <span class="math inline">\(C_i\)</span>.</p></li>
+<li><p>Selecione para a amostra as <span class="math inline">\(n\)</span> unidades com os menores valores de <span class="math inline">\(C_i\)</span>.</p></li>
+</ol>
+<p><strong>Estimação com Amostragem Sequencial de Poisson</strong></p>
+<p>O estimador tipo HT do total sob <em>Amostragem Sequencial de Poisson</em> é dado por:</p>
+<p><span class="math display" id="eq:eqppt13">\[
+\widehat Y_{ASP} = \frac{1} {n} \sum_{i \in s} \frac{y_i}{p_i} \,\, \tag{10.13} 
+\]</span></p>
+<p>A variância aproximada de <span class="math inline">\(\widehat Y_{ASP}\)</span> é dada por:</p>
+<p><span class="math display" id="eq:eqppt14">\[\hspace{-1,0cm}
+V_{ASP}\left(\widehat Y_{ASP}\right) \doteq \frac{N}{N-1} \frac{1}{n} \displaystyle\sum_{i \in U} (1-np_i) \left(\frac{y_i}{p_i} - Y \right)^2  p_i = V_{PO}\left(\widehat  Y_{PO}^R \right) \,\,\tag{10.14} 
+\]</span>
+Vemos assim que a variância do estimador de total sob Amostragem Sequencial de Poisson é a mesma que se obteria usando o estimador de razão sob Amostragem de Poisson. A principal vantagem é que sob ASP o tamanho efetivo da amostra é fixo. Um estimador consistente desta variância é dado por:</p>
+<p><span class="math display" id="eq:eqppt15">\[
+\widehat V_{ASP}\left(\widehat Y_{ASP}\right) = \frac{1}{n(n-1)} \displaystyle\sum_{i \in s}\left(\frac{y_i}{p_i} - \widehat Y_{ASP}\right)^2 (1-np_i)p_i\,\,\tag{10.15} 
+\]</span>
+No Brasil, ASP foi usada para a seleção de escolas para aplicação de testes padronizados no âmbito do Sistema de Avaliação da Educação Básica - SAEB, como descrito em <span class="citation">Bussab et al. (1999)</span>.</p>
+</div>
+<div id="amostragem-sistemática-com-ppt" class="section level2">
+<h2><span class="header-section-number">10.5</span> Amostragem sistemática com PPT</h2>
+<p>O método de <em>Amostragem Sistemática com PPT -SIS</em> consiste nos seguintes passos:</p>
+<ol style="list-style-type: decimal">
+<li><p>Acumule as medidas de tamanho na população, isto é, e faça <span class="math inline">\(X_{(0)}=0\)</span> e calcule <span class="math inline">\(X_{(i)}=\displaystyle \sum_{k=1}^{i}x_k\)</span> para <span class="math inline">\(i=1,...,N\)</span>.</p></li>
+<li><p>Determine “intervalos de seleção” com base no tamanho de cada unidade. Assim, o intervalo de seleção para a unidade <span class="math inline">\(i\)</span> será dado por <span class="math inline">\((X_{(i-1)};X_{(i)}]\)</span>, sendo o limite superior incluído.</p></li>
+<li><p>Determine o intervalo de amostragem através do salto <span class="math inline">\(\displaystyle K=\frac{X_{(N)}}{n}=\)</span> Total dos Tamanhos/Tamanho da Amostra.</p></li>
+<li><p>Selecione um número aleatório <span class="math inline">\(r\)</span> (ponto de partida) com distribuição uniforme entre 0 e <span class="math inline">\(K\)</span>.</p></li>
+<li><p>Selecione as unidades correspondentes aos intervalos nos quais caem os valores <span class="math inline">\(r+(j-1) K\)</span>, para <span class="math inline">\(j=1,2,...,n\)</span>. Isto é, selecione toda unidade <span class="math inline">\(i\)</span> tal que <span class="math inline">\(r+(j-1) K \in (X_{(i-1)};X_{(i)}]\)</span>, para <span class="math inline">\(j=1,2,...,n\)</span>.</p></li>
+</ol>
+<p>Seguem alguns cuidados a serem tomados no uso da Amostragem Sistemática com PPT:</p>
+<ul>
+<li><p>Verifique se alguma unidade tem tamanho <span class="math inline">\(x_i\)</span> maior que <span class="math inline">\(K\)</span>. Se isto ocorrer, esta unidade seria incluída ‘com repetição’ na amostra, o que é indesejável.</p></li>
+<li><p>Caso alguma unidade seja tão grande que <span class="math inline">\(x_i &gt; K\)</span>, inclua esta unidade com certeza na amostra, e refaça os cálculos para <span class="math inline">\(K\)</span> com o tamanho desta unidade excluído do total e o tamanho de amostra diminuído de uma unidade.</p></li>
+<li><p>Repita a verificação até que nenhuma unidade tenha tamanho maior que o intervalo de seleção calculado no passo 3.</p></li>
+</ul>
+<p><strong>Amostragem PPT sistemática com ordenação</strong></p>
+<p>A seleção com amostragem PPT sistemática com ordenação segue os seguintes passos:</p>
+<ol style="list-style-type: decimal">
+<li><p>Faça uma ordenação das unidades da população segundo uma (ou mais) variável(is) de interesse.</p></li>
+<li><p>Selecione uma amostra sistemática com PPT seguindo o algoritmo anterior.</p></li>
+</ol>
+<p>Esta forma de implementar a Amostragem Sistemática PPT confere um efeito de ‘estratificação implícita’ pela variável (ou variáveis) usada(s) na ordenação.</p>
+<p>A Amostragem Sistemática com PPT (com ou sem ordenação) era muito usada na prática por sua simplicidade na seleção de amostras. Porém, com o advento de modernas ferramentas computacionais que permitem selecionar com facilidade amostras PPT sem reposição usando outros métodos, tornou-se menos popular.</p>
+<p>Quando <em>Amostragem Sistemática com PPT</em> for usada para selecionar a amostra, pode-se usar o estimador HT para o total conforme descrito na expressão <a href="ppt.html#eq:eqppt2">(10.2)</a>. Para esse plano amostral, a variância tem uma expressão complexa e não há estimador consistente de variância disponível na literatura. O problema da estimação de variância sob amostragem sistemática com PPT é ainda mais difícil quando o sorteio é feito com ordenação. <span class="citation">Berger (2003)</span> oferece uma estratégia que pode ser considerada nesse caso.</p>
+</div>
+<div id="amostragem-ppt-de-pareto" class="section level2">
+<h2><span class="header-section-number">10.6</span> Amostragem PPT de Pareto</h2>
+<p>A seleção com <em>Amostragem PPT de Pareto - AP</em>, de acordo com <span class="citation">Rosén (2000)</span>, segue os seguintes passos:</p>
+<ol style="list-style-type: decimal">
+<li><p>Gere número aleatório uniforme independente <span class="math inline">\(A_i\)</span> para cada unidade <span class="math inline">\(i\)</span> da população.</p></li>
+<li><p>Calcule a <em>probabilidade de inclusão desejável</em> da unidade <span class="math inline">\(i: \lambda_i = n x_i/X\)</span>.</p></li>
+<li><p>Calcule o número aleatório modificado <span class="math inline">\(\displaystyle C_i=\frac{A_i(1-\lambda_i)}{(1-A_i)\lambda_i}\)</span>.</p></li>
+<li><p>Ordene as unidades crescentemente segundo valores dos números aleatórios modificados <span class="math inline">\(C_i\)</span>.</p></li>
+<li><p>Selecione para a amostra as <span class="math inline">\(n\)</span> unidades com os menores valores de <span class="math inline">\(C_i\)</span>.</p></li>
+</ol>
+<p>A Amostragem PPT de Pareto - AP é o método empregado para sorteio de unidades primárias de amostragem da PNAD Contínua - ver <span class="citation">Freitas e Antonaci (2014)</span>. Para tamanhos de amostra iguais, AP é mais eficiente que ASP. A implementação deste método requer os mesmos cuidados com relação a unidades muito grandes que com outros métodos PPT sem reposição. As probabilidades exatas de inclusão não são estritamente proporcionais ao tamanho e são difíceis de calcular. Porém, resultados sugerem que as aproximações consideradas no passo 2 são suficientemente boas para a maioria das situações de interesse prático, como pode ser visto em <span class="citation">Aires e Rosén (2005)</span>.</p>
+<p><strong>Estimação do total sob amostragem PPT de Pareto - AP</strong></p>
+<p>O estimador do total sob Amostragem PPT de Pareto - AP é dado por:</p>
+<p><span class="math display" id="eq:eqppt16">\[
+\widehat Y_{AP} = \displaystyle\sum_{i \in s}\frac{y_i}{\lambda_i} = \frac{1}{n}\sum_{i \in s}\frac{y_i}{p_i}\,\,\tag{10.16} 
+\]</span></p>
+<p>Note que <span class="math inline">\(E_{AP} \left(\widehat Y_{AP}\right)\doteq Y\)</span>. A variância de <span class="math inline">\(\widehat Y_{AP}\)</span> e o seu respectivo estimador são dados, segundo <span class="citation">Rosén (2000)</span>, por:</p>
+<p><span class="math display" id="eq:eqppt17">\[\hspace{-0,5cm}
+V_{AP} \left(\widehat Y_{AP}\right) \doteq \frac{N}{N-1} \displaystyle \sum_{i \in U} \left(\frac{y_i}{\lambda_i} - \frac{\sum_{k \in U} y_k(1 - \lambda_k)} {\sum_{k \in U} \lambda_k(1 - \lambda_k)}\right)^2 \lambda_i(1 - \lambda_i) \,\, \tag{10.17}
+\]</span></p>
+<p><span class="math display" id="eq:eqppt18">\[
+\widehat V_{AP} \left(\widehat Y_{AP}\right) = \frac{n}{n-1} \displaystyle\sum_{i \in s} \left(\frac{y_i}{\lambda_i} - \frac{\sum_{k \in s} y_k(1-\lambda_k)} {\sum_{k \in s} (1-\lambda_k)}\right)^2 (1-\lambda_i) \,\,\, \tag{10.18} 
+\]</span></p>
+<p>A Tabela <a href="ppt.html#tab:tabppt2">10.2</a> apresenta um resumo de parâmetros e respectivos estimadores para o total sob os diversos métodos de seleção com PPT apresentados neste capítulo.</p>
+<table>
+<caption>
+<span id="tab:tabppt2">Tabela 10.2: </span>Parâmetros e respectivos estimadores sob PPT
+</caption>
+</table>
+<strong>PROPOSTA 1</strong>
+<center>
+<table>
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Parâmetro</th>
+<th align="left">Estimador</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><span class="math inline">\(Y=\displaystyle\sum_{i\in U}y_i\)</span></td>
+<td align="left"><span class="math inline">\(\widehat Y_{HT/PPT} = \displaystyle X\frac{1}{n} \sum_{i \in s} \frac{y_i}{x_i}\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\)</span>
+<span class="math inline">\(\widehat Y_{PPTC} = \displaystyle\frac{1}{n} \sum_{i \in s} \frac{f_i y_i}{p_i} \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\)</span>
+<span class="math inline">\(\displaystyle\widehat Y_{PO} = \sum_{i \in s} \frac{y_i} {\pi_i} = \frac{1}{n} \sum_{i \in s} \frac{y_i}{p_i}\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\)</span>
+<span class="math inline">\(\widehat Y_{PO}^R =\displaystyle \frac{N}{\widehat N} \sum_{i \in s} d_i {y_i} = N \displaystyle\frac{\sum_{i \in s} d_i {y_i}}{\sum_{i \in s} d_i } \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\)</span>
+<span class="math inline">\(\widehat Y_{ASP} = \displaystyle\frac{1} {n} \sum_{i \in s} \frac{y_i}{p_i}\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\)</span>
+<span class="math inline">\(\widehat Y_{AP} = \displaystyle\sum_{i \in s}\frac{y_i}{\lambda_i} = \frac{1}{n}\sum_{i \in s}\frac{y_i}{p_i}\)</span></td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(V_{PPTC}\left(\widehat Y_{PPTC}\right)\)</span></td>
+<td align="left"><span class="math inline">\(\widehat V_{PPTC} \left(\widehat Y_{PPTC}\right)=\displaystyle\frac{1}{n(n-1)}\displaystyle \sum_{i \in s} f_i \left( \frac{y_i}{p_i}-\widehat Y_{PPTC}\right)^2\)</span></td>
+</tr>
+<tr class="odd">
+<td align="left"><span class="math inline">\(V_{PO} \left( \widehat Y_{PO} \right)\)</span></td>
+<td align="left"><span class="math inline">\(\widehat V_{PO} \left( \widehat Y_{PO} \right) = \displaystyle \sum_{i \in s} \frac{(1 - \pi_i)}{\pi_i^2} y_i^2\)</span></td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(V_{PO}\left(\widehat Y_{PO}^R\right)\)</span></td>
+<td align="left"><span class="math inline">\(\widehat V_{PO}\left(\widehat Y_{PO}^R \right) = \displaystyle\frac{1}{n(m-1)} \displaystyle \sum_{i \in s} (1 - n p_i) \left( \frac{y_i}{p_i} - \widehat Y_{PO}^R \right)^2\)</span></td>
+</tr>
+<tr class="odd">
+<td align="left"><span class="math inline">\(V_{ASP}\left(\widehat Y_{ASP}\right)\)</span></td>
+<td align="left"><span class="math inline">\(\widehat V_{ASP}\left(\widehat Y_{ASP}\right) = \displaystyle\frac{1}{n(n-1)} \displaystyle\sum_{i \in s}\left(\frac{y_i}{p_i} - \widehat Y_{ASP}\right)^2 (1-np_i)p_i\)</span></td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(V_{AP} \left(\widehat Y_{AP}\right)\)</span></td>
+<td align="left"><span class="math inline">\(\widehat V_{AP} \left(\widehat Y_{AP}\right) =\displaystyle \frac{n}{n-1} \displaystyle\sum_{i \in s} \left(\frac{y_i}{\lambda_i} - \frac{\sum_{k \in s} y_k(1-\lambda_k)} {\sum_{k \in s} (1-\lambda_k)}\right)^2 (1-\lambda_i)\)</span></td>
+</tr>
+</tbody>
+</table>
+</center>
+<strong>PROPOSTA 2</strong>
+<center>
+<table>
+<colgroup>
+<col width="89%" />
+<col width="10%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Parâmetro</th>
+<th align="left">Estimador</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><span class="math inline">\(\small Y=\displaystyle\sum_{i\in U}y_i\)</span></td>
+<td align="left"><span class="math inline">\(\small\widehat Y_{HT/PPT} = X \frac{1} {n} \displaystyle\sum_{i \in s} \frac{y_i}{x_i}\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\; \;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\)</span>
+<span class="math inline">\(\small\widehat Y_{PPTC} = \frac{1}{n} \displaystyle\sum_{i \in s} \frac{f_i y_i}{p_i}\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\; \;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\)</span>
+<span class="math inline">\(\small\widehat Y_{PO} =\displaystyle \sum_{i \in s} \frac{y_i} {\pi_i} = \frac{1}{n} \displaystyle\sum_{i \in s} \frac{y_i}{p_i}\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\; \;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\)</span>
+<span class="math inline">\(\small\widehat Y_{PO}^R = \frac{N} {\widehat N} \displaystyle\sum_{i \in s} d_i {y_i} = N\frac{\sum_{i\in s} d_i {y_i}}{\sum_{i \in s} d_i }\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\; \;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\)</span>
+<span class="math inline">\(\small\widehat Y_{ASP} = \frac{1} {n} \displaystyle\sum_{i \in s} \frac{y_i}{p_i}\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\; \;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\)</span>
+<span class="math inline">\(\small\widehat Y_{AP} = \displaystyle\sum_{i \in s}\frac{y_i}{\lambda_i} = \frac{1}{n}\displaystyle\sum_{i \in s}\frac{y_i}{p_i}\)</span></td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(\small V_{PPTC}\left(\widehat Y_{PPTC}\right)=\frac{1}{n}\displaystyle\sum_{i\in U}\left(\frac{y_i}{p_i}-Y\right)^2p_i\)</span></td>
+<td align="left"><span class="math inline">\(\small\widehat V_{PPTC} \left(\widehat Y_{PPTC}\right)=\frac{1}{n(n-1)}\displaystyle\sum_{i \in s} f_i \left( \frac{y_i}{p_i}-\widehat Y_{PPTC}\right)^2\)</span></td>
+</tr>
+<tr class="odd">
+<td align="left"><span class="math inline">\(\small V_{PO}\left(\widehat Y_{PO}\right)=\displaystyle\sum_{i\in U}\frac{(1-\pi_i)}{\pi_i} y_i^2\)</span></td>
+<td align="left"><span class="math inline">\(\small\widehat V_{PO} \left( \widehat Y_{PO} \right) =\displaystyle \sum_{i \in s} \frac{(1 - \pi_i)}{\pi_i^2} y_i^2\)</span></td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(\small V_{PO}\left(\widehat Y_{PO}^R\right)\doteq\frac{N}{N-1}\frac{1}{n}\displaystyle\sum_{i\in U}(1-np_i)\left(\frac{y_i}{p_i}- Y\right)^2 p_i\)</span></td>
+<td align="left"><span class="math inline">\(\small\widehat V_{PO}\left(\widehat Y_{PO}^R \right) = \frac{1}{n(m-1)}\displaystyle \sum_{i \in s} (1 - n p_i) \left( \frac{y_i}{p_i} - \widehat Y_{PO}^R \right)^2\)</span></td>
+</tr>
+<tr class="odd">
+<td align="left"><span class="math inline">\(\small V_{ASP}\left(\widehat Y_{ASP}\right)\doteq\frac{N}{N-1}\frac{1}{n}\displaystyle\sum_{i\in U}(1-np_i)\left(\frac{y_i}{p_i}-Y\right)^2p_i\)</span></td>
+<td align="left"><span class="math inline">\(\small\widehat V_{ASP}\left(\widehat Y_{ASP}\right) = \frac{1}{n(n-1)}\displaystyle\sum_{i \in s}\left(\frac{y_i}{p_i} - \widehat Y_{ASP}\right)^2 (1-np_i)p_i\)</span></td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(\small V_{AP}\left(\widehat Y_{AP}\right)\doteq\frac{N}{N-1}\displaystyle\sum_{i\in U}\left(\frac{y_i}{\lambda_i}-\frac{\sum_{k\in U} y_k(1-\lambda_k)}{\sum_{k \in U}\lambda_k(1-\lambda_k)}\right)^2\times\)</span>
+<span class="math inline">\(\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\small\times\lambda_i(1-\lambda_i)\)</span></td>
+<td align="left"><span class="math inline">\(\small\widehat V_{AP}\left(\widehat Y_{AP}\right)=\frac{n}{n-1}\displaystyle\sum_{i\in s}\left(\frac{y_i}{\lambda_i}-\frac{\sum_{k\in s}y_k(1-\lambda_k)}{\sum_{k\in s}(1-\lambda_k)}\right)^2\times\)</span> <span class="math inline">\(\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\small\times(1-\lambda_i)\)</span></td>
+</tr>
+</tbody>
+</table>
+</center>
+<strong>PROPOSTA 3</strong>
+<center>
+<table>
+<colgroup>
+<col width="100%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Estimador</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><span class="math inline">\(\widehat Y_{HT/PPT} = \displaystyle X\frac{1}{n} \sum_{i \in s} \frac{y_i}{x_i}\)</span></td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(\widehat Y_{PPTC} = \displaystyle\frac{1}{n} \sum_{i \in s} \frac{f_i y_i}{p_i}\)</span></td>
+</tr>
+<tr class="odd">
+<td align="left"><span class="math inline">\(\displaystyle\widehat Y_{PO} = \sum_{i \in s} \frac{y_i} {\pi_i} = \frac{1}{n} \sum_{i \in s} \frac{y_i}{p_i}\)</span></td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(\widehat Y_{PO}^R =\displaystyle \frac{N}{\widehat N} \sum_{i \in s} d_i {y_i} = N \displaystyle\frac{\sum_{i \in s} d_i {y_i}}{\sum_{i \in s} d_i }\)</span></td>
+</tr>
+<tr class="odd">
+<td align="left"><span class="math inline">\(\widehat Y_{ASP} = \displaystyle\frac{1} {n} \sum_{i \in s} \frac{y_i}{p_i}\)</span></td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(\widehat Y_{AP} = \displaystyle\sum_{i \in s}\frac{y_i}{\lambda_i} = \frac{1}{n}\sum_{i \in s}\frac{y_i}{p_i}\)</span></td>
+</tr>
+<tr class="odd">
+<td align="left"><span class="math inline">\(\widehat V_{PPTC} \left(\widehat Y_{PPTC}\right)=\displaystyle\frac{1}{n(n-1)}\displaystyle \sum_{i \in s} f_i \left( \frac{y_i}{p_i}-\widehat Y_{PPTC}\right)^2\)</span></td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(\widehat V_{PO} \left( \widehat Y_{PO} \right) = \displaystyle \sum_{i \in s} \frac{(1 - \pi_i)}{\pi_i^2} y_i^2\)</span></td>
+</tr>
+<tr class="odd">
+<td align="left"><span class="math inline">\(\widehat V_{PO}\left(\widehat Y_{PO}^R \right) = \displaystyle\frac{1}{n(m-1)} \displaystyle \sum_{i \in s} (1 - n p_i) \left( \frac{y_i}{p_i} - \widehat Y_{PO}^R \right)^2\)</span></td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(\widehat V_{ASP}\left(\widehat Y_{ASP}\right) = \displaystyle\frac{1}{n(n-1)} \displaystyle\sum_{i \in s}\left(\frac{y_i}{p_i} - \widehat Y_{ASP}\right)^2 (1-np_i)p_i\)</span></td>
+</tr>
+<tr class="odd">
+<td align="left"><span class="math inline">\(\widehat V_{AP} \left(\widehat Y_{AP}\right) =\displaystyle \frac{n}{n-1} \displaystyle\sum_{i \in s} \left(\frac{y_i}{\lambda_i} - \frac{\sum_{k \in s} y_k(1-\lambda_k)} {\sum_{k \in s} (1-\lambda_k)}\right)^2 (1-\lambda_i)\)</span></td>
+</tr>
+</tbody>
+</table>
+</center>
+</div>
+<div id="exercícios" class="section level2">
+<h2><span class="header-section-number">10.7</span> Exercícios</h2>
+<p><strong>Exercício 10.1 </strong> Verifique que o estimador de HT da média não é invariante sob transformações de locação. Isto é, se tomarmos <span class="math inline">\(z_i=y_i+A\)</span>, então <span class="math inline">\(\overline z_{HT}\ne\overline y_{HT}+A\)</span>.</p>
+<p><strong>Exercício 10.2 </strong> Uma amostra foi selecionada usando o método PPT com reposição. As informações dessa amostra aparecem na Tabela <a href="ppt.html#tab:tabppt3">10.3</a>.</p>
+<center>
+<table>
+<caption>
+<span id="tab:tabppt3">Tabela 10.3: </span>Informações obtidas na amostra selecionada
+</caption>
+</table>
+<table style="width:51%;">
+<colgroup>
+<col width="13%" />
+<col width="11%" />
+<col width="11%" />
+<col width="15%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="center">Unidade</th>
+<th align="right"><span class="math inline">\(p_i\)</span></th>
+<th align="right"><span class="math inline">\(y_i\)</span></th>
+<th align="right"><span class="math inline">\(\pi _i\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">6</td>
+<td align="right">0,02</td>
+<td align="right">45</td>
+<td align="right"></td>
+</tr>
+<tr class="even">
+<td align="center">8</td>
+<td align="right">0,01</td>
+<td align="right">20</td>
+<td align="right">0,0297</td>
+</tr>
+<tr class="odd">
+<td align="center">14</td>
+<td align="right">0,03</td>
+<td align="right">60</td>
+<td align="right">0,0873</td>
+</tr>
+</tbody>
+</table>
+</center>
+<ol style="list-style-type: lower-alpha">
+<li>Calcule o valor de <span class="math inline">\(\pi_i\)</span> que está faltando.</li>
+<li>Estime o total populacional da variável de interesse, <span class="math inline">\(y\)</span>, usando o estimador de Horvitz-Thompson.</li>
+<li>Estime a variância da estimativa calculada em b usando o estimador HT e o estimador alternativo apresentado.</li>
+<li>Compare e comente os resultados obtidos.</li>
+</ol>
+<p><strong>Exercício 10.3 </strong> No arquivo ‘fazendas_dat.rds’ são listadas 338 fazendas, com informações sobre a receita e a despesa de cada uma. Suponha que não são conhecidas as informações sobre as despesas e que se deseja selecionar uma amostra de 20 fazendas para estimar a despesa média da população de fazendas.</p>
+<ol style="list-style-type: lower-alpha">
+<li>Selecione uma AAS de 20 fazendas e construa um IC<sub>95%</sub> para a despesa média das fazendas.</li>
+<li>Selecione uma amostra PPT com reposição de 20 fazendas, considerando a variável receita como tamanho, e construa um IC<sub>95%</sub> para a despesa média das fazendas.</li>
+<li>Compare os resultados com a despesa média verdadeira das 338 fazendas e teça seus comentários.</li>
+</ol>
+<p><strong>Exercício 10.4 </strong> (<span class="citation">Thompson (2012)</span>) Uma determinada região tem 320 lagos que somados cobrem uma área de 80 km<sup>2</sup>. Num estudo sobre poluição das águas, foi selecionada uma amostra de lagos, seguindo o procedimento abaixo:</p>
+<ul>
+<li>Um retângulo de comprimento C e largura L foi desenhado sobre um mapa da região.</li>
+<li>Pares de números aleatórios uniformes entre 0 e 1 foram gerados. O primeiro número de cada par foi multiplicado por C e o segundo por L, dando coordenadas dentro da região em estudo.</li>
+<li>Se a coordenada “caísse” sobre um lago no mapa, este era selecionado para a amostra.</li>
+<li>O procedimento foi repetido até que 4 pontos “caíssem” sobre algum lago.</li>
+<li>O primeiro lago da amostra foi selecionado 2 vezes.</li>
+</ul>
+<p>Nos lagos selecionados foi medido o nível de poluição. Os resultados estão na Tabela <a href="ppt.html#tab:tabppt4">10.4</a>:</p>
+<center>
+<table>
+<caption>
+<span id="tab:tabppt4">Tabela 10.4: </span>Informações obtidas para os lagos selecionados
+</caption>
+</table>
+<table style="width:58%;">
+<colgroup>
+<col width="9%" />
+<col width="23%" />
+<col width="25%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="center">Lago</th>
+<th align="right">Poluição
+(partes/milhão)</th>
+<th align="right">Tamanho do lago
+(km<sup>2</sup>)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">1</td>
+<td align="right">2</td>
+<td align="right">1,2</td>
+</tr>
+<tr class="even">
+<td align="center">1</td>
+<td align="right">2</td>
+<td align="right">1,2</td>
+</tr>
+<tr class="odd">
+<td align="center">2</td>
+<td align="right">5</td>
+<td align="right">0,2</td>
+</tr>
+<tr class="even">
+<td align="center">3</td>
+<td align="right">10</td>
+<td align="right">0,5</td>
+</tr>
+</tbody>
+</table>
+</center>
+<ol style="list-style-type: lower-alpha">
+<li>Qual o tipo de amostragem utilizada?</li>
+<li>Calcule uma estimativa não viciada para a média de poluição dos lagos da região.</li>
+<li>Estime a variância do estimador utilizado.</li>
+</ol>
+<p><strong>Exercício 10.5 </strong> Sejam <span class="math inline">\(U=\{1,\;2,\;...,\;i,\;...,\;N\}\)</span> o conjunto de <span class="math inline">\(N\)</span> rótulos distintos de uma população e <span class="math inline">\(Y_U = \{y_1,\;y_2,\;...,\;y_i,\;..., \;y_N\}\)</span> um vetor populacional de interesse. Uma amostra com probabilidades desiguais com reposição de tamanho <span class="math inline">\(n\)</span> foi selecionada de <span class="math inline">\(U\)</span> para estimar o total <span class="math inline">\(Y = \sum_{i \in U} y_i\)</span>, sendo o vetor amostral representado por <span class="math inline">\(y_s = \{y_1, y_2, \dots, y_n\}\)</span> e <span class="math inline">\(\{p_1, p_2, \dots, p_N\}\)</span> o conjunto das probabilidades de seleção das unidades populacionais num dado sorteio, tais que <span class="math inline">\(\sum_{i \in U} p_i=1\)</span>. Antes de efetivar a observação da amostra, <span class="math inline">\(y_1, y_2, \dots, y_n\)</span> são variáveis aleatórias independentes e identicamente distribuídas - IID.</p>
+<ol style="list-style-type: lower-alpha">
+<li>Descreva a distribuição de probabilidades comum dos <span class="math inline">\(y_i\)</span> e calcule a esperança e a variância dessa distribuição.</li>
+<li>Obtenha um estimador não viciado para o total <span class="math inline">\(Y\)</span> com base na amostra e prove que esse estimador é mesmo não viciado, usando a distribuição obtida no item a.</li>
+</ol>
+<p><strong>Exercício 10.6 </strong> Considere a população de empresas descrita na Tabela <a href="ppt.html#tab:tabppt5">10.5</a>. Utilizando o R, resolva as questões.</p>
+<ol style="list-style-type: lower-alpha">
+<li>Selecione uma amostra aleatória simples sem reposição de 3 empresas.</li>
+<li>Use a amostra selecionada em a. para estimar a Receita média das empresas na população e o correspondente CV.</li>
+<li>Selecione uma amostra com probabilidades proporcionais ao Pessoal Ocupado, com reposição, de 3 empresas.</li>
+<li>Use a amostra selecionada no item c para estimar a Receita média das empresas na população e o correspondente CV.</li>
+<li>Compare os resultados das duas amostras com os valores verdadeiros e comente esses resultados.</li>
+</ol>
+<center>
+<table>
+<caption>
+<span id="tab:tabppt5">Tabela 10.5: </span>Dados populacionais das empresas
+</caption>
+</table>
+<table style="width:51%;">
+<colgroup>
+<col width="13%" />
+<col width="23%" />
+<col width="13%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="center">Empresa</th>
+<th align="right">Pessoal Ocupado</th>
+<th align="right">Receita</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">1</td>
+<td align="right">250</td>
+<td align="right">8.000</td>
+</tr>
+<tr class="even">
+<td align="center">2</td>
+<td align="right">350</td>
+<td align="right">12.000</td>
+</tr>
+<tr class="odd">
+<td align="center">3</td>
+<td align="right">175</td>
+<td align="right">6.000</td>
+</tr>
+<tr class="even">
+<td align="center">4</td>
+<td align="right">310</td>
+<td align="right">10.000</td>
+</tr>
+<tr class="odd">
+<td align="center">5</td>
+<td align="right">160</td>
+<td align="right">5.000</td>
+</tr>
+<tr class="even">
+<td align="center">6</td>
+<td align="right">350</td>
+<td align="right">18.000</td>
+</tr>
+<tr class="odd">
+<td align="center">7</td>
+<td align="right">375</td>
+<td align="right">18.000</td>
+</tr>
+<tr class="even">
+<td align="center">8</td>
+<td align="right">150</td>
+<td align="right">4.000</td>
+</tr>
+<tr class="odd">
+<td align="center">9</td>
+<td align="right">275</td>
+<td align="right">9.000</td>
+</tr>
+<tr class="even">
+<td align="center">10</td>
+<td align="right">240</td>
+<td align="right">8.000</td>
+</tr>
+</tbody>
+</table>
+</center>
+<p><strong>Exercício 10.7 </strong> Seja o arquivo de dados ‘MunicBR_dat.rds’. Selecione uma amostra de 10 municípios com PPT, utilizando como medida de tamanho a variável população (Pop).</p>
+<ol style="list-style-type: lower-alpha">
+<li>Estime o total da população para o Brasil.</li>
+<li>Compare com o valor verdadeiro e comente esse resultado surprendente. Por que isso ocorre?</li>
+</ol>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="outros-métodos-de-amostragem-com-equiprobabilidade.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="estrat.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
