@@ -7,9 +7,9 @@ Um caso especial de parâmetro de interesse para muitos estudos ou pesquisas oco
 * Migrantes entre os habitantes de determinada região.
 * Estabelecimentos agropecuários que se dedicam exclusivamente à produção leiteira numa determinada localidade.
 * Estudantes do sexo feminino em escolas.
-* Sondagens eleitorais, onde se deseja conhecer qual parcela dos eleitores pretende votar em determinado candidato.
+* Sondagens eleitorais, para conhecer qual parcela dos eleitores pretende votar em determinado candidato.
 
-Sendo uma variável indicadora, a variável $y$ irá assumir para cada unidade da população um de dois valores possíveis: o valor $1$, se a unidade possui o atributo de interesse, ou o valor $0$, caso a unidade não possua o atributo. Para fins de apresentação, seja $A \subset U$ o subconjunto das unidades da população $U$ que possuem o atributo de interesse. Então, para cada unidade $i$ da população, a variável $y$ será definida como:
+Sendo uma variável indicadora, a variável $y$ assume, para cada unidade da população, um de dois valores possíveis: o valor $1$, se a unidade possui o atributo de interesse, ou o valor $0$, caso a unidade não possua o atributo. Para fins de apresentação, seja $A \subset U$ o subconjunto das unidades da população $U$ que possuem o atributo de interesse. Então, para cada unidade $i$ da população, a variável $y$ é definida como:
 
 $$
 \displaystyle y_i = I(i \in A) =
@@ -27,7 +27,7 @@ Y = \displaystyle \sum_{i \in U} y_i = N_A  (\#eq:eqpro2)
 $$
 onde $N_A$ representa o número de unidades populacionais que possuem o atributo de interesse.
 
-Um exemplo clássico do uso de variáveis indicadoras ocorre quando se quer tabular frequências de respostas a uma pergunta categórica numa pesquisa ou censo. Considere uma pergunta cujas respostas podem ser um dos valores inteiros de $1$ a $C$, onde $C$ representa o número de categorias de resposta da pergunta. Por exemplo, para a pergunta 'Qual é o sexo do morador', há duas categorias de resposta $(C= 2)$: 1 (=Feminino) e 2 (=Masculino). Logo, para contar o número de pessoas por sexo na população, seria necessário criar duas variáveis indicadoras: $y_{1i} = I[Sexo(i) = 1]$ e $y_{2i} = I[Sexo(i) = 2]$. Estas contagens poderiam ser representadas por $N_1$ para as pessoas do sexo Feminino, e $N_2$ para as pessoas do sexo Masculino, que seriam obtidos como dois totais populacionais:
+Um exemplo clássico do uso de variáveis indicadoras ocorre quando se quer tabular frequências de respostas a uma pergunta categórica numa pesquisa ou censo. Considere uma pergunta cujas respostas podem ser um dos valores inteiros de $1$ a $C$, onde $C$ representa o número de categorias de resposta da pergunta. Por exemplo, para a pergunta 'Qual é o sexo do morador', há duas categorias de resposta $(C= 2)$: 1 (=Feminino) e 2 (=Masculino). Logo, para contar o número de pessoas por sexo na população, seria necessário criar duas variáveis indicadoras: $y_{1i} = I[Sexo(i) = 1]$ e $y_{2i} = I[Sexo(i) = 2]$. Estas contagens poderiam ser representadas por $N_1$, para as pessoas do sexo Feminino, e $N_2$, para as pessoas do sexo Masculino, que seriam obtidos como dois totais populacionais:
 
 
 $$
@@ -152,7 +152,7 @@ Sob AASC, a *variância amostral *$\widehat S^2_y$ é um estimador não viciado 
 $$
 \displaystyle \widehat {V}_{AASC} (\widehat p) = \frac {\widehat p (1 - \widehat p)}{n-1} \,\, (\#eq:eqpro12) 
 $$
-O total de unidades na população que possuem o atributo de interesse, e respectivo estimador, são obtidos por:
+O total de unidades na população que possuem o atributo de interesse e respectivo estimador são obtidos por:
 $$
 N_A= Np\:\:\text{e}\:\: \widehat N_A=N\widehat p 
 $$
@@ -245,20 +245,20 @@ $\displaystyle\widehat V_{AAS}(\widehat p)=\left(\frac 1 n-\frac{1}{N}\right)\fr
 
 ## Distribuição amostral exata de estimadores de proporção sob AASC e AAS
 
-Na *AASC* as unidades amostrais são selecionadas com igual probabilidade e com reposição a cada sorteio. Então as variáveis aleatórias $Y_k$ que correspondem aos valores observados na amostra a cada sorteio $k$,  $k=1, \dots, n$, são independentes e identicamente distribuídas com probabilidades definidas por:
+Na *AASC*, as unidades amostrais são selecionadas com igual probabilidade e com reposição a cada sorteio. Então as variáveis aleatórias $Y_k$, que correspondem aos valores observados na amostra a cada sorteio $k$,  $k=1, \dots, n$, são independentes e identicamente distribuídas com probabilidades definidas por:
 
 $$ \hspace{-1.0cm}
 \begin{align} \displaystyle P(Y_k = 1) = P(y_{i_k} \text{ ter o atributo de interesse}) = \frac {N_A} {N} = p \\ P(Y_k = 0) = P(y_{i_k} \text{ não ter o atributo de interesse}) = 1 - \frac {N_A} {N} = 1-p \end{align}\,\, (\#eq:eqpro19) 
 $$
 
-Dessa maneira fica configurada uma distribuição de $\text Bernoulli(p)$ para cada uma dessas variáveis:
+Dessa maneira fica configurada uma distribuição de $\text {Bernoulli}(p)$ para cada uma dessas variáveis:
 $$
 \begin{array}{c | c c} 
  {v} & \ 1 & 0 \\
 \hline \text{$P(Y_k = v)$} & p & 1-p  \\
 \end{array}
 $$
-Ainda sob *AASC*, a soma amostral $t_y = n_A$, que representa o número de unidades na amostra com o atributo de interesse, é então dada pela soma de $n$ variáveis aleatórias IID com distribuição $\text Bernoulli(p)$. Portanto, sob *AASC* a variável aleatória $t_y = n_A$ segue uma distribuição $\text Binomial(n,p)$. Imediatamente tem-se que:
+Ainda sob *AASC*, a soma amostral $t_y = n_A$, que representa o número de unidades na amostra com o atributo de interesse, é então dada pela soma de $n$ variáveis aleatórias IID com distribuição $\text {Bernoulli}(p)$. Portanto, sob *AASC* a variável aleatória $t_y = n_A$ segue uma distribuição $\text {Binomial}(n,p)$. Imediatamente tem-se que:
 
 $$
 E_{AASC}(n_A) = n p {\quad \text e \quad} V_{AASC}(n_A) = n p (1-p) \,\, (\#eq:eqpro20) 
@@ -277,18 +277,18 @@ $$ \hspace{-0,4cm}
 $$
 
 
-Esta distribuição corresponde apenas a uma transformação escalar da distribuição $\text Binomial(n,p)$, onde a contagem de sucessos $(n_A)$ é dividida pelo número de sorteios $(n)$.
+Esta distribuição corresponde apenas a uma transformação escalar da distribuição $\text {Binomial}(n,p)$, onde a contagem de sucessos $(n_A)$ é dividida pelo número de sorteios $(n)$.
 
 Sob *AAS*, a distribuição da contagem de sucessos $(n_A)$ tem uma distribuição de probabilidades 
-$\text Hipergeométrica(N, N_A, n)$. Isto ocorre porque sob *AAS* os $n$ sorteios são feitos da população sem reposição, e portanto, a cada nova unidade sorteada, o número de unidades remanescentes na população com o atributo de interesse varia, dependendo do número dessas unidades já selecionadas.
+$\text {Hipergeométrica}(N, N_A, n)$. Isso ocorre porque, sob *AAS*, os $n$ sorteios são feitos da população sem reposição e, portanto, a cada nova unidade sorteada, o número de unidades remanescentes na população com o atributo de interesse varia, dependendo do número dessas unidades já selecionadas.
 
-O número total de amostras aleatórias simples sem reposição de tamanho $n$ que podem ser selecionadas de uma população com $N$ unidades é dado por $\binom{N}{n}$; o número dessas amostras com exatamente $v$ unidades com a característica em estudo, e $n-v$ unidades sem essa característica, pode se calculado por $\binom{N_A}{v}\binom{N-N_A}{n-v}$. Sendo assim, a distribuição de probabilidades da variável aleatória $t_y = n_A$ é dada por:
+O número total de amostras aleatórias simples sem reposição de tamanho $n$ que podem ser selecionadas de uma população com $N$ unidades é dado por $\binom{N}{n}$; o número dessas amostras com exatamente $v$ unidades com a característica em estudo e $n-v$ unidades sem essa característica pode se calculado por $\binom{N_A}{v}\binom{N-N_A}{n-v}$. Sendo assim, a distribuição de probabilidades da variável aleatória $t_y = n_A$ é dada por:
 
 $$
 \displaystyle P \left(n_A = v \right) = \frac {\binom{N_A} {v} \binom{N-N_A} {n-v}}{\binom{N} {n}} , \quad \forall\, v=0, 1, 2, ..., min(n;N_A) \,\, (\#eq:eqpro23) 
 $$
 
-e assim fica também determinada a distribuição exada de probabilidades do estimador $\widehat p$, que é a mesma $n_A$, com os valores possíveis da proporção amostral divididos pelo tamanho da amostra $n$.
+e assim fica também determinada a distribuição exata de probabilidades do estimador $\widehat p$, que é a mesma de $n_A$ com os valores possíveis divididos pelo tamanho da amostra $n$.
 
 Consequentemente tem-se que o valor esperado de unidades com o atributo de interesse na amostra e sua variância serão dados por:
 
@@ -327,10 +327,10 @@ Em ambos os casos $1 - \alpha$ é o *nível de confiança* desejado. Por exemplo
 
 A solução desses sistemas costumava ser trabalhosa, exigindo aplicação de métodos iterativos que consumiam quantidade razoavelmente grande de recursos computacionais. Atualmente, com o avanço dos métodos computacionais, esse problema pode facilmente ser resolvido, por exemplo, com o uso do R. Uma maneira é utilizar as funções *qbinom* e *qhyper* que podem calcular os quantis das distribuições Binomial e Hipergeométrica para $\alpha /2$ e $1 -\alpha /2$.
 
-Além disso há outros programas já prontos facilmente utilizávies como, por exemplo, as funções *binconf* e *confCI* incluídas, respectivamente nos pacotes *Hmisc* e *prevalence* do R. Essas funções estimam intervalos de confiança para vários métodos além do mostrado acima, como o da aproximação Normal, apresentado na próxima seção, além de outras abordagens.
+Além disso, há outros programas prontos facilmente utilizávies como, por exemplo, as funções *binconf* e *confCI* incluídas, respectivamente, nos pacotes *Hmisc* e *prevalence* do R. Essas funções estimam intervalos de confiança para vários métodos além do mostrado acima, como o da aproximação Normal, apresentado na próxima seção, além de outras abordagens.
 Há, também, no pacote *survey* uma função específica, *svyciprop*, para calcular intervalos de confiança para proporções. Uma característica interessante do pacote *survey* é que é possível determinar a utilização do fator de correção para populações finitas, quando a seleção é sem reposição.
 
-**(#exm:exmprop2)** Voltando ao exemplo da escola com $N=1.000$ alunos, suponha que foi selecionada uma amostra aleatória simples de tamanho $n=125$ e foi investigado o sexo de cada um desses alunos, sendo que 60 são do sexo feminino. Constuir um intervalo de aproximadamente 95% de confiança para a proporção de alunos do sexo feminino, utilizando os vários métodos  da linguagem R sugeridos acima.
+**(#exm:exmprop2)** Voltando ao exemplo da escola com $N=1.000$ alunos, suponha que foi selecionada uma amostra aleatória simples de tamanho $n=125$ e foi investigado o sexo de cada um desses alunos, sendo que 60 são do sexo feminino. Construir um intervalo de aproximadamente 95% de confiança para a proporção de alunos do sexo feminino, utilizando os vários métodos  da linguagem R sugeridos acima.
 
 ```{r,echo=TRUE}
      # Carregando pacotes necessários
@@ -383,15 +383,17 @@ svyciprop(~I(y==1),desaas,method="beta")
 svyciprop(~I(y==1),desaas,method="mean")
 svyciprop(~I(y==1),desaas,method="xlogit")
 ```
-Na função *binconf* o método denominado *Exact* utiliza uma aproximação da Binomial pela distribuição *F*; o método denominado *Wilson* é baseado nos *scores* do teste bonomial e é o método definido como *default* por ser considerado o melhor; já o método denominado *Asymptotic* é o da proximação pela distribuição Normal.
+Na função *binconf* o método denominado *Exact* utiliza uma aproximação da Binomial pela distribuição *F*; o método denominado *Wilson* é baseado nos *scores* do teste binomial e é o método definido como *default* por ser considerado o melhor; já o método denominado *Asymptotic* é o da proximação pela distribuição Normal.
 
 Na função *propCI* são apresentados outros dois métodos: O método *Agresti-Coull* que é um ajuste da aproximação Normal e o método *Jeffreys* que é um método Bayesiano. O método *Asymptotic* é chamado de *Wald*.
 
 Para as duas funções acima não se considera se a amostra foi selecionada com ou sem reposição, o que é perfeitamente aceitável para amostras grandes retiradas de populações também grandes.
 
-Para a função *svyciprop*, do pacote *survey*, é possível definir se a amostra foi selecionada sem ou com reposição, bastando fornecer, ou não, o tamanho, $N$, da população para o cálculo do fator de correção para população finita. Nessa função é possível escolher entre 6 possíveis métodos para o cálculo do intervalo de confiança (referência do R). 
+Para a função *svyciprop*, do pacote *survey*, é possível definir se a amostra foi selecionada sem ou com reposição, bastando fornecer, ou não, o tamanho, $N$, da população para o cálculo do fator de correção para população finita. Nessa função é possível escolher entre 6 possíveis métodos para o cálculo do intervalo de confiança.
 
-Pode-se observar que nos exemplos acima, onde o tamanho da amostra é grande, os resultados de todos os métodos utilizados, em termos práticos, são bastante parecidos. Fica como exercício para o leitor verificar o que acontece quando for utilizada uma amostra de tamanho pequeno (menor que 30, por exemplo).
+Para detalhes sobre estas e demais funções do R, ver @R2018. Para um pacote específico, pode-se obter uma referência mais completa digitando, no próprio R, o comando *citation('nome do pacote')*.
+
+Pode-se observar que, nos exemplos acima, onde o tamanho da amostra é grande, os resultados de todos os métodos utilizados, em termos práticos, são bastante parecidos. Fica como exercício para o leitor verificar o que acontece quando for utilizada uma amostra de tamanho pequeno (menor que 30, por exemplo).
 
 Na maioria dos casos práticos, opta-se pelo uso da aproximação pela distribuição Normal de probabilidades, pela facilidade de seu uso tanto para *AAS* como *AASC*. Isso pode ser feito sempre que as condições do problema assim o permitirem, como se discute na próxima seção.
 
@@ -608,11 +610,11 @@ Note que $n_0$ é equivalente ao tamanho da amostra para uma *AASC* e o valor de
 
 As fórmulas apresentadas dependem do nivel de significância $\alpha$ e da margem de erro $D$ que devem ser definidos pelo pesquisador de acordo com seu conhecimento relativo ao assunto pesquisado, pois esses valores estão diretamente  ligados à natureza da pesquisa.
 
-Pesquisas que utilizam medidas objetivas para alcançar seus resultados, como instrumentos para medir fisicamente o fenômeno estudado, podem ser mais exigentes quanto a precisão das estimativas desejadas, enquanto que pesquisas da área social, por exemplo, onde se utilizam questionários e que dependem da memória ou até da boa vontade dos entrevistados, frequentemente não podem ter o mesmo nível de exigência. 
+Pesquisas que utilizam medidas objetivas para alcançar seus resultados, como instrumentos para medir fisicamente o fenômeno estudado, podem ser mais exigentes quanto à precisão das estimativas desejadas, enquanto que pesquisas da área social, por exemplo, onde se utilizam questionários e que dependem da memória ou até da boa vontade dos entrevistados, frequentemente não podem ter o mesmo nível de exigência. 
 
-O tamanho da amostra também depende da variância da variável utilizada para seu cálculo, através do produto $p(1-p)$. Como $p$ é a proporção que se deseja estimar, se fosse conhacida não haveria a necessidade de uma amostra. Geralmente, como no caso de se pesquisar variáveis continuas, utilizam-se pesquisas anteriores ou variáveis correlacionadas com a atual variável de interesse, ou mesmo uma pesquisa piloto com um tamanho arbitrário de amostra para se ter uma estimativa inicial do fenomeno a ser medido e poder calcular o tamanho de amostra realmente necessário. Quando se utiliza uma pesquisa piloto, existem métodos para utilizar os resultados relativos às unidades já pesquisadas e selecionar outras unidades para complementar o tamanho da amostra.
+O tamanho da amostra também depende da variância da variável utilizada para seu cálculo, através do produto $p(1-p)$. Como $p$ é a proporção que se deseja estimar, se fosse conhecida não haveria a necessidade de uma amostra. Geralmente, como no caso de se pesquisar variáveis contínuas, utilizam-se pesquisas anteriores ou variáveis correlacionadas com a atual variável de interesse, ou mesmo uma pesquisa piloto com um tamanho arbitrário de amostra, para se ter uma estimativa inicial do fenomeno a ser medido e poder calcular o tamanho de amostra realmente necessário. Quando se utiliza uma pesquisa piloto, existem métodos para utilizar os resultados relativos às unidades já pesquisadas e selecionar outras unidades para complementar o tamanho da amostra.
 
-No caso da estimação de proporções o valor de $p(1-p)$ é limitado variando de 0 a 0,25, sendo esse valor máximo atingido quando $p= 0,5$. O gráfico da Figura \@ref(fig:figprop3) mostra como variam os valores de $p(1-p)$ conforme a variação dos valores de $p$.
+No caso da estimação de proporções, o valor de $p(1-p)$ é limitado variando de 0 a 0,25, sendo esse valor máximo atingido quando $p= 0,5$. O gráfico da Figura \@ref(fig:figprop3) mostra como variam os valores de $p(1-p)$ conforme a variação dos valores de $p$.
 
 <center>
 ```{r, figprop3,fig.cap="Variação de $p(1-p)$ em função dos valores de $p$",echo=F}
@@ -636,7 +638,7 @@ $$
 Geralmente os resultados das fórmulas para cálculo do tamanho da amostra não são valores inteiros. Em todos esses casos o valor de $n$ calculado deverá ser arredondado para o valor inteiro imediatamente superior, preservando assim a precisão desejada.
 
 **(#exm:exmprop4)** Uma empresa precisa selecionar uma amostra de uma população composta de 30.000 domicílios para estimar a proporção de domicílios que consomem suprimentos para animais domésticos. 
-O diretor da empresa pergunta ao estatístico qual o tamanho de amostra que deve utilizar na pesquisa, e diz que lhe foi sugerida a seguinte fórmula para determinar o tamanho da amostra:
+O diretor da empresa pergunta ao estatístico qual o tamanho de amostra que deve utilizar na pesquisa e diz que lhe foi sugerida a seguinte fórmula para determinar o tamanho da amostra:
 $$n\ge\frac {Np(1-p)}{ND^2 /{z^2_{\alpha /2}} + p(1-p)}$$
 
 
@@ -685,7 +687,7 @@ options(scipen=8)
 
 No caso de não existir nenhuma indicação sobre o valor de $p$, como no item $b$ do exemplo, deve-se tomar $n=7.275$, supondo $p=0,5$. Já no item $c$, deve-se optar pelo maior tamanho de amostra necessário para suprir as exigências de precisão. Neste caso, como a informação é que $p$ deve estar no intervalo [0,10; 0,30] deve-se selecionar uma amostra de $n=6.358$ domicílios. 
 
-Sugere-se que o leitor refaça o exercício com uma margem de erro diferente, $D=0,03$ por exemplo, e observe o que acontece com os valores de $n$ calculados.
+Sugere-se que o leitor refaça o exercício com uma margem de erro diferente, $D=0,03$, por exemplo, e observe o que acontece com os valores de $n$ calculados.
 
 ### Cálculo do $n$ utilizando outras formas de representar o erro amostral
 
@@ -721,7 +723,7 @@ As expressões para a seleção sem reposição são derivadas como no caso em q
 
 Até o momento foi tratado o caso em que temos uma variável indicadora com duas categorias, definindo se uma determinada unidade na população (ou na amostra) tem ou não determinada característica de interesse. Muitas vezes temos a necessidade de definir mais de duas categorias como, por exemplo:
 
-* Estudar a distribuição por faixas etárias de uma localidade ou grupo de pessoas.
+* Estudar a distribuição por faixas etárias de um grupo de pessoas.
 * Estudar a classificação econômica das empresas de determinado país.
 * Estimar a intenção de votos dos candidatos em uma eleição com mais de 2 candidatos, além das possibilidades de voto em branco ou nulo ou, ainda, eleitores indecisos.
 
@@ -806,9 +808,9 @@ Vale notar que em \@ref(eq:eqpro48) tanto o numerador como o denominador do esti
 
 ## Exercícios 
 
-**(#exr:exrprop1)** Uma pesquisa foi feita para estimar a proporção de domicílios de uma pequena vila que têm, pelo menos, um morador com 65 anos ou mais. A vila tem 651 domicílios dos quais foram pesquisados 60, e em 11 deles havia moradores com 65 anos ou mais.
+**(#exr:exrprop1)** Uma pesquisa foi feita para estimar a proporção de domicílios de uma pequena vila que têm, pelo menos, um morador com 65 anos ou mais. A vila tem 651 domicílios dos quais foram pesquisados 60 e em 11 deles havia moradores com 65 anos ou mais.
 
-  a. Estime a proporção $p$ de domicílios na população que têm, pelo menos, um morador com 65 ou mais.
+  a. Estime a proporção $p$ de domicílios na população que têm, pelo menos, um morador com 65 anos ou mais.
   b. Calcule a margem de erro da estimativa.
   c. Baseado nos resultados anteriores, quantos domicílios deveriam ser selecionados para estimar $p$ com uma margem de erro de 0,08, com um nível de significância de 5%?
   
@@ -831,7 +833,7 @@ Vale notar que em \@ref(eq:eqpro48) tanto o numerador como o denominador do esti
   d) Estime a proporção de unidades onde $y$ é menor que 10.
   e) Construa um intervalo de 95% de confiança para a proporção de unidades onde $y$ é menor que 10.
   
-**(#exr:exrprop5)** Considere a população de $N=338$ fazendas produtoras de cana-de-açúcar fornecida no arquivo 'fazendas_dat.rds'. Selecione uma AAS de $n=50$ fazendas, e use esta amostra para obter a estimativa pontual, o erro padrão, o CV e o intervalo de confiança de 95%, para cada um dos seguintes parâmetros populacionais:
+**(#exr:exrprop5)** Considere a população de $N=338$ fazendas produtoras de cana-de-açúcar fornecida no arquivo 'fazendas_dat.rds'. Selecione uma AAS de $n=50$ fazendas e use esta amostra para obter a estimativa pontual, o erro padrão, o CV e o intervalo de confiança de 95%, para cada um dos seguintes parâmetros populacionais:
 
   a)  Proporção de fazendas na região 1.
   b)  Proporção de fazendas com Area maior que 100. 
@@ -850,7 +852,7 @@ Para cada um dos tamanhos de amostra considerados:
 
 **Nota:** Nesta questão, identifique a notação usada para representar os dados fornecidos e justifique as hipóteses e aproximações eventualmente efetuadas.
 
-**(#exr:exrprop8)** Uma amostra aleatória simples sem reposição de 290 domicílios foi selecionada em certa cidade que possui 14.828 domicílios. Em cada domicílio da amostra investigou-se a condição da família que o habitava, se proprietária ou locatária, e também a existência ou não de pelos menos um quarto tipo suíte (com banheiro). Os resultados obtidos são mostrados na Tabela \@ref(tab:tabprop5).
+**(#exr:exrprop8)** Uma amostra aleatória simples sem reposição de 290 domicílios foi selecionada em certa cidade que possui 14.828 domicílios. Em cada domicílio da amostra, investigou-se a condição da família que o habitava, se proprietária ou locatária, e também a existência ou não de pelos menos um quarto tipo suíte (com banheiro). Os resultados obtidos são mostrados na Tabela \@ref(tab:tabprop5).
 
 <center>
 ```{r,results="asis",echo=FALSE}
@@ -866,11 +868,11 @@ Sem suíte           6        34
 
 </center>
 
-  a)  Estime a proporção de domicílios alugados na região, e forneça uma estimativa do CV desta proporção estimada.
-  b)  Estime a proporção de domicílios com suíte na região, e forneça uma estimativa do CV desta proporção estimada.
-  c)  Estime a proporção de domicílios alugados e com suíte na região, e forneça uma estimativa do CV desta proporção estimada.
+  a)  Estime a proporção de domicílios alugados na região e forneça uma estimativa do CV desta proporção estimada.
+  b)  Estime a proporção de domicílios com suíte na região e forneça uma estimativa do CV desta proporção estimada.
+  c)  Estime a proporção de domicílios alugados e com suíte na região e forneça uma estimativa do CV desta proporção estimada.
   
-**(#exr:exrprop9)** Uma AAS de 400 pessoas foi retirada de uma população de 2000 pessoas e 200 delas eram favoráveis a uma determinada proposta de instalação de um novo centro recreativo na localidade.
+**(#exr:exrprop9)** Uma AAS de 400 pessoas foi retirada de uma população de 2.000 pessoas e 200 delas eram favoráveis a uma determinada proposta de instalação de um novo centro recreativo na localidade.
 
   a)  Calcule um intervalo de 0,95 de confiança para a proporção, $p$, de pessoas favoráveis à proposta.
   b)  Qual deveria ser o tamanho de uma AAS para estimar $p$ com confiança de 95% e um erro máximo aproximado de 3%?
