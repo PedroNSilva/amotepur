@@ -282,7 +282,7 @@ Esta distribuição corresponde apenas a uma transformação escalar da distribu
 Sob *AAS*, a distribuição da contagem de sucessos $(n_A)$ tem uma distribuição de probabilidades 
 $\text {Hipergeométrica}(N, N_A, n)$. Isso ocorre porque, sob *AAS*, os $n$ sorteios são feitos da população sem reposição e, portanto, a cada nova unidade sorteada, o número de unidades remanescentes na população com o atributo de interesse varia, dependendo do número dessas unidades já selecionadas.
 
-O número total de amostras aleatórias simples sem reposição de tamanho $n$ que podem ser selecionadas de uma população com $N$ unidades é dado por $\binom{N}{n}$; o número dessas amostras com exatamente $v$ unidades com a característica em estudo e $n-v$ unidades sem essa característica pode se calculado por $\binom{N_A}{v}\binom{N-N_A}{n-v}$. Sendo assim, a distribuição de probabilidades da variável aleatória $t_y = n_A$ é dada por:
+O número total de amostras aleatórias simples sem reposição de tamanho $n$ que podem ser selecionadas de uma população com $N$ unidades é dado por $\binom{N}{n}$; o número dessas amostras com exatamente $v$ unidades com a característica em estudo e $n-v$ unidades sem essa característica pode ser calculado por $\binom{N_A}{v}\binom{N-N_A}{n-v}$. Sendo assim, a distribuição de probabilidades da variável aleatória $t_y = n_A$ é dada por:
 
 $$
 \displaystyle P \left(n_A = v \right) = \frac {\binom{N_A} {v} \binom{N-N_A} {n-v}}{\binom{N} {n}} , \quad \forall\, v=0, 1, 2, ..., min(n;N_A) \,\, (\#eq:eqpro23) 
@@ -397,7 +397,7 @@ Pode-se observar que, nos exemplos acima, onde o tamanho da amostra é grande, o
 
 Na maioria dos casos práticos, opta-se pelo uso da aproximação pela distribuição Normal de probabilidades, pela facilidade de seu uso tanto para *AAS* como *AASC*. Isso pode ser feito sempre que as condições do problema assim o permitirem, como se discute na próxima seção.
 
-## Intervalos de confiança utilizando a aproximação normal
+## Intervalos de confiança utilizando a aproximação Normal
 
 Como já foi visto no capítulo anterior, a distribuição do estimador da proporção, $\widehat p$, pode ser aproximada pela distribuição Normal de probabilidade. Esta aproximação pode ser utilizada mesmo no caso da *AAS* onde os $y_i$ observados na amostra não são independentes, desde que se tenha valores de $N$ e $n$ suficientemente grandes e valor da fração amostral, $f=\frac n N$, pequeno.
 
@@ -839,7 +839,7 @@ Vale notar que em \@ref(eq:eqpro48) tanto o numerador como o denominador do esti
   b)  Proporção de fazendas com Area maior que 100. 
   c)  Proporção de fazendas com produtividade (Quant/Area) maior que 67.
   
-**(#exr:exrprop6)** Para o mesmo arquivo de fazendas do exercício \@ref(exr:exrprop5) considere um plano *AAS* e tamanhos amostrais $n$ variando no conjunto $\{5; 10; 20; 50; 100; 150 \}$. Imagine que há interesse em estimar dois parâmetros: proporção $p_1$ de fazendas com Area maior que 100; proporção $p_2$ de fazendas com produtividade (Quant/Area) maior que 67. 
+**(#exr:exrprop6)** Para o mesmo arquivo de fazendas do Exercício \@ref(exr:exrprop5) considere um plano *AAS* e tamanhos amostrais $n$ variando no conjunto $\{5; 10; 20; 50; 100; 150 \}$. Imagine que há interesse em estimar dois parâmetros: proporção $p_1$ de fazendas com Area maior que 100; proporção $p_2$ de fazendas com produtividade (Quant/Area) maior que 67. 
 
 Para cada um dos tamanhos de amostra considerados: 
 
