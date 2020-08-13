@@ -70,7 +70,7 @@ $$
 $$
 A *média* da variável $y$, que neste caso é também a *proporção* de meninas entre os estudantes da escola, é igual a:
 $$
-\overline Y = \frac Y N = \frac {N_A}{N} = p = \frac {480} {1.000}=0,48 \text { ou }  48\text{%}
+\overline Y = \frac Y N = \frac {N_A}{N} = p = \frac {480} {1.000}=0,48 \text { ou }  48\%
 $$
 
 A *variância* da variável $y$, medida por $S^2_y$ é igual a:
