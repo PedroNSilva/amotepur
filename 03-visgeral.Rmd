@@ -705,7 +705,7 @@ $$
 
 O estimador $\widehat V_{SYG}(\widehat Y_{HT})$ foi motivado a partir da forma de Sen-Yates-Grundy para a variância do estimador HT do total. Tal estimador não coincide com o estimador de variância derivado a partir da expressão de Horvitz-Thompson apresentada anteriormente.
 
-Alguns comentários finais sobre estimação de totais e respectivas variâncias em *amostragem probabilística*:
+Seguem alguns comentários sobre estimação de totais e respectivas variâncias em *amostragem probabilística*:
 
 1. Com amostras probabilísticas, é sempre possível estimar sem vício um total populacional usando uma soma amostral $\pi$-ponderada, isto é, o estimador HT do total.    
 2. Há expressões de variância disponíveis para permitir avaliar a qualidade do estimador de total sob distintas situações (população, variável) para qualquer plano amostral probabilístico.    

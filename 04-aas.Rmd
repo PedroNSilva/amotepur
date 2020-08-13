@@ -6,10 +6,10 @@ A *amostragem aleatória simples* é um plano básico de amostragem que tanto po
 
 O planejamento da amostra de uma pesquisa requer a definição dos seguintes componentes fundamentais: 
 
- -  C1 - Que método será usado para *seleção* da amostra?    
- -  C2 - Qual será o *tamanho* da amostra?    
- -  C3 - Que *estimadores* serão usados para os parâmetros de interesse?    
- -  C4 - Como será feita a *avaliação da precisão* das estimativas, isto é, como será feita a *estimação da variância* dos estimadores empregados?
+ -  C1. Que método será usado para *seleção* da amostra?    
+ -  C2. Qual será o *tamanho* da amostra?    
+ -  C3. Que *estimadores* serão usados para os parâmetros de interesse?    
+ -  C4. Como será feita a *avaliação da precisão* das estimativas, isto é, como será feita a *estimação da variância* dos estimadores empregados?
 
 Os componentes C1 e C2, em conjunto, dão origem à especificação do *plano amostral*. Já os componentes C3 e C4 dão origem à especificação dos *métodos de estimação* da pesquisa. 
 
@@ -330,7 +330,7 @@ $$
 \frac{\overline {y}-E_{AAS}(\overline{y})}{\sqrt{V_{AAS}(\overline{y})}}=\frac{\overline {y}-\overline{Y}}{\displaystyle\sqrt{\left(\frac{1}{n}-\frac{1}{N}\right)S_y^2}}\approx N(0;1)\,\,(\#eq:eqaas9)
 $$
 
-onde $N(0;1)$ denota uma variável aleatória com distribuição normal padrão com média zero e variância um. Mais detalhes podem ser obtidos em @Cochran1977, seções 2.8 e 2.15, ou em @Sarndal1992, Seção 2.11.
+onde $N(0;1)$ denota uma variável aleatória com distribuição normal padrão com média zero e variância um. Mais detalhes podem ser obtidos em @Cochran1977, Seções 2.8 e 2.15, ou em @Sarndal1992, Seção 2.11.
 
 É com base nessa distribuição assintótica que se pode fazer inferência por intervalos de confiança para a média populacional, e com base nesta ideia, medir a *margem de erro* de uma estimativa da média populacional. Um intervalo de confiança de nível $(1 - \alpha)%$ para a média populacional sob AAS é dado por:
 
