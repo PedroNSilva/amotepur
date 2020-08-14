@@ -69,7 +69,7 @@ A seguir, exemplos de possíveis planos de amostragem estratificada:
 
 Considere uma população de passageiros chegando a um terminal marítimo, onde a chegada é sempre feita em navios que carregam tanto passageiros viajando com seus automóveis como passageiros que viajam a pé. Imagine que é necessário selecionar uma amostra dos passageiros para uma pesquisa que visa estimar a média dos gastos feitos na viagem por passageiro. 
 
-Nesse tipo de cenário, é conveniente para a implementação da coleta dos dados que a população de passageiros seja dividida em dois estratos: passageiros chegando de automóvel (estrato 1) e passageiros chegando a pé (estrato 2). No estrato 1, poderia ser usada *Amostragem Sistemática* para selecionar um de cada $K$ automóveis cruzando um ponto de fluxo na saída do navio. Como as unidades de amostragem nesse caso são os automóveis, que podem ter um ou mais passageiros a bordo, trata-se de um cenário em que a amostragem é de grupos de passageiros (amostragem conglomerada - ver capítulo \@ref(cong)). No estrato 2, as unidades de amostragem seriam os passageiros que desembarcam a pé, individualmente. Nesse caso, poderia ser empregada, por exemplo, *Amostragem Binomial* para selecionar passageiros para entrevistar ao passarem por um ponto de fluxo na saída do navio. 
+Nesse tipo de cenário, é conveniente para a implementação da coleta dos dados que a população de passageiros seja dividida em dois estratos: passageiros chegando de automóvel (estrato 1) e passageiros chegando a pé (estrato 2). No estrato 1, poderia ser usada *Amostragem Sistemática* para selecionar um de cada $K$ automóveis cruzando um ponto de fluxo na saída do navio. Como as unidades de amostragem nesse caso são os automóveis, que podem ter um ou mais passageiros a bordo, trata-se de um cenário em que a amostragem é de grupos de passageiros (amostragem conglomerada - ver Capítulo \@ref(cong)). No estrato 2, as unidades de amostragem seriam os passageiros que desembarcam a pé, individualmente. Nesse caso, poderia ser empregada, por exemplo, *Amostragem Binomial* para selecionar passageiros para entrevistar ao passarem por um ponto de fluxo na saída do navio. 
 
 Pesquisas como a *UK International Passenger Survey* @Horsfield2017 usam estratificação desta maneira, pois os métodos mais adequados para amostrar passageiros precisam variar conforme o modo de transporte e a forma de entrada no território do Reino Unido.
 
@@ -90,7 +90,7 @@ Esta seção apresenta os resultados para AES, método que considera sorteio por
 
 ### Método de seleção
 
-Para cada estrato $h = 1, 2, \dots, H$, selecione por AAS uma amostra $s_h$ de tamanho $1 \le n_h \le N_h$ das $N_h$ unidades do estrato $U_h$, sempre de forma independente da seleção feita nos outros estratos. Qualquer um dos algoritmos descritos no capítulo \@ref(aas) pode ser empregado para a seleção das amostras nos estratos. Segue-se então que o conjunto de todas as amostras possíveis $S_{AES}$ é formado por amostras da forma: 
+Para cada estrato $h = 1, 2, \dots, H$, selecione por AAS uma amostra $s_h$ de tamanho $1 \le n_h \le N_h$ das $N_h$ unidades do estrato $U_h$, sempre de forma independente da seleção feita nos outros estratos. Qualquer um dos algoritmos descritos no Capítulo \@ref(aas) pode ser empregado para a seleção das amostras nos estratos. Segue-se então que o conjunto de todas as amostras possíveis $S_{AES}$ é formado por amostras da forma: 
 
 $$
 s = s_1 \cup \dots \cup s_h \cup \dots \cup s_H
@@ -181,7 +181,7 @@ $$
 é o estimador da média da variável $y$ no estrato $h$; e 
 
 $$
-s_{h,y}^2 = \frac{1}{n_h - 1} \displaystyle \sum_{i \in s_h} \left( y_i - \overline y_h \right)^2
+\widehat S_{h,y}^2 = \frac{1}{n_h - 1} \displaystyle \sum_{i \in s_h} \left( y_i - \overline y_h \right)^2
 $$ 
 
 é o estimador da variância $S_{h,y}^2$ da variável $y$ no estrato $h$. 
@@ -197,10 +197,10 @@ E_{AES} \left(\widehat Y_h \right) = Y_h
 $$ 
 
 $$
-E_{AES} \left( s_{h,y}^2 \right) = S_{h,y}^2
+E_{AES} \left(\widehat S_{h,y}^2 \right) = S_{h,y}^2
 $$
 
-Todos estes resultados decorrem das propriedades já descritas no capítulo \@ref(aas) para estimadores de média, total e variância sob AAS. Temos também os seguintes resultados para as variâncias de estimadores de média e total por estrato:
+Todos estes resultados decorrem das propriedades já descritas no Capítulo \@ref(aas) para estimadores de média, total e variância sob AAS. Temos também os seguintes resultados para as variâncias de estimadores de média e total por estrato:
 
 $$
 V_{AES} \left( \overline y_h \right) = \left( \frac{1}{n_h} - \frac{1}{N_h} \right) S_{h,y}^2
@@ -215,13 +215,13 @@ $$
 é a variância do estimador de total da variável $y$ no estrato $h$;
 
 $$
-\widehat V_{AES} \left( \overline y_h \right) = \left( \frac{1}{n_h} - \frac{1}{N_h} \right) s_{h,y}^2
+\widehat V_{AES} \left( \overline y_h \right) = \left( \frac{1}{n_h} - \frac{1}{N_h} \right)\widehat S_{h,y}^2
 $$ 
 
 é o estimador da variância do estimador da média da variável $y$ no estrato $h$; e 
 
 $$
-\widehat V_{AES} \left( \widehat Y_h \right) = N_h^2 \widehat V_{AES} \left( \overline y_h \right) = N_h^2 \left( \frac{1}{n_h} - \frac{1}{N_h} \right) s_{h,y}^2
+\widehat V_{AES} \left( \widehat Y_h \right) = N_h^2 \widehat V_{AES} \left( \overline y_h \right) = N_h^2 \left( \frac{1}{n_h} - \frac{1}{N_h} \right)\widehat S_{h,y}^2
 $$ 
 
 é o estimador da variância do estimador de total da variável $y$ no estrato $h$.
@@ -271,30 +271,30 @@ $$
 Um estimador não viciado da variância de $\overline y_{AES}$ é dado por:
 
 $$
-\widehat V_{AES} \left( \overline y_{AES} \right) = \displaystyle \sum_{h=1}^{H} \frac {N_h^2}{N^2} \left( \frac{1}{n_h} - \frac{1}{N_h} \right) s_{h,y}^2 \,\, (\#eq:eqest10)
+\widehat V_{AES} \left( \overline y_{AES} \right) = \displaystyle \sum_{h=1}^{H} \frac {N_h^2}{N^2} \left( \frac{1}{n_h} - \frac{1}{N_h} \right)\widehat S_{h,y}^2 \,\, (\#eq:eqest10)
 $$
 
 No caso da estimação de total $\widehat Y_{AES}$, um estimador não viciado da variância é dado por:
 
 $$
-\widehat V_{AES }\left( \widehat Y_{AES} \right) = \displaystyle\sum_{h=1}^{H} N_h^2 \left( \frac{1}{n_h} - \frac{1}{N_h} \right) s_{h,y}^2 \,\, (\#eq:eqest11)
+\widehat V_{AES }\left( \widehat Y_{AES} \right) = \displaystyle\sum_{h=1}^{H} N_h^2 \left( \frac{1}{n_h} - \frac{1}{N_h} \right)\widehat S_{h,y}^2 \,\, (\#eq:eqest11)
 $$
 
-A Tabela \@ref(tab:tabestr1) apresenta um resumo da estimação dos parâmetros média e total da variável $y$ sob AES. 
+A Tabela \@ref(tab:tabestr1) apresenta um resumo dos estimadores do total, média e respectivas variâncias da variável $y$ sob AES. 
 
 <center>
 <table>
-<caption>(#tab:tabestr1)Parâmetros e respectivos estimadores sob AES</caption>
+<caption>(#tab:tabestr1)Estimadores do total, média e respectivas variâncias sob AES</caption>
 </table>
-|Parâmetro| |Estimador não viciado|
-|:---|:---|:---|
-|$\displaystyle \overline Y = \sum_{h=1}^H \frac{N_h}{N} \overline {Y_h} = \displaystyle \sum_{h=1}^H W_h \overline {Y_h}$| |$\displaystyle \overline y_{AES} = \sum_{h=1}^{H} \frac{N_h}{N} \overline y_h = \displaystyle \sum_{h=1}^{H} W_h \overline y_h$|
-|$Y = \displaystyle \sum_{h=1}^H Y_h = \displaystyle \sum_{h=1}^H N_h \overline {Y_h}$| |$\widehat Y_{AES} = \displaystyle \sum_{h=1}^{H} \widehat Y_h = \sum_{h=1}^{H} N_h \overline y_h$|
-|$V_{AES} \left( \overline y_{AES} \right) = \displaystyle \sum_{h=1}^{H} W_h^2 \left( \frac{1}{n_h} - \frac{1}{N_h} \right) S_{h,y}^2$| |$\widehat V_{AES} \left( \overline y_{AES} \right) = \displaystyle \sum_{h=1}^{H} W_h^2 \left( \frac{1}{n_h} - \frac{1}{N_h} \right) s_{h,y}^2$|
-|$V_{AES} \left( \widehat Y_{AES} \right) = \displaystyle \sum_{h=1}^{H} {N_h^2} \left( \frac{1}{n_h} - \frac {1}{N_h} \right) S_{h,y}^2$| |$\widehat V_{AES} \left( \widehat Y_{AES} \right) = \displaystyle\sum_{h=1}^{H} N_h^2 \left( \frac{1}{n_h} - \frac{1}{N_h} \right) s_{h,y}^2$|
+|Estimador|
+|:---|
+|$\widehat Y_{AES} = \displaystyle \sum_{h=1}^{H} \widehat Y_h = \sum_{h=1}^{H} N_h \overline y_h$|
+|$\displaystyle \overline y_{AES} = \sum_{h=1}^{H} \frac{N_h}{N} \overline y_h = \displaystyle \sum_{h=1}^{H} W_h \overline y_h$|
+$\widehat V_{AES} \left( \widehat Y_{AES} \right) = \displaystyle\sum_{h=1}^{H} N_h^2 \left( \frac{1}{n_h} - \frac{1}{N_h} \right)\widehat S_{h,y}^2$|
+|$\widehat V_{AES} \left( \overline y_{AES} \right) = \displaystyle \sum_{h=1}^{H} W_h^2 \left( \frac{1}{n_h} - \frac{1}{N_h} \right)\widehat S_{h,y}^2$|
 </center>
 
-No item \@ref(razCS) são apresentados, como casos particulares de calibração, o estimador de razão combinada e o estimador de razão separada, que são do tipo razão usuais para o total populacional $(Y)$ no caso de AES. 
+Na Seção \@ref(razCS) são apresentados, como casos particulares de calibração, o estimador de razão combinada e o estimador de razão separada, que são do tipo razão usuais para o total populacional $(Y)$ no caso de AES. 
 
 ### Intervalos de confiança
 
@@ -418,9 +418,7 @@ $$
 Este método de alocação foi proposto por @Neyman1934, em seu artigo seminal que introduziu as bases da amostragem probabilística, definiu a amostragem estratificada e já indicava a maneira ótima de alocar amostras nos estratos no contexto da AES. Note que, sob *alocação ótima*, uma amostra maior será selecionada num estrato $h$ sempre que:
 
 a. O estrato tiver mais unidades $(N_h$ grande).
-
 b. A variabilidade no estrato for maior ($S_{h,y}$ grande).
-
 c. O custo de amostragem no estrato for menor ($c_h$ pequeno).
 
 Note também que, quando $S_h = S^*$ e $c_h = c^*, \,\, \forall \, h = 1, 2, \dots, H$, ambos constantes, então $n_h = n N_h / N$, isto é, a *alocação ótima* coincide com a *alocação proporcional*. Entretanto, se apenas os custos de amostragem forem constantes ao longo dos estratos, isto é, quando $c_h = c^*, \, \forall \, h = 1, 2, \dots, H$, então: 
@@ -528,7 +526,7 @@ A implementação de amostragem estratificada simples com alocação ótima pode
 3. Se $n_h > N_h$ para algum estrato.    
     Fazer $n_h = N_h$, tornando esse estrato um *estrato certo* ou *estrato censitário* para os estratos em que $n_h > N_h$. Em seguida, refazer a alocação ótima nos demais estratos, após ajustar o tamanho da amostra disponível para seleção nestes outros estratos.    
 4. Se $n_h < 2$ para algum estrato.    
-    Se a estimação de variâncias for importante, então forçar $n_h \geq 2$ para todos os estratos. Na prática, costuma-se fazer $n_h \geq 5$ devido à possibilidade de ocorrência de não resposta. Para estimação sem viés do total ou média, é essencial que $n_h \geq 2$ para todos os estratos. Quando ocorrem situações de estratos com $n_h = 1$, é necessário utilizar métodos aproximados para estimação de variâncias, tais como agregação de estratos ou similares (ver @Cochran1977, seção 5A.12).    
+    Se a estimação de variâncias for importante, então forçar $n_h \geq 2$ para todos os estratos. Na prática, costuma-se fazer $n_h \geq 5$ devido à possibilidade de ocorrência de não resposta. Para estimação sem viés do total ou média, é essencial que $n_h \geq 2$ para todos os estratos. Quando ocorrem situações de estratos com $n_h = 1$, é necessário utilizar métodos aproximados para estimação de variâncias, tais como agregação de estratos ou similares (ver @Cochran1977, Seção 5A.12).    
 5. Ganhos de eficiência podem ser modestos, particularmente para estimação de proporções.     
     @Cochran1977, página 99, mostra que: $$V_{AESN} \left( \overline y_{AES} \right) \le V_{AESP} \left( \overline y_{AES} \right) \le V_{AAS} \left( \overline y \right)$$ 
     Os ganhos de precisão possíveis dependem da relação entre a(s) variável(is) de estratificação e as variáveis de pesquisa. Em geral, os ganhos são pequenos para amostras de pessoas e variáveis ligadas a atitudes, opiniões, comportamentos, etc. Para pesquisas amostrais de estabelecimentos ou instituições, os ganhos podem ser maiores.     
@@ -555,7 +553,7 @@ Para valores de $H \ge 3$, há uma variedade de soluções disponíveis na liter
 
 Quando a estratificação tem por objetivo viabilizar a estimação em domínios pré-definidos, recomenda-se utilizar tantos *estratos naturais* quantos sejam os domínios de interesse. Nesse caso, não cabe muita análise técnica, a não ser que o orçamento disponível para realização da pesquisa não permita obter amostras de tamanhos suficientes em todos os domínios de interesse. Quando tal situação ocorrer, o caminho deve ser a negociação do ajuste dos limites orçamentários e da definição dos domínios de interesse junto aos demandantes ou principais usuários da pesquisa.
 
-Quando se trata de *estratificação estatística*, não há interesse na estimação de parâmetros dos estratos a serem definidos, e o objetivo é a estimação do total ou da média global, @Cochran1977, seção 5A.8, recomenda usar até $H=6$ (seis) estratos. A justificativa para essa recomendação se baseia na análise descrita a seguir.
+Quando se trata de *estratificação estatística*, não há interesse na estimação de parâmetros dos estratos a serem definidos, e o objetivo é a estimação do total ou da média global, @Cochran1977, Seção 5A.8, recomenda usar até $H=6$ (seis) estratos. A justificativa para essa recomendação se baseia na análise descrita a seguir.
 
 Considere as hipóteses aqui indicadas: 
 
@@ -686,7 +684,7 @@ c)  Compare a eficiencia da AES, com as alocações utilizadas nos itens anterio
 <caption>(#tab:tabestr6)Estratificação das lojas e resultados da amostra</caption>
 </table>
 ---------- 
- Limites dos estratos      $N_h$     $Y_h(x)$   $S^2_h(x)$  $\overline y_h(y)$    $s^2_h(y)$
+ Limites dos estratos      $N_h$     $Y_h(x)$   $S^2_h(x)$  $\overline y_h(y)$    $\widehat S^2_h(y)$
 ---------------------- --------- ------------ ------------ ------------------- -------------
       5-14                1.100       9.020         8,30                   3            2,53 
 

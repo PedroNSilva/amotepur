@@ -97,7 +97,7 @@ Uma *amostra* $s=\{i_1, i_2, \dots, i_n\}$ é qualquer subconjunto não vazio de
 
 A notação $i \in s$ designa que a unidade $i$ foi incluída na amostra $s$. A notação $s \ni i$ indica que a amostra $s$ contém a unidade $i$. Quando escrevemos $\sum_{i \in s}$ estamos somando em $i$ sobre o conjunto de rótulos de unidades incluídas na amostra $s$. Quando escrevemos $\sum_{s \ni i}$ estamos somando em $s$ sobre o conjunto de amostras possíveis que contêm a unidade populacional $i$. 
 
-No contexto deste livro, apresentamos somente a teoria e resultados aplicáveis a *amostras probabilísticas*, isto é, a amostras selecionadas com base em regras de aleatorização bem definidas e que satisfazem as condições 1 a 3 enunciadas na seção \@ref(abordalt) e descritas de maneira mais formal na próxima seção.
+No contexto deste livro, apresentamos somente a teoria e resultados aplicáveis a *amostras probabilísticas*, isto é, a amostras selecionadas com base em regras de aleatorização bem definidas e que satisfazem as condições 1 a 3 enunciadas na Seção \@ref(abordalt) e descritas de maneira mais formal na próxima seção.
 
 Os dados amostrais para a variável $y$ são representados por $Y_s = \{y_{i_1}, y_{i_2}, \dots, y_{i_n}\}$.
 
@@ -348,8 +348,6 @@ O primeiro problema é que o número total de amostras possíveis cresce muito r
 
 Uma saída é usar propriedades simplificadoras da distribuição induzida pelo plano amostral. Tratamos disso na próxima seção, mas antes disso, vamos usar uma propriedade importante que pode ser deduzida a partir da distribuição de aleatorização. 
 
-**Uma propriedade importante**
-
 A *probabilidade de inclusão* da unidade $i$ na amostra é dada por: 
 
 $$
@@ -362,7 +360,7 @@ $$
 \widehat Y_w = \displaystyle \sum_{i \in s} w_i y_i = \displaystyle \sum_{i \in s}  \frac{1}{\pi_i} y_i = \displaystyle \sum_{i \in s} {\pi_i}^{-1} y_i \,\,(\#eq:eqvis24)
 $$
 
-Essa propriedade é demonstrada de maneira formal na próxima seção. Mas antes disso, vamos verificar sua aplicação com os dados do Exemplo \@ref(exm:filh). Continuando a discussão desse exemplo com a população de $N=4$ mulheres de quem foi indagado o número de filhos tidos nascidos vivos $(y)$, tem-se, na Tabela \@ref(tab:tabvis6), o valor da variável $y$ e  a probabilidade de inclusão ${\pi}_i$ de cada unidade da população de mulheres.   
+Essa é propriedade importante e é demonstrada de maneira formal na próxima seção. Mas antes disso, vamos verificar sua aplicação com os dados do Exemplo \@ref(exm:filh). Continuando a discussão desse exemplo com a população de $N=4$ mulheres de quem foi indagado o número de filhos tidos nascidos vivos $(y)$, tem-se, na Tabela \@ref(tab:tabvis6), o valor da variável $y$ e  a probabilidade de inclusão ${\pi}_i$ de cada unidade da população de mulheres.   
 
 <center>
 <table>
@@ -478,7 +476,7 @@ Usando o estimador do total com os pesos adequados $\widehat Y_w$, obtêm-se os 
 ----------
 </center>
 
-**Notas**
+**Notas:**
 
 1. O estimador $\widehat Y_w$ obtido usando os pesos iguais a $1 / \pi_i$ tem valor esperado (ver total da última coluna da Tabela \@ref(tab:tabvis10)) igual ao total populacional $Y$. Logo, o estimador assim obtido é *não viciado* também sob o plano amostral $p_2$.
 2. O fato de que a amostra 1 (composta pelas unidades {1;2}) tem probabilidade nula de ser selecionada não viola os critérios definidos para que o plano amostral $p_2$ seja chamado de *amostragem probabilística*. É fácil verificar que todas as condições enumeradas para que uma amostra seja declarada probabilística são cumpridas para esse plano amostral. Em particular, verifica-se que todas as unidades populacionais têm probabilidades positivas de inclusão na amostra - ver a Tabela \@ref(tab:tabvis9).
@@ -606,9 +604,7 @@ $$
 COV_p(\delta_i, \delta_j) = \pi_{ij} - \pi_i \pi_j
 $$
   
-**Um Método Geral de Prova em Amostragem**
-
-Este método se baseia num uso inteligente das variáveis indicadoras $\delta_1$, $\delta_2$,... ,$\delta_N$. Uma propriedade importante dessas variáveis indicadoras é que:
+Um método geral de prova em amostragem se baseia num uso inteligente das variáveis indicadoras $\delta_1$, $\delta_2$,... ,$\delta_N$. Uma propriedade importante dessas variáveis indicadoras é que:
 
 $$
 \displaystyle \sum_{i \in s} \delta_i = \sum_{i \in U} \delta_i
@@ -665,7 +661,7 @@ $$
 
 Esta propriedade vale para qualquer população, variável de interesse $y$ e plano amostral, desde que $\pi_i > 0 \,, \, \, \forall \, i \in U$.
 
-**Variância do estimador Horvitz-Thompson para o total** 
+A variância do estimador Horvitz-Thompson para o total é dada por: 
 
 $$
 \begin{align} V_{HT}(\widehat Y_{HT}) &= \displaystyle \sum_{i \in U} \sum_{j \in U} \left( \frac{\pi_{ij}}{\pi_i \pi_j} -1 \right) {y_i} {y_j} \\ &= \displaystyle \sum_{i \in U} \sum_{j \in U} \left( \frac{d_i d_j}{d_{ij}} - 1 \right) {y_i} {y_j} \end{align}
@@ -681,9 +677,6 @@ $$
 \begin{align} V_{HT} (\widehat Y_{HT}) & =  V_p \left( \displaystyle \sum_{i \in U} \delta_i \displaystyle \frac{1}{\pi_{i}} {y_i} \right) \\ & = \displaystyle \sum_{i \in U} \sum_{j \in U} COV_p(\delta_i, \delta_j) \left( \frac{y_i}{\pi_{i}}  \right) \left( \frac{y_j}{\pi_{j}} \right)  \\ &= \displaystyle \sum_{i \in U} \sum_{j \in U} (\pi_{ij} - \pi_i \pi_j) \left( \frac{y_i}{\pi_i} \frac{y_j}{\pi_j} \right) \\ &= \displaystyle \sum_{i \in U} \sum_{j \in U} \left( \frac{\pi_{ij}}{\pi_i \pi_j} -1 \right) {y_i} {y_j} \\ &= \displaystyle \sum_{i \in U} \sum_{j \in U} \left( \frac{d_i d_j}{d_{ij}} - 1 \right) {y_i} {y_j} \end{align}
 $$
 
-
-**Estimador da variância do estimador de total**
-
 Um estimador não viciado da variância do estimador HT do total é dado por:
 
 $$
@@ -692,9 +685,7 @@ $$
 
 Este estimador da variância foi obtido usando o princípio dos estimadores tipo Horvitz-Thompson do total, mas agora, como se tratava de estimar uma soma dupla na população, os pesos das parcelas nessa soma dependem das probabilidades de inclusão de segunda ordem, isto é, das probabilidades de inclusão dos pares de unidades. Para que este estimador seja viável, o plano amostral empregado tem que satisfazer a condição adicional de que as probabilidades de inclusão $\pi_{ij}$ sejam estritamente positivas, $\forall \, i \ne j \in U$.
 
-**Forma alternativa para a variância do estimador HT do total**
-
-Para planos amostrais de tamanho prefixado, pode-se demonstrar que uma forma equivalente da variância do estimador de Horvitz-Thompson do total populacional é dada pela expressão de Sen-Yates-Grundy a seguir - ver @Yates1953 e @Sen1953.
+Para planos amostrais de tamanho prefixado, uma forma alternativa para a variância do estimador HT do total populacional, equivalente a apresentada anteriormente, é dada pela expressão de Sen-Yates-Grundy a seguir - ver @Yates1953 e @Sen1953.
 
 $$
 \begin{align} V_{SYG}(\widehat Y_{HT}) &= \displaystyle \sum_{i \in U} \sum_{j>i} (\pi_i \pi_j - \pi_{ij}) \left( \frac{y_i}{\pi_i} - \frac{y_j}{\pi_j} \right)^2 \\ &= \displaystyle \sum_{i \in U} \sum_{j>i} (1/d_i d_j - 1/d_{ij}) \left( d_i{y_i} - d_j{y_j} \right)^2 \end{align}  \,\,(\#eq:eqvis29)
@@ -704,9 +695,9 @@ Note a troca do sinal da diferença de probabilidades de inclusão em relação 
 
 Uma análise dessa expressão de variância nos dá uma indicação de quando pode ser vantajoso empregar probabilidades de inclusão distintas. A variância do estimador de total seria nula caso $\frac{y_i}{\pi_i} = \frac{y_j}{\pi_j},\, \forall \, i \ne j \in U$. Isto só seria possível quando $\pi_i \propto y_i \,, \forall \, i \in U$, isto é, quando as probabilidades de inclusão fossem exatamente proporcionais aos valores da variável de interesse. Na prática, é impossível aplicar essa ideia já que os valores da variável de interesse são desconhecidos antes da seleção da amostra.
 
-Entretanto, vemos no capítulo \@ref(ppt) que esta ideia pode ser usada de forma aproximada fazendo as probabilidades de inclusão proporcionais a uma medida de tamanho cujos valores estejam disponíveis para todas as unidades da população $U$. Sempre que a medida de tamanho for positivamente correlacionada com a(s) variável(is) de interesse $y$, vemos que é possível tirar proveito da informação de tamanho para aplicar métodos de amostragem que levam a estimadores mais eficientes do total que no caso de planos amostrais com equiprobabilidade para amostras de tamanhos iguais.
+Entretanto, vemos no Capítulo \@ref(ppt) que esta ideia pode ser usada de forma aproximada fazendo as probabilidades de inclusão proporcionais a uma medida de tamanho cujos valores estejam disponíveis para todas as unidades da população $U$. Sempre que a medida de tamanho for positivamente correlacionada com a(s) variável(is) de interesse $y$, vemos que é possível tirar proveito da informação de tamanho para aplicar métodos de amostragem que levam a estimadores mais eficientes do total que no caso de planos amostrais com equiprobabilidade para amostras de tamanhos iguais.
 
-**Estimador alternativo da variância do estimador HT do total**
+Um estimador alternativo da variância do estimador HT do total, pode ser escrito como:
 
 $$
 \begin{align} \widehat V_{SYG}(\widehat Y_{HT}) &= \displaystyle \sum_{i \in s} \sum_{j>i} \left( \frac{\pi_i \pi_j - \pi_{ij}}{\pi_{ij}} \right) \left( \frac{y_i}{\pi_i} - \frac{y_j}{\pi_j} \right)^2 \\ &= \displaystyle \sum_{i \in s} \sum_{j>i} (d_{ij}/d_i d_j - 1) \left( d_i{y_i} - d_j{y_j} \right)^2\end{align} \,\,(\#eq:eqvis30)
@@ -714,7 +705,7 @@ $$
 
 O estimador $\widehat V_{SYG}(\widehat Y_{HT})$ foi motivado a partir da forma de Sen-Yates-Grundy para a variância do estimador HT do total. Tal estimador não coincide com o estimador de variância derivado a partir da expressão de Horvitz-Thompson apresentada anteriormente.
 
-**Comentários finais**
+Alguns comentários finais sobre estimação de totais e respectivas variâncias em *amostragem probabilística*:
 
 1. Com amostras probabilísticas, é sempre possível estimar sem vício um total populacional usando uma soma amostral $\pi$-ponderada, isto é, o estimador HT do total.    
 2. Há expressões de variância disponíveis para permitir avaliar a qualidade do estimador de total sob distintas situações (população, variável) para qualquer plano amostral probabilístico.    

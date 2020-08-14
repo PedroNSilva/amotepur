@@ -362,37 +362,9 @@ Há, também, no pacote *survey* uma função específica, *svyciprop*, para cal
 ```r
      # Carregando pacotes necessários
 suppressMessages(require(Hmisc,     quietly=TRUE,warn.conflicts=FALSE,character.only=FALSE))
-```
-
-```
-## Warning: package 'Hmisc' was built under R version 3.5.3
-```
-
-```
-## Warning: package 'ggplot2' was built under R version 3.5.3
-```
-
-```r
 suppressMessages(require(survey,    quietly=TRUE,warn.conflicts=FALSE,character.only=FALSE))
-```
-
-```
-## Warning: package 'survey' was built under R version 3.5.3
-```
-
-```r
 suppressMessages(require(prevalence,quietly=TRUE,warn.conflicts=FALSE,character.only=FALSE))
-```
 
-```
-## Warning: package 'rjags' was built under R version 3.5.3
-```
-
-```
-## Warning: package 'coda' was built under R version 3.5.3
-```
-
-```r
      # Definição do arquivo da amostra para a função svyciprop
 s=as.data.frame(c(rep(1,60),rep(0,125-60)))
 names(s)=c("y")

@@ -1,6 +1,6 @@
 # Amostragem Aleatória Simples {#aas}
 
-A *amostragem aleatória simples* é um plano básico de amostragem que tanto pode ser utilizado diretamente na seleção de uma amostra como ser parte de outros planos amostrais como, por exemplo, *Amostragem Estratificada*, que serão tatados mais adiante.
+A *amostragem aleatória simples* é um plano básico de amostragem que tanto pode ser utilizado diretamente na seleção de uma amostra como ser parte de outros planos amostrais como, por exemplo, *Amostragem Estratificada*, que serão tratados mais adiante.
 
 ## Planos amostrais e algoritmos de seleção
 
@@ -213,27 +213,27 @@ s
 ```
 
 ```
-##      i
-## 1  452
-## 2  876
-## 3  288
-## 4  922
-## 5  657
-## 6  235
-## 7  490
-## 8    2
-## 9  364
-## 10 766
-## 11 421
-## 12 762
-## 13 588
-## 14 502
-## 15 695
-## 16 374
-## 17 659
-## 18 688
-## 19 226
-## 20 139
+##       i
+## 1   655
+## 2   560
+## 3   329
+## 4   584
+## 5   389
+## 6   409
+## 7   834
+## 8   664
+## 9    89
+## 10  297
+## 11  474
+## 12  624
+## 13  122
+## 14  441
+## 15  676
+## 16  108
+## 17 1000
+## 18  803
+## 19   60
+## 20  187
 ```
 
 ```r
@@ -266,30 +266,30 @@ s
 
 ```
 ##      i
-## 1   15
-## 2   86
-## 3  114
-## 4  131
-## 5  142
-## 6  248
-## 7  263
-## 8  285
-## 9  309
-## 10 415
-## 11 470
-## 12 554
-## 13 618
-## 14 641
-## 15 860
-## 16 893
-## 17 897
-## 18 945
-## 19 974
-## 20 997
+## 1   18
+## 2   56
+## 3   87
+## 4  155
+## 5  204
+## 6  258
+## 7  289
+## 8  302
+## 9  327
+## 10 439
+## 11 512
+## 12 521
+## 13 544
+## 14 573
+## 15 584
+## 16 604
+## 17 620
+## 18 678
+## 19 787
+## 20 826
 ```
 ### Probabilidades de inclusão sob AAS
 
-Como já indicado no capítulo \@ref(visger), tratar com as distribuições de aleatorização $p(s)$ sob AAS pode ser complicado do ponto de vista prático. @Sarndal1992, página 29, mencionam que numa população com $N = 1.000$ unidades, o conjunto $S$ de amostras AAS possíveis de tamanho $n=40$ tem dimensão $\binom{N}{n} = \binom{1.000}{40} = 5,6 \times 10^{71}$. Se a população tivesse $N = 5.000$ e a amostra tamanho $n = 200$, a dimensão de $S$ cresceria para $\binom{5.000}{200} = 1,4 \times 10^{363}$. Portanto, a enumeração de todas as amostras possíveis seria tarefa complicada, mesmo com computadores poderosos. 
+Como já indicado no Capítulo \@ref(visger), tratar com as distribuições de aleatorização $p(s)$ sob AAS pode ser complicado do ponto de vista prático. @Sarndal1992, página 29, mencionam que numa população com $N = 1.000$ unidades, o conjunto $S$ de amostras AAS possíveis de tamanho $n=40$ tem dimensão $\binom{N}{n} = \binom{1.000}{40} = 5,6 \times 10^{71}$. Se a população tivesse $N = 5.000$ e a amostra tamanho $n = 200$, a dimensão de $S$ cresceria para $\binom{5.000}{200} = 1,4 \times 10^{363}$. Portanto, a enumeração de todas as amostras possíveis seria tarefa complicada, mesmo com computadores poderosos. 
 
 Note que os tamanhos de população e amostra acima são modestos do ponto de vista de aplicações práticas.
 Foi para eliminar essa dificuldade que introduzimos resumos simples derivados da distribuição $p(s)$. Tais resumos serão suficientes para a obtenção de propriedades de estimadores tais como valor esperado e variância, na maioria das situações de interesse prático. Esses resumos são as *probabilidades de inclusão* de unidades ou de pares de unidades na amostra. 
@@ -379,7 +379,7 @@ $$
 \frac{\overline {y}-E_{AAS}(\overline{y})}{\sqrt{V_{AAS}(\overline{y})}}=\frac{\overline {y}-\overline{Y}}{\displaystyle\sqrt{\left(\frac{1}{n}-\frac{1}{N}\right)S_y^2}}\approx N(0;1)\,\,(\#eq:eqaas9)
 $$
 
-onde $N(0;1)$ denota uma variável aleatória com distribuição normal padrão com média zero e variância um. Mais detalhes podem ser obtidos em @Cochran1977, seções 2.8 e 2.15, ou em @Sarndal1992, seção 2.11.
+onde $N(0;1)$ denota uma variável aleatória com distribuição normal padrão com média zero e variância um. Mais detalhes podem ser obtidos em @Cochran1977, seções 2.8 e 2.15, ou em @Sarndal1992, Seção 2.11.
 
 É com base nessa distribuição assintótica que se pode fazer inferência por intervalos de confiança para a média populacional, e com base nesta ideia, medir a *margem de erro* de uma estimativa da média populacional. Um intervalo de confiança de nível $(1 - \alpha)%$ para a média populacional sob AAS é dado por:
 
@@ -502,7 +502,7 @@ $$
 
 1. A Expressão \@ref(eq:eqaas12) só se aplica para o caso do estimador média amostral $\overline y$ para a média populacional $\overline Y$ sob AAS.    
 2. É possível derivar expressões similares para o caso da estimação de totais, e também de outros parâmetros.    
-3. Para planos amostrais mais complexos, é mais difícil resolver equações do tipo acima para determinar tamanhos amostrais, e sua alocação em estratos e conglomerados. Entretanto, a ideia de *Efeito do Plano Amostral* - EPA vai ser útil neste contexto. Ver discussão no capítulo \@ref(cong).
+3. Para planos amostrais mais complexos, é mais difícil resolver equações do tipo acima para determinar tamanhos amostrais, e sua alocação em estratos e conglomerados. Entretanto, a ideia de *Efeito do Plano Amostral* - EPA vai ser útil neste contexto. Ver discussão no Capítulo \@ref(cong).
 
 **(#exm:exmaas2)** Considere a população formada pelos municípios brasileiros, conforme consta do arquivo 'MunicBR_dat.rds'. Tendo esta população em mente, imagine que seria usada para seleção de uma amostra AAS de $n=200$ municípios. Imagine que tal amostra seria usada para estimar a *média populacional* da variável *área* dos municípios. 
 
@@ -642,7 +642,7 @@ munic_amo <- getdata(MunicBR_dat, srswor(n, N))
 ```
 
 ```
-## [1] 1150.073
+## [1] 1096.595
 ```
 
 ```r
@@ -651,7 +651,7 @@ munic_amo <- getdata(MunicBR_dat, srswor(n, N))
 ```
 
 ```
-## [1] 27047.13
+## [1] 50558.32
 ```
 
 ```r
@@ -667,7 +667,7 @@ munic_amo <- getdata(MunicBR_dat, srswor(n, N))
 ```
 
 ```
-## [1] 33.86441
+## [1] 35.51587
 ```
 
 ```r
@@ -676,7 +676,7 @@ munic_amo <- getdata(MunicBR_dat, srswor(n, N))
 ```
 
 ```
-## [1] 66.37302
+## [1] 69.60982
 ```
 
 ```r
@@ -694,7 +694,7 @@ munic_amo <- getdata(MunicBR_dat, srswor(n, N))
 ```
 
 ```
-## [1] 817.3793
+## [1] 1355.048
 ```
 
 ```r
@@ -702,7 +702,7 @@ munic_amo <- getdata(MunicBR_dat, srswor(n, N))
 ```
 
 ```
-## [1] 818
+## [1] 1356
 ```
 
 
