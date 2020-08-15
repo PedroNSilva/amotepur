@@ -264,12 +264,12 @@ cat("<table>",paste0("<caption>", "(#tab:tabcong4)", "Descrição das informaç�
 Descrição                                                                       Valores amostrais                              
 ------------------------------------------------------------------------------- -------------------------------------------------
 Valor da variável de pesquisa para unidade $j$ do conglomerado selecionado $i$   $y_{ij} \,\,\,\, \forall\, j=1, \dots, N_i$, \
-                                                                                              $i \in a = \{{ i_1,\dots,i_m \}}$
+                                                                                              $i \in a = \{ i_1,\dots,i_m \}$
                                                                                  
 
-Total no conglomerado $i$ da amostra $i \in a = \{{ i_1, \dots, i_m} \}$         $Y_i = \displaystyle \sum_{j \in C_i} y_{ij}$
+Total no conglomerado $i$ da amostra $i \in a = \{ i_1, \dots, i_m \}$         $Y_i = \displaystyle \sum_{j \in C_i} y_{ij}$
 
-Média no conglomerado $i$ da amostra $i \in a = \{{ i_1, \dots, i_m} \}$         $\overline {Y_i} = {Y_i}/{N_i}$
+Média no conglomerado $i$ da amostra $i \in a = \{ i_1, \dots, i_m \}$         $\overline {Y_i} = {Y_i}/{N_i}$
 
 Total amostral                                                                   $t = \displaystyle \sum_{i \in a} Y_i$
 
