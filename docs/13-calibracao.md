@@ -555,7 +555,7 @@ $$
 onde: 
 
 $$
-{\bf H}'_s({\bf λ}_r) = \partial {\bf H}_s ({\bf λ}) / \partial {\bf λ}|_{{\bf λ} = {\bf λ}_r} \,\, (\#eq:eqcal43)
+{\bf H}'_s({\bf λ}_r) = \partial {\bf H}_s ({\bf λ}) / \partial {\bf λ}|_{\bf λ} = {\bf λ}_r} \,\, (\#eq:eqcal43)
 $$
 
 As iterações devem prosseguir até convergência (até um limite de tolerância especificado ser satisfeito) ou até o número máximo de iterações ser realizado sem haver convergência.
