@@ -24,7 +24,7 @@
 <meta name="author" content="Pedro Luis do Nascimento Silva, Zélia Magalhães Bianchini e Antonio José Ribeiro Dias" />
 
 
-<meta name="date" content="2020-08-13" />
+<meta name="date" content="2020-08-14" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -845,7 +845,7 @@ Figura 5.2: Aproximação Normal da distribuição do estimador de <span class="
 <p>A Tabela <a href="proporc.html#tab:tabprop3">5.3</a> foi construída considerando um nível de significância de <span class="math inline">\(\alpha=0,05\)</span>, que é um valor comumente utilizado em muitas situações práticas.Tem-se, a partir daí, critérios práticos para assumir a utilização da aproximação Normal, notando-se que o tamanho mínimo da amostra requerido é de <span class="math inline">\(n=30\small.\)</span></p>
 <p>Nas condições estabelecidas para a validade da aproximação Normal, tem-se que <span class="math inline">\(S^2_y \doteq \sigma^2_y=p(1-p)\)</span>, portanto, <span class="math inline">\(\displaystyle V_{AAS}(\widehat p) \doteq V_{AASC}(\widehat p)\)</span>. Então, para os dois tipos de seleção, pode-se considerar o intervalo de confiança para a proporção como:</p>
 <p><span class="math display" id="eq:eqpro29">\[ 
-\displaystyle IC(p;{1-\alpha})=\left[\widehat p-z_{\alpha/ 2}\sqrt { {p(1-p)}/n}\,;\,\widehat p+z_{\alpha/2}\sqrt {{p(1-p)}/n}\,\, \right]\,\,\tag{5.29} 
+\displaystyle IC(p;{1-\alpha})=\left[\widehat p-z_{\alpha/ 2}\sqrt { \frac{p(1-p)}n}\,;\,\widehat p+z_{\alpha/2}\sqrt {\frac{p(1-p)}n}\,\, \right]\,\,\tag{5.29} 
 \]</span>
 Caso se deseje considerar o fator de correção para populacões finitas, quando a fração amostral não possa ser considerada pequena e a seleção for sem reposição, a expressão do intervalo de confiança passa a ser:</p>
 <p><span class="math display" id="eq:eqpro30">\[
@@ -853,7 +853,7 @@ Caso se deseje considerar o fator de correção para populacões finitas, quando
 \]</span></p>
 <p>Em <span class="citation">Cochran (1977)</span> é apresentada uma <em>correção de continuidade</em> acrescentando a fração <span class="math inline">\(1/2n\)</span> à margem de erro do intervalo de confiança pelo fato de se fazer uma aproximação de uma distribuição discreta (Binomial ou Hipergeométrica) pela distribuição Normal, que é contínua. Desse modo a expressão do intervalo de confiança passa a ser:</p>
 <p><span class="math display" id="eq:eqpro31">\[
-\displaystyle IC(p;{1-\alpha})=\left[\widehat p \mp \left(z_{\alpha/ 2}\sqrt {{p(1-p)}/n}+1/2n \right) \right] \tag{5.31}
+\displaystyle IC(p;{1-\alpha})=\left[\widehat p \mp \left(z_{\alpha/ 2}\sqrt {\frac{p(1-p)}n}+\frac1{2n} \right) \right] \tag{5.31}
 \]</span>
 Ou considerando a correção para população finita:</p>
 <p><span class="math display" id="eq:eqpro32">\[

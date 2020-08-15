@@ -617,7 +617,7 @@ A Tabela \@ref(tab:tabprop3) foi construída considerando um nível de signific�
 Nas condições estabelecidas para a validade da aproximação Normal, tem-se que $S^2_y \doteq \sigma^2_y=p(1-p)$, portanto, $\displaystyle V_{AAS}(\widehat p) \doteq V_{AASC}(\widehat p)$. Então, para os dois tipos de seleção, pode-se considerar o intervalo de confiança para a proporção como: 
 
 $$ 
-\displaystyle IC(p;{1-\alpha})=\left[\widehat p-z_{\alpha/ 2}\sqrt { {p(1-p)}/n}\,;\,\widehat p+z_{\alpha/2}\sqrt {{p(1-p)}/n}\,\, \right]\,\,(\#eq:eqpro29) 
+\displaystyle IC(p;{1-\alpha})=\left[\widehat p-z_{\alpha/ 2}\sqrt { \frac{p(1-p)}n}\,;\,\widehat p+z_{\alpha/2}\sqrt {\frac{p(1-p)}n}\,\, \right]\,\,(\#eq:eqpro29) 
 $$
 Caso se deseje considerar o fator de correção para populacões finitas, quando a fração amostral não possa ser considerada pequena e a seleção for sem reposição, a expressão do intervalo de confiança passa a ser: 
 
@@ -628,7 +628,7 @@ $$
 Em @Cochran1977 é apresentada uma *correção de continuidade* acrescentando a fração $1/2n$ à margem de erro do intervalo de confiança pelo fato de se fazer uma aproximação de uma distribuição discreta (Binomial ou Hipergeométrica) pela distribuição Normal, que é contínua. Desse modo a expressão do intervalo de confiança passa a ser: 
 
 $$
-\displaystyle IC(p;{1-\alpha})=\left[\widehat p \mp \left(z_{\alpha/ 2}\sqrt {{p(1-p)}/n}+1/2n \right) \right] (\#eq:eqpro31)
+\displaystyle IC(p;{1-\alpha})=\left[\widehat p \mp \left(z_{\alpha/ 2}\sqrt {\frac{p(1-p)}n}+\frac1{2n} \right) \right] (\#eq:eqpro31)
 $$
 Ou considerando a correção para população finita:
 

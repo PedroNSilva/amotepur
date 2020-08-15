@@ -6,10 +6,10 @@ A *amostragem aleatória simples* é um plano básico de amostragem que tanto po
 
 O planejamento da amostra de uma pesquisa requer a definição dos seguintes componentes fundamentais: 
 
- -  C1 - Que método será usado para *seleção* da amostra?    
- -  C2 - Qual será o *tamanho* da amostra?    
- -  C3 - Que *estimadores* serão usados para os parâmetros de interesse?    
- -  C4 - Como será feita a *avaliação da precisão* das estimativas, isto é, como será feita a *estimação da variância* dos estimadores empregados?
+ -  C1. Que método será usado para *seleção* da amostra?    
+ -  C2. Qual será o *tamanho* da amostra?    
+ -  C3. Que *estimadores* serão usados para os parâmetros de interesse?    
+ -  C4. Como será feita a *avaliação da precisão* das estimativas, isto é, como será feita a *estimação da variância* dos estimadores empregados?
 
 Os componentes C1 e C2, em conjunto, dão origem à especificação do *plano amostral*. Já os componentes C3 e C4 dão origem à especificação dos *métodos de estimação* da pesquisa. 
 
@@ -213,27 +213,27 @@ s
 ```
 
 ```
-##       i
-## 1   655
-## 2   560
-## 3   329
-## 4   584
-## 5   389
-## 6   409
-## 7   834
-## 8   664
-## 9    89
-## 10  297
-## 11  474
-## 12  624
-## 13  122
-## 14  441
-## 15  676
-## 16  108
-## 17 1000
-## 18  803
-## 19   60
-## 20  187
+##      i
+## 1  155
+## 2  408
+## 3  125
+## 4  595
+## 5  340
+## 6  600
+## 7  902
+## 8  882
+## 9  917
+## 10  76
+## 11 116
+## 12 829
+## 13 504
+## 14 691
+## 15 157
+## 16 299
+## 17 810
+## 18 333
+## 19  52
+## 20 425
 ```
 
 ```r
@@ -266,26 +266,26 @@ s
 
 ```
 ##      i
-## 1   18
-## 2   56
-## 3   87
-## 4  155
+## 1   37
+## 2  113
+## 3  121
+## 4  129
 ## 5  204
-## 6  258
-## 7  289
+## 6  234
+## 7  251
 ## 8  302
-## 9  327
-## 10 439
-## 11 512
-## 12 521
-## 13 544
-## 14 573
-## 15 584
-## 16 604
-## 17 620
-## 18 678
-## 19 787
-## 20 826
+## 9  332
+## 10 345
+## 11 408
+## 12 523
+## 13 609
+## 14 640
+## 15 660
+## 16 665
+## 17 717
+## 18 799
+## 19 827
+## 20 870
 ```
 ### Probabilidades de inclusão sob AAS
 
@@ -379,7 +379,7 @@ $$
 \frac{\overline {y}-E_{AAS}(\overline{y})}{\sqrt{V_{AAS}(\overline{y})}}=\frac{\overline {y}-\overline{Y}}{\displaystyle\sqrt{\left(\frac{1}{n}-\frac{1}{N}\right)S_y^2}}\approx N(0;1)\,\,(\#eq:eqaas9)
 $$
 
-onde $N(0;1)$ denota uma variável aleatória com distribuição normal padrão com média zero e variância um. Mais detalhes podem ser obtidos em @Cochran1977, seções 2.8 e 2.15, ou em @Sarndal1992, Seção 2.11.
+onde $N(0;1)$ denota uma variável aleatória com distribuição normal padrão com média zero e variância um. Mais detalhes podem ser obtidos em @Cochran1977, Seções 2.8 e 2.15, ou em @Sarndal1992, Seção 2.11.
 
 É com base nessa distribuição assintótica que se pode fazer inferência por intervalos de confiança para a média populacional, e com base nesta ideia, medir a *margem de erro* de uma estimativa da média populacional. Um intervalo de confiança de nível $(1 - \alpha)%$ para a média populacional sob AAS é dado por:
 
@@ -642,7 +642,7 @@ munic_amo <- getdata(MunicBR_dat, srswor(n, N))
 ```
 
 ```
-## [1] 1096.595
+## [1] 1829.157
 ```
 
 ```r
@@ -651,7 +651,7 @@ munic_amo <- getdata(MunicBR_dat, srswor(n, N))
 ```
 
 ```
-## [1] 50558.32
+## [1] 254210.1
 ```
 
 ```r
@@ -667,7 +667,7 @@ munic_amo <- getdata(MunicBR_dat, srswor(n, N))
 ```
 
 ```
-## [1] 35.51587
+## [1] 21.29207
 ```
 
 ```r
@@ -676,7 +676,7 @@ munic_amo <- getdata(MunicBR_dat, srswor(n, N))
 ```
 
 ```
-## [1] 69.60982
+## [1] 41.73168
 ```
 
 ```r
@@ -694,7 +694,7 @@ munic_amo <- getdata(MunicBR_dat, srswor(n, N))
 ```
 
 ```
-## [1] 1355.048
+## [1] 3441.161
 ```
 
 ```r
@@ -702,7 +702,7 @@ munic_amo <- getdata(MunicBR_dat, srswor(n, N))
 ```
 
 ```
-## [1] 1356
+## [1] 3442
 ```
 
 

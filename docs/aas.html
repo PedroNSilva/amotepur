@@ -24,7 +24,7 @@
 <meta name="author" content="Pedro Luis do Nascimento Silva, Zélia Magalhães Bianchini e Antonio José Ribeiro Dias" />
 
 
-<meta name="date" content="2020-08-13" />
+<meta name="date" content="2020-08-14" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -373,13 +373,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">4.1</span> Planos amostrais e algoritmos de seleção</h2>
 <p>O planejamento da amostra de uma pesquisa requer a definição dos seguintes componentes fundamentais:</p>
 <ul>
-<li>C1 - Que método será usado para <em>seleção</em> da amostra?<br />
+<li>C1. Que método será usado para <em>seleção</em> da amostra?<br />
 </li>
-<li>C2 - Qual será o <em>tamanho</em> da amostra?<br />
+<li>C2. Qual será o <em>tamanho</em> da amostra?<br />
 </li>
-<li>C3 - Que <em>estimadores</em> serão usados para os parâmetros de interesse?<br />
+<li>C3. Que <em>estimadores</em> serão usados para os parâmetros de interesse?<br />
 </li>
-<li>C4 - Como será feita a <em>avaliação da precisão</em> das estimativas, isto é, como será feita a <em>estimação da variância</em> dos estimadores empregados?</li>
+<li>C4. Como será feita a <em>avaliação da precisão</em> das estimativas, isto é, como será feita a <em>estimação da variância</em> dos estimadores empregados?</li>
 </ul>
 <p>Os componentes C1 e C2, em conjunto, dão origem à especificação do <em>plano amostral</em>. Já os componentes C3 e C4 dão origem à especificação dos <em>métodos de estimação</em> da pesquisa.</p>
 <p>Para aplicar um plano amostral qualquer <span class="math inline">\(p(s)\)</span> (a função que associa a cada amostra possível <span class="math inline">\(s\)</span> uma probabilidade de esta ser a amostra selecionada) precisamos contar com um <em>algoritmo de seleção</em>. Um <em>algoritmo de seleção</em> é um método que permite selecionar as unidades da amostra <span class="math inline">\(s\)</span> de tal forma que a probabilidade de ser <span class="math inline">\(s \in S\)</span> a amostra selecionada seja igual a <span class="math inline">\(p(s)\)</span>.</p>
@@ -639,27 +639,27 @@ Tabela <a href="aas.html#tab:tabaas4">4.4</a>.</p>
 <span id="cb1-8"><a href="aas.html#cb1-8"></a><span class="kw">names</span>(s)=<span class="kw">c</span>(<span class="st">&quot;i&quot;</span>)</span>
 <span id="cb1-9"><a href="aas.html#cb1-9"></a><span class="co"># A amostra será formada pelas unidades seguintes</span></span>
 <span id="cb1-10"><a href="aas.html#cb1-10"></a>s</span></code></pre></div>
-<pre><code>##       i
-## 1   655
-## 2   560
-## 3   329
-## 4   584
-## 5   389
-## 6   409
-## 7   834
-## 8   664
-## 9    89
-## 10  297
-## 11  474
-## 12  624
-## 13  122
-## 14  441
-## 15  676
-## 16  108
-## 17 1000
-## 18  803
-## 19   60
-## 20  187</code></pre>
+<pre><code>##      i
+## 1  155
+## 2  408
+## 3  125
+## 4  595
+## 5  340
+## 6  600
+## 7  902
+## 8  882
+## 9  917
+## 10  76
+## 11 116
+## 12 829
+## 13 504
+## 14 691
+## 15 157
+## 16 299
+## 17 810
+## 18 333
+## 19  52
+## 20 425</code></pre>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="aas.html#cb3-1"></a><span class="co"># Algoritmo de Fan, Muller e Rezucha para seleção de uma amostra </span></span>
 <span id="cb3-2"><a href="aas.html#cb3-2"></a><span class="co"># de n unidades de uma população de tamanho N</span></span>
 <span id="cb3-3"><a href="aas.html#cb3-3"></a></span>
@@ -686,26 +686,26 @@ Tabela <a href="aas.html#tab:tabaas4">4.4</a>.</p>
 <span id="cb3-24"><a href="aas.html#cb3-24"></a><span class="co"># A amostra será formada pelas unidades seguintes</span></span>
 <span id="cb3-25"><a href="aas.html#cb3-25"></a>s</span></code></pre></div>
 <pre><code>##      i
-## 1   18
-## 2   56
-## 3   87
-## 4  155
+## 1   37
+## 2  113
+## 3  121
+## 4  129
 ## 5  204
-## 6  258
-## 7  289
+## 6  234
+## 7  251
 ## 8  302
-## 9  327
-## 10 439
-## 11 512
-## 12 521
-## 13 544
-## 14 573
-## 15 584
-## 16 604
-## 17 620
-## 18 678
-## 19 787
-## 20 826</code></pre>
+## 9  332
+## 10 345
+## 11 408
+## 12 523
+## 13 609
+## 14 640
+## 15 660
+## 16 665
+## 17 717
+## 18 799
+## 19 827
+## 20 870</code></pre>
 </div>
 <div id="probabilidades-de-inclusão-sob-aas" class="section level3">
 <h3><span class="header-section-number">4.3.4</span> Probabilidades de inclusão sob AAS</h3>
@@ -798,7 +798,7 @@ V_{AAS} (\overline{y}) = \displaystyle \left( \frac{1}{n} - \frac{1}{N} \right) 
 <p><span class="math display" id="eq:eqaas9">\[
 \frac{\overline {y}-E_{AAS}(\overline{y})}{\sqrt{V_{AAS}(\overline{y})}}=\frac{\overline {y}-\overline{Y}}{\displaystyle\sqrt{\left(\frac{1}{n}-\frac{1}{N}\right)S_y^2}}\approx N(0;1)\,\,\tag{4.9}
 \]</span></p>
-<p>onde <span class="math inline">\(N(0;1)\)</span> denota uma variável aleatória com distribuição normal padrão com média zero e variância um. Mais detalhes podem ser obtidos em <span class="citation">Cochran (1977)</span>, seções 2.8 e 2.15, ou em <span class="citation">Särndal, Swensson, e Wretman (1992)</span>, Seção 2.11.</p>
+<p>onde <span class="math inline">\(N(0;1)\)</span> denota uma variável aleatória com distribuição normal padrão com média zero e variância um. Mais detalhes podem ser obtidos em <span class="citation">Cochran (1977)</span>, Seções 2.8 e 2.15, ou em <span class="citation">Särndal, Swensson, e Wretman (1992)</span>, Seção 2.11.</p>
 <p>É com base nessa distribuição assintótica que se pode fazer inferência por intervalos de confiança para a média populacional, e com base nesta ideia, medir a <em>margem de erro</em> de uma estimativa da média populacional. Um intervalo de confiança de nível <span class="math inline">\((1 - \alpha)%\)</span> para a média populacional sob AAS é dado por:</p>
 <p><span class="math display" id="eq:eqaas10">\[
 IC_{AAS} (\overline{Y} ; 1 - \alpha) = \left [ \overline {y} \mp z_{\alpha/2} \sqrt{\widehat {V}_{AAS}(\overline{y})} \right ]\,\,\tag{4.10}
@@ -963,25 +963,25 @@ d) O <em>tamanho da amostra</em> que seria necessária para estimar a média da 
 <span id="cb27-4"><a href="aas.html#cb27-4"></a></span>
 <span id="cb27-5"><a href="aas.html#cb27-5"></a><span class="co"># a. Média amostral</span></span>
 <span id="cb27-6"><a href="aas.html#cb27-6"></a>(med_amo &lt;-<span class="st"> </span><span class="kw">mean</span>(munic_amo<span class="op">$</span>Area))</span></code></pre></div>
-<pre><code>## [1] 1096.595</code></pre>
+<pre><code>## [1] 1829.157</code></pre>
 <div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="aas.html#cb29-1"></a><span class="co"># b. Estimativas da dispersão do estimador de média sob AAS</span></span>
 <span id="cb29-2"><a href="aas.html#cb29-2"></a>(var_med_amo &lt;-<span class="st"> </span>((<span class="dv">1</span><span class="op">/</span>n) <span class="op">-</span><span class="st"> </span>(<span class="dv">1</span><span class="op">/</span>N)) <span class="op">*</span><span class="st"> </span><span class="kw">var</span>(munic_amo<span class="op">$</span>Area))</span></code></pre></div>
-<pre><code>## [1] 50558.32</code></pre>
+<pre><code>## [1] 254210.1</code></pre>
 <div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="aas.html#cb31-1"></a>(dp_med_amo &lt;-<span class="st"> </span><span class="kw">sqrt</span>(VAR_med_amo))</span></code></pre></div>
 <pre><code>## [1] 389.4654</code></pre>
 <div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="aas.html#cb33-1"></a>(cv_med_amo &lt;-<span class="st"> </span><span class="dv">100</span> <span class="op">*</span><span class="st"> </span>DP_med_amo <span class="op">/</span><span class="st"> </span>med_amo)</span></code></pre></div>
-<pre><code>## [1] 35.51587</code></pre>
+<pre><code>## [1] 21.29207</code></pre>
 <div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="aas.html#cb35-1"></a><span class="co"># c. Margem de erro relativo do estimador de média sob AAS</span></span>
 <span id="cb35-2"><a href="aas.html#cb35-2"></a>(me_med_amo &lt;-<span class="st"> </span><span class="kw">qnorm</span>(<span class="fl">0.975</span>)<span class="op">*</span>cv_med_amo)</span></code></pre></div>
-<pre><code>## [1] 69.60982</code></pre>
+<pre><code>## [1] 41.73168</code></pre>
 <div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="aas.html#cb37-1"></a><span class="co"># d. Tamanho de amostra para obter margem de erro de 150 ao nível 95%</span></span>
 <span id="cb37-2"><a href="aas.html#cb37-2"></a>(D &lt;-<span class="st"> </span><span class="dv">150</span>)</span></code></pre></div>
 <pre><code>## [1] 150</code></pre>
 <div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="aas.html#cb39-1"></a>(n_amo_est &lt;-<span class="st"> </span>(N <span class="op">*</span><span class="st"> </span><span class="kw">qnorm</span>(<span class="fl">0.975</span>)<span class="op">^</span><span class="dv">2</span> <span class="op">*</span><span class="st"> </span><span class="kw">var</span>(munic_amo<span class="op">$</span>Area)) <span class="op">/</span></span>
 <span id="cb39-2"><a href="aas.html#cb39-2"></a><span class="st">              </span>(N <span class="op">*</span><span class="st"> </span>D<span class="op">^</span><span class="dv">2</span> <span class="op">+</span><span class="st"> </span><span class="kw">qnorm</span>(<span class="fl">0.975</span>)<span class="op">^</span><span class="dv">2</span> <span class="op">*</span><span class="st"> </span><span class="kw">var</span>(munic_amo<span class="op">$</span>Area)))</span></code></pre></div>
-<pre><code>## [1] 1355.048</code></pre>
+<pre><code>## [1] 3441.161</code></pre>
 <div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="aas.html#cb41-1"></a>(n_amo_est &lt;-<span class="st"> </span><span class="kw">ceiling</span>(n_amo_est))</span></code></pre></div>
-<pre><code>## [1] 1356</code></pre>
+<pre><code>## [1] 3442</code></pre>
 </div>
 </div>
 <div id="exercícios" class="section level2">
