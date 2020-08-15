@@ -398,11 +398,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Inclua na amostra sistemática <span class="math inline">\(s_r\)</span> todas as unidades que satisfazem a regra indicada abaixo.</li>
 </ol>
 <p><span class="math display" id="eq:eqsis1">\[
- s_r = \{{ i : i = r + l K \le N;\,\,\, l = 0, ..., n }\}  \, \, \tag{8.1}
+ s_r = \{ i : i = r + l K \le N; \,\,\, l = 0, ..., n \}  \, \, \tag{8.1}
 \]</span></p>
 <p>Em consequência desse método, há exatamente <span class="math inline">\(K\)</span> <em>amostras sistemáticas</em> distintas possíveis. Todas têm igual probabilidade de ser a amostra selecionada, logo:</p>
 <p><span class="math display" id="eq:eqsis2">\[
- p(s) = \left\{\begin{array}{ll} 1/K,\,\text{se} \,\,\, s=s_r \,\,\text{para} \,\,r=1,\,\,\,2,\,\,\,...,\,\,\,K \\ 0, \,\,\, \textrm{caso contrário}   \end{array} \right.
+ p(s) = \left\{\begin{array}{ll} 1/K, \, \text{se} \,\,\, s=s_r \,\,\text{para} \,\,r=1,\,\,\,2,\,\,\,...,\,\,\,K \\ 0, \,\,\, \textrm{caso contrário}   \end{array} \right.
  \tag{8.2}
 \]</span></p>
 <p>O <em>tamanho efetivo</em> da amostra selecionada por AS, aqui denotado por <span class="math inline">\(n_r\)</span>, não é fixado a priori, pois depende do valor da <em>partida aleatória</em> <span class="math inline">\(r\)</span> selecionada, e pode tomar dois valores possíveis:</p>
@@ -539,10 +539,10 @@ unidades <span class="math inline">\(U_i\)</span></th>
 <p>Examinando a Tabela <a href="AS.html#tab:tabsis1">8.1</a> conclui-se que unidades em diferentes amostras sistemáticas simples possíveis nunca podem aparecer juntas na mesma amostra! Outra constatação importante é que o conjunto de amostras possíveis é bem pequeno, e de tamanho <span class="math inline">\(K\)</span>, em contraste com o que ocorre com os planos de amostragem AAS e AASC, discutidos até agora.</p>
 <p><strong>Exemplo 8.3 </strong> Identifique as amostras sistemáticas simples possíveis quando a população tem <span class="math inline">\(N=19\)</span> unidades e o tamanho desejado da amostra é de <span class="math inline">\(n=4\)</span> unidades.</p>
 <p>Como <span class="math inline">\(N = 19 = 4 \times 4 + 3\)</span>, temos que <span class="math inline">\(K=4\)</span> e <span class="math inline">\(c=3\)</span>. Logo, as quatro amostras sistemáticas possíveis nesse caso são:</p>
-<p><span class="math inline">\(s_1 = \{{ 1 ; 5 ; 9 ; 13 ; 17 }\}\)</span> com <span class="math inline">\(n_1=5\)</span>;</p>
-<p><span class="math inline">\(s_2 = \{{ 2 ; 6 ; 10 ; 14 ; 18 }\}\)</span> com <span class="math inline">\(n_2=5\)</span>;</p>
-<p><span class="math inline">\(s_3 = \{{ 3 ; 7 ; 11 ; 15 ; 19 }\}\)</span> com <span class="math inline">\(n_3=5\)</span>;</p>
-<p><span class="math inline">\(s_4 = \{{ 4 ; 8 ; 12 ; 16 }\}\)</span> com <span class="math inline">\(n_4=4\)</span>.</p>
+<p><span class="math inline">\(s_1 = \{ 1 ; 5 ; 9 ; 13 ; 17 \}\)</span> com <span class="math inline">\(n_1=5\)</span>;</p>
+<p><span class="math inline">\(s_2 = \{ 2 ; 6 ; 10 ; 14 ; 18 \}\)</span> com <span class="math inline">\(n_2=5\)</span>;</p>
+<p><span class="math inline">\(s_3 = \{ 3 ; 7 ; 11 ; 15 ; 19 \}\)</span> com <span class="math inline">\(n_3=5\)</span>;</p>
+<p><span class="math inline">\(s_4 = \{ 4 ; 8 ; 12 ; 16 \}\)</span> com <span class="math inline">\(n_4=4\)</span>.</p>
 <p>Podemos utilizar o pacote R para realizar a mesma tarefa.</p>
 <div class="sourceCode" id="cb240"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb240-1"><a href="AS.html#cb240-1"></a><span class="co"># Alterando o separador de decimais para vírgula</span></span>
 <span id="cb240-2"><a href="AS.html#cb240-2"></a><span class="kw">options</span>(<span class="dt">OutDec=</span><span class="st">&quot;,&quot;</span>)</span>

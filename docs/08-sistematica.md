@@ -34,13 +34,13 @@ O método de seleção de uma *amostra sistemática simples* pode ser generaliza
 (3) Inclua na amostra sistemática $s_r$ todas as unidades que satisfazem a regra indicada abaixo. 
 
 $$
- s_r = \{{ i : i = r + l K \le N;\,\,\, l = 0, ..., n }\}  \, \, (\#eq:eqsis1)
+ s_r = \{ i : i = r + l K \le N; \,\,\, l = 0, ..., n \}  \, \, (\#eq:eqsis1)
 $$
 
 Em consequência desse método, há exatamente $K$ *amostras sistemáticas* distintas possíveis. Todas têm igual probabilidade de ser a amostra selecionada, logo: 
 
 $$
- p(s) = \left\{\begin{array}{ll} 1/K,\,\text{se} \,\,\, s=s_r \,\,\text{para} \,\,r=1,\,\,\,2,\,\,\,...,\,\,\,K \\ 0, \,\,\, \textrm{caso contrário}   \end{array} \right.
+ p(s) = \left\{\begin{array}{ll} 1/K, \, \text{se} \,\,\, s=s_r \,\,\text{para} \,\,r=1,\,\,\,2,\,\,\,...,\,\,\,K \\ 0, \,\,\, \textrm{caso contrário}   \end{array} \right.
  (\#eq:eqsis2)
 $$
  
@@ -168,13 +168,13 @@ Examinando a Tabela \@ref(tab:tabsis1) conclui-se que unidades em diferentes amo
 
 Como $N = 19 = 4 \times 4 + 3$, temos que $K=4$ e $c=3$. Logo, as quatro amostras sistemáticas possíveis nesse caso são:
 
-$s_1 = \{{ 1 ; 5 ; 9 ; 13 ; 17 }\}$ com $n_1=5$;
+$s_1 = \{ 1 ; 5 ; 9 ; 13 ; 17 \}$ com $n_1=5$;
 
-$s_2 = \{{ 2 ; 6 ; 10 ; 14 ; 18 }\}$ com $n_2=5$;
+$s_2 = \{ 2 ; 6 ; 10 ; 14 ; 18 \}$ com $n_2=5$;
 
-$s_3 = \{{ 3 ; 7 ; 11 ; 15 ; 19 }\}$ com $n_3=5$;
+$s_3 = \{ 3 ; 7 ; 11 ; 15 ; 19 \}$ com $n_3=5$;
 
-$s_4 = \{{ 4 ; 8 ; 12 ; 16 }\}$ com $n_4=4$.
+$s_4 = \{ 4 ; 8 ; 12 ; 16 \}$ com $n_4=4$.
 
 Podemos utilizar o pacote R para realizar a mesma tarefa.
 
