@@ -6,7 +6,7 @@ A *Amostragem Sistemática Simples - AS* é um método para selecionar com *equi
 
 O método consiste em selecionar cada $K$-ésima unidade da população a ser amostrada, começando de uma *partida aleatória* $r$ sorteada ao acaso entre os números inteiros de $1$ a $K$. A amostra resultante é *sem reposição*, e todas as unidades da população têm a mesma chance $(1/K)$ de serem selecionadas, como se verá adiante.
 
-Seja $U = \{{ 1 , 2 , ..., N }\}$ a população de pesquisa, de tamanho $N = nK+c$, com $0 \le c < K$. O número inteiro $K$ é que define o chamado *intervalo de seleção*, $n=[N/K]$ é igual à parte inteira da divisão de $N$ por $K$ e $c$ é o resto dessa mesma divisão.
+Seja $U = \{ 1 , 2 , ..., N \}$ a população de pesquisa, de tamanho $N = nK+c$, com $0 \le c < K$. O número inteiro $K$ é que define o chamado *intervalo de seleção*, $n=[N/K]$ é igual à parte inteira da divisão de $N$ por $K$ e $c$ é o resto dessa mesma divisão.
 
 AS pode ser utilizada para selecionar uma amostra de um cadastro de unidades da população mediante um algoritmo de processamento sequencial de lista. Na ausência de um cadastro prévio, o método também pode ser implementado, bastando para isso especificar um mecanismo para cadastramento sequencial das unidades populacionais e definir o valor de $K$. Feito isso, deve ser selecionada a *partida aleatória* e iniciado o cadastramento sequencial das unidades da população tal como especificado. O algoritmo de seleção das unidades da amostra pode ser facilmente implementado em ambos os casos (cadastro prévio ou construído durante a operação de pesquisa).
 
