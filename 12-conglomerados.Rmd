@@ -267,11 +267,11 @@ Valor da variável de pesquisa para unidade $j$ do conglomerado selecionado $i$ 
                                                                                               $i \in a = \{ i_1,\dots,i_m \}$
                                                                                  
 
-Total no conglomerado $i$ da amostra $i \in a = \{ i_1, \dots, i_m \}$         $Y_i = \displaystyle \sum_{j \in C_i} y_{ij}$
+Total no conglomerado $i$ da amostra $i \in a = \{ i_1, \dots, i_m \}$             $Y_i = \displaystyle \sum_{j \in C_i} y_{ij}$
 
-Média no conglomerado $i$ da amostra $i \in a = \{ i_1, \dots, i_m \}$         $\overline {Y_i} = {Y_i}/{N_i}$
+Média no conglomerado $i$ da amostra $i \in a = \{ i_1, \dots, i_m \}$                                    $\overline {Y_i} = {Y_i}/{N_i}$
 
-Total amostral                                                                   $t = \displaystyle \sum_{i \in a} Y_i$
+Total amostral                                                                                            $t = \displaystyle \sum_{i \in a} Y_i$
 
 Média por conglomerado                                                           $\displaystyle \overline y_C = t/m = \displaystyle \frac 1 m \sum_{i \in a} Y_i$ 
 
@@ -360,9 +360,9 @@ $$
  V_{AC1S} \left( \widehat Y_{AC1S/HT} \right) \propto \displaystyle \sum_{i \in C} \left( Y_i - \overline Y_C \right)^2 = \displaystyle \sum_{i \in C} \left( N_i \overline {Y_i} - \overline N \overline Y \right)^2 \doteq \overline Y^2 \displaystyle \sum_{i \in C} \left( N_i - \overline N \right)^2
  $$
 
-Isto é, a variância do estimador natural incorpora parcela devida à variação dos tamanhos dos conglomerados e, portanto, a ocorrência de variabilidade nos tamanhos dos conglomerados causa acentuada perda de precisão nesse estimador sob amostragem conglomerada em um estágio simples. Essa perda será maior quando maior for a variabilidade dos tamanhos dos conglomerados. 
+    Isto é, a variância do estimador natural incorpora parcela devida à variação dos tamanhos dos conglomerados e, portanto, a ocorrência de variabilidade nos tamanhos dos conglomerados causa acentuada perda de precisão nesse estimador sob amostragem conglomerada em um estágio simples. Essa perda será maior quando maior for a variabilidade dos tamanhos dos conglomerados. 
 
-Na prática, as médias $\overline {Y_i}$ são menos variáveis entre conglomerados que os totais $Y_i$, e portanto: 
+    Na prática, as médias $\overline {Y_i}$ são menos variáveis entre conglomerados que os totais $Y_i$, e portanto: 
 
 $$
 V_{AC1S} \left( \widehat Y_{AC1S}^R \right) < V_{AC1S} \left( \widehat Y_{AC1S/HT} \right)
