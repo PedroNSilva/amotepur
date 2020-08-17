@@ -1070,12 +1070,12 @@ l) Em cada caso, há duas quantidades de interesse a especificar para definir co
    (\#eq:eqcong54)
    $$
   
-Da Expressão \@ref(eq:eqcong54), segue-se de imediato que:
+   Da Expressão \@ref(eq:eqcong54), segue-se de imediato que:
 
-i)  Se $\rho > 0 \Rightarrow [1 + (\overline n - 1) \rho] << [1 + (\overline N - 1) \rho]$, que é o efeito de conglomeração na AC1S. Logo, do ponto de vista de melhoria da precisão das estimativas, é interessante manter $\overline n$ pequeno, o que implica ter mais UPAs na amostra, mas com subamostras menores em cada UPA.      
-ii)  Se $\rho < 0 \Rightarrow [1 + (\overline n - 1) \rho] > [1 + (\overline N - 1) \rho]$. Logo, nesse caso, a melhor alternativa é fazer $\overline n = \overline N$, isto é fazer AC1, selecionando menos UPAs. Destaque-se que, na prática, são muito raras situações como essa. 
+   i)  Se $\rho > 0 \Rightarrow [1 + (\overline n - 1) \rho] << [1 + (\overline N - 1) \rho]$, que é o efeito de conglomeração na AC1S. Logo, do ponto de vista de melhoria da precisão das estimativas, é interessante manter $\overline n$ pequeno, o que implica ter mais UPAs na amostra, mas com subamostras menores em cada UPA.      
+   ii)  Se $\rho < 0 \Rightarrow [1 + (\overline n - 1) \rho] > [1 + (\overline N - 1) \rho]$. Logo, nesse caso, a melhor alternativa é fazer $\overline n = \overline N$, isto é fazer AC1, selecionando menos UPAs. Destaque-se que, na prática, são muito raras situações como essa. 
   
-Vale registrar que, se a fração amostral do primeiro estágio cresce, como em geral o custo de adicionar uma unidade primária é maior que o de adicionar uma unidade secundária, então o fator custo não deve ser ignorado na determinação dos tamanhos da amostra dos diferentes estágios.  
+   Vale registrar que, se a fração amostral do primeiro estágio cresce, como em geral o custo de adicionar uma unidade primária é maior que o de adicionar uma unidade secundária, então o fator custo não deve ser ignorado na determinação dos tamanhos da amostra dos diferentes estágios.  
 
 ## Exercícios
 
