@@ -583,26 +583,26 @@ cat("<table>",paste0("<caption>", "(#tab:tabcong6)", "Efeitos do plano amostral 
 ```
 <center>
 ---------
- Tamanho   $\rho=0,01$  $\rho=0,05$  $\rho=0,1$  $\rho=0,2$  $\rho=0,3$  $\rho=0,5$  
---------- ------------ ------------ ----------- ----------- ----------- ----------- -                                                                               
-     2               1           1            1           1           1           2   
+ Tamanho   $\rho=0,01$   $\rho=0,05$   $\rho=0,1$   $\rho=0,2$   $\rho=0,3$   $\rho=0,5$
+--------- ------------- ------------- ------------ ------------ ------------ ------------
+     2               1           1            1           1           1           2
 
      5               1           1            1           2           2           3
-                                                                                 
+
      11              1           2            2           3           4           6
-     
+
      21              1           2            3           5           7          11
-     
+
      31              1           3            4           7          10          16
-     
+
      51              2           4            6          11          16          26
-     
+
      101             2           6           11          21          31          51
-     
+
      201             3          11           21          41          61         101
-     
+
      301             4          16           31          61          91         151
-     
+
      501             6          26           51         101         151         251
 ---------
 </center>
@@ -990,7 +990,7 @@ V_{AC2PS} \left( \widehat Y_{AC2PS} \right) & = & V_1 \left[ E_2 \left( \widehat
 $$ 
 
 Um estimador da variância de $\widehat Y_{AC2PS}$ é dado por: 
-
+ 
 $$
 \begin{eqnarray}\hspace{-2.2cm}
 \widehat V_{AC2PS} \left( \widehat Y_{AC2PS} \right) & = &  \frac {1} {m} \frac {M} {M-1} \displaystyle \sum_{i \in a} \left( \frac {\widehat Y_i} {p_i} - \widehat Y_{AC2PS} \right)^2 (1 - m p_i) p_i+ \\ 
@@ -1061,16 +1061,21 @@ l) Em cada caso, há duas quantidades de interesse a especificar para definir co
    - Aumentar $m$ e reduzir $\overline n$, o que aumenta a precisão mas aumenta o custo.    
    - Reduzir $m$ e aumentar $\overline n$, o que reduz a precisão mas também reduz o custo.
    
-   Um compromisso é necessário! Um guia importante é considerar: 
+   Um compromisso é necessário! Um guia importante é considerar:
+   
    $$
-   EPA(AC2S;\,AAS)  \doteq 1 + (\overline n - 1) \rho (\#eq:eqcong54) 
-   $$   
-   Da Expressão \@ref(eq:eqcong54), segue-se de imediato que:
-    i) Se $\rho > 0 \Rightarrow [1 + (\overline n - 1) \rho] << [1 + (\overline N - 1) \rho]$, que é o efeito de conglomeração na AC1S. Logo, do ponto de vista de melhoria da precisão das estimativas, é interessante manter $\overline n$ pequeno, o que implica ter mais UPAs na amostra, mas com subamostras menores em cada UPA.      
-    ii) Se $\rho < 0 \Rightarrow [1 + (\overline n - 1) \rho] > [1 + (\overline N - 1) \rho]$.                                                                                  
-    Logo, nesse caso a melhor alternativa é fazer $\overline n = \overline N$, isto é fazer AC1, selecionando menos UPAs. Vale destacar que são muito raras situações como essa na prática. 
+   \begin{eqnarray}
+   EPA(AC2S;\;AAS)\doteq 1+({\overline{n}}-1)\rho 
+   \end{eqnarray}
+   (\#eq:eqcong54)
+   $$
   
-   Vale registrar que, se a fração amostral do primeiro estágio cresce, como em geral o custo de adicionar uma unidade primária é maior que o de adicionar uma unidade secundária, então o fator custo não deve ser ignorado na determinação dos tamanhos da amostra dos diferentes estágios.  
+Da Expressão \@ref(eq:eqcong54), segue-se de imediato que:
+
+i)  Se $\rho > 0 \Rightarrow [1 + (\overline n - 1) \rho] << [1 + (\overline N - 1) \rho]$, que é o efeito de conglomeração na AC1S. Logo, do ponto de vista de melhoria da precisão das estimativas, é interessante manter $\overline n$ pequeno, o que implica ter mais UPAs na amostra, mas com subamostras menores em cada UPA.      
+ii)  Se $\rho < 0 \Rightarrow [1 + (\overline n - 1) \rho] > [1 + (\overline N - 1) \rho]$. Logo, nesse caso, a melhor alternativa é fazer $\overline n = \overline N$, isto é fazer AC1, selecionando menos UPAs. Destaque-se que, na prática, são muito raras situações como essa. 
+  
+Vale registrar que, se a fração amostral do primeiro estágio cresce, como em geral o custo de adicionar uma unidade primária é maior que o de adicionar uma unidade secundária, então o fator custo não deve ser ignorado na determinação dos tamanhos da amostra dos diferentes estágios.  
 
 ## Exercícios
 
@@ -1096,7 +1101,7 @@ Estime a eficiência da amostragem conglomerada em relação à de uma amostra a
 cat("<table>", paste0("<caption>", "(#tab:tabcong9)", "Valores populacionais", "</caption>"),"</table>", sep ="\n")
 ```
 ----------
-$U_i$    $y_i$                $U_i$    $y_i$
+ $U_i$    $y_i$               $U_i$    $y_i$
 ------- ------- ------------ ------- -------  
  1       60                    11      94
  
