@@ -4,7 +4,7 @@
 
 Grande parte das pesquisas amostrais produz e divulga estimativas para certos subgrupos ou classes nos quais a população pode ser dividida. Tais *classes*, aqui denominados *domínios* de estudo, *subpopulações* ou *pequenas áreas*, são quaisquer *subconjuntos da população* $U$ para os quais desejamos obter ou produzir estimativas separadas a partir da amostra selecionada e observada dessa população. 
 
-Por exemplo, pesquisas domiciliares costumam apresentar estimativas para grupos tais como: homens de 40 anos ou mais, mulheres em idade reprodutiva (15 a 49 anos), crianças e adolescentes etc. Pesquisas de empresas costumam apresentar estimativas por faixas de tamanho das empresas (por exemplo, definido como o número de pessoas ocupadas nas empresas) ou classes de atividade econômica exercida. Em pesquisas agropecuárias, costuma-se apresentar estimativas por faixas de área total dos estabelecimentos (em hectares), ou segundo ocorrência de produção de certos produtos (por exemplo, para estabelecimentos com produção de café). Em todas estas, também é comum a apresentação de estimativas por regiões, unidades da federação ou outras particições geográficas de interesse. Cada um dos subgrupos assim definidos configura um *domínio* de interesse.
+Por exemplo, pesquisas domiciliares costumam apresentar estimativas para grupos tais como: homens de 40 anos ou mais, mulheres em idade reprodutiva (15 a 49 anos), crianças e adolescentes etc. Pesquisas de empresas costumam apresentar estimativas por faixas de tamanho das empresas (por exemplo, definido como o número de pessoas ocupadas nas empresas) ou classes de atividade econômica exercida. Em pesquisas agropecuárias, costuma-se apresentar estimativas por faixas de área total dos estabelecimentos (em hectares), ou segundo ocorrência de produção de certos produtos (por exemplo, para estabelecimentos com produção de café). Em todas estas, também é comum a apresentação de estimativas por regiões, unidades da federação ou outras partições geográficas de interesse. Cada um dos subgrupos assim definidos configura um *domínio* de interesse.
 
 Neste capítulo, apresentamos as ideias centrais de como fazer *estimação para domínios*. Apresentamos com detalhes o caso da estimação sob *Amostragem Aleatória Simples*, mas as ideias sobre como proceder com outros planos amostrais são as mesmas. A principal estratégia para estimar parâmetros em domínios de interesse é definir duas variáveis derivadas que podem ser calculadas para as unidades da amostra selecionada. 
 
@@ -57,17 +57,17 @@ $$
  S_c^2 = \sum_{i \in U} c_i (y_i - \overline{Y_c})^2 / (N_c - 1) (\#eq:eqdom4)
 $$
  
-Muitos outros parâmetros podem ser definidos para domínios, mas não é comum que os livros de Amostragem dediquem espaço ao tratamento de outros casos que não os considerados aqui. Isto se dá porque os casos de parâmetros que podem ser escritos como funções de totais populacionais são facilmente resolvidos empregando-se as ideias de estimação discutidas na seção \@ref(estoft).
+Muitos outros parâmetros podem ser definidos para domínios, mas não é comum que os livros de Amostragem dediquem espaço ao tratamento de outros casos que não os considerados aqui. Isto se dá porque os casos de parâmetros que podem ser escritos como funções de totais populacionais são facilmente resolvidos empregando-se as ideias de estimação discutidas na Seção \@ref(estoft).
 
 ## Estimação de parâmetros para domínios sob AAS
 
-Esta seção mostra como fazer para estimar os parâmetros populacionais para o domínio $c$ considerados na seção \@ref(domin2), com base numa amostra aleatória simples sem reposição de tamanho $n$ extraída da população $U$. Embora a discussão seja restrita aqui ao caso de amostras aleatórias simples, o processo de adaptação de estimadores para parâmetros de domínios aqui mostrado pode ser facilmente seguido para o caso de outros planos amostrais. Tudo se baseia na ideia de criação das variáveis derivadas apresentada na seção \@ref(domin1). 
+Esta seção mostra como fazer para estimar os parâmetros populacionais para o domínio $c$ considerados na Seção \@ref(domin2), com base numa amostra aleatória simples sem reposição de tamanho $n$ extraída da população $U$. Embora a discussão seja restrita aqui ao caso de amostras aleatórias simples, o processo de adaptação de estimadores para parâmetros de domínios aqui mostrado pode ser facilmente seguido para o caso de outros planos amostrais. Tudo se baseia na ideia de criação das variáveis derivadas apresentada na seção \@ref(domin1). 
 
 *Passo 1:* Selecionar uma AAS de tamanho $n$ da população $U$ de tamanho $N$ e observar $y_i$, para todo $i \in s$.
 
 *Passo 2:* Construir as variáveis derivadas $c_i = I(i \in U_c)$ e $y_{ic} = y_i c_i$.
 
-*Passo 3:* Estimar os parâmetros de interesse, adaptando os estimadores apresentados nos capítulos \@ref(aas), \@ref(proporc) e \@ref(razao) para considerar as variáveis derivadas definidas.
+*Passo 3:* Estimar os parâmetros de interesse, adaptando os estimadores apresentados nos Capítulos \@ref(aas), \@ref(proporc) e \@ref(razao) para considerar as variáveis derivadas definidas.
 
 Começamos tratando da estimação da proporção $p_c$ de unidades no domínio, por ser o caso mais simples. Considerando os resultados da Tabela \@ref(tab:tabprop2), que reúne os resultados principais da estimação de contagens e proporções sob AAS, o estimador dessa proporção sob AAS é dado por:
 
@@ -76,7 +76,7 @@ $$
 $$
 onde $n_c = \sum_{i \in s} c_i$ denota o número de unidades ou tamanho da amostra no domínio $c$ e $\overline {c}$ é a média amostral da variável derivada $c_i$.
 
-A estimação da proporção no domínio só é necessária quando o *tamanho do domínio* na população $(N_c)$ é desconhecido. Quando este tamanho for conhecido, não é necessário estimar a proporção $p_c$, e essa informação será útil também para melhorar estimativas de outros parâmetros do domínio, como veremos adiante.
+A estimação da proporção no domínio só é necessária quando o *tamanho do domínio* na população $(N_c)$ é desconhecido. Quando este tamanho for conhecido, não é necessário estimar a proporção $p_c$, e essa informação será útil também para melhorar estimativas de outros parâmetros do domínio, como apresentado adiante.
 
 A variância do estimador da proporção é dada por:
 
@@ -113,9 +113,9 @@ $$
 \overline{y}_c = \frac {\widehat Y_c} {\widehat N_c} = \frac {(N/n)\sum_{i\in s} y_{ic}} {(N/n)\sum_{i\in s}c_i}  = \sum_{i\in s}y_{ic}/n_c (\#eq:eqdom11)
 $$
 
-Note que o estimador da média no domínio $c$ é uma razão de totais estimados, e que $n_c$ é uma *variável aleatória*, aparecendo no denominador da expressão do estimador da média no domínio.
+Note que o estimador da média no domínio $c$ é uma razão de totais estimados e que $n_c$ é uma *variável aleatória*, aparecendo no denominador da expressão do estimador da média no domínio.
 
-Para obter sua variância, podemos recorrer aos resultados para estimação de razões disponíveis no capítulo \@ref(razao), resultando em:
+Para obter sua variância, podemos recorrer aos resultados para estimação de razões disponíveis no Capítulo \@ref(razao), resultando em:
 
 $$
 \begin{align}
@@ -162,7 +162,7 @@ $$
 
 ## Propriedades condicionais (fixando $n_c$)
 
-@Cochran1977, na seção 2.12, sugere analisar a distribuição da média considerando o tamanho da amostra no domínio $n_c$ como fixado em seu valor observado. Nesse caso, mostra que as $n_c$ observações na amostra $s$ formam uma AAS da população $U_c$. Segue-se então que: 
+@Cochran1977, na Seção 2.12, sugere analisar a distribuição da média considerando o tamanho da amostra no domínio $n_c$ como fixado em seu valor observado. Nesse caso, mostra que as $n_c$ observações na amostra $s$ formam uma AAS da população $U_c$. Segue-se então que: 
 
 $$
  V_{AAS} (\overline{y}_c | \, n_c>0) = \left( \frac 1 {n_c} - \frac{1}{N_c} \right) S_c^2 = \displaystyle \left(1-\frac{n_c}{N_c}\right)\frac{S_c^2}{n_c}  (\#eq:eqdom17)
@@ -247,13 +247,13 @@ $\widehat V_{AAS}^*(\overline{y}_c\mid n_c>0)=\displaystyle\left(1-\frac{n}{N}\r
 -----------
 </center>
 
-**(#exm:exmdom1)** Estimando totais e médias nos domínios
+**(#exm:exmdom1)** Estimação de totais e médias nos domínios
 
 Considere os dados da população de municípios brasileiros fornecidos no arquivo 'MunicBR_dat.rds'.
 
 1. Selecione uma AAS de $n=250$ municípios e use esta amostra para estimar os seguintes parâmetros populacionais:
-    a.	População total por região do Brasil e correspondentes margens de erro relativo ao nível de confiança de 95%; suponha *conhecidos* os tamanhos dos domínios;
-    b.	População total por região do Brasil e correspondentes margens de erro relativo ao nível de confiança de 95%; suponha *desconhecidos* os tamanhos dos domínios;
+    a.	População total por região do Brasil e correspondentes margens de erro relativo ao nível de confiança de 95%; suponha *conhecidos* os tamanhos dos domínios.
+    b.	População total por região do Brasil e correspondentes margens de erro relativo ao nível de confiança de 95%; suponha *desconhecidos* os tamanhos dos domínios.
     c.	Média da densidade habitacional por km<sup>2</sup> por município para municípios com população igual ou superior a 100 mil habitantes e correspondente margem de erro ao nível de confiança de 95%. Nesse caso, considere que o tamanho do domínio é *desconhecido*.
 2. Usando os dados populacionais, calcule os valores dos parâmetros estimados nos itens a e c e compare com suas estimativas amostrais. Comente.
 
@@ -384,7 +384,7 @@ Isto mostra que conhecer o valor de $N_c$ sempre melhora a eficiência do estima
 
 ## Estimação de proporções dentro do domínio
 
-Em algumas situações práticas, o parâmetro de interesse é a proporção de unidades no domínio $c$ que possuem um atributo ou característica $A$. Por exemplo, quando se deseja estimar a proporção de mulheres de 10 anos ou mais que já tiveram pelo menos um filho, ou quando se procura estimar a proporção de homens de 18 anos ou mais que prestaram o serviço militar. Em casos como os acima citados, o problema é estimar proporções nos domínios da população: mulheres de 10 anos ou mais; e homens com 18 anos ou mais.
+Em algumas situações práticas, o parâmetro de interesse é a proporção de unidades no domínio $c$ que possuem um atributo ou característica $A$. Por exemplo, quando se deseja estimar a proporção de mulheres de 10 anos ou mais que já tiveram pelo menos um filho, ou quando se procura estimar a proporção de homens de 18 anos ou mais que prestaram o serviço militar. Em casos como os acima citados, o problema é estimar proporções nos domínios da população: mulheres de 10 anos ou mais e homens de 18 anos ou mais.
  
 Nesses casos, a variável de pesquisa $y$ seria dada por:
 
@@ -392,7 +392,7 @@ $$
  y_i = I(i \in A) = \left\{\begin{array}{ll} 1, & \textrm{se} \,\,i \textrm{ possui o atributo A}\,\,\\ 0, & \textrm{caso contrário}\end{array}\right.\,\,\, 
 $$
 
-Na população como um todo, a proporção de unidades com atributo $A$ é definida como $p = N_A / N$ e a estimação desta proporção foi tratada no capítulo \@ref(proporc). Considere a notação a seguir.
+Na população como um todo, a proporção de unidades com atributo $A$ é definida como $p = N_A / N$ e a estimação desta proporção foi tratada no Capítulo \@ref(proporc). Considere a notação a seguir.
 
 O número de unidades no domínio $c$ que também possuem o atributo $A$ é definido como: 
 
@@ -431,7 +431,7 @@ $$
 \widehat V_{AAS} (\widehat p_{cA}\;|\;n_c \text{ fixo)}) = \left( 1 - \frac{n}{N} \right) \frac {\widehat p_{cA} (1 - \widehat p_{cA}) } {n_c} \,\, (\#eq:eqdom29) 
 $$
 
-Para completar a inferência sobre uma proporção de unidades portadoras do atributo $A$ no domínio $c$, admite-se a validade da aproximação normal para a distribuição de $\widehat p_{cA}$, tal como no capítulo \@ref(proporc), e agrega-se uma *correção de continuidade*. Assim a expressão do intervalo de confiança para a proporção populacional $p_{cA}$ é dada por:
+Para completar a inferência sobre uma proporção de unidades portadoras do atributo $A$ no domínio $c$, admite-se a validade da aproximação normal para a distribuição de $\widehat p_{cA}$, tal como no Capítulo \@ref(proporc), e agrega-se uma *correção de continuidade*. Assim a expressão do intervalo de confiança para a proporção populacional $p_{cA}$ é dada por:
 
 $$
 IC_{AAS} (p_{cA} \, ; \, 1 - \alpha) = \left[ \widehat p_{cA} \mp \left( z_{\alpha / 2} \sqrt{ \widehat V_{AAS} (\widehat p_{cA}) } + \frac{1}{2n_c} \right) \right] (\#eq:eqdom30)
@@ -449,12 +449,14 @@ b) Qual o intervalo com 90% de confiança para essa proporção populacional?
 
 a)  Estime a média semanal dos gastos com alimentação das famílias com criança da localidade.
 b)  Construa um intervalo de 95% de confiança para a média estimada.
-c)  Estime total semanal dos gastos com alimentação das famílias com criança da localidade.
+c)  Estime o total semanal dos gastos com alimentação das famílias com criança da localidade.
 d)  Construa um intervalo de 95% de confiança para o total estimado.
 
-**(#exr:exrdom3)** Considere a população de $N = 338$ fazendas produtoras de cana-de-açúcar fornecida no arquivo 'fazendas_dat.rds'. Considere um plano AAS e tamanhos amostrais $n$ variando no conjunto {5, 10, 20, 50, 100}. Imagine que há interesse em estimar dois parâmetros:    
-$\;\;\;$I)$\;\,$A média da variável Produtividade = Quant / Area; e   
-$\;\;\;$II) A produtividade média por unidade de área na população.    
+**(#exr:exrdom3)** Considere a população de $N = 338$ fazendas produtoras de cana-de-açúcar fornecida no arquivo 'fazendas_dat.rds'. Considere um plano AAS e tamanhos amostrais $n$ variando no conjunto {5, 10, 20, 50, 100}. Imagine que há interesse em estimar dois parâmetros:
+
+I)  A média da variável Produtividade = Quant / Area.      
+II) A produtividade média por unidade de área na população.
+
 Para cada um dos tamanhos de amostra considerados, realize as tarefas abaixo indicadas.
 
 a) Obtenha 500 amostras por AAS da população de fazendas. 
@@ -530,14 +532,14 @@ Outro dentista, o Dr. B, examinou todas as 200 crianças e apenas verificou que 
 
 a)  Estime a média de dentes cariados na população de crianças utilizando apenas as informações obtidas pelo Dr. A, obtendo, também, um intervalo de 95% de confiança para o parâmetro estimado.
 b)  Repita o item a. utilizando as informações obtidas pelos dois dentistas.
-c)  Estime a média de dentes com cárie somente para as crianças da população que tem dentes cariados, usando somente as informações do Dr. A. Dê um intervalo de 95% de confiança para a média.
+c)  Estime a média de dentes com cárie somente para as crianças da população que têm dentes cariados, usando somente as informações do Dr. A. Dê um intervalo de 95% de confiança para a média.
 d)  Repita o item c. utilizando as informações obtidas pelos dois dentistas.
 
 **(#exr:exrdom8)** Utilizando o arquivo dos municípios brasileiros, 'MunicBR_dat.rds', selecione uma AAS de 300 municípios. Utilizando as informações contidas nessa amostra:
 
 a)  Estime a área total de cada uma das 5 regiões brasileiras (N, NE, SE, S e CO) e calcule a estimativa do *CV* para cada caso.
 b)  Estime a proporção de municípios brasileiros com população menor que 10.000 habitantes e respectivo erro padrão.
-c)  Estime a população total, para o Brasil, dos municípios com menos de 10.000 habitantes e de um intervalo de 95% de confiança.
+c)  Estime a população total, para o Brasil, dos municípios com menos de 10.000 habitantes e dê um intervalo de 95% de confiança.
 
 **(#exr:exrdom9)** Selecione uma amostra de 30 fazendas do arquivo 'fazendas_dat.rds' e estime os seguintes parâmetros populacionais e respectivos erros padrão:
 
