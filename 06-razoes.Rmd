@@ -11,11 +11,8 @@ $$
 Alguns exemplos de razões de interesse incluem:
 
 - A razão entre o total dos gastos com transporte e o total da renda das famílias.
-
 - A produtividade da lavoura de certo produto, definida como a razão entre o total da quantidade colhida do produto pelo total da área plantada com esse produto.
-
 - O salário médio dos trabalhadores da indústria, definido como a razão entre o total dos salários dos trabalhadores da indústria e o número total de trabalhadores da indústria.
-
 - A densidade de pessoas por dormitório em domicílios particulares, definida como a razão entre o número de pessoas residentes em domicílios particulares e o número total de dormitórios em domicílios particulares.
 
 No caso da razão entre o total dos gastos com transporte $(y)$ e o total da renda das famílias $(x)$, a razão fica definida como:
@@ -146,7 +143,7 @@ $$
 $$
 
 
-**Notas**
+**Notas:**
 
 1. Tanto o numerador como o denominador do estimador $\widehat{R}$ da razão $R$ podem variar com a amostra selecionada, $s$.    
 2. Apesar de termos estimadores não viciados para os totais populacionais $\widehat{Y}_{HT}$ e $\widehat{X}_{HT}$, em geral,  $E(Z/W) \ne E(Z)E(W)$, e portanto:     
