@@ -61,7 +61,7 @@ Muitos outros parâmetros podem ser definidos para domínios, mas não é comum 
 
 ## Estimação de parâmetros para domínios sob AAS
 
-Esta seção mostra como fazer para estimar os parâmetros populacionais para o domínio $c$ considerados na Seção \@ref(domin2), com base numa amostra aleatória simples sem reposição de tamanho $n$ extraída da população $U$. Embora a discussão seja restrita aqui ao caso de amostras aleatórias simples, o processo de adaptação de estimadores para parâmetros de domínios aqui mostrado pode ser facilmente seguido para o caso de outros planos amostrais. Tudo se baseia na ideia de criação das variáveis derivadas apresentada na seção \@ref(domin1). 
+Esta seção mostra como fazer para estimar os parâmetros populacionais para o domínio $c$ considerados na Seção \@ref(domin2), com base numa amostra aleatória simples sem reposição de tamanho $n$ extraída da população $U$. Embora a discussão seja restrita aqui ao caso de amostras aleatórias simples, o processo de adaptação de estimadores para parâmetros de domínios aqui mostrado pode ser facilmente seguido para o caso de outros planos amostrais. Tudo se baseia na ideia de criação das variáveis derivadas apresentada na Seção \@ref(domin1). 
 
 *Passo 1:* Selecionar uma AAS de tamanho $n$ da população $U$ de tamanho $N$ e observar $y_i$, para todo $i \in s$.
 
@@ -189,7 +189,6 @@ $$
 Em algumas situações de pesquisa, é possível supor conhecido o *tamanho do domínio* $N_c$, a partir de dados de uma fonte secundária confiável. Nesses casos, temos as seguintes consequências:
 
 a) Não é necessário estimar a proporção de unidades no domínio $p_c$.
-
 b) Fica disponível um estimador alternativo para o total populacional $Y_c$ que pode ser mais preciso que o estimador tipo Horvitz-Thompson descrito na Expressão \@ref(eq:eqdom8). 
 
 Para obter o estimador alternativo, note que: 
