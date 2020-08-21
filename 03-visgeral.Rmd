@@ -264,9 +264,9 @@ A distribuição de probabilidades da estatística *Soma Amostral*, apresentada 
 cat("<table>",paste0("<caption>", "(#tab:tabvis3)","Probabilidade sob $p_1$ para cada valor de $t$", "</caption>"),"</table>", sep ="\n")
 ```
 ----------
-Valores possíveis de $t$       0     1     2     3
----------------------------- ----- ----- ----- -----
-Com probabilidade $p_1(s)$    1/6   2/6   2/6   1/6
+Valores possíveis de $t$     0     1     2     3
+-------------------------- ----- ----- ----- -----
+Com probabilidade $p_1(s)$  1/6   2/6   2/6   1/6
 ----------
 </Center>
 
@@ -290,9 +290,9 @@ A Tabela \@ref(tab:tabvis4) apresenta os valores possíveis e a distribuição d
 cat("<table>",paste0("<caption>", "(#tab:tabvis4)","Probabilidade sob $p_1$ para cada valor de $2t$", "</caption>"),"</table>", sep ="\n")
 ```
 ----------
-Valores possíveis de $2t$             0     2     4     6
------------------------------------ ----- ----- ----- ----- 
-Com probabilidade $p_1(s)$           1/6   2/6   2/6   1/6
+Valores possíveis de $2t$     0     2     4     6
+--------------------------- ----- ----- ----- ----- 
+Com probabilidade $p_1(s)$   1/6   2/6   2/6   1/6
 ----------
 </center>
 
@@ -534,9 +534,6 @@ cat("<table>",paste0("<caption>", "(#tab:tabvis13)", "Obtenção da variância d
 ----------
 </center>
 
-
-**Conclusão**
-
 O plano amostral $p_2$ fornece o *estimador não viciado com menor variância* em comparação com o plano $p_1$ e deve ser preferido, pois o tamanho das amostras (nossa medida de custo) é o mesmo.
 
 *Minimizar a variância* é o critério de desempate para escolha entre *estratégias não viciadas de amostragem e estimação* de *igual custo total*. Este será então nosso segundo critério para escolha de estimadores.
@@ -772,7 +769,7 @@ cat("<table>",paste0("<caption>", "(#tab:tabvis15)", "Estimadores HT do total, m
 ```
 ----------
 Estimador
------------------------------------------------------------             
+--------------------------------------------           
 $\widehat Y_{HT}=\displaystyle\sum_{i\in s}d_i y_i=\displaystyle \sum_{i \in s} {y_i}/{\pi_i}$
 
 $\overline y_{HT}=\widehat Y_{HT}/N=\displaystyle \sum_{i\in s}d_i y_i/N=\sum_{i\in s}w_i^{HT}y_i$
