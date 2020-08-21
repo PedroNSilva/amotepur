@@ -170,7 +170,7 @@ cat("<table>",paste0("<caption>", "(#tab:tabprop1)","Estimadores do total (conta
 ```
 ----------
 Estimador                                                            
----------------------------------------------------
+-------------------------------------------
 $\displaystyle\widehat N_A= N\times n_A/n = N\times \widehat p$
 
 $\displaystyle\widehat{p}=\displaystyle n_A / n$
@@ -685,7 +685,7 @@ options(scipen=8)
 (n <- ceiling(N * p * q/(N*D^2/z2alfa^2 +  p * q)))
 ```
 
-No caso de não existir nenhuma indicação sobre o valor de $p$, como no item $b$ do exemplo, deve-se tomar $n=7.275$, supondo $p=0,5$. Já no item $c$, deve-se optar pelo maior tamanho de amostra necessário para suprir as exigências de precisão. Neste caso, como a informação é que $p$ deve estar no intervalo [0,10; 0,30] deve-se selecionar uma amostra de $n=6.358$ domicílios. 
+No caso de não existir nenhuma indicação sobre o valor de $p$, como no item b do exemplo, deve-se tomar $n=7.275$, supondo $p=0,5$. Já no item c, deve-se optar pelo maior tamanho de amostra necessário para suprir as exigências de precisão. Neste caso, como a informação é que $p$ deve estar no intervalo [0,10; 0,30] deve-se selecionar uma amostra de $n=6.358$ domicílios. 
 
 Sugere-se que o leitor refaça o exercício com uma margem de erro diferente, $D=0,03$, por exemplo, e observe o que acontece com os valores de $n$ calculados.
 
