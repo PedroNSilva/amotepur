@@ -134,7 +134,7 @@ A Tabela \@ref(tab:tabbin1) resume os resultados para estimação do total e mé
 
 ----------
 Estimador                                                          
-----------------------------------------------------------
+---------------------------------
 $\displaystyle\widehat Y_{AB} = \frac{1}{\pi} \sum_{i \in s} y_i$
 
                                                                         $\displaystyle\widehat Y_{AB}^R = \frac{N\pi}{n}\widehat Y_{AB} = N\frac{1}{n}\sum_{i \in s}y_i = N\overline y$
@@ -165,7 +165,7 @@ Aplicações de Amostragem Binomial para populações em fluxo são convenientes
 
 ## Amostragem inversa simples {#inversa}
 
-Na prática da pesquisa usando métodos de amostragem probabilística, é usual buscar a seleção de um número fixo, pré-especificado $n < N$ de unidades da população $U$ para compor a amostra $s$. As unidades selecionadas para a amostra são então identificadas e abordadas para tentar obter as medidas das variáveis de interesse utilizando-se os instrumentos especificados para a pesquisa em questão. No caso de pesquisas socioeconômicas, frequentemente são utilizados questionários para serem respondidos por algum representante da unidade selecionada, que pode ser uma pessoa, um domicílio, um estabelecimento industrial, uma escola, etc. Em casos como um processo de controle de qualidade por amostragem podem ser utilizados instrumentos de medida para conferência das dimensões de peças fabricadas em série ou mesmo a realização de ensaios para testar alguma condição desejável. Muitas vezes tais ensaios podem ser destrutivos e, portanto, este é um exemplo clássico onde a utilização de amostragem se impõe pela impossibilidade de testar todas as peças fabricadas.
+Na prática da pesquisa usando métodos de amostragem probabilística, é usual buscar a seleção de um número fixo, pré-especificado $n < N$ de unidades da população $U$ para compor a amostra $s$. As unidades selecionadas para a amostra são então identificadas e abordadas para tentar obter as medidas das variáveis de interesse utilizando-se os instrumentos especificados para a pesquisa em questão. No caso de pesquisas socioeconômicas, frequentemente são utilizados questionários para serem respondidos por algum representante da unidade selecionada, que pode ser uma pessoa, um domicílio, um estabelecimento industrial, uma escola, etc. Em casos como um processo de controle de qualidade por amostragem, podem ser utilizados instrumentos de medida para conferência das dimensões de peças fabricadas em série ou mesmo a realização de ensaios para testar alguma condição desejável. Muitas vezes tais ensaios podem ser destrutivos e, portanto, este é um exemplo clássico onde a utilização de amostragem se impõe pela impossibilidade de testar todas as peças fabricadas.
 
 Um dos problemas que podem ocorrer numa investigação por amostragem é a impossibilidade de se entrevistar ou medir todas as $n$ unidades selecionadas para a amostra $s$. Isso pode ocorrer por vários motivos, tais como a dificuldade de localizar a unidade no campo, a mudança das características da unidade tornando a mesma inelegível para a pesquisa (por exemplo, um endereço onde havia um domicílio selecionado que no momento da pesquisa passou a ser um estabelecimento comercial), a seleção de um domicílio de uso ocasional (por exemplo, uma casa de veraneio), a ausência da pessoa que deveria ser o respondente, ou mesmo devido à simples recusa do informante em responder total ou parcialmente a pesquisa. Todas essas situações implicam redução no tamanho efetivo da amostra e aumento da imprecisão das estimativas geradas.
 
@@ -176,9 +176,9 @@ Em pesquisas que são repetidas no tempo ou pesquisas com características semel
 
 Se as perdas forem menores do que o esperado, as estimativas poderão ser até mais precisas, o que é até positivo do ponto de vista estatístico, embora ao custo de ter coletado uma amostra de tamanho efetivo maior do que o necessário. Uma desvantagem do superdimensionamento é que ele pode ser insuficiente para levar ao tamanho de amostra efetivo desejado, uma vez que as perdas da pesquisa podem ser maiores do que inicialmente estimado. O risco está no fato de que o tamanho efetivo da amostra é uma variável aleatória, cuja distribuição não está sob controle do amostrista.
 
-Outro problema desse tipo de abordagem ocorre quando se está pesquisando tipos de unidades que são raras na população (por exemplo, pessoas portadoras de uma doença tal como glaucoma), e no cadastro disponível para a seleção da amostra não existe nenhuma informação desse tipo sobre as pessoas da população de pesquisa. Outros exemplos desse tipo de pesquisa incluem estudos sobre indivíduos de uma faixa etária restrita (idosos acima de 80 anos), estudos sobre empresas que desenvolvem atividade econômica restrita, estabelecimentos agrícolas produtores de um produto específico, etc. Nestes casos pode-se realizar uma etapa prévia de atualização cadastral, comumente chamada de *varredura* ou *screening*, para identificar na população aquelas unidades que pertencem ao grupo de interesse da pesquisa. Esse processo, porém, pode ser muito caro, inviabilizando sua utilização. 
+Outro problema desse tipo de abordagem ocorre quando se está pesquisando tipos de unidades que são raras na população (por exemplo, pessoas portadoras de uma doença tal como glaucoma) e, no cadastro disponível para a seleção da amostra, não existe nenhuma informação desse tipo sobre as pessoas da população de pesquisa. Outros exemplos desse tipo de pesquisa incluem estudos sobre indivíduos de uma faixa etária restrita (idosos acima de 80 anos), estudos sobre empresas que desenvolvem atividade econômica restrita, estabelecimentos agrícolas produtores de um produto específico, etc. Nestes casos pode-se realizar uma etapa prévia de atualização cadastral, comumente chamada de *varredura* ou *screening*, para identificar na população aquelas unidades que pertencem ao grupo de interesse da pesquisa. Esse processo, porém, pode ser muito caro, inviabilizando sua utilização. 
 
-As estratégias exemplificadas acima são úteis para tentar minimizar as perdas de unidades amostrais, mas não eliminam o problema da redução no tamanho efetivo da amostra. Uma outra estratégia para tentar garantir que o número de unidades amostrais coletadas seja efetivamente igual ao valor de $n$ desejado é a chamada *Amostragem Inversa*. Nesta seção abordaremos somente o caso mais simples desse tipo de procedimento, que emprega probabilidades iguais de seleção das unidades populacionais. @Tille2016 aborda os casos mais gerais de *Amostragem Inversa* com probabilidades desiguais.
+As estratégias exemplificadas acima são úteis para tentar minimizar as perdas de unidades amostrais, mas não eliminam o problema da redução no tamanho efetivo da amostra. Uma outra estratégia para tentar garantir que o número de unidades amostrais coletadas seja efetivamente igual ao valor de $n$ desejado é a chamada *Amostragem Inversa*. Nesta seção abordamos somente o caso mais simples desse tipo de procedimento, que emprega probabilidades iguais de seleção das unidades populacionais. @Tille2016 aborda os casos mais gerais de *Amostragem Inversa* com probabilidades desiguais.
 
 A *Amostragem Inversa Simples* é um procedimento sequencial de amostragem proposto por @Haldane1945 como forma de enfrentar o problema de amostragem para estimar parâmetros relativos a eventos raros. Em termos gerais, consiste em pesquisar $m \ge n$ unidades da população até encontrar $n$ que tenham as características desejadas ou que forneçam as informações de interesse. Mesmo assim podem ocorrer casos em que a busca se estenda por toda a população (ou estrato ou conglomerado onde se faça uma subamostragem) sem que se encontrem as $n$ unidades de interesse. Nesse caso extremo, o procedimento é interrompido quando $m=N$, mesmo que $m < n$.
 
@@ -192,7 +192,7 @@ Então a AIS pode ser implementada modificando-se o Passo 3 do algoritmo origina
 
 O processo descrito acima implica que o número de unidades selecionadas para a pesquisa $(m)$ será igual ou maior que o número de unidades na amostra efetiva ($n$). É importante frisar que a amostra efetiva de $n$ unidades obtida ao final do processo continua sendo uma AAS da população de unidades elegíveis. Caso a AIS seja usada para enfrentar problema de não resposta (quando todas as unidades da população são elegíveis), a hipótese subjacente necessária para tratar a amostra efetiva disponível como uma AAS da população $U$ é que a não resposta é completamente ao acaso. 
 
-Outra consideração importante a fazer é que os esforços feitos para obtenção dos dados de cada unidade selecionada devem sempre seguir o mesmo protocolo especificado para a coleta. Variações do protocolo ou do esforço de coleta para cada unidade selecionada podem implicar em *não resposta diferencial* e acarretar em *viés de seleção* na amostra obtida.
+Outra consideração importante a fazer é que os esforços feitos para obtenção dos dados de cada unidade selecionada devem sempre seguir o mesmo protocolo especificado para a coleta. Variações do protocolo ou do esforço de coleta para cada unidade selecionada podem implicar *não resposta diferencial* e acarretar *viés de seleção* na amostra obtida.
 
 ### Amostragem inversa simples para varredura por amostragem
 
@@ -227,13 +227,13 @@ $$
 V_{AIS} (m) = \frac{(N+1)(N_A-n+1)(N-N_A)}{(N_A+1)^2 (N_A+2)}(\#eq:eqinv5)
 $$
 
-Embora um dos parâmetros da distribuição, $N_A$, seja desconhecido, as expressões acima podem ser usadas para fazer cálculos com distintos valores que permitirão ter um intervalo de variação esperado para $m$, e em consequência, para o custo esperado da etapa de abordagem das unidades selecionadas. O fato de que o esforço de abordagem da pesquisa tem tamanho variável (antes de implementar a pesquisa) é provavelmente a principal desvantagem prática da AIS. Por outro lado, o fato de que AIS vai permitir alcançar o tamanho da amostra efetiva desejado é uma vantagem grande em comparação com planos amostrais como AAS, em que o tamanho total da amostra é fixado, mas o tamanho da amostra efetiva é variável.
+Embora um dos parâmetros da distribuição, $N_A$, seja desconhecido, as expressões acima podem ser usadas para fazer cálculos com distintos valores que permitirão ter um intervalo de variação esperado para $m$ e, em consequência, para o custo esperado da etapa de abordagem das unidades selecionadas. O fato de que o esforço de abordagem da pesquisa tem tamanho variável (antes de implementar a pesquisa) é provavelmente a principal desvantagem prática da AIS. Por outro lado, o fato de que AIS vai permitir alcançar o tamanho da amostra efetiva desejado é uma vantagem grande em comparação com planos amostrais como AAS, em que o tamanho total da amostra é fixado, mas o tamanho da amostra efetiva é variável.
 
-#### Estimação da média e total na AIS
+### Estimação da média e total na amostragem inversa simples
 
-Existem várias propostas para estimar a média (ou total) populacional utilizando a amostragem inversa simples, como o estimador de Horvitz-Thompson (ver @Horvitz1952), o estimador proposto por @SalehiSeber2001, baseado no estimador de @Murthy1957, ou o estimador proposto por Des Raj @Raj1956, descrito em @Jordao2012. Aqui estão apresentados os dois primeiros.
+Existem várias propostas para estimar a média (ou total) populacional utilizando a amostragem inversa simples, como o estimador de Horvitz-Thompson (ver @Horvitz1952), o estimador proposto por @SalehiSeber2001, baseado no estimador de @Murthy1957, ou o estimador proposto por Des Raj (ver @Raj1956), descrito em @Jordao2012. Aqui estão apresentados os dois primeiros.
 
-##### Estimador de Horvitz-Thompson
+#### Estimador de Horvitz-Thompson
 
 A forma geral do estimador HT, para estimar um total populacional, é dada por:
 
@@ -247,7 +247,7 @@ V({\widehat Y}_{HT}) = \sum_{k=1}^N \sum_{l=1}^N (π_{kl}-π_k π_l)\frac{y_k y_
  $$
 Onde $\pi_k$ e $\pi_l$ são as probabilidades de inclusão das unidades $k$ e $l$, respectivamente, na amostra e $\pi_{kl}$ é a probabilidade de inclusão conjunta do par $(k,l)$ na mesma amostra.
  
-Para chegar às expressões para a média e variância de seu estimador, basta dividir as expressões apresentadas para o total, por $N$ e $N^2$ respectivamente.
+Para chegar às expressões para a média e variância de seu estimador, basta dividir as expressões apresentadas para o total por $N$ e $N^2$, respectivamente.
  
 Para as expressões adaptadas para o caso da amostragem sistemática simples, deve-se calcular os valores das probabilidades de inclusão, de primeira e segunda ordem, para esse desenho amostral. Essas probabilidades são apresentadas por @Mohammadi2012, e uma demonstração detalhada está no apêndice A desse mesmo artigo.
 
@@ -280,9 +280,11 @@ $$
 onde $s_A$ é o conjunto da amostra de $A$ e $s_{\overline A}= s-s_A$.  
 
 A variância do estimador HT para o total na AIS pode ser calculada por:
-
+\times\\&\;\;\;\;\times
 $$
-\begin{align} V_{AIS} ({\widehat Y}_{AIS/HT})& = N_A^2 \left(\frac{N_A – n}{N_A – 1}\right)\frac{\sigma_A^2}n+\frac{(N_A - n + 1) (N – N_A)}{ (N_A + 2) n}\times\\&\;\;\;\;\times\left[(N + 1){{\overline y}}_{\overline A} ^2+ (N_A + 1) \sigma_{\overline A}^2 \right]\end{align}(\#eq:eqinv9)
+ \begin{align}
+ V_{AIS} ({\widehat Y}_{AIS/HT})& = N_A^2 \left(\frac{N_A – n}{N_A – 1}\right)\frac{\sigma_A^2}n+\frac{(N_A - n + 1) (N – N_A)}{ (N_A + 2) n}\times\\&\;\;\;\;\times\left[(N + 1){{\overline y}}_{\overline A} ^2+ (N_A + 1) \sigma_{\overline A}^2 \right]
+ \end{align}(\#eq:eqinv9)
 $$
 onde: $$\displaystyle {\overline y}_A=\frac1{N_A}\sum_{k\in A}y_k\text{, }\;\;{\overline y}_{\overline A}=\frac1{N-N_A}\sum_{k\in \overline A}y_k\text{,}\\ \sigma_A^2=\frac 1{N_A}\sum_{k\in A}(y_k-{\overline y}_A)^2\;\;\text{ e }\;\;\sigma_{\overline A}^2=\frac 1{N-N_A}\sum_{k\in {\overline A}}(y_k-{\overline y}_{\overline A})^2$$
 
@@ -316,7 +318,7 @@ $$
 
 
  
-##### Estimador do total e da média baseados no estimador de Murthy
+#### Estimador baseado no estimador de Murthy
 
 A forma geral do estimador para o total populacional proposto por @Murthy1957 é dada por:
 
@@ -341,7 +343,7 @@ $$
 
 onde $P(s\mid i,j)$ é a probabilidade condicional de selecionar $s$ dado que as unidades $i$ e $j$ foram selecionadas, em qualquer ordem.
 
-Para a média populacional, basta dividir o estimador do total pelo tamanho, $N$, da população, e a variância com seu estimador por $N^2$, ou seja:
+Para a média populacional, basta dividir o estimador do total pelo tamanho, $N$, da população, e a variância do estimador do total por $N^2$, ou seja:
 
 $$
  {\overline y}_M = \frac 1 N \sum_{i \in s} \frac {P(s \mid i)} {P(s)} y_i \,\,\,(\#eq:eqinv17)
@@ -367,7 +369,7 @@ Dessa maneira pode-se reescrever o estimador do total populacional, apresentado 
 $$
 {\widehat Y}_{AIS/M} = \frac N {n-1}\left( \frac{m-1} m\sum_{i \in s_A}  y_i + \sum_{i \in s_{\overline A}} y_i \right) (\#eq:eqinv20)
 $$
-Cuja variância pode ser obtida obtida através da expressão \@ref(eq:eqinv15).
+Cuja variância pode ser obtida obtida através da Expressão \@ref(eq:eqinv15).
 
 Para obter uma expressão para o estimador da variância, seja $n>2$ e:
 
@@ -377,7 +379,7 @@ $$
 \frac{N(N-1)}{(m-1)(m-2)}\small, &\quad\text{se } i,\;j\in\overline A
 \end{cases}
 $$
-Substituindo na expressão \@ref(eq:eqinv16), a expressão do estimador da variância pode ser escrita como:
+Substituindo na Expressão \@ref(eq:eqinv16), a expressão do estimador da variância pode ser escrita como:
 
 $$
 \begin{align}\hspace{-2,0cm}
@@ -397,10 +399,10 @@ $$
 \small{\widehat V_{AIS}(\overline y_{AIS/M}) = \frac{1}{N(m-1)^2(m-2)}\left[\frac{n(n-2)(N-m+1)-N(m-2)}{n^2}\sum_{i=1}^n\sum_{j<i}^n (y_i-y_j)^2+\\ \;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;+(N-m+1)\left(\frac{n-1}{n}\sum_{i=1}^n\sum_{j=n+1}^m (y_i-y_j)^2+\sum_{i=n+1}^m\sum_{j>i}^m (y_i-y_j)^2\right)\right]}
 \\\\\end{align} (\#eq:eqinv23)
 $$
-A Tabela \@ref(tab:tabbin1a) resume os resultados para estimação sob AIS.
+A Tabela \@ref(tab:tabbin2) resume os resultados para estimação sob AIS.
 
 <table>
-<caption>(#tab:tabbin1a)Estimadores do total, média e respectivas variâncias sob AIS</caption>
+<caption>(#tab:tabbin2)Estimadores do total, média e respectivas variâncias sob AIS</caption>
 </table>
 <center>
 
@@ -431,11 +433,11 @@ $\small\displaystyle \widehat V_{AIS}(\overline y_{AIS/M})=\frac {1}{N(m-1)^2(m-
 
 @Vasconcellos2005 descreve uma aplicação de amostragem inversa simples na etapa de seleção de domicílios dentro dos setores selecionados, numa pesquisa domiciliar empregando amostragem conglomerada. Essa pesquisa talvez represente a primeira aplicação de amostragem inversa numa pesquisa domiciliar nacional realizada no Brasil.
 
-@Tille2016 descreve a aplicação de amostragem inversa a um problema sugerido por uma pesquisa do Statístics Canada, onde é selecionada uma amostra de empresas (ou unidades locais) em estratos representados por regiões econômicas, e em cada uma destas empresas deve ser selecionada uma amostra das ocupações que fazem parte de uma lista de ocupações para as quais se deseja obter informações. Não se conhece *a priori* a lista de ocupações existentes em cada empresa e, portanto, pode-se lançar mão da amostragem inversa selecionando as ocupações dentro de cada empresa, e identificando as ocupações pertencentes à lista de ocupações de interesse, até se obterem informações sobre $m$ ocupações distintas.
+@Tille2016 descreve a aplicação de amostragem inversa a um problema sugerido por uma pesquisa do Statístics Canada, onde é selecionada uma amostra de empresas (ou unidades locais) em estratos representados por regiões econômicas e, em cada uma destas empresas, deve ser selecionada uma amostra das ocupações que fazem parte de uma lista de ocupações para as quais se deseja obter informações. Não se conhece *a priori* a lista de ocupações existentes em cada empresa e, portanto, pode-se lançar mão da amostragem inversa selecionando as ocupações dentro de cada empresa e identificando as ocupações pertencentes à lista de ocupações de interesse, até se obterem informações sobre $m$ ocupações distintas.
 
-O procedimento de AIS pode ser confundido por alguns com um protocolo de *substituição* de unidades selecionadas para a amostra inicial. Esta confusão é indevida. Protocolos baseados em *substituição* de unidades têm em comum a prática de considerar na inferência apenas as unidades da amostra disponível, sem levar em conta o tamanho do esforço feito para conseguir a amostra efetiva. Em muitos casos, sequer são mantidos registros do esforço de coleta efetuado para obtenção de cada entrevista. Além disso, geralmente são implementados dando liberdade a entrevistadores para decidir quando substituir uma unidade selecionada, e como fazer a substituição. Tais características tornam protocolos de substituição abordagem de risco e que não recomendamos. 
+O procedimento de AIS pode ser confundido por alguns com um protocolo de *substituição* de unidades selecionadas para a amostra inicial. Esta confusão é indevida. Protocolos baseados em *substituição* de unidades têm em comum a prática de considerar na inferência apenas as unidades da amostra disponível, sem levar em conta o tamanho do esforço feito para conseguir a amostra efetiva. Em muitos casos, sequer são mantidos registros do esforço de coleta efetuado para obtenção de cada entrevista. Além disso, geralmente são implementados dando liberdade a entrevistadores para decidir quando substituir uma unidade selecionada e como fazer a substituição. Tais características tornam protocolos de substituição abordagem de risco e que não recomendamos. 
 
-A AIS, ao contrário, é guiada por procedimentos estritos de amostragem probabilística, e se bem implementada, contribui para reduzir possíveis vieses de seleção da amostra. Além disso, requer a manutenção do controle dos esforços de coleta, permitindo mapear rigorosamente onde ocorreu a eventual não resposta ou perda de unidades selecionadas, e também mantendo registros do esforço de coleta que permitem incorporar na estimação dados sobre o tamanho desse esforço.
+A AIS, ao contrário, é guiada por procedimentos estritos de amostragem probabilística e, se bem implementada, contribui para reduzir possíveis vieses de seleção da amostra. Além disso, requer a manutenção do controle dos esforços de coleta, permitindo mapear rigorosamente onde ocorreu a eventual não resposta ou perda de unidades selecionadas e, também, mantendo registros do esforço de coleta que permitem incorporar na estimação dados sobre o tamanho desse esforço.
 
 ## Exercícios
 
@@ -445,11 +447,11 @@ a)  Estimar o total utilizando o estimador não viciado de Horvitz-Thompson.
 b)  Estimar o total utilizando o estimador alternativo.
 c)  E se a amostra selecionada for uma AAS?
 
-**(#exr:exerbin2)** Uma amostra de Bernoulli, com $\pi = 0,1$, foi selecionada de uma população para estimar os totais de duas variáveis de interesse, $y$ e $x$. A Tabela \@ref(tab:tabbin2) mostra os resultados das observações da amostra.
+**(#exr:exerbin2)** Uma amostra de Bernoulli, com $\pi = 0,1$, foi selecionada de uma população para estimar os totais de duas variáveis de interesse, $y$ e $x$. A Tabela \@ref(tab:tabbin3) mostra os resultados das observações da amostra.
 
 <center>
 <table>
-<caption>(#tab:tabbin2)Valores observados na amostra</caption>
+<caption>(#tab:tabbin3)Valores observados na amostra</caption>
 </table>
 ----------
  Variável   Total amostral  Soma dos quadrados
@@ -465,11 +467,11 @@ b)  Estime as variâncias dos estimadores.
 c)  Estime os coeficientes de variação dos estimadores.
 d)  Comente os resultados.
 
-**(#exr:exerbin3)** Seja a população de $N=30$ unidades populacionais, cujos valores da variável de interesse, $y$, são apresentados na Tabela \@ref(tab:tabbin3).
+**(#exr:exerbin3)** Seja a população de $N=30$ unidades populacionais, cujos valores da variável de interesse, $y$, são apresentados na Tabela \@ref(tab:tabbin4).
 
 <center>
 <table>
-<caption>(#tab:tabbin3)População a ser amostrada</caption>
+<caption>(#tab:tabbin4)População a ser amostrada</caption>
 </table>
 ----------
    i            I    II   III    IV     V
@@ -497,9 +499,9 @@ a)  Uma amostra sistemática com $K=5$?
 b)  Uma AAS de tamanho $n=6$?
 c)  Uma amostra de Bernoulli com $\pi=0,2$?
   
-**(#exr:exerbin4)** Acesse <https://www.ibge.gov.br/estatisticas/sociais/populacao/9662-censo-demografico-2010.html?=&t=downloads>, que é uma área de _**Downloads**_ do *site* do IBGE. Busque na área referente ao Censo 2010 e, em *resultados*, o arquivo 'total_populacao_minas_gerais.zip'. Esse arquivo é uma planilha contendo os resultados para os totais populacionais de cada um dos municípios de Minas Gerais. Selecione uma amostra Binomial dos municípios, com $\pi=0,10$, e calcule:
+**(#exr:exerbin4)** Acesse <https://www.ibge.gov.br/estatisticas/sociais/populacao/9662-censo-demografico-2010.html?=&t=downloads>, que é uma área de _**Downloads**_ do *site* do IBGE. Busque na área referente ao Censo 2010 e, em *resultados*, o arquivo 'total_populacao_minas_gerais.zip'. Esse arquivo é uma planilha contendo os resultados para os totais populacionais de cada um dos municípios de Minas Gerais. Selecione uma amostra Binomial dos municípios, com $\pi=0,10$ e, com ela:
 
-a)  A estimativa do total populacional para Minas Gerais em 2010, baseada na amostra selecionada.
+a)  Calcule a estimativa do total populacional para Minas Gerais em 2010, baseada na amostra selecionada.
 b)  Construa o $IC_{95\%}$ para a estimativa.
 c)  Repita os itens a e b, supondo que a amostra foi selecionada utilizando AAS.
 d)  Compare os resultados com o valor verdadeiro do total populacional de Minas Gerais no Censo 2010.

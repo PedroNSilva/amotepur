@@ -33,19 +33,19 @@ Tabela                                                                          
 
 [Tabela 3.14](visger.html#tab:tabvis14)                                                Representação de cada amostra possível pelas variáveis indicadoras
 
-[Tabela 3.15](visger.html#tab:tabvis15)                                                Parâmetros e respectivos estimadores HT
+[Tabela 3.15](visger.html#tab:tabvis15)                                                Estimadores HT do total, média e respectivas variâncias 
 
 [Tabela 3.16](visger.html#tab:tabvis16)                                                Valores de variáveis de interesse para cada domicílio da população
 
 [Tabela 4.1](aas.html#tab:tabaas1)                                                     Valores das variáveis aleatórias e probabilidades por unidade populacional 
 
-[Tabela 4.2](aas.html#tab:tabaas2)                                                     Parâmetros e respectivos estimadores sob AASC 
+[Tabela 4.2](aas.html#tab:tabaas2)                                                     Estimadores do total, média e respectivas variâncias sob AASC
 
 [Tabela 4.3](aas.html#tab:tabaas3)                                                     Número pseudoaleatório associado a cada unidade da população 
 
 [Tabela 4.4](aas.html#tab:tabaas4)                                                     Número pseudoaleatório ordenado associado ao rótulo permutado de cada unidade 
 
-[Tabela 4.5](aas.html#tab:tabaas5)                                                     Parâmetros e respectivos estimadores sob AAS 
+[Tabela 4.5](aas.html#tab:tabaas5)                                                     Estimadores do total, média e respectivas variâncias sob AAS  
 
 [Tabela 4.6](aas.html#tab:tabaas6)                                                     Estatísticas obtidas a partir da amostra 
 
@@ -55,9 +55,9 @@ Tabela                                                                          
 
 [Tabela 4.9](aas.html#tab:tabaas9)                                                     Frequências das respostas obtidas na amostra 
 
-[Tabela 5.1](proporc.html#tab:tabprop1)                                                Parâmetros e respectivos estimadores sob AASC 
+[Tabela 5.1](proporc.html#tab:tabprop1)                                                Estimadores do total (contagem), proporção e respectivas variâncias sob AASC
 
-[Tabela 5.2](proporc.html#tab:tabprop2)                                                Parâmetros e respectivos estimadores sob AAS 
+[Tabela 5.2](proporc.html#tab:tabprop2)                                                Estimadores do total (contagem), proporção e respectivas variâncias sob AAS  
 
 [Tabela 5.3](proporc.html#tab:tabprop3)                                                Valores mínimos de $n_A$ para uso da aproximação Normal
 
@@ -67,7 +67,7 @@ Tabela                                                                          
 
 [Tabela 6.1](razao.html#tab:tabrazao1)                                                 Densidade demográfica por Unidade da Federação, média das razões e razão das médias para o Brasil 
 
-[Tabela 6.2](razao.html#tab:tabrazao2)                                                 Parâmetros e estimadores para uma razão sob AAS 
+[Tabela 6.2](razao.html#tab:tabrazao2)                                                 Estimadores de uma razão e respectiva variância sob AAS
 
 [Tabela 6.3](razao.html#tab:tabrazao3)                                                 Informações coletadas na amostra de domicílios 
 
@@ -83,7 +83,7 @@ Tabela                                                                          
 
 [Tabela 6.9](razao.html#tab:tabrazao9)                                                 Notas de Cálculo 1 e Cálculo 2 para os alunos da amostra 
 
-[Tabela 7.1](domin.html#tab:tabdom1)                                                   Parâmetros e respectivos estimadores no domínio $c$ sob AAS
+[Tabela 7.1](domin.html#tab:tabdom1)                                                   Estimadores do total, proporção, média e respectivas variäncias no domínio c sob AAS 
 
 [Tabela 7.2](domin.html#tab:tabdom2)                                                   Distância, em quilômetros, percorrida para chegar ao trabalho pelos 24 entrevistados 
 
@@ -97,7 +97,7 @@ Tabela                                                                          
 
 [Tabela 8.2](AS.html#tab:tabsis2)                                                      Dados das amostras sistemáticas possíveis, numa população com $N=19$ e intervalo de seleção com $K=4$
 
-[Tabela 8.3](AS.html#tab:tabsis3)                                                      Parâmetros e estimadores sob AS 
+[Tabela 8.3](AS.html#tab:tabsis3)                                                      Estimadores do total, média e respectivas variâncias sob AS
 
 [Tabela 8.4](AS.html#tab:tabsis4)                                                      Composição dos domicílios da rua 
 
@@ -107,9 +107,9 @@ Tabela                                                                          
 
 [Tabela 8.7](AS.html#tab:tabsis7)                                                      Valores da variável $y$ para a população
 
-[Tabela 9.1](outros-m%C3%A9todos-de-amostragem-com-equiprobabilidade.html#tab:tabbin1) Parâmetros e respectivos estimadores sob AB 
+[Tabela 9.1](outros-m%C3%A9todos-de-amostragem-com-equiprobabilidade.html#tab:tabbin1) Estimadores do total, média e respectivas variâncias sob AB
 
-[Tabela 9.2](outros-m%C3%A9todos-de-amostragem-com-equiprobabilidade.html#tab:tabbin2) Parâmetros e respectivos estimadores sob AIS
+[Tabela 9.2](outros-m%C3%A9todos-de-amostragem-com-equiprobabilidade.html#tab:tabbin2) Estimadores do total, média e respectivas variâncias sob AIS
 
 [Tabela 9.3](outros-m%C3%A9todos-de-amostragem-com-equiprobabilidade.html#tab:tabbin3) Valores observados na amostra
 
@@ -117,7 +117,7 @@ Tabela                                                                          
 
 [Tabela 10.1](ppt.html#tab:tabppt1)                                                    Informações das áreas de uma população de $N=6$ fazendas
 
-[Tabela 10.2](ppt.html#tab:tabppt2)                                                    Parâmetros e respectivos estimadores sob PPT 
+[Tabela 10.2](ppt.html#tab:tabppt2)                                                    Estimadores do total e respectivas variâncias sob PPT 
 
 [Tabela 10.3](ppt.html#tab:tabppt3)                                                    Informações obtidas na amostra selecionada 
 
@@ -125,7 +125,7 @@ Tabela                                                                          
 
 [Tabela 10.5](ppt.html#tab:tabppt5)                                                    Dados populacionais das empresas
 
-[Tabela 11.1](estrat.html#tab:tabestr1)                                                Parâmetros e respectivos estimadores sob AES 
+[Tabela 11.1](estrat.html#tab:tabestr1)                                                Estimadores do total, média e respectivas variâncias sob AES 
 
 [Tabela 11.2](estrat.html#tab:tabestr2)                                                Valores de $EPA$ para valores variados de $H$ e de correlação
 
@@ -145,7 +145,7 @@ Tabela                                                                          
 
 [Tabela 11.10](estrat.html#tab:tabestr10)                                              Informações populacionais dos clientes 
 
-[Tabela 12.1](cong.html#tab:tabcong1)                                                  Ilustrações de possíveis conglomerados
+[Tabela 12.1](cong.html#tab:tabcong1)                                                  Exemplos de possíveis conglomerados
 
 [Tabela 12.2](cong.html#tab:tabcong2)                                                  Definição dos tamanhos da população e da amostra na AC1  
 
@@ -153,11 +153,11 @@ Tabela                                                                          
 
 [Tabela 12.4](cong.html#tab:tabcong4)                                                  Descrição das informações amostrais na AC1S 
 
-[Tabela 12.5](cong.html#tab:tabcong5)                                                  Estimadores dos parâmetros média e total populacional sob AC1S 
+[Tabela 12.5](cong.html#tab:tabcong5)                                                  Estimadores do total, média e respectivas variâncias sob AC1S
 
 [Tabela 12.6](cong.html#tab:tabcong6)                                                  Efeitos do plano amostral sob AC1S por tamanho do conglomerado e valor do coeficiente de correlação intraclasse 
 
-[Tabela 12.7](cong.html#tab:tabcong7)                                                  Estimadores do total populacional e de sua variância sob os Planos AC2S, AC2PC e AC2PS
+[Tabela 12.7](cong.html#tab:tabcong7)                                                  Estimadores do total e respectivas variâncias sob AC2S, AC2PC e AC2PS
 
 [Tabela 12.8](cong.html#tab:tabcong8)                                                  Resultados obtidos para a amostra 
 
@@ -171,11 +171,11 @@ Tabela                                                                          
 
 [Tabela 12.13](cong.html#tab:tabcong13)                                                Valores observados para a amostra 
 
-[Tabela 13.1](calib.html#tab:tabcalib1)                                                Comparação dos estimadores HT e de calibração
+[Tabela 13.1](calib.html#tab:tabcalib1)                                                Comparação dos estimadores HT e de calibração, dado um plano amostral $p$
 
-[Tabela 13.2](calib.html#tab:tabcalib2)                                                Estimativas de total de fazendas de cana-de-açúcar e dos erros padrão e coeficientes de variação (CV) usando os estimadores HT e de regressão (GREG) para variáveis selecionadas
+[Tabela 13.2](calib.html#tab:tabcalib2)                                                Estimativas de total de fazendas de cana-de-açúcar, dos erros padrão e coeficientes de variação (CV) usando os estimadores HT e GREG para variáveis selecionadas 
 
-[Tabela 13.3](calib.html#tab:tabcalib3)                                                Estimativas de total de fazendas de cana-de-açúcar e dos erros padrão e coeficientes de variação (CV) usando os estimadores HT e pós-estratificação (PS-Região) para variáveis selecionadas
+[Tabela 13.3](calib.html#tab:tabcalib3)                                                Estimativas de total de fazendas de cana-de-açucar, dos erros padrão e coeficientes de variação (CV) usando os estimadores HT e pós-estratificação (PS-Região) para variáveis selecionadas
 
 [Tabela 13.4](calib.html#tab:tabcalib4)                                                Funções de distância para estimação de calibração propostas em Deville e Särndal (1992)
 

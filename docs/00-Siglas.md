@@ -3,7 +3,7 @@
 
 -----------
 Sigla            Descrição
----------------- -----------------------------------------------------------
+---------------- -----------------------------------------------------------------------
 AAS              Amostragem Aleatória Simples sem reposição 
 
 AASC             Amostragem Aleatória Simples Com Reposição

@@ -271,11 +271,11 @@ Valor da variável de pesquisa para unidade $j$ do conglomerado selecionado $i$ 
                                                                                               $i \in a = \{ i_1,\dots,i_m \}$
                                                                                  
 
-Total no conglomerado $i$ da amostra $i \in a = \{ i_1, \dots, i_m \}$         $Y_i = \displaystyle \sum_{j \in C_i} y_{ij}$
+Total no conglomerado $i$ da amostra $i \in a = \{ i_1, \dots, i_m \}$             $Y_i = \displaystyle \sum_{j \in C_i} y_{ij}$
 
-Média no conglomerado $i$ da amostra $i \in a = \{ i_1, \dots, i_m \}$         $\overline {Y_i} = {Y_i}/{N_i}$
+Média no conglomerado $i$ da amostra $i \in a = \{ i_1, \dots, i_m \}$                                    $\overline {Y_i} = {Y_i}/{N_i}$
 
-Total amostral                                                                   $t = \displaystyle \sum_{i \in a} Y_i$
+Total amostral                                                                                            $t = \displaystyle \sum_{i \in a} Y_i$
 
 Média por conglomerado                                                           $\displaystyle \overline y_C = t/m = \displaystyle \frac 1 m \sum_{i \in a} Y_i$ 
 
@@ -364,9 +364,9 @@ $$
  V_{AC1S} \left( \widehat Y_{AC1S/HT} \right) \propto \displaystyle \sum_{i \in C} \left( Y_i - \overline Y_C \right)^2 = \displaystyle \sum_{i \in C} \left( N_i \overline {Y_i} - \overline N \overline Y \right)^2 \doteq \overline Y^2 \displaystyle \sum_{i \in C} \left( N_i - \overline N \right)^2
  $$
 
-Isto é, a variância do estimador natural incorpora parcela devida à variação dos tamanhos dos conglomerados e, portanto, a ocorrência de variabilidade nos tamanhos dos conglomerados causa acentuada perda de precisão nesse estimador sob amostragem conglomerada em um estágio simples. Essa perda será maior quando maior for a variabilidade dos tamanhos dos conglomerados. 
+    Isto é, a variância do estimador natural incorpora parcela devida à variação dos tamanhos dos conglomerados e, portanto, a ocorrência de variabilidade nos tamanhos dos conglomerados causa acentuada perda de precisão nesse estimador sob amostragem conglomerada em um estágio simples. Essa perda será maior quando maior for a variabilidade dos tamanhos dos conglomerados. 
 
-Na prática, as médias $\overline {Y_i}$ são menos variáveis entre conglomerados que os totais $Y_i$, e portanto: 
+    Na prática, as médias $\overline {Y_i}$ são menos variáveis entre conglomerados que os totais $Y_i$, e portanto: 
 
 $$
 V_{AC1S} \left( \widehat Y_{AC1S}^R \right) < V_{AC1S} \left( \widehat Y_{AC1S/HT} \right)
@@ -587,26 +587,26 @@ A Tabela \@ref(tab:tabcong6) apresenta efeitos do plano amostral sob AC1S de aco
 </table>
 <center>
 ---------
- Tamanho   $\rho=0,01$  $\rho=0,05$  $\rho=0,1$  $\rho=0,2$  $\rho=0,3$  $\rho=0,5$  
---------- ------------ ------------ ----------- ----------- ----------- ----------- -                                                                               
-     2               1           1            1           1           1           2   
+ Tamanho   $\rho=0,01$   $\rho=0,05$   $\rho=0,1$   $\rho=0,2$   $\rho=0,3$   $\rho=0,5$
+--------- ------------- ------------- ------------ ------------ ------------ ------------
+     2               1           1            1           1           1           2
 
      5               1           1            1           2           2           3
-                                                                                 
+
      11              1           2            2           3           4           6
-     
+
      21              1           2            3           5           7          11
-     
+
      31              1           3            4           7          10          16
-     
+
      51              2           4            6          11          16          26
-     
+
      101             2           6           11          21          31          51
-     
+
      201             3          11           21          41          61         101
-     
+
      301             4          16           31          61          91         151
-     
+
      501             6          26           51         101         151         251
 ---------
 </center>
@@ -994,7 +994,7 @@ V_{AC2PS} \left( \widehat Y_{AC2PS} \right) & = & V_1 \left[ E_2 \left( \widehat
 $$ 
 
 Um estimador da variância de $\widehat Y_{AC2PS}$ é dado por: 
-
+ 
 $$
 \begin{eqnarray}\hspace{-2.2cm}
 \widehat V_{AC2PS} \left( \widehat Y_{AC2PS} \right) & = &  \frac {1} {m} \frac {M} {M-1} \displaystyle \sum_{i \in a} \left( \frac {\widehat Y_i} {p_i} - \widehat Y_{AC2PS} \right)^2 (1 - m p_i) p_i+ \\ 
@@ -1065,14 +1065,19 @@ l) Em cada caso, há duas quantidades de interesse a especificar para definir co
    - Aumentar $m$ e reduzir $\overline n$, o que aumenta a precisão mas aumenta o custo.    
    - Reduzir $m$ e aumentar $\overline n$, o que reduz a precisão mas também reduz o custo.
    
-   Um compromisso é necessário! Um guia importante é considerar: 
+   Um compromisso é necessário! Um guia importante é considerar:
+   
    $$
-   EPA(AC2S;\,AAS)  \doteq 1 + (\overline n - 1) \rho (\#eq:eqcong54) 
-   $$   
+   \begin{eqnarray}
+   EPA(AC2S;\;AAS)\doteq 1+({\overline{n}}-1)\rho 
+   \end{eqnarray}
+   (\#eq:eqcong54)
+   $$
+  
    Da Expressão \@ref(eq:eqcong54), segue-se de imediato que:
-    i) Se $\rho > 0 \Rightarrow [1 + (\overline n - 1) \rho] << [1 + (\overline N - 1) \rho]$, que é o efeito de conglomeração na AC1S. Logo, do ponto de vista de melhoria da precisão das estimativas, é interessante manter $\overline n$ pequeno, o que implica ter mais UPAs na amostra, mas com subamostras menores em cada UPA.      
-    ii) Se $\rho < 0 \Rightarrow [1 + (\overline n - 1) \rho] > [1 + (\overline N - 1) \rho]$.                                                                                  
-    Logo, nesse caso a melhor alternativa é fazer $\overline n = \overline N$, isto é fazer AC1, selecionando menos UPAs. Vale destacar que são muito raras situações como essa na prática. 
+
+   i)  Se $\rho > 0 \Rightarrow [1 + (\overline n - 1) \rho] << [1 + (\overline N - 1) \rho]$, que é o efeito de conglomeração na AC1S. Logo, do ponto de vista de melhoria da precisão das estimativas, é interessante manter $\overline n$ pequeno, o que implica ter mais UPAs na amostra, mas com subamostras menores em cada UPA.      
+   ii)  Se $\rho < 0 \Rightarrow [1 + (\overline n - 1) \rho] > [1 + (\overline N - 1) \rho]$. Logo, nesse caso, a melhor alternativa é fazer $\overline n = \overline N$, isto é fazer AC1, selecionando menos UPAs. Destaque-se que, na prática, são muito raras situações como essa. 
   
    Vale registrar que, se a fração amostral do primeiro estágio cresce, como em geral o custo de adicionar uma unidade primária é maior que o de adicionar uma unidade secundária, então o fator custo não deve ser ignorado na determinação dos tamanhos da amostra dos diferentes estágios.  
 
@@ -1100,7 +1105,7 @@ Estime a eficiência da amostragem conglomerada em relação à de uma amostra a
 <caption>(#tab:tabcong9)Valores populacionais</caption>
 </table>
 ----------
-$U_i$    $y_i$                $U_i$    $y_i$
+ $U_i$    $y_i$               $U_i$    $y_i$
 ------- ------- ------------ ------- -------  
  1       60                    11      94
  

@@ -94,14 +94,22 @@ A Tabela \@ref(tab:tabaas2) apresenta um resumo dos estimadores do total, média
 <table>
 <caption>(#tab:tabaas2)Estimadores do total, média e respectivas variâncias sob AASC</caption>
 </table>
-|Estimador|
-|:---|
-|$\widehat{Y}_{AASC} = \displaystyle \frac {N}{n} \sum_{i \in s} y_i = N \, \overline{y}$|
-|$\overline{y}=\displaystyle\frac{1}{n} \displaystyle \sum_{i \in s} y_i$|
-|$\widehat S^2_y = \displaystyle \frac{1}{n-1} \sum_{i\in s} ({y_i-\overline{y}})^2$|
-|$\widehat V_{AASC}(\widehat{Y}_{AASC}) = N^2 \widehat S_y^2 / n$|
-|$\widehat V_{AASC}(\overline{y}) = \widehat S_y^2 / n$|
+<center>
+----------
+Estimador
+---------------------------------------
+$\widehat{Y}_{AASC} = \displaystyle \frac {N}{n} \sum_{i \in s} y_i = N \, \overline{y}$
+
+$\overline{y}=\displaystyle\frac{1}{n} \displaystyle \sum_{i \in s} y_i$
+
+$\widehat S^2_y = \displaystyle \frac{1}{n-1} \sum_{i\in s} ({y_i-\overline{y}})^2$
+
+$\widehat V_{AASC}(\widehat{Y}_{AASC}) = N^2 \widehat S_y^2 / n$
+
+$\widehat V_{AASC}(\overline{y}) = \widehat S_y^2 / n$
+-----------
 </center>
+
 
 Para provas destes resultados, ver, por exemplo, o Teorema 3.3 de @Bolfarine2005.
 
@@ -214,26 +222,26 @@ s
 
 ```
 ##      i
-## 1  649
-## 2  697
-## 3  811
-## 4  107
-## 5  803
-## 6  521
-## 7  445
-## 8  858
-## 9  592
-## 10 270
-## 11  79
-## 12 515
-## 13 831
-## 14 960
-## 15 946
-## 16 178
-## 17 542
-## 18 431
-## 19 130
-## 20 231
+## 1  622
+## 2  455
+## 3  432
+## 4  949
+## 5  545
+## 6  226
+## 7  442
+## 8  508
+## 9  446
+## 10  89
+## 11 292
+## 12 447
+## 13 103
+## 14 875
+## 15  88
+## 16 938
+## 17 939
+## 18 754
+## 19 262
+## 20 743
 ```
 
 ```r
@@ -266,26 +274,26 @@ s
 
 ```
 ##      i
-## 1    1
-## 2   31
-## 3   81
-## 4  166
-## 5  175
-## 6  177
-## 7  194
-## 8  262
-## 9  263
-## 10 325
-## 11 344
-## 12 422
-## 13 495
-## 14 575
-## 15 589
-## 16 624
-## 17 761
+## 1   48
+## 2   59
+## 3  118
+## 4  225
+## 5  241
+## 6  291
+## 7  298
+## 8  443
+## 9  473
+## 10 480
+## 11 513
+## 12 561
+## 13 680
+## 14 687
+## 15 713
+## 16 797
+## 17 834
 ## 18 838
-## 19 839
-## 20 907
+## 19 946
+## 20 980
 ```
 ### Probabilidades de inclusão sob AAS
 
@@ -354,17 +362,22 @@ A Tabela \@ref(tab:tabaas5) apresenta um resumo dos estimadores do total, média
 <table>
 <caption>(#tab:tabaas5)Estimadores do total, média e respectivas variâncias sob AAS</caption>
 </table>
+-----------
+Estimador
+-----------------------------------------
+$\widehat{Y}_{AAS} = \displaystyle \frac {N}{n} \sum_{i \in s} y_i= N \overline{y}$
 
-|Estimador|
-|:---|
-|$\widehat{Y}_{AAS} = \displaystyle \frac {N}{n} \sum_{i \in s} y_i= N \overline{y}$|
-|$\overline{y} = \displaystyle\frac{1}{n} \displaystyle \sum_{i \in s} y_i$|
-|$\widehat S^2_y = \displaystyle \frac{1}{n-1} \sum_{i \in s} \left( {y_i - \overline{y}} \right)^2$|
-|$\widehat V_{AAS}(\widehat{Y}_{AAS}) = \displaystyle N^2 \left( \frac{1}{n} - \frac{1}{N} \right) \widehat S^2_y$|
-|$\widehat {V}_{AAS} (\overline{y}) = \displaystyle \left( \frac{1}{n} - \frac{1}{N} \right) \widehat S^2_y$|
+$\overline{y} = \displaystyle\frac{1}{n} \displaystyle \sum_{i \in s} y_i$
+
+$\widehat S^2_y = \displaystyle \frac{1}{n-1} \sum_{i \in s} \left( {y_i - \overline{y}} \right)^2$
+
+$\widehat V_{AAS}(\widehat{Y}_{AAS}) = \displaystyle N^2 \left( \frac{1}{n} - \frac{1}{N} \right) \widehat S^2_y$
+
+$\widehat {V}_{AAS} (\overline{y}) = \displaystyle \left( \frac{1}{n} - \frac{1}{N} \right) \widehat S^2_y$
+-----------------
 </center>
 
-**Notas**
+**Notas:**
 
 1.	O termo $(1 - n/N) = (1 - f)$ é chamado de *fator de correção para população finita*. Quando $n/N \rightarrow 1$, o tamanho da amostra se aproximando do tamanho da população, então $(1 - n/N) \rightarrow 0$ . Ou seja: com amostras grandes as variâncias das estimativas tendem a ser pequenas. 
 2.	Se a fração amostral $f = n/N$ for pequena (da ordem de 1% ou 2%), então a *correção de população finita* pode ser ignorada, pois $(1 – f) \doteq 1$. Quando $f \doteq 0$, a AAS (amostragem sem reposição) e AASC (com reposição) tem comportamento semelhante em relação à precisão das estimativas. Intuitivamente, isso ocorre porque no caso em que a amostra é muito pequena em relação ao tamanho da população a probabilidade de uma unidade da população ser selecionada mais de uma vez é pequena.
@@ -498,7 +511,7 @@ $$
 n = \displaystyle\frac{1}{\displaystyle\left( \frac{D}{z_{\alpha/2}} \right)^2 \displaystyle\frac{1}{S_y^2} + \frac{1}{N}} = \displaystyle\frac{N z_{\alpha/2}^2 S_y^2} {N{D}^2 + {z_{\alpha/2}^2} S_y^2}\,\,(\#eq:eqaas12)
 $$
 
-**Comentários**
+**Comentários:**
 
 1. A Expressão \@ref(eq:eqaas12) só se aplica para o caso do estimador média amostral $\overline y$ para a média populacional $\overline Y$ sob AAS.    
 2. É possível derivar expressões similares para o caso da estimação de totais, e também de outros parâmetros.    
@@ -642,7 +655,7 @@ munic_amo <- getdata(MunicBR_dat, srswor(n, N))
 ```
 
 ```
-## [1] 1147.785
+## [1] 1360.741
 ```
 
 ```r
@@ -651,7 +664,7 @@ munic_amo <- getdata(MunicBR_dat, srswor(n, N))
 ```
 
 ```
-## [1] 40000.18
+## [1] 76356.87
 ```
 
 ```r
@@ -667,7 +680,7 @@ munic_amo <- getdata(MunicBR_dat, srswor(n, N))
 ```
 
 ```
-## [1] 33.93191
+## [1] 28.62156
 ```
 
 ```r
@@ -676,7 +689,7 @@ munic_amo <- getdata(MunicBR_dat, srswor(n, N))
 ```
 
 ```
-## [1] 66.50532
+## [1] 56.09722
 ```
 
 ```r
@@ -694,7 +707,7 @@ munic_amo <- getdata(MunicBR_dat, srswor(n, N))
 ```
 
 ```
-## [1] 1129.452
+## [1] 1820.5
 ```
 
 ```r
@@ -702,7 +715,7 @@ munic_amo <- getdata(MunicBR_dat, srswor(n, N))
 ```
 
 ```
-## [1] 1130
+## [1] 1821
 ```
 
 

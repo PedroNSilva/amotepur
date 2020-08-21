@@ -4,7 +4,7 @@
 
 A *Amostragem Sistemática Simples - AS* é um método para selecionar com *equiprobabilidade* unidades de uma população de pesquisa para compor a amostra desejada. Por sua simplicidade, trata-se de uma alternativa à AAS bastante utilizada na prática. Um dos motivos para justificar sua utilização é que o método pode ser aplicado mesmo quando não existe cadastro prévio da população de pesquisa, podendo este cadastro ser construído ao mesmo tempo em que é feita a seleção da amostra.
 
-O método consiste em selecionar cada $K$-ésima unidade da população a ser amostrada, começando de uma *partida aleatória* $r$ sorteada ao acaso entre os números inteiros de $1$ a $K$. A amostra resultante é *sem reposição*, e todas as unidades da população têm a mesma chance $(1/K)$ de serem selecionadas, como se verá adiante.
+O método consiste em selecionar cada $K$-ésima unidade da população a ser amostrada, começando de uma *partida aleatória* $r$ sorteada ao acaso entre os números inteiros de $1$ a $K$, sendo a amostra formada pelas unidades $U_r,\;U_{r+K},\;U_{r+2K},\dots,\;U_{r+(n-1)K}$. A amostra resultante é *sem reposição* e todas as unidades da população têm a mesma chance, $1/K$, de serem selecionadas, como apresentado adiante.
 
 Seja $U = \{ 1 , 2 , ..., N \}$ a população de pesquisa, de tamanho $N = nK+c$, com $0 \le c < K$. O número inteiro $K$ é que define o chamado *intervalo de seleção*, $n=[N/K]$ é igual à parte inteira da divisão de $N$ por $K$ e $c$ é o resto dessa mesma divisão.
 
@@ -19,9 +19,9 @@ AS pode ser utilizada para selecionar uma amostra de um cadastro de unidades da 
   
 Duas características funcionam como um apelo para a adoção da AS como método de seleção da amostra: sua simplicidade, já que ao selecionar a primeira unidade a ser incluída na amostra, todas as demais estarão automaticamente escolhidas; e a possibilidade de aplicação mesmo quando não se tem disponível um cadastro prévio da população. 
 
-Essas características foram determinantes, por exemplo, para adoção de AS para a seleção, em cada setor censitário, dos domicílios que deveriam responder ao questionário da amostra nos Censos Demográficos realizados pelo IBGE de 1960 até 2000. Para implementar o método, cada recenseador utilizava um formulário denominado *Folha de coleta do setor* para cadastrar os domicílios que ia encontrando ao percorrer um setor censitário que lhe fora atribuído. Este formulário servia para cadastrar as unidades da população (domicílios) encontradas em cada setor, e de instrumento para a seleção da amostra sistemática. Linhas marcadas em sombreado indicavam ao recenseador em que domicílios devia aplicar o questionário mais longo, denominado da amostra, em lugar do questionário simplificado (denominado básico), que era aplicado aos demais domicílios não incluídos na amostra. 
+Essas características foram determinantes, por exemplo, para adoção de AS para a seleção, em cada setor censitário, dos domicílios que deveriam responder ao questionário da amostra nos Censos Demográficos realizados pelo IBGE de 1960 até 2000. Para implementar o método, cada recenseador utilizava um formulário denominado *Folha de coleta do setor* para cadastrar os domicílios que ia encontrando ao percorrer um setor censitário que lhe fora atribuído. Este formulário servia para cadastrar as unidades da população (domicílios) encontradas em cada setor e de instrumento para a seleção da amostra sistemática. Linhas marcadas em sombreado indicavam ao recenseador em que domicílios devia aplicar o questionário mais longo, denominado da amostra, em lugar do questionário simplificado (denominado básico), que era aplicado aos demais domicílios não incluídos na amostra. 
 
-Ao  terminar de percorrer o setor censitário, o recenseador teria elaborado um cadastro dos domicílios de seu setor, e selecionado a amostra correspondente. O cadastro de domicílios assim construído era utilizado como base para o trabalho de campo das outras pesquisas por amostragem realizadas pelo IBGE ao longo da década subsequente ao Censo. Ver, por exemplo, @Albieri2015.
+Ao  terminar de percorrer o setor censitário, o recenseador teria elaborado um cadastro dos domicílios de seu setor e selecionado a amostra correspondente. O cadastro de domicílios assim construído era utilizado como base para o trabalho de campo das outras pesquisas por amostragem realizadas pelo IBGE ao longo da década subsequente ao Censo. Ver, por exemplo, @Albieri2015.
 
 Nos censos de 1960, 1970 e 1980 o intervalo de seleção usado pelo IBGE foi sempre com $K=4$. Começando no Censo de 1991, o IBGE passou a usar valores de $K$ que podiam variar conforme o tamanho do município em que a amostra estava sendo selecionada. Maiores detalhes sobre a amostragem nos Censos de 2000 e 2010 podem ser vistos em @IBGE2003 e @IBGE2016, respectivamente. Uma revisão dos aspectos de amostragem dos Censos Demográficos brasileiros desde 1960 pode ser encontrada em @Albieri2017.
 
@@ -136,7 +136,7 @@ options(OutDec=".")
 
 ## Composição das amostras sistemáticas simples 
 
-A Tabela \@ref(tab:tabsis1) a seguir, representa uma população de onde se pretende selecionar uma amostra sistemática com intervalo definido por $K$. Os índices das unidades populacionais estão dispostos na forma de uma matriz com $K$ linhas e $n$ colunas, onde $n$ é o maior tamanho de amostra possível para o $K$ definido. Assim cada linha, $r$, da tabela é formada por uma das possíveis amostras, $s_r$. No caso de $N\ne nK$, algumas das últimas células da tabela são vazias, e o tamanho efetivo da amostra é $n$ ou $n-1$, dependendo do valor de $r$ selecionado.
+A Tabela \@ref(tab:tabsis1), a seguir, representa uma população de onde se pretende selecionar uma amostra sistemática com intervalo definido por $K$. Os índices das unidades populacionais estão dispostos na forma de uma matriz com $K$ linhas e $n$ colunas, onde $n$ é o maior tamanho de amostra possível para o $K$ definido. Assim cada linha, $r$, da tabela é formada por uma das possíveis amostras, $s_r$. No caso de $N\ne nK$, algumas das últimas células da tabela são vazias, e o tamanho efetivo da amostra é $n$ ou $n-1$, dependendo do valor de $r$ selecionado.
 
 <center>
 <table>
@@ -162,7 +162,7 @@ A Tabela \@ref(tab:tabsis1) a seguir, representa uma população de onde se pret
 ----------
 </center>
 
-Examinando a Tabela \@ref(tab:tabsis1) conclui-se que unidades em diferentes amostras sistemáticas simples possíveis nunca podem aparecer juntas na mesma amostra! Outra constatação importante é que o conjunto de amostras possíveis é bem pequeno, e de tamanho $K$, em contraste com o que ocorre com os planos de amostragem AAS e AASC, discutidos até agora. 
+Examinando a Tabela \@ref(tab:tabsis1) conclui-se que unidades em diferentes amostras sistemáticas simples possíveis nunca podem aparecer juntas na mesma amostra. Outra constatação importante é que o conjunto de amostras possíveis é bem pequeno, e de tamanho $K$, em contraste com o que ocorre com os planos de amostragem AAS e AASC, discutidos até agora. 
 
 **(#exm:exmsis3)** Identifique as amostras sistemáticas simples possíveis quando a população tem $N=19$ unidades e o tamanho desejado da amostra é de $n=4$ unidades. 
 
@@ -431,7 +431,7 @@ $$
 $$ 
 Este estimador é não viciado para $\overline Y$, pois foi visto que $\widehat Y_{AS}$ é não viciado para o total populacional $Y$. Também é interessante observar que este estimador não é igual à média amostral, a menos no caso em que $N = nK$.
 
-**(#exm:exmsis6)** Considerando a mesma população do Exemplo \@ref(exm:exmsis5) pode-se verificar que $\overline y_{AS}$ é não viciado para a média populacional $\overline Y$. Neste caso, basta calcular a estimativa da média para cada coluna (amostra sistemática possível) da Tabela \@ref(tab:tabsis2), calcular o valor médio das estimativas e comparar com média populacional. Pode-se utilizar o R para realizar a tarefa.
+**(#exm:exmsis6)** Considerando a mesma população do Exemplo \@ref(exm:exmsis5), pode-se verificar que $\overline y_{AS}$ é não viciado para a média populacional $\overline Y$. Neste caso, basta calcular a estimativa da média para cada coluna (amostra sistemática possível) da Tabela \@ref(tab:tabsis2), calcular o valor médio das estimativas e comparar com média populacional. Pode-se utilizar o R para realizar a tarefa.
 
 
 ```r
@@ -696,7 +696,7 @@ $$
 
 Um problema que ocorre com a amostragem sistemática simples é o fato da ordenação da população em relação aos valores da variável de interesse afetar a variância (precisão) dos estimadores. Para demonstrar esse problema, pode-se utilizar a população apresentada nos exemplos acima, alterando a ordem de suas unidades, para mostrar como isso afeta a composição das possíveis amostras sistemáticas.
 
-Em primeiro lugar, consideramos a população ordenada tal como foi apresentada na Tabela \@ref(tab:tabsis2) e calculamos a variância do estimador do total considerando as possíveis amostras listadas no Exemplo \@ref(exm:exmsis5). Em seguida, ordenamos a população em ordem crescente (ou decrescente) dos valores de $y$ e repetimos o cálculo da variância. Observa-se que a variância do estimador do total com a população ordenada diminui consideravelmente em comparação com o caso em que não havíamos reordenado a população. 
+Em primeiro lugar, consideramos a população ordenada tal como foi apresentada na Tabela \@ref(tab:tabsis2) e calculamos a variância do estimador do total considerando as possíveis amostras listadas no Exemplo \@ref(exm:exmsis5). Em seguida, ordenamos a população em ordem crescente (ou decrescente) dos valores de $y$ e repetimos o cálculo da variância. Observa-se que a variância do estimador do total com a população ordenada diminui consideravelmente em comparação com o caso em que não havíamos ordenado a população. 
 
 Embora este seja um exemplo extremo, pois na prática não teríamos como ordenar a população pelos valores da variável de interesse, ele mostra bem o efeito que a ordenação pode ter na precisão dos estimadores baseados em amostras sistemáticas simples. Na sequência, ilustramos estes cálculos usando o pacote R. 
 
@@ -799,8 +799,8 @@ Fica como exercício para o leitor verificar que o mesmo não ocorre quando se u
 
 1. Como $r$ pode tomar apenas um valor, $V_{AS}(\widehat Y_{AS})$ não pode ser diretamente estimada a partir da amostra.    
 2. Em @Cochran1977 é apresentada uma boa discussão sobre como a ordenação dos valores da variável de pesquisa para unidades populacionais pode afetar a eficiência de amostras sistemáticas. Para uma definição de eficiência ver a Expressão \@ref(eq:eqdom24).   
-3. Para populações em 'ordem aleatória', o desempenho da amostragem sistemática simples é semelhante ao da amostragem aleatória simples sem reposição (@Cochran1977, seção 8.5).     
-4. Para populações com tendência linear, amostragem sistemática simples é melhor que AAS (@Cochran1977, seção 8.6).     
+3. Para populações em 'ordem aleatória', o desempenho da amostragem sistemática simples é semelhante ao da amostragem aleatória simples sem reposição (@Cochran1977, Seção 8.5).     
+4. Para populações com tendência linear, amostragem sistemática simples é melhor que AAS (@Cochran1977, Seção 8.6).     
 5. Para populações periódicas, amostragem sistemática simples com intervalo de seleção em sincronia com o período é um desastre (@Cochran1977, página 218).
 
 **Considere o caso especial onde $N = nK$**
@@ -839,7 +839,7 @@ $$
 
 é a *correlação intraclasse* das amostras sistemáticas possíveis.
 
-Este resultado mostra que a correlação positiva entre unidades de uma mesma amostra aumenta a variância da média amostral sob seleção sistemática simples quando comparada com a variãncia da média amostral sob seleção AAS.
+Este resultado mostra que a correlação positiva entre unidades de uma mesma amostra aumenta a variância da média amostral sob seleção sistemática simples quando comparada com a variância da média amostral sob seleção AAS.
 
 Lembrando que sob AAS, $V_{AAS}(\overline y_{AAS}) = \displaystyle \left( 1 - \frac {n} {N} \right) \frac {S_y^2} {n}$.
 
@@ -867,7 +867,7 @@ No caso de $N$ conhecido e não houver ordenação das unidades da população, 
 $$
 \widehat V_{1AS} (\widehat Y_{AS}) =  N^2\widehat V_{1AS} (\overline y_{AS})(\#eq:eqsis12)
 $$
-No caso em que a população esteja ordenada segundo uma "estratificação" de modo que as médias em cada intervalo de seleção variem (p.ex.: a população é ordenada segundo os valores de $y$), @Cochran1977 sugere, para estimar a variancia do estimador da média, a expressão:
+No caso em que a população esteja ordenada segundo uma "estratificação" de modo que as médias em cada intervalo de seleção variem (p.ex.: a população é ordenada segundo os valores de $y$), @Cochran1977 sugere, para estimar a variância do estimador da média, a expressão:
 
 $$
  \widehat V_{2AS}(\overline y_{AS}) = \left( \frac {1}{n} - \frac 1 {N} \right) \frac {1}{2(n-1)} \sum_{i \in s_r} (y_i - y_{i+K})^2 (\#eq:eqsis13)
@@ -880,7 +880,7 @@ $$
 
 Alternativamente e independentemente da ordenação da população, pode-se usar um estimador do tipo replicação, onde são selecionadas $q$ amostras sistemáticas de tamanhos $n/q$ cada uma, tomando a variância das estimativas dadas por cada uma das amostras. Essa técnica, também chamada *amostra sistemática repetida*, está descrita em @Scheaffer2011.
 
-Quando a seleção de uma AS for realizada a partir de um cadastro conhecido, é sempre possível reordenar as unidades aleatóriamente antes proceder a seleção. Esse é um artifício muito útil e que permite que se utilizem os estimadores equivalentes aos da AAS para estimar a variância dos estimadores. Se por um lado essa técnica viabiliza o emprego de estimadores simplificados de variância, por outro se espera que acabe resultando em menor precisão para a estimação pontual.
+Quando a seleção de uma AS for realizada a partir de um cadastro conhecido, é sempre possível reordenar as unidades aleatoriamente antes proceder a seleção. Esse é um artifício muito útil e que permite que se utilizem os estimadores equivalentes aos da AAS para estimar a variância dos estimadores. Se por um lado essa técnica viabiliza o emprego de estimadores simplificados de variância, por outro se espera que acabe resultando em menor precisão para a estimação pontual.
 
 Pode-se encontrar boas discussões sobre a estimação da variância sob amostragem sistemática simples em @Cochran1977 ou @Thompson2012.
 
@@ -989,7 +989,7 @@ Fica para o leitor verificar que os estimadores para a média e total são não 
 
 ## Exercícios
 
-**(#exr:exrsis1)**  Identifique as outras 4 amostras possíveis referidas no Exemplo \@ref(exm:exmsis1). 
+**(#exr:exrsis1)**  Identifique as outras 4 amostras possíveis referidas no Exemplo \@ref(exm:exmsis2). 
 
 **(#exr:exrsis2)** (Transcrito de @Cochran1977, Exercício 8.4) A Tabela \@ref(tab:tabsis4) mostra a listagem dos moradores dos 13 domicílios de uma rua. As pessoas foram listadas de acordo com a seguinte regra: H=homem adulto, M=mulher adulta, h=homem criança e m=mulher criança. Cada coluna da tabela representa um dos domicílios da rua.
 
@@ -1122,7 +1122,7 @@ Totais 410 459 674 551 325 528 303 358 342 205  4.155
   b)  Estime a variância da estimativa da média e dê um intervalo de 95% de confiança para a média.
   c)  Quais as suposições feitas para escolher o estimador de variância utilizado?
 
-**(#exr:exrsis7)**  A Tabela \@ref(tab:tabsis7) abaixo, apresenta os valores de uma variável $y$ para toda a população em estudo:
+**(#exr:exrsis7)**  A Tabela \@ref(tab:tabsis7), abaixo, apresenta os valores de uma variável $y$ para toda a população em estudo:
 
 <center>
 <table>
