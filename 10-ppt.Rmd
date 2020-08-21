@@ -2,13 +2,13 @@
 
 A *Amostragem com Probabilidades Proporcionais ao Tamanho - PPT* agrega alguns métodos de seleção de amostra onde as unidades da população têm probabilidades distintas de seleção, proporcionais a uma medida de tamanho associada a cada unidade.
 
-## Justificativa para amostragem PPT
+## Motivação para amostragem PPT
 
 Como já indicado no Capítulo \@ref(visger), a *Amostragem Probabilística* contempla o emprego de métodos de amostragem que levam a ter probabilidades de inclusão na amostra desiguais, isto é, $\pi_i \ne \pi_j$ para algum par de unidades distintas $i \ne j \in U$. A teoria apresentada no Capítulo \@ref(visger) cobre o caso geral, mas não indica quando o recurso de usar probabilidades desiguais de inclusão na amostra seria vantajoso. Neste capítulo tratamos justamente dessa questão, indicando estratégias que se pode usar para tirar proveito do emprego de amostragem com probabilidades desiguais para aumentar a eficiência dos estimadores de totais e médias.
 
 A ideia central já mencionada na Seção \@ref(propHT) é fazer com que as probabilidades de inclusão fiquem proporcionais aos valores da(s) variável(is) de estudo $y$. É claro que não podemos conseguir isso de forma exata, já que os valores da variável $y$ são desconhecidos antes da seleção da amostra. Mas em muitas situações práticas é possível contar com cadastros que contenham valores de uma variável auxiliar $x$ indicativa do tamanho das unidades populacionais. Sempre que a variação dos tamanhos das unidades for grande, a informação auxiliar disponível sobre os tamanhos for precisa e o tamanho for positivamente correlacionado com as variáveis de interesse, podemos empregar métodos de seleção que usam probabilidades proporcionais ao tamanho. Tais métodos permitem aumentar a eficiência na estimação de totais e médias, em comparação com métodos de amostragem com probabilidades iguais, para tamanhos de amostra idênticos.
 
-### Estimação do total populacional
+## Estimação do total populacional
 
 Considere o caso em que os valores de uma variável auxiliar $x$ são conhecidos para todas as unidades da população $U$ mediante um cadastro. Se $x_i>0, \,\, \forall \, i \in U$, então podemos usar esta variável como uma *medida de tamanho* das unidades populacionais. Por enquanto, vamos supor que é possível selecionar amostras de acordo com um plano amostral tal que: $\pi_i \propto x_i, \,\,\forall\, i \in U$. Mais adiante, apresentamos diversos métodos para implementar essa ideia.
 
@@ -28,7 +28,7 @@ Sendo assim, o peso amostral da unidade $i$ é dado por $d_i = X / (n x_i)$. Sub
 $$
 \widehat Y_{HT/PPT} = \displaystyle X\frac{1}{n} \sum_{i \in s} \frac{y_i}{x_i}  \,\, (\#eq:eqppt2)
 $$
-Verifica-se então que, para amostras extraídas com probabilidades de inclusão exatamente proporcionais ao tamanho, o estimador de total depende de estimar a *média das razões* entre a variável de interesse $y$ e a medida de tamanho $x$, e depois multiplicar essa estimativa pelo total conhecido da medida de tamanho na população. Essa forma de apresentar o estimador de total sugere que sempre que as razões ${y_i}/{x_i}$ forem aproximadamente constantes, a média amostral delas será um estimador preciso da correspondente média populacional, e o estimador de total terá variância pequena.
+Verifica-se então que, para amostras extraídas com probabilidades de inclusão exatamente proporcionais ao tamanho, o estimador de total depende de estimar a *média das razões* entre a variável de interesse $y$ e a medida de tamanho $x$ e, depois, multiplicar essa estimativa pelo total conhecido da medida de tamanho na população. Essa forma de apresentar o estimador de total sugere que, sempre que as razões ${y_i}/{x_i}$ forem aproximadamente constantes, a média amostral delas será um estimador preciso da correspondente média populacional, e o estimador de total terá variância pequena.
 
 Uma forma de ver isto mais diretamente requer lembrar da expressão alternativa para a variância do estimador HT, válida para planos amostrais de tamanhos fixos, a chamada forma SYG (Sen-Yates-Grundy) da variância, dada por:
 
@@ -39,7 +39,7 @@ $$
 
 Da Expressão \@ref(eq:eqppt3) podemos observar que a variância do estimador de total seria nula caso $y_i/x_i = y_j/x_j$ para todo $i \neq j \in U$. Portanto, se $y_i \propto x_i \,\,\forall\, i \in U$, então $V_{SYG}\left( \widehat Y_{HT} \right) = 0$. Isto sugere que se $y$ e $x$ forem aproximadamente proporcionais (logo, alta e positivamente correlacionadas), então a variância do estimador HT do total será pequena.
 
-Também se pode notar que a variância deveria ser pequena quando $\pi_{ij} \doteq \pi_i \pi_j, \,\, \forall \, i \neq j \in U$. Acontece que $\pi_{ij} = \pi_i \pi_j, \,\, \forall \, i \neq j \in U$ implica em indicadores de inclusão das unidades $i$ e $j$ independentes. Um plano amostral satisfazendo essa propriedade é a *Amostragem de Poisson* que estudaremos adiante. Entretanto, *Amostragem de Poisson* não é eficiente, como veremos, devido à variabilidade do tamanho amostral efetivo, e também não podemos usar a expressão de variância na forma SYG para esse plano amostral, justamente porque não tem tamanho amostral fixo.
+Também se pode notar que a variância deveria ser pequena quando $\pi_{ij} \doteq \pi_i \pi_j, \,\, \forall \, i \neq j \in U$. Acontece que $\pi_{ij} = \pi_i \pi_j, \,\, \forall \, i \neq j \in U$ implica indicadores de inclusão das unidades $i$ e $j$ independentes. Um plano amostral satisfazendo essa propriedade é a *Amostragem de Poisson*, apresentado adiante. Entretanto, *Amostragem de Poisson* não é eficiente, como veremos, devido à variabilidade do tamanho amostral efetivo, e também não podemos usar a expressão de variância na forma SYG para esse plano amostral, justamente porque não tem tamanho amostral fixo.
 
 Sendo assim, a chave para alcançar eficiência através da amostragem PPT é ter medidas de tamanho $(x)$ alta e positivamente correlacionadas com a(s) resposta(s) de interesse na pesquisa $(y)$. Essa situação é muitas vezes encontrada ao realizar pesquisas de estabelecimentos ou instituições, onde as principais variáveis de estudo da pesquisa são bem correlacionadas com medidas de tamanho frequentemente disponíveis nos cadastros empregados para seleção das respectivas amostras.
 
@@ -70,7 +70,7 @@ cat("<table>",paste0("<caption>", "(#tab:tabppt1)", "Informações das áreas de
 ----------
  Fazenda    Área  Tamanho Acumulado   Limite inferior do intervalo   Limite superior do intervalo
 --------- ------ ------------------ ------------------------------ ------------------------------
-   1          50    50                            0	                               50
+   1          50    50                            1	                               50
    
    2       1.000   1.050	                       51	                            1.050
    
@@ -84,7 +84,7 @@ cat("<table>",paste0("<caption>", "(#tab:tabppt1)", "Informações das áreas de
 ----------
 </center>
 
-Caso os 3 números aleatórios sorteados de forma independente e com distribuição Uniforme entre 0 e 2.000 fossem 654, 1.230 e 1.555, então as fazendas selecionadas seriam as de números 2, 4 e 5. Caso os 3 números aleatórios entre 0 e 2.000 fossem 122, 754 e 1.980, então as fazendas 2 e 6 seriam as selecionadas, com a fazenda 2 sendo selecionada duas vezes.
+Caso os 3 números aleatórios sorteados de forma independente e com distribuição Uniforme entre 1 e 2.000 fossem 654, 1.230 e 1.555, então as fazendas selecionadas seriam as de números 2, 4 e 5. Caso os 3 números aleatórios entre 0 e 2.000 fossem 122, 754 e 1.980, então as fazendas 2 e 6 seriam as selecionadas, com a fazenda 2 sendo selecionada duas vezes.
 
 **(#exm:exmppt2)** Um exemplo de aplicação da amostragem PPT com reposição, no IBGE, é na seleção de municípios e setores que compuseram as amostras de primeiro e segundo estágios das PNADs de 2011 a 2015. Os municípios não autorrepresentativos passaram por um processo de estratificação e, em cada estrato, foram selecionados com reposição e com probabilidade proporcional à população residente obtida no Censo Demográfico 2010. Os setores censitários foram selecionados, em cada município da amostra, também com probabilidade proporcional e com reposição, sendo utilizado o número de unidades domiciliares existentes por ocasião do Censo Demográfico 2010 como medida de tamanho. Detalhes sobre o plano amostral da PNAD 2015 podem ser vistos em
 https://biblioteca.ibge.gov.br/visualizacao/livros/liv98887.pdf
@@ -170,7 +170,7 @@ e
 $$
 \widehat V_{PO}\left(\widehat Y_{PO}^R \right) = \frac{1}{n(m-1)} \displaystyle \sum_{i \in s} (1 - n p_i) \left( \frac{y_i}{p_i} - \widehat Y_{PO}^R \right)^2 \,\, (\#eq:eqppt12) 
 $$
-onde $m$ é o tamanho efetivo da amostra selecionada. Para mais detalhes sobre a estimação da variância, veja @Ohlsson1998.
+onde $m$ é o tamanho efetivo da amostra selecionada. Para mais detalhes sobre a estimação da variância, ver @Ohlsson1998.
 
 ## Amostragem sequencial de Poisson
 
@@ -197,7 +197,7 @@ A variância aproximada de $\widehat Y_{ASP}$ é dada por:
 $$\hspace{-1,0cm}
 V_{ASP}\left(\widehat Y_{ASP}\right) \doteq \frac{N}{N-1} \frac{1}{n} \displaystyle\sum_{i \in U} (1-np_i) \left(\frac{y_i}{p_i} - Y \right)^2  p_i = V_{PO}\left(\widehat  Y_{PO}^R \right) \,\,(\#eq:eqppt14) 
 $$
-Vemos assim que a variância do estimador de total sob Amostragem Sequencial de Poisson é a mesma que se obteria usando o estimador de razão sob Amostragem de Poisson. A principal vantagem é que sob ASP o tamanho efetivo da amostra é fixo. Um estimador consistente desta variância é dado por:
+Vemos assim que a variância do estimador de total sob Amostragem Sequencial de Poisson é, praticamente, a mesma que se obteria usando o estimador de razão sob Amostragem de Poisson. A principal vantagem é que sob ASP o tamanho efetivo da amostra é fixo. Um estimador consistente desta variância é dado por:
 
 $$
 \widehat V_{ASP}\left(\widehat Y_{ASP}\right) = \frac{1}{n(n-1)} \displaystyle\sum_{i \in s}\left(\frac{y_i}{p_i} - \widehat Y_{ASP}\right)^2 (1-np_i)p_i\,\,(\#eq:eqppt15) 
@@ -410,4 +410,4 @@ cat("<table>",paste0("<caption>", "(#tab:tabppt5)", "Dados populacionais das emp
 **(#exr:exrppt7)** Seja o arquivo de dados 'MunicBR_dat.rds'. Selecione uma amostra de 10 municípios com PPT, utilizando como medida de tamanho a variável população (Pop).
 
 a)  Estime o total da população para o Brasil.
-b)  Compare com o valor verdadeiro e comente esse resultado surprendente. Por que isso ocorre?
+b)  Compare com o valor verdadeiro e comente esse resultado surpreendente. Por que isso ocorre?
