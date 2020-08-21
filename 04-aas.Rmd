@@ -94,14 +94,22 @@ A Tabela \@ref(tab:tabaas2) apresenta um resumo dos estimadores do total, média
 ```{r, results="asis", echo=FALSE}
 cat("<table>",paste0("<caption>", "(#tab:tabaas2)", "Estimadores do total, média e respectivas variâncias sob AASC", "</caption>"),"</table>", sep ="\n")
 ```
-|Estimador|
-|:---|
-|$\widehat{Y}_{AASC} = \displaystyle \frac {N}{n} \sum_{i \in s} y_i = N \, \overline{y}$|
-|$\overline{y}=\displaystyle\frac{1}{n} \displaystyle \sum_{i \in s} y_i$|
-|$\widehat S^2_y = \displaystyle \frac{1}{n-1} \sum_{i\in s} ({y_i-\overline{y}})^2$|
-|$\widehat V_{AASC}(\widehat{Y}_{AASC}) = N^2 \widehat S_y^2 / n$|
-|$\widehat V_{AASC}(\overline{y}) = \widehat S_y^2 / n$|
+<center>
+----------
+Estimador
+---------------------------------------
+$\widehat{Y}_{AASC} = \displaystyle \frac {N}{n} \sum_{i \in s} y_i = N \, \overline{y}$
+
+$\overline{y}=\displaystyle\frac{1}{n} \displaystyle \sum_{i \in s} y_i$
+
+$\widehat S^2_y = \displaystyle \frac{1}{n-1} \sum_{i\in s} ({y_i-\overline{y}})^2$
+
+$\widehat V_{AASC}(\widehat{Y}_{AASC}) = N^2 \widehat S_y^2 / n$
+
+$\widehat V_{AASC}(\overline{y}) = \widehat S_y^2 / n$
+-----------
 </center>
+
 
 Para provas destes resultados, ver, por exemplo, o Teorema 3.3 de @Bolfarine2005.
 
@@ -305,17 +313,22 @@ A Tabela \@ref(tab:tabaas5) apresenta um resumo dos estimadores do total, média
 ```{r, results="asis", echo=FALSE}
 cat("<table>",paste0("<caption>", "(#tab:tabaas5)", "Estimadores do total, média e respectivas variâncias sob AAS", "</caption>"),"</table>", sep ="\n")
 ```
+-----------
+Estimador
+-----------------------------------------
+$\widehat{Y}_{AAS} = \displaystyle \frac {N}{n} \sum_{i \in s} y_i= N \overline{y}$
 
-|Estimador|
-|:---|
-|$\widehat{Y}_{AAS} = \displaystyle \frac {N}{n} \sum_{i \in s} y_i= N \overline{y}$|
-|$\overline{y} = \displaystyle\frac{1}{n} \displaystyle \sum_{i \in s} y_i$|
-|$\widehat S^2_y = \displaystyle \frac{1}{n-1} \sum_{i \in s} \left( {y_i - \overline{y}} \right)^2$|
-|$\widehat V_{AAS}(\widehat{Y}_{AAS}) = \displaystyle N^2 \left( \frac{1}{n} - \frac{1}{N} \right) \widehat S^2_y$|
-|$\widehat {V}_{AAS} (\overline{y}) = \displaystyle \left( \frac{1}{n} - \frac{1}{N} \right) \widehat S^2_y$|
+$\overline{y} = \displaystyle\frac{1}{n} \displaystyle \sum_{i \in s} y_i$
+
+$\widehat S^2_y = \displaystyle \frac{1}{n-1} \sum_{i \in s} \left( {y_i - \overline{y}} \right)^2$
+
+$\widehat V_{AAS}(\widehat{Y}_{AAS}) = \displaystyle N^2 \left( \frac{1}{n} - \frac{1}{N} \right) \widehat S^2_y$
+
+$\widehat {V}_{AAS} (\overline{y}) = \displaystyle \left( \frac{1}{n} - \frac{1}{N} \right) \widehat S^2_y$
+-----------------
 </center>
 
-**Notas**
+**Notas:**
 
 1.	O termo $(1 - n/N) = (1 - f)$ é chamado de *fator de correção para população finita*. Quando $n/N \rightarrow 1$, o tamanho da amostra se aproximando do tamanho da população, então $(1 - n/N) \rightarrow 0$ . Ou seja: com amostras grandes as variâncias das estimativas tendem a ser pequenas. 
 2.	Se a fração amostral $f = n/N$ for pequena (da ordem de 1% ou 2%), então a *correção de população finita* pode ser ignorada, pois $(1 – f) \doteq 1$. Quando $f \doteq 0$, a AAS (amostragem sem reposição) e AASC (com reposição) tem comportamento semelhante em relação à precisão das estimativas. Intuitivamente, isso ocorre porque no caso em que a amostra é muito pequena em relação ao tamanho da população a probabilidade de uma unidade da população ser selecionada mais de uma vez é pequena.
@@ -449,7 +462,7 @@ $$
 n = \displaystyle\frac{1}{\displaystyle\left( \frac{D}{z_{\alpha/2}} \right)^2 \displaystyle\frac{1}{S_y^2} + \frac{1}{N}} = \displaystyle\frac{N z_{\alpha/2}^2 S_y^2} {N{D}^2 + {z_{\alpha/2}^2} S_y^2}\,\,(\#eq:eqaas12)
 $$
 
-**Comentários**
+**Comentários:**
 
 1. A Expressão \@ref(eq:eqaas12) só se aplica para o caso do estimador média amostral $\overline y$ para a média populacional $\overline Y$ sob AAS.    
 2. É possível derivar expressões similares para o caso da estimação de totais, e também de outros parâmetros.    
