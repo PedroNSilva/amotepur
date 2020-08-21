@@ -94,7 +94,6 @@ A Tabela \@ref(tab:tabaas2) apresenta um resumo dos estimadores do total, média
 ```{r, results="asis", echo=FALSE}
 cat("<table>",paste0("<caption>", "(#tab:tabaas2)", "Estimadores do total, média e respectivas variâncias sob AASC", "</caption>"),"</table>", sep ="\n")
 ```
-<center>
 ----------
 Estimador
 ---------------------------------------
@@ -109,7 +108,6 @@ $\widehat V_{AASC}(\widehat{Y}_{AASC}) = N^2 \widehat S_y^2 / n$
 $\widehat V_{AASC}(\overline{y}) = \widehat S_y^2 / n$
 -----------
 </center>
-
 
 Para provas destes resultados, ver, por exemplo, o Teorema 3.3 de @Bolfarine2005.
 
