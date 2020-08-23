@@ -593,7 +593,7 @@ knitr::include_graphics("Figuras/precisaovsestratos.png")
 ```
 </center>
 
-## Exercícios
+## Exercícios {#exerc11}
 
 **(#exr:exeest1)** Mostre que a média amostral global $\overline y=\displaystyle\frac{1}{n}\displaystyle\sum_{h=1}^{H}\sum_{i \in s_h}y_{hi}$ pode ser escrita como $\overline y=\displaystyle\sum_{h=1}^{H}\frac{n_h}{n}\overline y_h\ne \sum_{h=1}^{H}\frac{N_h}{N}\overline y_h=\overline y_{AES}$, a menos que $\displaystyle\frac{n_h}{n}=\frac{N_h}{N}, \,\, \forall\, h=1,\dots,H$ ou seja, a menos que se adote amostragem estratificada simples proporcional ou equiponderada.
 

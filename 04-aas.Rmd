@@ -540,7 +540,7 @@ munic_amo <- getdata(MunicBR_dat, srswor(n, N))
 ```
 
 
-## Exercícios 
+## Exercícios {#exerc4}
 
 **(#exr:exraas1)** Mostre que o estimador $\widehat{Y}_{AASC}$ para o total não é um estimador tipo Horvitz-Thompson. 
   

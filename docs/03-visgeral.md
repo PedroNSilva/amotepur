@@ -264,9 +264,9 @@ A distribuição de probabilidades da estatística *Soma Amostral*, apresentada 
 <caption>(#tab:tabvis3)Probabilidade sob $p_1$ para cada valor de $t$</caption>
 </table>
 ----------
-Valores possíveis de $t$       0     1     2     3
----------------------------- ----- ----- ----- -----
-Com probabilidade $p_1(s)$    1/6   2/6   2/6   1/6
+Valores possíveis de $t$     0     1     2     3
+-------------------------- ----- ----- ----- -----
+Com probabilidade $p_1(s)$  1/6   2/6   2/6   1/6
 ----------
 </Center>
 
@@ -290,9 +290,9 @@ A Tabela \@ref(tab:tabvis4) apresenta os valores possíveis e a distribuição d
 <caption>(#tab:tabvis4)Probabilidade sob $p_1$ para cada valor de $2t$</caption>
 </table>
 ----------
-Valores possíveis de $2t$             0     2     4     6
------------------------------------ ----- ----- ----- ----- 
-Com probabilidade $p_1(s)$           1/6   2/6   2/6   1/6
+Valores possíveis de $2t$     0     2     4     6
+--------------------------- ----- ----- ----- ----- 
+Com probabilidade $p_1(s)$   1/6   2/6   2/6   1/6
 ----------
 </center>
 
@@ -534,9 +534,6 @@ A melhor estratégia é escolhida medindo o *afastamento esperado* entre os valo
 ----------
 </center>
 
-
-**Conclusão**
-
 O plano amostral $p_2$ fornece o *estimador não viciado com menor variância* em comparação com o plano $p_1$ e deve ser preferido, pois o tamanho das amostras (nossa medida de custo) é o mesmo.
 
 *Minimizar a variância* é o critério de desempate para escolha entre *estratégias não viciadas de amostragem e estimação* de *igual custo total*. Este será então nosso segundo critério para escolha de estimadores.
@@ -772,7 +769,7 @@ A Tabela \@ref(tab:tabvis15) apresenta um resumo dos estimadores HT do total, m�
 </table>
 ----------
 Estimador
------------------------------------------------------------             
+--------------------------------------------           
 $\widehat Y_{HT}=\displaystyle\sum_{i\in s}d_i y_i=\displaystyle \sum_{i \in s} {y_i}/{\pi_i}$
 
 $\overline y_{HT}=\widehat Y_{HT}/N=\displaystyle \sum_{i\in s}d_i y_i/N=\sum_{i\in s}w_i^{HT}y_i$
@@ -791,7 +788,7 @@ $\displaystyle\widehat V_{HT}(\overline y^R) = \frac{1}{\widehat{N}_{HT}^2}\disp
 </center>
 
 
-## Exercícios 
+## Exercícios {#exerc3}
 
 **(#exr:exevisger1)** Considere a população com $N=6$ domicílios listada com os respectivos valores de variáveis de interesse na Tabela \@ref(tab:tabvis16).
 

@@ -94,7 +94,6 @@ A Tabela \@ref(tab:tabaas2) apresenta um resumo dos estimadores do total, média
 <table>
 <caption>(#tab:tabaas2)Estimadores do total, média e respectivas variâncias sob AASC</caption>
 </table>
-<center>
 ----------
 Estimador
 ---------------------------------------
@@ -109,7 +108,6 @@ $\widehat V_{AASC}(\widehat{Y}_{AASC}) = N^2 \widehat S_y^2 / n$
 $\widehat V_{AASC}(\overline{y}) = \widehat S_y^2 / n$
 -----------
 </center>
-
 
 Para provas destes resultados, ver, por exemplo, o Teorema 3.3 de @Bolfarine2005.
 
@@ -222,26 +220,26 @@ s
 
 ```
 ##      i
-## 1  622
-## 2  455
-## 3  432
-## 4  949
-## 5  545
-## 6  226
-## 7  442
-## 8  508
-## 9  446
-## 10  89
-## 11 292
-## 12 447
-## 13 103
-## 14 875
-## 15  88
-## 16 938
-## 17 939
-## 18 754
-## 19 262
-## 20 743
+## 1  148
+## 2  765
+## 3  102
+## 4  429
+## 5  223
+## 6  551
+## 7  724
+## 8  176
+## 9  603
+## 10 877
+## 11 911
+## 12 532
+## 13  38
+## 14 212
+## 15 244
+## 16 625
+## 17 655
+## 18 678
+## 19 606
+## 20 488
 ```
 
 ```r
@@ -274,26 +272,26 @@ s
 
 ```
 ##      i
-## 1   48
-## 2   59
-## 3  118
-## 4  225
-## 5  241
-## 6  291
-## 7  298
-## 8  443
-## 9  473
-## 10 480
-## 11 513
-## 12 561
-## 13 680
-## 14 687
-## 15 713
-## 16 797
-## 17 834
-## 18 838
-## 19 946
-## 20 980
+## 1   92
+## 2  104
+## 3  108
+## 4  110
+## 5  150
+## 6  170
+## 7  172
+## 8  181
+## 9  235
+## 10 373
+## 11 450
+## 12 498
+## 13 527
+## 14 576
+## 15 809
+## 16 838
+## 17 839
+## 18 947
+## 19 959
+## 20 988
 ```
 ### Probabilidades de inclusão sob AAS
 
@@ -655,7 +653,7 @@ munic_amo <- getdata(MunicBR_dat, srswor(n, N))
 ```
 
 ```
-## [1] 1360.741
+## [1] 1946.258
 ```
 
 ```r
@@ -664,7 +662,7 @@ munic_amo <- getdata(MunicBR_dat, srswor(n, N))
 ```
 
 ```
-## [1] 76356.87
+## [1] 320832.6
 ```
 
 ```r
@@ -680,7 +678,7 @@ munic_amo <- getdata(MunicBR_dat, srswor(n, N))
 ```
 
 ```
-## [1] 28.62156
+## [1] 20.01099
 ```
 
 ```r
@@ -689,7 +687,7 @@ munic_amo <- getdata(MunicBR_dat, srswor(n, N))
 ```
 
 ```
-## [1] 56.09722
+## [1] 39.22082
 ```
 
 ```r
@@ -707,7 +705,7 @@ munic_amo <- getdata(MunicBR_dat, srswor(n, N))
 ```
 
 ```
-## [1] 1820.5
+## [1] 3737.813
 ```
 
 ```r
@@ -715,11 +713,11 @@ munic_amo <- getdata(MunicBR_dat, srswor(n, N))
 ```
 
 ```
-## [1] 1821
+## [1] 3738
 ```
 
 
-## Exercícios 
+## Exercícios {#exerc4}
 
 **(#exr:exraas1)** Mostre que o estimador $\widehat{Y}_{AASC}$ para o total não é um estimador tipo Horvitz-Thompson. 
   

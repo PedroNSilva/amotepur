@@ -431,7 +431,7 @@ munic_amo <- cbind(munic_amo, r_chapeu)
 
 ```
 
-## Exercícios
+## Exercícios {#exerc6}
 
 **(#exr:exerazao1)** Identifique e defina duas razões que você já tenha utilizado em seu trabalho.
 

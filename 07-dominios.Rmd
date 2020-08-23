@@ -437,7 +437,7 @@ IC_{AAS} (p_{cA} \, ; \, 1 - \alpha) = \left[ \widehat p_{cA} \mp \left( z_{\alp
 $$
 Onde $\frac 1  {2n_c}$ é a correção de continuidade. Essa correção é, praticamente, nula quando $n_c$ cresce, como já foi comentado em relação à Expressão \@ref(eq:eqpro34).
 
-## Exercícios
+## Exercícios {#exerc7}
 
 **(#exr:exrdom1)** A população total de uma cidade é de $N = 50.000$ pessoas. Uma amostra de fração amostral igual a 20% é selecionada aleatoriamente sem reposição. Na amostra 4.000 pessoas estão na força de trabalho, das quais 200 estão sem emprego.
 

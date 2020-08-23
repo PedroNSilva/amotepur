@@ -788,7 +788,7 @@ $\displaystyle\widehat V_{HT}(\overline y^R) = \frac{1}{\widehat{N}_{HT}^2}\disp
 </center>
 
 
-## Exercícios 
+## Exercícios {#exerc3}
 
 **(#exr:exevisger1)** Considere a população com $N=6$ domicílios listada com os respectivos valores de variáveis de interesse na Tabela \@ref(tab:tabvis16).
 

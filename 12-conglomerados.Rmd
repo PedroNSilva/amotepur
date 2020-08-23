@@ -1077,7 +1077,7 @@ l) Em cada caso, há duas quantidades de interesse a especificar para definir co
   
    Vale registrar que, se a fração amostral do primeiro estágio cresce, como em geral o custo de adicionar uma unidade primária é maior que o de adicionar uma unidade secundária, então o fator custo não deve ser ignorado na determinação dos tamanhos da amostra dos diferentes estágios.  
 
-## Exercícios
+## Exercícios {#exerc12}
 
 **(#exr:execong1)** Considere uma população de $M=100$ conglomerados de mesmo tamanho $\overline N$, cada um formado por 4 pessoas, em que a proporção de pessoas com um determinado atributo é $p=0,5$. Em uma amostra de 5 conglomerados tipo AC1S foram obtidos os resultados da Tabela \@ref(tab:tabcong8):
 

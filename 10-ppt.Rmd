@@ -301,7 +301,7 @@ $\widehat V_{AP} \left(\widehat Y_{AP}\right) =\displaystyle \frac{n}{n-1} \disp
 ----------
 </center>
 
-## Exercícios
+## Exercícios {#exerc10}
 
 **(#exr:exrppt1)** Verifique que o estimador de HT da média não é invariante sob transformações de locação. Isto é, se tomarmos $z_i=y_i+A$, então $\overline z_{HT}\ne\overline y_{HT}+A$. 
 

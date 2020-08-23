@@ -37,27 +37,3 @@ Nosso livro pretende cobrir o conteúdo essencial para um curso básico de *Amos
 Pretendemos que um leitor atento e dedicado consiga, ao final da leitura e estudo prático e interativo do material, usar de forma confiante os vários métodos de amostragem e de estimação apresentados e discutidos no livro. Pretendemos também que possa usar ferramentas de software modernas para implementar os vários métodos apresentados. Para docentes de cursos de *Amostragem*, pretendemos que o uso do livro sirva de apoio como material didático de referência e por fornecer uma boa coleção de exercícios para fixação da aprendizagem. 
 
 Tomando em conta as facilidades disponíveis com base nas modernas ferramentas computacionais usadas, todos os códigos de R usados na implementação dos exemplos e na solução de exercícios são fornecidos junto do material do livro. Também são fornecidos todos os dados usados nos exemplos e exercícios que não podem ser encontrados facilmente nas fontes originais.
-
-## Estrutura do livro
-
-Este livro está organizado em treze capítulos, incluindo esta introdução, denominados a seguir:
-
-1) Introdução
-2) Conceitos e Cadastros 
-3) Visão Geral da Amostragem e Estimação 
-4) Amostragem Aleatória Simples  
-5) Estimação de Proporções  
-6) Estimação de Razões e Funções de Totais 
-7) Estimação para Domínios de Estudo 
-8) Amostragem Sistemática Simples 
-9) Outros Métodos de Amostragem com Equiprobabilidade 
-10) Amostragem com Probabilidades Proporcionais ao Tamanho  
-11) Amostragem Estratificada 
-12) Amostragem Conglomerada 
-13) Estimadores de Calibração 
-
-Cada um dos capítulos é autocontido e vários deles podem ser saltados. Por exemplo, os capítulos sobre *Outros Métodos de Amostragem com Equiprobabilidade* pode ser omitido num curso que tenha carga horária insuficiente para cobrir todo o material. O capítulo sobre Estimadores de Calibração tem grande importância prática e pode ser apresentado antes do tratamento da Amostragem Conglomerada, se necessário.
-
-O leitor de qualquer livro precisa reconhecer que não é possível começar do zero: é preciso contar com conhecimento prévio de algumas ideias e conceitos básicos essenciais à compreensão do material tratado. Nossa abordagem pressupõe que o leitor está familiarizado com um curso básico de introdução à probabilidade e à inferência estatística, no nível tratado, por exemplo, em @Magalhaes2004 e @Magalhaes2006.
-
-Nossa abordagem não busca ser exaustiva e, por esse motivo, são poucas as provas que incluímos dos resultados aqui discutidos. Aos leitores interessados em verificar os resultados, recomendamos a consulta ao excelente livro de @Sarndal1992, ou então às muitas referências incluídas ao longo do texto.

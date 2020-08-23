@@ -257,7 +257,7 @@ Considere os dados da população de municípios brasileiros fornecidos no arqui
 2. Usando os dados populacionais, calcule os valores dos parâmetros estimados nos itens a e c e compare com suas estimativas amostrais. Comente.
 
 
-Solução do (#exm:exmdom1) usando R
+Solução do (#exm:exmdom1), usando R:
 
 
 ```r
@@ -271,7 +271,7 @@ library(tidyverse)
 ```
 
 ```
-## -- Attaching packages ----------------------------------------------- tidyverse 1.3.0 --
+## -- Attaching packages ---------------------------------------------------------- tidyverse 1.3.0 --
 ```
 
 ```
@@ -282,7 +282,7 @@ library(tidyverse)
 ```
 
 ```
-## -- Conflicts -------------------------------------------------- tidyverse_conflicts() --
+## -- Conflicts ------------------------------------------------------------- tidyverse_conflicts() --
 ## x dplyr::filter() masks stats::filter()
 ## x dplyr::lag()    masks stats::lag()
 ```
@@ -623,7 +623,7 @@ Um estimador da variância de $\widehat p_{cA}$ sob AAS resulta em:
 $$
 \widehat V_{AAS} (\widehat p_{cA}\;|\;n_c \text{ fixo)}) = \left( \frac 1 {n_c} - \frac{1}{N_c} \right) {\widehat p_{cA} (1 - \widehat p_{cA}) } \,\, (\#eq:eqdom28) 
 $$
-Nas expressões \@ref(eq:eqdom27) e \@ref(eq:eqdom28), $n_c$, $N_c$ e $p_{cA}$ são, respectivamente, o número de unidades da amostra que pertencem ao domínio, o número total de unidades no domínio e a proporção de unidades no domìnio que possuem o atributo $A$.
+Nas Expressões \@ref(eq:eqdom27) e \@ref(eq:eqdom28), $n_c$, $N_c$ e $p_{cA}$ são, respectivamente, o número de unidades da amostra que pertencem ao domínio, o número total de unidades no domínio e a proporção de unidades no domìnio que possuem o atributo $A$.
 
 Caso $N_c$ não seja conhecido, a fração amostral no domínio, $n_c / N_c$, pode ser aproximada por $n / N$ na expressão anterior, levando ao estimador:
 
@@ -638,7 +638,7 @@ IC_{AAS} (p_{cA} \, ; \, 1 - \alpha) = \left[ \widehat p_{cA} \mp \left( z_{\alp
 $$
 Onde $\frac 1  {2n_c}$ é a correção de continuidade. Essa correção é, praticamente, nula quando $n_c$ cresce, como já foi comentado em relação à Expressão \@ref(eq:eqpro34).
 
-## Exercícios
+## Exercícios {#exerc7}
 
 **(#exr:exrdom1)** A população total de uma cidade é de $N = 50.000$ pessoas. Uma amostra de fração amostral igual a 20% é selecionada aleatoriamente sem reposição. Na amostra 4.000 pessoas estão na força de trabalho, das quais 200 estão sem emprego.
 
@@ -731,9 +731,9 @@ Número de crianças           8  4  2  2  1  1  0  0  0  1   1
 Outro dentista, o Dr. B, examinou todas as 200 crianças e apenas verificou que 60 delas tinham, pelo menos, um dente com cárie.
 
 a)  Estime a média de dentes cariados na população de crianças utilizando apenas as informações obtidas pelo Dr. A, obtendo, também, um intervalo de 95% de confiança para o parâmetro estimado.
-b)  Repita o item a. utilizando as informações obtidas pelos dois dentistas.
+b)  Repita o item a utilizando as informações obtidas pelos dois dentistas.
 c)  Estime a média de dentes com cárie somente para as crianças da população que têm dentes cariados, usando somente as informações do Dr. A. Dê um intervalo de 95% de confiança para a média.
-d)  Repita o item c. utilizando as informações obtidas pelos dois dentistas.
+d)  Repita o item c utilizando as informações obtidas pelos dois dentistas.
 
 **(#exr:exrdom8)** Utilizando o arquivo dos municípios brasileiros, 'MunicBR_dat.rds', selecione uma AAS de 300 municípios. Utilizando as informações contidas nessa amostra:
 

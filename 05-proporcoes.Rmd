@@ -806,7 +806,7 @@ $$
 Vale notar que em \@ref(eq:eqpro48) tanto o numerador como o denominador do estimador da proporção são variáveis aleatórias, pois a população (eleitores que efetivamente vão votar num dos candidatos) é desconhecida.
 
 
-## Exercícios 
+## Exercícios {#exerc5}
 
 **(#exr:exrprop1)** Uma pesquisa foi feita para estimar a proporção de domicílios de uma pequena vila que têm, pelo menos, um morador com 65 anos ou mais. A vila tem 651 domicílios dos quais foram pesquisados 60 e em 11 deles havia moradores com 65 anos ou mais.
 

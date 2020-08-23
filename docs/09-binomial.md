@@ -1,4 +1,4 @@
-# Outros Métodos de Amostragem com Equiprobabilidade
+# Outros Métodos de Amostragem com Equiprobabilidade {#omaeq}
 
 Neste capítulo apresentamos dois métodos de amostragem de unidades elementares com equiprobabilidade que são menos usados, mas também podem ser úteis em muitas situações de interesse. O primeiro deles é a *Amostragem Binomial ou de Bernoulli - AB* e o segundo é a *Amostragem Inversa Simples - AIS*.
 
@@ -26,7 +26,7 @@ $\pi_{ij} = P(i,j \in s) = P(A_i \le \pi \,\, \textrm{e} \,\, A_j \le \pi) = P(A
 
 Uma dificuldade associada com Amostragem Binomial é que, antes de ser feita a seleção da amostra, o *tamanho efetivo da amostra* obtida é uma variável aleatória. Isso pode causar dificuldades para quem está planejando a pesquisa. 
 
-Para verificar isso, note que $n = \sum_{i \in U} I(A_i \le \pi)$. Consequentemente,  $n \, \textrm{~ Binomial} (N;\pi)$. Logo: $E_{AB}(n) = N  \pi$  e $V_{AB}(n) = N  \pi (1-\pi)$. 
+Para verificar isso, note que $n = \sum_{i \in U} I(A_i \le \pi)$. Consequentemente,  $n \,\sim \textrm{Binomial} (N;\pi)$. Logo: $E_{AB}(n) = N  \pi$  e $V_{AB}(n) = N  \pi (1-\pi)$. 
 
 ### Estimação de totais sob amostragem binomial 
 
@@ -134,7 +134,7 @@ A Tabela \@ref(tab:tabbin1) resume os resultados para estimação do total e mé
 
 ----------
 Estimador                                                          
----------------------------------
+--------------------------------------
 $\displaystyle\widehat Y_{AB} = \frac{1}{\pi} \sum_{i \in s} y_i$
 
                                                                         $\displaystyle\widehat Y_{AB}^R = \frac{N\pi}{n}\widehat Y_{AB} = N\frac{1}{n}\sum_{i \in s}y_i = N\overline y$
@@ -180,7 +180,7 @@ Outro problema desse tipo de abordagem ocorre quando se está pesquisando tipos 
 
 As estratégias exemplificadas acima são úteis para tentar minimizar as perdas de unidades amostrais, mas não eliminam o problema da redução no tamanho efetivo da amostra. Uma outra estratégia para tentar garantir que o número de unidades amostrais coletadas seja efetivamente igual ao valor de $n$ desejado é a chamada *Amostragem Inversa*. Nesta seção abordamos somente o caso mais simples desse tipo de procedimento, que emprega probabilidades iguais de seleção das unidades populacionais. @Tille2016 aborda os casos mais gerais de *Amostragem Inversa* com probabilidades desiguais.
 
-A *Amostragem Inversa Simples* é um procedimento sequencial de amostragem proposto por @Haldane1945 como forma de enfrentar o problema de amostragem para estimar parâmetros relativos a eventos raros. Em termos gerais, consiste em pesquisar $m \ge n$ unidades da população até encontrar $n$ que tenham as características desejadas ou que forneçam as informações de interesse. Mesmo assim podem ocorrer casos em que a busca se estenda por toda a população (ou estrato ou conglomerado onde se faça uma subamostragem) sem que se encontrem as $n$ unidades de interesse. Nesse caso extremo, o procedimento é interrompido quando $m=N$, mesmo que $m < n$.
+A *Amostragem Inversa Simples - AIS* é um procedimento sequencial de amostragem proposto por @Haldane1945 como forma de enfrentar o problema de amostragem para estimar parâmetros relativos a eventos raros. Em termos gerais, consiste em pesquisar $m \ge n$ unidades da população até encontrar $n$ que tenham as características desejadas ou que forneçam as informações de interesse. Mesmo assim podem ocorrer casos em que a busca se estenda por toda a população (ou estrato ou conglomerado onde se faça uma subamostragem) sem que se encontrem as $n$ unidades de interesse. Nesse caso extremo, o procedimento é interrompido quando $m=N$, mesmo que $m < n$.
 
 ### Método de seleção da amostra inversa simples
 
@@ -277,16 +277,16 @@ O estimador HT para o total populacional utilizando as probabilidades calculadas
 $$
 {\widehat Y}_{AIS/HT}=\frac1n  \left (N_A \sum_{k \in s_A} y_k +  (N_A + 1) \sum_{k∈s_{\overline A}} y_k \right)(\#eq:eqinv8)
 $$
-onde $s_A$ é o conjunto da amostra de $A$ e $s_{\overline A}= s-s_A$.  
+onde $s_A$ é o conjunto da amostra de $A$ e $\;s_{\overline A}= s-s_A$.  
 
 A variância do estimador HT para o total na AIS pode ser calculada por:
-\times\\&\;\;\;\;\times
+
 $$
  \begin{align}
  V_{AIS} ({\widehat Y}_{AIS/HT})& = N_A^2 \left(\frac{N_A – n}{N_A – 1}\right)\frac{\sigma_A^2}n+\frac{(N_A - n + 1) (N – N_A)}{ (N_A + 2) n}\times\\&\;\;\;\;\times\left[(N + 1){{\overline y}}_{\overline A} ^2+ (N_A + 1) \sigma_{\overline A}^2 \right]
  \end{align}(\#eq:eqinv9)
 $$
-onde: $$\displaystyle {\overline y}_A=\frac1{N_A}\sum_{k\in A}y_k\text{, }\;\;{\overline y}_{\overline A}=\frac1{N-N_A}\sum_{k\in \overline A}y_k\text{,}\\ \sigma_A^2=\frac 1{N_A}\sum_{k\in A}(y_k-{\overline y}_A)^2\;\;\text{ e }\;\;\sigma_{\overline A}^2=\frac 1{N-N_A}\sum_{k\in {\overline A}}(y_k-{\overline y}_{\overline A})^2$$
+onde: $$\displaystyle {\overline y}_A=\frac1{N_A}\sum_{k\in A}y_k\text{, }\,\;\;{\overline y}_{\overline A}=\frac1{N-N_A}\sum_{k\in \overline A}y_k\text{,}\\ \sigma_A^2=\frac 1{N_A}\sum_{k\in A}(y_k-{\overline y}_A)^2\;\;\;\text{ e }\;\;\sigma_{\overline A}^2=\frac 1{N-N_A}\sum_{k\in {\overline A}}(y_k-{\overline y}_{\overline A})^2$$
 
 A variância do estimador do total pode ser estimada por:
 
@@ -294,7 +294,7 @@ $$
 \begin{align}\hspace{-1,0cm}
 {\widehat V}_{AIS}({\widehat Y}_{AIS/HT})&=N_A^2\left(1-\frac n{N_A}\right)\frac {\widehat S_A^2}n+\\&\;\;\;+\frac{(N_A+1)(N_A-n+1)}{{n(n+1)}}\left[\sum_{k\in s_{\overline A}}y^2_k+\frac1n\left(\sum_{k\in s_{\overline A}}y_k\right)^2\right]\end{align}(\#eq:eqinv10)
 $$
-onde: $$\widehat S^2_A=\displaystyle\frac{1}{n-1}\sum_{k \in s_A}(y_k-\overline y_A)^2\;\;\text{ e }\;\;\overline y_A=\displaystyle\frac{1}{n}\sum_{k \in s_A}y_k$$
+onde: $$\widehat S^2_A=\displaystyle\frac{1}{n-1}\sum_{k \in s_A}(y_k-\overline y_A)^2\;\;\text{ e }\;\;\;\overline y_A=\displaystyle\frac{1}{n}\sum_{k \in s_A}y_k$$
 
 O estimador da média populacional é obtido dividindo o estimador do total por $N$, enquanto a variância do estimador da média e o estimador desta variância são obtidos dividindo as respectivas expressões por $N^2$, como se segue.
 

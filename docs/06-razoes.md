@@ -142,7 +142,6 @@ $$
 \widehat{R} = \frac{ \sum_{i\in s} w_i y_i} {\sum_{i\in s} w_i x_i} = \frac{ \widehat{Y}_{HT} } {\widehat{X}_{HT}} (\#eq:eqraz3)
 $$
 
-
 **Notas:**
 
 1. Tanto o numerador como o denominador do estimador $\widehat{R}$ da razão $R$ podem variar com a amostra selecionada, $s$.    
@@ -337,7 +336,7 @@ A Tabela \@ref(tab:tabrazao2) apresenta os estimadores de uma razão e da respec
 </table>
 ---------
 Estimador                     
------------------------------------------
+---------------------------------------------
 $\widehat{R}=\displaystyle\frac{\sum_{i\in s} y_i} {\sum_{i\in s} x_i} = \frac{\overline{y}} {\overline{x}}$
                  
 $\widehat{V}_{AAS}(\widehat{R}) =\displaystyle\frac{1}{\overline{x}^2}\left(\frac{1}{n}-\frac{1}{N}\right)\frac{1}{n-1}\displaystyle\sum_{i\in s}\left(y_i-\widehat{R}x_i\right)^2$  
@@ -359,7 +358,7 @@ Considere a população de municípios brasileiros fornecida no arquivo 'MunicBR
 3.	Calcule o tamanho da amostra que seria necessário para a estimar densidade demográfica média por km<sup>2</sup> no Brasil com erro máximo de 10 Hab/km<sup>2</sup> com nível de confiança de 95%.
 4.	Selecione uma amostra do tamanho calculado em 3 e estime o parâmetro e sua margem de erro, considerando coeficiente de confiança de 95%.
 
-Solução dos itens 1. e 2. do (#exm:exmrazao2), usando R:  
+Solução dos itens 1 e 2 do (#exm:exmrazao2), usando R:  
 
 
 ```r
@@ -372,7 +371,7 @@ library(tidyverse)
 ```
 
 ```
-## -- Attaching packages ----------------------------------------------- tidyverse 1.3.0 --
+## -- Attaching packages ---------------------------------------------------------- tidyverse 1.3.0 --
 ```
 
 ```
@@ -383,7 +382,7 @@ library(tidyverse)
 ```
 
 ```
-## -- Conflicts -------------------------------------------------- tidyverse_conflicts() --
+## -- Conflicts ------------------------------------------------------------- tidyverse_conflicts() --
 ## x dplyr::filter() masks stats::filter()
 ## x dplyr::lag()    masks stats::lag()
 ```
@@ -533,7 +532,7 @@ munic_amo <- cbind(munic_amo, r_chapeu)
 ## 1                114.
 ```
 
-## Exercícios
+## Exercícios {#exerc6}
 
 **(#exr:exerazao1)** Identifique e defina duas razões que você já tenha utilizado em seu trabalho.
 

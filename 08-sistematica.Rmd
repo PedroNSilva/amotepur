@@ -630,7 +630,7 @@ Neste método a seleção é feita com equiprobabilidade e sem reposição, como
 
 Fica para o leitor verificar que os estimadores para a média e total são não viciados.
 
-## Exercícios
+## Exercícios {#exerc8}
 
 **(#exr:exrsis1)**  Identifique as outras 4 amostras possíveis referidas no Exemplo \@ref(exm:exmsis2). 
 

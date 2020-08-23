@@ -523,7 +523,7 @@ print(paste("Média populacional:", Ybar), quote=FALSE)
 options(OutDec=".")
 ```
 
-**(#exm:exmsis7)** Utilizando a mesma população, pode-se verificar que o estimador média amostral simples $(\overline y)$ para a média populacional de $y$ não coincide com o estimador $\overline y_{AS}$ e, além disso, é viciado.
+**(#exm:exmsis7)** Utilizando a mesma população, pode-se verificar que o estimador da  média amostral simples $(\overline y)$ para a média populacional de $y$ não coincide com o estimador $\overline y_{AS}$ e, além disso, é viciado.
 
 
 ```r
@@ -795,7 +795,7 @@ options(OutDec=".")
 
 Fica como exercício para o leitor verificar que o mesmo não ocorre quando se utiliza uma AAS ou AASC, pois nestes casos a ordenação dos valores de $y$ na população não tem influência na precisão das estimativas.
 
-**Notas**
+**Notas:**
 
 1. Como $r$ pode tomar apenas um valor, $V_{AS}(\widehat Y_{AS})$ não pode ser diretamente estimada a partir da amostra.    
 2. Em @Cochran1977 é apresentada uma boa discussão sobre como a ordenação dos valores da variável de pesquisa para unidades populacionais pode afetar a eficiência de amostras sistemáticas. Para uma definição de eficiência ver a Expressão \@ref(eq:eqdom24).   
@@ -895,7 +895,9 @@ Estimador
 ----------------------------------
 $\widehat{Y}_{AS}=Kt_r=K \displaystyle \sum_{r=1}^{K}I(r)t_r$
 
-$\displaystyle \overline {y}_{AS}=\frac KNt_r,\,\,\text{ se } N \text{ é conhecido }\\ \displaystyle  \overline{y}_{AS}= \frac {t_r}{n_r}=\overline y,\,\,\text{ se }N \text{ é desconhecido }$
+$\displaystyle \overline {y}_{AS}=\frac KNt_r,\,\,\text{ se } N \text{ é conhecido }$
+
+$\displaystyle  \overline{y}_{AS}= \frac {t_r}{n_r}=\overline y,\,\,\text{ se }N \text{ é desconhecido }$
 
 $\widehat V_{1AS} (\widehat Y_{AS}) = N^2\widehat V_{1AS} (\overline y_{AS}),\,\,\text{se}\, N\text{ é conhecido}$\
                                                                         $\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\text{e não houver ordenação das unidades na população}$                           $\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,$                                                                                                                                                                          $\widehat V_{2AS}(\widehat Y_{AS}) = N^2\widehat V_{2AS}(\overline y_{AS}),\,\,\text{se}\, N\text{ é conhecido}$
@@ -987,7 +989,7 @@ Neste método a seleção é feita com equiprobabilidade e sem reposição, como
 
 Fica para o leitor verificar que os estimadores para a média e total são não viciados.
 
-## Exercícios
+## Exercícios {#exerc8}
 
 **(#exr:exrsis1)**  Identifique as outras 4 amostras possíveis referidas no Exemplo \@ref(exm:exmsis2). 
 
@@ -1087,10 +1089,10 @@ Totais 410 459 674 551 325 528 303 358 342 205  4.155
   
 **(#exr:exrsis5)**  A administração do Parque da Tijuca precisou estimar o número médio de ocupantes nos carros que visitaram o parque num determinado dia. Para isso foi feita uma amostra, usando a seguinte estratégia: 
   
-  - Na hora da abertura da cabine de cobrança foi selecionado um número aleatório entre 1 e 10.  
-  - A partir do veículo com esse número, por ordem de chegada, foram contados os ocupantes de todos os décimos veículos.
+ - Na hora da abertura da cabine de cobrança foi selecionado um número aleatório entre 1 e 10.
+ - A partir do veículo com esse número, por ordem de chegada, foram contados os ocupantes de todos os décimos veículos.
     
-    No final do dia passaram pela cancela 105 veículos e os selecionados para a amostra tinham, por ordem de passagem, 3, 5, 7, 2, 3, 4, 5, 4, 4 e 2 ocupantes (incluindo o motorista).
+  No final do dia passaram pela cancela 105 veículos e os selecionados para a amostra tinham, por ordem de passagem, 3, 5, 7, 2, 3, 4, 5, 4, 4 e 2 ocupantes (incluindo o motorista).
 
   a) Defina qual o tipo de plano amostral utilizado e dê os seus parâmetros.
   b) Liste os números de ordem dos veículos pesquisados, sabendo que o número aleatório selecionado foi 8.

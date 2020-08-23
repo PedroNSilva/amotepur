@@ -196,7 +196,7 @@ A Tabela \@ref(tab:tabprop1) reúne os resultados principais da estimação de c
 </table>
 ----------
 Estimador                                                            
----------------------------------------------------
+-------------------------------------------
 $\displaystyle\widehat N_A= N\times n_A/n = N\times \widehat p$
 
 $\displaystyle\widehat{p}=\displaystyle n_A / n$
@@ -1066,7 +1066,7 @@ options(scipen=8)
 ## [1] 6358
 ```
 
-No caso de não existir nenhuma indicação sobre o valor de $p$, como no item $b$ do exemplo, deve-se tomar $n=7.275$, supondo $p=0,5$. Já no item $c$, deve-se optar pelo maior tamanho de amostra necessário para suprir as exigências de precisão. Neste caso, como a informação é que $p$ deve estar no intervalo [0,10; 0,30] deve-se selecionar uma amostra de $n=6.358$ domicílios. 
+No caso de não existir nenhuma indicação sobre o valor de $p$, como no item b do exemplo, deve-se tomar $n=7.275$, supondo $p=0,5$. Já no item c, deve-se optar pelo maior tamanho de amostra necessário para suprir as exigências de precisão. Neste caso, como a informação é que $p$ deve estar no intervalo [0,10; 0,30] deve-se selecionar uma amostra de $n=6.358$ domicílios. 
 
 Sugere-se que o leitor refaça o exercício com uma margem de erro diferente, $D=0,03$, por exemplo, e observe o que acontece com os valores de $n$ calculados.
 
@@ -1187,7 +1187,7 @@ $$
 Vale notar que em \@ref(eq:eqpro48) tanto o numerador como o denominador do estimador da proporção são variáveis aleatórias, pois a população (eleitores que efetivamente vão votar num dos candidatos) é desconhecida.
 
 
-## Exercícios 
+## Exercícios {#exerc5}
 
 **(#exr:exrprop1)** Uma pesquisa foi feita para estimar a proporção de domicílios de uma pequena vila que têm, pelo menos, um morador com 65 anos ou mais. A vila tem 651 domicílios dos quais foram pesquisados 60 e em 11 deles havia moradores com 65 anos ou mais.
 
