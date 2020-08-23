@@ -84,14 +84,14 @@ cat("<table>",paste0("<caption>", "(#tab:tabppt1)", "Informações das áreas de
 ----------
 </center>
 
-Caso os 3 números aleatórios sorteados de forma independente e com distribuição Uniforme entre 1 e 2.000 fossem 654, 1.230 e 1.555, então as fazendas selecionadas seriam as de números 2, 4 e 5. Caso os 3 números aleatórios entre 0 e 2.000 fossem 122, 754 e 1.980, então as fazendas 2 e 6 seriam as selecionadas, com a fazenda 2 sendo selecionada duas vezes.
+Caso os 3 números aleatórios sorteados de forma independente e com distribuição Uniforme entre 1 e 2.000 fossem 654, 1.230 e 1.555, então as fazendas selecionadas seriam as de números 2, 4 e 5. Caso os 3 números aleatórios entre 1 e 2.000 fossem 122, 754 e 1.980, então as fazendas 2 e 6 seriam as selecionadas, com a fazenda 2 sendo selecionada duas vezes.
 
 **(#exm:exmppt2)** Um exemplo de aplicação da amostragem PPT com reposição, no IBGE, é na seleção de municípios e setores que compuseram as amostras de primeiro e segundo estágios das PNADs de 2011 a 2015. Os municípios não autorrepresentativos passaram por um processo de estratificação e, em cada estrato, foram selecionados com reposição e com probabilidade proporcional à população residente obtida no Censo Demográfico 2010. Os setores censitários foram selecionados, em cada município da amostra, também com probabilidade proporcional e com reposição, sendo utilizado o número de unidades domiciliares existentes por ocasião do Censo Demográfico 2010 como medida de tamanho. Detalhes sobre o plano amostral da PNAD 2015 podem ser vistos em
 https://biblioteca.ibge.gov.br/visualizacao/livros/liv98887.pdf
 
 ### Estimação do total sob amostragem PPT com reposição
 
-Um estimador não viciado do total sob amostragem PPT com reposição é dado por: 
+Um estimador não viciado do total sob amostragem PPT com reposição - PPTC é dado por: 
 
 $$
 \widehat Y_{PPTC} = \frac{1}{n} \sum_{i \in s} \frac{f_i y_i}{p_i} \,\, (\#eq:eqppt4) 
