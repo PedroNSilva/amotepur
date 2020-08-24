@@ -107,7 +107,7 @@ for (i in 2:N){
 }
 # Selecionando n números aleatórios entre 1 e o tamanho total acumulado
 s=sample(1:lsup[N],n)
-# Marcando número de vezes que cada fazenda foi selecionada
+# Contando número de vezes que cada fazenda foi selecionada
 for (i in 1:n){
   for (j in 1:N){
     if((linf[j] <= s[i]) & (lsup[j]>=s[i])){
