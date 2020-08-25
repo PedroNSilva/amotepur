@@ -86,7 +86,7 @@ cat("<table>",paste0("<caption>", "(#tab:tabppt1)", "Informações das áreas de
 
 Caso os 3 números aleatórios sorteados de forma independente e com distribuição Uniforme entre 1 e 2.000 fossem 654, 1.230 e 1.555, então as fazendas selecionadas seriam as de números 2, 4 e 5. Caso os 3 números aleatórios entre 1 e 2.000 fossem 122, 754 e 1.980, então as fazendas 2 e 6 seriam as selecionadas, com a fazenda 2 sendo selecionada duas vezes.
 
-Pode-se programar no R o algoritmo apresentado ou utilizar a função *ppswr* do pacote *pps* que disponibiliza várias funçõs para seleção de amostras PPT de vários tipos.
+Pode-se programar no R o algoritmo apresentado ou utilizar a função *ppswr* do pacote *pps* que disponibiliza várias funções para seleção de amostras PPT de vários tipos.
 
 ```{r,echo=T}
 #Algoritmo de seleção PPT
@@ -428,8 +428,8 @@ e)  Compare os resultados das duas amostras com os valores verdadeiros e comente
 cat("<table>",paste0("<caption>", "(#tab:tabppt5)", "Dados populacionais das empresas", "</caption>"),"</table>", sep ="\n")
 ```
 ----------
- Empresa   Pessoal Ocupado   Receita
---------- ---------------- ---------
+ Empresa   Pessoal Ocupado           Receita
+--------- ---------------- -----------------
      1            250         8.000
 
      2            350        12.000
