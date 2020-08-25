@@ -84,14 +84,90 @@ Amostragem PPT com reposição é um método muito simples de implementar, mas q
 ----------
 </center>
 
-Caso os 3 números aleatórios sorteados de forma independente e com distribuição Uniforme entre 1 e 2.000 fossem 654, 1.230 e 1.555, então as fazendas selecionadas seriam as de números 2, 4 e 5. Caso os 3 números aleatórios entre 0 e 2.000 fossem 122, 754 e 1.980, então as fazendas 2 e 6 seriam as selecionadas, com a fazenda 2 sendo selecionada duas vezes.
+Caso os 3 números aleatórios sorteados de forma independente e com distribuição Uniforme entre 1 e 2.000 fossem 654, 1.230 e 1.555, então as fazendas selecionadas seriam as de números 2, 4 e 5. Caso os 3 números aleatórios entre 1 e 2.000 fossem 122, 754 e 1.980, então as fazendas 2 e 6 seriam as selecionadas, com a fazenda 2 sendo selecionada duas vezes.
+
+Pode-se programar no R o algoritmo apresentado ou utilizar a função *ppswr* do pacote *pps* que disponibiliza várias funçõs para seleção de amostras PPT de vários tipos.
+
+
+```r
+#Algoritmo de seleção PPT
+# Inicializando variáveis
+N=6
+n=3
+fazenda=c(1:N)
+area=c(50,1000,125,300,500,25)
+acum=linf=lsup=sel=NULL
+acum[1]=lsup[1]=area[1]
+linf[1]=1
+sel=c(0,0,0,0,0,0)
+# Criando intervalos de seleção
+for (i in 2:N){
+  acum[i]=acum[i-1]+area[i]
+  linf[i]=acum[i-1]+1
+  lsup[i]=acum[i]
+}
+# Selecionando n números aleatórios entre 1 e o tamanho total acumulado
+s=sample(1:lsup[N],n)
+# Contando número de vezes que cada fazenda foi selecionada
+for (i in 1:n){
+  for (j in 1:N){
+    if((linf[j] <= s[i]) & (lsup[j]>=s[i])){
+      sel[j]=sel[j]+1
+    }
+  }
+}
+# Juntando as informações numa tabela
+tabela=cbind(fazenda,area,acum,linf,lsup,sel)
+# Aleatórios selecionados
+s
+```
+
+```
+## [1] 1257 1764  848
+```
+
+```r
+# Tabela com os dados e marcação do número de vezes que cada fazenda foi selecionada
+tabela
+```
+
+```
+##      fazenda area acum linf lsup sel
+## [1,]       1   50   50    1   50   0
+## [2,]       2 1000 1050   51 1050   1
+## [3,]       3  125 1175 1051 1175   0
+## [4,]       4  300 1475 1176 1475   1
+## [5,]       5  500 1975 1476 1975   1
+## [6,]       6   25 2000 1976 2000   0
+```
+
+```r
+# Resolvendo o mesmo problema utilizando função de um pacote do R
+# Carregando o pacote pps, para seleção proporcional ao tamanho
+require(pps)
+```
+
+```
+## Carregando pacotes exigidos: pps
+```
+
+```r
+# Selecionando fazendas com a função de seleção proporcional ao tamanho com reposição
+fazendas_sel=ppswr(area,n)
+# Identificação das fazendas selecionadas
+fazendas_sel
+```
+
+```
+## [1] 2 2 5
+```
 
 **(#exm:exmppt2)** Um exemplo de aplicação da amostragem PPT com reposição, no IBGE, é na seleção de municípios e setores que compuseram as amostras de primeiro e segundo estágios das PNADs de 2011 a 2015. Os municípios não autorrepresentativos passaram por um processo de estratificação e, em cada estrato, foram selecionados com reposição e com probabilidade proporcional à população residente obtida no Censo Demográfico 2010. Os setores censitários foram selecionados, em cada município da amostra, também com probabilidade proporcional e com reposição, sendo utilizado o número de unidades domiciliares existentes por ocasião do Censo Demográfico 2010 como medida de tamanho. Detalhes sobre o plano amostral da PNAD 2015 podem ser vistos em
 https://biblioteca.ibge.gov.br/visualizacao/livros/liv98887.pdf
 
 ### Estimação do total sob amostragem PPT com reposição
 
-Um estimador não viciado do total sob amostragem PPT com reposição é dado por: 
+Um estimador não viciado do total sob amostragem PPT com reposição - PPTC é dado por: 
 
 $$
 \widehat Y_{PPTC} = \frac{1}{n} \sum_{i \in s} \frac{f_i y_i}{p_i} \,\, (\#eq:eqppt4) 

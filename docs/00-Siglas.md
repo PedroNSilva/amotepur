@@ -48,6 +48,8 @@ AP                Amostragem PPT de Pareto
 
 AS                Amostragem Sistemática Simples
 
+ASc               Amostra Sistemática circular
+
 ASP               Amostragem Sequencial de Poisson 
 
 B                 Vício 

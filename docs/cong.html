@@ -24,7 +24,6 @@
 <meta name="author" content="Pedro Luis do Nascimento Silva, Zélia Magalhães Bianchini e Antonio José Ribeiro Dias" />
 
 
-<meta name="date" content="2020-08-23" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -255,10 +254,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="9.2" data-path="omaeq.html"><a href="omaeq.html#inversa"><i class="fa fa-check"></i><b>9.2</b> Amostragem inversa simples</a><ul>
 <li class="chapter" data-level="9.2.1" data-path="omaeq.html"><a href="omaeq.html#método-de-seleção-da-amostra-inversa-simples"><i class="fa fa-check"></i><b>9.2.1</b> Método de seleção da amostra inversa simples</a></li>
 <li class="chapter" data-level="9.2.2" data-path="omaeq.html"><a href="omaeq.html#amostragem-inversa-simples-para-varredura-por-amostragem"><i class="fa fa-check"></i><b>9.2.2</b> Amostragem inversa simples para varredura por amostragem</a></li>
-<li class="chapter" data-level="9.2.3" data-path="omaeq.html"><a href="omaeq.html#estimação-da-média-e-total-na-amostragem-inversa-simples"><i class="fa fa-check"></i><b>9.2.3</b> Estimação da média e total na amostragem inversa simples</a></li>
-<li class="chapter" data-level="9.2.4" data-path="omaeq.html"><a href="omaeq.html#exemplos-de-aplicação-da-amostragem-inversa-simples"><i class="fa fa-check"></i><b>9.2.4</b> Exemplos de aplicação da amostragem inversa simples</a></li>
+<li class="chapter" data-level="9.2.3" data-path="omaeq.html"><a href="omaeq.html#estimação-de-horvitz-thompson-na-amostragem-inversa-simples"><i class="fa fa-check"></i><b>9.2.3</b> Estimação de Horvitz-Thompson na amostragem inversa simples</a></li>
+<li class="chapter" data-level="9.2.4" data-path="omaeq.html"><a href="omaeq.html#estimação-baseada-no-estimador-de-murthy-na-amostragem-inversa-simples"><i class="fa fa-check"></i><b>9.2.4</b> Estimação baseada no estimador de Murthy na amostragem inversa simples</a></li>
+<li class="chapter" data-level="9.2.5" data-path="omaeq.html"><a href="omaeq.html#exemplos-de-aplicação-da-amostragem-inversa-simples"><i class="fa fa-check"></i><b>9.2.5</b> Exemplos de aplicação da amostragem inversa simples</a></li>
 </ul></li>
-<li class="chapter" data-level="9.3" data-path="omaeq.html"><a href="omaeq.html#exercícios"><i class="fa fa-check"></i><b>9.3</b> Exercícios</a></li>
+<li class="chapter" data-level="9.3" data-path="omaeq.html"><a href="omaeq.html#exerc9"><i class="fa fa-check"></i><b>9.3</b> Exercícios</a></li>
 </ul></li>
 <li class="chapter" data-level="10" data-path="ppt.html"><a href="ppt.html"><i class="fa fa-check"></i><b>10</b> Amostragem com Probabilidades Proporcionais ao Tamanho</a><ul>
 <li class="chapter" data-level="10.1" data-path="ppt.html"><a href="ppt.html#motivação-para-amostragem-ppt"><i class="fa fa-check"></i><b>10.1</b> Motivação para amostragem PPT</a></li>
@@ -318,6 +318,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="12.10.1" data-path="cong.html"><a href="cong.html#ac2-com-aas-nos-2-estágios"><i class="fa fa-check"></i><b>12.10.1</b> AC2 com AAS nos 2 estágios</a></li>
 <li class="chapter" data-level="12.10.2" data-path="cong.html"><a href="cong.html#ac2-com-ppt-com-reposição-no-primeiro-estágio-e-aas-no-segundo-estágio"><i class="fa fa-check"></i><b>12.10.2</b> AC2 com PPT com reposição no primeiro estágio e AAS no segundo estágio</a></li>
 <li class="chapter" data-level="12.10.3" data-path="cong.html"><a href="cong.html#ac2-com-ppt-de-poisson-sequencial-no-primeiro-estágio-e-aas-no-segundo-estágio"><i class="fa fa-check"></i><b>12.10.3</b> AC2 com PPT de Poisson sequencial no primeiro estágio e AAS no segundo estágio</a></li>
+<li class="chapter" data-level="12.10.4" data-path="cong.html"><a href="cong.html#tamanho-de-amostra-a-amostragem-conglomerada-em-dois-estágios"><i class="fa fa-check"></i><b>12.10.4</b> Tamanho de amostra a amostragem conglomerada em dois estágios</a></li>
 </ul></li>
 <li class="chapter" data-level="12.11" data-path="cong.html"><a href="cong.html#ideias-básicas-na-escolha-de-unidades-compostas"><i class="fa fa-check"></i><b>12.11</b> Ideias básicas na escolha de unidades compostas</a></li>
 <li class="chapter" data-level="12.12" data-path="cong.html"><a href="cong.html#exerc12"><i class="fa fa-check"></i><b>12.12</b> Exercícios</a></li>
@@ -465,7 +466,7 @@ Figura 12.1: Ilustração da hierarquia com vários níveis (vários para um)
 <li>A variância de estimativas amostrais seja maior, dependendo do grau de homogeneidade das unidades agrupadas em conglomerados.</li>
 </ul>
 <p>Então verifica-se que a amostragem conglomerada impõe vantagens (menor custo) e desvantagens (menor precisão). Levando em conta os aspectos operacionais e a redução de custos que a amostragem conglomerada proporciona, em muitas situações práticas, a perda de eficiência amostral é mais que compensada por essa vantagem. Além disso, a redução de custos proporcionada pode permitir selecionar amostras maiores, compensando assim a perda de precisão em relação a amostras não conglomeradas.</p>
-<p>Uma aplicação importante de amostragem (conglomerada) de áreas se dá nas pesquisas domiciliares do IBGE, através da utilização da <em>Base Operacional Geográfica - BOG</em> que tem como suas menores áreas os setores censitários, conforme descrito em <a href="conceitos.html#cadIBGE">2.5.1</a>.</p>
+<p>Uma aplicação importante de amostragem (conglomerada) de áreas se dá nas pesquisas domiciliares do IBGE, através da utilização da <em>Base Operacional Geográfica - BOG</em> que tem como suas menores áreas os setores censitários, conforme descrito na Subseção <a href="conceitos.html#cadIBGE">2.5.1</a>.</p>
 </div>
 <div id="definições-básicas-e-notação" class="section level2">
 <h2><span class="header-section-number">12.3</span> Definições básicas e notação</h2>
@@ -473,12 +474,12 @@ Figura 12.1: Ilustração da hierarquia com vários níveis (vários para um)
 <p><span class="math display">\[
 U = C_1\cup C_2\cup \dots \cup C_M = \displaystyle \bigcup_{i=1}^{M}C_i \;\text{  e }\;C_i\cap C_k=\phi, \,\,i\ne k
 \]</span></p>
-<p>Aqui é necessário indexar as unidades populacionais dentro de cada conglomerado, e portanto, as unidades passam a ser identificadas por dois índices <span class="math inline">\(i,j\)</span>, onde <span class="math inline">\(i\)</span> designa o conglomerado e <span class="math inline">\(j\)</span> designa o rótulo da unidade dentro do conglomerado. Então <span class="math inline">\(C_i = \{ (i,1), (i,2), \dots, (i,j), \dots, (i,N_i) \}\)</span>, para <span class="math inline">\(i=1,2,...,M\)</span>, onde <span class="math inline">\(N_i\)</span> é o tamanho do conglomerado <span class="math inline">\(C_i\)</span>. Então <span class="math inline">\(N = N_1 + N_2 + \dots + N_M\)</span>, é o tamanho total da população.</p>
+<p>Aqui é necessário indexar as unidades populacionais dentro de cada conglomerado e, portanto, as unidades passam a ser identificadas por dois índices <span class="math inline">\(i,j\)</span>, onde <span class="math inline">\(i\)</span> designa o conglomerado e <span class="math inline">\(j\)</span> designa o rótulo da unidade dentro do conglomerado. Então <span class="math inline">\(C_i = \{ (i,1), (i,2), \dots, (i,j), \dots, (i,N_i) \}\)</span>, para <span class="math inline">\(i=1,2,...,M\)</span>, onde <span class="math inline">\(N_i\)</span> é o tamanho do conglomerado <span class="math inline">\(C_i\)</span>. Então <span class="math inline">\(N = N_1 + N_2 + \dots + N_M\)</span> é o tamanho total da população.</p>
 <p>Selecione uma amostra <span class="math inline">\(a=\{i_1,\dots,i_m\}\)</span> de tamanho <span class="math inline">\(m\,\, (m&gt;0)\)</span>, entre os rótulos de <span class="math inline">\(C = \{1, ..., M\}\)</span> para selecionar os conglomerados, segundo um plano amostral <span class="math inline">\(p(a)\)</span>.</p>
-<p>Observe que, de um ponto de vista matemático, a definição da particição da população em conglomerados apresentada é muito semelhante à definição da partição em estratos, vista no Capítulo <a href="estrat.html#estrat">11</a>. A diferença fundamental entre amostragem <em>estratificada</em> e <em>conglomerada</em> é que, na primeira, selecionamos diretamente amostras de unidades elementares dentro de cada um dos <span class="math inline">\(H\)</span> grupos (estratos) formados, enquanto que, na segunda, selecionamos uma amostra de grupos (conglomerados) entre os <span class="math inline">\(M\)</span> grupos formados, tratando então os grupos como unidades de amostragem, e investigando apenas unidades elementares dentro dos conglomerados selecionados.</p>
+<p>Observe que, de um ponto de vista matemático, a definição da partição da população em conglomerados apresentada é muito semelhante à definição da partição em estratos, vista no Capítulo <a href="estrat.html#estrat">11</a>. A diferença fundamental entre amostragem <em>estratificada</em> e <em>conglomerada</em> é que, na primeira, selecionamos diretamente amostras de unidades elementares dentro de cada um dos <span class="math inline">\(H\)</span> grupos (estratos) formados, enquanto que, na segunda, selecionamos uma amostra de grupos (conglomerados) entre os <span class="math inline">\(M\)</span> grupos formados, tratando então os grupos como unidades de amostragem, e investigamos unidades elementares, apenas, dentro dos conglomerados selecionados.</p>
 <p>Outra diferença importante se dá no processo da formação dos grupos. Para alcançar eficiência, quando estamos definindo grupos para servirem como estratos, o ideal é que estes sejam internamente homogêneos, cada um formado por unidades parecidas entre si. Já quando vamos usar os grupos como unidades de amostragem (conglomerados), então idealmente devem ser internamente heterogêneos, cada um formado por unidades que representem o melhor possível a diversidade da população. Em termos de variabilidade, uma boa estratificação é aquela onde a variância <em>dentro</em> dos estratos é pequena e a variância <em>entre</em> os estratos é grande, enquanto que na amostragem conglomerada busca-se o contrário, com a variância <em>dentro</em> dos conglomerados <em>grande</em> e a variância <em>entre</em> eles pequena.</p>
 <p><strong>Exemplo 12.1 </strong> Os setores censitários da Base Operacional Geográfica do IBGE</p>
-<p>Um exemplo que ilustra bem a diferenciação do papel que estruturas de grupos de unidades populacionais podem ter no planejamento amostral é dado pelos setores censitários da Base Operacional Geográfica do IBGE. Estes setores são formados por áreas delimitadas no mapa do território brasileiro, e podem ser vistos como grupos de domicílios e seus moradores. Na maioria das pesquisas amostrais do IBGE, tais como a PNAD Contínua - ver, por exemplo, <span class="citation">Freitas e Antonaci (2014)</span> - ou a POF - ver mais informações no link - <a href="https://www.ibge.gov.br/estatisticas/sociais/rendimento-despesa-e-consumo/9050-pesquisa-de-orcamentos-familiares.html?=&amp;t=conceitos-e-metodos" class="uri">https://www.ibge.gov.br/estatisticas/sociais/rendimento-despesa-e-consumo/9050-pesquisa-de-orcamentos-familiares.html?=&amp;t=conceitos-e-metodos</a> - os setores censitários são usados como conglomerados para seleção da amostra de domicílios e pessoas que serão alvo da pesquisa.</p>
+<p>Um exemplo que ilustra bem a diferenciação do papel que estruturas de grupos de unidades populacionais podem ter no planejamento amostral é dado pelos setores censitários da Base Operacional Geográfica do IBGE. Estes setores são formados por áreas delimitadas no mapa do território brasileiro e podem ser vistos como grupos de domicílios e seus moradores. Na maioria das pesquisas amostrais do IBGE, tais como a PNAD Contínua - ver, por exemplo, <span class="citation">Freitas e Antonaci (2014)</span> - ou a POF - ver mais informações no link - <a href="https://www.ibge.gov.br/estatisticas/sociais/rendimento-despesa-e-consumo/9050-pesquisa-de-orcamentos-familiares.html?=&amp;t=conceitos-e-metodos" class="uri">https://www.ibge.gov.br/estatisticas/sociais/rendimento-despesa-e-consumo/9050-pesquisa-de-orcamentos-familiares.html?=&amp;t=conceitos-e-metodos</a> - os setores censitários são usados como conglomerados para seleção da amostra de domicílios e pessoas que serão alvo da pesquisa.</p>
 <p>Essa mesma estrutura de grupos serve como estratos no caso da seleção de domicílios do Censo Demográfico que vão responder ao questionário mais longo, denominado de questionário da amostra. Nessa operação, em cada setor censitário, uma amostra de domicílios é selecionada dentro de cada um dos setores censitários, dando a eles então este papel de estratos, e não de conglomerados - ver <span class="citation">IBGE (2016a)</span> para detalhes.</p>
 </div>
 <div id="amostragem-conglomerada-em-um-estágio" class="section level2">
@@ -517,7 +518,7 @@ Figura 12.3: Ilustração da seleção de amostragem conglomerada em um estágio
 <h2><span class="header-section-number">12.5</span> Amostragem conglomerada em vários estágios</h2>
 <p>A <em>amostragem conglomerada em vários estágios</em> é caracterizada por unidades populacionais arranjadas em grupos conforme uma hierarquia, com seleção de grupos nos vários níveis da hierarquia até chegar às unidades elementares (de referência) da pesquisa que serão investigadas.</p>
 <p>Na amostragem conglomerada em três estágios, por exemplo, adota-se a seguinte terminologia, onde cada estágio da amostragem considera um tipo de unidade: Unidades Primárias de Amostragem - UPAs; Unidades Secundárias de Amostragem - USAs; e unidades elementares.</p>
-<p>Tal estratégia consiste no arranjo da população em UPAs, as quais são divididas em USAs, que contém as unidades elementares, formando os 3 estágios sucessivos.</p>
+<p>Tal estratégia consiste no arranjo da população em UPAs, as quais são divididas em USAs, que contêm as unidades elementares, formando os 3 estágios sucessivos.</p>
 <p>Para selecionar uma amostra de unidades elementares que serão investigadas, deve-se proceder da seguinte forma:</p>
 <ul>
 <li><strong>Estágio 1</strong>: selecionar uma amostra de UPAs.</li>
@@ -728,11 +729,11 @@ Figura 12.4: Ilustração da seleção de amostragem conglomerada em 2 estágios
 <td align="left"><span class="math inline">\(\displaystyle \overline y = t/n = \displaystyle \sum_{i \in a} Y_i \Big/ \displaystyle \sum_{i \in a} N_i\)</span></td>
 </tr>
 <tr class="odd">
-<td align="left">Probabilidade de inclusão dos conglomerados (qualquer um)</td>
+<td align="left">Probabilidade de inclusão de cada um dos conglomerados</td>
 <td align="left"><span class="math inline">\(m/M\)</span></td>
 </tr>
 <tr class="even">
-<td align="left">Probabilidade de inclusão das unidades elementares (todas)</td>
+<td align="left">Probabilidade de inclusão de cada uma das unidades elementares</td>
 <td align="left"><span class="math inline">\(m/M\)</span></td>
 </tr>
 </tbody>
@@ -1329,85 +1330,26 @@ V_{AC2PC} \left( \widehat Y_{AC2PC} \right) &amp; = &amp; V_1 \left[ E_2 \left( 
 \hspace{-0.5cm}\widehat V_{AC2PC} \left( \widehat Y_{AC2PC} \right) = \frac {1} {m(m-1)} \displaystyle \sum_{i \in a} f_i \left( \frac {\widehat Y_i} {p_i} - \widehat Y_{AC2PC} \right)^2 \tag{12.42} 
 \]</span></p>
 <p>O estimador da média populacional é obtido dividindo o estimador do total por <span class="math inline">\(N\)</span> e, o estimador da variância do estimador da média dividindo o estimador da variância do total por <span class="math inline">\(N^2\)</span>.</p>
-<div id="tamanho-de-amostra-de-ac2-com-ppt-com-reposição-no-primeiro-estágio-e-aas-no-segundo-estágio" class="section level4">
-<h4><span class="header-section-number">12.10.2.1</span> Tamanho de amostra de AC2 com PPT com reposição no primeiro estágio e AAS no segundo estágio</h4>
-<p>Tratamos agora da determinação do tamanho de amostra para o plano amostral AC2 com seleção PPT com reposição no primeiro estágio e seleção por AAS no segundo estágio - AC2PC. Considere que o número de unidades a serem investigadas no segundo estágio é constante para qualquer conglomerado (<span class="math inline">\(n_i=\overline n,\,\forall\, i\)</span>),</p>
-<p><em>Passo 1</em>: Determine o tamanho amostral requerido para estimar a média populacional <span class="math inline">\(\overline Y\)</span> por uma AAS com a margem de erro aceitável <span class="math inline">\(D\)</span> especificada de comum acordo com o cliente:</p>
-<p><span class="math display" id="eq:eqcong43">\[ 
-n_{AAS} = \frac {N z_{\alpha/2}^2 S_y^2} {N D^2 + z_{\alpha/2}^2 S_y^2} \,\,\tag{12.43} 
-\]</span></p>
-<p>Note que <span class="math inline">\(n_{AAS}\)</span> é solução da seguinte expressão:</p>
-<p><span class="math display" id="eq:eqcong44">\[
-V_{AAS} (\overline y) = \left( \frac {1} {n} - \frac {1} {N} \right) S_y^2 = \left( \frac {D} {z_{\alpha/2}} \right)^2 \,\,\tag{12.44} 
-\]</span></p>
-<p><em>Passo 2</em>: Note que, de acordo com <span class="citation">Silva e Moura (1990)</span>, página 31, se <span class="math inline">\(n_i=\overline n,\,\forall\, i\)</span> tem-se:</p>
-<p><span class="math display" id="eq:eqcong45">\[\hspace{-1.0cm}
-EPA(AC2PC; \, AAS) = \displaystyle \frac {V_{AC2PC} (\overline y_{AC2PC})} {V_{AAS} (\overline y)} \doteq 1 + (\overline n - 1) \rho_c \tag{12.45} 
-\]</span>
-onde: <span class="math inline">\(\rho_c\)</span> é uma medida de correlação intraclasse, no caso em que os conglomerados possuem tamanhos diferentes, dada por:</p>
-<p><span class="math display">\[\rho_c= 1-\frac{\displaystyle\sum_{i\in C}N_iS_i^2}{S_y^2(N-1)}\]</span>
-Da Expressão <a href="cong.html#eq:eqcong45">(12.45)</a> segue-se que:</p>
-<p><span class="math display">\[ 
-V_{AAS} (\overline y) = \frac{V_{AC2PC}(\overline y_{AC2PC})}{EPA(AC2PC; \, AAS)}
-\]</span></p>
-<p>Então pode-se escrever:</p>
-<p><span class="math display" id="eq:eqcong46">\[ 
-\displaystyle \frac {V_{AC2PC} (\overline y_{AC2PC})} {EPA(AC2PC; \, AAS)} = \left( \frac {1} {n} - \frac {1} {N} \right) S_y^2=\frac1n{S^2_y}-\frac1N{S^2_y}\,\, \tag{12.46} 
-\]</span></p>
-<p>Daí segue-se que:</p>
-<p><span class="math display">\[
-\frac 1 n S_y^2 = \displaystyle \frac {V_{AC2PC} (\overline y_{AC2PC})} {EPA(AC2PC; \, AAS)} +\frac {1} {N} S_y^2 \,\,\Longrightarrow 
-\]</span></p>
-<p><span class="math display">\[
-\frac 1 n  =  \displaystyle \frac {V_{AC2PC} (\overline y_{AC2PC})} { S_y^2EPA(AC2PC; \, AAS)} +\frac {1} {N} \,\,\Longrightarrow
-\]</span></p>
-<p><span class="math display" id="eq:eqcong47">\[
-n = \frac{ NS_y^2EPA(AC2PC; \, AAS)}{NV_{AC2PC} (\overline y_{AC2PC})+S_y^2EPA(AC2PC; \, AAS)}\tag{12.47}
-\]</span></p>
-<p>Mas deseja-se com o plano amostral AC2PC obter a mesma margem de erro admissível <span class="math inline">\(D\)</span> da AAS, logo segue que:</p>
-<p><span class="math display" id="eq:eqcong48">\[
-V_{AC2PC} (\overline y_{AC2PC}) = \left( \frac {D} {z_{\alpha/2}} \right)^2 \,\, \tag{12.48}
-\]</span></p>
-<p>Levando a Expressão <a href="cong.html#eq:eqcong48">(12.48)</a> na Expressão <a href="cong.html#eq:eqcong47">(12.47)</a>, segue-se que:</p>
-<p><span class="math display">\[
-n_{AC2PC} = \frac{NS_y^2EPA(AC2PC; \, AAS)} {N\left(\frac D{z_{\alpha/2}}\right)^2+S_y^2EPA(AC2PC; \, AAS)}
-\]</span></p>
-<p>Que leva à seguinte solução:</p>
-<p><span class="math display">\[
-n_{AC2PC} = \displaystyle \frac {EPA(AC2PC; \, AAS) N z_{\alpha/2}^2 S_y^2} {N D^2 + EPA(AC2PC; \, AAS) z_{\alpha/2}^2 S_y^2}\Longrightarrow 
-\]</span></p>
-<p><span class="math display">\[
-n_{AC2PC}\doteq \displaystyle \frac { N z_{\alpha/2}^2 S_y^2} {N D^2 + z_{\alpha/2}^2 S_y^2}EPA(AC2PC; \, AAS)
-\]</span></p>
-<p><span class="math display" id="eq:eqcong49">\[ 
-n_{AC2PC} \doteq n_{AAS}\, EPA(AC2PC; AAS) \,\, \tag{12.49}
-\]</span></p>
-<p>Ou alternativamente:</p>
-<p><span class="math display" id="eq:eqcong50">\[
-n_{AC2PC} \doteq n_{AAS} \,\, [1 + (\overline n - 1) \rho_c] \,\,\tag{12.50}
-\]</span></p>
-<p>A relação mostrada na Expressão <a href="cong.html#eq:eqcong49">(12.49)</a> pode ser utilizada como referência para determinação do tamanho desejado de amostra para outros planos que utilizem amostragem conglomerada.</p>
-</div>
 </div>
 <div id="ac2-com-ppt-de-poisson-sequencial-no-primeiro-estágio-e-aas-no-segundo-estágio" class="section level3">
 <h3><span class="header-section-number">12.10.3</span> AC2 com PPT de Poisson sequencial no primeiro estágio e AAS no segundo estágio</h3>
 <p>Este é um plano de <em>Amostragem Conglomerada com PPT Poisson Sequencial no primeiro estágio e AAS no segundo estágio - AC2PS</em>, com <span class="math inline">\(n_i\)</span> USAs nas UPAs selecionadas.</p>
 <p>Um estimador não viciado do total <span class="math inline">\(Y\)</span> sob o plano amostral AC2PS é dado por:</p>
 <p><span class="math display" id="eq:eqcong51">\[ 
-\widehat Y_{AC2PS} = \displaystyle \frac 1 m \sum_{i \in a} \frac {\widehat Y_i} {p_i} \,\, \tag{12.51} 
+\widehat Y_{AC2PS} = \displaystyle \frac 1 m \sum_{i \in a} \frac {\widehat Y_i} {p_i} \,\, \tag{12.43} 
 \]</span></p>
 <p>A variância de <span class="math inline">\(\widehat Y_{AC2PS}\)</span> é dada por:</p>
 <p><span class="math display" id="eq:eqcong52">\[
 \begin{eqnarray}\hspace{-1.8cm}
 V_{AC2PS} \left( \widehat Y_{AC2PS} \right) &amp; = &amp; V_1 \left[ E_2 \left( \widehat Y_{AC2PS} \right) \right] + E_1 \left[ V_2 \left( \widehat Y_{AC2PS} \right) \right] \\ &amp; = &amp; \frac {1} {m} \frac {M} {M-1} \displaystyle \sum_{i \in C} \left( \frac {Y_i} {p_i} - Y \right)^2 (1 - m p_i) p_i +\\&amp;&amp;+ \sum_{i \in C} \frac {1} {m p_i} N_i^2 \left( \frac {1} {n_i} - \frac {1} {N_i} \right) S_i^2 
-\end{eqnarray}\tag{12.52} 
+\end{eqnarray}\tag{12.44} 
 \]</span></p>
 <p>Um estimador da variância de <span class="math inline">\(\widehat Y_{AC2PS}\)</span> é dado por:</p>
 <p><span class="math display" id="eq:eqcong53">\[
 \begin{eqnarray}\hspace{-2.2cm}
 \widehat V_{AC2PS} \left( \widehat Y_{AC2PS} \right) &amp; = &amp;  \frac {1} {m} \frac {M} {M-1} \displaystyle \sum_{i \in a} \left( \frac {\widehat Y_i} {p_i} - \widehat Y_{AC2PS} \right)^2 (1 - m p_i) p_i+ \\ 
 &amp; &amp; + \displaystyle \sum_{i \in a} \frac {1} {m p_i} N_i^2 \left( \frac {1} {n_i} - \frac {1} {N_i} \right) \widehat S_i^2
-\end{eqnarray}\tag{12.53} 
+\end{eqnarray}\tag{12.45} 
 \]</span></p>
 <p>A Tabela <a href="cong.html#tab:tabcong7">12.7</a> apresenta um resumo de estimadores do total e respectivas variâncias sob os planos amostrais AC2S, AC2PC e AC2PS.</p>
 <table>
@@ -1448,6 +1390,66 @@ V_{AC2PS} \left( \widehat Y_{AC2PS} \right) &amp; = &amp; V_1 \left[ E_2 \left( 
 </table>
 </center>
 <p>Para obtenção dos estimadores da média populacional basta dividir os estimadores do total por <span class="math inline">\(N\)</span> e, para estimar a variância do estimador da média, dividir os estimadores da variância do total por <span class="math inline">\(N^2\)</span>.</p>
+</div>
+<div id="tamanho-de-amostra-a-amostragem-conglomerada-em-dois-estágios" class="section level3">
+<h3><span class="header-section-number">12.10.4</span> Tamanho de amostra a amostragem conglomerada em dois estágios</h3>
+<p>Nesta seção tratamos da determinação do tamanho de amostra para o plano amostral AC2 com seleção PPT com reposição no primeiro estágio e seleção por AAS no segundo estágio - AC2PC. O método aqui utilizado, no entanto, pode ser usado para a dedução do tamanho da amostra para outros planos em dois estágios.</p>
+<p>Considere que o número de unidades a serem investigadas no segundo estágio é constante para qualquer conglomerado com <span class="math inline">\(n_i=\overline n,\,\forall\, i\)</span>:</p>
+<p><em>Passo 1</em>: Determine o tamanho amostral requerido para estimar a média populacional <span class="math inline">\(\overline Y\)</span> por uma AAS com a margem de erro aceitável <span class="math inline">\(D\)</span> especificada de comum acordo com o cliente:</p>
+<p><span class="math display" id="eq:eqcong43">\[ 
+n_{AAS} = \frac {N z_{\alpha/2}^2 S_y^2} {N D^2 + z_{\alpha/2}^2 S_y^2} \,\,\tag{12.46} 
+\]</span></p>
+<p>Note que <span class="math inline">\(n_{AAS}\)</span> é solução da seguinte expressão:</p>
+<p><span class="math display" id="eq:eqcong44">\[
+V_{AAS} (\overline y) = \left( \frac {1} {n} - \frac {1} {N} \right) S_y^2 = \left( \frac {D} {z_{\alpha/2}} \right)^2 \,\,\tag{12.47} 
+\]</span></p>
+<p><em>Passo 2</em>: Note que, de acordo com <span class="citation">Silva e Moura (1990)</span>, página 31, se <span class="math inline">\(n_i=\overline n,\,\forall\, i\)</span> tem-se:</p>
+<p><span class="math display" id="eq:eqcong45">\[\hspace{-1.0cm}
+EPA(AC2PC; \, AAS) = \displaystyle \frac {V_{AC2PC} (\overline y_{AC2PC})} {V_{AAS} (\overline y)} \doteq 1 + (\overline n - 1) \rho_c \tag{12.48} 
+\]</span>
+onde: <span class="math inline">\(\rho_c\)</span> é uma medida de correlação intraclasse, no caso em que os conglomerados possuem tamanhos diferentes, dada por:</p>
+<p><span class="math display">\[\rho_c= 1-\frac{\displaystyle\sum_{i\in C}N_iS_i^2}{S_y^2(N-1)}\]</span>
+Da Expressão <a href="cong.html#eq:eqcong45">(12.48)</a> segue-se que:</p>
+<p><span class="math display">\[ 
+V_{AAS} (\overline y) = \frac{V_{AC2PC}(\overline y_{AC2PC})}{EPA(AC2PC; \, AAS)}
+\]</span></p>
+<p>Então pode-se escrever:</p>
+<p><span class="math display" id="eq:eqcong46">\[ 
+\displaystyle \frac {V_{AC2PC} (\overline y_{AC2PC})} {EPA(AC2PC; \, AAS)} = \left( \frac {1} {n} - \frac {1} {N} \right) S_y^2=\frac1n{S^2_y}-\frac1N{S^2_y}\,\, \tag{12.49} 
+\]</span></p>
+<p>Daí segue-se que:</p>
+<p><span class="math display">\[
+\frac 1 n S_y^2 = \displaystyle \frac {V_{AC2PC} (\overline y_{AC2PC})} {EPA(AC2PC; \, AAS)} +\frac {1} {N} S_y^2 \,\,\Longrightarrow 
+\]</span></p>
+<p><span class="math display">\[
+\frac 1 n  =  \displaystyle \frac {V_{AC2PC} (\overline y_{AC2PC})} { S_y^2EPA(AC2PC; \, AAS)} +\frac {1} {N} \,\,\Longrightarrow
+\]</span></p>
+<p><span class="math display" id="eq:eqcong47">\[
+n = \frac{ NS_y^2EPA(AC2PC; \, AAS)}{NV_{AC2PC} (\overline y_{AC2PC})+S_y^2EPA(AC2PC; \, AAS)}\tag{12.50}
+\]</span></p>
+<p>Mas deseja-se com o plano amostral AC2PC obter a mesma margem de erro admissível <span class="math inline">\(D\)</span> da AAS, logo segue que:</p>
+<p><span class="math display" id="eq:eqcong48">\[
+V_{AC2PC} (\overline y_{AC2PC}) = \left( \frac {D} {z_{\alpha/2}} \right)^2 \,\, \tag{12.51}
+\]</span></p>
+<p>Levando a Expressão <a href="cong.html#eq:eqcong48">(12.51)</a> na Expressão <a href="cong.html#eq:eqcong47">(12.50)</a>, segue-se que:</p>
+<p><span class="math display">\[
+n_{AC2PC} = \frac{NS_y^2EPA(AC2PC; \, AAS)} {N\left(\frac D{z_{\alpha/2}}\right)^2+S_y^2EPA(AC2PC; \, AAS)}
+\]</span></p>
+<p>Que leva à seguinte solução:</p>
+<p><span class="math display">\[
+n_{AC2PC} = \displaystyle \frac {EPA(AC2PC; \, AAS) N z_{\alpha/2}^2 S_y^2} {N D^2 + EPA(AC2PC; \, AAS) z_{\alpha/2}^2 S_y^2}\Longrightarrow 
+\]</span></p>
+<p><span class="math display">\[
+n_{AC2PC}\doteq \displaystyle \frac { N z_{\alpha/2}^2 S_y^2} {N D^2 + z_{\alpha/2}^2 S_y^2}EPA(AC2PC; \, AAS)
+\]</span></p>
+<p><span class="math display" id="eq:eqcong49">\[ 
+n_{AC2PC} \doteq n_{AAS}\, EPA(AC2PC; AAS) \,\, \tag{12.52}
+\]</span></p>
+<p>Ou alternativamente:</p>
+<p><span class="math display" id="eq:eqcong50">\[
+n_{AC2PC} \doteq n_{AAS} \,\, [1 + (\overline n - 1) \rho_c] \,\,\tag{12.53}
+\]</span></p>
+<p>A relação mostrada na Expressão <a href="cong.html#eq:eqcong49">(12.52)</a> pode ser utilizada como referência para determinação do tamanho desejado de amostra para outros planos que utilizem amostragem conglomerada.</p>
 </div>
 </div>
 <div id="ideias-básicas-na-escolha-de-unidades-compostas" class="section level2">

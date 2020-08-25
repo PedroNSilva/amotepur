@@ -24,7 +24,6 @@
 <meta name="author" content="Pedro Luis do Nascimento Silva, Zélia Magalhães Bianchini e Antonio José Ribeiro Dias" />
 
 
-<meta name="date" content="2020-08-23" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -255,10 +254,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="9.2" data-path="omaeq.html"><a href="omaeq.html#inversa"><i class="fa fa-check"></i><b>9.2</b> Amostragem inversa simples</a><ul>
 <li class="chapter" data-level="9.2.1" data-path="omaeq.html"><a href="omaeq.html#método-de-seleção-da-amostra-inversa-simples"><i class="fa fa-check"></i><b>9.2.1</b> Método de seleção da amostra inversa simples</a></li>
 <li class="chapter" data-level="9.2.2" data-path="omaeq.html"><a href="omaeq.html#amostragem-inversa-simples-para-varredura-por-amostragem"><i class="fa fa-check"></i><b>9.2.2</b> Amostragem inversa simples para varredura por amostragem</a></li>
-<li class="chapter" data-level="9.2.3" data-path="omaeq.html"><a href="omaeq.html#estimação-da-média-e-total-na-amostragem-inversa-simples"><i class="fa fa-check"></i><b>9.2.3</b> Estimação da média e total na amostragem inversa simples</a></li>
-<li class="chapter" data-level="9.2.4" data-path="omaeq.html"><a href="omaeq.html#exemplos-de-aplicação-da-amostragem-inversa-simples"><i class="fa fa-check"></i><b>9.2.4</b> Exemplos de aplicação da amostragem inversa simples</a></li>
+<li class="chapter" data-level="9.2.3" data-path="omaeq.html"><a href="omaeq.html#estimação-de-horvitz-thompson-na-amostragem-inversa-simples"><i class="fa fa-check"></i><b>9.2.3</b> Estimação de Horvitz-Thompson na amostragem inversa simples</a></li>
+<li class="chapter" data-level="9.2.4" data-path="omaeq.html"><a href="omaeq.html#estimação-baseada-no-estimador-de-murthy-na-amostragem-inversa-simples"><i class="fa fa-check"></i><b>9.2.4</b> Estimação baseada no estimador de Murthy na amostragem inversa simples</a></li>
+<li class="chapter" data-level="9.2.5" data-path="omaeq.html"><a href="omaeq.html#exemplos-de-aplicação-da-amostragem-inversa-simples"><i class="fa fa-check"></i><b>9.2.5</b> Exemplos de aplicação da amostragem inversa simples</a></li>
 </ul></li>
-<li class="chapter" data-level="9.3" data-path="omaeq.html"><a href="omaeq.html#exercícios"><i class="fa fa-check"></i><b>9.3</b> Exercícios</a></li>
+<li class="chapter" data-level="9.3" data-path="omaeq.html"><a href="omaeq.html#exerc9"><i class="fa fa-check"></i><b>9.3</b> Exercícios</a></li>
 </ul></li>
 <li class="chapter" data-level="10" data-path="ppt.html"><a href="ppt.html"><i class="fa fa-check"></i><b>10</b> Amostragem com Probabilidades Proporcionais ao Tamanho</a><ul>
 <li class="chapter" data-level="10.1" data-path="ppt.html"><a href="ppt.html#motivação-para-amostragem-ppt"><i class="fa fa-check"></i><b>10.1</b> Motivação para amostragem PPT</a></li>
@@ -318,6 +318,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="12.10.1" data-path="cong.html"><a href="cong.html#ac2-com-aas-nos-2-estágios"><i class="fa fa-check"></i><b>12.10.1</b> AC2 com AAS nos 2 estágios</a></li>
 <li class="chapter" data-level="12.10.2" data-path="cong.html"><a href="cong.html#ac2-com-ppt-com-reposição-no-primeiro-estágio-e-aas-no-segundo-estágio"><i class="fa fa-check"></i><b>12.10.2</b> AC2 com PPT com reposição no primeiro estágio e AAS no segundo estágio</a></li>
 <li class="chapter" data-level="12.10.3" data-path="cong.html"><a href="cong.html#ac2-com-ppt-de-poisson-sequencial-no-primeiro-estágio-e-aas-no-segundo-estágio"><i class="fa fa-check"></i><b>12.10.3</b> AC2 com PPT de Poisson sequencial no primeiro estágio e AAS no segundo estágio</a></li>
+<li class="chapter" data-level="12.10.4" data-path="cong.html"><a href="cong.html#tamanho-de-amostra-a-amostragem-conglomerada-em-dois-estágios"><i class="fa fa-check"></i><b>12.10.4</b> Tamanho de amostra a amostragem conglomerada em dois estágios</a></li>
 </ul></li>
 <li class="chapter" data-level="12.11" data-path="cong.html"><a href="cong.html#ideias-básicas-na-escolha-de-unidades-compostas"><i class="fa fa-check"></i><b>12.11</b> Ideias básicas na escolha de unidades compostas</a></li>
 <li class="chapter" data-level="12.12" data-path="cong.html"><a href="cong.html#exerc12"><i class="fa fa-check"></i><b>12.12</b> Exercícios</a></li>
@@ -466,334 +467,338 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <td align="left">Amostragem Sistemática Simples</td>
 </tr>
 <tr class="odd">
+<td align="left">ASc</td>
+<td align="left">Amostra Sistemática circular</td>
+</tr>
+<tr class="even">
 <td align="left">ASP</td>
 <td align="left">Amostragem Sequencial de Poisson</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">B</td>
 <td align="left">Vício</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">BASCULA</td>
 <td align="left">Survey Software desenvolvido pelo Statiscs Netherlands</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">BLAISE</td>
 <td align="left">Sistema desenvolvido pelo Statistics Netherlands (Computer assisted interviewing system and survey processing tool)</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">BOG</td>
 <td align="left">Base Operacional Geográfica</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">CAGED</td>
 <td align="left">Cadastro Geral de Empregados e Desempregados</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">CALJACK</td>
 <td align="left">Macro em SAS do Statistics Canada</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">CALMAR</td>
 <td align="left">Macro em SAS do INSEE</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">CAPI</td>
 <td align="left">Computer-Assisted Personal Interviewing</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">CASI</td>
 <td align="left">Computer-Assisted Self Interviewing</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">CATI</td>
 <td align="left">Computer-Assisted Telephone Interviewing</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">CEMPRE</td>
 <td align="left">Cadastro Central de Empresas</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">CNAE</td>
 <td align="left">Classificação Nacional de Atividades Econômicas</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">CNEFE</td>
 <td align="left">Cadastro Nacional de Endereços para Fins Estatísticos</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">CNPJ</td>
 <td align="left">Cadastro Nacional de Pessoa Jurídica</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">CORR</td>
 <td align="left">Correlação</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">COV</td>
 <td align="left">Covariância</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">CPF</td>
 <td align="left">Cadastro de Pessoas Físicas</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">CV</td>
 <td align="left">Coeficiente de Variação</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">D</td>
 <td align="left">Margem de Erro máxima admissível ou Precisão desejada</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">DP</td>
 <td align="left">Desvio Padrão</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">E</td>
 <td align="left">Valor Esperado</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">ECINF</td>
 <td align="left">Pesquisa de Economia Informal Urbana</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">EFR</td>
 <td align="left">Ensino Fundamental Regular</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">EIER</td>
 <td align="left">Employment Insurance Economic Regions (Canadá)</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">EM</td>
 <td align="left">Erro médio</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">ENCE</td>
 <td align="left">Escola Nacional de Ciências Estatísticas</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">ENV</td>
 <td align="left">Estimador Não Viciado</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">EPA</td>
 <td align="left">Efeito do Plano Amostral</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">EQM</td>
 <td align="left">Erro Quadrático Médio</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">ER</td>
 <td align="left">Economic Region (Canadá)</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">ERM</td>
 <td align="left">Erro Relativo Médio</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">FDCEP</td>
 <td align="left">Função de Distribuição Cumulativa Empírica Populacional</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">FPA</td>
 <td align="left">Fator de Plano Amostral</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">GES</td>
 <td align="left">Generalized Estimation System</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">GSBPM</td>
 <td align="left">Generic Statistical Business Process Model</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">GREG</td>
 <td align="left">Generalized Regression</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">HH</td>
 <td align="left">Hansen-Hurwitz</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">HT</td>
 <td align="left">Horvitz-Thompson</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">IBGE</td>
 <td align="left">Instituto Brasileiro de Geografia e Estatística</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">IC</td>
 <td align="left">Intervalo de Confiança</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">IID</td>
 <td align="left">Independentes e Identicamente Distribuídas</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">INSEE</td>
 <td align="left">Institut National de la Statistique et des Études Économiques - França</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">IQ</td>
 <td align="left">Indicador de Qualidade</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">LI</td>
 <td align="left">Limite Inferior</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">LS</td>
 <td align="left">Limite Superior</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">MASI</td>
 <td align="left">Mail Assisted Self Interviewing</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">ME</td>
 <td align="left">Margem de Erro</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">MEC</td>
 <td align="left">Ministério da Educação</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">MGPPE</td>
 <td align="left">Modelo Genérico do Processo de Produção Estatística</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">MQG</td>
 <td align="left">Mínimos Quadrados Generalizados</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">NIC.br</td>
 <td align="left">Núcleo de Informação e Coordenação do Ponto BR</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">P</td>
 <td align="left">Probabilidade</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">PAC</td>
 <td align="left">Pesquisa Anual do Comércio</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">PAIC</td>
 <td align="left">Pesquisa Anual da Indústria da Construção</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">PAPI</td>
 <td align="left">Paper-and-Pencil Interviewing</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">PAS</td>
 <td align="left">Pesquisa Anual de Serviços</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">PIA-Empresa</td>
 <td align="left">Pesquisa Anual da Indústria</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">PIM-PF</td>
 <td align="left">Pesquisa Industrial Mensal de Produção Física</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">PME</td>
 <td align="left">Pesquisa Mensal de Emprego</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">PMC</td>
 <td align="left">Pesquisa Mensal do Comércio</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">PMS</td>
 <td align="left">Pesquisa Mensal dos Serviços</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">PNAD</td>
 <td align="left">Pesquisa Nacional por Amostra de Domicílios</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">PNAD Contínua</td>
 <td align="left">Pesquisa Nacional por Amostra de Domicílios Contínua</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">PO</td>
 <td align="left">Amostragem PPT de Poisson</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">POF</td>
 <td align="left">Pesquisa de Orçamentos Familiares</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">PPT</td>
 <td align="left">Amostragem com Probabilidades Proporcionais ao Tamanho</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">PPTC</td>
 <td align="left">Amostragem PPT Com Reposição</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">RAIS</td>
 <td align="left">Relação Anual de Informações Sociais</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">RB</td>
 <td align="left">Vício em termos relativos</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">RC</td>
 <td align="left">Razão Combinada</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">RS</td>
 <td align="left">Razão Separada</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">SAEB</td>
 <td align="left">Sistema de Avaliação da Educação Básica</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">SAS</td>
 <td align="left">Statistical Analysis System</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">SIS</td>
 <td align="left">Amostragem sistemática com PPT</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">SYG</td>
 <td align="left">Sen-Yates-Grundy</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">TIC-Domicílios</td>
 <td align="left">Pesquisa sobre o uso das Tecnologias de Informação e Comunicação nos domicílios brasileiros</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">TIC-Empresas</td>
 <td align="left">Pesquisa sobre o uso das Tecnologias de Informação e Comunicação nas empresas brasileiras</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">UNECE</td>
 <td align="left">United Nations Economic Commission for Europe</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">UPA</td>
 <td align="left">Unidade Primária de Amostragem</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">UK-LFS</td>
 <td align="left">United Kingdom Labour Force Survey</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">USA</td>
 <td align="left">Unidade Secundária de Amostragem</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">V</td>
 <td align="left">Variância</td>
 </tr>

@@ -24,7 +24,6 @@
 <meta name="author" content="Pedro Luis do Nascimento Silva, Zélia Magalhães Bianchini e Antonio José Ribeiro Dias" />
 
 
-<meta name="date" content="2020-08-23" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -255,10 +254,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="9.2" data-path="omaeq.html"><a href="omaeq.html#inversa"><i class="fa fa-check"></i><b>9.2</b> Amostragem inversa simples</a><ul>
 <li class="chapter" data-level="9.2.1" data-path="omaeq.html"><a href="omaeq.html#método-de-seleção-da-amostra-inversa-simples"><i class="fa fa-check"></i><b>9.2.1</b> Método de seleção da amostra inversa simples</a></li>
 <li class="chapter" data-level="9.2.2" data-path="omaeq.html"><a href="omaeq.html#amostragem-inversa-simples-para-varredura-por-amostragem"><i class="fa fa-check"></i><b>9.2.2</b> Amostragem inversa simples para varredura por amostragem</a></li>
-<li class="chapter" data-level="9.2.3" data-path="omaeq.html"><a href="omaeq.html#estimação-da-média-e-total-na-amostragem-inversa-simples"><i class="fa fa-check"></i><b>9.2.3</b> Estimação da média e total na amostragem inversa simples</a></li>
-<li class="chapter" data-level="9.2.4" data-path="omaeq.html"><a href="omaeq.html#exemplos-de-aplicação-da-amostragem-inversa-simples"><i class="fa fa-check"></i><b>9.2.4</b> Exemplos de aplicação da amostragem inversa simples</a></li>
+<li class="chapter" data-level="9.2.3" data-path="omaeq.html"><a href="omaeq.html#estimação-de-horvitz-thompson-na-amostragem-inversa-simples"><i class="fa fa-check"></i><b>9.2.3</b> Estimação de Horvitz-Thompson na amostragem inversa simples</a></li>
+<li class="chapter" data-level="9.2.4" data-path="omaeq.html"><a href="omaeq.html#estimação-baseada-no-estimador-de-murthy-na-amostragem-inversa-simples"><i class="fa fa-check"></i><b>9.2.4</b> Estimação baseada no estimador de Murthy na amostragem inversa simples</a></li>
+<li class="chapter" data-level="9.2.5" data-path="omaeq.html"><a href="omaeq.html#exemplos-de-aplicação-da-amostragem-inversa-simples"><i class="fa fa-check"></i><b>9.2.5</b> Exemplos de aplicação da amostragem inversa simples</a></li>
 </ul></li>
-<li class="chapter" data-level="9.3" data-path="omaeq.html"><a href="omaeq.html#exercícios"><i class="fa fa-check"></i><b>9.3</b> Exercícios</a></li>
+<li class="chapter" data-level="9.3" data-path="omaeq.html"><a href="omaeq.html#exerc9"><i class="fa fa-check"></i><b>9.3</b> Exercícios</a></li>
 </ul></li>
 <li class="chapter" data-level="10" data-path="ppt.html"><a href="ppt.html"><i class="fa fa-check"></i><b>10</b> Amostragem com Probabilidades Proporcionais ao Tamanho</a><ul>
 <li class="chapter" data-level="10.1" data-path="ppt.html"><a href="ppt.html#motivação-para-amostragem-ppt"><i class="fa fa-check"></i><b>10.1</b> Motivação para amostragem PPT</a></li>
@@ -318,6 +318,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="12.10.1" data-path="cong.html"><a href="cong.html#ac2-com-aas-nos-2-estágios"><i class="fa fa-check"></i><b>12.10.1</b> AC2 com AAS nos 2 estágios</a></li>
 <li class="chapter" data-level="12.10.2" data-path="cong.html"><a href="cong.html#ac2-com-ppt-com-reposição-no-primeiro-estágio-e-aas-no-segundo-estágio"><i class="fa fa-check"></i><b>12.10.2</b> AC2 com PPT com reposição no primeiro estágio e AAS no segundo estágio</a></li>
 <li class="chapter" data-level="12.10.3" data-path="cong.html"><a href="cong.html#ac2-com-ppt-de-poisson-sequencial-no-primeiro-estágio-e-aas-no-segundo-estágio"><i class="fa fa-check"></i><b>12.10.3</b> AC2 com PPT de Poisson sequencial no primeiro estágio e AAS no segundo estágio</a></li>
+<li class="chapter" data-level="12.10.4" data-path="cong.html"><a href="cong.html#tamanho-de-amostra-a-amostragem-conglomerada-em-dois-estágios"><i class="fa fa-check"></i><b>12.10.4</b> Tamanho de amostra a amostragem conglomerada em dois estágios</a></li>
 </ul></li>
 <li class="chapter" data-level="12.11" data-path="cong.html"><a href="cong.html#ideias-básicas-na-escolha-de-unidades-compostas"><i class="fa fa-check"></i><b>12.11</b> Ideias básicas na escolha de unidades compostas</a></li>
 <li class="chapter" data-level="12.12" data-path="cong.html"><a href="cong.html#exerc12"><i class="fa fa-check"></i><b>12.12</b> Exercícios</a></li>
@@ -366,15 +367,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="header">
 <h1 class="title">Amostragem: Teoria e Prática Usando R</h1>
 <p class="author"><em>Pedro Luis do Nascimento Silva, Zélia Magalhães Bianchini e Antonio José Ribeiro Dias</em></p>
-<p class="date"><em>2020-08-23</em></p>
+<p class="date"><em>24 de agosto de 2020</em></p>
 </div>
 <div id="bem-vindo" class="section level1 unnumbered">
 <h1>Bem-vindo</h1>
 <p>Este é um livro escrito para apoiar a aprendizagem de <strong>Amostragem</strong>. Nosso objetivo principal é orientar um leitor no caminho para aprender os conceitos, as principais ideias e a usar as ferramentas de amostragem para resolver problemas.</p>
-<p>Nossa escolha de temas a incluir no livro foi guiada, em grande parte, por nossa experiência com a coleção de pesquisas por amostragem do IBGE, onde trabalhamos por vários anos. Também reflete nossa perspectiva quanto ao melhor caminho para aprender a trabalhar com <strong>Amostragem</strong>.</p>
-<p>Nossa abordagem não busca ser exaustiva e, por esse motivo, são poucas as provas que incluímos dos resultados aqui discutidos. Fizemos a escolha deliberada de não apresentar demonstrações da maioria dos resultados relacionados a valor esperado e variância de estimadores. Essas demonstrações podem intimidar e afastar alguns, e cremos que estão bem cobertas em diversos outros livros sobre o tema. Aos leitores interessados em verificar os resultados, recomendamos a consulta ao excelente livro de <span class="citation">Särndal, Swensson, e Wretman (1992)</span>, ou então às muitas referências incluídas ao longo do texto.</p>
-<p>Em contraste, escolhemos enfatizar a apresentação de exemplos e de ferramentas computacionais, algo que não tem cobertura tão ampla na literatura sobre Amostragem.</p>
-<p>O livro está organizado em treze capítulos, denominados a seguir:</p>
+<p>Nossa escolha de temas a incluir no livro foi guiada, em grande parte, por nossa experiência com a coleção de pesquisas por amostragem do IBGE, onde trabalhamos por vários anos, e nossa atuação como professores na graduação e na pós graduação da ENCE. Também reflete nossa perspectiva quanto ao melhor caminho para aprender a trabalhar com <strong>Amostragem</strong>.</p>
+<p>Nossa abordagem não busca ser exaustiva e, por esse motivo, são poucas as provas que incluímos dos resultados aqui discutidos. Fizemos a escolha deliberada de não apresentar demonstrações da maioria dos resultados relacionados a valor esperado e variância de estimadores. Essas demonstrações podem intimidar e afastar alguns e, além disso, cremos que estão bem cobertas em diversos outros livros sobre o tema. Aos leitores interessados em verificar os resultados, recomendamos a consulta ao excelente livro de <span class="citation">Särndal, Swensson, e Wretman (1992)</span> ou então às muitas referências incluídas ao longo do texto.</p>
+<p>Em contraste, escolhemos enfatizar a apresentação de exemplos e de ferramentas computacionais, algo que não tem cobertura tão ampla na literatura sobre <strong>Amostragem</strong>.</p>
+<p>O livro está organizado em treze capítulos, nominados a seguir:</p>
 <ol style="list-style-type: decimal">
 <li>Introdução</li>
 <li>Conceitos e Cadastros</li>
@@ -393,8 +394,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Amostragem Conglomerada</li>
 <li>Estimadores de Calibração</li>
 </ol>
-<p>Cada um dos capítulos é autocontido e vários deles podem ser omitidos num primeiro curso. Com exceção do capítulo <a href="calib.html#calib">13</a>, o material do livro pode ser coberto num curso com cerca de 45 horas de duração, como ministrado várias vezes na pós-graduação da ENCE. Caso necessário, algum(ns) dos capítulos <a href="proporc.html#proporc">5</a>, <a href="razao.html#razao">6</a> ou <a href="domin.html#domin">7</a> pode(m) ser suprimidos ou separados para estudo individual. Os capítulos <a href="AS.html#AS">8</a> e <a href="omaeq.html#omaeq">9</a> podem ser omitidos sem prejuízo da sequência. O conteúdo central do livro é formado por todos os capítulos não citados neste parágrafo. Tal conteúdo formaria, a nosso ver, o mínimo para cobertura num primeiro curso sobre <strong>Amostragem</strong>.</p>
-<p>Nossa opção ao escolher essa forma de publicação (livro em formato de hipertexto, hospedado na internet) se deve a dois fatores principais: primeiro, não pretendemos comercializar o livro, e sim torná-lo de acesso livre e aberto, como é a filosofia do software que usamos para sua elaboração e produção (R + RStudio + Github); segundo, essa forma de publicação permitirá atualizações mais rápidas e frequentes do conteúdo, o que favorece a correção de erros, revisões do texto, inclusão de exemplos ou tópicos novos etc. Esperamos que essa escolha não afaste os leitores que ainda gostam de livros em papel, como nós…</p>
+<p>Cada um dos capítulos é autocontido e vários deles podem ser omitidos num primeiro curso. Com exceção do Capítulo <a href="calib.html#calib">13</a>, o material do livro pode ser coberto num curso com cerca de 45 horas de duração, como ministrado várias vezes na pós-graduação da ENCE. Caso necessário, algum(ns) dos Capítulos <a href="proporc.html#proporc">5</a>, <a href="razao.html#razao">6</a> ou <a href="domin.html#domin">7</a> pode(m) ser suprimidos ou separados para estudo individual. Os Capítulos <a href="AS.html#AS">8</a> e <a href="omaeq.html#omaeq">9</a> podem ser omitidos sem prejuízo da sequência. O conteúdo central do livro é formado por todos os capítulos não citados neste parágrafo. Tal conteúdo formaria, a nosso ver, o mínimo para cobertura num primeiro curso, no nível de graduação, sobre <strong>Amostragem</strong>.</p>
+<p>Nossa opção ao escolher essa forma de publicação (livro em formato de hipertexto, hospedado na internet) se deve a dois fatores principais: primeiro, não pretendemos comercializar o livro e, sim, torná-lo de acesso livre e aberto, como é a filosofia do software que usamos para sua elaboração e produção (R + RStudio + Github); segundo, essa forma de publicação permitirá atualizações mais rápidas e frequentes do conteúdo, o que favorece a correção de erros, revisões do texto, inclusão de exemplos ou tópicos novos etc. Esperamos que essa escolha não afaste os leitores que ainda gostam de livros em papel, como nós…</p>
 <p>O leitor de qualquer livro precisa reconhecer que não é possível começar do zero: é preciso contar com conhecimento prévio de algumas ideias e conceitos básicos essenciais à compreensão do material tratado. Nossa abordagem pressupõe que o leitor está familiarizado com um curso básico de introdução à probabilidade e à inferência estatística, no nível tratado, por exemplo, em <span class="citation">Magalhães e Lima (2004)</span> e <span class="citation">Magalhães (2006)</span>.</p>
 </div>
             </section>

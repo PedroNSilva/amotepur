@@ -24,7 +24,6 @@
 <meta name="author" content="Pedro Luis do Nascimento Silva, Zélia Magalhães Bianchini e Antonio José Ribeiro Dias" />
 
 
-<meta name="date" content="2020-08-23" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -255,10 +254,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="9.2" data-path="omaeq.html"><a href="omaeq.html#inversa"><i class="fa fa-check"></i><b>9.2</b> Amostragem inversa simples</a><ul>
 <li class="chapter" data-level="9.2.1" data-path="omaeq.html"><a href="omaeq.html#método-de-seleção-da-amostra-inversa-simples"><i class="fa fa-check"></i><b>9.2.1</b> Método de seleção da amostra inversa simples</a></li>
 <li class="chapter" data-level="9.2.2" data-path="omaeq.html"><a href="omaeq.html#amostragem-inversa-simples-para-varredura-por-amostragem"><i class="fa fa-check"></i><b>9.2.2</b> Amostragem inversa simples para varredura por amostragem</a></li>
-<li class="chapter" data-level="9.2.3" data-path="omaeq.html"><a href="omaeq.html#estimação-da-média-e-total-na-amostragem-inversa-simples"><i class="fa fa-check"></i><b>9.2.3</b> Estimação da média e total na amostragem inversa simples</a></li>
-<li class="chapter" data-level="9.2.4" data-path="omaeq.html"><a href="omaeq.html#exemplos-de-aplicação-da-amostragem-inversa-simples"><i class="fa fa-check"></i><b>9.2.4</b> Exemplos de aplicação da amostragem inversa simples</a></li>
+<li class="chapter" data-level="9.2.3" data-path="omaeq.html"><a href="omaeq.html#estimação-de-horvitz-thompson-na-amostragem-inversa-simples"><i class="fa fa-check"></i><b>9.2.3</b> Estimação de Horvitz-Thompson na amostragem inversa simples</a></li>
+<li class="chapter" data-level="9.2.4" data-path="omaeq.html"><a href="omaeq.html#estimação-baseada-no-estimador-de-murthy-na-amostragem-inversa-simples"><i class="fa fa-check"></i><b>9.2.4</b> Estimação baseada no estimador de Murthy na amostragem inversa simples</a></li>
+<li class="chapter" data-level="9.2.5" data-path="omaeq.html"><a href="omaeq.html#exemplos-de-aplicação-da-amostragem-inversa-simples"><i class="fa fa-check"></i><b>9.2.5</b> Exemplos de aplicação da amostragem inversa simples</a></li>
 </ul></li>
-<li class="chapter" data-level="9.3" data-path="omaeq.html"><a href="omaeq.html#exercícios"><i class="fa fa-check"></i><b>9.3</b> Exercícios</a></li>
+<li class="chapter" data-level="9.3" data-path="omaeq.html"><a href="omaeq.html#exerc9"><i class="fa fa-check"></i><b>9.3</b> Exercícios</a></li>
 </ul></li>
 <li class="chapter" data-level="10" data-path="ppt.html"><a href="ppt.html"><i class="fa fa-check"></i><b>10</b> Amostragem com Probabilidades Proporcionais ao Tamanho</a><ul>
 <li class="chapter" data-level="10.1" data-path="ppt.html"><a href="ppt.html#motivação-para-amostragem-ppt"><i class="fa fa-check"></i><b>10.1</b> Motivação para amostragem PPT</a></li>
@@ -318,6 +318,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="12.10.1" data-path="cong.html"><a href="cong.html#ac2-com-aas-nos-2-estágios"><i class="fa fa-check"></i><b>12.10.1</b> AC2 com AAS nos 2 estágios</a></li>
 <li class="chapter" data-level="12.10.2" data-path="cong.html"><a href="cong.html#ac2-com-ppt-com-reposição-no-primeiro-estágio-e-aas-no-segundo-estágio"><i class="fa fa-check"></i><b>12.10.2</b> AC2 com PPT com reposição no primeiro estágio e AAS no segundo estágio</a></li>
 <li class="chapter" data-level="12.10.3" data-path="cong.html"><a href="cong.html#ac2-com-ppt-de-poisson-sequencial-no-primeiro-estágio-e-aas-no-segundo-estágio"><i class="fa fa-check"></i><b>12.10.3</b> AC2 com PPT de Poisson sequencial no primeiro estágio e AAS no segundo estágio</a></li>
+<li class="chapter" data-level="12.10.4" data-path="cong.html"><a href="cong.html#tamanho-de-amostra-a-amostragem-conglomerada-em-dois-estágios"><i class="fa fa-check"></i><b>12.10.4</b> Tamanho de amostra a amostragem conglomerada em dois estágios</a></li>
 </ul></li>
 <li class="chapter" data-level="12.11" data-path="cong.html"><a href="cong.html#ideias-básicas-na-escolha-de-unidades-compostas"><i class="fa fa-check"></i><b>12.11</b> Ideias básicas na escolha de unidades compostas</a></li>
 <li class="chapter" data-level="12.12" data-path="cong.html"><a href="cong.html#exerc12"><i class="fa fa-check"></i><b>12.12</b> Exercícios</a></li>
@@ -480,12 +481,62 @@ Verifica-se então que, para amostras extraídas com probabilidades de inclusão
 </tbody>
 </table>
 </center>
-<p>Caso os 3 números aleatórios sorteados de forma independente e com distribuição Uniforme entre 1 e 2.000 fossem 654, 1.230 e 1.555, então as fazendas selecionadas seriam as de números 2, 4 e 5. Caso os 3 números aleatórios entre 0 e 2.000 fossem 122, 754 e 1.980, então as fazendas 2 e 6 seriam as selecionadas, com a fazenda 2 sendo selecionada duas vezes.</p>
+<p>Caso os 3 números aleatórios sorteados de forma independente e com distribuição Uniforme entre 1 e 2.000 fossem 654, 1.230 e 1.555, então as fazendas selecionadas seriam as de números 2, 4 e 5. Caso os 3 números aleatórios entre 1 e 2.000 fossem 122, 754 e 1.980, então as fazendas 2 e 6 seriam as selecionadas, com a fazenda 2 sendo selecionada duas vezes.</p>
+<p>Pode-se programar no R o algoritmo apresentado ou utilizar a função <em>ppswr</em> do pacote <em>pps</em> que disponibiliza várias funçõs para seleção de amostras PPT de vários tipos.</p>
+<div class="sourceCode" id="cb325"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb325-1"><a href="ppt.html#cb325-1"></a><span class="co">#Algoritmo de seleção PPT</span></span>
+<span id="cb325-2"><a href="ppt.html#cb325-2"></a><span class="co"># Inicializando variáveis</span></span>
+<span id="cb325-3"><a href="ppt.html#cb325-3"></a>N=<span class="dv">6</span></span>
+<span id="cb325-4"><a href="ppt.html#cb325-4"></a>n=<span class="dv">3</span></span>
+<span id="cb325-5"><a href="ppt.html#cb325-5"></a>fazenda=<span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span>N)</span>
+<span id="cb325-6"><a href="ppt.html#cb325-6"></a>area=<span class="kw">c</span>(<span class="dv">50</span>,<span class="dv">1000</span>,<span class="dv">125</span>,<span class="dv">300</span>,<span class="dv">500</span>,<span class="dv">25</span>)</span>
+<span id="cb325-7"><a href="ppt.html#cb325-7"></a>acum=linf=lsup=sel=<span class="ot">NULL</span></span>
+<span id="cb325-8"><a href="ppt.html#cb325-8"></a>acum[<span class="dv">1</span>]=lsup[<span class="dv">1</span>]=area[<span class="dv">1</span>]</span>
+<span id="cb325-9"><a href="ppt.html#cb325-9"></a>linf[<span class="dv">1</span>]=<span class="dv">1</span></span>
+<span id="cb325-10"><a href="ppt.html#cb325-10"></a>sel=<span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>)</span>
+<span id="cb325-11"><a href="ppt.html#cb325-11"></a><span class="co"># Criando intervalos de seleção</span></span>
+<span id="cb325-12"><a href="ppt.html#cb325-12"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">2</span><span class="op">:</span>N){</span>
+<span id="cb325-13"><a href="ppt.html#cb325-13"></a>  acum[i]=acum[i<span class="dv">-1</span>]<span class="op">+</span>area[i]</span>
+<span id="cb325-14"><a href="ppt.html#cb325-14"></a>  linf[i]=acum[i<span class="dv">-1</span>]<span class="op">+</span><span class="dv">1</span></span>
+<span id="cb325-15"><a href="ppt.html#cb325-15"></a>  lsup[i]=acum[i]</span>
+<span id="cb325-16"><a href="ppt.html#cb325-16"></a>}</span>
+<span id="cb325-17"><a href="ppt.html#cb325-17"></a><span class="co"># Selecionando n números aleatórios entre 1 e o tamanho total acumulado</span></span>
+<span id="cb325-18"><a href="ppt.html#cb325-18"></a>s=<span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span>lsup[N],n)</span>
+<span id="cb325-19"><a href="ppt.html#cb325-19"></a><span class="co"># Contando número de vezes que cada fazenda foi selecionada</span></span>
+<span id="cb325-20"><a href="ppt.html#cb325-20"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span>n){</span>
+<span id="cb325-21"><a href="ppt.html#cb325-21"></a>  <span class="cf">for</span> (j <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span>N){</span>
+<span id="cb325-22"><a href="ppt.html#cb325-22"></a>    <span class="cf">if</span>((linf[j] <span class="op">&lt;=</span><span class="st"> </span>s[i]) <span class="op">&amp;</span><span class="st"> </span>(lsup[j]<span class="op">&gt;=</span>s[i])){</span>
+<span id="cb325-23"><a href="ppt.html#cb325-23"></a>      sel[j]=sel[j]<span class="op">+</span><span class="dv">1</span></span>
+<span id="cb325-24"><a href="ppt.html#cb325-24"></a>    }</span>
+<span id="cb325-25"><a href="ppt.html#cb325-25"></a>  }</span>
+<span id="cb325-26"><a href="ppt.html#cb325-26"></a>}</span>
+<span id="cb325-27"><a href="ppt.html#cb325-27"></a><span class="co"># Juntando as informações numa tabela</span></span>
+<span id="cb325-28"><a href="ppt.html#cb325-28"></a>tabela=<span class="kw">cbind</span>(fazenda,area,acum,linf,lsup,sel)</span>
+<span id="cb325-29"><a href="ppt.html#cb325-29"></a><span class="co"># Aleatórios selecionados</span></span>
+<span id="cb325-30"><a href="ppt.html#cb325-30"></a>s</span></code></pre></div>
+<pre><code>## [1] 1257 1764  848</code></pre>
+<div class="sourceCode" id="cb327"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb327-1"><a href="ppt.html#cb327-1"></a><span class="co"># Tabela com os dados e marcação do número de vezes que cada fazenda foi selecionada</span></span>
+<span id="cb327-2"><a href="ppt.html#cb327-2"></a>tabela</span></code></pre></div>
+<pre><code>##      fazenda area acum linf lsup sel
+## [1,]       1   50   50    1   50   0
+## [2,]       2 1000 1050   51 1050   1
+## [3,]       3  125 1175 1051 1175   0
+## [4,]       4  300 1475 1176 1475   1
+## [5,]       5  500 1975 1476 1975   1
+## [6,]       6   25 2000 1976 2000   0</code></pre>
+<div class="sourceCode" id="cb329"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb329-1"><a href="ppt.html#cb329-1"></a><span class="co"># Resolvendo o mesmo problema utilizando função de um pacote do R</span></span>
+<span id="cb329-2"><a href="ppt.html#cb329-2"></a><span class="co"># Carregando o pacote pps, para seleção proporcional ao tamanho</span></span>
+<span id="cb329-3"><a href="ppt.html#cb329-3"></a><span class="kw">require</span>(pps)</span></code></pre></div>
+<pre><code>## Carregando pacotes exigidos: pps</code></pre>
+<div class="sourceCode" id="cb331"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb331-1"><a href="ppt.html#cb331-1"></a><span class="co"># Selecionando fazendas com a função de seleção proporcional ao tamanho com reposição</span></span>
+<span id="cb331-2"><a href="ppt.html#cb331-2"></a>fazendas_sel=<span class="kw">ppswr</span>(area,n)</span>
+<span id="cb331-3"><a href="ppt.html#cb331-3"></a><span class="co"># Identificação das fazendas selecionadas</span></span>
+<span id="cb331-4"><a href="ppt.html#cb331-4"></a>fazendas_sel</span></code></pre></div>
+<pre><code>## [1] 2 2 5</code></pre>
 <p><strong>Exemplo 10.2 </strong> Um exemplo de aplicação da amostragem PPT com reposição, no IBGE, é na seleção de municípios e setores que compuseram as amostras de primeiro e segundo estágios das PNADs de 2011 a 2015. Os municípios não autorrepresentativos passaram por um processo de estratificação e, em cada estrato, foram selecionados com reposição e com probabilidade proporcional à população residente obtida no Censo Demográfico 2010. Os setores censitários foram selecionados, em cada município da amostra, também com probabilidade proporcional e com reposição, sendo utilizado o número de unidades domiciliares existentes por ocasião do Censo Demográfico 2010 como medida de tamanho. Detalhes sobre o plano amostral da PNAD 2015 podem ser vistos em
 <a href="https://biblioteca.ibge.gov.br/visualizacao/livros/liv98887.pdf" class="uri">https://biblioteca.ibge.gov.br/visualizacao/livros/liv98887.pdf</a></p>
 <div id="estimação-do-total-sob-amostragem-ppt-com-reposição" class="section level3">
 <h3><span class="header-section-number">10.3.1</span> Estimação do total sob amostragem PPT com reposição</h3>
-<p>Um estimador não viciado do total sob amostragem PPT com reposição é dado por:</p>
+<p>Um estimador não viciado do total sob amostragem PPT com reposição - PPTC é dado por:</p>
 <p><span class="math display" id="eq:eqppt4">\[
 \widehat Y_{PPTC} = \frac{1}{n} \sum_{i \in s} \frac{f_i y_i}{p_i} \,\, \tag{10.4} 
 \]</span></p>

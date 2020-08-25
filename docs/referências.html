@@ -24,7 +24,6 @@
 <meta name="author" content="Pedro Luis do Nascimento Silva, Zélia Magalhães Bianchini e Antonio José Ribeiro Dias" />
 
 
-<meta name="date" content="2020-08-23" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -255,10 +254,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="9.2" data-path="omaeq.html"><a href="omaeq.html#inversa"><i class="fa fa-check"></i><b>9.2</b> Amostragem inversa simples</a><ul>
 <li class="chapter" data-level="9.2.1" data-path="omaeq.html"><a href="omaeq.html#método-de-seleção-da-amostra-inversa-simples"><i class="fa fa-check"></i><b>9.2.1</b> Método de seleção da amostra inversa simples</a></li>
 <li class="chapter" data-level="9.2.2" data-path="omaeq.html"><a href="omaeq.html#amostragem-inversa-simples-para-varredura-por-amostragem"><i class="fa fa-check"></i><b>9.2.2</b> Amostragem inversa simples para varredura por amostragem</a></li>
-<li class="chapter" data-level="9.2.3" data-path="omaeq.html"><a href="omaeq.html#estimação-da-média-e-total-na-amostragem-inversa-simples"><i class="fa fa-check"></i><b>9.2.3</b> Estimação da média e total na amostragem inversa simples</a></li>
-<li class="chapter" data-level="9.2.4" data-path="omaeq.html"><a href="omaeq.html#exemplos-de-aplicação-da-amostragem-inversa-simples"><i class="fa fa-check"></i><b>9.2.4</b> Exemplos de aplicação da amostragem inversa simples</a></li>
+<li class="chapter" data-level="9.2.3" data-path="omaeq.html"><a href="omaeq.html#estimação-de-horvitz-thompson-na-amostragem-inversa-simples"><i class="fa fa-check"></i><b>9.2.3</b> Estimação de Horvitz-Thompson na amostragem inversa simples</a></li>
+<li class="chapter" data-level="9.2.4" data-path="omaeq.html"><a href="omaeq.html#estimação-baseada-no-estimador-de-murthy-na-amostragem-inversa-simples"><i class="fa fa-check"></i><b>9.2.4</b> Estimação baseada no estimador de Murthy na amostragem inversa simples</a></li>
+<li class="chapter" data-level="9.2.5" data-path="omaeq.html"><a href="omaeq.html#exemplos-de-aplicação-da-amostragem-inversa-simples"><i class="fa fa-check"></i><b>9.2.5</b> Exemplos de aplicação da amostragem inversa simples</a></li>
 </ul></li>
-<li class="chapter" data-level="9.3" data-path="omaeq.html"><a href="omaeq.html#exercícios"><i class="fa fa-check"></i><b>9.3</b> Exercícios</a></li>
+<li class="chapter" data-level="9.3" data-path="omaeq.html"><a href="omaeq.html#exerc9"><i class="fa fa-check"></i><b>9.3</b> Exercícios</a></li>
 </ul></li>
 <li class="chapter" data-level="10" data-path="ppt.html"><a href="ppt.html"><i class="fa fa-check"></i><b>10</b> Amostragem com Probabilidades Proporcionais ao Tamanho</a><ul>
 <li class="chapter" data-level="10.1" data-path="ppt.html"><a href="ppt.html#motivação-para-amostragem-ppt"><i class="fa fa-check"></i><b>10.1</b> Motivação para amostragem PPT</a></li>
@@ -318,6 +318,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="12.10.1" data-path="cong.html"><a href="cong.html#ac2-com-aas-nos-2-estágios"><i class="fa fa-check"></i><b>12.10.1</b> AC2 com AAS nos 2 estágios</a></li>
 <li class="chapter" data-level="12.10.2" data-path="cong.html"><a href="cong.html#ac2-com-ppt-com-reposição-no-primeiro-estágio-e-aas-no-segundo-estágio"><i class="fa fa-check"></i><b>12.10.2</b> AC2 com PPT com reposição no primeiro estágio e AAS no segundo estágio</a></li>
 <li class="chapter" data-level="12.10.3" data-path="cong.html"><a href="cong.html#ac2-com-ppt-de-poisson-sequencial-no-primeiro-estágio-e-aas-no-segundo-estágio"><i class="fa fa-check"></i><b>12.10.3</b> AC2 com PPT de Poisson sequencial no primeiro estágio e AAS no segundo estágio</a></li>
+<li class="chapter" data-level="12.10.4" data-path="cong.html"><a href="cong.html#tamanho-de-amostra-a-amostragem-conglomerada-em-dois-estágios"><i class="fa fa-check"></i><b>12.10.4</b> Tamanho de amostra a amostragem conglomerada em dois estágios</a></li>
 </ul></li>
 <li class="chapter" data-level="12.11" data-path="cong.html"><a href="cong.html#ideias-básicas-na-escolha-de-unidades-compostas"><i class="fa fa-check"></i><b>12.11</b> Ideias básicas na escolha de unidades compostas</a></li>
 <li class="chapter" data-level="12.12" data-path="cong.html"><a href="cong.html#exerc12"><i class="fa fa-check"></i><b>12.12</b> Exercícios</a></li>
@@ -470,7 +471,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Hansen, Morris H., e William N. Hurwitz. 1943. “On the theory of sampling from finite populations”. <em>Annals of Mathematical Statistics</em> 14: 333–62.</p>
 </div>
 <div>
-<p>Hájek, Jaroslav. 1960. “Limiting distributions in simple random sampling from a finite population”. <em>Publ. Math. Inst. Hung. Acad. Sci.</em> 5: 361–74.</p>
+<p>Hàjek, Jaroslav. 1960. “Limiting distributions in simple random sampling from a finite population”. <em>Publ. Math. Inst. Hung. Acad. Sci.</em> 5: 361–74.</p>
 </div>
 <div>
 <p>Hedlin, Dan, Hannah Falvey, Ray L Chambers, e Phillip Kokic. 2001. “Does the model matter for GREG estimation? A business survey example”. <em>Journal of Official Statistics</em> 17 (4): 527–44.</p>
@@ -518,7 +519,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>———. 2020. <em>Pesquisa Nacional por Amostra de Domicílios Contínua - Notas técnicas - Versão 1.7</em>. Rio de Janeiro, Brazil: Instituto Brasileiro de Geografia e Estatística.</p>
 </div>
 <div>
-<p>Jordao, L. J. P, P. H. R; Veloso. 2012. “Estimadores de Murthy e Horvitz-Thompson e suas aplicacoes em amostragem inversa simples”. Escola Nacional de Ciencias Estatisticas- ENCE.</p>
+<p>Jordão, P. H. R, e L. J. P Veloso. 2012. “Estimadores de Murthy e Horvitz-Thompson e suas aplicacoes em amostragem inversa simples”. Escola Nacional de Ciencias Estatisticas- ENCE.</p>
 </div>
 <div>
 <p>Kish, Leslie. 1965. <em>Survey Sampling</em>. John Wiley &amp; Sons.</p>
@@ -560,6 +561,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Ohlsson, E. 1998. “Sequential Poisson Sampling”. <em>Journal of Official Statistics</em> 14 (2): 149–62.</p>
 </div>
 <div>
+<p>ONS. 2001. “Labour Force Survey - User Guide - Volume 1: Background and Methodology”. London: Office for National Statistics.</p>
+</div>
+<div>
 <p>Raj, D. 1956. “Some Estimators in Sampling with Varying Probabilities without Replacement”. <em>Journal of the American Statistical Association</em> 51 (274): 269–84.</p>
 </div>
 <div>
@@ -578,9 +582,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Salehi, M M, e G A F Seber. 2001. “A New Proof of Murthy s Estimator which Applies to Sequential Sampling”. <em>The Australian and New Zealand Journal of Statistics</em> 43 (3): 281–86.</p>
 </div>
 <div>
-<p>Sarndal, Carl Erik, e Sixten Lundström. 2010. “Design for estimation: Identifying auxiliary vectors to reduce nonresponse bias”. <em>Survey Methodology</em> 36 (2): 131–44.</p>
-</div>
-<div>
 <p>Sautory, Olivier. 2003. “CALMAR 2: A new version of the CALMAR calibration adjustment program”. In <em>Symposium 2003: Challenges in Survey Taking for the Next Decade</em>, organizado por Statistics Canada. Ottawa, Canada: Statistics Canada.</p>
 </div>
 <div>
@@ -591,6 +592,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div>
 <p>———. 2008. “Assessing auxiliary vectors for control of nonresponse bias in the calibration estimator”. <em>Journal of official statistics</em> 24 (2): 167–91.</p>
+</div>
+<div>
+<p>Särndal, Carl Erik, e Sixten Lundström. 2010. “Design for estimation: Identifying auxiliary vectors to reduce nonresponse bias”. <em>Survey Methodology</em> 36 (2): 131–44.</p>
 </div>
 <div>
 <p>Särndal, Carl-Erik, Bengt Swensson, e Jan Wretman. 1992. <em>Model Assisted Survey Sampling</em>. New York: Springer-Verlag.</p>
@@ -624,9 +628,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div>
 <p>Skinner, Chris. 1999. “Calibration Weighting And Non-Sampling Errors”. <em>Research in Official Statistics</em> 2: 33–43. <a href="http://eprints.soton.ac.uk/34683/1/013s.pdf">http://eprints.soton.ac.uk/34683/1/013s.pdf</a>.</p>
-</div>
-<div>
-<p>Statistics, Office for National. 2001. “Labour Force Survey - User Guide - Volume 1: Background and Methodology”. London: Office for National Statistics.</p>
 </div>
 <div>
 <p>Statistics Canada. 2020. “Guide to the Labour Force Survey”. Ottawa, Canada. <a href="https://www150.statcan.gc.ca/n1/pub/71-543-g/71-543-g2020001-eng.htm">https://www150.statcan.gc.ca/n1/pub/71-543-g/71-543-g2020001-eng.htm</a>.</p>
