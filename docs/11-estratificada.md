@@ -46,9 +46,7 @@ Nos dois casos é fundamental ter acesso a cadastro(s) com informações complet
 
 Particione (divida) a população $U$ em $H$ subconjuntos (grupos) mutuamente exclusivos e exaustivos, chamados *estratos*, denotados por $U_1, ..., U_h, ..., U_H$, de modo que: 
 
-$U = U_1 \cup \dots \cup U_h \cup \dots \cup U_H = \displaystyle \bigcup_{h=1}^H U_h$ e  
-
-$U_h \cap U_k = \emptyset, \, h \ne k$.
+$U = U_1 \cup \dots \cup U_h \cup \dots \cup U_H = \displaystyle \bigcup_{h=1}^H U_h\quad$ e  $\quad U_h \cap U_k = \emptyset, \, h \ne k$.
 
 Então $U_h = \textrm {\{unidades pertencentes ao estrato h}\}$, para $h=1, 2, ...,H$.
 
@@ -245,12 +243,7 @@ $$
 E_{AES} \left( \overline y_{AES} \right) = \overline Y
 $$
 
-Isto segue porque 
-$$
-E_{AES} \left (\overline y_h\right) = \overline {Y_h}
-$$ 
-
-para todo $h=1,...,H$, e 
+Isto segue porque $E_{AES} \left (\overline y_h\right) = \overline {Y_h}$, $\forall \,h=1,...,H$, e
 
 $$
 E_{AES} \left( \displaystyle \sum_{h=1}^{H} W_h \overline y_h \right) = \displaystyle \sum_{h=1}^{H} W_h E_{AES} (\overline y_h) = \sum_{h=1}^{H} W_h \overline {Y_h} = \overline Y
@@ -286,12 +279,17 @@ A Tabela \@ref(tab:tabestr1) apresenta um resumo dos estimadores do total, médi
 <table>
 <caption>(#tab:tabestr1)Estimadores do total, média e respectivas variâncias sob AES</caption>
 </table>
-|Estimador|
-|:---|
-|$\widehat Y_{AES} = \displaystyle \sum_{h=1}^{H} \widehat Y_h = \sum_{h=1}^{H} N_h \overline y_h$|
-|$\displaystyle \overline y_{AES} = \sum_{h=1}^{H} \frac{N_h}{N} \overline y_h = \displaystyle \sum_{h=1}^{H} W_h \overline y_h$|
-$\widehat V_{AES} \left( \widehat Y_{AES} \right) = \displaystyle\sum_{h=1}^{H} N_h^2 \left( \frac{1}{n_h} - \frac{1}{N_h} \right)\widehat S_{h,y}^2$|
-|$\widehat V_{AES} \left( \overline y_{AES} \right) = \displaystyle \sum_{h=1}^{H} W_h^2 \left( \frac{1}{n_h} - \frac{1}{N_h} \right)\widehat S_{h,y}^2$|
+---------
+Estimador
+----------------------------------------
+$\widehat Y_{AES} = \displaystyle \sum_{h=1}^{H} \widehat Y_h = \sum_{h=1}^{H} N_h \overline y_h$
+
+$\displaystyle \overline y_{AES} = \sum_{h=1}^{H} \frac{N_h}{N} \overline y_h = \displaystyle \sum_{h=1}^{H} W_h \overline y_h$
+
+$\widehat V_{AES} \left( \widehat Y_{AES} \right) = \displaystyle\sum_{h=1}^{H} N_h^2 \left( \frac{1}{n_h} - \frac{1}{N_h} \right)\widehat S_{h,y}^2$
+
+$\widehat V_{AES} \left( \overline y_{AES} \right) = \displaystyle \sum_{h=1}^{H} W_h^2 \left( \frac{1}{n_h} - \frac{1}{N_h} \right)\widehat S_{h,y}^2$
+---------------
 </center>
 
 Na Seção \@ref(razCS) são apresentados, como casos particulares de calibração, o estimador de razão combinada e o estimador de razão separada, que são do tipo razão usuais para o total populacional $(Y)$ no caso de AES. 
@@ -349,13 +347,13 @@ Uma amostra ‘representativa’ deveria ‘imitar’ ou se parecer bastante com
 Nesse método, as unidades populacionais são distribuídas nos estratos segundo as proporções: 
 
 $$
-W_h = N_h/N , \,\, h=1,\dots,H, \; \text{com} \; \displaystyle \sum_{h=1}^{H} W_h = 1
+W_h = N_h/N , \,\, h=1,\dots,H, \;\; \text{com} \;\; \displaystyle \sum_{h=1}^{H} W_h = 1
 $$
 
 As proporções amostrais nos estratos são definidas como:
 
 $$
-\lambda_h = n_h/n , \,\, h = 1, \dots , H \; \text{com} \; \displaystyle \sum_{h=1}^{H} \lambda_h = 1
+\lambda_h = n_h/n , \,\, h = 1, \dots , H \;\; \text{com} \; \;\displaystyle \sum_{h=1}^{H} \lambda_h = 1
 $$.
 
 Então, o critério de *alocação proporcional* implica tentar fazer $\lambda_h = W_h, \,\, \forall\, h = 1, 2, \dots, H$. 
@@ -577,11 +575,11 @@ A Tabela \@ref(tab:tabestr2) apresenta valores de $EPA\left(\overline y_{AES} \,
 </table>
 <center>
 ---------
-Valores de $\rho$   $H=2$   $H=3$   $H=4$   $H=5$   $H=6$   $H=\infty$
------------------- ------- ------- ------- ------- ------- ------------ 
-$\rho=0,85$         0,458   0,358   0,323   0,306   0,298   0,277
+Valores de $\rho$   $H=2$         $H=3$        $H=4$       $H=5$        $H=6$           $H=\infty$
+------------------ ------------ ------------ ------------ ------------ ------------ --------------- 
+$\rho=0,85$         0,458        0,358         0,323        0,306        0,298          0,277
 
-$\rho=0,95$         0,323   0,198   0,154   0,134   0,123   0,098
+$\rho=0,95$         0,323        0,198         0,154        0,134        0,123          0,098
 
 ---------
 </center>
@@ -637,19 +635,19 @@ Estime o total de fumantes e o intervalo de 95% de confiança, entre as pessoas 
 <caption>(#tab:tabestr4)Informações da estratificação das fazendas de soja</caption>
 </table>
 ----------
-Grupo        $N_h$  $\overline {Y_h}$  $S^2_h$
----------- ------- ------------------ -------- 
-Pequenas     2.400               10      100    
+Grupo           $N_h$  $\overline {Y_h}$      $S^2_{h,y}$
+--------- ----------- ------------------ ---------------- 
+Pequenas       2.400               10           100    
                                    
-Grandes        100               80    1.600   
+Grandes        100                 80          1.600   
 ----------
-</center>
+</center>   
 
 Determine a alocação de uma amostra de 200 fazendas usando:
 
-a)  A alocação Proporcional.
+a)  A alocação proporcional.
 b)  A alocação de Neyman.
-c)  A alocação Ótima, supondo que o custo de coleta de uma unidade entre as grandes fazendas é metade do custo da coleta de uma unidade entre as pequenas.
+c)  A alocação ótima, supondo que o custo de coleta de uma unidade entre as grandes fazendas é metade do custo da coleta de uma unidade entre as pequenas.
 d)  Amostragem Estratificada por Corte.
   
 **(#exr:exeest6)** Para estimar o total de uma variável de interesse $y$, uma população foi estratificada em quatro estratos. Algumas informações sobre a variável $y$ e sua distribuição nos estratos, obtidas de um censo recente, estão disponíveis na Tabela \@ref(tab:tabestr5).
@@ -659,15 +657,15 @@ d)  Amostragem Estratificada por Corte.
 <caption>(#tab:tabestr5)Informações censitárias sobre a variável de interesse</caption>
 </table>
 ----------
- Estrato   $N_h$  $\overline {Y_h}$  $S^2_h(y)$
---------- ------ ------------------ -----------
-    1         44             17,18       18,48
+ Estrato      $N_h$  $\overline {Y_h}$        $S^2_{h,y}$
+--------- --------- ------------------ -----------------
+    1         44             17,18               18,48
 
-    2        168             20,14       24,55
+    2        168             20,14               24,55
 
-    3         56             27,59       34,60
+    3         56             27,59               34,60
 
-    4         16             38,56      122,93
+    4         16             38,56               122,93
 ----------
 </center>
 
@@ -684,21 +682,21 @@ c)  Compare a eficiência da AES, com as alocações utilizadas nos itens anteri
 <caption>(#tab:tabestr6)Estratificação das lojas e resultados da amostra</caption>
 </table>
 ---------- 
- Limites dos estratos      $N_h$     $Y_h(x)$   $S^2_h(x)$  $\overline y_h(y)$    $\widehat S^2_h(y)$
----------------------- --------- ------------ ------------ ------------------- -------------
-      5-14                1.100       9.020         8,30                   3            2,53 
+ Limites dos estratos             $N_h$              $X_h$         $S^2_{h,x}$        $\overline y_h$    $\widehat S^2_{h,y}$
+---------------------- ---------------- ------------------ ------------------- --------------------- ---------------------
+      5-14                1.100               9.020               8,30                   3                      2,53 
 
-     15-49                  500      13.500       102,08                  17           66,59
+     15-49                  500               13.500             102,08                  17                     66,59
 
-     50-99                  250      17.750       207,00                  52          411,28
+     50-99                  250               17.750             207,00                  52                     411,28
 
-    100-199                 130      17.329       840,10                 170        1.953,64
+    100-199                 130                17.329             840,10                 170                    1.953,64
 
-    200-499                 120      36.600     7.500,00                 350       16.770,25
+    200-499                 120                36.600            7.500,00                 350                   16.770,25
 
-   500 e mais                20      14.280    20.805,00               7.000    3.062.500,00
+   500 e mais                20                14.280            20.805,00               7.000                  3.062.500,00
 
-  **Totais**           **2.120** **108.479**    
+  **Totais**             **2.120**             **108.479**    
 ----------
 </center>
 
@@ -712,13 +710,13 @@ c)  Compare a eficiência da AES, com as alocações utilizadas nos itens anteri
 <caption>(#tab:tabestr7)Resultados observados na amostra</caption>
 </table>
 ---------- 
- Estrato   $N_h$  $n_h$  $\overline y_h$  $s^2_h$
---------- ------ ------ ---------------- --------
- 1            50     50               20      700
+ Estrato    $N_h$           $n_h$  $\overline y_h$  $\widehat S^2_{h,y}$
+--------- ------- --------------- ---------------- ---------------------
+ 1            50               50               20                  700
  
- 2           100     50               10    2.800
- 
- 3           300     50               30      600
+ 2           100               50               10                  2.800
+    
+ 3           300               50               30                 600
 ----------
 </center>
 
@@ -733,8 +731,8 @@ c)  Construa o intervalo de 95% de confiança para a média populacional.
 <caption>(#tab:tabestr8)Tamanho e variância por estrato</caption>
 </table>
 ---------- 
-Trabalhadores      $N_h$  $S^2_h$
----------------- ------- -------- 
+Trabalhadores      $N_h$  $S^2_{h,y}$
+---------------- ------- ------------ 
 Técnicos              92       25
 
 Administrativos       27        9
@@ -770,8 +768,8 @@ Sem formação     4, 0, 2, 2, 3, 6, 8, 4, 0, 1, 1, 0, 0, 7, 4, 2, 0, 0
 <caption>(#tab:tabestr11)Informações populacionais dos clientes</caption>
 </table>
 ---------- 
-Estrato    $N_h$  $S^2_h$  $c_h$
--------- ------- -------- ------ 
+Estrato    $N_h$  $S^2_{h,y}$      $c_h$
+-------- ------- ------------ ---------- 
 América      112     2,25      9       
 
 Europa        68     3,24     25  

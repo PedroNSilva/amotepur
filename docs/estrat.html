@@ -247,8 +247,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="9.1" data-path="omaeq.html"><a href="omaeq.html#binom"><i class="fa fa-check"></i><b>9.1</b> Amostragem binomial ou de Bernoulli</a><ul>
 <li class="chapter" data-level="9.1.1" data-path="AS.html"><a href="AS.html#método-de-seleção-da-amostra"><i class="fa fa-check"></i><b>9.1.1</b> Método de seleção da amostra</a></li>
 <li class="chapter" data-level="9.1.2" data-path="omaeq.html"><a href="omaeq.html#probabilidades-de-inclusão-na-amostragem-binomial"><i class="fa fa-check"></i><b>9.1.2</b> Probabilidades de inclusão na amostragem binomial</a></li>
-<li class="chapter" data-level="9.1.3" data-path="omaeq.html"><a href="omaeq.html#estimação-de-totais-sob-amostragem-binomial"><i class="fa fa-check"></i><b>9.1.3</b> Estimação de totais sob amostragem binomial</a></li>
-<li class="chapter" data-level="9.1.4" data-path="omaeq.html"><a href="omaeq.html#estimação-de-médias-sob-amostragem-binomial"><i class="fa fa-check"></i><b>9.1.4</b> Estimação de médias sob amostragem binomial</a></li>
+<li class="chapter" data-level="9.1.3" data-path="omaeq.html"><a href="omaeq.html#estimação-do-total-sob-amostragem-binomial"><i class="fa fa-check"></i><b>9.1.3</b> Estimação do total sob amostragem binomial</a></li>
+<li class="chapter" data-level="9.1.4" data-path="omaeq.html"><a href="omaeq.html#estimação-da-média-sob-amostragem-binomial"><i class="fa fa-check"></i><b>9.1.4</b> Estimação da média sob amostragem binomial</a></li>
 <li class="chapter" data-level="9.1.5" data-path="omaeq.html"><a href="omaeq.html#exemplos-de-aplicação-da-amostragem-binomial"><i class="fa fa-check"></i><b>9.1.5</b> Exemplos de aplicação da amostragem binomial</a></li>
 </ul></li>
 <li class="chapter" data-level="9.2" data-path="omaeq.html"><a href="omaeq.html#inversa"><i class="fa fa-check"></i><b>9.2</b> Amostragem inversa simples</a><ul>
@@ -408,8 +408,7 @@ As variáveis de estratificação podem ser geográficas, como por exemplo as un
 <div id="o-método-geral" class="section level2">
 <h2><span class="header-section-number">11.1</span> O método geral</h2>
 <p>Particione (divida) a população <span class="math inline">\(U\)</span> em <span class="math inline">\(H\)</span> subconjuntos (grupos) mutuamente exclusivos e exaustivos, chamados <em>estratos</em>, denotados por <span class="math inline">\(U_1, ..., U_h, ..., U_H\)</span>, de modo que:</p>
-<p><span class="math inline">\(U = U_1 \cup \dots \cup U_h \cup \dots \cup U_H = \displaystyle \bigcup_{h=1}^H U_h\)</span> e</p>
-<p><span class="math inline">\(U_h \cap U_k = \emptyset, \, h \ne k\)</span>.</p>
+<p><span class="math inline">\(U = U_1 \cup \dots \cup U_h \cup \dots \cup U_H = \displaystyle \bigcup_{h=1}^H U_h\quad\)</span> e <span class="math inline">\(\quad U_h \cap U_k = \emptyset, \, h \ne k\)</span>.</p>
 <p>Então <span class="math inline">\(U_h = \textrm {\{unidades pertencentes ao estrato h}\}\)</span>, para <span class="math inline">\(h=1, 2, ...,H\)</span>.</p>
 <p>Seja <span class="math inline">\(N_h\)</span> o tamanho de <span class="math inline">\(U_h\)</span>. O tamanho total da população é dado pela soma dos tamanhos dos estratos, <span class="math inline">\(N = N_1 + \dots + N_h + \dots + N_H\)</span>.</p>
 <p>Selecione uma amostra <span class="math inline">\(s_h\)</span> de tamanho <span class="math inline">\(n_h\)</span>, com <span class="math inline">\(n_h &gt; 0\)</span>, segundo um plano amostral <span class="math inline">\(p_h(s_h)\)</span> <em>independentemente</em> dentro de cada estrato <span class="math inline">\(h\)</span>, onde <span class="math inline">\(n = \displaystyle \sum_{h=1}^{H} n_h\)</span> é o tamanho total da amostra selecionada. Fica assim assegurado que cada estrato tem sua população representada na amostra completa dada por: <span class="math inline">\(s = s_1 \cup \dots \cup s_h \cup \dots \cup s_H\)</span>. Note que em função da definição dos estratos, as amostras nos vários estratos também são conjuntos mutuamente exclusivos, isto é, <span class="math inline">\(s_h \cap s_k = \emptyset, \, h \ne k\)</span>.</p>
@@ -545,11 +544,7 @@ V_{AES} \left( \widehat Y_h \right) = N_h^2 V_{AES} \left( \overline y_h \right)
 <p><span class="math display">\[
 E_{AES} \left( \overline y_{AES} \right) = \overline Y
 \]</span></p>
-<p>Isto segue porque
-<span class="math display">\[
-E_{AES} \left (\overline y_h\right) = \overline {Y_h}
-\]</span></p>
-<p>para todo <span class="math inline">\(h=1,...,H\)</span>, e</p>
+<p>Isto segue porque <span class="math inline">\(E_{AES} \left (\overline y_h\right) = \overline {Y_h}\)</span>, <span class="math inline">\(\forall \,h=1,...,H\)</span>, e</p>
 <p><span class="math display">\[
 E_{AES} \left( \displaystyle \sum_{h=1}^{H} W_h \overline y_h \right) = \displaystyle \sum_{h=1}^{H} W_h E_{AES} (\overline y_h) = \sum_{h=1}^{H} W_h \overline {Y_h} = \overline Y
 \]</span></p>
@@ -576,9 +571,9 @@ V_{AES} \left( \widehat Y_{AES} \right) = \displaystyle \sum_{h=1}^{H} {N_h^2} \
 <span id="tab:tabestr1">Tabela 11.1: </span>Estimadores do total, média e respectivas variâncias sob AES
 </caption>
 </table>
-<table>
+<table style="width:57%;">
 <colgroup>
-<col width="100%" />
+<col width="56%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -645,11 +640,11 @@ IC_{AES} (\overline {Y_h}; 1-\alpha) = \left[ \overline y_h \mp z_{\alpha/2} \sq
 <p>Uma amostra ‘representativa’ deveria ‘imitar’ ou se parecer bastante com a população de onde foi extraída. Uma das formas de tornar a amostra parecida com a população é assegurar que suas unidades são distribuídas nos estratos da mesma forma que na população. Por exemplo, numa população onde há 51% de mulheres e 49% de homens, as proporções na amostra deveriam ser idênticas. Esta ideia norteou algumas das abordagens inicialmente consideradas para a amostragem de populações e deu origem, entre outros tipos de técnicas, à <em>amostragem por cotas</em>. No contexto da <em>amostragem probabilística</em>, a <em>amostragem estratificada simples com alocação proporcional</em> é o plano amostral mais similar à ideia de uma amostra por cotas.</p>
 <p>Nesse método, as unidades populacionais são distribuídas nos estratos segundo as proporções:</p>
 <p><span class="math display">\[
-W_h = N_h/N , \,\, h=1,\dots,H, \; \text{com} \; \displaystyle \sum_{h=1}^{H} W_h = 1
+W_h = N_h/N , \,\, h=1,\dots,H, \;\; \text{com} \;\; \displaystyle \sum_{h=1}^{H} W_h = 1
 \]</span></p>
 <p>As proporções amostrais nos estratos são definidas como:</p>
 <p><span class="math display">\[
-\lambda_h = n_h/n , \,\, h = 1, \dots , H \; \text{com} \; \displaystyle \sum_{h=1}^{H} \lambda_h = 1
+\lambda_h = n_h/n , \,\, h = 1, \dots , H \;\; \text{com} \; \;\displaystyle \sum_{h=1}^{H} \lambda_h = 1
 \]</span>.</p>
 <p>Então, o critério de <em>alocação proporcional</em> implica tentar fazer <span class="math inline">\(\lambda_h = W_h, \,\, \forall\, h = 1, 2, \dots, H\)</span>.</p>
 <p>Logo:</p>
@@ -841,15 +836,15 @@ EPA \left( \overline y_{AES} \, ; \, \overline y \right) = V_{AES} \left( \overl
 </caption>
 </table>
 <center>
-<table style="width:100%;">
+<table>
 <colgroup>
-<col width="26%" />
-<col width="10%" />
-<col width="10%" />
-<col width="10%" />
-<col width="10%" />
-<col width="10%" />
-<col width="19%" />
+<col width="18%" />
+<col width="12%" />
+<col width="12%" />
+<col width="12%" />
+<col width="12%" />
+<col width="12%" />
+<col width="16%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -955,19 +950,19 @@ Figura 11.2: Ganhos de precisão versus número de estratos
 <span id="tab:tabestr4">Tabela 11.4: </span>Informações da estratificação das fazendas de soja
 </caption>
 </table>
-<table style="width:67%;">
+<table style="width:83%;">
 <colgroup>
-<col width="15%" />
-<col width="11%" />
-<col width="26%" />
 <col width="13%" />
+<col width="16%" />
+<col width="26%" />
+<col width="26%" />
 </colgroup>
 <thead>
 <tr class="header">
 <th align="left">Grupo</th>
 <th align="right"><span class="math inline">\(N_h\)</span></th>
 <th align="right"><span class="math inline">\(\overline {Y_h}\)</span></th>
-<th align="right"><span class="math inline">\(S^2_h\)</span></th>
+<th align="right"><span class="math inline">\(S^2_{h,y}\)</span></th>
 </tr>
 </thead>
 <tbody>
@@ -988,9 +983,9 @@ Figura 11.2: Ganhos de precisão versus número de estratos
 </center>
 <p>Determine a alocação de uma amostra de 200 fazendas usando:</p>
 <ol style="list-style-type: lower-alpha">
-<li>A alocação Proporcional.</li>
+<li>A alocação proporcional.</li>
 <li>A alocação de Neyman.</li>
-<li>A alocação Ótima, supondo que o custo de coleta de uma unidade entre as grandes fazendas é metade do custo da coleta de uma unidade entre as pequenas.</li>
+<li>A alocação ótima, supondo que o custo de coleta de uma unidade entre as grandes fazendas é metade do custo da coleta de uma unidade entre as pequenas.</li>
 <li>Amostragem Estratificada por Corte.</li>
 </ol>
 <p><strong>Exercício 11.6 </strong> Para estimar o total de uma variável de interesse <span class="math inline">\(y\)</span>, uma população foi estratificada em quatro estratos. Algumas informações sobre a variável <span class="math inline">\(y\)</span> e sua distribuição nos estratos, obtidas de um censo recente, estão disponíveis na Tabela <a href="estrat.html#tab:tabestr5">11.5</a>.</p>
@@ -1000,19 +995,19 @@ Figura 11.2: Ganhos de precisão versus número de estratos
 <span id="tab:tabestr5">Tabela 11.5: </span>Informações censitárias sobre a variável de interesse
 </caption>
 </table>
-<table style="width:67%;">
+<table style="width:81%;">
 <colgroup>
 <col width="13%" />
-<col width="9%" />
+<col width="13%" />
 <col width="26%" />
-<col width="16%" />
+<col width="26%" />
 </colgroup>
 <thead>
 <tr class="header">
 <th align="center">Estrato</th>
 <th align="right"><span class="math inline">\(N_h\)</span></th>
 <th align="right"><span class="math inline">\(\overline {Y_h}\)</span></th>
-<th align="right"><span class="math inline">\(S^2_h(y)\)</span></th>
+<th align="right"><span class="math inline">\(S^2_{h,y}\)</span></th>
 </tr>
 </thead>
 <tbody>
@@ -1058,21 +1053,21 @@ Figura 11.2: Ganhos de precisão versus número de estratos
 </table>
 <table>
 <colgroup>
-<col width="24%" />
-<col width="10%" />
+<col width="18%" />
 <col width="13%" />
-<col width="13%" />
-<col width="21%" />
 <col width="15%" />
+<col width="16%" />
+<col width="17%" />
+<col width="17%" />
 </colgroup>
 <thead>
 <tr class="header">
 <th align="center">Limites dos estratos</th>
 <th align="right"><span class="math inline">\(N_h\)</span></th>
-<th align="right"><span class="math inline">\(Y_h(x)\)</span></th>
-<th align="right"><span class="math inline">\(S^2_h(x)\)</span></th>
-<th align="right"><span class="math inline">\(\overline y_h(y)\)</span></th>
-<th align="right"><span class="math inline">\(\widehat S^2_h(y)\)</span></th>
+<th align="right"><span class="math inline">\(X_h\)</span></th>
+<th align="right"><span class="math inline">\(S^2_{h,x}\)</span></th>
+<th align="right"><span class="math inline">\(\overline y_h\)</span></th>
+<th align="right"><span class="math inline">\(\widehat S^2_{h,y}\)</span></th>
 </tr>
 </thead>
 <tbody>
@@ -1146,13 +1141,13 @@ Figura 11.2: Ganhos de precisão versus número de estratos
 <span id="tab:tabestr7">Tabela 11.7: </span>Resultados observados na amostra
 </caption>
 </table>
-<table style="width:69%;">
+<table style="width:100%;">
 <colgroup>
 <col width="13%" />
-<col width="9%" />
-<col width="9%" />
+<col width="10%" />
+<col width="21%" />
 <col width="23%" />
-<col width="12%" />
+<col width="30%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -1160,7 +1155,7 @@ Figura 11.2: Ganhos de precisão versus número de estratos
 <th align="right"><span class="math inline">\(N_h\)</span></th>
 <th align="right"><span class="math inline">\(n_h\)</span></th>
 <th align="right"><span class="math inline">\(\overline y_h\)</span></th>
-<th align="right"><span class="math inline">\(s^2_h\)</span></th>
+<th align="right"><span class="math inline">\(\widehat S^2_{h,y}\)</span></th>
 </tr>
 </thead>
 <tbody>
@@ -1200,17 +1195,17 @@ Figura 11.2: Ganhos de precisão versus número de estratos
 <span id="tab:tabestr8">Tabela 11.8: </span>Tamanho e variância por estrato
 </caption>
 </table>
-<table style="width:49%;">
+<table style="width:54%;">
 <colgroup>
 <col width="23%" />
 <col width="11%" />
-<col width="13%" />
+<col width="19%" />
 </colgroup>
 <thead>
 <tr class="header">
 <th align="left">Trabalhadores</th>
 <th align="right"><span class="math inline">\(N_h\)</span></th>
-<th align="right"><span class="math inline">\(S^2_h\)</span></th>
+<th align="right"><span class="math inline">\(S^2_{h,y}\)</span></th>
 </tr>
 </thead>
 <tbody>
@@ -1278,18 +1273,18 @@ Figura 11.2: Ganhos de precisão versus número de estratos
 <span id="tab:tabestr11">Tabela 11.10: </span>Informações populacionais dos clientes
 </caption>
 </table>
-<table style="width:49%;">
+<table style="width:60%;">
 <colgroup>
 <col width="12%" />
 <col width="11%" />
-<col width="12%" />
-<col width="12%" />
+<col width="18%" />
+<col width="18%" />
 </colgroup>
 <thead>
 <tr class="header">
 <th align="left">Estrato</th>
 <th align="right"><span class="math inline">\(N_h\)</span></th>
-<th align="right"><span class="math inline">\(S^2_h\)</span></th>
+<th align="right"><span class="math inline">\(S^2_{h,y}\)</span></th>
 <th align="right"><span class="math inline">\(c_h\)</span></th>
 </tr>
 </thead>

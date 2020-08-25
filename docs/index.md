@@ -2,7 +2,7 @@
 lang: pt-BR
 title: "Amostragem: Teoria e Prática Usando R"
 author: "Pedro Luis do Nascimento Silva, Zélia Magalhães Bianchini e Antonio José Ribeiro Dias"
-date: '24 de agosto de 2020'
+date: '25 de agosto de 2020'
 summary_depth: 3
 summary_float:
    collapsed: false
@@ -51,17 +51,3 @@ Cada um dos capítulos é autocontido e vários deles podem ser omitidos num pri
 Nossa opção ao escolher essa forma de publicação (livro em formato de hipertexto, hospedado na internet) se deve a dois fatores principais: primeiro, não pretendemos comercializar o livro e, sim, torná-lo de acesso livre e aberto, como é a filosofia do software que usamos para sua elaboração e produção (R + RStudio + Github); segundo, essa forma de publicação permitirá atualizações mais rápidas e frequentes do conteúdo, o que favorece a correção de erros, revisões do texto, inclusão de exemplos ou tópicos novos etc. Esperamos que essa escolha não afaste os leitores que ainda gostam de livros em papel, como nós...
 
 O leitor de qualquer livro precisa reconhecer que não é possível começar do zero: é preciso contar com conhecimento prévio de algumas ideias e conceitos básicos essenciais à compreensão do material tratado. Nossa abordagem pressupõe que o leitor está familiarizado com um curso básico de introdução à probabilidade e à inferência estatística, no nível tratado, por exemplo, em @Magalhaes2004 e @Magalhaes2006.
-
-# Agradecimentos {-}
-
-Nossa gratidão é dirigida, em primeiro lugar, ao IBGE e à ENCE, instituições que nos propiciaram a maior parte das oportunidades de aprendizagem sobre o tema ao longo de nossas carreiras.
-
-Agradecemos em especial a Sonia Albieri, que fez a revisão do livro, e que emprestou seu olhar competente e experimentado tanto nas questões técnicas como nos detalhes do idioma para reduzir os erros, imprecisões e falta de padronização que caracterizaram as primeiras versões do texto. É claro, todos os defeitos que porventura persistem são por nossa conta...
-
-Na fase final de elaboração e revisão do livro, perdemos um querido mestre e amigo, o Prof. Djalma Galvão Carneiro Pessoa. Djalma foi quem nos induziu ao uso do R e nos ensinou o caminho das pedras com a elaboração de material em R Markdown. Muito antes disso, foi nosso professor, mentor e consultor, com uma generosidade sem par no compartilhamento do seu vasto saber e no seu apetite por enfrentar desafios de ajudar a resolver problemas que envolvessem Estatística e R. Deixamos aqui uma singela homenagem e um agradecimento por tudo que fez por nós ao longo de nossas vidas.
-
-Por último, mas não menos importantes, agradecimentos aos cônjuges, de quem sempre roubamos tempo para dedicar a este projeto: Denise Britz, Waldecir Bianchini e Laura Motta, listados aqui na mesma ordem dos autores. Ao Waldecir Bianchini, uma gratidão especial pela contribuição no apoio computacional para o aprendizado da linguagem Latex e do R Markdown.
-
-Como esperamos que este seja um livro vivo, agradecemos desde já aos leitores que se dispuserem a nos escrever com comentários e sugestões que nos permitam aprimorar o seu conteúdo sempre que necessário.
-
-Boa leitura a todos!
