@@ -79,7 +79,7 @@ Uma aplicação importante de amostragem (conglomerada) de áreas se dá nas pes
 A população de unidades $U$ é particionada em $M$ grupos *mutuamente exclusivos e exaustivos*, chamados *conglomerados*, denotados $C_1, ..., C_i, ..., C_M$, de modo que: 
 
 $$
-U = C_1\cup C_2\cup \dots \cup C_M = \displaystyle \bigcup_{i=1}^{M}C_i \;\text{  e }\;C_i\cap C_k=\phi, \,\,i\ne k
+U = C_1\cup C_2\cup \dots \cup C_M = \displaystyle \bigcup_{i=1}^{M}C_i \quad\text{  e }\quad C_i\cap C_k=\phi, \,\,i\ne k
 $$
 
 Aqui é necessário indexar as unidades populacionais dentro de cada conglomerado e, portanto, as unidades passam a ser identificadas por dois índices $i,j$, onde $i$ designa o conglomerado e $j$ designa o rótulo da unidade dentro do conglomerado. Então $C_i = \{ (i,1), (i,2), \dots, (i,j), \dots, (i,N_i) \}$, para $i=1,2,...,M$, onde $N_i$ é o tamanho do conglomerado $C_i$. Então $N = N_1 + N_2 + \dots + N_M$ é o tamanho total da população. 
@@ -1255,7 +1255,7 @@ Total              1.025     45
 </table>
 ----------
  Cidade   Total      Lojas na   Não atendem critérios 
-          de lojas   amostra          de higiene        $s^2_i$
+          de lojas   amostra          de higiene        $\widehat S^2_i$
 -------- ---------- ---------- ----------------------- ---------
    1       25        13               3                  0,1923 
    

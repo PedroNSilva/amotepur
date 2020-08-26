@@ -472,7 +472,7 @@ Figura 12.1: Ilustração da hierarquia com vários níveis (vários para um)
 <h2><span class="header-section-number">12.3</span> Definições básicas e notação</h2>
 <p>A população de unidades <span class="math inline">\(U\)</span> é particionada em <span class="math inline">\(M\)</span> grupos <em>mutuamente exclusivos e exaustivos</em>, chamados <em>conglomerados</em>, denotados <span class="math inline">\(C_1, ..., C_i, ..., C_M\)</span>, de modo que:</p>
 <p><span class="math display">\[
-U = C_1\cup C_2\cup \dots \cup C_M = \displaystyle \bigcup_{i=1}^{M}C_i \;\text{  e }\;C_i\cap C_k=\phi, \,\,i\ne k
+U = C_1\cup C_2\cup \dots \cup C_M = \displaystyle \bigcup_{i=1}^{M}C_i \quad\text{  e }\quad C_i\cap C_k=\phi, \,\,i\ne k
 \]</span></p>
 <p>Aqui é necessário indexar as unidades populacionais dentro de cada conglomerado e, portanto, as unidades passam a ser identificadas por dois índices <span class="math inline">\(i,j\)</span>, onde <span class="math inline">\(i\)</span> designa o conglomerado e <span class="math inline">\(j\)</span> designa o rótulo da unidade dentro do conglomerado. Então <span class="math inline">\(C_i = \{ (i,1), (i,2), \dots, (i,j), \dots, (i,N_i) \}\)</span>, para <span class="math inline">\(i=1,2,...,M\)</span>, onde <span class="math inline">\(N_i\)</span> é o tamanho do conglomerado <span class="math inline">\(C_i\)</span>. Então <span class="math inline">\(N = N_1 + N_2 + \dots + N_M\)</span> é o tamanho total da população.</p>
 <p>Selecione uma amostra <span class="math inline">\(a=\{i_1,\dots,i_m\}\)</span> de tamanho <span class="math inline">\(m\,\, (m&gt;0)\)</span>, entre os rótulos de <span class="math inline">\(C = \{1, ..., M\}\)</span> para selecionar os conglomerados, segundo um plano amostral <span class="math inline">\(p(a)\)</span>.</p>
@@ -1952,7 +1952,7 @@ de lojas</th>
 amostra</th>
 <th align="center">Não atendem critérios
 de higiene</th>
-<th align="center"><span class="math inline">\(s^2_i\)</span></th>
+<th align="right"><span class="math inline">\(\widehat S^2_i\)</span></th>
 </tr>
 </thead>
 <tbody>
@@ -1961,28 +1961,28 @@ de higiene</th>
 <td align="center">25</td>
 <td align="center">13</td>
 <td align="center">3</td>
-<td align="center">0,1923</td>
+<td align="right">0,1923</td>
 </tr>
 <tr class="even">
 <td align="center">2</td>
 <td align="center">10</td>
 <td align="center">5</td>
 <td align="center">1</td>
-<td align="center">0,2000</td>
+<td align="right">0,2000</td>
 </tr>
 <tr class="odd">
 <td align="center">3</td>
 <td align="center">18</td>
 <td align="center">9</td>
 <td align="center">4</td>
-<td align="center">0,2778</td>
+<td align="right">0,2778</td>
 </tr>
 <tr class="even">
 <td align="center">4</td>
 <td align="center">16</td>
 <td align="center">8</td>
 <td align="center">2</td>
-<td align="center">0,2143</td>
+<td align="right">0,2143</td>
 </tr>
 </tbody>
 </table>

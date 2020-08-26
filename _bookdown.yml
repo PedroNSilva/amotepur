@@ -36,7 +36,7 @@ language:
 
 output_dir: "docs"
 
-rmd_files: ["index.Rmd", "agradecimentos.Rmd", "00-Siglas.Rmd","00-Tabelas.Rmd","00-Figuras.Rmd", 
+rmd_files: ["index.Rmd", "00-agradecimentos.Rmd", "00-Siglas.Rmd","00-Tabelas.Rmd","00-Figuras.Rmd", 
  "01-intro.Rmd", "02-conceitos.Rmd", "03-visgeral.Rmd",  "04-aas.Rmd", "05-proporcoes.Rmd", "06-razoes.Rmd", 
  "07-dominios.Rmd","08-sistematica.Rmd", "09-binomial.Rmd", "10-ppt.Rmd",  "11-estratificada.Rmd", 
  "12-conglomerados.Rmd", "13-calibracao.Rmd", "14-referencias.Rmd"]
