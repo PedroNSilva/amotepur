@@ -1,8 +1,8 @@
-# Outros Métodos de Amostragem com Equiprobabilidade {#omaeq}
+# Outros Métodos de Amostragem com Equiprobabilidade {#binom}
 
 Neste capítulo apresentamos dois métodos de amostragem de unidades elementares com equiprobabilidade que são menos usados, mas também podem ser úteis em muitas situações de interesse. O primeiro deles é a *Amostragem Binomial ou de Bernoulli - AB* e o segundo é a *Amostragem Inversa Simples - AIS*.
 
-## Amostragem binomial ou de Bernoulli {#binom}
+## Amostragem binomial ou de Bernoulli {#binom2}
 
 A *Amostragem Binomial ou de Bernoulli* - AB oferece uma alternativa (pouco usada) à AAS, para selecionar diretamente unidades com *equiprobabilidade*. Trata-se de método de amostragem que também dispensa existência de cadastro prévio para seleção da amostra, podendo a amostra ser selecionada ao mesmo tempo que o cadastro vai sendo construído, como na amostragem sistemática simples.
 
