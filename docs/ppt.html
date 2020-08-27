@@ -324,7 +324,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="12.12" data-path="cong.html"><a href="cong.html#exerc12"><i class="fa fa-check"></i><b>12.12</b> Exercícios</a></li>
 </ul></li>
 <li class="chapter" data-level="13" data-path="calib.html"><a href="calib.html"><i class="fa fa-check"></i><b>13</b> Estimadores de Calibração</a><ul>
-<li class="chapter" data-level="13.1" data-path="calib.html"><a href="calib.html#motivação-melhorar-a-precisão-com-informações-auxiliares"><i class="fa fa-check"></i><b>13.1</b> Motivação: melhorar a precisão com informações auxiliares</a></li>
+<li class="chapter" data-level="13.1" data-path="calib.html"><a href="calib.html#motiva13"><i class="fa fa-check"></i><b>13.1</b> Motivação</a></li>
 <li class="chapter" data-level="13.2" data-path="calib.html"><a href="calib.html#problema"><i class="fa fa-check"></i><b>13.2</b> O problema</a></li>
 <li class="chapter" data-level="13.3" data-path="calib.html"><a href="calib.html#estreg"><i class="fa fa-check"></i><b>13.3</b> Estimadores de regressão como estimadores de calibração</a></li>
 <li class="chapter" data-level="13.4" data-path="calib.html"><a href="calib.html#razões-para-calibração"><i class="fa fa-check"></i><b>13.4</b> Razões para calibração</a></li>
@@ -337,7 +337,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="13.7" data-path="calib.html"><a href="calib.html#alguns-problemas-práticos-com-calibração"><i class="fa fa-check"></i><b>13.7</b> Alguns problemas práticos com calibração</a><ul>
 <li class="chapter" data-level="13.7.1" data-path="calib.html"><a href="calib.html#tamanhos-de-amostra-pequenos"><i class="fa fa-check"></i><b>13.7.1</b> Tamanhos de amostra pequenos</a></li>
 <li class="chapter" data-level="13.7.2" data-path="calib.html"><a href="calib.html#pesos-negativos-ou-extremos"><i class="fa fa-check"></i><b>13.7.2</b> Pesos negativos ou extremos</a></li>
-<li class="chapter" data-level="13.7.3" data-path="calib.html"><a href="calib.html#grande-número-de-variáveis-de-pesquisa-ou-de-grupos-de-modelagem"><i class="fa fa-check"></i><b>13.7.3</b> Grande número de variáveis de pesquisa ou de ‘grupos de modelagem’</a></li>
+<li class="chapter" data-level="13.7.3" data-path="calib.html"><a href="calib.html#grande-número-de-variáveis-de-pesquisa-ou-de-grupos-de-modelagem"><i class="fa fa-check"></i><b>13.7.3</b> Grande número de variáveis de pesquisa ou de grupos de modelagem</a></li>
 <li class="chapter" data-level="13.7.4" data-path="calib.html"><a href="calib.html#gvaraux"><i class="fa fa-check"></i><b>13.7.4</b> Grande número de variáveis auxiliares</a></li>
 <li class="chapter" data-level="13.7.5" data-path="calib.html"><a href="calib.html#não-resposta-e-calibração"><i class="fa fa-check"></i><b>13.7.5</b> Não resposta e calibração</a></li>
 </ul></li>
@@ -513,7 +513,7 @@ Verifica-se então que, para amostras extraídas com probabilidades de inclusão
 <span id="cb325-28"><a href="ppt.html#cb325-28"></a>tabela=<span class="kw">cbind</span>(fazenda,area,acum,linf,lsup,sel)</span>
 <span id="cb325-29"><a href="ppt.html#cb325-29"></a><span class="co"># Aleatórios selecionados</span></span>
 <span id="cb325-30"><a href="ppt.html#cb325-30"></a>s</span></code></pre></div>
-<pre><code>## [1] 1283 1572  550</code></pre>
+<pre><code>## [1]  617 1672 1433</code></pre>
 <div class="sourceCode" id="cb327"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb327-1"><a href="ppt.html#cb327-1"></a><span class="co"># Tabela com os dados e marcação do número de vezes que cada fazenda foi selecionada</span></span>
 <span id="cb327-2"><a href="ppt.html#cb327-2"></a>tabela</span></code></pre></div>
 <pre><code>##      fazenda area acum linf lsup sel
@@ -531,7 +531,7 @@ Verifica-se então que, para amostras extraídas com probabilidades de inclusão
 <span id="cb331-2"><a href="ppt.html#cb331-2"></a>fazendas_sel=<span class="kw">ppswr</span>(area,n)</span>
 <span id="cb331-3"><a href="ppt.html#cb331-3"></a><span class="co"># Identificação das fazendas selecionadas</span></span>
 <span id="cb331-4"><a href="ppt.html#cb331-4"></a>fazendas_sel</span></code></pre></div>
-<pre><code>## [1] 5 2 4</code></pre>
+<pre><code>## [1] 4 2 5</code></pre>
 <p><strong>Exemplo 10.2 </strong> Um exemplo de aplicação da amostragem PPT com reposição, no IBGE, é na seleção de municípios e setores que compuseram as amostras de primeiro e segundo estágios das PNADs de 2011 a 2015. Os municípios não autorrepresentativos passaram por um processo de estratificação e, em cada estrato, foram selecionados com reposição e com probabilidade proporcional à população residente obtida no Censo Demográfico 2010. Os setores censitários foram selecionados, em cada município da amostra, também com probabilidade proporcional e com reposição, sendo utilizado o número de unidades domiciliares existentes por ocasião do Censo Demográfico 2010 como medida de tamanho. Detalhes sobre o plano amostral da PNAD 2015 podem ser vistos em
 <a href="https://biblioteca.ibge.gov.br/visualizacao/livros/liv98887.pdf" class="uri">https://biblioteca.ibge.gov.br/visualizacao/livros/liv98887.pdf</a></p>
 <div id="estimação-do-total-sob-amostragem-ppt-com-reposição" class="section level3">

@@ -123,7 +123,7 @@ s
 ```
 
 ```
-## [1] 1283 1572  550
+## [1]  617 1672 1433
 ```
 
 ```r
@@ -159,7 +159,7 @@ fazendas_sel
 ```
 
 ```
-## [1] 5 2 4
+## [1] 4 2 5
 ```
 
 **(#exm:exmppt2)** Um exemplo de aplicação da amostragem PPT com reposição, no IBGE, é na seleção de municípios e setores que compuseram as amostras de primeiro e segundo estágios das PNADs de 2011 a 2015. Os municípios não autorrepresentativos passaram por um processo de estratificação e, em cada estrato, foram selecionados com reposição e com probabilidade proporcional à população residente obtida no Censo Demográfico 2010. Os setores censitários foram selecionados, em cada município da amostra, também com probabilidade proporcional e com reposição, sendo utilizado o número de unidades domiciliares existentes por ocasião do Censo Demográfico 2010 como medida de tamanho. Detalhes sobre o plano amostral da PNAD 2015 podem ser vistos em
