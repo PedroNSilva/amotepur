@@ -638,26 +638,26 @@ Tabela <a href="aas.html#tab:tabaas4">4.4</a>.</p>
 <span id="cb1-9"><a href="aas.html#cb1-9"></a><span class="co"># A amostra será formada pelas unidades seguintes</span></span>
 <span id="cb1-10"><a href="aas.html#cb1-10"></a>s</span></code></pre></div>
 <pre><code>##      i
-## 1  946
-## 2  784
-## 3  849
-## 4   25
-## 5  592
-## 6   44
-## 7  266
-## 8  994
-## 9  524
-## 10 591
-## 11 552
-## 12 920
-## 13 580
-## 14 318
-## 15 725
-## 16 569
-## 17 145
-## 18 255
-## 19 296
-## 20 947</code></pre>
+## 1  816
+## 2   50
+## 3  216
+## 4   60
+## 5  332
+## 6  539
+## 7  666
+## 8  504
+## 9  946
+## 10 342
+## 11 323
+## 12 309
+## 13 532
+## 14 628
+## 15 671
+## 16 876
+## 17 361
+## 18 298
+## 19 514
+## 20 201</code></pre>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="aas.html#cb3-1"></a><span class="co"># Algoritmo de Fan, Muller e Rezucha para seleção de uma amostra </span></span>
 <span id="cb3-2"><a href="aas.html#cb3-2"></a><span class="co"># de n unidades de uma população de tamanho N</span></span>
 <span id="cb3-3"><a href="aas.html#cb3-3"></a></span>
@@ -684,26 +684,26 @@ Tabela <a href="aas.html#tab:tabaas4">4.4</a>.</p>
 <span id="cb3-24"><a href="aas.html#cb3-24"></a><span class="co"># A amostra será formada pelas unidades seguintes</span></span>
 <span id="cb3-25"><a href="aas.html#cb3-25"></a>s</span></code></pre></div>
 <pre><code>##      i
-## 1   10
-## 2   86
-## 3  127
-## 4  158
-## 5  165
-## 6  309
-## 7  366
-## 8  506
-## 9  515
-## 10 545
-## 11 556
-## 12 647
-## 13 731
-## 14 744
-## 15 812
-## 16 821
-## 17 823
-## 18 871
-## 19 917
-## 20 951</code></pre>
+## 1   29
+## 2   81
+## 3   95
+## 4  102
+## 5  106
+## 6  145
+## 7  259
+## 8  266
+## 9  273
+## 10 495
+## 11 524
+## 12 699
+## 13 720
+## 14 745
+## 15 825
+## 16 878
+## 17 898
+## 18 917
+## 19 979
+## 20 998</code></pre>
 </div>
 <div id="probabilidades-de-inclusão-sob-aas" class="section level3">
 <h3><span class="header-section-number">4.3.4</span> Probabilidades de inclusão sob AAS</h3>
@@ -961,25 +961,25 @@ d) O <em>tamanho da amostra</em> que seria necessária para estimar a média da 
 <span id="cb27-4"><a href="aas.html#cb27-4"></a></span>
 <span id="cb27-5"><a href="aas.html#cb27-5"></a><span class="co"># a. Média amostral</span></span>
 <span id="cb27-6"><a href="aas.html#cb27-6"></a>(med_amo &lt;-<span class="st"> </span><span class="kw">mean</span>(munic_amo<span class="op">$</span>Area))</span></code></pre></div>
-<pre><code>## [1] 1433.759</code></pre>
+<pre><code>## [1] 1761.613</code></pre>
 <div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="aas.html#cb29-1"></a><span class="co"># b. Estimativas da dispersão do estimador de média sob AAS</span></span>
 <span id="cb29-2"><a href="aas.html#cb29-2"></a>(var_med_amo &lt;-<span class="st"> </span>((<span class="dv">1</span><span class="op">/</span>n) <span class="op">-</span><span class="st"> </span>(<span class="dv">1</span><span class="op">/</span>N)) <span class="op">*</span><span class="st"> </span><span class="kw">var</span>(munic_amo<span class="op">$</span>Area))</span></code></pre></div>
-<pre><code>## [1] 46049</code></pre>
+<pre><code>## [1] 378624.6</code></pre>
 <div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="aas.html#cb31-1"></a>(dp_med_amo &lt;-<span class="st"> </span><span class="kw">sqrt</span>(VAR_med_amo))</span></code></pre></div>
 <pre><code>## [1] 389.4654</code></pre>
 <div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="aas.html#cb33-1"></a>(cv_med_amo &lt;-<span class="st"> </span><span class="dv">100</span> <span class="op">*</span><span class="st"> </span>DP_med_amo <span class="op">/</span><span class="st"> </span>med_amo)</span></code></pre></div>
-<pre><code>## [1] 27.16394</code></pre>
+<pre><code>## [1] 22.10845</code></pre>
 <div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="aas.html#cb35-1"></a><span class="co"># c. Margem de erro relativo do estimador de média sob AAS</span></span>
 <span id="cb35-2"><a href="aas.html#cb35-2"></a>(me_med_amo &lt;-<span class="st"> </span><span class="kw">qnorm</span>(<span class="fl">0.975</span>)<span class="op">*</span>cv_med_amo)</span></code></pre></div>
-<pre><code>## [1] 53.24034</code></pre>
+<pre><code>## [1] 43.33177</code></pre>
 <div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="aas.html#cb37-1"></a><span class="co"># d. Tamanho de amostra para obter margem de erro de 150 ao nível 95%</span></span>
 <span id="cb37-2"><a href="aas.html#cb37-2"></a>(D &lt;-<span class="st"> </span><span class="dv">150</span>)</span></code></pre></div>
 <pre><code>## [1] 150</code></pre>
 <div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="aas.html#cb39-1"></a>(n_amo_est &lt;-<span class="st"> </span>(N <span class="op">*</span><span class="st"> </span><span class="kw">qnorm</span>(<span class="fl">0.975</span>)<span class="op">^</span><span class="dv">2</span> <span class="op">*</span><span class="st"> </span><span class="kw">var</span>(munic_amo<span class="op">$</span>Area)) <span class="op">/</span></span>
 <span id="cb39-2"><a href="aas.html#cb39-2"></a><span class="st">              </span>(N <span class="op">*</span><span class="st"> </span>D<span class="op">^</span><span class="dv">2</span> <span class="op">+</span><span class="st"> </span><span class="kw">qnorm</span>(<span class="fl">0.975</span>)<span class="op">^</span><span class="dv">2</span> <span class="op">*</span><span class="st"> </span><span class="kw">var</span>(munic_amo<span class="op">$</span>Area)))</span></code></pre></div>
-<pre><code>## [1] 1261.564</code></pre>
+<pre><code>## [1] 3935.402</code></pre>
 <div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="aas.html#cb41-1"></a>(n_amo_est &lt;-<span class="st"> </span><span class="kw">ceiling</span>(n_amo_est))</span></code></pre></div>
-<pre><code>## [1] 1262</code></pre>
+<pre><code>## [1] 3936</code></pre>
 </div>
 </div>
 <div id="exerc4" class="section level2">
