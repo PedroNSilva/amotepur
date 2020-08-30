@@ -131,9 +131,6 @@ fazendas_sel=ppswr(area,n)
 fazendas_sel
 ```
 
-**(#exm:exmppt2)** Um exemplo de aplicação da amostragem PPT com reposição, no IBGE, é na seleção de municípios e setores que compuseram as amostras de primeiro e segundo estágios das PNADs de 2011 a 2015. Os municípios não autorrepresentativos passaram por um processo de estratificação e, em cada estrato, foram selecionados com reposição e com probabilidade proporcional à população residente obtida no Censo Demográfico 2010. Os setores censitários foram selecionados, em cada município da amostra, também com probabilidade proporcional e com reposição, sendo utilizado o número de unidades domiciliares existentes por ocasião do Censo Demográfico 2010 como medida de tamanho. Detalhes sobre o plano amostral da PNAD 2015 podem ser vistos em
-https://biblioteca.ibge.gov.br/visualizacao/livros/liv98887.pdf
-
 ### Estimação do total sob amostragem PPT com reposição
 
 Um estimador não viciado do total sob amostragem PPT com reposição - PPTC é dado por: 
@@ -275,7 +272,7 @@ A seleção com amostragem PPT sistemática com ordenação segue os seguintes p
 
 Esta forma de implementar a Amostragem Sistemática PPT confere um efeito de ‘estratificação implícita’ pela variável (ou variáveis) usada(s) na ordenação. 
 
-**(#exm:exmppt3)** Nas pesquisas domiciliares por amostragem do IBGE, anteriores à adoção da amostra mestra para o Sistema Integrado de Pesquisas Domiciliares - SIPD,  tais como na PNAD, POF e PME, a seleção dos setores censitários foi sistemática com PPT em cada estrato, onde atribuía-se aos setores uma medida de tamanho equivalente ao total de domicílios de cada um. No caso das PNADs, antes da seleção dos setores, arrolava-se em cada município selecionado, primeiramente, os setores urbanos em ordem crescente de numeração e, posteriormente, os setores rurais. 
+**(#exm:exmppt2)** Nas pesquisas domiciliares por amostragem do IBGE, anteriores à adoção da amostra mestra para o Sistema Integrado de Pesquisas Domiciliares - SIPD,  tais como na PNAD, POF e PME, era usual adotar a seleção sistemática com PPT. No caso da PNAD, o plano amostral incluía a seleção de municípios, que eram estratificados por tamanho em termos de população e selecionados sistematicamente com probabilidade proporcional à população residente obtida no último Censo Demográfico. Antes da seleção dos setores, arrolava-se em cada município selecionado, primeiramente, os setores urbanos em ordem crescente de numeração e, posteriormente, os setores rurais. Os setores eram selecionados, em cada município da amostra, também sistematicamente com probabilidade proporcional utilizando como medida de tamanho o número de unidades domiciliares existentes por ocasião do último Censo Demográfico. Nas demais pesquisas domiciliares, onde a unidade primária de seleção era o setor, era feita a seleção dos setores em cada estrato sistematicamente com PPT (medido em número de domicílios ou domicílios particulares ocupados). Detalhes sobre os principais aspectos de amostragem das pesquisas domiciliares do IBGE podem ser vistos em @Albieri2015. Cabe registrar que, para a estimação da precisão das estimativas, eram adotados estimadores das variâncias como se o plano amostral fosse de seleção PPT com reposição.  
 
 A Amostragem Sistemática com PPT (com ou sem ordenação) era muito usada na prática por sua simplicidade na seleção de amostras. Porém, com o advento de modernas ferramentas computacionais que permitem selecionar com facilidade amostras PPT sem reposição usando outros métodos, tornou-se menos popular.
 
