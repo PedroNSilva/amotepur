@@ -6,7 +6,7 @@ Neste capítulo apresentamos dois métodos de amostragem de unidades elementares
 
 A *Amostragem Binomial ou de Bernoulli* - AB oferece uma alternativa (pouco usada) à AAS, para selecionar diretamente unidades com *equiprobabilidade*. Trata-se de método de amostragem que também dispensa existência de cadastro prévio para seleção da amostra, podendo a amostra ser selecionada ao mesmo tempo que o cadastro vai sendo construído, como na amostragem sistemática simples.
 
-### Método de seleção da amostra
+### Método de seleção da amostra {#binom3}
 
 As unidades aparecem na população ou no cadastro numa certa ordem, digamos igual à dos rótulos $i=1,2,...,N$. Seja $\pi$ a *fração amostral* desejada, tal que $0<\pi<1$. Seja também {$A_1, A_2, ..., A_N$} um conjunto de $N$ variáveis aleatórias *independentes* e distribuídas segundo uma distribuição Uniforme no intervalo $[0;1]$, denotada $U(0;1)$. Associamos cada $A_i$ com a correspondente unidade $i$ da população, para todo $i \in U$.
 

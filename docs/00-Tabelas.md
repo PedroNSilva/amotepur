@@ -107,13 +107,13 @@ Tabela                                                                          
 
 [Tabela 8.7](AS.html#tab:tabsis7)                                                      Valores da variável $y$ para a população
 
-[Tabela 9.1](binom.html#tab:tabbin1) Estimadores do total, média e respectivas variâncias sob AB
+[Tabela 9.1](binom.html#tab:tabbin1)                                                   Estimadores do total, média e respectivas variâncias sob AB
 
-[Tabela 9.2](binom.html#tab:tabbin2) Estimadores do total, média e respectivas variâncias sob AIS
+[Tabela 9.2](binom.html#tab:tabbin2)                                                   Estimadores do total, média e respectivas variâncias sob AIS
 
-[Tabela 9.3](binom.html#tab:tabbin3) Valores observados na amostra
+[Tabela 9.3](binom.html#tab:tabbin3)                                                       Valores observados na amostra
 
-[Tabela 9.4](binom.html#tab:tabbin4) População a ser amostrada 
+[Tabela 9.4](binom.html#tab:tabbin4)                                                      População a ser amostrada 
 
 [Tabela 10.1](ppt.html#tab:tabppt1)                                                    Informações das áreas de uma população de $N=6$ fazendas
 
