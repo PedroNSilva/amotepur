@@ -490,7 +490,7 @@ rm(list = ls())
 library(sampling)
 
 # Leitura dos dados
-MunicBR_dat <- readRDS(file="MunicBR_dat.rds")
+MunicBR_dat <- readRDS(file="Dados/MunicBR_dat.rds")
 str(MunicBR_dat)
 
 # Item 1

@@ -269,7 +269,7 @@ library(sampling)
 library(tidyverse)
 
 # Leitura dos dados
-MunicBR_dat <- readRDS(file="MunicBR_dat.rds")
+MunicBR_dat <- readRDS(file="Dados/MunicBR_dat.rds")
 str(MunicBR_dat)
 
 # Cria código de região nos dados da população

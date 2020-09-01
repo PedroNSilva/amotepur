@@ -98,7 +98,7 @@ area=c(50,1000,125,300,500,25)
 acum=linf=lsup=sel=NULL
 acum[1]=lsup[1]=area[1]
 linf[1]=1
-sel=c(0,0,0,0,0,0)
+sel=rep(0,N)
 # Criando intervalos de seleção
 for (i in 2:N){
   acum[i]=acum[i-1]+area[i]
@@ -173,6 +173,41 @@ Um algoritmo baseado em processamento sequencial de lista para implementar o mé
 O conjunto $s$ de unidades selecionadas por este algoritmo não terá unidades repetidas e terá um tamanho efetivo aleatório, de valor esperado igual a $n$. 
 
 Alguns cuidados devem ser observados ao implementar a *Amostragem PPT de Poisson*. Em primeiro lugar, verifique se nenhuma unidade tem tamanho relativo $x_i / X$ maior que $1/n$. Se isto ocorrer, a ‘probabilidade de inclusão’ desta unidade seria maior que 1, o que é impossível. Caso alguma unidade seja tão grande que $x_i / X > 1/n$, inclua esta unidade com certeza (isto é, faça $\pi_i = 1$). Em seguida, refaça os cálculos dos $\pi_i$ com o tamanho desta unidade excluído do total $X$ e o tamanho de amostra diminuído de uma unidade. Repita a verificação até que nenhuma unidade tenha tamanho relativo maior que 1 sobre o tamanho residual da amostra.
+
+A seguir mostramos uma implementação em R do algoritmo de seleção para *Amostragem PPT de Poisson*.
+```{r,eccho=T}
+#Algoritmo de seleção PPT de Poisson
+# Inicializando variáveis
+N=6
+n=3
+fazenda=c(1:N)
+area=c(50,1000,125,300,500,25)
+sel=A=pii=rep(0,N)
+X=sum(area)
+# Verificando as unidades com seleção "certa" pelo tamanho
+for (i in 1:N){
+  pii[i]=n*area[i]/X
+  if (pii[i]>=1){
+    sel[i]=1                   # Seleção certa: sel=1
+    X=X-area[i]
+    n=n-1
+  }
+}
+# Gerando aletório U(0,1) para cada unidade da população
+# e incluindo ou não na amostra por seleção aleatória
+for (i in 1:N){
+  if (sel[i] < 1){
+  A[i]=runif(1,0,1)
+  pii[i]=n*area[i]/X
+  if (A[i]<=pii[i]) {sel[i]=2} # Seleção aleatória: sel=2
+  }
+}
+# Juntando as informações numa tabela
+tabela=cbind(fazenda,area,A,pii,sel)
+# Tabela com os dados e marcação das unidades selecionadas 
+# (seleção certa: sel=1, seleção aleatória: sel=2)
+tabela
+```
 
 A amostragem PPT de Poisson é o método que foi empregado para a seleção da amostra da Pesquisa Industrial Anual - Produção Física, do IBGE, de 1981. 
 
