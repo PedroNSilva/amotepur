@@ -5,7 +5,7 @@ Figura                                            Descrição
 ------------------------------------------------- ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 [Figura 2.1](conceitos.html#fig:modpesq)          Modelo Genérico do Processo de Produção Estatística, adaptado 
 
-[Figura 2.2](conceitos.html#fig:cadset)           O cadastro de setores do IBGE - Copacabana - RJ 
+[Figura 2.2](conceitos.html#fig:cadset)           Cadastro de setores do IBGE - Copacabana - RJ 
 
 [Figura 2.3](conceitos.html#fig:cnefe1)           Informações do CNEFE para um setor de Copacabana - RJ 
 

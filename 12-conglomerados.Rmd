@@ -207,7 +207,7 @@ A amostragem conglomerada em um ou mais estágios deve ser adotada sempre que:
 A Tabela \@ref(tab:tabcong2) apresenta a notação para os tamanhos populacionais e da amostra na AC1 para uma dada população. 
 
 ```{r, results="asis", echo=FALSE}
-cat("<table>",paste0("<caption>", "(#tab:tabcong2)", "Definição dos tamanhos da população e da amostra na AC1", "</caption>"),"</table>", sep ="\n")
+cat("<table>",paste0("<caption>", "(#tab:tabcong2)", "Tamanhos da população e da amostra na AC1", "</caption>"),"</table>", sep ="\n")
 ```
 <center>
 ---------
@@ -224,7 +224,7 @@ Tamanho da população/amostra    $N = \displaystyle\sum_{i\in C}N_i$     $n = \
 A Tabela \@ref(tab:tabcong3) apresenta os parâmetros populacionais total e média por conglomerado e na população como um todo.
 
 ```{r, results="asis", echo=FALSE}
-cat("<table>",paste0("<caption>", "(#tab:tabcong3)", "Definição de parâmetros populacionais nos conglomerados e na população", "</caption>"),"</table>", sep ="\n")
+cat("<table>",paste0("<caption>", "(#tab:tabcong3)", "Parâmetros populacionais nos conglomerados e na população", "</caption>"),"</table>", sep ="\n")
 ```
 <center>
 ---------

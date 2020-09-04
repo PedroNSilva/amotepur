@@ -83,7 +83,7 @@ Tabela                                                                          
 
 [Tabela 6.9](razao.html#tab:tabrazao9)                                                 Notas de Cálculo 1 e Cálculo 2 para os alunos da amostra 
 
-[Tabela 7.1](domin.html#tab:tabdom1)                                                   Estimadores do total, proporção, média e respectivas variäncias no domínio c sob AAS 
+[Tabela 7.1](domin.html#tab:tabdom1)                                                   Estimadores do total, proporção, média e respectivas variâncias no domínio c sob AAS 
 
 [Tabela 7.2](domin.html#tab:tabdom2)                                                   Distância, em quilômetros, percorrida para chegar ao trabalho pelos 24 entrevistados 
 
@@ -141,15 +141,15 @@ Tabela                                                                          
 
 [Tabela 11.8](estrat.html#tab:tabestr8)                                                Tamanho e variância por estrato 
 
-[Tabela 11.9](estrat.html#tab:tabestr9)                                                Falta no mês para cada trabalhador selecionado 
+[Tabela 11.9](estrat.html#tab:tabestr9)                                                Faltas no mês para cada trabalhador selecionado 
 
 [Tabela 11.10](estrat.html#tab:tabestr10)                                              Informações populacionais dos clientes 
 
 [Tabela 12.1](cong.html#tab:tabcong1)                                                  Exemplos de possíveis conglomerados
 
-[Tabela 12.2](cong.html#tab:tabcong2)                                                  Definição dos tamanhos da população e da amostra na AC1  
+[Tabela 12.2](cong.html#tab:tabcong2)                                                  Tamanhos da população e da amostra na AC1  
 
-[Tabela 12.3](cong.html#tab:tabcong3)                                                  Definição de parâmetros populacionais nos conglomerados e na população 
+[Tabela 12.3](cong.html#tab:tabcong3)                                                  Parâmetros populacionais nos conglomerados e na população 
 
 [Tabela 12.4](cong.html#tab:tabcong4)                                                  Descrição das informações amostrais na AC1S 
 

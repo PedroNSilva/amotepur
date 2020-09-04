@@ -215,11 +215,11 @@ $$
 \widehat V_{AAS} \left( \widehat{Y}_c^R | \, n_c>0 \right) =\displaystyle N_c^2\left(1-\frac{n_c}{N_c}\right)\frac{\widehat S_c^2}{n_c}  \,\, (\#eq:eqdom23)
 $$
 
-A Tabela \@ref(tab:tabdom1) apresenta um resumo de estimadores do total, proporção, média e respectivas variäncias no domínio $c$ sob AAS. 
+A Tabela \@ref(tab:tabdom1) apresenta um resumo de estimadores do total, proporção, média e respectivas variâncias no domínio $c$ sob AAS. 
 
 <center>
 ```{r, results="asis", echo=FALSE}
-cat("<table>",paste0("<caption>", "(#tab:tabdom1)", "Estimadores  do total, proporção, média e respectivas variäncias no domínio $c$ sob AAS ", "</caption>"),"</table>", sep ="\n")
+cat("<table>",paste0("<caption>", "(#tab:tabdom1)", "Estimadores  do total, proporção, média e respectivas variâncias no domínio $c$ sob AAS ", "</caption>"),"</table>", sep ="\n")
 ```
 ----------
 Estimador 

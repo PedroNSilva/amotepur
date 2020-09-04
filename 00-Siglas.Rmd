@@ -78,7 +78,7 @@ CNAE              Classificação Nacional de Atividades Econômicas
 
 CNEFE             Cadastro Nacional de Endereços para Fins Estatísticos 
 
-CNPJ              Cadastro Nacional de Pessoa Jurídica
+CNPJ              Cadastro Nacional da Pessoa Jurídica
 
 CORR              Correlação
 
@@ -164,7 +164,7 @@ PAPI              Paper-and-Pencil Interviewing
 
 PAS               Pesquisa Anual de Serviços 
 
-PIA-Empresa       Pesquisa Industrial Anual 
+PIA               Pesquisa Industrial Anual 
 
 PIM-PF            Pesquisa Industrial Mensal de Produção Física 
 

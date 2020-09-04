@@ -175,7 +175,7 @@ knitr::include_graphics("Figuras/Figcalib1.PNG")
 ```
 </center>
 
-**(#exm:exmcalib1)** Considere o gráfico que ilustra, para a população de fazendas de cana-de-açúcar fornecida no arquivo ‘fazendas_dat.rds’, a relação entre a quantidade produzida, $y$, e a área plantada, $\bf x$. 
+**(#exm:exmcalib1)** Considere o gráfico que ilustra, para a população de fazendas de cana-de-açúcar fornecida no arquivo ‘fazendas_dat.rds’, a relação entre a quantidade produzida, $y$, e a área plantada, $x$. 
 
 <center>
 ```{r, figcalib2, echo=FALSE, encoding="UTF-8", fig.cap="Regressão linear para a população de fazendas de cana-de-açúcar",out.width = '60%'}
@@ -394,7 +394,7 @@ Se, por um lado, os estimadores de calibração possuem um número de propriedad
 
 1.	*Amostras* são finitas, podendo ser *pequenas* em certos estratos.    
 2.	*Pesos calibrados* podem ser *negativos* (ou menores que 1) ou *extremos* (muito grandes). Ambos os casos são situações indesejáveis que também têm implicações sobre a variância do estimador de calibração.    
-3.	Pode haver *grande número de variáveis de pesquisa* $(y)$ ou de ‘grupos de modelagem’ para os quais é necessário ajustar os modelos de regressão que amparam o estimador de calibração.    
+3.	Pode haver *grande número de variáveis de pesquisa* $(\bf y)$ ou de ‘grupos de modelagem’ para os quais é necessário ajustar os modelos de regressão que amparam o estimador de calibração.    
 4.	Pode haver *grande número de variáveis auxiliares* $(\bf x)$.    
 5.	Pesquisas são geralmente afetadas por *não resposta* e os pesos calibrados precisam também ajudar a compensar os efeitos nocivos da não resposta.    
 6.	*Erros de medida* ou *totais populacionais podem ser conhecidos* apenas *aproximadamente*.
@@ -451,7 +451,7 @@ Outra implementação da abordagem acima está disponível no *BASCULA*, que é 
 
 O BASCULA adota um algoritmo iterativo proposto por @Huang1978 para calcular pesos calibrados que satisfazem as restrições de limites. Como é o caso do GES, o BASCULA também nem sempre garante encontrar uma solução que satisfaça todas as restrições especificadas. O sistema trata separadamente casos especiais: pós-estratificação, estimação de razão e estimação tipo *raking*. 
 
-O BASCULA é um programa autônomo (standalone), mas funciona bem com o sistema BLAISE para coleta apoiada por computador. Também requer licenciamento junto ao desenvolvedor e pode ser mais barato obter do que o GES se a organização ainda não for usuária do SAS.
+O BASCULA é um programa autônomo (*standalone*), mas funciona bem com o sistema BLAISE para coleta apoiada por computador. Também requer licenciamento junto ao desenvolvedor e pode ser mais barato obter do que o GES se a organização ainda não for usuária do SAS.
 
 Outra abordagem proposta para resolver o problema de pesos negativos é devida a @Deville1992, que definiram a família de estimadores de calibração. Na abordagem anterior, a função de distância padrão, levando aos pesos de regressão, foi mantida e as condições de limites foram impostas como restrições adicionais. A abordagem proposta por @Deville1992 consiste em modificar a função de distância a ser utilizada no cálculo dos pesos calibrados, de forma a evitar a possibilidade de pesos negativos desde o início. Por isso, a ideia é definir pesos de calibração que *minimizem a distância* $D({\bf w};\bf d)$ definida em \@ref(eq:eqcal6) para cada amostra $s$, sujeita às restrições de calibração \@ref(eq:eqcal33), mas com a *função de distância* $G_i$ definida como um dos tipos de funções apresentados na Tabela \@ref(tab:tabcalib4).
 
@@ -485,7 +485,7 @@ b) $G_i(w,d)$ é definida num intervalo $D_i$ que contém $d$.
 c) $G_i(w,d)$ é estritamente convexa e duas vezes diferenciável em $w$.    
 d) $\partial G_i(w,d)/\partial w$ é contínua e mapeia $D_i$ sobre o intervalo imagem $Im_i (d)$ de forma biunívoca (um para um).
 
-A solução para o problema de *minimizar a distância* $D(w;d)$ pode ser obtida usando o método dos multiplicadores de Lagrange, sob as restrições definidas em \@ref(eq:eqcal33). A solução é encontrada resolvendo: 
+A solução para o problema de *minimizar a distância* $D(\bf{w;d})$ pode ser obtida usando o método dos multiplicadores de Lagrange, sob as restrições definidas em \@ref(eq:eqcal33). A solução é encontrada resolvendo: 
 
 $$
 \partial G_i(w_i,d_i)/\partial w_i - {\bf {x}}'_i \lambda = 0, \,\,\,\forall\, i \in s\,\,(\#eq:eqcal35)
@@ -628,7 +628,7 @@ Segundo, números maiores de variáveis $\bf x$ podem levar a problemas de *depe
 
 Um problema adicional encontrado quando um número muito grande de variáveis auxiliares é considerado na calibração é o aumento potencial do erro quadrático médio - EQM do estimador de calibração resultante. 
 
-@Silva1996, Capítulo 4, e @Silva1997 mostraram que, às vezes, um grande número de variáveis auxiliares pode na verdade reduzir a eficiência do estimador de calibração (regressão) para tamanhos de amostra pequenos a moderados. Por exemplo, em amostragem aleatória simples sem reposição (AAS) e assumindo o modelo $\xi$ definido em \@ref(eq:eqcal10) com $q_i = 1$ para cada $i$, @Silva1996, página 45, mostrou que: 
+@Silva1996, Capítulo 4, e @Silva1997 mostraram que, às vezes, um grande número de variáveis auxiliares pode na verdade reduzir a eficiência do estimador de calibração (regressão) para tamanhos de amostra pequenos a moderados. Por exemplo, em amostragem aleatória simples sem reposição - AAS e assumindo o modelo $\xi$ definido em \@ref(eq:eqcal10) com $q_i = 1$ para cada $i$, @Silva1996, página 45, mostrou que: 
 
 $$
 EQM_{AAS+\xi} \left( N^{-1} \, \widehat T_{y_j}^C \right) = \left( \frac{1}{n} - \frac{1}{N} \right) \sigma_j^2 \left( 1 + \frac{Q}{n} \right) + O \left( n^{-5/2} \right) \,\, (\#eq:eqcal45)
@@ -641,7 +641,7 @@ Essa expressão revela que o $EQM$ do estimador de regressão pode aumentar à m
 Como uma ilustração do problema, a Figura \@ref(fig:figcalib3) plota o $EQM$ do estimador de regressão para o aumento de conjuntos de variáveis auxiliares, assumindo amostragem aleatória simples com $n = 100$ de uma população de chefes de domicílios para os quais os dados foram coletados como parte do Censo Demográfico Experimental de Limeira, São Paulo, Brasil, 1988.
 
 <center>
-```{r, figcalib3, echo=FALSE, encoding="UTF-8", fig.cap="$EQM$ do estimador de regressão versus número de variáveis $\bf x$",out.width = '60%'}
+```{r, figcalib3, echo=FALSE, encoding="UTF-8", fig.cap="$EQM$ do estimador de regressão versus número de variáveis auxiliares",out.width = '60%'}
 knitr::include_graphics("Figuras/Figcalib3.PNG")
 ```
 </center>

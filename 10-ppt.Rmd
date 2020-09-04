@@ -2,7 +2,7 @@
 
 A *Amostragem com Probabilidades Proporcionais ao Tamanho - PPT* agrega alguns métodos de seleção de amostra onde as unidades da população têm probabilidades distintas de seleção, proporcionais a uma medida de tamanho associada a cada unidade.
 
-## Motivação para amostragem PPT
+## Motivação
 
 Como já indicado no Capítulo \@ref(visger), a *Amostragem Probabilística* contempla o emprego de métodos de amostragem que levam a ter probabilidades de inclusão na amostra desiguais, isto é, $\pi_i \ne \pi_j$ para algum par de unidades distintas $i \ne j \in U$. A teoria apresentada no Capítulo \@ref(visger) cobre o caso geral, mas não indica quando o recurso de usar probabilidades desiguais de inclusão na amostra seria vantajoso. Neste capítulo tratamos justamente dessa questão, indicando estratégias que se pode usar para tirar proveito do emprego de amostragem com probabilidades desiguais para aumentar a eficiência dos estimadores de totais e médias.
 
@@ -130,6 +130,8 @@ fazendas_sel=ppswr(area,n)
 # Identificação das fazendas selecionadas
 fazendas_sel
 ```
+
+Nas duas seleções apresentadas no programa R, os resultados são diferentes pois são selecionados número pseudoaleatórios distintos nas duas soluções.
 
 ### Estimação do total sob amostragem PPT com reposição
 

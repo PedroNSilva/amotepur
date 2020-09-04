@@ -96,8 +96,6 @@ cat("<table>",paste0("<caption>", "(#tab:tabsis1)","Unidades que compõem as pos
  Possíveis                           Índices das  
  amostras                            unidades $U_i$                     
 ----------- ----------- ----------- ---------------- ----------- ----------- 
-             **$c_1$**   **$c_2$**    **$c_3$**        **$...$**  **$c_n$** 
-             
 **$s_1$**       1          K+1         2K+1              ...       (n-1)K+1  
 
 **$s_2$**       2          K+2         2K+2              ...       (n-1)K+2   
