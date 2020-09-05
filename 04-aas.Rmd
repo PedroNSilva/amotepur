@@ -203,10 +203,10 @@ O algoritmo de Fan, Muller e Rezucha, para selecionar uma *AAS* de tamanho $n$ d
 
 Este algoritmo é muito eficiente em comparação com os anteriores, porque requer processar a lista no máximo uma vez, e pode nem mesmo requerer chegar ao fim da lista: a amostra pode ser selecionada por completo bem antes de chegar ao final da lista. Apesar de sua simplicidade e eficiência, há alternativas ainda mais eficientes, que entretanto não serão discutidas aqui. Caso o leitor necessite implementar um algoritmo para seleção de uma AAS, recomendamos o emprego deste algoritmo. Será suficientemente bom para a maioria das aplicações práticas.
 
-Tanto o algoritmo de Hajek como o de Fan, Muller e Rezucha podem ser facilmente implementados no R.
+Tanto o algoritmo de Hàjek como o de Fan, Muller e Rezucha podem ser facilmente implementados no R.
 ```{r}
 
-# Algoritmo de Hajek
+# Algoritmo de Hàjek
 
 # Gerando os índices da população e os correspondentes pseudoaleatórios 
 U=data.frame(1:1000,runif(1000, min = 0, max = 1))
