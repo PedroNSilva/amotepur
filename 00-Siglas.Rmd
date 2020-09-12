@@ -164,6 +164,8 @@ PAPI              Paper-and-Pencil Interviewing
 
 PAS               Pesquisa Anual de Serviços 
 
+PeNSE             Pesquisa Nacional de Saúde do Escolar
+
 PIA               Pesquisa Industrial Anual 
 
 PIM-PF            Pesquisa Industrial Mensal de Produção Física 
