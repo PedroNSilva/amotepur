@@ -179,7 +179,7 @@ Outro exemplo: os rótulos $\{i_{N-n+1}, i_{N-n+2}, ..., i_N\}$ também fornecem
 
 O algoritmo de Hàjek requer duas passagens sobre a lista, mais uma operação de ordenação dos números aleatórios. Oferece grande ganho de eficiência em comparação com o algoritmo convencional, mas ainda não é o mais eficiente.
 
-**(#exm:exmaas1)** Suponha uma populção de tamanho $N=1000$ unidades da qual se deseja selecionar uma amostra de tamanho $n=20$ unidades, utilizando o algoritmo de Hàjek.
+**(#exm:exmaas1)** Suponha uma população de tamanho $N=1000$ unidades da qual se deseja selecionar uma amostra de tamanho $n=20$ unidades, utilizando o algoritmo de Hàjek.
 
 ```{r, hecho=T}
 # Algoritmo de Hàjek
@@ -232,7 +232,7 @@ i = 0 # Contador das unidades populacionais
 j = 0 # Contador das unidades da amostra
 while (n > 0 & N > 0) {
   i=i+1 
-# Geração de número pseudo-aleatório uniforme entre 0 e 1 e
+# Geração de número pseudoaleatório uniforme entre 0 e 1 e
 # comparação com a fração amostral atualizada. Se for menor
 # a unidade entra na amostra.
   if (runif(1) < n/N){
