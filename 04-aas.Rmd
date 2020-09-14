@@ -443,10 +443,10 @@ $$\frac{1}{n} = \left( \frac{10}{1,645} \right)^2 \frac{1}{S_y^2} + \frac{1}{N} 
 Para calcular o tamanho desejado da amostra precisamos conhecer $N$ e $S_y^2$. Seguem algumas sugestões de como fazer para resolver a questão de que $S_y^2$ é também desconhecido:
 
 1)	Usar informações de *pesquisas anteriores*.
-2)	Fazer *amostra prévia* (*amostra piloto*) e estimar $S_y^2$ usando $s_y^2$ com os dados dessa amostra prévia.
+2)	Fazer *amostra prévia* (*amostra piloto*) e estimar $S_y^2$ usando $\widehat S_y^2$ com os dados dessa amostra prévia.
 3)	Em casos especiais (proporções e outros), *usar cota superior* para o valor de $S_y^2$.
 
-**O caso geral**
+**O caso geral:**
 
 Seja $D$ a *precisão desejada*, a *margem de erro máximo admissível* na estimação de $\overline Y$, a *semiamplitude* desejada para o intervalo de confiança de $\overline Y$. Seja $1-\alpha$ o *coeficiente de confiança* desejado para o procedimento. Para *intervalos de confiança* de 95% usamos $z_{\alpha/2} = 1,96$.
 
@@ -561,10 +561,10 @@ d)	Repita 500 vezes o item b, e analise a distribuição resultante das estimati
 a.  Liste todas as possíveis AAS de tamanho $n=2$.
 b.  Calcule $S^2_y$ e $V_{AAS}(\overline y)$.
 c.  Mostre numericamente que $V_{AAS}(\overline y)=\frac {N-n}N \frac {S^2_y}n$.
-d.  Mostre numericamente que $E_{AAS}(s^2_y)=S^2_y$.
+d.  Mostre numericamente que $E_{AAS}(\widehat S^2_y)=S^2_y$.
 e.  Liste todas as possíveis AASC de tamanho $n=2$.
 f.  Mostre numericamente que $V_{AASC}(\overline y)= \frac {\sigma^2_y}n$.
-g.  Mostre numericamente que $E_{AASC}(s^2_y)=\sigma^2_y$.
+g.  Mostre numericamente que $E_{AASC}(\widehat S^2_y)=\sigma^2_y$.
 
 **(#exr:exraas4)** A administração de um parque florestal deseja estimar a população de coelhos e veados no parque nos meses de inverno. Para isso a área da floresta foi dividida, através de um levantamento aerofotométrico, em 10.000 pequenas áreas de aproximadamente 10 m<sup>2</sup>. Uma AAS de $n = 500$ dessas pequenas áreas foi selecionada e foram observados os números de coelhos e veados em cada uma delas, resultando na Tabela \@ref(tab:tabaas6):
 
