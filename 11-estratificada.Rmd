@@ -428,7 +428,7 @@ gerando a chamada *Alocação (Ótima) de Neyman*.
 
 Esta alocação é muito usada em pesquisas de estabelecimentos quando os desvios padrões $S_{h,y}$ crescem com o tamanho das unidades, ou seja, a variável de interesse tem maior variação em estabelecimentos maiores.
 
-### Tamanho da amostra estratificada - caso geral
+### Tamanho da amostra estratificada simples
 
 Dado um tipo de alocação e fixando a variância que se deseja para a estimativa da média populacional, por exemplo, é possível determinar o tamanho total da amostra estratificada necessária, a partir da Expressão \@ref(eq:eqest17).
 
@@ -445,10 +445,7 @@ $$
 
 Para obter a expressão para uma alocação particular basta substituir $a_h$ de forma adequada. Por exemplo, no caso da alocação proporcional basta substituir $a_h$ por $W_h$ e obter a expressão para o cálculo do tamanho da amostra.
 
-### Tamanho da amostra sob alocação ótima
-
-Para um custo fixado $C$ basta substituir o valor de $n_h$, dado pela Expressão \@ref(eq:eqest18), na função de custo linear, Expressão \@ref(eq:eqest16), para se obter o tamanho total da amostra sob *amostragem estratificada simples com alocação ótima - AESO*:
-
+No caso da alocação ótima, para um custo fixado $C$, basta substituir o valor de $n_h$, dado pela Expressão \@ref(eq:eqest18), na função de custo linear, Expressão \@ref(eq:eqest16), para se obter o tamanho total da amostra sob *amostragem estratificada simples com alocação ótima - AESO*:
 
 $$
 n_{AESO} = \left( C - c_0 \right) \times \frac{\displaystyle \sum_{h=1}^{H} N_h S_{h,y} / \sqrt c_h} {\displaystyle \sum_{h=1}^{H} N_h S_{h,y} \sqrt c_h} \,\,\, (\#eq:eqest20)
@@ -463,7 +460,7 @@ O segundo termo à direita corresponde à *correção de população finita*.
 
 A Expressão \@ref(eq:eqest21) é obtida pela substituição de $n_h$ na Expressão \@ref(eq:eqest8) pela expressão do $n_h$ da alocação de Neyman.
 
-As soluções aqui apresentadas para alocação ótima ou de Neyman são aproximadas, pois ignoram restrições do tipo $1 \le n_h \le N_h$ e $n_h$ inteiro, $\forall \, h$. Soluções exatas para o problema de alocação devem ter em conta estas restrições e a literatura tem várias propostas. @Brito2015 oferecem uma solução exata para este problema de otimização utilizando uma formulação de *Programação Inteira Binária*. Um pacote denominado *stratbr* para o R foi desenvolvido onde esta solução está disponível - ver @Brito2019 para detalhes.
+As soluções aqui apresentadas para alocação ótima ou de Neyman são aproximadas, pois ignoram restrições do tipo $1 \le n_h \le N_h$ e $n_h$ inteiro, $\forall \, h$. Soluções exatas para o problema de alocação devem ter em conta estas restrições e a literatura tem várias propostas. @Brito2015 oferecem uma solução exata para este problema de alocação ótima utilizando uma formulação de *Programação Inteira Binária*. Um pacote denominado *stratbr* para o R foi desenvolvido onde esta solução está disponível - ver @Brito2019 para detalhes.
 
 
 ### Comparação de alternativas de alocação da amostra
@@ -513,6 +510,7 @@ A implementação de amostragem estratificada simples com alocação ótima pode
     b. Predizer $y_i$ usando informações auxiliares $x_i$, e então estimar $S_{h,y}$ a partir dos valores preditos.     
     c. Usar o total ou a amplitude da variável auxiliar $x$ no estrato $h$ como proxy para $S_{h,y}$.    
     d. Selecionar pequena amostra piloto (preliminar) e usar dados desta amostra para estimar $S_{y,h}$.    
+    
 2. Pode haver muitas variáveis de pesquisa $y$.    
     Caso se tenha informações sobre as diversas variáveis de interesse da pesquisa para fazer alocações alternativas da amostra, isto pode ser feito usando um dos métodos de alocação descritos acima. Entretanto, tomar cada variável como guia para a alocação geralmente levaria a ter alocações ótimas diferentes. Nesses casos, os métodos mais simples buscam soluções de compromisso considerando as diversas alocações alternativas: 
     a. Usar a média das alocações alternativas em cada estrato.     
@@ -520,11 +518,14 @@ A implementação de amostragem estratificada simples com alocação ótima pode
     c. Construir um ‘índice’ das variáveis de pesquisa e usar este índice para definir a alocação.    
     d. Usar alocação proporcional.   
     
-    Todas as soluções acima são saídas simplificadoras, que na verdade não enfrentam o problema existente. @Brito2015 oferece uma abordagem para *alocação ótima multivariada*, usando formulações de programação inteira binária para obter soluções exatas do problema, que inclusive consideram que os tamanhos de amostra nos estratos têm que ser inteiros e limitados abaixo por 1 (ou outro valor especificado) e acima (por $N_h$). O pacote *stratbr* do R implementa duas soluções: uma delas permite minimizar o custo ou tamanho amostral para limites de precisão especificados; a outra permite minimizar uma função de variância dado um orçamento ou tamanho amostral total especificado.    
+    Todas as soluções acima são saídas simplificadoras, que na verdade não enfrentam o problema existente. @Brito2015 oferece uma abordagem para *alocação ótima multivariada*, usando formulações de programação inteira binária para obter soluções exatas do problema, que inclusive consideram que os tamanhos de amostra nos estratos têm que ser inteiros e limitados abaixo por 1 (ou outro valor especificado) e acima (por $N_h$). O pacote *stratbr* do R implementa duas soluções: uma delas permite minimizar o custo ou tamanho amostral para limites de precisão especificados; a outra permite minimizar uma função de variância dado um orçamento ou tamanho amostral total especificado.
+    
 3. Se $n_h > N_h$ para algum estrato.    
-    Fazer $n_h = N_h$, tornando esse estrato um *estrato certo* ou *estrato censitário* para os estratos em que $n_h > N_h$. Em seguida, refazer a alocação ótima nos demais estratos, após ajustar o tamanho da amostra disponível para seleção nestes outros estratos.    
+    Fazer $n_h = N_h$, tornando esse estrato um *estrato certo* ou *estrato censitário* para os estratos em que $n_h > N_h$. Em seguida, refazer a alocação ótima nos demais estratos, após ajustar o tamanho da amostra disponível para seleção nestes outros estratos. 
+    
 4. Se $n_h < 2$ para algum estrato.    
     Se a estimação de variâncias for importante, então forçar $n_h \geq 2$ para todos os estratos. Na prática, costuma-se fazer $n_h \geq 5$ devido à possibilidade de ocorrência de não resposta. Para estimação sem viés do total ou média, é essencial que $n_h \geq 2$ para todos os estratos. Quando ocorrem situações de estratos com $n_h = 1$, é necessário utilizar métodos aproximados para estimação de variâncias, tais como agregação de estratos ou similares (ver @Cochran1977, Seção 5A.12).    
+    
 5. Ganhos de eficiência podem ser modestos, particularmente para estimação de proporções.     
     @Cochran1977, página 99, mostra que: $$V_{AESN} \left( \overline y_{AES} \right) \le V_{AESP} \left( \overline y_{AES} \right) \le V_{AAS} \left( \overline y \right)$$ 
     Os ganhos de precisão possíveis dependem da relação entre a(s) variável(is) de estratificação e as variáveis de pesquisa. Em geral, os ganhos são pequenos para amostras de pessoas e variáveis ligadas a atitudes, opiniões, comportamentos, etc. Para pesquisas amostrais de estabelecimentos ou instituições, os ganhos podem ser maiores.     
@@ -532,18 +533,29 @@ A implementação de amostragem estratificada simples com alocação ótima pode
 
 ## Definição dos limites dos estratos
 
-Conforme já dito anteriormente, a determinação dos limites dos estratos influencia na eficiência na amostragem estratificada. Para definir estratos num contexto de *estratificação estatística*, se estiver disponível uma variável auxiliar $x$ correlacionada positivamente com a variável de interesse $y$, seus valores podem ser usados para formar estratos. Surge então a questão de como formar os estratos de maneira a tirar proveito dessa variável para aumentar a eficiência da amostragem estratificada simples na estimação de parâmetros da variável de pesquisa $y$. Este problema é conhecido como problema da *delimitação ótima dos estratos*. 
+Conforme já dito anteriormente, a determinação dos limites dos estratos influencia na eficiência na amostragem estratificada. Para definir estratos num contexto de *estratificação estatística*, se estiver dispone total, supondo que num dos estratos formados será feito um censo (levantamento exaustivo), e nível uma variável auxiliar $x$ correlacionada positivamente com a variável de interesse $y$, seus valores podem ser usados para formar estratos. Surge então a questão de como formar os estratos de maneira a tirar proveito dessa variável para aumentar a eficiência da amostragem estratificada simples na estimação de parâmetros da variável de pesquisa $y$. Este problema é conhecido como problema da *delimitação ótima dos estratos*. 
 
 O primeiro passo é a escolha do valor de $H$, o número total de estratos. Quanto maior for a correlação entre a variável auxiliar $x$ disponível e a variável de pesquisa $y$, maior pode ser o número de estratos formados, até um certo limite. Evidências empíricas sugerem, entretanto, que valores no intervalo $5 \le H \le 10$ são suficientes para alcançar grande parte dos ganhos de eficiência decorrentes da estratificação. 
 
-Quando $H = 2$, há um par de métodos disponíveis para obter soluções 'exatas' do problema de delimitação ótima dos estratos. @Glasser1962 descreve um algoritmo para delimitar estratos de modo a minimizar a variância do estimador de total, supondo que num dos estratos formados será feito um censo (levantamento exaustivo), e no outro será feita amostragem aleatória simples. Este é um exemplo de *amostragem estratificada por corte - AEC*, onde o valor que delimita a partir de que ponto as maiores unidades devem ser incluídas num *estrato certo* é escolhido pelo algoritmo. @Hidiroglou1986 apresenta um algoritmo alternativo também considerando AEC, mas onde o ponto de corte da estratificação é escolhido de modo a minimizar o tamanho total da amostra, para um valor especificado da variância do estimador de total aplicado à variável auxiliar $x$.
+Quando $H = 2$, há um par de métodos disponíveis para obter soluções 'exatas' do problema de delimitação ótima dos estratos. @Glasser1962 descreve um algoritmo para delimitar estratos de modo a minimizar a variância do estimador do outro será feita amostragem aleatória simples. Este é um exemplo de *amostragem estratificada por corte - AEC*, onde o valor que delimita a partir de que ponto as maiores unidades devem ser incluídas num *estrato certo* é escolhido pelo algoritmo. @Hidiroglou1986 apresenta um algoritmo alternativo também considerando AEC, mas onde o ponto de corte da estratificação é escolhido de modo a minimizar o tamanho total da amostra, para um valor especificado da variância do estimador de total aplicado à variável auxiliar $x$.
 
-Para valores de $H \ge 3$, há uma variedade de soluções disponíveis na literatura. @Brito2019 apresenta uma revisão da literatura sobre estes métodos, mas também apresenta um algoritmo de otimização estocástica para resolver o problema. Este algoritmo está implementado no pacote *stratbr* do sistema R. A Figura \@ref(fig:numeroestratos) lista as principais referências que tratam do tema. 
+Para valores de $H \ge 3$, há uma variedade de soluções disponíveis na literatura. @Brito2019 apresenta uma revisão da literatura sobre estes métodos, mas também apresenta um algoritmo de otimização estocástica para resolver o problema. Este algoritmo está implementado no pacote *stratbr* do sistema R. A Tabela \@ref(tab:tabestr2) lista as principais referências que tratam do tema. 
 
-<center>
-```{r,numeroestratos, echo=FALSE, fig.cap="Soluções sobre escolha de número de estratos",out.width="100%"}
-knitr::include_graphics("Figuras/numeroestratos.png")
+```{r, results="asis", echo=FALSE}
+cat("<table>",paste0("<caption>", "(#tab:tabestr2)", "Referências sobre delimitação ótima de estratos", "</caption>"),"</table>", sep ="\n")
 ```
+<center>
+---------
+Critério de otimização     $H=2$              $H>2$       
+-------------------------- ------------------ ------------------------------------------- 
+Custo $(n)$ mínimo         @Hidiroglou1986    @Lavalle1988      
+
+Variância aprox. mínima                       @Dalenius1959
+
+Variância mínima           @Glasser1962       @Hedlin2000; @Brito2010; @Brito2019        
+
+CV constante por estratos                     @Gunning2004
+---------
 </center>
 
 ## Número de estratos na amostragem estratificada simples 
@@ -567,10 +579,10 @@ $$
 
 onde $\rho_{x,y}$ é correlação entre $x$ e $y$ conforme o modelo linear assumido para a população.
 
-A Tabela \@ref(tab:tabestr2) apresenta valores de $EPA\left(\overline y_{AES} \, ; \,\overline y \right)$ para alguns valores de $H$ e de $\rho_{x,y}$.
+A Tabela \@ref(tab:tabestr3) apresenta valores de $EPA\left(\overline y_{AES} \, ; \,\overline y \right)$ para alguns valores de $H$ e de $\rho_{x,y}$.
 
 ```{r, results="asis", echo=FALSE}
-cat("<table>",paste0("<caption>", "(#tab:tabestr2)", "Valores de $EPA$ para valores variados de $H$ e de correlação", "</caption>"),"</table>", sep ="\n")
+cat("<table>",paste0("<caption>", "(#tab:tabestr3)", "Valores de $EPA$ para valores variados de $H$ e de correlação", "</caption>"),"</table>", sep ="\n")
 ```
 <center>
 ---------
@@ -607,11 +619,11 @@ e)  Calcule as estimativas da média populacional para cada uma das amostras AES
 f)  Calcule a variância da estimativa da média populacional com AES.
 g)  Compare e comente os resultados encontrados.
 
-**(#exr:exeest4)** Em uma determinada localidade formada por 500 domicílios deseja-se fazer um estudo sobre o hábito de fumar entre as pessoas maiores de 16 anos. A população foi estratificada em 2 estratos: domicílios com renda alta (estrato 1), onde foram classificados 200 domicílios; e domicílios com renda mais baixa (estrato 2), onde foram classificados os outros 300 domicílios. É conhecido que o número de pessoas com mais de 16 anos no estrato 1 é 520 e no estrato 2 é 1.230. De cada um dos estratos foi selecionada e pesquisada uma amostra aleatória simples de 5 domicílios, apresentando os resultados mostrados na Tabela \@ref(tab:tabestr3):
+**(#exr:exeest4)** Em uma determinada localidade formada por 500 domicílios deseja-se fazer um estudo sobre o hábito de fumar entre as pessoas maiores de 16 anos. A população foi estratificada em 2 estratos: domicílios com renda alta (estrato 1), onde foram classificados 200 domicílios; e domicílios com renda mais baixa (estrato 2), onde foram classificados os outros 300 domicílios. É conhecido que o número de pessoas com mais de 16 anos no estrato 1 é 520 e no estrato 2 é 1.230. De cada um dos estratos foi selecionada e pesquisada uma amostra aleatória simples de 5 domicílios, apresentando os resultados mostrados na Tabela \@ref(tab:tabestr4):
  
 <center>
 ```{r, results="asis", echo=FALSE}
-cat("<table>",paste0("<caption>", "(#tab:tabestr3)", "Dados observados na amostra, por estrato", "</caption>"),"</table>", sep ="\n")
+cat("<table>",paste0("<caption>", "(#tab:tabestr4)", "Dados observados na amostra, por estrato", "</caption>"),"</table>", sep ="\n")
 ```
 ----------
                                      Estrato 1          Estrato 2 
@@ -626,11 +638,11 @@ Fumantes com mais de 16 anos    1  1  0  1  1       3  3  1  2  
 
 Estime o total de fumantes e o intervalo de 95% de confiança, entre as pessoas maiores de 16 anos na localidade, utilizando o estimador simples da amostragem estratificada.
 
-**(#exr:exeest5)** Um pesquisador pretende realizar uma pesquisa por amostragem para estimar a produção de soja numa determinada região. Ele tem acesso a uma lista das fazendas produtoras de soja localizadas na região, compilada por ocasião do último censo agropecuário, realizado menos de 1 ano atrás. Usando essa lista, que contém a informação sobre área plantada com soja na ocasião do censo em cada fazenda, o pesquisador dividiu as fazendas da população em dois grupos: fazendas grandes (área plantada com soja maior que 50 hectares) e fazendas pequenas (todas as demais). A Tabela \@ref(tab:tabestr4) contém as informações compiladas pelo pesquisador usando a lista.
+**(#exr:exeest5)** Um pesquisador pretende realizar uma pesquisa por amostragem para estimar a produção de soja numa determinada região. Ele tem acesso a uma lista das fazendas produtoras de soja localizadas na região, compilada por ocasião do último censo agropecuário, realizado menos de 1 ano atrás. Usando essa lista, que contém a informação sobre área plantada com soja na ocasião do censo em cada fazenda, o pesquisador dividiu as fazendas da população em dois grupos: fazendas grandes (área plantada com soja maior que 50 hectares) e fazendas pequenas (todas as demais). A Tabela \@ref(tab:tabestr5) contém as informações compiladas pelo pesquisador usando a lista.
 
 <center>
 ```{r, results="asis", echo=FALSE}
-cat("<table>",paste0("<caption>", "(#tab:tabestr4)", "Informações da estratificação das fazendas de soja", "</caption>"),"</table>", sep ="\n")
+cat("<table>",paste0("<caption>", "(#tab:tabestr5)", "Informações da estratificação das fazendas de soja", "</caption>"),"</table>", sep ="\n")
 ```
 ----------
 Grupo           $N_h$  $\overline {Y_h}$      $S^2_{h,y}$
@@ -648,11 +660,11 @@ b)  A alocação de Neyman.
 c)  A alocação ótima, supondo que o custo de coleta de uma unidade entre as grandes fazendas é metade do custo da coleta de uma unidade entre as pequenas.
 d)  Amostragem Estratificada por Corte.
   
-**(#exr:exeest6)** Para estimar o total de uma variável de interesse $y$, uma população foi estratificada em quatro estratos. Algumas informações sobre a variável $y$ e sua distribuição nos estratos, obtidas de um censo recente, estão disponíveis na Tabela \@ref(tab:tabestr5).
+**(#exr:exeest6)** Para estimar o total de uma variável de interesse $y$, uma população foi estratificada em quatro estratos. Algumas informações sobre a variável $y$ e sua distribuição nos estratos, obtidas de um censo recente, estão disponíveis na Tabela \@ref(tab:tabestr6).
 
 <center>
 ```{r, results="asis", echo=FALSE}
-cat("<table>",paste0("<caption>", "(#tab:tabestr5)", "Informações censitárias sobre a variável de interesse", "</caption>"),"</table>", sep ="\n")
+cat("<table>",paste0("<caption>", "(#tab:tabestr6)", "Informações censitárias sobre a variável de interesse", "</caption>"),"</table>", sep ="\n")
 ```
 ----------
  Estrato      $N_h$  $\overline {Y_h}$        $S^2_{h,y}$
@@ -673,11 +685,11 @@ a)  Determine a alocação proporcional da amostra nos estratos.
 b)  Determine a alocação de Neyman da amostra nos estratos.
 c)  Compare a eficiência da AES, com as alocações utilizadas nos itens anteriores, em relação a uma AAS de mesmo tamanho.
 
-**(#exr:exeest7)** As 2.120 lojas de uma certa localidade foram estratificadas pelo número de empregados (única variável relativa ao tamanho da empresa encontrada no cadastro) numa pesquisa para estimar o faturamento total. A Tabela \@ref(tab:tabestr6) contém as informações da variável número de empregados, $x$, utilizadas no planejamento da amostra e os resultados sobre o faturamento das lojas, $y$, obtidos da coleta dos dados na amostra .
+**(#exr:exeest7)** As 2.120 lojas de uma certa localidade foram estratificadas pelo número de empregados (única variável relativa ao tamanho da empresa encontrada no cadastro) numa pesquisa para estimar o faturamento total. A Tabela \@ref(tab:tabestr7) contém as informações da variável número de empregados, $x$, utilizadas no planejamento da amostra e os resultados sobre o faturamento das lojas, $y$, obtidos da coleta dos dados na amostra .
 
 <center>
 ```{r, results="asis", echo=FALSE}
-cat("<table>",paste0("<caption>", "(#tab:tabestr6)", "Estratificação das lojas e resultados da amostra", "</caption>"),"</table>", sep ="\n")
+cat("<table>",paste0("<caption>", "(#tab:tabestr7)", "Estratificação das lojas e resultados da amostra", "</caption>"),"</table>", sep ="\n")
 ```
 ---------- 
  Limites dos estratos             $N_h$              $X_h$         $S^2_{h,x}$        $\overline y_h$    $\widehat S^2_{h,y}$
@@ -701,11 +713,11 @@ cat("<table>",paste0("<caption>", "(#tab:tabestr6)", "Estratificação das lojas
   a) Dimensione, utilizando os dados referentes a $x$, a amostra necessária para estimar o numero total de empregados com um erro máximo admissível de 2% e com um nível de confiança de 95%, supondo alocação de Neyman.
   b) Suponha que a amostra alocada no item anterior tenha sido efetivamente selecionada fornecendo os resultados apresentados para $y$. Com estas informações estime o faturamento total, $Y$, e o coeficiente de variação desta estimativa.
        
-**(#exr:exeest8)** (@Thompson2012) A Tabela \@ref(tab:tabestr7) mostra os resultados observados numa amostra estratificada:
+**(#exr:exeest8)** (@Thompson2012) A Tabela \@ref(tab:tabestr8) mostra os resultados observados numa amostra estratificada:
 
 <center>
 ```{r, results="asis", echo=FALSE}
-cat("<table>",paste0("<caption>", "(#tab:tabestr7)", "Resultados observados na amostra", "</caption>"),"</table>", sep ="\n")
+cat("<table>",paste0("<caption>", "(#tab:tabestr8)", "Resultados observados na amostra", "</caption>"),"</table>", sep ="\n")
 ```
 ---------- 
  Estrato    $N_h$           $n_h$  $\overline y_h$  $\widehat S^2_{h,y}$
@@ -722,11 +734,11 @@ a)  Qual o tipo de estratificação utilizado?
 b)  Estime a média populacional.
 c)  Construa o intervalo de 95% de confiança para a média populacional.
 
-**(#exr:exeest9)** (Adaptado de @Scheaffer2011) Uma empresa deseja estimar o total de faltas ao trabalho, num determinado mês, entre todos os funcionários. Como técnicos, administrativos e trabalhadores sem formação específica têm taxas distintas de faltas, esses grupos devem ser tratados como estratos. A Tabela \@ref(tab:tabestr8) dá as informações populacionais, para cada um dos estratos, sobre o total de trabalhadores e a variância do número de faltas.
+**(#exr:exeest9)** (Adaptado de @Scheaffer2011) Uma empresa deseja estimar o total de faltas ao trabalho, num determinado mês, entre todos os funcionários. Como técnicos, administrativos e trabalhadores sem formação específica têm taxas distintas de faltas, esses grupos devem ser tratados como estratos. A Tabela \@ref(tab:tabestr9) dá as informações populacionais, para cada um dos estratos, sobre o total de trabalhadores e a variância do número de faltas.
 
 <center>
 ```{r, results="asis", echo=FALSE}
-cat("<table>",paste0("<caption>", "(#tab:tabestr8)", "Tamanho e variância por estrato", "</caption>"),"</table>", sep ="\n")
+cat("<table>",paste0("<caption>", "(#tab:tabestr9)", "Tamanho e variância por estrato", "</caption>"),"</table>", sep ="\n")
 ```
 ---------- 
 Trabalhadores      $N_h$  $S^2_{h,y}$
@@ -740,13 +752,13 @@ Sem formação         132       36
 </center>
 
 a)  Supondo $n=30$, determine a alocação de Neyman da amostra estratificada simples.
-b)  Usando os dados da Tabela \@ref(tab:tabestr9), estime o número total de faltas e estime um limite superior para o erro de estimativa, com 95% de confiança.
+b)  Usando os dados da Tabela \@ref(tab:tabestr10), estime o número total de faltas e estime um limite superior para o erro de estimativa, com 95% de confiança.
 c)  Qual seria a estimativa do total e o limite superior para o erro de estimativa, com 95% de confiança, se essa mesma amostra tivesse sido selecionada por uma AAS, sem considerar a estratificação.
 d)  Compare os resultados e comente-os.
 
 <center>
 ```{r, results="asis", echo=FALSE}
-cat("<table>",paste0("<caption>", "(#tab:tabestr9)", "Faltas no mês para cada trabalhador selecionado", "</caption>"),"</table>", sep ="\n")
+cat("<table>",paste0("<caption>", "(#tab:tabestr10)", "Faltas no mês para cada trabalhador selecionado", "</caption>"),"</table>", sep ="\n")
 ```
 ---------- 
 Trabalhadores    Faltas
