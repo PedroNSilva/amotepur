@@ -383,7 +383,7 @@ svyciprop(~I(y==1),desaas,method="beta")
 svyciprop(~I(y==1),desaas,method="mean")
 svyciprop(~I(y==1),desaas,method="xlogit")
 ```
-Na função *binconf* o método denominado *Exact* utiliza uma aproximação da Binomial pela distribuição *F*; o método denominado *Wilson* é baseado nos *scores* do teste binomial e é o método definido como *default* por ser considerado o melhor; já o método denominado *Asymptotic* é o da proximação pela distribuição Normal.
+Na função *binconf* o método denominado *Exact* utiliza uma aproximação da Binomial pela distribuição *F*; o método denominado *Wilson* é baseado nos *scores* do teste binomial e é o método definido como *default* por ser considerado o melhor; já o método denominado *Asymptotic* é o da aproximação pela distribuição Normal.
 
 Na função *propCI* são apresentados outros dois métodos: O método *Agresti-Coull* que é um ajuste da aproximação Normal e o método *Jeffreys* que é um método Bayesiano. O método *Asymptotic* é chamado de *Wald*.
 
@@ -612,7 +612,7 @@ As fórmulas apresentadas dependem do nivel de significância $\alpha$ e da marg
 
 Pesquisas que utilizam medidas objetivas para alcançar seus resultados, como instrumentos para medir fisicamente o fenômeno estudado, podem ser mais exigentes quanto à precisão das estimativas desejadas, enquanto que pesquisas da área social, por exemplo, onde se utilizam questionários e que dependem da memória ou até da boa vontade dos entrevistados, frequentemente não podem ter o mesmo nível de exigência. 
 
-O tamanho da amostra também depende da variância da variável utilizada para seu cálculo, através do produto $p(1-p)$. Como $p$ é a proporção que se deseja estimar, se fosse conhecida não haveria a necessidade de uma amostra. Geralmente, como no caso de se pesquisar variáveis contínuas, utilizam-se pesquisas anteriores ou variáveis correlacionadas com a atual variável de interesse, ou mesmo uma pesquisa piloto com um tamanho arbitrário de amostra, para se ter uma estimativa inicial do fenomeno a ser medido e poder calcular o tamanho de amostra realmente necessário. Quando se utiliza uma pesquisa piloto, existem métodos para utilizar os resultados relativos às unidades já pesquisadas e selecionar outras unidades para complementar o tamanho da amostra.
+O tamanho da amostra também depende da variância da variável utilizada para seu cálculo, através do produto $p(1-p)$. Como $p$ é a proporção que se deseja estimar, se fosse conhecida não haveria a necessidade de uma amostra. Geralmente, como no caso de se pesquisar variáveis contínuas, utilizam-se pesquisas anteriores ou variáveis correlacionadas com a atual variável de interesse, ou mesmo uma pesquisa piloto com um tamanho arbitrário de amostra, para se ter uma estimativa inicial do fenômeno a ser medido e poder calcular o tamanho de amostra realmente necessário. Quando se utiliza uma pesquisa piloto, existem métodos para utilizar os resultados relativos às unidades já pesquisadas e selecionar outras unidades para complementar o tamanho da amostra.
 
 No caso da estimação de proporções, o valor de $p(1-p)$ é limitado variando de 0 a 0,25, sendo esse valor máximo atingido quando $p= 0,5$. O gráfico da Figura \@ref(fig:figprop3) mostra como variam os valores de $p(1-p)$ conforme a variação dos valores de $p$.
 
