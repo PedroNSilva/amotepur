@@ -92,7 +92,7 @@ $$
 Ainda considerando o caso em que o *tamanho do domínio* na população é desconhecido, o próximo parâmetro do domínio que podemos estimar é o total $Y_c$. O estimador não viciado deste total é obtido simplesmente aplicando o estimador de Horvitz-Thompson à variável derivada $y_{ic}$, resultando em: 
 
 $$
- \widehat{Y}_c = N/n \sum_{i \in s} y_{ic} = N \frac {t_c} {n} (\#eq:eqdom8)
+ \widehat{Y}_c = \frac N n \sum_{i \in s} y_{ic} = N \frac {t_c} {n} (\#eq:eqdom8)
 $$
 onde $t_c$ é a soma amostral da variável $y$ para unidades pertencentes ao domínio $c$, dada por $t_c = \displaystyle \sum_{i \in s} y_{ic}$.
 
@@ -200,7 +200,7 @@ $$
 Logo, é possível usar o *estimador tipo razão* para o total dado por:
 
 $$
-\widehat{Y}_c^R = N_c \overline {y}_c = N_c /n_c \sum_{i\in s} y_{ic} \,\, (\#eq:eqdom21)
+\widehat{Y}_c^R = N_c \overline {y}_c = \frac{N_c}{n_c} \sum_{i\in s} y_{ic} \,\, (\#eq:eqdom21)
 $$
 
 A variância condicional deste estimador, considerando fixado o tamanho da amostra no domínio $c$, é dada por:
