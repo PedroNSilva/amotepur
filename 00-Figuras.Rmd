@@ -29,9 +29,7 @@ Figura                                            Descrição
 
 [Figura 5.3](proporc.html#fig:figprop3)           Variação de $p(1-p)$ em função dos valores de $p$ 
 
-[Figura 11.1](estrat.html#fig:numeroestratos)     Soluções sobre escolha de número de estratos 
-
-[Figura 11.2](estrat.html#fig:precisaovsestratos) Ganhos de precisão versus número de estratos 
+[Figura 11.1](estrat.html#fig:precisaovsestratos) Ganhos de precisão *versus* número de estratos 
 
 [Figura 12.1](cong.html#fig:hierar1)              Ilustração da hierarquia com vários níveis (vários para um) 
 

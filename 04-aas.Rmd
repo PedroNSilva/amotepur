@@ -341,7 +341,7 @@ Sob repetições do procedimento de seleção segundo *AAS*, $\overline{y}$ tem 
 Se $n$ for grande e $f = n/N$ for pequena, o *Teorema Central do Limite* - ver @Hajek1960 - pode ser usado para obter a distribuição aproximada:
 
 $$
-\frac{\overline {y}-E_{AAS}(\overline{y})}{\sqrt{V_{AAS}(\overline{y})}}=\frac{\overline {y}-\overline{Y}}{\displaystyle\sqrt{\left(\frac{1}{n}-\frac{1}{N}\right)S_y^2}}\approx N(0;1)\,\,(\#eq:eqaas9)
+\frac{\overline {y}-E_{AAS}(\overline{y})}{\sqrt{V_{AAS}(\overline{y})}}=\frac{\overline {y}-\overline{Y}}{\displaystyle\sqrt{\left(\frac{1}{n}-\frac{1}{N}\right)S^2_y}}\approx N(0;1)\,\,(\#eq:eqaas9)
 $$
 
 onde $N(0;1)$ denota uma variável aleatória com distribuição normal padrão com média zero e variância um. Mais detalhes podem ser obtidos em @Cochran1977, Seções 2.8 e 2.15, ou em @Sarndal1992, Seção 2.11.
@@ -443,10 +443,10 @@ $$\frac{1}{n} = \left( \frac{10}{1,645} \right)^2 \frac{1}{S_y^2} + \frac{1}{N} 
 Para calcular o tamanho desejado da amostra precisamos conhecer $N$ e $S_y^2$. Seguem algumas sugestões de como fazer para resolver a questão de que $S_y^2$ é também desconhecido:
 
 1)	Usar informações de *pesquisas anteriores*.
-2)	Fazer *amostra prévia* (*amostra piloto*) e estimar $S_y^2$ usando $\widehat S_y^2$ com os dados dessa amostra prévia.
+2)	Fazer *amostra prévia* (*amostra piloto*) e estimar $S^2_y$ usando $\widehat S_y^2$ com os dados dessa amostra prévia.
 3)	Em casos especiais (proporções e outros), *usar cota superior* para o valor de $S_y^2$.
 
-**O caso geral:**
+**O caso geral**
 
 Seja $D$ a *precisão desejada*, a *margem de erro máximo admissível* na estimação de $\overline Y$, a *semiamplitude* desejada para o intervalo de confiança de $\overline Y$. Seja $1-\alpha$ o *coeficiente de confiança* desejado para o procedimento. Para *intervalos de confiança* de 95% usamos $z_{\alpha/2} = 1,96$.
 

@@ -127,23 +127,25 @@ Tabela                                                                          
 
 [Tabela 11.1](estrat.html#tab:tabestr1)                                                Estimadores do total, média e respectivas variâncias sob AES 
 
-[Tabela 11.2](estrat.html#tab:tabestr2)                                                Valores de $EPA$ para valores variados de $H$ e de correlação
+[Tabela 11.2](estrat.html#tab:tabestr2)                                                Referências sobre delimitação ótima de estratos
 
-[Tabela 11.3](estrat.html#tab:tabestr3)                                                Dados observados na amostra, por estrato
+[Tabela 11.3](estrat.html#tab:tabestr3)                                                Valores de $EPA$ para valores variados de $H$ e de correlação
 
-[Tabela 11.4](estrat.html#tab:tabestr4)                                                Informações da estratificação das fazendas de soja 
+[Tabela 11.4](estrat.html#tab:tabestr4)                                                Dados observados na amostra, por estrato
+
+[Tabela 11.5](estrat.html#tab:tabestr5)                                                Informações da estratificação das fazendas de soja 
   
-[Tabela 11.5](estrat.html#tab:tabestr5)                                                Informações censitárias sobre a variável de interesse 
+[Tabela 11.6](estrat.html#tab:tabestr6)                                                Informações censitárias sobre a variável de interesse 
 
-[Tabela 11.6](estrat.html#tab:tabestr6)                                                Estratificação das lojas e resultados da amostra 
+[Tabela 11.7](estrat.html#tab:tabestr7)                                                Estratificação das lojas e resultados da amostra 
 
-[Tabela 11.7](estrat.html#tab:tabestr7)                                                Resultados observados na amostra 
+[Tabela 11.8](estrat.html#tab:tabestr8)                                                Resultados observados na amostra 
 
-[Tabela 11.8](estrat.html#tab:tabestr8)                                                Tamanho e variância por estrato 
+[Tabela 11.9](estrat.html#tab:tabestr9)                                                Tamanho e variância por estrato 
 
-[Tabela 11.9](estrat.html#tab:tabestr9)                                                Faltas no mês para cada trabalhador selecionado 
+[Tabela 11.10](estrat.html#tab:tabestr10)                                              Faltas no mês para cada trabalhador selecionado 
 
-[Tabela 11.10](estrat.html#tab:tabestr10)                                              Informações populacionais dos clientes 
+[Tabela 11.11](estrat.html#tab:tabestr11)                                              Informações populacionais dos clientes 
 
 [Tabela 12.1](cong.html#tab:tabcong1)                                                  Exemplos de possíveis conglomerados
 
