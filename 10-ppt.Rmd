@@ -222,9 +222,9 @@ tabela[tabela$sel>0,]
 
 A amostragem PPT de Poisson é o método que foi empregado para a seleção da amostra da Pesquisa Industrial Anual - Produção Física, do IBGE, de 1981. 
 
-A *Amostragem PPT de Poisson* é pouco usada na prática devido à variabilidade do tamanho efetivo da amostra. É um método menos eficiente que outros métodos de seleção PPT sem reposição. Um método moderno que corrige este defeito é *Amostragem Sequencial de Poisson - ASP* - ver @Ohlsson1998 - descrito na seção seguinte.
+A *Amostragem PPT de Poisson* é pouco usada na prática devido à variabilidade do tamanho efetivo da amostra. É um método menos eficiente que outros métodos de seleção PPT sem reposição. Um método moderno que corrige este defeito é *Amostragem Sequencial de Poisson - ASP* - ver @Ohlsson1998 - descrito na Seção \@ref(ASP).
 
-### Estimação do total sob amostragem de Poisson
+### Estimação do total sob amostragem de Poisson 
 
 O estimador HT do total sob amostragem de Poisson é dado por: 
 
@@ -260,7 +260,7 @@ $$
 $$
 onde $m$ é o tamanho efetivo da amostra selecionada. Para mais detalhes sobre a estimação da variância, ver @Ohlsson1998.
 
-## Amostragem sequencial de Poisson
+## Amostragem sequencial de Poisson  {#ASP}
 
 O método de *Amostragem Sequencial de Poisson - ASP*, proposto por @Ohlsson1998, é uma modificação do método de *Amostragem de Poisson* que elimina a variabilidade do tamanho efetivo da amostra. O custo dessa modificação é um procedimento de amostragem um pouco mais complexo e que requer uso de resultados aproximados para a estimação tanto do total como de sua variância.
 

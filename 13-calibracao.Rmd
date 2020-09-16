@@ -437,7 +437,7 @@ $$
 LI \le g_i \le LS, \,\, \forall \,i \in s,\,\, \text{com} \,\, 0 < LI < 1 < LS \,\, (\#eq:eqcal34)
 $$
 
-Esta é a abordagem adotada no desenvolvimento do *Generalized Estimation System - GES* pelo Statistics Canada (ver @Estevao1995). 
+Esta é a abordagem adotada no desenvolvimento do *Generalized Estimation System - GES* pelo *Statistics Canada* (ver @Estevao1995). 
 
 Este problema corresponde à minimização de uma função quadrática \@ref(eq:eqcal32) sob restrições lineares \@ref(eq:eqcal33) e não lineares \@ref(eq:eqcal34). A solução do problema é tentada / obtida por *métodos não lineares de otimização*. 
 
@@ -445,9 +445,9 @@ O sistema *GES* tenta resolver esse problema usando um algoritmo eficiente, mas 
 
 O sistema *GES* inclui, além da determinação dos pesos de calibração, estimação de totais, médias e razões, global e para domínios, juntamente com suas correspondentes variâncias para planos de amostragem estratificada ou conglomerada com um único estágio. 
 
-Os estatísticos que procuram uma ferramenta computacional para implementar a calibração devem dar a devida consideração a este pacote. Uma desvantagem é a sua dependência do software estatístico *Statistical Analysis System - SAS*, o que torna esta uma opção razoavelmente cara. Se o SAS já estiver disponível, o licenciamento de GES pelo Statistics Canada não é proibitivo para a maioria das agências de estatística e custaria muito menos do que o desenvolvimento de um software equivalente.
+Os estatísticos que procuram uma ferramenta computacional para implementar a calibração devem dar a devida consideração a este pacote. Uma desvantagem é a sua dependência do software estatístico *Statistical Analysis System - SAS*, o que torna esta uma opção razoavelmente cara. Se o SAS já estiver disponível, o licenciamento de GES pelo *Statistics Canada* não é proibitivo para a maioria das agências de estatística e custaria muito menos do que o desenvolvimento de um software equivalente.
 
-Outra implementação da abordagem acima está disponível no *BASCULA*, que é um sistema desenvolvido pelo Statistics Netherlands (ver @Nieuwenbroek2002). A principal diferença entre o GES e o BASCULA é o algoritmo usado para calcular os pesos de calibração. 
+Outra implementação da abordagem acima está disponível no *BASCULA*, que é um sistema desenvolvido pelo *Statistics Netherlands* (ver @Nieuwenbroek2002). A principal diferença entre o GES e o BASCULA é o algoritmo usado para calcular os pesos de calibração. 
 
 O BASCULA adota um algoritmo iterativo proposto por @Huang1978 para calcular pesos calibrados que satisfazem as restrições de limites. Como é o caso do GES, o BASCULA também nem sempre garante encontrar uma solução que satisfaça todas as restrições especificadas. O sistema trata separadamente casos especiais: pós-estratificação, estimação de razão e estimação tipo *raking*. 
 
@@ -594,7 +594,7 @@ Os pesos de calibração e estimadores correspondentes obtidos como resultado de
 
 O estimador de calibração resultante do algoritmo *não é mais eficiente* que o estimador GREG, mas oferece *flexibilidade* para lidar com pesos extremos. 
 
-Os estimadores de calibração deste tipo foram implementados na Macro *CALMAR* em SAS do INSEE (ver @Sautory2003). Este programa executa apenas o cálculo de peso, mas uma variante denominada CALJACK foi desenvolvida no Statistics Canada (ver @Bernier1994) que inclui a estimação de variâncias pelo método de Jackknife para totais, médias, razões e diferenças destes. O CALMAR também requer o SAS, mas uma implementação mais recente (mas limitada) do método está disponível: a Macro *g-CALIB-S*, desenvolvida no Statistics Belgium, é implementada no SPSS, ver @Vanderhoeft2000. As funções *calibrate, postStratify* e *rake* do pacote *survey* do sistema $R$, ver @Lumley2010, também têm o método implementado e são as melhores alternativas disponíveis no momento.
+Os estimadores de calibração deste tipo foram implementados na Macro *CALMAR* em SAS do INSEE (ver @Sautory2003). Este programa executa apenas o cálculo de peso, mas uma variante denominada CALJACK foi desenvolvida no *Statistics Canada* (ver @Bernier1994) que inclui a estimação de variâncias pelo método de Jackknife para totais, médias, razões e diferenças destes. O CALMAR também requer o SAS, mas uma implementação mais recente (mas limitada) do método está disponível: a Macro *g-CALIB-S*, desenvolvida no *Statistics Belgium*, é implementada no SPSS, ver @Vanderhoeft2000. As funções *calibrate, postStratify* e *rake* do pacote *survey* do sistema $R$, ver @Lumley2010, também têm o método implementado e são as melhores alternativas disponíveis no momento.
 
 A estimação de calibração como agora estendida fornece as ferramentas para tentar *resolver o problema de pesos negativos*, o que pode ser evitado escolhendo as funções de calibração 2 a 7 na Tabela \@ref(tab:tabcalib5). Também dá algum *controle sobre o problema de pesos extremos ou pesos menores que 1*, o que pode ser evitado escolhendo as funções de calibração 6 ou 7, usando $LI=1/\min \{d_i,\,\,i \in s\}$ e especificando algum $LS$ adequado. 
 
@@ -765,7 +765,7 @@ Em casos como este, uma ideia atraente é a de considerar *calibração nas marg
 
 Um exemplo citado pelos autores considera o modelo: (sexo x idade x estado civil)+(região x grau de urbanização). Neste exemplo, o modelo conteria ‘somente’ 80 + 66 = 146 parâmetros. Uma consequência natural é que a amostra não será calibrada para as 5.280 contagens conhecidas, mas somente para as 146 contagens consideradas no modelo simplificado considerando as marginais incompletas. Mas os autores sugerem que, na prática, o modelo incompleto funcionaria quase tão bem quanto o modelo completo em muitos casos.
 
-@Silva1997 se inspiraram neste artigo para desenvolver o procedimento de seleção de variáveis para uso com estimadores de regressão. A Tabela \@ref(tab:tabcalib7) mostra uma análise feita por @Bethlehem1987  sobre a aplicação da ideia a uma pesquisa domiciliar holandesa realizada em 1977/1978, onde $LI$ e $LS$ representam os limites inferior e superior, respectivamente, dos intervalos com 95% de confiança; e a variável "Mar" representa o estado conjugal. 
+@Silva1997 se inspiraram neste artigo para desenvolver o procedimento de seleção de variáveis para uso com estimadores de regressão. A Tabela \@ref(tab:tabcalib7) mostra uma análise feita por @Bethlehem1987  sobre a aplicação da ideia a uma pesquisa domiciliar holandesa realizada em 1977/1978, onde $LI$ e $LS$ representam os limites inferior e superior, respectivamente, dos intervalos com 95% de confiança; e a variável "Mar" representa o estado civil. 
 
 ```{r, echo=FALSE, label="tabcalib7"}
 suppressMessages(library(kableExtra)) # Pacote usado para a tabela não ocupar a largura toda da página
