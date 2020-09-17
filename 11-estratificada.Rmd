@@ -46,12 +46,8 @@ Nos dois casos é fundamental ter acesso a cadastro(s) com informações complet
 
 Particione (divida) a população $U$ em $H$ subconjuntos (grupos) mutuamente exclusivos e exaustivos, chamados *estratos*, denotados por $U_1, ..., U_h, ..., U_H$, de modo que: 
 $$
-U = U_1 \cup \dots \cup U_h \cup \dots \cup U_H = \displaystyle \bigcup_{h=1}^H U_h  
+U = U_1 \cup \dots \cup U_h \cup \dots \cup U_H = \displaystyle \bigcup_{h=1}^H U_h\quad\text {e}\quad U_h \cap U_k = \emptyset, \, h \ne k
 $$
-e
-$$
-U_h \cap U_k = \emptyset, \, h \ne k
-$$.
 
 Então $U_h = \textrm {\{unidades pertencentes ao estrato h}\}$, para $h=1, 2, ...,H$.
 
@@ -643,7 +639,7 @@ Fumantes com mais de 16 anos    1  1  0  1  1       3  3  1  2  
 
 Estime o total de fumantes e o intervalo de 95% de confiança, entre as pessoas maiores de 16 anos na localidade, utilizando o estimador simples da amostragem estratificada.
 
-**(#exr:exeest5)** Um pesquisador pretende realizar uma pesquisa por amostragem para estimar a produção de soja numa determinada região. Ele tem acesso a uma lista das fazendas produtoras de soja localizadas na região, compilada por ocasião do último censo agropecuário, realizado menos de 1 ano atrás. Usando essa lista, que contém a informação sobre área plantada com soja na ocasião do censo em cada fazenda, o pesquisador dividiu as fazendas da população em dois grupos: fazendas grandes (área plantada com soja maior que 50 hectares) e fazendas pequenas (todas as demais). A Tabela \@ref(tab:tabestr5) contém as informações compiladas pelo pesquisador usando a lista.
+**(#exr:exeest5)** Um pesquisador pretende realizar uma pesquisa por amostragem para estimar a produção de soja numa determinada região. Ele tem acesso a uma lista das fazendas produtoras de soja localizadas na região, compilada por ocasião do último censo agropecuário. Usando essa lista, que contém a informação sobre área plantada com soja na ocasião do censo em cada fazenda, o pesquisador dividiu as fazendas da população em dois grupos: fazendas grandes (área plantada com soja maior que 50 hectares) e fazendas pequenas (todas as demais). A Tabela \@ref(tab:tabestr5) contém as informações compiladas pelo pesquisador usando a lista.
 
 <center>
 ```{r, results="asis", echo=FALSE}
