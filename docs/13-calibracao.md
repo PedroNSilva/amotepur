@@ -176,7 +176,7 @@ Os dois gráficos da Figura \@ref(fig:figcalib1) ilustram essa ideia. Neste exem
 </div>
 </center>
 
-**(#exm:exmcalib1)** Considere o gráfico que ilustra, para a população de fazendas de cana-de-açúcar fornecida no arquivo ‘fazendas_dat.rds’, a relação entre a quantidade produzida, $y$, e a área plantada, $\bf x$. 
+**(#exm:exmcalib1)** Considere o gráfico que ilustra, para a população de fazendas de cana-de-açúcar fornecida no arquivo ‘fazendas_dat.rds’, a relação entre a quantidade produzida, $y$, e a área plantada, $x$. 
 
 <center>
 <div class="figure">
@@ -322,14 +322,14 @@ $$
 V({\widehat Y}_{AES}^{RC}) \doteq \displaystyle \sum_{h=1}^{H} N_h^2 \left( \frac {1}{n_h} -  \frac {1}{N_h} \right) S_{h,r}^2 (\#eq:eqcal27)
 $$
 
-onde $S_{h,r}^2 = \displaystyle \frac{1}{N_h-1} \displaystyle \sum_{i \in U_h} (r_i - \overline R_h)^2$,  $r_i = y_i - R x_i$, $R = {Y}/{X}$ e $\overline R_h = \displaystyle\frac{1}{N_h}\sum_{i \in U_h} r_i$. 
+onde $S_{h,r}^2 = \displaystyle \frac{1}{N_h-1} \displaystyle \sum_{i \in U_h} (r_i - \overline R_h)^2,\quad r_i = y_i - R x_i,\quad R = {Y}/{X}\quad\text{e}\quad\overline R_h = \displaystyle\frac{1}{N_h}\sum_{i \in U_h} r_i$. 
 
 Um estimador consistente da variância aproximada $V({\widehat Y}_{AES}^{RC})$ é dado por: 
 
 $$
 \widehat V({\widehat Y}_{AES}^{RC}) = \displaystyle \sum_{h=1}^{H} N_h^2 \left( \frac {1}{n_h} -  \frac {1}{N_h} \right) \widehat S_{h,r}^2 (\#eq:eqcal28)
 $$
-onde $\widehat S_{h,r}^2 = \displaystyle \frac{1}{n_h-1} \displaystyle \sum_{i \in s_h} (\widehat r_i - \overline r_h)^2$, $\widehat r_i = y_i - \widehat R x_i$, $\widehat R = \widehat Y_{AES}/\widehat X_{AES}$ e $\overline r_h = \displaystyle\frac{1}{n_h} \sum_{i \in s_h} \widehat r_i$.
+onde $\widehat S_{h,r}^2 = \displaystyle \frac{1}{n_h-1} \displaystyle \sum_{i \in s_h} (\widehat r_i - \overline r_h)^2,\quad \widehat r_i = y_i - \widehat R x_i,\quad\widehat R = \widehat Y_{AES}/\widehat X_{AES}\quad\text{e}\quad \overline r_h = \displaystyle\frac{1}{n_h} \sum_{i \in s_h} \widehat r_i$.
 
 ### Estimador de razão separada sob AES
 
@@ -357,14 +357,14 @@ $$
 V(\widehat Y_{AES}^{RS}) \doteq \displaystyle \sum_{h=1}^{H} N_h^2 \left( \frac {1}{n_h} -  \frac {1}{N_h} \right) S_{h,r}^2 (\#eq:eqcal30)
 $$
 
-onde agora $S_{h,r}^2 = \displaystyle \frac{1}{N_h-1} \sum_{i \in U_h} (r_i - \overline R_h)^2$, $r_i = y_i - R_h x_i$ e $R_h = {Y_h}/{X_h}$.
+onde agora $S_{h,r}^2 = \displaystyle \frac{1}{N_h-1} \sum_{i \in U_h} (r_i - \overline R_h)^2,\quad r_i = y_i - R_h x_i\quad\text{e}\quad R_h = {Y_h}/{X_h}$.
 
 Um estimador de $V(\widehat Y_{AES}^{RS})$ é dado por: 
 
 $$
 \widehat V(\widehat Y_{AES}^{RS}) = \displaystyle \sum_{h=1}^{H} N_h^2 \left( \frac {1}{n_h} -  \frac {1}{N_h} \right)\widehat S_{h,r}^2 (\#eq:eqcal31)
 $$
-com $\widehat S_{h,r}^2 = \displaystyle \frac{1}{n_h-1} \displaystyle \sum_{i \in s_h} r_i^2$, $\widehat r_i = y_i - \widehat R_h x_i$ e $\widehat R_h = \widehat Y_h / \widehat X_h$.
+com $\widehat S_{h,r}^2 = \displaystyle \frac{1}{n_h-1} \displaystyle \sum_{i \in s_h} r_i^2,\quad\widehat r_i = y_i - \widehat R_h x_i\quad\text{e}\quad\widehat R_h = \widehat Y_h / \widehat X_h$.
 
 ### Comparação dos estimadores de razão combinada e separada
 
@@ -378,7 +378,7 @@ Se, por um lado, os estimadores de calibração possuem um número de propriedad
 
 1.	*Amostras* são finitas, podendo ser *pequenas* em certos estratos.    
 2.	*Pesos calibrados* podem ser *negativos* (ou menores que 1) ou *extremos* (muito grandes). Ambos os casos são situações indesejáveis que também têm implicações sobre a variância do estimador de calibração.    
-3.	Pode haver *grande número de variáveis de pesquisa* $(y)$ ou de ‘grupos de modelagem’ para os quais é necessário ajustar os modelos de regressão que amparam o estimador de calibração.    
+3.	Pode haver *grande número de variáveis de pesquisa* $(\bf y)$ ou de ‘grupos de modelagem’ para os quais é necessário ajustar os modelos de regressão que amparam o estimador de calibração.    
 4.	Pode haver *grande número de variáveis auxiliares* $(\bf x)$.    
 5.	Pesquisas são geralmente afetadas por *não resposta* e os pesos calibrados precisam também ajudar a compensar os efeitos nocivos da não resposta.    
 6.	*Erros de medida* ou *totais populacionais podem ser conhecidos* apenas *aproximadamente*.
@@ -421,7 +421,7 @@ $$
 LI \le g_i \le LS, \,\, \forall \,i \in s,\,\, \text{com} \,\, 0 < LI < 1 < LS \,\, (\#eq:eqcal34)
 $$
 
-Esta é a abordagem adotada no desenvolvimento do *Generalized Estimation System - GES* pelo Statistics Canada (ver @Estevao1995). 
+Esta é a abordagem adotada no desenvolvimento do *Generalized Estimation System - GES* pelo *Statistics Canada* (ver @Estevao1995). 
 
 Este problema corresponde à minimização de uma função quadrática \@ref(eq:eqcal32) sob restrições lineares \@ref(eq:eqcal33) e não lineares \@ref(eq:eqcal34). A solução do problema é tentada / obtida por *métodos não lineares de otimização*. 
 
@@ -429,13 +429,13 @@ O sistema *GES* tenta resolver esse problema usando um algoritmo eficiente, mas 
 
 O sistema *GES* inclui, além da determinação dos pesos de calibração, estimação de totais, médias e razões, global e para domínios, juntamente com suas correspondentes variâncias para planos de amostragem estratificada ou conglomerada com um único estágio. 
 
-Os estatísticos que procuram uma ferramenta computacional para implementar a calibração devem dar a devida consideração a este pacote. Uma desvantagem é a sua dependência do software estatístico *Statistical Analysis System - SAS*, o que torna esta uma opção razoavelmente cara. Se o SAS já estiver disponível, o licenciamento de GES pelo Statistics Canada não é proibitivo para a maioria das agências de estatística e custaria muito menos do que o desenvolvimento de um software equivalente.
+Os estatísticos que procuram uma ferramenta computacional para implementar a calibração devem dar a devida consideração a este pacote. Uma desvantagem é a sua dependência do software estatístico *Statistical Analysis System - SAS*, o que torna esta uma opção razoavelmente cara. Se o SAS já estiver disponível, o licenciamento de GES pelo *Statistics Canada* não é proibitivo para a maioria das agências de estatística e custaria muito menos do que o desenvolvimento de um software equivalente.
 
-Outra implementação da abordagem acima está disponível no *BASCULA*, que é um sistema desenvolvido pelo Statistics Netherlands (ver @Nieuwenbroek2002). A principal diferença entre o GES e o BASCULA é o algoritmo usado para calcular os pesos de calibração. 
+Outra implementação da abordagem acima está disponível no *BASCULA*, que é um sistema desenvolvido pelo *Statistics Netherlands* (ver @Nieuwenbroek2002). A principal diferença entre o GES e o BASCULA é o algoritmo usado para calcular os pesos de calibração. 
 
 O BASCULA adota um algoritmo iterativo proposto por @Huang1978 para calcular pesos calibrados que satisfazem as restrições de limites. Como é o caso do GES, o BASCULA também nem sempre garante encontrar uma solução que satisfaça todas as restrições especificadas. O sistema trata separadamente casos especiais: pós-estratificação, estimação de razão e estimação tipo *raking*. 
 
-O BASCULA é um programa autônomo (standalone), mas funciona bem com o sistema BLAISE para coleta apoiada por computador. Também requer licenciamento junto ao desenvolvedor e pode ser mais barato obter do que o GES se a organização ainda não for usuária do SAS.
+O BASCULA é um programa autônomo (*standalone*), mas funciona bem com o sistema BLAISE para coleta apoiada por computador. Também requer licenciamento junto ao desenvolvedor e pode ser mais barato obter do que o GES se a organização ainda não for usuária do SAS.
 
 Outra abordagem proposta para resolver o problema de pesos negativos é devida a @Deville1992, que definiram a família de estimadores de calibração. Na abordagem anterior, a função de distância padrão, levando aos pesos de regressão, foi mantida e as condições de limites foram impostas como restrições adicionais. A abordagem proposta por @Deville1992 consiste em modificar a função de distância a ser utilizada no cálculo dos pesos calibrados, de forma a evitar a possibilidade de pesos negativos desde o início. Por isso, a ideia é definir pesos de calibração que *minimizem a distância* $D({\bf w};\bf d)$ definida em \@ref(eq:eqcal6) para cada amostra $s$, sujeita às restrições de calibração \@ref(eq:eqcal33), mas com a *função de distância* $G_i$ definida como um dos tipos de funções apresentados na Tabela \@ref(tab:tabcalib4).
 
@@ -469,7 +469,7 @@ b) $G_i(w,d)$ é definida num intervalo $D_i$ que contém $d$.
 c) $G_i(w,d)$ é estritamente convexa e duas vezes diferenciável em $w$.    
 d) $\partial G_i(w,d)/\partial w$ é contínua e mapeia $D_i$ sobre o intervalo imagem $Im_i (d)$ de forma biunívoca (um para um).
 
-A solução para o problema de *minimizar a distância* $D(w;d)$ pode ser obtida usando o método dos multiplicadores de Lagrange, sob as restrições definidas em \@ref(eq:eqcal33). A solução é encontrada resolvendo: 
+A solução para o problema de *minimizar a distância* $D(\bf{w;d})$ pode ser obtida usando o método dos multiplicadores de Lagrange, sob as restrições definidas em \@ref(eq:eqcal33). A solução é encontrada resolvendo: 
 
 $$
 \partial G_i(w_i,d_i)/\partial w_i - {\bf {x}}'_i \lambda = 0, \,\,\,\forall\, i \in s\,\,(\#eq:eqcal35)
@@ -578,7 +578,7 @@ Os pesos de calibração e estimadores correspondentes obtidos como resultado de
 
 O estimador de calibração resultante do algoritmo *não é mais eficiente* que o estimador GREG, mas oferece *flexibilidade* para lidar com pesos extremos. 
 
-Os estimadores de calibração deste tipo foram implementados na Macro *CALMAR* em SAS do INSEE (ver @Sautory2003). Este programa executa apenas o cálculo de peso, mas uma variante denominada CALJACK foi desenvolvida no Statistics Canada (ver @Bernier1994) que inclui a estimação de variâncias pelo método de Jackknife para totais, médias, razões e diferenças destes. O CALMAR também requer o SAS, mas uma implementação mais recente (mas limitada) do método está disponível: a Macro *g-CALIB-S*, desenvolvida no Statistics Belgium, é implementada no SPSS, ver @Vanderhoeft2000. As funções *calibrate, postStratify* e *rake* do pacote *survey* do sistema $R$, ver @Lumley2010, também têm o método implementado e são as melhores alternativas disponíveis no momento.
+Os estimadores de calibração deste tipo foram implementados na Macro *CALMAR* em SAS do INSEE (ver @Sautory2003). Este programa executa apenas o cálculo de peso, mas uma variante denominada CALJACK foi desenvolvida no *Statistics Canada* (ver @Bernier1994) que inclui a estimação de variâncias pelo método de Jackknife para totais, médias, razões e diferenças destes. O CALMAR também requer o SAS, mas uma implementação mais recente (mas limitada) do método está disponível: a Macro *g-CALIB-S*, desenvolvida no *Statistics Belgium*, é implementada no SPSS, ver @Vanderhoeft2000. As funções *calibrate, postStratify* e *rake* do pacote *survey* do sistema $R$, ver @Lumley2010, também têm o método implementado e são as melhores alternativas disponíveis no momento.
 
 A estimação de calibração como agora estendida fornece as ferramentas para tentar *resolver o problema de pesos negativos*, o que pode ser evitado escolhendo as funções de calibração 2 a 7 na Tabela \@ref(tab:tabcalib5). Também dá algum *controle sobre o problema de pesos extremos ou pesos menores que 1*, o que pode ser evitado escolhendo as funções de calibração 6 ou 7, usando $LI=1/\min \{d_i,\,\,i \in s\}$ e especificando algum $LS$ adequado. 
 
@@ -612,7 +612,7 @@ Segundo, números maiores de variáveis $\bf x$ podem levar a problemas de *depe
 
 Um problema adicional encontrado quando um número muito grande de variáveis auxiliares é considerado na calibração é o aumento potencial do erro quadrático médio - EQM do estimador de calibração resultante. 
 
-@Silva1996, Capítulo 4, e @Silva1997 mostraram que, às vezes, um grande número de variáveis auxiliares pode na verdade reduzir a eficiência do estimador de calibração (regressão) para tamanhos de amostra pequenos a moderados. Por exemplo, em amostragem aleatória simples sem reposição (AAS) e assumindo o modelo $\xi$ definido em \@ref(eq:eqcal10) com $q_i = 1$ para cada $i$, @Silva1996, página 45, mostrou que: 
+@Silva1996, Capítulo 4, e @Silva1997 mostraram que, às vezes, um grande número de variáveis auxiliares pode na verdade reduzir a eficiência do estimador de calibração (regressão) para tamanhos de amostra pequenos a moderados. Por exemplo, em amostragem aleatória simples sem reposição - AAS e assumindo o modelo $\xi$ definido em \@ref(eq:eqcal10) com $q_i = 1$ para cada $i$, @Silva1996, página 45, mostrou que: 
 
 $$
 EQM_{AAS+\xi} \left( N^{-1} \, \widehat T_{y_j}^C \right) = \left( \frac{1}{n} - \frac{1}{N} \right) \sigma_j^2 \left( 1 + \frac{Q}{n} \right) + O \left( n^{-5/2} \right) \,\, (\#eq:eqcal45)
@@ -626,8 +626,8 @@ Como uma ilustração do problema, a Figura \@ref(fig:figcalib3) plota o $EQM$ d
 
 <center>
 <div class="figure">
-<img src="Figuras/Figcalib3.PNG" alt="$EQM$ do estimador de regressão versus número de variáveis $f x$" width="60%" />
-<p class="caption">(\#fig:figcalib3)$EQM$ do estimador de regressão versus número de variáveis $f x$</p>
+<img src="Figuras/Figcalib3.PNG" alt="$EQM$ do estimador de regressão versus número de variáveis auxiliares" width="60%" />
+<p class="caption">(\#fig:figcalib3)$EQM$ do estimador de regressão versus número de variáveis auxiliares</p>
 </div>
 </center>
 
@@ -688,7 +688,7 @@ $$
 
 A *redução de vício* pretendida com uso de calibração somente será alcançada, no entanto, se o mecanismo combinado de resposta e amostragem for *ignorável* dadas as variáveis $\bf x$ consideradas na calibração, isto é, se a seleção dos respondentes for condicionalmente independente de $y_{ij} \, | \, {\bf {x}_i}, \,\, \forall \, i \in U$. Alternativamente, o vício se anula quando ${\bf c}'{\bf x}_i = {1/r_i},\,\, \forall \, i\, \in U$,  sendo ${\bf c}$ um vetor de constantes.
 
-Isto sugere que a escolha das variáveis $\bf x$ a serem consideradas para a calibração deve levar em conta os prováveis efeitos da não resposta e, em particular, deve-se incorporar todas as variáveis $\bf x$ para as quais dados populacionais auxiliares estão disponíveis e que contêm informações sobre as probabilidades desconhecidas de responder à pesquisa. Sob um modelo simplificado onde $\psi_i$ denota a probabilidade de que uma unidade responderá à pesquisa, dado que ela é selecionada para a amostra e a resposta é independente para unidades distintas, uma condição para o estimador de calibração ser aproximadamente não viciado sob a distribuição de aleatorização e a distribuição de resposta é que $\psi_i^{-1} = 1 + q_i{ \bf x}_i {\bf  λ}$, para todo $i$ e algum vetor de constantes ${\bf  λ}$ (ver @Lundstrom1997, página 46). No entanto, como os pesos de calibração $w_i$ são sempre da forma $w_i = d_i F(q_i {\bf x}_i {\bf  λ})$ (ver Expressão \@ref(eq:eqcal44)). Por esse motivo, verifica-se que a calibração levará a estimativas aproximadamente não viciadas quando $w_i = d_i \psi_i^{-1}$, uma condição que depende tanto da escolha das variáveis $\bf x$ quanto da forma da função de distância (ou calibração) usada para obter os pesos de calibração.
+Isto sugere que a escolha das variáveis $\bf x$ a serem consideradas para a calibração deve levar em conta os prováveis efeitos da não resposta e, em particular, deve-se incorporar todas as variáveis $\bf x$ para as quais dados populacionais auxiliares estão disponíveis e que contêm informações sobre as probabilidades desconhecidas de responder à pesquisa. Sob um modelo simplificado onde $\psi_i$ denota a probabilidade de que uma unidade responderá à pesquisa, dado que ela é selecionada para a amostra e a resposta é independente para unidades distintas, uma condição para o estimador de calibração ser aproximadamente não viciado sob a distribuição de aleatorização e a distribuição de resposta é que $\psi_i^{-1} = 1 + q_i{ \bf x}_i {\bf  λ}$, para todo $i$ e algum vetor de constantes ${\bf  λ}$ (ver @Lundstrom1997, página 46). No entanto, os pesos de calibração $w_i$ são sempre da forma $w_i = d_i F(q_i {\bf x}_i {\bf  λ})$ (ver Expressão \@ref(eq:eqcal44)). Por esse motivo, verifica-se que a calibração levará a estimativas aproximadamente não viciadas quando $w_i = d_i \psi_i^{-1}$, uma condição que depende tanto da escolha das variáveis $\bf x$ quanto da forma da função de distância (ou calibração) usada para obter os pesos de calibração.
 
 **(#exm:exmcalib3)** Um exemplo em que esta questão pode ser bem ilustrada vem da ponderação realizada para a pesquisa de força de trabalho do Reino Unido (UK-LFS) (ver @ONS2001, Seção 9). A não resposta foi da ordem de 22% na primavera de 1998, sendo 16% de recusas e 6% de falhas de contacto. Há evidência de *não resposta diferencial detectada* usando estudo de ligação com dados do Censo de 1991 (@ONS2001). A tabela \@ref(tab:tabcalib6) ilustra grupos sub-representados e super-representados na UK-LFS. 
 
@@ -781,7 +781,7 @@ Em casos como este, uma ideia atraente é a de considerar *calibração nas marg
 
 Um exemplo citado pelos autores considera o modelo: (sexo x idade x estado civil)+(região x grau de urbanização). Neste exemplo, o modelo conteria ‘somente’ 80 + 66 = 146 parâmetros. Uma consequência natural é que a amostra não será calibrada para as 5.280 contagens conhecidas, mas somente para as 146 contagens consideradas no modelo simplificado considerando as marginais incompletas. Mas os autores sugerem que, na prática, o modelo incompleto funcionaria quase tão bem quanto o modelo completo em muitos casos.
 
-@Silva1997 se inspiraram neste artigo para desenvolver o procedimento de seleção de variáveis para uso com estimadores de regressão. A Tabela \@ref(tab:tabcalib7) mostra uma análise feita por @Bethlehem1987  sobre a aplicação da ideia a uma pesquisa domiciliar holandesa realizada em 1977/1978, onde $LI$ e $LS$ representam os limites inferior e superior, respectivamente, dos intervalos com 95% de confiança; e a variável "Mar" representa o estado conjugal. 
+@Silva1997 se inspiraram neste artigo para desenvolver o procedimento de seleção de variáveis para uso com estimadores de regressão. A Tabela \@ref(tab:tabcalib7) mostra uma análise feita por @Bethlehem1987  sobre a aplicação da ideia a uma pesquisa domiciliar holandesa realizada em 1977/1978, onde $LI$ e $LS$ representam os limites inferior e superior, respectivamente, dos intervalos com 95% de confiança; e a variável "Mar" representa o estado civil. 
 
 <table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <caption>(\#tab:tabcalib7)Estimativas do rendimento médio domiciliar por esquema de ponderação da pesquisa domiciliar da Holanda 1977/1978</caption>
@@ -1105,3 +1105,173 @@ Embora seu valor e utilidade sejam reconhecidos, incentivamos os usuários a cri
 A calibração não deve ser usada para disfarçar resultados de pesquisas com viés de coleta, nos quais a cobertura e o vício de não resposta são encobertos por meio de calibração simples para os totais de população conhecidos. Os usuários da técnica devem, acima de tudo, procurar ser transparentes sobre a aplicação da metodologia e da avaliação de seu sucesso, a fim de proporcionar aos usuários dos resultados da pesquisa a possibilidade de exercer uma avaliação crítica da adequação à finalidade do resultado das estatísticas produzidas com estimadores de calibração.
 
 Finalmente, encorajamos os produtores de dados que optarem por adotar a estimação de calibração em pesquisas, que publiquem os arquivos de microdados anonimizados, fornecendo aos usuários as informações necessárias para que eles possam fazer uso adequado dos dados, no sentido de serem capazes de calcular as estimativas da variância corretamente. Isso é muito mais desafiador do que quando os estimadores HT são usados, diante do fato que as informações sobre o conjunto completo de variáveis $\bf x$ usadas para calibração também devem ser liberadas juntamente com os pesos básicos $d$ e os pesos calibrados $w$ para cada registro da amostra da pesquisa. Uma investigação cuidadosa ainda é necessária sobre a melhor forma de atingir esse objetivo sem sacrificar as restrições necessárias para a proteção da confidencialidade. No momento da redação deste livro, a melhor solução disponível corresponde a oferecer arquivos de microdados na forma de objetos criados pelas funções de calibração do pacote *survey* do sistema R.
+
+## Exercícios {#exerc13}
+
+**(#exr:execalib1)** Para estimar o total de despesas com gastos sociais das prefeituras de uma região que abrange 281 municípios, foi selecionada uma amostra aleatória simples sem reposição de 50 municípios. Sabe-se que a população total da região é de 6.818 (em milhares de pessoas). 
+São dadas as seguintes informações provenientes da amostra:
+
+$$\sum_{i=1}^{50} y_i = 128.080; \quad \sum_{i=1}^{50} x_i =1.067; \quad s^2_y=6.244.516; \quad s^2_x=454,51;\quad s_{xy}=45.399$$
+
+Obs.: os valores de $x$ e $y$ são dados em milhares.
+
+Calcule a estimativa de total da característica $y$, que representa a despesa com gastos sociais, e o respectivo intervalo com 95% de confiança para essa estimativa de total baseada em cada um dos seguintes estimadores:
+
+a) Estimador simples.
+b) Estimador de razão, utilizando como variável auxiliar a população (característica $x$).
+c) Compare e comente os resultados.
+
+**(#exr:execalib2)** Num estudo para estimar a quantidade total de açúcar contida num carregamento de laranjas, uma AAS de $n=10$ laranjas foi selecionada. Cada uma das laranjas foi pesada, retirado o suco e pesada a quantidade de açúcar no suco. A Tabela \@ref(tab:tabrazao4) dá os resultados para as 10 laranjas da amostra. O caminhão foi pesado carregado com as laranjas e, depois, vazio levando à conclusão que o peso total da carga de laranjas era de 1.800 libras. Estime o total de açúcar contido em todas as laranjas e dê um intervalo de 95% de confiança para esse total.
+
+<center>
+<table>
+<caption>(#tab:tabrazao4)Peso e quantidade de açúcar, ambos em libras, nas laranjas da amostra</caption>
+</table>
+----------
+ Laranja   Peso da laranja   Quantidade de açúcar
+--------- ----------------- ----------------------
+ 1                   0,40                 0,021
+
+ 2                   0,48                 0,030
+
+ 3                   0,43                 0,025
+
+ 4                   0,42                 0,022
+
+ 5                   0,50                 0,033
+
+ 6                   0,46                 0,027
+
+ 7                   0,39                 0,019
+
+ 8                   0,41                 0,021
+
+ 9                   0,42                 0,023
+
+10                   0,44                 0,025
+----------
+</center>
+
+**(#exr:execalib3)**  Uma reserva florestal foi dividida em 200 áreas de mesmo tamanho. Através de aerofotogrametria foram contadas as árvores mortas de todas as áreas chegando-se a um total de 15.600 árvores. Foi selecionada uma amostra de 10 áreas por *AAS* onde foram contadas localmente as árvores mortas. Os resultados aparecem na Tabela \@ref(tab:tabrazao5).
+
+<center>
+<table>
+<caption>(#tab:tabrazao5)Contagem das árvores mortas na amostra, por aerofotogrametria $(x_i)$ e localmente $(y_i)$</caption>
+</table>
+------ --- --- --- --- --- --- --- --- --- ---- 
+Área    1   2   3   4   5   6   7   8   9   10
+
+$x_i$  12  30  24  24  18  30  12   6  36  42
+
+$y_i$  18  42  24  36  24  36  14  10  48  54
+----------
+</center>
+
+Estime o número total de árvores mortas na reserva usando:
+a)  Estimador HT do total;
+b)  Estimador de razão do total;
+c)  Estimador de regressão simples do total. 
+d)  Para cada estimativa do total, obtenha também estimativas da variância e erro padrão.
+
+**(#exr:execalib4)**  Considere uma população $U$ com $N = 100$ unidades. Para cada uma das unidades $U_i$, considere o par $(Y_i,X_i)$, onde $Y_i$ tem distribuição $U(50;100)$ e $x_i = 3y_i+e_i$, com $e_i \approx N(0;16)$, $i=1, 2, ..., 100$.
+
+a)  Usando funções do R, gere a população $U$ com os valores de $Y_i$ e $X_i$, como descrito acima.
+b)  Calcule os parâmetros populacionais $\overline Y,\,\,\overline X,\,\,S^2_y,\,\,S ^2_x$.
+c)  Selecione 200 *AAS* de tamanho $n=20$ da população gerada.
+d)  Para cada amostra estime $\overline Y$ e o respectivo intevalo de 95% de confiança, usando o estimador natural da *AAS* e o estimador de razão.
+e)  Verifique, para cada tipo de estimador, quantos intervalos não contêm o valor verdadeiro da média populacional de $y$. O resultado é razoável?
+f)  Calcule o vício médio empírico das estimativas, utilizando: 
+$$\widehat{\overline B}=\frac 1 {200} \sum|\overline y_i -\overline Y|\,\,\,\text{e} \,\,\,\widehat{\overline B}_R=\frac 1 {200} \sum|\overline y_{Ri} -\overline Y|$$
+g)  Compare e comente os resultados. 
+
+**(#exr:execalib5)**  Foi solicitado a um grupo de 50 alunos de uma escola que cada um declarasse quanto dinheiro tinha no bolso $(x_i)$, sem contar. A média dos valores declarados por todos os alunos foi de $\overline X= R\$4,93$. Em seguida foram selecionados, aleatoriamente e sem reposição, 10 desses alunos que foram solicitados a contar quanto dinheiro cada um tinha no bolso $(y_i)$. A Tabela \@ref(tab:tabrazao6) mostra os dois valores para cada aluno da amostra.
+
+<center>
+<table>
+<caption>(#tab:tabrazao6)Quantias declaradas $(x_i)$ e contadas $(y_i)$ pelos alunos da amostra</caption>
+</table>
+----- ----- ----- ----- ----- ----- ----- ----- ----- ----- -----
+$x_i$  1,91  7,41  3,03  8,63  4,76  8,12  3,89  2,75  8,66  0,85
+
+$y_i$  3,65  7,56  4,24 11,93  5,86  8,05  6,55  2,95  8,63  1,44
+
+----------
+</center>
+
+a)  Estime o total do dinheiro dos 50 alunos do grupo e a variância da estimativa.
+b)  Refaça as estimativas sem utilizar as informações da variável auxiliar.
+c)  Comente os resultados.
+
+**(#exr:execalib6)**  Deseja-se estimar a idade média das árvores de um bosque. Determinar a idade diretamente é bastante custoso. Sabe-se, entretanto, que há uma correlação entre a idade e o diâmetro do tronco da árvore. Foi selecionada uma *AAS* de 20 árvores e para estas foi determinada a idade de cada uma. Foram medidos os diâmetros de todas as 1.132 árvores do bosque e calculado o diâmetro médio em 10,3 polegadas. 
+
+A Tabela \@ref(tab:tabrazao7) apresenta os dados para a amostra selecionada.
+
+<center>
+<table>
+<caption>(#tab:tabrazao7)Diâmetro e idade das árvores da amostra</caption>
+</table>
+----------
+ Árvore	  Diâmetro	Idade       Árvore   Diâmetro  Idade
+-------- --------- ------ ---- -------- --------- ------
+ 1          12,0    125         11	          5,7	   61
+ 
+ 2          11,4    119         12           8,0     80
+ 
+ 3           7,9     83         13          10,3    114
+ 
+ 4           9.0     85         14          12,0    147
+ 
+ 5          10,5     99         15           9,2    122
+ 
+ 6           7,9    117         16           8,5    106
+   
+ 7           7,3     69         17           7,0     82
+ 
+ 8          10,2    133         18          10,7     88
+ 
+ 9          11,7    154         19           9,3     97
+ 
+ 10         11,3    168         20           8,2     99
+-----------
+</center>
+
+a)  Estime a idade média das árvores do bosque usando o estimador não viciado e dê um intervalo de 95% de confiança.
+b)  Estime a idade média das árvores do bosque usando o estimador de razão e dê um intervalo de 95% de confiança.
+c)  Qual das estimativas você prefere e por quê?
+d)  Utilizando a amostra já disponível como se fosse uma pesquisa piloto, verifique se o tamanho de amostra utilizado seria suficiente para considerar o vício do estimador de razão como desprezível em termos práticos.
+
+**(#exr:execalib7)**  As notas da primeira prova de Cálculo 1 de 486 alunos de uma faculdade são conhecidas e sua média é $\overline X=52$. Esses alunos foram submetidos à primeira prova de Cálculo 2 e, para ter uma prévia do rendimento dos alunos, foi selecionada uma AAS dessas provas. As notas dos alunos da amostra estão na Tabela  \@ref(tab:tabrazao9): 
+
+<center>
+<table>
+<caption>(#tab:tabrazao9)Notas de Cálculo 1 e Cálculo 2 para os alunos da amostra</caption>
+</table>
+----------
+ Aluno $(i)$   Cálculo 1 $(x_i)$   Cálculo 2 $(y_i)$ 
+------------- ------------------- -------------------
+      1                   39                  65
+      
+      2                   43                  78
+      
+      3                   21                  52
+      
+      4                   64                  82
+      
+      5                   57                  92
+      
+      6                   47                  89
+      
+      7                   28                  73
+      
+      8                   75                  98
+      
+      9                   34                  56
+      
+     10                   52                  75
+----------
+</center>
+
+a)  Estime a média das notas de Cálculo 2 utilizando o estimador natural da AAS e construa um $IC_{95\%}$. 
+b)  Estime a média das notas de Cálculo 2 utilizando o estimador de razão e construa um $IC_{95\%}$. 
+c)  Faça um gráfico comparando os intervalos de confiança e comente os resultados.
+

@@ -28,7 +28,7 @@ Uma dificuldade associada com Amostragem Binomial é que, antes de ser feita a s
 
 Para verificar isso, note que $n = \sum_{i \in U} I(A_i \le \pi)$. Consequentemente,  $n \, \sim \textrm{Binomial} (N;\pi)$. Logo: $E_{AB}(n) = N  \pi$  e $V_{AB}(n) = N  \pi (1-\pi)$. 
 
-### Estimação do total sob amostragem binomial 
+### Estimação do total sob amostragem binomial  {#estAB}
 
 O estimador HT (não viciado) do total $Y$ é dado por: 
 
@@ -41,7 +41,7 @@ A variância desse estimador do total é dada por:
 $$
 \begin{align} V_{AB}(\widehat Y_{AB})& =\left( \frac{1}{\pi} \right)^2 V_{AB} \left( \sum_{i \in s} y_i \right)= \left( \frac{1}{\pi} \right)^2 V_{AB} \left( \sum_{i \in U} \delta_i y_i \right) \\&= \left( \frac{1}{\pi} \right)^2 \sum_{i \in U} V_{AB}(\delta_i) y_i^2 = \left(\frac{1}{\pi}\right)^2 \pi (1-\pi) \sum_{i \in U} y_i^2 \\&= \left(\frac{1}{\pi}-1\right)\sum_{i \in U}y_i^2\end{align}\,(\#eq:eqbin2)
 $$
-onde $\delta_i$ é a variável indicadora que assume o valor 1 se a unidade i da população foi selecionada para a amostra e o valor 0 caso contrário.
+onde $\delta_i$ é a variável indicadora que assume o valor 1 se a unidade $i$ da população foi selecionada para a amostra e o valor 0 caso contrário.
 
 Um estimador não viciado da variância do estimador HT de total é dado por:
 
@@ -118,7 +118,7 @@ $$
 V_{AB} \left( {\overline {y}} _{AB} ^R \right) \doteq \left( \frac{1}{N \pi} - \frac{1}{N} \right) S_y^2 \,\, (\#eq:eqbin13)
 $$  
 
-Esta variância é, portanto, aproximadamente igual à do estimador de média sob uma AAS de tamanho igual a $N \pi$, que seria também o tamanho esperado da amostra sob AB. As análises feitas na subseção anterior sobre a eficiência relativa dos estimadores de total são válidas também para os estimadores da média.
+Esta variância é, portanto, aproximadamente igual à do estimador de média sob uma AAS de tamanho igual a $N \pi$, que seria também o tamanho esperado da amostra sob AB. As análises feitas na Seção \@ref(estAB) sobre a eficiência relativa dos estimadores de total são válidas também para os estimadores da média.
 
 Um estimador consistente da variância do estimador alternativo da média é dado por:
 

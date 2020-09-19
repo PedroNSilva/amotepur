@@ -53,6 +53,70 @@
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
 
 
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
 
 </head>
 
@@ -183,7 +247,7 @@
 <li class="chapter" data-level="9.1" data-path="binom.html"><a href="binom.html#binom2"><i class="fa fa-check"></i><b>9.1</b> Amostragem binomial ou de Bernoulli</a><ul>
 <li class="chapter" data-level="9.1.1" data-path="binom.html"><a href="binom.html#binom3"><i class="fa fa-check"></i><b>9.1.1</b> Método de seleção da amostra</a></li>
 <li class="chapter" data-level="9.1.2" data-path="binom.html"><a href="binom.html#probabilidades-de-inclusão-na-amostragem-binomial"><i class="fa fa-check"></i><b>9.1.2</b> Probabilidades de inclusão na amostragem binomial</a></li>
-<li class="chapter" data-level="9.1.3" data-path="binom.html"><a href="binom.html#estimação-do-total-sob-amostragem-binomial"><i class="fa fa-check"></i><b>9.1.3</b> Estimação do total sob amostragem binomial</a></li>
+<li class="chapter" data-level="9.1.3" data-path="binom.html"><a href="binom.html#estAB"><i class="fa fa-check"></i><b>9.1.3</b> Estimação do total sob amostragem binomial</a></li>
 <li class="chapter" data-level="9.1.4" data-path="binom.html"><a href="binom.html#estimação-da-média-sob-amostragem-binomial"><i class="fa fa-check"></i><b>9.1.4</b> Estimação da média sob amostragem binomial</a></li>
 <li class="chapter" data-level="9.1.5" data-path="binom.html"><a href="binom.html#exemplos-de-aplicação-da-amostragem-binomial"><i class="fa fa-check"></i><b>9.1.5</b> Exemplos de aplicação da amostragem binomial</a></li>
 </ul></li>
@@ -197,7 +261,7 @@
 <li class="chapter" data-level="9.3" data-path="binom.html"><a href="binom.html#exerc9"><i class="fa fa-check"></i><b>9.3</b> Exercícios</a></li>
 </ul></li>
 <li class="chapter" data-level="10" data-path="ppt.html"><a href="ppt.html"><i class="fa fa-check"></i><b>10</b> Amostragem com Probabilidades Proporcionais ao Tamanho</a><ul>
-<li class="chapter" data-level="10.1" data-path="ppt.html"><a href="ppt.html#motivação-para-amostragem-ppt"><i class="fa fa-check"></i><b>10.1</b> Motivação para amostragem PPT</a></li>
+<li class="chapter" data-level="10.1" data-path="introduc.html"><a href="introduc.html#motivação"><i class="fa fa-check"></i><b>10.1</b> Motivação</a></li>
 <li class="chapter" data-level="10.2" data-path="ppt.html"><a href="ppt.html#estimação-do-total-populacional"><i class="fa fa-check"></i><b>10.2</b> Estimação do total populacional</a></li>
 <li class="chapter" data-level="10.3" data-path="ppt.html"><a href="ppt.html#amostragem-ppt-com-reposição"><i class="fa fa-check"></i><b>10.3</b> Amostragem PPT com reposição</a><ul>
 <li class="chapter" data-level="10.3.1" data-path="ppt.html"><a href="ppt.html#estimação-do-total-sob-amostragem-ppt-com-reposição"><i class="fa fa-check"></i><b>10.3.1</b> Estimação do total sob amostragem PPT com reposição</a></li>
@@ -205,7 +269,7 @@
 <li class="chapter" data-level="10.4" data-path="ppt.html"><a href="ppt.html#amostragem-ppt-de-poisson"><i class="fa fa-check"></i><b>10.4</b> Amostragem PPT de Poisson</a><ul>
 <li class="chapter" data-level="10.4.1" data-path="ppt.html"><a href="ppt.html#estimação-do-total-sob-amostragem-de-poisson"><i class="fa fa-check"></i><b>10.4.1</b> Estimação do total sob amostragem de Poisson</a></li>
 </ul></li>
-<li class="chapter" data-level="10.5" data-path="ppt.html"><a href="ppt.html#amostragem-sequencial-de-poisson"><i class="fa fa-check"></i><b>10.5</b> Amostragem sequencial de Poisson</a><ul>
+<li class="chapter" data-level="10.5" data-path="ppt.html"><a href="ppt.html#ASP"><i class="fa fa-check"></i><b>10.5</b> Amostragem sequencial de Poisson</a><ul>
 <li class="chapter" data-level="10.5.1" data-path="ppt.html"><a href="ppt.html#estimação-com-amostragem-sequencial-de-poisson"><i class="fa fa-check"></i><b>10.5.1</b> Estimação com amostragem sequencial de Poisson</a></li>
 </ul></li>
 <li class="chapter" data-level="10.6" data-path="ppt.html"><a href="ppt.html#amostragem-sistemática-com-ppt"><i class="fa fa-check"></i><b>10.6</b> Amostragem sistemática com PPT</a><ul>
@@ -280,6 +344,7 @@
 <li class="chapter" data-level="13.9" data-path="calib.html"><a href="calib.html#indicadores-de-qualidade-da-calibração"><i class="fa fa-check"></i><b>13.9</b> Indicadores de qualidade da calibração</a></li>
 <li class="chapter" data-level="13.10" data-path="calib.html"><a href="calib.html#um-guia-para-aplicação-de-calibração"><i class="fa fa-check"></i><b>13.10</b> Um guia para aplicação de calibração</a></li>
 <li class="chapter" data-level="13.11" data-path="calib.html"><a href="calib.html#observações-finais"><i class="fa fa-check"></i><b>13.11</b> Observações finais</a></li>
+<li class="chapter" data-level="13.12" data-path="calib.html"><a href="calib.html#exerc13"><i class="fa fa-check"></i><b>13.12</b> Exercícios</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="referências.html"><a href="referências.html"><i class="fa fa-check"></i>Referências</a></li>
 </ul>
@@ -342,8 +407,10 @@ As variáveis de estratificação podem ser geográficas, como por exemplo as un
 <p>Nos dois casos é fundamental ter acesso a cadastro(s) com informações completas sobre variáveis auxiliares que são necessárias para estratificar a população de forma eficiente.</p>
 <div id="o-método-geral" class="section level2">
 <h2><span class="header-section-number">11.1</span> O método geral</h2>
-<p>Particione (divida) a população <span class="math inline">\(U\)</span> em <span class="math inline">\(H\)</span> subconjuntos (grupos) mutuamente exclusivos e exaustivos, chamados <em>estratos</em>, denotados por <span class="math inline">\(U_1, ..., U_h, ..., U_H\)</span>, de modo que:</p>
-<p><span class="math inline">\(U = U_1 \cup \dots \cup U_h \cup \dots \cup U_H = \displaystyle \bigcup_{h=1}^H U_h\quad\)</span> e <span class="math inline">\(\quad U_h \cap U_k = \emptyset, \, h \ne k\)</span>.</p>
+<p>Particione (divida) a população <span class="math inline">\(U\)</span> em <span class="math inline">\(H\)</span> subconjuntos (grupos) mutuamente exclusivos e exaustivos, chamados <em>estratos</em>, denotados por <span class="math inline">\(U_1, ..., U_h, ..., U_H\)</span>, de modo que:
+<span class="math display">\[
+U = U_1 \cup \dots \cup U_h \cup \dots \cup U_H = \displaystyle \bigcup_{h=1}^H U_h\quad\text {e}\quad U_h \cap U_k = \emptyset, \, h \ne k
+\]</span></p>
 <p>Então <span class="math inline">\(U_h = \textrm {\{unidades pertencentes ao estrato h}\}\)</span>, para <span class="math inline">\(h=1, 2, ...,H\)</span>.</p>
 <p>Seja <span class="math inline">\(N_h\)</span> o tamanho de <span class="math inline">\(U_h\)</span>. O tamanho total da população é dado pela soma dos tamanhos dos estratos, <span class="math inline">\(N = N_1 + \dots + N_h + \dots + N_H\)</span>.</p>
 <p>Selecione uma amostra <span class="math inline">\(s_h\)</span> de tamanho <span class="math inline">\(n_h\)</span>, com <span class="math inline">\(n_h &gt; 0\)</span>, segundo um plano amostral <span class="math inline">\(p_h(s_h)\)</span> <em>independentemente</em> dentro de cada estrato <span class="math inline">\(h\)</span>, onde <span class="math inline">\(n = \displaystyle \sum_{h=1}^{H} n_h\)</span> é o tamanho total da amostra selecionada. Fica assim assegurado que cada estrato tem sua população representada na amostra completa dada por: <span class="math inline">\(s = s_1 \cup \dots \cup s_h \cup \dots \cup s_H\)</span>. Note que em função da definição dos estratos, as amostras nos vários estratos também são conjuntos mutuamente exclusivos, isto é, <span class="math inline">\(s_h \cap s_k = \emptyset, \, h \ne k\)</span>.</p>
@@ -725,7 +792,7 @@ Quando os ganhos de precisão alcançados com a estratificação não são grand
 </div>
 <div id="definição-dos-limites-dos-estratos" class="section level2">
 <h2><span class="header-section-number">11.4</span> Definição dos limites dos estratos</h2>
-<p>Conforme já dito anteriormente, a determinação dos limites dos estratos influencia na eficiência na amostragem estratificada. Para definir estratos num contexto de <em>estratificação estatística</em>, se estiver dispone total, supondo que num dos estratos formados será feito um censo (levantamento exaustivo), e nível uma variável auxiliar <span class="math inline">\(x\)</span> correlacionada positivamente com a variável de interesse <span class="math inline">\(y\)</span>, seus valores podem ser usados para formar estratos. Surge então a questão de como formar os estratos de maneira a tirar proveito dessa variável para aumentar a eficiência da amostragem estratificada simples na estimação de parâmetros da variável de pesquisa <span class="math inline">\(y\)</span>. Este problema é conhecido como problema da <em>delimitação ótima dos estratos</em>.</p>
+<p>Conforme já dito anteriormente, a determinação dos limites dos estratos influencia na eficiência na amostragem estratificada. Para definir estratos num contexto de <em>estratificação estatística</em>, se estiver disponível uma variável auxiliar <span class="math inline">\(x\)</span> correlacionada positivamente com a variável de interesse <span class="math inline">\(y\)</span>, seus valores podem ser usados para formar estratos. Surge então a questão de como formar os estratos de maneira a tirar proveito dessa variável para aumentar a eficiência da amostragem estratificada simples na estimação de parâmetros da variável de pesquisa <span class="math inline">\(y\)</span>. Este problema é conhecido como problema da <em>delimitação ótima dos estratos</em>.</p>
 <p>O primeiro passo é a escolha do valor de <span class="math inline">\(H\)</span>, o número total de estratos. Quanto maior for a correlação entre a variável auxiliar <span class="math inline">\(x\)</span> disponível e a variável de pesquisa <span class="math inline">\(y\)</span>, maior pode ser o número de estratos formados, até um certo limite. Evidências empíricas sugerem, entretanto, que valores no intervalo <span class="math inline">\(5 \le H \le 10\)</span> são suficientes para alcançar grande parte dos ganhos de eficiência decorrentes da estratificação.</p>
 <p>Quando <span class="math inline">\(H = 2\)</span>, há um par de métodos disponíveis para obter soluções ‘exatas’ do problema de delimitação ótima dos estratos. <span class="citation">Glasser (1962)</span> descreve um algoritmo para delimitar estratos de modo a minimizar a variância do estimador do outro será feita amostragem aleatória simples. Este é um exemplo de <em>amostragem estratificada por corte - AEC</em>, onde o valor que delimita a partir de que ponto as maiores unidades devem ser incluídas num <em>estrato certo</em> é escolhido pelo algoritmo. <span class="citation">Hidiroglou (1986)</span> apresenta um algoritmo alternativo também considerando AEC, mas onde o ponto de corte da estratificação é escolhido de modo a minimizar o tamanho total da amostra, para um valor especificado da variância do estimador de total aplicado à variável auxiliar <span class="math inline">\(x\)</span>.</p>
 <p>Para valores de <span class="math inline">\(H \ge 3\)</span>, há uma variedade de soluções disponíveis na literatura. <span class="citation">Brito, Veiga, e Silva (2019)</span> apresenta uma revisão da literatura sobre estes métodos, mas também apresenta um algoritmo de otimização estocástica para resolver o problema. Este algoritmo está implementado no pacote <em>stratbr</em> do sistema R. A Tabela <a href="estrat.html#tab:tabestr2">11.2</a> lista as principais referências que tratam do tema.</p>
@@ -842,12 +909,12 @@ EPA \left( \overline y_{AES} \, ; \, \overline y \right) = V_{AES} \left( \overl
 </tbody>
 </table>
 </center>
-<p>A análise dos resultados acima evidencia que ganhos adicionais de eficiência para casos com mais de seis estratos seriam modestos. Na Figura <a href="#fig:precisaovsestratos"><strong>??</strong></a> temos o gráfico dos ganhos de precisão versus número de estratos para <span class="math inline">\(\rho_{x,y}=0,85\)</span> e <span class="math inline">\(\rho_{x,y}=0,95\)</span>.</p>
+<p>A análise dos resultados acima evidencia que ganhos adicionais de eficiência para casos com mais de seis estratos seriam modestos. Na Figura <a href="estrat.html#fig:precisaovsestratos">11.1</a> temos o gráfico dos ganhos de precisão versus número de estratos para <span class="math inline">\(\rho_{x,y}=0,85\)</span> e <span class="math inline">\(\rho_{x,y}=0,95\)</span>.</p>
 <center>
-<div class="figure">
-<img src="Figuras/precisaovsestratos.png" alt="Ganhos de precisão versus número de estratos" width="292" />
+<div class="figure"><span id="fig:precisaovsestratos"></span>
+<img src="Figuras/precisaovsestratos.png" alt="Ganhos de precisão *versus* número de estratos" width="60%" />
 <p class="caption">
-Ganhos de precisão versus número de estratos
+Figura 11.1: Ganhos de precisão <em>versus</em> número de estratos
 </p>
 </div>
 </center>
@@ -906,7 +973,7 @@ Ganhos de precisão versus número de estratos
 </table>
 </center>
 <p>Estime o total de fumantes e o intervalo de 95% de confiança, entre as pessoas maiores de 16 anos na localidade, utilizando o estimador simples da amostragem estratificada.</p>
-<p><strong>Exercício 11.5 </strong> Um pesquisador pretende realizar uma pesquisa por amostragem para estimar a produção de soja numa determinada região. Ele tem acesso a uma lista das fazendas produtoras de soja localizadas na região, compilada por ocasião do último censo agropecuário, realizado menos de 1 ano atrás. Usando essa lista, que contém a informação sobre área plantada com soja na ocasião do censo em cada fazenda, o pesquisador dividiu as fazendas da população em dois grupos: fazendas grandes (área plantada com soja maior que 50 hectares) e fazendas pequenas (todas as demais). A Tabela <a href="estrat.html#tab:tabestr5">11.5</a> contém as informações compiladas pelo pesquisador usando a lista.</p>
+<p><strong>Exercício 11.5 </strong> Um pesquisador pretende realizar uma pesquisa por amostragem para estimar a produção de soja numa determinada região. Ele tem acesso a uma lista das fazendas produtoras de soja localizadas na região, compilada por ocasião do último censo agropecuário. Usando essa lista, que contém a informação sobre área plantada com soja na ocasião do censo em cada fazenda, o pesquisador dividiu as fazendas da população em dois grupos: fazendas grandes (área plantada com soja maior que 50 hectares) e fazendas pequenas (todas as demais). A Tabela <a href="estrat.html#tab:tabestr5">11.5</a> contém as informações compiladas pelo pesquisador usando a lista.</p>
 <center>
 <table>
 <caption>

@@ -71,7 +71,7 @@ Se comparamos uma amostra conglomerada com uma amostra de unidades elementares d
 
 Então verifica-se que a amostragem conglomerada impõe vantagens (menor custo) e desvantagens (menor precisão). Levando em conta os aspectos operacionais e a redução de custos que a amostragem conglomerada proporciona, em muitas situações práticas, a perda de eficiência amostral é mais que compensada por essa vantagem. Além disso, a redução de custos proporcionada pode permitir selecionar amostras maiores, compensando assim a perda de precisão em relação a amostras não conglomeradas. 
 
-Uma aplicação importante de amostragem (conglomerada) de áreas se dá nas pesquisas domiciliares do IBGE, através da utilização da *Base Operacional Geográfica - BOG* que tem como suas menores áreas os setores censitários, conforme descrito na Subseção \@ref(cadIBGE).   
+Uma aplicação importante de amostragem (conglomerada) de áreas se dá nas pesquisas domiciliares do IBGE, através da utilização da *Base Operacional Geográfica - BOG* que tem como suas menores áreas os setores censitários, conforme descrito na Seção \@ref(cadIBGE).   
 
 
 ## Definições básicas e notação
@@ -211,7 +211,7 @@ A amostragem conglomerada em um ou mais estágios deve ser adotada sempre que:
 A Tabela \@ref(tab:tabcong2) apresenta a notação para os tamanhos populacionais e da amostra na AC1 para uma dada população. 
 
 <table>
-<caption>(#tab:tabcong2)Definição dos tamanhos da população e da amostra na AC1</caption>
+<caption>(#tab:tabcong2)Tamanhos da população e da amostra na AC1</caption>
 </table>
 <center>
 ---------
@@ -228,7 +228,7 @@ Tamanho da população/amostra    $N = \displaystyle\sum_{i\in C}N_i$     $n = \
 A Tabela \@ref(tab:tabcong3) apresenta os parâmetros populacionais total e média por conglomerado e na população como um todo.
 
 <table>
-<caption>(#tab:tabcong3)Definição de parâmetros populacionais nos conglomerados e na população</caption>
+<caption>(#tab:tabcong3)Parâmetros populacionais nos conglomerados e na população</caption>
 </table>
 <center>
 ---------

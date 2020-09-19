@@ -92,7 +92,7 @@ $$
 Ainda considerando o caso em que o *tamanho do domínio* na população é desconhecido, o próximo parâmetro do domínio que podemos estimar é o total $Y_c$. O estimador não viciado deste total é obtido simplesmente aplicando o estimador de Horvitz-Thompson à variável derivada $y_{ic}$, resultando em: 
 
 $$
- \widehat{Y}_c = N/n \sum_{i \in s} y_{ic} = N \frac {t_c} {n} (\#eq:eqdom8)
+ \widehat{Y}_c = \frac N n \sum_{i \in s} y_{ic} = N \frac {t_c} {n} (\#eq:eqdom8)
 $$
 onde $t_c$ é a soma amostral da variável $y$ para unidades pertencentes ao domínio $c$, dada por $t_c = \displaystyle \sum_{i \in s} y_{ic}$.
 
@@ -200,7 +200,7 @@ $$
 Logo, é possível usar o *estimador tipo razão* para o total dado por:
 
 $$
-\widehat{Y}_c^R = N_c \overline {y}_c = N_c /n_c \sum_{i\in s} y_{ic} \,\, (\#eq:eqdom21)
+\widehat{Y}_c^R = N_c \overline {y}_c = \frac{N_c}{n_c} \sum_{i\in s} y_{ic} \,\, (\#eq:eqdom21)
 $$
 
 A variância condicional deste estimador, considerando fixado o tamanho da amostra no domínio $c$, é dada por:
@@ -215,22 +215,22 @@ $$
 \widehat V_{AAS} \left( \widehat{Y}_c^R | \, n_c>0 \right) =\displaystyle N_c^2\left(1-\frac{n_c}{N_c}\right)\frac{\widehat S_c^2}{n_c}  \,\, (\#eq:eqdom23)
 $$
 
-A Tabela \@ref(tab:tabdom1) apresenta um resumo de estimadores do total, proporção, média e respectivas variäncias no domínio $c$ sob AAS. 
+A Tabela \@ref(tab:tabdom1) apresenta um resumo de estimadores do total, proporção, média e respectivas variâncias no domínio $c$ sob AAS. 
 
 <center>
 <table>
-<caption>(#tab:tabdom1)Estimadores  do total, proporção, média e respectivas variäncias no domínio $c$ sob AAS </caption>
+<caption>(#tab:tabdom1)Estimadores  do total, proporção, média e respectivas variâncias no domínio $c$ sob AAS </caption>
 </table>
 ----------
 Estimador 
 --------------------------------------
-$\widehat{Y}_c=N/n\displaystyle\sum_{i\in s} y_{ic},\,\, N_c\,\,\text{desconhecido}$
+$\widehat{Y}_c=\frac N n\displaystyle\sum_{i\in s} y_{ic},\,\, N_c\,\,\text{desconhecido}$
 
 $\widehat{Y}_c^R=N_c\overline{y}_c,\,\, N_c\,\,\text{conhecido}$ 
 
-$\widehat{p}_c=n_c/n, \,\, N_c \,\,\text{desconhecido}$ 
+$\widehat{p}_c=\frac{n_c} n, \,\, N_c \,\,\text{desconhecido}$ 
 
-$\overline{y}_c=\widehat{Y}_c/\widehat{N}_c=\displaystyle\sum_{i\in s}y_{ic}/n_c,\,\, N_c \,\,\text{desconhecido}$
+$\overline{y}_c=\frac{\widehat{Y}_c}{\widehat{N}_c}=\displaystyle\frac 1{n_c}\sum_{i\in s}y_{ic},\,\, N_c \,\,\text{desconhecido}$
 
 $\widehat{V}_{AAS}(\widehat{Y}_c)=N^2\displaystyle\left(\frac{1}{n}-\frac{1}{N}\right)\frac{1}{N-1}\sum_{i\in s}                                    \left(y_{id}-\frac{t_c}{n}\right)^2,\,\, N_c\,\,\text{desconhecido}$
 
@@ -289,7 +289,7 @@ library(tidyverse)
 
 ```r
 # Leitura dos dados
-MunicBR_dat <- readRDS(file="MunicBR_dat.rds")
+MunicBR_dat <- readRDS(file="Dados/MunicBR_dat.rds")
 str(MunicBR_dat)
 ```
 

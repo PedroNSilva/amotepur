@@ -45,8 +45,9 @@ Nos dois casos é fundamental ter acesso a cadastro(s) com informações complet
 ## O método geral
 
 Particione (divida) a população $U$ em $H$ subconjuntos (grupos) mutuamente exclusivos e exaustivos, chamados *estratos*, denotados por $U_1, ..., U_h, ..., U_H$, de modo que: 
-
-$U = U_1 \cup \dots \cup U_h \cup \dots \cup U_H = \displaystyle \bigcup_{h=1}^H U_h\quad$ e  $\quad U_h \cap U_k = \emptyset, \, h \ne k$.
+$$
+U = U_1 \cup \dots \cup U_h \cup \dots \cup U_H = \displaystyle \bigcup_{h=1}^H U_h\quad\text {e}\quad U_h \cap U_k = \emptyset, \, h \ne k
+$$
 
 Então $U_h = \textrm {\{unidades pertencentes ao estrato h}\}$, para $h=1, 2, ...,H$.
 
@@ -533,7 +534,7 @@ A implementação de amostragem estratificada simples com alocação ótima pode
 
 ## Definição dos limites dos estratos
 
-Conforme já dito anteriormente, a determinação dos limites dos estratos influencia na eficiência na amostragem estratificada. Para definir estratos num contexto de *estratificação estatística*, se estiver dispone total, supondo que num dos estratos formados será feito um censo (levantamento exaustivo), e nível uma variável auxiliar $x$ correlacionada positivamente com a variável de interesse $y$, seus valores podem ser usados para formar estratos. Surge então a questão de como formar os estratos de maneira a tirar proveito dessa variável para aumentar a eficiência da amostragem estratificada simples na estimação de parâmetros da variável de pesquisa $y$. Este problema é conhecido como problema da *delimitação ótima dos estratos*. 
+Conforme já dito anteriormente, a determinação dos limites dos estratos influencia na eficiência na amostragem estratificada. Para definir estratos num contexto de *estratificação estatística*, se estiver disponível uma variável auxiliar $x$ correlacionada positivamente com a variável de interesse $y$, seus valores podem ser usados para formar estratos. Surge então a questão de como formar os estratos de maneira a tirar proveito dessa variável para aumentar a eficiência da amostragem estratificada simples na estimação de parâmetros da variável de pesquisa $y$. Este problema é conhecido como problema da *delimitação ótima dos estratos*. 
 
 O primeiro passo é a escolha do valor de $H$, o número total de estratos. Quanto maior for a correlação entre a variável auxiliar $x$ disponível e a variável de pesquisa $y$, maior pode ser o número de estratos formados, até um certo limite. Evidências empíricas sugerem, entretanto, que valores no intervalo $5 \le H \le 10$ são suficientes para alcançar grande parte dos ganhos de eficiência decorrentes da estratificação. 
 
@@ -599,8 +600,8 @@ A análise dos resultados acima evidencia que ganhos adicionais de eficiência p
 
 <center>
 <div class="figure">
-<img src="Figuras/precisaovsestratos.png" alt="Ganhos de precisão versus número de estratos" width="292" />
-<p class="caption">Ganhos de precisão versus número de estratos</p>
+<img src="Figuras/precisaovsestratos.png" alt="Ganhos de precisão *versus* número de estratos" width="60%" />
+<p class="caption">(\#fig:precisaovsestratos)Ganhos de precisão *versus* número de estratos</p>
 </div>
 </center>
 
@@ -639,7 +640,7 @@ Fumantes com mais de 16 anos    1  1  0  1  1       3  3  1  2  
 
 Estime o total de fumantes e o intervalo de 95% de confiança, entre as pessoas maiores de 16 anos na localidade, utilizando o estimador simples da amostragem estratificada.
 
-**(#exr:exeest5)** Um pesquisador pretende realizar uma pesquisa por amostragem para estimar a produção de soja numa determinada região. Ele tem acesso a uma lista das fazendas produtoras de soja localizadas na região, compilada por ocasião do último censo agropecuário, realizado menos de 1 ano atrás. Usando essa lista, que contém a informação sobre área plantada com soja na ocasião do censo em cada fazenda, o pesquisador dividiu as fazendas da população em dois grupos: fazendas grandes (área plantada com soja maior que 50 hectares) e fazendas pequenas (todas as demais). A Tabela \@ref(tab:tabestr5) contém as informações compiladas pelo pesquisador usando a lista.
+**(#exr:exeest5)** Um pesquisador pretende realizar uma pesquisa por amostragem para estimar a produção de soja numa determinada região. Ele tem acesso a uma lista das fazendas produtoras de soja localizadas na região, compilada por ocasião do último censo agropecuário. Usando essa lista, que contém a informação sobre área plantada com soja na ocasião do censo em cada fazenda, o pesquisador dividiu as fazendas da população em dois grupos: fazendas grandes (área plantada com soja maior que 50 hectares) e fazendas pequenas (todas as demais). A Tabela \@ref(tab:tabestr5) contém as informações compiladas pelo pesquisador usando a lista.
 
 <center>
 <table>

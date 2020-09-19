@@ -14,13 +14,13 @@ AC1              Amostragem Conglomerada em um estágio
 
 AC1P             Amostragem Conglomerada com PPT em um estágio
 
-AC1PC            Amostragem Conglomerada com PPT com reposição em um estágio
+AC1PC            Amostragem Conglomerada com PPT Com reposição em um estágio
 
 AC2              Amostragem Conglomerada em dois estágios
 
 AC2P             AC2 com PPT no primeiro estágio e AAS no estágio 2
 
-AC2PC            AC2 com PPT com reposição no primeiro estágio e AAS no estágio 2
+AC2PC            AC2 com PPT Com reposição no primeiro estágio e AAS no estágio 2
 
 AC2PS             AC2 com PPT Poisson Sequencial no primeiro estágio e AAS no estágio 2 
 
@@ -54,7 +54,7 @@ ASP               Amostragem Sequencial de Poisson
 
 B                 Vício 
 
-BASCULA           Survey Software desenvolvido pelo Statiscs Netherlands 
+BASCULA           Survey Software desenvolvido pelo Statistics Netherlands 
 
 BLAISE            Sistema desenvolvido pelo Statistics Netherlands (Computer assisted interviewing system and survey processing tool) 
 
@@ -78,7 +78,7 @@ CNAE              Classificação Nacional de Atividades Econômicas
 
 CNEFE             Cadastro Nacional de Endereços para Fins Estatísticos 
 
-CNPJ              Cadastro Nacional de Pessoa Jurídica
+CNPJ              Cadastro Nacional da Pessoa Jurídica
 
 CORR              Correlação
 
@@ -164,7 +164,9 @@ PAPI              Paper-and-Pencil Interviewing
 
 PAS               Pesquisa Anual de Serviços 
 
-PIA-Empresa       Pesquisa Anual da Indústria 
+PeNSE             Pesquisa Nacional de Saúde do Escolar
+
+PIA               Pesquisa Industrial Anual 
 
 PIM-PF            Pesquisa Industrial Mensal de Produção Física 
 
@@ -184,7 +186,7 @@ POF               Pesquisa de Orçamentos Familiares
 
 PPT               Amostragem com Probabilidades Proporcionais ao Tamanho
 
-PPTC              Amostragem PPT Com Reposição
+PPTC              Amostragem PPT Com reposição
 
 RAIS              Relação Anual de Informações Sociais 
 
@@ -198,7 +200,7 @@ SAEB              Sistema de Avaliação da Educação Básica
 
 SAS               Statistical Analysis System
 
-SIS               Amostragem sistemática com PPT 
+SIS               Amostragem Sistemática com PPT 
 
 SYG               Sen-Yates-Grundy 
 

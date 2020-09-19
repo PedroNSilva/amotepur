@@ -179,6 +179,48 @@ Outro exemplo: os rótulos $\{i_{N-n+1}, i_{N-n+2}, ..., i_N\}$ também fornecem
 
 O algoritmo de Hàjek requer duas passagens sobre a lista, mais uma operação de ordenação dos números aleatórios. Oferece grande ganho de eficiência em comparação com o algoritmo convencional, mas ainda não é o mais eficiente.
 
+**(#exm:exmaas1)** Suponha uma população de tamanho $N=1000$ unidades da qual se deseja selecionar uma amostra de tamanho $n=20$ unidades, utilizando o algoritmo de Hàjek.
+
+
+```r
+# Algoritmo de Hàjek
+N=1000
+n=20
+# Gerando os índices da população e os correspondentes pseudoaleatórios 
+U=data.frame(1:N,runif(N, min = 0, max = 1))
+names(U)=c("i","aleat")
+# Ordenando segundo os aleatórios gerados (a ordenação pode ser crescente ou decrescente)
+s=U[order(U$aleat),]
+s=s[1:n,]
+rownames(s)=c(1:n)
+# A amostra será formada pelas unidades seguintes
+s
+```
+
+```
+##      i        aleat
+## 1  269 0.0006302996
+## 2  797 0.0018715940
+## 3  156 0.0035681766
+## 4  492 0.0044329620
+## 5  451 0.0052330208
+## 6  377 0.0054654602
+## 7  699 0.0058053734
+## 8  358 0.0098478694
+## 9  912 0.0099553398
+## 10 858 0.0120389506
+## 11 370 0.0121608458
+## 12 597 0.0129667739
+## 13 509 0.0134409182
+## 14 915 0.0138873435
+## 15 527 0.0160004264
+## 16 379 0.0166717384
+## 17 338 0.0171196400
+## 18 186 0.0214329537
+## 19 844 0.0217155451
+## 20 627 0.0237483878
+```
+
 ### Algoritmo de Fan, Muller e Rezucha para selecionar AAS
 
 Este algoritmo foi proposto por @Fan1962 e consiste nos seguintes passos: 
@@ -196,56 +238,19 @@ O algoritmo de Fan, Muller e Rezucha, para selecionar uma *AAS* de tamanho $n$ d
     * Inclua $U_i$ na amostra
     * $N\leftarrow N-1$
     * $n\leftarrow n-1$
-4)  Se $a_i\le n/N$
+4)  Se $a_i\ge n/N$
     * $N\leftarrow N-1$
 5)  Se $n=0$ ou $N=0$ pare
 6)  Retorne ao passo 2
 
 Este algoritmo é muito eficiente em comparação com os anteriores, porque requer processar a lista no máximo uma vez, e pode nem mesmo requerer chegar ao fim da lista: a amostra pode ser selecionada por completo bem antes de chegar ao final da lista. Apesar de sua simplicidade e eficiência, há alternativas ainda mais eficientes, que entretanto não serão discutidas aqui. Caso o leitor necessite implementar um algoritmo para seleção de uma AAS, recomendamos o emprego deste algoritmo. Será suficientemente bom para a maioria das aplicações práticas.
 
-Tanto o algiritmo de Hajek como o de Fan, Muller e Rezucha podem ser facilmente implementados no R.
+**(#exm:exmaas2)** Vamos repetir o Exemplo \@ref(exm:exmaas1), utilizando algoritmo de Fan, Muller e Rezucha.
 
-```r
-# Algoritmo de Hajek
-
-# Gerando os índices da população e os correspondentes pseudoaleatórios 
-U=data.frame(1:1000,runif(1000, min = 0, max = 1))
-names(U)=c("i","aleat")
-s=U[order(U$aleat),]
-s=data.frame(as.vector(s[1:20,1]))
-names(s)=c("i")
-# A amostra será formada pelas unidades seguintes
-s
-```
-
-```
-##      i
-## 1  143
-## 2  701
-## 3  379
-## 4  121
-## 5  489
-## 6  582
-## 7  985
-## 8  555
-## 9  141
-## 10 778
-## 11 340
-## 12 500
-## 13 406
-## 14 321
-## 15 101
-## 16 373
-## 17 976
-## 18 972
-## 19 407
-## 20 177
-```
 
 ```r
 # Algoritmo de Fan, Muller e Rezucha para seleção de uma amostra 
 # de n unidades de uma população de tamanho N
-
 N = 1000
 n = 20
 s = NULL # Vetor para guardar os índices das unidades da amostra
@@ -253,16 +258,15 @@ i = 0 # Contador das unidades populacionais
 j = 0 # Contador das unidades da amostra
 while (n > 0 & N > 0) {
   i=i+1 
-# Geração de número pseudo-aleatório uniforme entre 0 e 1 e
+# Geração de número pseudoaleatório uniforme entre 0 e 1 e
 # comparação com a fração amostral atualizada. Se for menor
 # a unidade entra na amostra.
   if (runif(1) < n/N){
     j = j+1
     s[j]=i
     n = n-1 # Atualiza quantas unidades faltam para a amostra
-    N = N-1 # Atualiza unidades da população sujeitas à seleção
   }
-  else N = N-1 # Atualiza unidades da população sujeitas à seleção
+  N = N-1 # Atualiza unidades da população sujeitas à seleção
 }
 s=data.frame(s)
 names(s)=c("i")
@@ -272,26 +276,26 @@ s
 
 ```
 ##      i
-## 1   70
-## 2   72
-## 3  124
-## 4  288
-## 5  296
-## 6  329
-## 7  331
-## 8  334
-## 9  485
-## 10 528
-## 11 574
-## 12 576
-## 13 579
-## 14 659
-## 15 737
-## 16 764
-## 17 806
-## 18 829
-## 19 863
-## 20 908
+## 1   96
+## 2  113
+## 3  162
+## 4  191
+## 5  247
+## 6  266
+## 7  293
+## 8  345
+## 9  363
+## 10 444
+## 11 475
+## 12 587
+## 13 715
+## 14 771
+## 15 786
+## 16 807
+## 17 824
+## 18 838
+## 19 911
+## 20 915
 ```
 ### Probabilidades de inclusão sob AAS
 
@@ -382,12 +386,12 @@ $\widehat {V}_{AAS} (\overline{y}) = \displaystyle \left( \frac{1}{n} - \frac{1}
 
 ### Distribuição da média amostral
 
-Sob repetições do procedimento de seleção segundo *AAS*, $\overline{y}$ tem uma distribuição de probabilidades. A distribuição exata de $\overline{y}$ depende da distribuição dos $y$´s na população, do tamanho da amostra $n$ e do plano amostral $p(s)$, que neste caso, é AAS. Isto resulta numa situação complicada, que pode ser resolvida considerando a *Distribuição Assintótica da Média Amostral*.
+Sob repetições do procedimento de seleção segundo *AAS*, $\overline{y}$ tem uma distribuição de probabilidades. A distribuição exata de $\overline{y}$ depende da distribuição de $y$ na população, do tamanho da amostra $n$ e do plano amostral $p(s)$, que neste caso, é AAS. Isto resulta numa situação complicada, que pode ser resolvida considerando a *Distribuição Assintótica da Média Amostral*.
 
 Se $n$ for grande e $f = n/N$ for pequena, o *Teorema Central do Limite* - ver @Hajek1960 - pode ser usado para obter a distribuição aproximada:
 
 $$
-\frac{\overline {y}-E_{AAS}(\overline{y})}{\sqrt{V_{AAS}(\overline{y})}}=\frac{\overline {y}-\overline{Y}}{\displaystyle\sqrt{\left(\frac{1}{n}-\frac{1}{N}\right)S_y^2}}\approx N(0;1)\,\,(\#eq:eqaas9)
+\frac{\overline {y}-E_{AAS}(\overline{y})}{\sqrt{V_{AAS}(\overline{y})}}=\frac{\overline {y}-\overline{Y}}{\displaystyle\sqrt{\left(\frac{1}{n}-\frac{1}{N}\right)S^2_y}}\approx N(0;1)\,\,(\#eq:eqaas9)
 $$
 
 onde $N(0;1)$ denota uma variável aleatória com distribuição normal padrão com média zero e variância um. Mais detalhes podem ser obtidos em @Cochran1977, Seções 2.8 e 2.15, ou em @Sarndal1992, Seção 2.11.
@@ -432,7 +436,7 @@ A primeira decisão é qual dos dois caminhos seguir para determinar o tamanho d
 
 Se a escolha for determinar o tamanho da amostra fixando parâmetros de *custo*, recomendamos usar como tamanho de amostra o *maior tamanho* permitido pelo orçamento (ou tempo) disponível. Nesse caso, não há uma teoria geral pronta para ser aplicada a toda e qualquer pesquisa. Há que estudar a *função de custo* de cada pesquisa e com base nela, definir o tamanho da amostra.
 
-**(#exm:exmaas1)** Determinando o tamanho de amostra para uma pesquisa junto a empresas
+**(#exm:exmaas3)** Determinando o tamanho de amostra para uma pesquisa junto a empresas
 
 Considere um cenário em que o interesse é realizar uma pesquisa junto a empresas, para estimar alguns totais ou médias. O cliente que demanda a pesquisa informa que tem disponível um orçamento limitado, e que para a atividade de coleta da pesquisa o valor disponível é de R$ 400.000,00 (quatrocentos mil reais). 
 
@@ -489,7 +493,7 @@ $$\frac{1}{n} = \left( \frac{10}{1,645} \right)^2 \frac{1}{S_y^2} + \frac{1}{N} 
 Para calcular o tamanho desejado da amostra precisamos conhecer $N$ e $S_y^2$. Seguem algumas sugestões de como fazer para resolver a questão de que $S_y^2$ é também desconhecido:
 
 1)	Usar informações de *pesquisas anteriores*.
-2)	Fazer *amostra prévia* (*amostra piloto*) e estimar $S_y^2$ usando $s_y^2$ com os dados dessa amostra prévia.
+2)	Fazer *amostra prévia* (*amostra piloto*) e estimar $S^2_y$ usando $\widehat S_y^2$ com os dados dessa amostra prévia.
 3)	Em casos especiais (proporções e outros), *usar cota superior* para o valor de $S_y^2$.
 
 **O caso geral**
@@ -515,7 +519,7 @@ $$
 2. É possível derivar expressões similares para o caso da estimação de totais, e também de outros parâmetros.    
 3. Para planos amostrais mais complexos, é mais difícil resolver equações do tipo acima para determinar tamanhos amostrais, e sua alocação em estratos e conglomerados. Entretanto, a ideia de *Efeito do Plano Amostral* - EPA vai ser útil neste contexto. Ver discussão no Capítulo \@ref(cong).
 
-**(#exm:exmaas2)** Considere a população formada pelos municípios brasileiros, conforme consta do arquivo 'MunicBR_dat.rds'. Tendo esta população em mente, imagine que seria usada para seleção de uma amostra AAS de $n=200$ municípios. Imagine que tal amostra seria usada para estimar a *média populacional* da variável *área* dos municípios. 
+**(#exm:exmaas4)** Considere a população formada pelos municípios brasileiros, conforme consta do arquivo 'MunicBR_dat.rds'. Tendo esta população em mente, imagine que seria usada para seleção de uma amostra AAS de $n=200$ municípios. Imagine que tal amostra seria usada para estimar a *média populacional* da variável *área* dos municípios. 
 
 1.	Com esta perspectiva, use os *dados populacionais* para:    
     a)	Calcular a *média populacional*.    
@@ -529,7 +533,7 @@ $$
     d)	O *tamanho da amostra* que seria necessária para estimar a média da área com um erro máximo de 150 km<sup>2</sup> ao nível de confiança de 95%.    
 3.	Compare estimativas obtidas no item 2 com os valores obtidos no item 1 e analise/comente.
 
-Solução do (#exm:exmaas2) usando R
+Solução do (#exm:exmaas4) usando R
 
 
 ```r
@@ -540,7 +544,7 @@ rm(list = ls())
 library(sampling)
 
 # Leitura dos dados
-MunicBR_dat <- readRDS(file="MunicBR_dat.rds")
+MunicBR_dat <- readRDS(file="Dados/MunicBR_dat.rds")
 str(MunicBR_dat)
 ```
 
@@ -653,7 +657,7 @@ munic_amo <- getdata(MunicBR_dat, srswor(n, N))
 ```
 
 ```
-## [1] 2158.55
+## [1] 1209.588
 ```
 
 ```r
@@ -662,7 +666,7 @@ munic_amo <- getdata(MunicBR_dat, srswor(n, N))
 ```
 
 ```
-## [1] 430445.2
+## [1] 63396.66
 ```
 
 ```r
@@ -678,7 +682,7 @@ munic_amo <- getdata(MunicBR_dat, srswor(n, N))
 ```
 
 ```
-## [1] 18.04292
+## [1] 32.19819
 ```
 
 ```r
@@ -687,7 +691,7 @@ munic_amo <- getdata(MunicBR_dat, srswor(n, N))
 ```
 
 ```
-## [1] 35.36347
+## [1] 63.10729
 ```
 
 ```r
@@ -705,7 +709,7 @@ munic_amo <- getdata(MunicBR_dat, srswor(n, N))
 ```
 
 ```
-## [1] 4079.531
+## [1] 1600.279
 ```
 
 ```r
@@ -713,7 +717,7 @@ munic_amo <- getdata(MunicBR_dat, srswor(n, N))
 ```
 
 ```
-## [1] 4080
+## [1] 1601
 ```
 
 
@@ -735,10 +739,10 @@ d)	Repita 500 vezes o item b, e analise a distribuição resultante das estimati
 a.  Liste todas as possíveis AAS de tamanho $n=2$.
 b.  Calcule $S^2_y$ e $V_{AAS}(\overline y)$.
 c.  Mostre numericamente que $V_{AAS}(\overline y)=\frac {N-n}N \frac {S^2_y}n$.
-d.  Mostre numericamente que $E_{AAS}(s^2_y)=S^2_y$.
+d.  Mostre numericamente que $E_{AAS}(\widehat S^2_y)=S^2_y$.
 e.  Liste todas as possíveis AASC de tamanho $n=2$.
 f.  Mostre numericamente que $V_{AASC}(\overline y)= \frac {\sigma^2_y}n$.
-g.  Mostre numericamente que $E_{AASC}(s^2_y)=\sigma^2_y$.
+g.  Mostre numericamente que $E_{AASC}(\widehat S^2_y)=\sigma^2_y$.
 
 **(#exr:exraas4)** A administração de um parque florestal deseja estimar a população de coelhos e veados no parque nos meses de inverno. Para isso a área da floresta foi dividida, através de um levantamento aerofotométrico, em 10.000 pequenas áreas de aproximadamente 10 m<sup>2</sup>. Uma AAS de $n = 500$ dessas pequenas áreas foi selecionada e foram observados os números de coelhos e veados em cada uma delas, resultando na Tabela \@ref(tab:tabaas6):
 

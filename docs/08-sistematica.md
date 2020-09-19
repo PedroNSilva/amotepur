@@ -146,8 +146,6 @@ A Tabela \@ref(tab:tabsis1), a seguir, representa uma população de onde se pre
  Possíveis                           Índices das  
  amostras                            unidades $U_i$                     
 ----------- ----------- ----------- ---------------- ----------- ----------- 
-             **$c_1$**   **$c_2$**    **$c_3$**        **$...$**  **$c_n$** 
-             
 **$s_1$**       1          K+1         2K+1              ...       (n-1)K+1  
 
 **$s_2$**       2          K+2         2K+2              ...       (n-1)K+2   
@@ -696,14 +694,16 @@ $$
 
 Um problema que ocorre com a amostragem sistemática simples é o fato da ordenação da população em relação aos valores da variável de interesse afetar a variância (precisão) dos estimadores. Para demonstrar esse problema, pode-se utilizar a população apresentada nos exemplos acima, alterando a ordem de suas unidades, para mostrar como isso afeta a composição das possíveis amostras sistemáticas.
 
-Em primeiro lugar, consideramos a população ordenada tal como foi apresentada na Tabela \@ref(tab:tabsis2) e calculamos a variância do estimador do total considerando as possíveis amostras listadas no Exemplo \@ref(exm:exmsis5). Em seguida, ordenamos a população em ordem crescente (ou decrescente) dos valores de $y$ e repetimos o cálculo da variância. Observa-se que a variância do estimador do total com a população ordenada diminui consideravelmente em comparação com o caso em que não havíamos ordenado a população. 
-
-Embora este seja um exemplo extremo, pois na prática não teríamos como ordenar a população pelos valores da variável de interesse, ele mostra bem o efeito que a ordenação pode ter na precisão dos estimadores baseados em amostras sistemáticas simples. Na sequência, ilustramos estes cálculos usando o pacote R. 
+**(#exm:exmsis9)** Em primeiro lugar, consideramos a população ordenada tal como foi apresentada na Tabela \@ref(tab:tabsis2) e calculamos a variância do estimador do total considerando as possíveis amostras listadas no Exemplo \@ref(exm:exmsis5). Em seguida, ordenamos a população em ordem crescente (ou decrescente) dos valores de $y$ e repetimos o cálculo da variância. Observa-se que a variância do estimador do total com a população ordenada diminui consideravelmente em comparação com o caso em que não havíamos ordenado a população. 
 
 
 ```r
 # Alterando o separador de decimais para vírgula
 options(OutDec=",")
+
+# Comparando a variância do estimador do total na AS
+# com a população em ordem natural e ordenada
+
 # Intervalo de seleção e tamanho da população conhecido
 K=4
 print(paste("Intervalo de seleção K:", K), quote=FALSE)
@@ -745,14 +745,6 @@ tr=NULL
 for(i in (1:K)) tr[i] = sum(pop[,i],na.rm=T)
 # Calculando a variância do estimador do total
 V_YhatAS= K*(var(tr)*(K-1))
-print(paste("Variância do estimador de total - ordem natural:", V_YhatAS), quote=FALSE)
-```
-
-```
-## [1] Variância do estimador de total - ordem natural: 53219
-```
-
-```r
 # Ordenando a população em ordem crescente de y
 pop_ord = matrix(sort(pop,na.last=T),5,K,byrow=T)
 print("Dados populacionais ordenados", quote=FALSE)
@@ -777,11 +769,18 @@ print(pop_ord)
 
 ```r
 # Calculando a estimativa do total para cada uma das AS possíveis
-tr=NULL
 for(i in (1:K)) tr[i] = sum(pop_ord[,i],na.rm=T)
 # Calculando a variância do estimador do total
-V_YhatAS=K*(var(tr)*(K-1))
-print(paste("Variância do estimador de total - ordem crescente:", V_YhatAS), quote=FALSE)
+V_YhatAS_ord=K*(var(tr)*(K-1))
+print(paste("Variância do estimador de total - ordem natural:  ", V_YhatAS), quote=FALSE)
+```
+
+```
+## [1] Variância do estimador de total - ordem natural:   53219
+```
+
+```r
+print(paste("Variância do estimador de total - ordem crescente:", V_YhatAS_ord), quote=FALSE)
 ```
 
 ```
@@ -792,6 +791,7 @@ print(paste("Variância do estimador de total - ordem crescente:", V_YhatAS), qu
 # Alterando o separador de decimais para ponto
 options(OutDec=".")
 ```
+Embora este seja um exemplo extremo, pois na prática não teríamos como ordenar a população pelos valores da variável de interesse, ele mostra bem o efeito que a ordenação pode ter na precisão dos estimadores baseados em amostras sistemáticas simples. Podemos concluir que em populações onde a(s) variável(eis) de interesse seguem, pelo menos aproximadamente, uma ordenação, a AS pode ter um bom desempenho.
 
 Fica como exercício para o leitor verificar que o mesmo não ocorre quando se utiliza uma AAS ou AASC, pois nestes casos a ordenação dos valores de $y$ na população não tem influência na precisão das estimativas.
 
@@ -920,7 +920,7 @@ Há também alternativas que podem ser utilizadas quando a seleção da amostra 
   3)  Tomar como primeira unidade da amostra a unidade $r$.
   4)  Em seguida, selecionar as unidades seguintes sempre somando $K$ ao índice da última unidade selecionada; quando $r+jK > N$, subtrair $N$ e continuar o processo até obter as $n$ unidades amostrais desejadas.
   
-**(\#exm:exmsis9)**  Seja uma população de $N=21$ unidades da qual se deseja selecionar uma amostra sistemática de exatamente $n=5$ unidades. O *script* a seguir seleciona uma amostra sistemática circular com o tamanho desejado. Note que nesse caso $K=4$.
+**(\#exm:exmsis10)**  Seja uma população de $N=21$ unidades da qual se deseja selecionar uma amostra sistemática de exatamente $n=5$ unidades. O *script* a seguir seleciona uma amostra sistemática circular com o tamanho desejado. Note que nesse caso $K=4$.
   
 
 ```r

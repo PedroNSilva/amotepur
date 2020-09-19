@@ -5,7 +5,7 @@ Figura                                            Descrição
 ------------------------------------------------- ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 [Figura 2.1](conceitos.html#fig:modpesq)          Modelo Genérico do Processo de Produção Estatística, adaptado 
 
-[Figura 2.2](conceitos.html#fig:cadset)           O cadastro de setores do IBGE - Copacabana - RJ 
+[Figura 2.2](conceitos.html#fig:cadset)           Cadastro de setores do IBGE - Copacabana - RJ 
 
 [Figura 2.3](conceitos.html#fig:cnefe1)           Informações do CNEFE para um setor de Copacabana - RJ 
 
@@ -29,9 +29,7 @@ Figura                                            Descrição
 
 [Figura 5.3](proporc.html#fig:figprop3)           Variação de $p(1-p)$ em função dos valores de $p$ 
 
-[Figura 11.1](estrat.html#fig:numeroestratos)     Soluções sobre escolha de número de estratos 
-
-[Figura 11.2](estrat.html#fig:precisaovsestratos) Ganhos de precisão versus número de estratos 
+[Figura 11.1](estrat.html#fig:precisaovsestratos) Ganhos de precisão *versus* número de estratos 
 
 [Figura 12.1](cong.html#fig:hierar1)              Ilustração da hierarquia com vários níveis (vários para um) 
 
@@ -45,5 +43,5 @@ Figura                                            Descrição
 
 [Figura 13.2](calib.html#fig:figcalib2)           Regressão linear para a população de fazendas de cana-de-açúcar 
 
-[Figura 13.3](calib.html#fig:figcalib3)           $EQM$ do estimador de regressão versus número de variáveis $x$
+[Figura 13.3](calib.html#fig:figcalib3)           $EQM$ do estimador de regressão versus número de variáveis auxiliares
 ---------------
