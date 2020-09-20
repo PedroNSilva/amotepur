@@ -71,17 +71,7 @@ Tabela                                                                          
 
 [Tabela 6.3](razao.html#tab:tabrazao3)                                                 Informações coletadas na amostra de domicílios 
 
-[Tabela 6.4](razao.html#tab:tabrazao4)                                                 Peso e quantidade de açúcar, ambos em libras, nas laranjas da amostra 
-
-[Tabela 6.5](razao.html#tab:tabrazao5)                                                 Contagem das árvores mortas na amostra, por aerofotogrametria $(x_i)$ e localmente $(y_i)$
-
-[Tabela 6.6](razao.html#tab:tabrazao6)                                                 Quantias declaradas $(x_i)$ e contadas $(y_i)$ pelos alunos da amostra
-
-[Tabela 6.7](razao.html#tab:tabrazao7)                                                 Diâmetro e idade das árvores da amostra 
-
-[Tabela 6.8](razao.html#tab:tabrazao8)                                                 População hipotética de $N=9$ unidades
-
-[Tabela 6.9](razao.html#tab:tabrazao9)                                                 Notas de Cálculo 1 e Cálculo 2 para os alunos da amostra 
+[Tabela 6.4](razao.html#tab:tabrazao8)                                                 População hipotética de $N=9$ unidades
 
 [Tabela 7.1](domin.html#tab:tabdom1)                                                   Estimadores do total, proporção, média e respectivas variâncias no domínio c sob AAS 
 
@@ -186,4 +176,15 @@ Tabela                                                                          
 [Tabela 13.6](calib.html#tab:tabcalib6)                                                Identificação dos grupos sub-representados e super-representados na pesquisa de força de trabalho do Reino Unido
 
 [Tabela 13.7](calib.html#tab:tabcalib7)                                                Estimativas do rendimento médio domiciliar por esquema de ponderação da pesquisa domiciliar da Holanda 1977/1978
+
+[Tabela 13.8](calib.html#tab:tabcalib8)                                                Peso e quantidade de açúcar, ambos em libras, nas laranjas da amostra 
+
+[Tabela 13.9](calib.html#tab:tabcalib9)                                                Contagem das árvores mortas na amostra, por aerofotogrametria $(x_i)$ e localmente $(y_i)$
+
+[Tabela 13.10](calib.html#tab:tabcalib10)                                              Quantias declaradas $(x_i)$ e contadas $(y_i)$ pelos alunos da amostra
+
+[Tabela 13.11](calib.html#tab:tabcalib11)                                              Diâmetro e idade das árvores da amostra 
+
+[Tabela 13.12](calib.html#tab:tabcalib12)                                              Notas de Cálculo 1 e Cálculo 2 para os alunos da amostra 
+
 ----------
