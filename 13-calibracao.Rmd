@@ -1002,8 +1002,8 @@ $y_i$  18  42  24  36  24  36  14  10  48  54
 
 Estime o número total de árvores mortas na reserva usando:
 
-a)  Estimador HT do total;     
-b)  Estimador de razão do total;     
+a)  Estimador HT do total.     
+b)  Estimador de razão do total.     
 c)  Estimador de regressão simples do total.      
 d)  Para cada estimativa do total, obtenha também estimativas da variância e erro padrão.     
 
