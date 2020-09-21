@@ -944,7 +944,7 @@ Finalmente, encorajamos os produtores de dados que optarem por adotar a estimaç
 **(#exr:execalib1)** Para estimar o total de despesas com gastos sociais das prefeituras de uma região que abrange 281 municípios, foi selecionada uma amostra aleatória simples sem reposição de 50 municípios. Sabe-se que a população total da região é de 6.818 (em milhares de pessoas). 
 São dadas as seguintes informações provenientes da amostra:
 
-$$\sum_{i=1}^{50} y_i = 128.080; \quad \sum_{i=1}^{50} x_i =1.067; \quad s^2_y=6.244.516; \quad s^2_x=454,51;\quad s_{xy}=45.399$$
+$$\sum_{i=1}^{50} y_i = 128.080; \quad \sum_{i=1}^{50} x_i =1.067; \quad \widehat S_y ^2=6.244.516; \quad \widehat S_x ^2=454,51;\quad \widehat S_{xy}=45.399$$
 
 Obs.: os valores de $x$ e $y$ são dados em milhares.
 
