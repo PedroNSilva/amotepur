@@ -438,15 +438,15 @@ munic_amo <- cbind(munic_amo, r_chapeu)
 
 **(#exr:exerazao1)** Identifique e defina duas razões que você já tenha utilizado em seu trabalho.
 
-**(#exr:exerazao2)** Numa cidade com 75.000 habitantes,  uma amostra aleatória simples de $n=4$ domicílios foi selecionada dos 25.000 domicílios da cidade para estimar o custo médio de alimentação por domicílio em uma semana. A Tabela \@ref(tab:tabrazao3) mostra os resultados obtidos na amostra.
+**(#exr:exerazao2)** Numa cidade com 75.000 habitantes,  uma amostra aleatória simples de $n=4$ domicílios foi selecionada dos 25.000 domicílios da cidade para estimar o custo, em Reais, médio de alimentação por domicílio em uma semana. A Tabela \@ref(tab:tabrazao3) mostra os resultados obtidos na amostra.
 
 <center>
 ```{r, results="asis", echo=FALSE}
 cat("<table>",paste0("<caption>", "(#tab:tabrazao3)", "Informações coletadas na amostra de domicílios", "</caption>"),"</table>", sep ="\n")
 ```
 ----------
- Domicílio   Moradores   Custo com alimentos
------------ ----------- --------------------- 
+ Domicílio   Moradores   Custo com alimentos(R$)
+----------- ----------- ------------------------- 
 1                   4               150,00
 
 2                   2               100,00

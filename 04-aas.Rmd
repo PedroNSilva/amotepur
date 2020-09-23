@@ -585,26 +585,26 @@ a.  Estime o total de veados do parque e o coeficiente de variação da estimati
 b.  Estime o total de coelhos do parque e o coeficiente de variação da estimativa.
 c.  Observando os CVs estimados, compare e comente sobre a precisão das estimativas de total de veados e coelhos.
  
-**(#exr:exraas5)** Uma grande empresa de construção tem 120 obras em andamento em diversos estágios. Para estimar o total de dinheiro já investido no conjunto das obras, para um relatório gerencial, foram selecionadas 12 delas, por AAS, e verificados os gastos acumulados até aquele momento. Os resultados estão na Tabela \@ref(tab:tabaas7):
+**(#exr:exraas5)** Uma grande empresa de construção tem 120 obras em andamento em diversos estágios. Para estimar o total de dinheiro já investido no conjunto das obras, para um relatório gerencial, foram selecionadas 12 delas, por AAS, e verificados os gastos, em Reais, acumulados até aquele momento. Os resultados estão na Tabela \@ref(tab:tabaas7):
 
 <center>
 ```{r, results="asis", echo=FALSE}
-cat("<table>",paste0("<caption>", "(#tab:tabaas7)", "Gastos apurados nas obras da amostra", "</caption>"),"</table>", sep ="\n")
+cat("<table>",paste0("<caption>", "(#tab:tabaas7)", "Gastos, em Reais, apurados nas obras da amostra", "</caption>"),"</table>", sep ="\n")
 ```
 ----------
- Obra   Gasto  Obra   Gasto 
------- ------ ------ ------
- 1     35.500    7   26.400 
+ Obra   Gasto(R$)   Obra   Gasto(R$) 
+------ ----------- ------ -----------
+ 1       35.500       7     26.400 
  
- 2     36.400    8   32.200 
+ 2       36.400       8     32.200 
  
- 3     32.600    9   28.900 
+ 3       32.600       9     28.900 
  
- 4     38.200   10   34.100 
+ 4       38.200      10     34.100 
  
- 5     30.200   11   38.000 
+ 5       30.200      11     38.000 
  
- 6     29.800   12   27.500
+ 6       29.800      12     27.500
 ----------
 </center>
 
@@ -619,9 +619,9 @@ c. Compare as estimativas de precisão obtidas nos itens a e b.
 cat("<table>",paste0("<caption>", "(#tab:tabaas8)", "Salários pagos pelas empresas da amostra", "</caption>"),"</table>", sep ="\n")
 ```
 ----------
-Empresa            1    2    3   4   5
------------------ --- ---- ---- --- ---
- Salários pagos    12  100  120  48  60 
+Empresa                    1    2    3   4   5
+------------------------ --- ---- ---- --- ---
+Salários pagos(1000 R$)   12  100  120  48  60 
 ----------
 </center>
   

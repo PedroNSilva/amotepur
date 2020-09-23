@@ -13,7 +13,8 @@ output:
 documentclass: book                   
 
 bibliography: [book.bib]
-csl: Modified-alternatives-to-animal-experimentation.csl
+#csl: Modified-alternatives-to-animal-experimentation.csl
+csl: Modified-apa.csl
 suppress-bibliography: false
 link-citations: no
 github-repo: PedroNSilva/amotepur
