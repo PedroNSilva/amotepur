@@ -1,5 +1,5 @@
 # Estimadores de Calibração {#calib}
-
+<div style="text-align: justify">
 ## Motivação {#motiva13}
 
 Em Amostragem, há várias maneiras de aproveitar *informações auxiliares* disponíveis para melhorar a precisão de estimativas de interesse em uma pesquisa amostral.
@@ -119,7 +119,7 @@ Em alguns casos, as diferentes variáveis $y$ podem ter resíduos da regressão 
 
 Portanto, a ideia de usar diferentes conjuntos de pesos para diferentes variáveis $y$ é pouco atraente e raramente aplicada na prática. Embora isso não seja um requisito para a definição de estimadores de calibração, assumimos a partir de agora que a derivação dos pesos de calibração é feita com o objetivo de usar um único conjunto de pesos calibrados $\{ w_i,\, i \in s \}$ para estimar totais de todas as variáveis de pesquisa.
 
-## Motivos para calibração
+## Propriedades dos estimadores de calibração
 
 Os estimadores de calibração possuem algumas boas propriedades. Primeiro, os pesos de calibração de acordo com a Expressão \@ref(eq:eqcal4) fornecem estimativas amostrais para os totais das variáveis auxiliares que correspondem exatamente aos totais populacionais conhecidos para essas variáveis. Portanto, se os totais populacionais das variáveis auxiliares tiverem sido publicados antes que os resultados da pesquisa sejam produzidos, a calibração garantirá que as estimativas da pesquisa sejam *coerentes* com as já existentes no domínio público. Essa propriedade, embora não seja essencial, é um dos motivos dominantes pelas quais a calibração é usada com frequência na prática de pesquisa.
 
@@ -241,7 +241,7 @@ knitr::kable(quadro14_2, booktabs = TRUE, align= "lrrrrrr",
 
 Os resultados mostram pequena redução do CV para o estimador de pós-estratificação com variável auxiliar Regiao, quando comparado com o estimador HT. Portanto, concluímos que a variável auxiliar Area leva a estimativas mais precisas, com ganhos de eficiência bem maiores que os alcançados com uso da pós-estratificação com a variável auxiliar Regiao.   
 
-## Propriedades dos estimadores para grandes amostras
+### Propriedades dos estimadores para grandes amostras
 
 Para grandes amostras, os estimadores de calibração definidos pelos pesos de regressão \@ref(eq:eqcal8) e \@ref(eq:eqcal9) são *assintoticamente não viciados* sob o plano amostral, $p$, ou seja:
 
@@ -653,7 +653,7 @@ Essa expressão revela que o $EQM$ do estimador de regressão pode aumentar à m
 Como uma ilustração do problema, a Figura \@ref(fig:figcalib3) plota o $EQM$ do estimador de regressão para o aumento de conjuntos de variáveis auxiliares, assumindo amostragem aleatória simples com $n = 100$ de uma população de chefes de domicílios para os quais os dados foram coletados como parte do Censo Demográfico Experimental de Limeira, São Paulo, Brasil, 1988.
 
 <center>
-```{r, figcalib3, echo=FALSE, encoding="UTF-8", fig.cap="$EQM$ do estimador de regressão versus número de variáveis auxiliares",out.width = '60%'}
+```{r, figcalib3, echo=FALSE, encoding="UTF-8", fig.cap="$EQM$ do estimador de regressão *versus* número de variáveis auxiliares",out.width = '60%'}
 knitr::include_graphics("Figuras/Figcalib3.PNG")
 ```
 </center>
@@ -742,7 +742,7 @@ Claramente, então, pode-se ver que a calibração apenas na idade, sexo e regi�
 
 A mensagem aqui é que não é suficiente calibrar usando tudo o que está disponível para estar livre de vícios. @Gambino1999 sugere que, em alguns casos, a calibração pode até piorar e argumenta que "é bem sabido que, em muitas pesquisas, os jovens do sexo masculino tendem a não ser entrevistados proporcionalmente. Como as estimativas demográficas por idade-sexo são normalmente usadas na calibração, o efeito é aumentar os pesos dos jovens do sexo masculino que respondem à pesquisa. Se, para algumas variáveis de interesse, os jovens do sexo masculino que tendem a se tornar respondentes diferem substancialmente dos jovens do sexo masculino que tendem a não responder ..., então o efeito da calibração é dar mais peso a um componente não representativo da amostra". 
 
-Suponhamos que soubéssemos que os jovens do sexo masculino que mais tarde seriam não investigados são aqueles que moram sozinhos e aqueles que são mais propensos a responder são aqueles que vivem com os pais ou a família. Portanto, a ponderação deve ter como objetivo aumentar os pesos daqueles no primeiro grupo (jovens do sexo masculino vivendo sozinhos), mas não daqueles do segundo grupo (vivendo com a família). A informação crucial que precisaríamos fazer seria o total da população por idade e sexo e composição do domicílio (domicílios de uma única pessoa versus outros domicílios). Se esta informação não estiver disponível, ainda há algum recurso limitado a ser usado. A ponderação pode ser realizada ao nível do domicílio e não ao nível individual. Portanto, os jovens do sexo masculino que moram sozinhos teriam pesos que dependem do tipo de domicílio em que vivem, mas essa não seria a correção de vício que estaríamos almejando, apenas o melhor substituto dada a disponibilidade dos dados.
+Suponhamos que soubéssemos que os jovens do sexo masculino que mais tarde seriam não investigados são aqueles que moram sozinhos e aqueles que são mais propensos a responder são aqueles que vivem com os pais ou a família. Portanto, a ponderação deve ter como objetivo aumentar os pesos daqueles no primeiro grupo (jovens do sexo masculino vivendo sozinhos), mas não daqueles do segundo grupo (vivendo com a família). A informação crucial que precisaríamos fazer seria o total da população por idade e sexo e composição do domicílio (domicílios de uma única pessoa *versus* outros domicílios). Se esta informação não estiver disponível, ainda há algum recurso limitado a ser usado. A ponderação pode ser realizada ao nível do domicílio e não ao nível individual. Portanto, os jovens do sexo masculino que moram sozinhos teriam pesos que dependem do tipo de domicílio em que vivem, mas essa não seria a correção de vício que estaríamos almejando, apenas o melhor substituto dada a disponibilidade dos dados.
 
 O exemplo acima ilustra as questões que se deve abordar em relação ao uso da calibração para compensar a não resposta. Se o mecanismo de resposta depende das características dos domicílios (além da região de residência), como o seu tamanho e composição, bem como as do chefe, então talvez o domicílio seja a unidade para a qual os pesos devem ser calculados, com todos os membros individuais recebendo o mesmo peso do domicílio.
 

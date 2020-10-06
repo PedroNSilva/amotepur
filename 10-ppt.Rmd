@@ -1,5 +1,5 @@
 # Amostragem com Probabilidades Proporcionais ao Tamanho {#ppt}
-
+<div style="text-align: justify">
 A *Amostragem com Probabilidades Proporcionais ao Tamanho - PPT* agrega alguns métodos de seleção de amostra onde as unidades da população têm probabilidades distintas de seleção, proporcionais a uma medida de tamanho associada a cada unidade.
 
 ## Motivação
@@ -65,22 +65,22 @@ Amostragem PPT com reposição é um método muito simples de implementar, mas q
 
 <center>
 ```{r, results="asis", echo=FALSE}
-cat("<table>",paste0("<caption>", "(#tab:tabppt1)", "Informações das áreas de uma população de $N=6$ fazendas", "</caption>"),"</table>", sep ="\n")
+cat("<table>",paste0("<caption>", "(#tab:tabppt1)", "Informações das áreas, em hectares, de uma população de $N=6$ fazendas", "</caption>"),"</table>", sep ="\n")
 ```
 ----------
- Fazenda    Área  Tamanho Acumulado   Limite inferior do intervalo   Limite superior do intervalo
---------- ------ ------------------ ------------------------------ ------------------------------
-   1          50    50                            1	                               50
+ Fazenda    Área (ha)  Tamanho Acumulado   Limite inferior do intervalo   Limite superior do intervalo
+--------- ----------- ------------------ ------------------------------ ------------------------------
+   1          50          50                          1	                               50
    
-   2       1.000   1.050	                       51	                            1.050
+   2       1.000       1.050	                       51	                            1.050
    
-   3         125   1.175	                    1.051	                            1.175
+   3         125       1.175	                    1.051	                            1.175
    
-   4         300   1.475	                    1.176	                            1.475
+   4         300       1.475	                    1.176	                            1.475
    
-   5         500   1.975	                    1.476	                            1.975
+   5         500       1.975	                    1.476	                            1.975
    
-   6          25   2.000	                    1.976	                            2.000
+   6          25       2.000	                    1.976	                            2.000
 ----------
 </center>
 
@@ -584,27 +584,28 @@ e)  Compare os resultados das duas amostras com os valores verdadeiros e comente
 cat("<table>",paste0("<caption>", "(#tab:tabppt5)", "Dados populacionais das empresas", "</caption>"),"</table>", sep ="\n")
 ```
 ----------
- Empresa   Pessoal Ocupado           Receita
---------- ---------------- -----------------
-     1            250         8.000
+ Empresa   Pessoal            Receita\
+           Ocupado       (1.000 Reais)
+--------- -------- -------------------
+     1      250         8.000
 
-     2            350        12.000
+     2      350        12.000
 
-     3            175         6.000
+     3      175         6.000
 
-     4            310        10.000
+     4      310        10.000
 
-     5            160         5.000
+     5      160         5.000
 
-     6            350        18.000
+     6      350        18.000
 
-     7            375        18.000
+     7      375        18.000
 
-     8            150         4.000
+     8      150         4.000
 
-     9            275         9.000
+     9      275         9.000
 
-    10            240         8.000
+    10      240         8.000
 ----------
 </center>
        

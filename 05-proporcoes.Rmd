@@ -1,5 +1,5 @@
 # Estimação de Proporções {#proporc}
-
+<div style="text-align: justify">
 ## Parâmetros populacionais
 
 Um caso especial de parâmetro de interesse para muitos estudos ou pesquisas ocorre quando a variável $y$ indica se uma determinada unidade populacional tem ou não uma determinada característica ou atributo, ou pertence a um determinado grupo especificado de unidades da população. São exemplos desse tipo as investigações sobre:

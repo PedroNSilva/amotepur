@@ -1,5 +1,5 @@
 # Estimação para Domínios de Estudo {#domin}
-
+<div style="text-align: justify">
 ## Domínios de estudo {#domin1}
 
 Grande parte das pesquisas amostrais produz e divulga estimativas para certos subgrupos ou classes nos quais a população pode ser dividida. Tais *classes*, aqui denominados *domínios* de estudo, *subpopulações* ou *pequenas áreas*, são quaisquer *subconjuntos da população* $U$ para os quais desejamos obter ou produzir estimativas separadas a partir da amostra selecionada e observada dessa população. 

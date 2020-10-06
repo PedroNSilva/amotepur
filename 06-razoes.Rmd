@@ -1,5 +1,5 @@
 # Estimação de Razões e Funções de Totais {#razao}
-
+<div style="text-align: justify">
 ## Razões populacionais como parâmetros de interesse
 
 Muitas vezes, na prática de pesquisas por amostragem, o *parâmetro* populacional de interesse é uma razão entre os totais (ou médias) de duas variáveis de pesquisa definidas para cada unidade da população. Nesse caso, o *parâmetro* é denominado *razão de totais (ou de médias)* ou simplesmente *razão*. Chamando de $y$ e $x$ as variáveis cujos totais aparecem no numerador e denominador da razão, respectivamente, define-se a *razão* $R$ como:
@@ -445,8 +445,8 @@ munic_amo <- cbind(munic_amo, r_chapeu)
 cat("<table>",paste0("<caption>", "(#tab:tabrazao3)", "Informações coletadas na amostra de domicílios", "</caption>"),"</table>", sep ="\n")
 ```
 ----------
- Domicílio   Moradores   Custo com alimentos(R$)
------------ ----------- ------------------------- 
+ Domicílio   Moradores   Custo com alimentos (Reais)
+----------- ----------- ----------------------------- 
 1                   4               150,00
 
 2                   2               100,00

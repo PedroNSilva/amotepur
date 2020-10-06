@@ -1,5 +1,5 @@
 # Amostragem Conglomerada {#cong}
-
+<div style="text-align: justify">
 ## Conceituação básica 
 
 Todos os métodos de amostragem já apresentados nos Capítulos \@ref(aas) até \@ref(estrat) têm alguns aspectos em comum: requerem cadastros de unidades elementares para permitir selecionar a amostra; a seleção da amostra é feita num único estágio ou etapa; as unidades de referência são iguais às unidades de amostragem; e o tamanho total da população é conhecido com base no cadastro.
@@ -39,7 +39,7 @@ Moradores em favelas do Rio	      Características de pessoas	   Morador        
 Conforme ilustrado na Figura \@ref(fig:hierar1), temos regras de associação com a hieraquia com vários níveis (vários para um), considerando o cadastro de setores, os domicílios como nível 1 e a população de moradores.  
 <center>
 
-```{r,hierar1,echo=F,fig.cap="Ilustração da hierarquia com vários níveis (vários para um)",out.width = '100%'}
+```{r,hierar1,echo=F,fig.cap="Ilustração da hierarquia com vários níveis (vários para um)",out.width = '70%'}
 knitr::include_graphics("Figuras/hierarquia.png") 
 ```
 </center>

@@ -1,5 +1,5 @@
 # Amostragem Sistemática Simples {#AS}
-
+<div style="text-align: justify">
 ## Ideia básica
 
 A *Amostragem Sistemática Simples - AS* é um método para selecionar com *equiprobabilidade* unidades de uma população de pesquisa para compor a amostra desejada. Por sua simplicidade, trata-se de uma alternativa à AAS bastante utilizada na prática. Um dos motivos para justificar sua utilização é que o método pode ser aplicado mesmo quando não existe cadastro prévio da população de pesquisa, podendo este cadastro ser construído ao mesmo tempo em que é feita a seleção da amostra.

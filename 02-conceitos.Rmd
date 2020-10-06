@@ -1,5 +1,5 @@
 # Conceitos e Cadastros {#conceitos}
-
+<div style="text-align: justify">
 ## Fontes de dados e tipos de pesquisas
 
 Uma importante decisão em qualquer estudo ou projeto de pesquisa diz respeito ao levantamento das *fontes de dados* com potencial para atender às necessidades de informações de interesse. Um primeiro critério de classificação distingue as *fontes primárias*, cujos dados ainda não foram coletados, das *fontes secundárias*, cujos dados já foram coletados, possivelmente com outro(s) propósito(s), e estão disponíveis ou poderiam ser obtidos para uso imediato.  
@@ -379,7 +379,7 @@ O cadastro deve ser estruturado de tal forma que seja possível determinar como 
 Nesta situação cada unidade $C_i$ do cadastro corresponde a uma e somente uma unidade de referência $U_i$ da população de pesquisa, conforme ilustração na Figura \@ref(fig:umparaum). 
 
 <center>
-```{r, umparaum, echo=FALSE, fig.cap="Ilustração da regra de associação um para um",out.width = '100%'}
+```{r, umparaum, echo=FALSE, fig.cap="Ilustração da regra de associação um para um",out.width = '70%'}
 knitr::include_graphics("Figuras/Associa1-1.PNG")
 ```
 </center>
@@ -395,7 +395,7 @@ Um exemplo clássico de cadastro com esse tipo de associação é o *Cadastro B�
 Nesta situação, cada unidade de referência da população de pesquisa corresponde a uma ou mais unidades do cadastro, conforme ilustração na Figura \@ref(fig:umparavar). Consideramos aqui apenas os casos em que cada unidade elementar no cadastro tenha vínculo com no máximo uma unidade elementar na população.
 
 <center>
-```{r, umparavar, echo=FALSE, fig.cap="Ilustração da regra de associação um para vários"}
+```{r, umparavar, echo=FALSE, fig.cap="Ilustração da regra de associação um para vários",out.width = '70%'}
 knitr::include_graphics("Figuras/Associa1-varios.PNG") 
 ```
 </center>
@@ -412,12 +412,12 @@ Outro bom exemplo deste tipo de situação seria um cadastro de veículos (autom
 Nesta situação, uma ou mais unidades de referência da população de pesquisa são vinculadas a cada unidade elementar do cadastro, conforme ilustrações nas Figuras \@ref(fig:varparaum1) e \@ref(fig:varparaum2). A unidade de amostragem  é um *conglomerado* de unidades da população. Neste caso, se adotam os planos amostrais conglomerados, onde a seleção é de uma amostra de unidades conglomeradas do cadastro. Os vínculos são geralmente conhecidos só para os conglomerados da amostra. O cadastro é mais barato de construir e manter, porém a amostragem é na maioria das vezes menos eficiente do que se poderia fazer tendo cadastros do tipo um para um.
 
 <center>
-```{r, varparaum1, echo=FALSE, fig.cap="Ilustração da regra de associação vários para um",out.width = '100%'}
+```{r, varparaum1, echo=FALSE, fig.cap="Ilustração da regra de associação vários para um",out.width = '70%'}
 knitr::include_graphics("Figuras/Associavarios-1a.PNG")
 ```
 
 
-```{r, varparaum2, echo=FALSE, fig.cap="Ilustração da regra de associação vários para um",out.width = '100%'}
+```{r, varparaum2, echo=FALSE, fig.cap="Ilustração da regra de associação vários para um",out.width = '70%'}
 knitr::include_graphics("Figuras/Associavarios-1b.PNG")
 ```
 </center>
@@ -427,7 +427,7 @@ knitr::include_graphics("Figuras/Associavarios-1b.PNG")
 Neste caso se adotam os planos de amostragem conglomerada em múltiplos estágios (ou etapas). Envolve uma hierarquia de diferentes tipos de unidades (unidades primárias de amostragem, unidades secundárias, terciárias, etc.). É necessário um bom cadastro em cada estágio para a seleção das unidades do estágio seguinte. Os cadastros para as unidades dos primeiros estágios são geralmente mais estáveis e fáceis de construir e manter que aqueles para os estágios subsequentes. A Figura \@ref(fig:hierarquia) apresenta uma ilustração dessa situação.
 
 <center>
-```{r, hierarquia, echo=FALSE, fig.cap="Ilustração de regras de associação - hierarquia para vários níveis"}
+```{r, hierarquia, echo=FALSE, fig.cap="Ilustração de regras de associação - hierarquia para vários níveis",out.width = '70%'}
 knitr::include_graphics("Figuras/Associavariosniveis.PNG")
 ```
 </center>

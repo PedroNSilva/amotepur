@@ -49,7 +49,7 @@ Tabela                                                                          
 
 [Tabela 4.6](aas.html#tab:tabaas6)                                                     Estatísticas obtidas a partir da amostra 
 
-[Tabela 4.7](aas.html#tab:tabaas7)                                                     Gastos apurados nas obras da amostra 
+[Tabela 4.7](aas.html#tab:tabaas7)                                                     Gastos, em Reais, apurados nas obras da amostra 
 
 [Tabela 4.8](aas.html#tab:tabaas8)                                                     Salários pagos pelas empresas da amostra 
 
@@ -101,11 +101,11 @@ Tabela                                                                          
 
 [Tabela 9.2](binom.html#tab:tabbin2)                                                   Estimadores do total, média e respectivas variâncias sob AIS
 
-[Tabela 9.3](binom.html#tab:tabbin3)                                                       Valores observados na amostra
+[Tabela 9.3](binom.html#tab:tabbin3)                                                   Valores observados na amostra
 
-[Tabela 9.4](binom.html#tab:tabbin4)                                                      População a ser amostrada 
+[Tabela 9.4](binom.html#tab:tabbin4)                                                   População a ser amostrada 
 
-[Tabela 10.1](ppt.html#tab:tabppt1)                                                    Informações das áreas de uma população de $N=6$ fazendas
+[Tabela 10.1](ppt.html#tab:tabppt1)                                                    Informações das áreas, em hectares, de uma população de $N=6$ fazendas
 
 [Tabela 10.2](ppt.html#tab:tabppt2)                                                    Estimadores do total e respectivas variâncias sob PPT 
 

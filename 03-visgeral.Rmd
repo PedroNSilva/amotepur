@@ -1,5 +1,5 @@
 # Visão Geral da Amostragem e Estimação {#visger}
-
+<div style="text-align: justify">
 ## Definições e notação para população de pesquisa e parâmetros selecionados
 
 Nesta seção introduzimos algumas definições e notação necessárias para a apresentação da teoria da amostragem ao longo do texto.

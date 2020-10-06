@@ -1,5 +1,5 @@
 # Agradecimentos {-}
-
+<div style="text-align: justify">
 Nossa gratidão é dirigida, em primeiro lugar, ao IBGE e à ENCE, instituições que nos propiciaram a maior parte das oportunidades de aprendizagem sobre o tema ao longo de nossas carreiras.
 
 Agradecemos em especial a Sonia Albieri, que fez a revisão do livro, e que emprestou seu olhar competente e experimentado tanto nas questões técnicas como nos detalhes do idioma para reduzir os erros, imprecisões e falta de padronização que caracterizaram as primeiras versões do texto. É claro, todos os defeitos que porventura persistem são por nossa conta...

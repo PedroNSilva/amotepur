@@ -1,5 +1,5 @@
 # Introdução {#introduc}
-
+<div style="text-align: justify">
 ## Motivação
 
 A citação abaixo é atribuída ao famoso estatístico norte-americano W. E. Deming:

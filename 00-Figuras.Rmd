@@ -43,5 +43,5 @@ Figura                                            Descrição
 
 [Figura 13.2](calib.html#fig:figcalib2)           Regressão linear para a população de fazendas de cana-de-açúcar 
 
-[Figura 13.3](calib.html#fig:figcalib3)           $EQM$ do estimador de regressão versus número de variáveis auxiliares
+[Figura 13.3](calib.html#fig:figcalib3)           EQM do estimador de regressão *versus* número de variáveis auxiliares
 ---------------
